@@ -1,0 +1,253 @@
+---
+interface Props {
+  serviceSlug?: string;
+  serviceTitle?: string;
+}
+
+const { serviceSlug = '', serviceTitle = '' } = Astro.props;
+
+const services = [
+  { value: 'plumbing', label: 'Plumbing' },
+  { value: 'electrical', label: 'Electrical' },
+  { value: 'carpentry', label: 'Carpentry' },
+  { value: 'painting', label: 'Painting' },
+  { value: 'doors-windows', label: 'Doors & Windows' },
+  { value: 'general-repairs', label: 'General Repairs' },
+  { value: 'bathroom-remodel', label: 'Bathroom Remodel' },
+  { value: 'kitchen-remodel', label: 'Kitchen Remodel' },
+  { value: 'emergency-plumbing', label: 'Emergency Plumbing' },
+  { value: 'other', label: 'Other' }
+];
+
+const bestTimes = [
+  { value: 'morning', label: 'Morning (8am - 12pm)' },
+  { value: 'afternoon', label: 'Afternoon (12pm - 5pm)' },
+  { value: 'evening', label: 'Evening (5pm - 8pm)' },
+  { value: 'anytime', label: 'Anytime' }
+];
+---
+
+<section class="section bg-primary-50" id="estimate-form">
+  <div class="container">
+    <div class="max-w-2xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-8">
+        <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-3">
+          Get Your Free Estimate
+        </h2>
+        <p class="text-neutral-600">
+          Fill out the form below and we'll get back to you within 24 hours.
+        </p>
+      </div>
+
+      <!-- Form -->
+      <form id="service-estimate-form" class="bg-white rounded-2xl shadow-lg p-6 lg:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Service Type -->
+          <div class="md:col-span-2">
+            <label for="service" class="block text-sm font-medium text-neutral-700 mb-2">
+              Service Needed *
+            </label>
+            <select
+              id="service"
+              name="service"
+              required
+              class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+            >
+              <option value="">Select a service...</option>
+              {services.map((s) => (
+                <option value={s.value} selected={s.value === serviceSlug}>
+                  {s.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <!-- First Name -->
+          <div>
+            <label for="firstName" class="block text-sm font-medium text-neutral-700 mb-2">
+              First Name *
+            </label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              required
+              class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+              placeholder="John"
+            />
+          </div>
+
+          <!-- Last Name -->
+          <div>
+            <label for="lastName" class="block text-sm font-medium text-neutral-700 mb-2">
+              Last Name
+            </label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+              placeholder="Doe"
+            />
+          </div>
+
+          <!-- Phone -->
+          <div>
+            <label for="phone" class="block text-sm font-medium text-neutral-700 mb-2">
+              Phone Number *
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+              placeholder="(704) 555-1234"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm font-medium text-neutral-700 mb-2">
+              Email Address *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+              placeholder="john@example.com"
+            />
+          </div>
+
+          <!-- Best Time to Contact -->
+          <div class="md:col-span-2">
+            <label for="bestTime" class="block text-sm font-medium text-neutral-700 mb-2">
+              Best Time to Contact
+            </label>
+            <select
+              id="bestTime"
+              name="bestTime"
+              class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+            >
+              {bestTimes.map((t) => (
+                <option value={t.value}>{t.label}</option>
+              ))}
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div class="md:col-span-2">
+            <label for="message" class="block text-sm font-medium text-neutral-700 mb-2">
+              Describe Your Project
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-none"
+              placeholder="Tell us about your project or what you need help with..."
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="mt-6">
+          <button
+            type="submit"
+            class="w-full btn btn-primary text-lg py-4 justify-center"
+          >
+            <span id="btn-text">Request Free Estimate</span>
+            <svg id="btn-spinner" class="hidden w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Success Message -->
+        <div id="form-success" class="hidden mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+          <div class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <div>
+              <p class="font-semibold text-green-800">Thank you!</p>
+              <p class="text-green-700 text-sm">We'll contact you within 24 hours.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="form-error" class="hidden mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+          <div class="flex items-center gap-3">
+            <svg class="w-6 h-6 text-red-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            <div>
+              <p class="font-semibold text-red-800">Something went wrong</p>
+              <p class="text-red-700 text-sm" id="error-message">Please try again or call us directly.</p>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('service-estimate-form') as HTMLFormElement;
+  const btnText = document.getElementById('btn-text');
+  const btnSpinner = document.getElementById('btn-spinner');
+  const successMsg = document.getElementById('form-success');
+  const errorMsg = document.getElementById('form-error');
+  const errorText = document.getElementById('error-message');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Reset states
+    successMsg?.classList.add('hidden');
+    errorMsg?.classList.add('hidden');
+    btnText?.classList.add('hidden');
+    btnSpinner?.classList.remove('hidden');
+
+    const formData = new FormData(form);
+    const data = {
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      service: formData.get('service'),
+      message: formData.get('message'),
+      source: 'Service Page Form'
+    };
+
+    try {
+      const response = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        successMsg?.classList.remove('hidden');
+        form.reset();
+      } else {
+        throw new Error(result.error || 'Unknown error');
+      }
+    } catch (error) {
+      errorMsg?.classList.remove('hidden');
+      if (errorText && error instanceof Error) {
+        errorText.textContent = error.message || 'Please try again or call us directly.';
+      }
+    } finally {
+      btnText?.classList.remove('hidden');
+      btnSpinner?.classList.add('hidden');
+    }
+  });
+</script>

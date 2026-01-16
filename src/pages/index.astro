@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import TrustBar from '../components/sections/TrustBar.astro';
+import ServicesGrid from '../components/sections/ServicesGrid.astro';
+import EmergencyBand from '../components/sections/EmergencyBand.astro';
+import ProcessSteps from '../components/sections/ProcessSteps.astro';
+import WhyChooseUs from '../components/sections/WhyChooseUs.astro';
+import FeaturedWork from '../components/sections/FeaturedWork.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import CTASection from '../components/sections/CTASection.astro';
+import CTAIntermediate from '../components/sections/CTAIntermediate.astro';
+
+const seoTitle = "iFixx | Charlotte's Trusted Handyman & Remodeling Services";
+const seoDescription = "Family-owned contractors serving Charlotte, NC. Emergency services, handyman repairs, bathroom & kitchen makeovers. Fully insured, 5-star rated. Get a free estimate!";
+
+// LocalBusiness Schema
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "@id": "https://ifixxnc.com/#business",
+  "name": "iFixx Remodeling & Handyman Services",
+  "description": seoDescription,
+  "url": "https://ifixxnc.com",
+  "telephone": "+1-980-391-6833",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Charlotte",
+    "addressRegion": "NC",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "35.2271",
+    "longitude": "-80.8431"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Charlotte" },
+    { "@type": "City", "name": "Matthews" },
+    { "@type": "City", "name": "Waxhaw" },
+    { "@type": "City", "name": "Pineville" },
+    { "@type": "City", "name": "Monroe" },
+    { "@type": "City", "name": "Rock Hill" }
+  ],
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "87"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "07:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "14:00"
+    }
+  ],
+  "sameAs": [
+    "https://facebook.com/ifixxnc",
+    "https://instagram.com/ifixxnc"
+  ]
+};
+---
+
+<BaseLayout 
+  title={seoTitle}
+  description={seoDescription}
+  canonical="/"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  </Fragment>
+
+  <!-- Homepage Sections -->
+  <!-- 1. Hero -->
+  <Hero />
+
+  <!-- Trust Bar (below hero) -->
+  <TrustBar />
+
+  <!-- 2. Services Overview -->
+  <ServicesGrid />
+
+  <!-- 3. Emergency Callout Band -->
+  <EmergencyBand />
+
+  <!-- 4. 3-Step Process -->
+  <ProcessSteps />
+
+  <!-- 5. Why Choose iFixx -->
+  <WhyChooseUs />
+
+  <!-- 6. Featured Work -->
+  <FeaturedWork />
+
+  <!-- Intermediate CTA -->
+  <CTAIntermediate
+    headline="Like What You See?"
+    subheadline="Let's discuss your project. Free estimates, no obligation."
+    variant="primary"
+  />
+
+  <!-- 7. Testimonials -->
+  <Testimonials />
+
+  <!-- 8. Final CTA -->
+  <CTASection />
+</BaseLayout>

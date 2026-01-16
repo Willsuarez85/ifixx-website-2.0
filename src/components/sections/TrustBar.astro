@@ -1,0 +1,135 @@
+---
+interface Props {
+  variant?: 'light' | 'dark';
+}
+
+const { variant = 'light' } = Astro.props;
+
+const bgClass = variant === 'dark'
+  ? 'bg-neutral-800'
+  : 'bg-neutral-100';
+
+const textClass = variant === 'dark'
+  ? 'text-white'
+  : 'text-neutral-900';
+
+const subtextClass = variant === 'dark'
+  ? 'text-neutral-400'
+  : 'text-neutral-600';
+
+const borderClass = variant === 'dark'
+  ? 'border-neutral-700'
+  : 'border-neutral-200';
+
+const reviewPlatforms = [
+  {
+    name: 'Google',
+    rating: '5.0',
+    hasStars: true,
+    hasLink: true,
+    url: 'https://share.google/etUzpmu9VuUzDVDZJ',
+  },
+  {
+    name: 'Facebook',
+    rating: null,
+    hasStars: false,
+    hasLink: true,
+    url: 'https://www.facebook.com/ifixxnc',
+  },
+  {
+    name: 'Yelp',
+    rating: null,
+    hasStars: false,
+    hasLink: false,
+    url: null,
+  },
+  {
+    name: 'Nextdoor',
+    rating: null,
+    hasStars: false,
+    hasLink: false,
+    url: null,
+  },
+];
+---
+
+<section class={`py-6 ${bgClass} border-y ${borderClass}`}>
+  <div class="container">
+    <div class="flex flex-col items-center gap-5">
+      <!-- Heading -->
+      <p class={`text-sm font-medium ${subtextClass}`}>
+        Find Us & Read Our Reviews
+      </p>
+
+      <!-- Platform Reviews -->
+      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-10 lg:gap-14">
+        {reviewPlatforms.map((platform) => {
+          const content = (
+            <div class={`flex items-center gap-3 ${platform.hasLink ? 'hover:scale-105 transition-transform duration-200' : ''}`}>
+              <!-- Platform Icon -->
+              <div class="flex-shrink-0">
+                {platform.name === 'Google' && (
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                  </svg>
+                )}
+                {platform.name === 'Facebook' && (
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="#1877F2">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                )}
+                {platform.name === 'Yelp' && (
+                  <svg class="w-8 h-8" viewBox="0 0 24 24">
+                    <path fill="#FF1A1A" d="M10.59 1.81C10.19.69 9.21.07 8.13.07c-.06 0-.12 0-.18.01L3.4.7c-1.15.13-2.03.95-2.24 2.08-.21 1.13.32 2.25 1.34 2.85l4.44 2.58c.38.22.81.34 1.24.34.86 0 1.66-.46 2.08-1.21.22-.38.32-.81.32-1.24 0-.28-.04-.56-.13-.83l-1.86-5.46zM9.4 9.37c-.46-.52-1.14-.82-1.85-.82-.5 0-.98.15-1.39.43L2.1 11.52c-.79.54-1.22 1.44-1.12 2.37.1.93.71 1.72 1.59 2.08l4.88 1.95c.3.12.62.18.94.18.94 0 1.8-.53 2.21-1.38.26-.53.33-1.12.21-1.7l-1.41-5.65zM4.58 17.54l-.36 5.73c-.06 1.01.5 1.94 1.43 2.36.35.16.72.24 1.09.24.6 0 1.18-.21 1.65-.6l3.86-3.27c.63-.53.96-1.32.91-2.13-.05-.81-.49-1.54-1.18-1.98l-4.86-3.09c-.4-.25-.86-.39-1.33-.39-1.03 0-1.95.65-2.27 1.62-.16.48-.18.99-.06 1.48l1.12.03zM21.89 14.02l-5.18-2.32c-.34-.15-.7-.23-1.07-.23-.95 0-1.82.55-2.22 1.41-.26.56-.31 1.19-.13 1.78l1.72 5.54c.29.94 1.14 1.58 2.12 1.58.2 0 .4-.03.59-.08l5.04-1.36c.89-.24 1.56-.96 1.74-1.87.18-.91-.17-1.84-.91-2.41l-.7-.04zM20.08 10.42l.81-5.62c.14-.98-.28-1.95-1.08-2.51-.53-.37-1.16-.55-1.79-.5l-5.26.43c-.98.08-1.82.71-2.18 1.62-.36.91-.16 1.94.51 2.66l4.45 4.76c.48.51 1.14.8 1.84.8.52 0 1.02-.16 1.45-.46.73-.51 1.13-1.34 1.08-2.21l.17 1.03z"/>
+                  </svg>
+                )}
+                {platform.name === 'Nextdoor' && (
+                  <svg class="w-8 h-8" viewBox="0 0 24 24" fill="#00B246">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.5 14.5h-9v-5c0-2.49 2.01-4.5 4.5-4.5s4.5 2.01 4.5 4.5v5z"/>
+                    <path d="M12 9c-1.38 0-2.5 1.12-2.5 2.5v3h5v-3c0-1.38-1.12-2.5-2.5-2.5z" fill="#fff"/>
+                  </svg>
+                )}
+              </div>
+
+              <!-- Rating Info -->
+              <div class="flex flex-col">
+                <span class={`text-sm font-bold ${textClass}`}>{platform.name}</span>
+                {platform.hasStars && (
+                  <div class="flex items-center gap-1">
+                    <!-- 5 Stars -->
+                    <div class="flex">
+                      {[1,2,3,4,5].map(() => (
+                        <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <span class={`text-xs font-medium ${subtextClass}`}>{platform.rating}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+
+          return platform.hasLink ? (
+            <a
+              href={platform.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={`Visit iFixx on ${platform.name}`}
+            >
+              {content}
+            </a>
+          ) : (
+            <div title={`iFixx on ${platform.name}`}>
+              {content}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,233 @@
+@import "tailwindcss";
+
+/* Custom Design Tokens */
+@theme {
+  /* Colors - Primary (Ifixx Gold) */
+  --color-primary-50: #fdf8eb;
+  --color-primary-100: #f8ecce;
+  --color-primary-200: #f3dfa6;
+  --color-primary-300: #eed27d;
+  --color-primary-400: #e9c555;
+  --color-primary-500: #e4bc5d;
+  /* Brand Gold */
+  --color-primary-600: #b6964a;
+  --color-primary-700: #897138;
+  --color-primary-800: #5b4b25;
+  --color-primary-900: #2e2613;
+
+  /* Colors - Emergency (Emergency Red) */
+  --color-emergency-50: #fdf2f2;
+  --color-emergency-100: #fbe0e0;
+  --color-emergency-200: #f6c0c1;
+  --color-emergency-300: #ee9da0;
+  --color-emergency-400: #e57a7d;
+  --color-emergency-500: #ac1318;
+  /* Brand Red */
+  --color-emergency-600: #8a0f13;
+  --color-emergency-700: #670b0e;
+  --color-emergency-800: #45080a;
+  --color-emergency-900: #220405;
+
+  /* Colors - Secondary (Warm Gold Tones - for icons/accents) */
+  --color-secondary-50: #fefbf3;
+  --color-secondary-100: #fdf5e1;
+  --color-secondary-200: #faecc4;
+  --color-secondary-300: #f6e0a0;
+  --color-secondary-400: #f1d37c;
+  --color-secondary-500: #d4a84b;
+  --color-secondary-600: #b8923f;
+  --color-secondary-700: #8c6f30;
+  --color-secondary-800: #604c21;
+  --color-secondary-900: #342912;
+
+  /* Colors - Functional / Netural (Charcoal Base) */
+  --color-neutral-50: #ffffff;
+  /* Pure White */
+  --color-neutral-100: #f9fafb;
+  /* Light Gray */
+  --color-neutral-200: #e5e7eb;
+  --color-neutral-300: #d1d5db;
+  --color-neutral-400: #9ca3af;
+  --color-neutral-500: #6b7280;
+  /* Medium Gray */
+  --color-neutral-600: #4b5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1c191a;
+  /* Charcoal Black (Brand Base) */
+  --color-neutral-900: #111010;
+  /* Darker Charcoal */
+
+  /* Typography */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-neutral-50);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-neutral-800);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  /* Color controlled by Tailwind classes - removed hardcoded color */
+}
+
+/* Container Utility */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Button Base Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+/* Primary Button: Gold Background, Charcoal Text */
+.btn-primary {
+  background-color: var(--color-primary-500);
+  color: var(--color-neutral-800);
+}
+
+.btn-primary:hover {
+  background-color: #d4a949;
+  /* Slightly darker gold */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(228, 188, 93, 0.4);
+}
+
+/* Secondary Button: Charcoal Border, White Fill */
+.btn-secondary {
+  background-color: white;
+  color: var(--color-neutral-800);
+  border: 2px solid var(--color-neutral-800);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-neutral-100);
+  color: var(--color-neutral-900);
+}
+
+/* Emergency Button: Red Background, White Text */
+.btn-emergency {
+  background-color: var(--color-emergency-500);
+  color: white;
+  font-weight: 800;
+}
+
+.btn-emergency:hover {
+  background-color: var(--color-emergency-600);
+  box-shadow: 0 4px 12px rgba(172, 19, 24, 0.4);
+}
+
+/* Outline Light Button: For dark backgrounds */
+.btn-outline-light {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Section Spacing */
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Section Backgrounds */
+.section-alt {
+  background-color: var(--color-neutral-100);
+}
+
+/* Card Styles */
+.card {
+  background: white;
+  border-radius: 0.25rem;
+  /* Sharper corners for professionalism */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--color-neutral-200);
+}
+
+.card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-4px);
+  border-color: var(--color-primary-500);
+  /* Gold border on hover */
+}
+
+/* Badge Styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-800);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-neutral-200);
+}

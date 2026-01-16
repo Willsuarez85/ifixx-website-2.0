@@ -1,0 +1,94 @@
+---
+const testimonials = [
+  {
+    name: 'Sarah M.',
+    location: 'South Charlotte',
+    text: 'iFixx transformed our outdated bathroom into a modern retreat. Professional, punctual, and the quality exceeded our expectations. Highly recommend!',
+    rating: 5
+  },
+  {
+    name: 'Michael T.',
+    location: 'Myers Park',
+    text: 'Had an electrical emergency at 10pm and they were here within the hour. Fixed everything quickly and the price was fair. These guys are the real deal.',
+    rating: 5
+  },
+  {
+    name: 'Jennifer K.',
+    location: 'Dilworth',
+    text: 'We\'ve used iFixx for multiple projects — painting, drywall, carpentry. Always reliable, always quality work. They\'re our go-to for everything now.',
+    rating: 5
+  },
+  {
+    name: 'David R.',
+    location: 'Ballantyne',
+    text: 'The kitchen renovation was a big project but they handled it beautifully. Great communication throughout and finished on time. Couldn\'t be happier!',
+    rating: 5
+  }
+];
+---
+
+<section class="section section-alt">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+      <h2 class="text-3xl lg:text-4xl font-heading font-bold text-neutral-900 mb-4">
+        What Our Customers Say
+      </h2>
+      <p class="text-lg text-neutral-600">
+        Don't just take our word for it — hear from the Charlotte homeowners we've helped.
+      </p>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      {testimonials.map((testimonial) => (
+        <div class="card p-6 lg:p-8">
+          <!-- Stars -->
+          <div class="flex gap-1 mb-4">
+            {Array.from({ length: testimonial.rating }).map(() => (
+              <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+          
+          <!-- Quote -->
+          <blockquote class="text-neutral-700 leading-relaxed mb-6">
+            "{testimonial.text}"
+          </blockquote>
+          
+          <!-- Author -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
+              <span class="text-primary-600 font-semibold text-sm">
+                {testimonial.name.charAt(0)}
+              </span>
+            </div>
+            <div>
+              <p class="font-semibold text-neutral-900">{testimonial.name}</p>
+              <p class="text-sm text-neutral-500">{testimonial.location}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Google Reviews Link -->
+    <div class="text-center mt-10">
+      <a 
+        href="https://g.page/ifixxnc" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-primary-600 font-medium hover:text-primary-700 transition-colors"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+        </svg>
+        See all reviews on Google
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

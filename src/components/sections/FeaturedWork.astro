@@ -1,0 +1,61 @@
+---
+const projects = [
+  { title: 'Bathroom Remodel', category: 'Ballantyne', image: '/images/projects/bathroom-glass-shower.webp' },
+  { title: 'Kitchen Renovation', category: 'South Charlotte', image: '/images/projects/kitchen-dark-modern.webp' },
+  { title: 'Kitchen Update', category: 'Myers Park', image: '/images/projects/gallery-kitchen-gray-marble.webp' },
+  { title: 'Bathroom Upgrade', category: 'Dilworth', image: '/images/projects/bathroom-team-work.webp' },
+  { title: 'Kitchen Makeover', category: 'NoDa', image: '/images/projects/kitchen-two-tone.webp' },
+  { title: 'Home Addition', category: 'Plaza Midwood', image: '/images/projects/home-addition.jpg' }
+];
+---
+
+<section class="section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+      <h2 class="text-3xl lg:text-4xl font-heading font-bold text-neutral-900 mb-4">
+        Featured Work
+      </h2>
+      <p class="text-lg text-neutral-600">
+        Take a look at some of our recent projects across Charlotte.
+      </p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projects.map((project) => (
+        <div class="group relative aspect-[4/3] rounded-xl overflow-hidden bg-neutral-200">
+          <!-- Project Image -->
+          <img
+            src={project.image}
+            alt={`${project.title} - ${project.category} project by iFixx Charlotte`}
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            width="400"
+            height="300"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <!-- Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+          <!-- Content -->
+          <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+            <p class="text-white/70 text-sm">{project.category}</p>
+            <h3 class="text-white font-heading font-semibold text-lg">{project.title}</h3>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- View All CTA -->
+    <div class="text-center mt-10">
+      <a href="/gallery" class="btn btn-secondary">
+        View All Projects
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

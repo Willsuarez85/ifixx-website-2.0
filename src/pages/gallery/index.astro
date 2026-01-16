@@ -1,0 +1,324 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Lightbox from '../../components/common/Lightbox.astro';
+
+const seoTitle = "Project Gallery | iFixx Remodeling & Handyman Services";
+const seoDescription = "Browse our portfolio of completed projects in Charlotte, NC. See our quality work in kitchen remodeling, bathroom renovations, painting, carpentry, and more.";
+
+// All gallery images with categories
+const allImages = [
+  // Kitchen Projects (22 images)
+  { src: '/images/projects/Ifixx-portfolio1.webp', alt: 'Kitchen Island with Beadboard Panels', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio3.webp', alt: 'Dark Modern Kitchen with Marble Countertops', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio9.webp', alt: 'Kitchen with Blue Island and Wood Shelving', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio10.webp', alt: 'Blue Island Kitchen with Modern Finishes', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio11.webp', alt: 'White Kitchen with Subway Tile Backsplash', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio13.webp', alt: 'White Kitchen with Gray Backsplash', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio16.webp', alt: 'Two-Tone Kitchen - Green and Wood Cabinets', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio17.webp', alt: 'Luxury Gray Kitchen with Marble and Skylights', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio20.webp', alt: 'White Kitchen with Decorative Tile Floor', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio22.webp', alt: 'Navy Blue Open Concept Kitchen with Marble Island', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio23.webp', alt: 'Beige Kitchen with Fireplace', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio38.webp', alt: 'Dark Cabinet Kitchen with Subway Tile', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio40.webp', alt: 'White Kitchen with Stone Accent Wall', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio43.webp', alt: 'White Kitchen with Stone Backsplash', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio53.webp', alt: 'White Kitchen with Granite and Subway Tile', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio60.webp', alt: 'Navy Luxury Kitchen with Gold Accents', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio63.webp', alt: 'White Luxury Kitchen with Marble Waterfall Island', category: 'kitchen' },
+  // Keep existing kitchen images
+  { src: '/images/projects/kitchen-dark-modern.webp', alt: 'Dark Modern Kitchen Renovation', category: 'kitchen' },
+  { src: '/images/projects/gallery-kitchen-gray-marble.webp', alt: 'Gray Marble Kitchen Countertops', category: 'kitchen' },
+  { src: '/images/projects/kitchen-two-tone.webp', alt: 'Two-Tone Kitchen Cabinets', category: 'kitchen' },
+  { src: '/images/projects/gallery-kitchen-dark-subway.webp', alt: 'Kitchen with Dark Subway Tiles', category: 'kitchen' },
+  { src: '/images/projects/kitchen-1.webp', alt: 'Custom Kitchen Renovation', category: 'kitchen' },
+
+  // Bathroom Projects (3 new images)
+  { src: '/images/projects/Ifixx-portfolio28.webp', alt: 'Modern Bathroom with Glass Shower and Beige Tile', category: 'bathroom' },
+  { src: '/images/projects/Ifixx-portfolio32.webp', alt: 'Luxury Bathroom with Freestanding Tub', category: 'bathroom' },
+  { src: '/images/projects/Ifixx-portfolio50.webp', alt: 'Modern Bathroom with Sliding Glass Shower', category: 'bathroom' },
+  // Keep existing bathroom images
+  { src: '/images/projects/bathroom-glass-shower.webp', alt: 'Modern Glass Shower Installation', category: 'bathroom' },
+  { src: '/images/projects/bathroom-team-work.webp', alt: 'Bathroom Renovation in Progress', category: 'bathroom' },
+  { src: '/images/projects/bathroom-1.webp', alt: 'Complete Bathroom Remodel', category: 'bathroom' },
+
+  // Remodeling Projects (7 new images)
+  { src: '/images/projects/Ifixx-portfolio19.webp', alt: 'Room with Dark Green Wainscoting', category: 'remodeling' },
+  { src: '/images/projects/Ifixx-portfolio25.webp', alt: 'Screened Porch and Deck Addition', category: 'remodeling' },
+  { src: '/images/projects/Ifixx-portfolio33.webp', alt: 'Modern Farmhouse Exterior', category: 'remodeling' },
+  { src: '/images/projects/Ifixx-portfolio34.webp', alt: 'Living Room with Brick Fireplace', category: 'remodeling' },
+  { src: '/images/projects/Ifixx-portfolio36.webp', alt: 'Covered Porch with Wood Ceiling', category: 'remodeling' },
+  { src: '/images/projects/Ifixx-portfolio37.webp', alt: 'House Exterior with New Deck', category: 'remodeling' },
+  { src: '/images/projects/Ifixx-portfolio44.webp', alt: 'Open Concept Living and Dining Room', category: 'remodeling' },
+  { src: '/images/projects/Ifixx-portfolio62.webp', alt: 'Open Concept Living Room with Kitchen', category: 'remodeling' },
+  // Keep existing remodeling images
+  { src: '/images/projects/home-addition.jpg', alt: 'Home Addition Project', category: 'remodeling' },
+  { src: '/images/services/remodeling.jpg', alt: 'Whole Home Remodeling', category: 'remodeling' },
+
+  // Plumbing (7 new images)
+  { src: '/images/projects/Ifixx-portfolio7.webp', alt: 'Team Doing Plumbing Work Under Sink', category: 'plumbing' },
+  { src: '/images/projects/Ifixx-portfolio21.webp', alt: 'Technician Plumbing Under Sink', category: 'plumbing' },
+  { src: '/images/projects/Ifixx-portfolio29.webp', alt: 'Team Installing Kitchen Faucet', category: 'plumbing' },
+  { src: '/images/projects/Ifixx-portfolio45.webp', alt: 'Technician Plumbing Under Blue Cabinet', category: 'plumbing' },
+  { src: '/images/projects/Ifixx-portfolio49.webp', alt: 'Technician Plumbing in White Kitchen', category: 'plumbing' },
+  { src: '/images/projects/Ifixx-portfolio52.webp', alt: 'Technician Installing Sink Faucet', category: 'plumbing' },
+  { src: '/images/projects/Ifixx-portfolio54.webp', alt: 'Technician Plumbing in Dark Kitchen', category: 'plumbing' },
+  // Keep existing plumbing image
+  { src: '/images/services/plumbing.webp', alt: 'Professional Plumbing Services', category: 'plumbing' },
+
+  // Carpentry (8 new images)
+  { src: '/images/projects/Ifixx-portfolio5.webp', alt: 'Technician Repairing Cabinet', category: 'carpentry' },
+  { src: '/images/projects/Ifixx-portfolio12.webp', alt: 'Team Installing Kitchen Cabinets', category: 'carpentry' },
+  { src: '/images/projects/Ifixx-portfolio15.webp', alt: 'Technician Installing Cabinet Hardware', category: 'carpentry' },
+  { src: '/images/projects/Ifixx-portfolio18.webp', alt: 'Technician Installing Cabinet Hardware', category: 'carpentry' },
+  { src: '/images/projects/Ifixx-portfolio31.webp', alt: 'Technician Repairing Cabinet Hinge', category: 'carpentry' },
+  { src: '/images/projects/Ifixx-portfolio39.webp', alt: 'Technician Installing Cabinet Hinge', category: 'carpentry' },
+  { src: '/images/projects/Ifixx-portfolio42.webp', alt: 'Technician Repairing Cabinet in Luxury Kitchen', category: 'carpentry' },
+  { src: '/images/projects/Ifixx-portfolio55.webp', alt: 'Technician Repairing Door Hinge', category: 'carpentry' },
+  // Keep existing carpentry image
+  { src: '/images/services/carpentry.webp', alt: 'Custom Carpentry Work', category: 'carpentry' },
+
+  // Painting (2 new images)
+  { src: '/images/projects/Ifixx-portfolio8.webp', alt: 'Team Doing Drywall and Painting Work', category: 'painting' },
+  { src: '/images/projects/Ifixx-portfolio47.webp', alt: 'Team Painting in Luxury Bathroom', category: 'painting' },
+  // Keep existing painting image
+  { src: '/images/services/painting.webp', alt: 'Interior Painting Project', category: 'painting' },
+
+  // Keep existing electrical image
+  { src: '/images/services/electrical.webp', alt: 'Electrical Installation', category: 'electrical' },
+];
+
+const categories = [
+  { value: 'all', label: 'All Projects' },
+  { value: 'kitchen', label: 'Kitchen' },
+  { value: 'bathroom', label: 'Bathroom' },
+  { value: 'remodeling', label: 'Remodeling' },
+  { value: 'painting', label: 'Painting' },
+  { value: 'carpentry', label: 'Carpentry' },
+  { value: 'electrical', label: 'Electrical' },
+  { value: 'plumbing', label: 'Plumbing' },
+];
+
+// Breadcrumb schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ifixxnc.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Gallery",
+      "item": "https://ifixxnc.com/gallery"
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={seoTitle}
+  description={seoDescription}
+  canonical="/gallery"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-neutral-900 to-neutral-800 py-16 lg:py-20">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav class="mb-6">
+        <ol class="flex items-center gap-2 text-sm text-neutral-400">
+          <li><a href="/" class="hover:text-primary-500 transition-colors">Home</a></li>
+          <li class="text-neutral-600">/</li>
+          <li class="text-white font-medium">Gallery</li>
+        </ol>
+      </nav>
+
+      <div class="max-w-3xl">
+        <h1 class="text-4xl lg:text-5xl font-heading font-bold text-white mb-4">
+          Our Project Gallery
+        </h1>
+        <p class="text-lg text-neutral-300">
+          Browse through our completed projects and see the quality craftsmanship we bring to every job in Charlotte and surrounding areas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Tabs -->
+  <section class="bg-white border-b border-neutral-200 sticky top-16 lg:top-20 z-40">
+    <div class="container">
+      <div class="flex items-center gap-2 py-4 overflow-x-auto scrollbar-hide">
+        {categories.map((cat) => (
+          <button
+            class:list={[
+              'filter-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors',
+              cat.value === 'all'
+                ? 'bg-primary-500 text-white'
+                : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+            ]}
+            data-category={cat.value}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="section">
+    <div class="container">
+      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        {allImages.map((img, index) => (
+          <div
+            class="gallery-item group relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer bg-neutral-200"
+            data-category={img.category}
+            data-index={index}
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              width="400"
+              height="300"
+              loading="lazy"
+              decoding="async"
+            />
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="absolute bottom-0 left-0 right-0 p-4">
+                <p class="text-white text-sm font-medium">{img.alt}</p>
+                <p class="text-white/70 text-xs capitalize">{img.category}</p>
+              </div>
+            </div>
+            <!-- Zoom Icon -->
+            <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="hidden text-center py-16">
+        <svg class="w-16 h-16 text-neutral-300 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <p class="text-neutral-500">No projects found in this category.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section bg-primary-500">
+    <div class="container text-center">
+      <h2 class="text-2xl lg:text-3xl font-heading font-bold text-white mb-4">
+        Ready to Start Your Project?
+      </h2>
+      <p class="text-primary-100 mb-8 max-w-2xl mx-auto">
+        Let us bring the same quality craftsmanship to your home. Get a free estimate today.
+      </p>
+      <a href="/contact" class="btn bg-white text-primary-600 hover:bg-primary-50">
+        Get Free Estimate
+      </a>
+    </div>
+  </section>
+
+  <!-- Lightbox Component -->
+  <Lightbox />
+</BaseLayout>
+
+<style>
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script define:vars={{ allImages }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const emptyState = document.getElementById('empty-state');
+    const images = allImages;
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const category = btn.dataset.category;
+
+        // Update active button - remove all active states first
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-primary-500', 'text-white');
+          b.classList.add('bg-neutral-100', 'text-neutral-700', 'hover:bg-neutral-200');
+        });
+
+        // Set clicked button as active
+        btn.classList.remove('bg-neutral-100', 'text-neutral-700', 'hover:bg-neutral-200');
+        btn.classList.add('bg-primary-500', 'text-white');
+
+        // Filter items
+        let visibleCount = 0;
+        galleryItems.forEach(item => {
+          const itemCategory = item.dataset.category;
+          if (category === 'all' || itemCategory === category) {
+            item.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+
+        // Show/hide empty state
+        if (emptyState) {
+          if (visibleCount === 0) {
+            emptyState.classList.remove('hidden');
+          } else {
+            emptyState.classList.add('hidden');
+          }
+        }
+      });
+    });
+
+    // Lightbox functionality
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        // Get currently visible images for lightbox navigation
+        const visibleItems = Array.from(galleryItems).filter(i => !i.classList.contains('hidden'));
+        const visibleImages = visibleItems.map(i => {
+          const idx = parseInt(i.dataset.index || '0');
+          return images[idx];
+        });
+
+        // Find the index of clicked item in visible images
+        const clickedIdx = parseInt(item.dataset.index || '0');
+        const visibleIndex = visibleImages.findIndex(img => img === images[clickedIdx]);
+
+        // Open lightbox
+        if (window.lightbox) {
+          window.lightbox.open(visibleImages, visibleIndex >= 0 ? visibleIndex : 0);
+        }
+      });
+
+      // Double-click also opens lightbox
+      item.addEventListener('dblclick', (e) => {
+        e.preventDefault();
+        item.click();
+      });
+    });
+  });
+</script>
