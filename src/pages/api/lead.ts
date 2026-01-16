@@ -2,17 +2,41 @@ import type { APIRoute } from 'astro';
 
 export const prerender = false;
 
+// Tag mapping by service type - GHL workflows will use these to route leads
+// Pipeline routing: handyman (includes urgent) OR remodeling
+const SERVICE_TAGS: Record<string, string[]> = {
+    // Handyman Services → Pipeline: Handyman
+    'plumbing': ['service-plumbing', 'handyman'],
+    'electrical': ['service-electrical', 'handyman'],
+    'carpentry': ['service-carpentry', 'handyman'],
+    'painting': ['service-painting', 'handyman'],
+    'doors-windows': ['service-doors-windows', 'handyman'],
+    'general-repairs': ['service-general-repairs', 'handyman'],
+
+    // Emergency/Urgent Services → Pipeline: Handyman (with urgent flag)
+    'emergency-plumbing': ['emergency-plumbing', 'handyman', 'urgent'],
+    'emergency-electrical': ['emergency-electrical', 'handyman', 'urgent'],
+    'roof-leak': ['emergency-roof-leak', 'handyman', 'urgent'],
+
+    // Remodeling Services → Pipeline: Remodeling
+    'kitchen-remodel': ['project-kitchen', 'remodeling'],
+    'bathroom-remodel': ['project-bathroom', 'remodeling'],
+
+    // Default → Pipeline: Handyman
+    'other': ['general-inquiry', 'handyman']
+};
+
 export const POST: APIRoute = async ({ request }) => {
     try {
         const data = await request.json();
-        const { firstName, lastName, email, phone, service, message, source } = data;
+        const { firstName, lastName, email, phone, service, message, source, city } = data;
 
         // 1. Validation
-        if (!firstName || !email || !phone || !service) {
+        if (!firstName || !email || !phone) {
             return new Response(
                 JSON.stringify({
                     success: false,
-                    error: 'Missing required fields: firstName, email, phone, or service',
+                    error: 'Missing required fields: firstName, email, or phone',
                 }),
                 { status: 400 }
             );
@@ -20,44 +44,47 @@ export const POST: APIRoute = async ({ request }) => {
 
         const GHL_API_KEY = import.meta.env.GHL_API_KEY;
         const GHL_LOCATION_ID = import.meta.env.GHL_LOCATION_ID;
+
         if (!GHL_API_KEY || !GHL_LOCATION_ID) {
             console.error('Missing GHL Configuration');
-            return new Response(JSON.stringify({ success: false, error: 'Server configuration error' }), { status: 500 });
+            return new Response(
+                JSON.stringify({ success: false, error: 'Server configuration error' }),
+                { status: 500 }
+            );
         }
 
-        // 2. Service Logic Mapping (Hubs, Pipelines, Tags)
-        // TODO: Replace these PLACEHOLDER IDs with actual GHL Pipeline and Stage IDs
-        const SERVICE_MAP: Record<string, any> = {
-            // Hub 1: Handyman Services
-            'plumbing': { tag: 'service-plumbing', pipelineId: 'PIPELINE_HANDYMAN_ID', stageId: 'STAGE_NEW_LEAD_ID' },
-            'electrical': { tag: 'service-electrical', pipelineId: 'PIPELINE_HANDYMAN_ID', stageId: 'STAGE_NEW_LEAD_ID' },
-            'carpentry': { tag: 'service-carpentry', pipelineId: 'PIPELINE_HANDYMAN_ID', stageId: 'STAGE_NEW_LEAD_ID' },
-            'painting': { tag: 'service-painting', pipelineId: 'PIPELINE_HANDYMAN_ID', stageId: 'STAGE_NEW_LEAD_ID' },
+        // 2. Build tags array
+        const serviceTags = SERVICE_TAGS[service] || SERVICE_TAGS['other'];
+        const allTags = [
+            'website-lead',
+            ...serviceTags,
+            ...(city ? [`city-${city.toLowerCase().replace(/\s+/g, '-')}`] : [])
+        ];
 
-            // Hub 2: Emergency Services
-            'emergency-plumbing': { tag: 'emergency-plumbing', pipelineId: 'PIPELINE_EMERGENCY_ID', stageId: 'STAGE_URGENT_ID' },
-            'roof-leak': { tag: 'emergency-roofing', pipelineId: 'PIPELINE_EMERGENCY_ID', stageId: 'STAGE_URGENT_ID' },
+        // 3. Build custom fields for additional context
+        const customFields: { id: string; value: string }[] = [];
+        if (message) {
+            customFields.push({ id: 'message', value: message });
+        }
+        if (service) {
+            customFields.push({ id: 'service_requested', value: service });
+        }
 
-            // Hub 3: Remodeling
-            'kitchen-remodel': { tag: 'project-kitchen', pipelineId: 'PIPELINE_REMODEL_ID', stageId: 'STAGE_INQUIRY_ID' },
-            'bathroom-remodel': { tag: 'project-bathroom', pipelineId: 'PIPELINE_REMODEL_ID', stageId: 'STAGE_INQUIRY_ID' },
-
-            // Fallback
-            'default': { tag: 'website-lead', pipelineId: 'PIPELINE_GENERAL_ID', stageId: 'STAGE_NEW_LEAD_ID' }
-        };
-
-        const serviceConfig = SERVICE_MAP[service] || SERVICE_MAP['default'];
-
-        // 3. GHL Contact Upsert
-        const upsertBody = {
+        // 4. GHL Contact Upsert
+        const upsertBody: Record<string, any> = {
             firstName,
             lastName: lastName || '',
             email,
             phone,
             locationId: GHL_LOCATION_ID,
-            source: source || 'Website',
-            tags: [serviceConfig.tag, 'website-lead']
+            source: source || 'Website Form',
+            tags: allTags
         };
+
+        // Add custom fields if present
+        if (customFields.length > 0) {
+            upsertBody.customFields = customFields;
+        }
 
         const contactResponse = await fetch('https://services.leadconnectorhq.com/contacts/upsert', {
             method: 'POST',
@@ -72,43 +99,18 @@ export const POST: APIRoute = async ({ request }) => {
         if (!contactResponse.ok) {
             const err = await contactResponse.text();
             console.error('GHL Upsert Error:', err);
-            throw new Error('Failed to create/update contact in GHL');
+            throw new Error('Failed to create contact in GHL');
         }
 
         const contactResult = await contactResponse.json();
         const contactId = contactResult.contact?.id;
 
-        // 4. Create Opportunity
-        if (contactId && serviceConfig.pipelineId !== 'PIPELINE_GENERAL_ID') {
-            try {
-                const oppBody = {
-                    pipelineId: serviceConfig.pipelineId,
-                    pipelineStageId: serviceConfig.stageId,
-                    locationId: GHL_LOCATION_ID,
-                    name: `${firstName} ${lastName || ''} - ${service}`,
-                    contactId: contactId,
-                    status: 'open'
-                };
-
-                await fetch('https://services.leadconnectorhq.com/opportunities/', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${GHL_API_KEY}`,
-                        'Content-Type': 'application/json',
-                        'Version': '2021-07-28'
-                    },
-                    body: JSON.stringify(oppBody)
-                });
-            } catch (oppError) {
-                console.error('GHL Opportunity Error (non-blocking):', oppError);
-            }
-        }
-
+        console.log(`Lead created: ${contactId} | Tags: ${allTags.join(', ')}`);
 
         return new Response(
             JSON.stringify({
                 success: true,
-                message: 'Lead processed successfully',
+                message: 'Lead received successfully',
                 contactId
             }),
             { status: 200 }
@@ -119,7 +121,7 @@ export const POST: APIRoute = async ({ request }) => {
         return new Response(
             JSON.stringify({
                 success: false,
-                error: 'Internal Server Error'
+                error: 'Something went wrong. Please call us directly.'
             }),
             { status: 500 }
         );
