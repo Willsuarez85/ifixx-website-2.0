@@ -1,7 +1,7 @@
 # iFixx Website 2.0 - Development Documentation
 
-> **Version:** v1.4
-> **Last Updated:** January 15, 2026
+> **Version:** v1.5
+> **Last Updated:** January 16, 2026
 > **Framework:** Astro + Tailwind CSS
 > **Primary Market:** Charlotte, NC
 > **Goal:** Lead Generation (Calls + Webhook Forms)
@@ -39,6 +39,7 @@ This is the official development documentation for **iFixx Remodeling & Handyman
 
 ## 🏗️ Project Structure
 
+### Estructura Actual
 ```
 ifixx-website/
 ├── src/
@@ -61,10 +62,10 @@ ifixx-website/
 │   │   ├── blog/
 │   │   │   ├── index.astro
 │   │   │   └── [slug].astro
-│   │   ├── services/
+│   │   ├── services/           # ⚠️ LEGACY - será migrado
 │   │   │   └── [serviceSlug].astro
 │   │   ├── api/
-│   │   │   └── lead.ts      # GHL Integration Endpoint
+│   │   │   └── lead.ts
 │   │   └── [citySlug]/
 │   │       └── [serviceSlug].astro
 │   └── styles/
@@ -75,6 +76,55 @@ ifixx-website/
 ├── astro.config.mjs
 ├── tailwind.config.mjs
 └── package.json
+```
+
+### Estructura Objetivo (Post-Migration)
+```
+ifixx-website/
+├── src/
+│   ├── components/
+│   │   ├── common/
+│   │   ├── layout/
+│   │   ├── sections/
+│   │   └── forms/
+│   ├── content/
+│   │   ├── services/        # Con campo `pillar: repairs|remodeling|emergency`
+│   │   ├── locations/       # 🆕 Nueva colección
+│   │   ├── cities/          # Para combos city+service
+│   │   └── posts/
+│   ├── layouts/
+│   │   ├── BaseLayout.astro
+│   │   ├── PillarLayout.astro      # 🆕
+│   │   ├── ServiceLayout.astro
+│   │   ├── ServiceAreaLayout.astro # 🆕
+│   │   └── BlogLayout.astro
+│   ├── pages/
+│   │   ├── index.astro
+│   │   ├── contact.astro
+│   │   ├── for-homeowners.astro    # 🆕
+│   │   ├── for-property-managers.astro # 🆕
+│   │   ├── repairs/                # 🆕 PILLAR
+│   │   │   ├── index.astro
+│   │   │   └── [serviceSlug].astro
+│   │   ├── remodeling/             # 🆕 PILLAR
+│   │   │   ├── index.astro
+│   │   │   └── [serviceSlug].astro
+│   │   ├── emergency-services/     # 🆕 PILLAR
+│   │   │   ├── index.astro
+│   │   │   └── [serviceSlug].astro
+│   │   ├── service-areas/          # 🆕 LOCATION PAGES
+│   │   │   ├── index.astro
+│   │   │   └── [locationSlug].astro
+│   │   ├── blog/
+│   │   │   ├── index.astro
+│   │   │   └── [slug].astro
+│   │   ├── api/
+│   │   │   └── lead.ts
+│   │   └── [citySlug]/             # Mantener para city+service combos
+│   │       └── [serviceSlug].astro
+│   └── styles/
+│       └── global.css
+└── ...
 ```
 
 ---
@@ -833,8 +883,381 @@ Todas las referencias de imágenes han sido actualizadas para usar el portfolio 
 
 ---
 
+## 🏗️ SEO Architecture Migration Plan
+
+> **Objetivo:** Migrar de estructura plana a modelo Pillar/Cluster para dominar SEO local en Charlotte, NC
+> **Documento de Referencia:** `notes/Local SEO Content and Architecture Strategy for IFIXX.md`
+> **Fecha de Inicio:** Enero 2026
+> **Estado:** 🔴 NO INICIADO
+
+---
+
+### 📊 Comparación de Arquitecturas
+
+```
+ESTRUCTURA ACTUAL:                    ESTRUCTURA OBJETIVO:
+─────────────────────────────         ─────────────────────────────
+/services/                            /repairs/ (PILLAR)
+  └── plumbing                          ├── plumbing/
+  └── electrical                        ├── electrical/
+  └── painting                          ├── drywall-painting/
+  └── carpentry                         ├── doors-windows/
+  └── doors-windows                     └── furniture-assembly/
+  └── quick-fix
+                                      /remodeling/ (PILLAR)
+/emergency-services (única)             ├── kitchens/
+                                        ├── bathrooms/
+/service-areas (única)                  ├── basements/
+                                        └── flooring/
+/[city]/[service]
+  └── charlotte/plumbing              /emergency-services/ (PILLAR)
+  └── matthews/painting                 └── 24-7-urgent-repairs/
+
+                                      /service-areas/
+                                        ├── charlotte/
+                                        ├── ballantyne/
+                                        ├── matthews/
+                                        ├── waxhaw/
+                                        ├── mint-hill/
+                                        └── pineville/
+
+                                      /for-homeowners/
+                                      /for-property-managers/
+```
+
+---
+
+### 🎯 Sprint 1: Location Pages (MAYOR IMPACTO)
+
+> **Prioridad:** 🔴 CRÍTICA
+> **Agente Principal:** `local-seo-schema-specialist`
+> **Agente Soporte:** `astro-frontend-builder`
+
+**Objetivo:** Crear páginas dedicadas por ciudad/área para capturar búsquedas locales como "handyman ballantyne", "plumber matthews nc".
+
+#### Tareas
+
+| # | Tarea | Archivo | Estado |
+|---|-------|---------|--------|
+| 1.1 | Crear Content Collection para locations | `src/content/config.ts` | [ ] Pendiente |
+| 1.2 | Crear contenido para Charlotte | `src/content/locations/charlotte.md` | [ ] Pendiente |
+| 1.3 | Crear contenido para Ballantyne | `src/content/locations/ballantyne.md` | [ ] Pendiente |
+| 1.4 | Crear contenido para Matthews | `src/content/locations/matthews.md` | [ ] Pendiente |
+| 1.5 | Crear contenido para Waxhaw | `src/content/locations/waxhaw.md` | [ ] Pendiente |
+| 1.6 | Crear contenido para Mint Hill | `src/content/locations/mint-hill.md` | [ ] Pendiente |
+| 1.7 | Crear contenido para Pineville | `src/content/locations/pineville.md` | [ ] Pendiente |
+| 1.8 | Crear template de Location Page | `src/pages/service-areas/[locationSlug].astro` | [ ] Pendiente |
+| 1.9 | Implementar LocalBusiness schema por ubicación | Template | [ ] Pendiente |
+| 1.10 | Crear ServiceAreaLayout | `src/layouts/ServiceAreaLayout.astro` | [ ] Pendiente |
+| 1.11 | Actualizar página índice service-areas | `src/pages/service-areas/index.astro` | [ ] Pendiente |
+| 1.12 | Agregar links en footer | `src/components/layout/Footer.astro` | [ ] Pendiente |
+
+#### Schema para Location Content Collection
+```yaml
+# src/content/locations/*.md
+slug: string           # URL slug (e.g., "ballantyne")
+name: string           # Display name (e.g., "Ballantyne")
+region: string         # NC o SC
+zipCodes: string[]     # ZIP codes servidos
+neighborhoods: string[] # Neighborhoods dentro del área
+description: string    # Intro paragraph único
+highlights: string[]   # Bullet points locales
+coordinates:
+  lat: number
+  lng: number
+seo:
+  title: string
+  description: string
+```
+
+#### Entregables Sprint 1
+- [ ] 6 Location Pages funcionales
+- [ ] LocalBusiness schema en cada página
+- [ ] Breadcrumb schema
+- [ ] Links desde footer
+- [ ] Internal links a services
+
+---
+
+### 🎯 Sprint 2: Pillar Pages
+
+> **Prioridad:** 🟠 ALTA
+> **Agente Principal:** `astro-frontend-builder`
+> **Agente Soporte:** `local-seo-schema-specialist`
+
+**Objetivo:** Crear páginas hub que establezcan autoridad temática en Repairs, Remodeling y Emergency Services.
+
+#### Tareas
+
+| # | Tarea | Archivo | Estado |
+|---|-------|---------|--------|
+| 2.1 | Crear Pillar Page: Repairs | `src/pages/repairs/index.astro` | [ ] Pendiente |
+| 2.2 | Crear Pillar Page: Remodeling | `src/pages/remodeling/index.astro` | [ ] Pendiente |
+| 2.3 | Crear Pillar Page: Emergency Services | `src/pages/emergency-services/index.astro` | [ ] Pendiente |
+| 2.4 | Diseñar PillarLayout | `src/layouts/PillarLayout.astro` | [ ] Pendiente |
+| 2.5 | Componente ServiceCard para pillars | `src/components/common/ServiceCard.astro` | [ ] Pendiente |
+| 2.6 | Implementar ItemList schema | Templates | [ ] Pendiente |
+| 2.7 | Hero section para cada pillar | Componentes | [ ] Pendiente |
+| 2.8 | Internal links a service pages | Templates | [ ] Pendiente |
+| 2.9 | Internal links a location pages | Templates | [ ] Pendiente |
+| 2.10 | Actualizar navegación principal | `src/components/layout/Header.astro` | [ ] Pendiente |
+
+#### Estructura de Pillar Page
+```
+/repairs/
+├── Hero: "Professional Home Repair Services in Charlotte"
+├── Intro: Por qué elegir IFIXX para reparaciones
+├── Service Grid: Cards linking to /repairs/plumbing/, etc.
+├── Service Areas: Links to /service-areas/*
+├── Trust Elements: Reviews, badges
+├── CTA: Request estimate
+└── FAQ: General repairs FAQ
+```
+
+#### Entregables Sprint 2
+- [ ] 3 Pillar Pages funcionales
+- [ ] Navegación actualizada
+- [ ] ItemList schema
+- [ ] Links bidireccionales (pillar ↔ services)
+
+---
+
+### 🎯 Sprint 3: Service Pages Restructure
+
+> **Prioridad:** 🟠 ALTA
+> **Agente Principal:** `astro-frontend-builder`
+> **Agente Soporte:** `local-seo-schema-specialist`
+
+**Objetivo:** Mover service pages bajo sus pillar parents y crear nuevos servicios faltantes.
+
+#### Fase 3A: Nuevos Service Pages (Remodeling)
+
+| # | Tarea | Archivo | Estado |
+|---|-------|---------|--------|
+| 3A.1 | Crear: Kitchen Remodeling | `src/content/services/kitchen-remodeling.md` | [ ] Pendiente |
+| 3A.2 | Crear: Bathroom Remodeling | `src/content/services/bathroom-remodeling.md` | [ ] Pendiente |
+| 3A.3 | Crear: Basement Finishing | `src/content/services/basement-finishing.md` | [ ] Pendiente |
+| 3A.4 | Crear: Flooring Installation | `src/content/services/flooring-installation.md` | [ ] Pendiente |
+| 3A.5 | Crear: Outdoor Living | `src/content/services/outdoor-living.md` | [ ] Pendiente |
+
+#### Fase 3B: Nuevos Service Pages (Repairs)
+
+| # | Tarea | Archivo | Estado |
+|---|-------|---------|--------|
+| 3B.1 | Crear: Drywall & Painting | `src/content/services/drywall-painting.md` | [ ] Pendiente |
+| 3B.2 | Crear: Furniture Assembly | `src/content/services/furniture-assembly.md` | [ ] Pendiente |
+| 3B.3 | Crear: TV Mounting | `src/content/services/tv-mounting.md` | [ ] Pendiente |
+
+#### Fase 3C: URL Restructure + Redirects
+
+| # | Tarea | Archivo | Estado |
+|---|-------|---------|--------|
+| 3C.1 | Actualizar schema de services con `pillar` field | `src/content/config.ts` | [ ] Pendiente |
+| 3C.2 | Crear template `/repairs/[serviceSlug].astro` | `src/pages/repairs/[serviceSlug].astro` | [ ] Pendiente |
+| 3C.3 | Crear template `/remodeling/[serviceSlug].astro` | `src/pages/remodeling/[serviceSlug].astro` | [ ] Pendiente |
+| 3C.4 | Configurar redirects 301 | `astro.config.mjs` o `_redirects` | [ ] Pendiente |
+| 3C.5 | Actualizar internal links en todo el sitio | Múltiples archivos | [ ] Pendiente |
+| 3C.6 | Deprecar `/services/[serviceSlug].astro` | Archivo legacy | [ ] Pendiente |
+
+#### Mapping de URLs (Redirects 301)
+
+| URL Actual | URL Nueva |
+|------------|-----------|
+| `/services/plumbing` | `/repairs/plumbing/` |
+| `/services/electrical` | `/repairs/electrical/` |
+| `/services/painting` | `/repairs/drywall-painting/` |
+| `/services/carpentry` | `/repairs/carpentry/` |
+| `/services/doors-windows` | `/repairs/doors-windows/` |
+| `/services/quick-fix` | `/repairs/quick-fixes/` |
+| `/services/` | `/repairs/` (o página de decisión) |
+
+#### Entregables Sprint 3
+- [ ] 8 nuevos service pages
+- [ ] Templates bajo `/repairs/` y `/remodeling/`
+- [ ] Redirects 301 configurados
+- [ ] Links actualizados site-wide
+- [ ] Sin 404s
+
+---
+
+### 🎯 Sprint 4: Segment Pages
+
+> **Prioridad:** 🟡 MEDIA
+> **Agente Principal:** `astro-frontend-builder`
+> **Agente Soporte:** `marketing-messaging-reviewer`
+
+**Objetivo:** Crear páginas específicas para homeowners (B2C) y property managers (B2B).
+
+#### Tareas
+
+| # | Tarea | Archivo | Estado |
+|---|-------|---------|--------|
+| 4.1 | Crear: For Homeowners | `src/pages/for-homeowners.astro` | [ ] Pendiente |
+| 4.2 | Crear: For Property Managers | `src/pages/for-property-managers.astro` | [ ] Pendiente |
+| 4.3 | Diseñar hero específico por segmento | Componentes | [ ] Pendiente |
+| 4.4 | Copiar beneficios específicos B2C | Contenido | [ ] Pendiente |
+| 4.5 | Copiar beneficios específicos B2B | Contenido | [ ] Pendiente |
+| 4.6 | Form específico para Property Managers | `src/components/forms/PropertyManagerForm.astro` | [ ] Pendiente |
+| 4.7 | Testimonials filtrados por segmento | Componentes | [ ] Pendiente |
+| 4.8 | Schema Organization para B2B | Template | [ ] Pendiente |
+| 4.9 | Agregar a navegación | Header/Footer | [ ] Pendiente |
+
+#### Diferencias de Messaging
+
+| Aspecto | For Homeowners | For Property Managers |
+|---------|----------------|----------------------|
+| Hero | "Your Trusted Home Repair Partner" | "Reliable Property Maintenance Partner" |
+| Pain Points | Stress, time, trust | Tenant complaints, vacancy costs, vendor reliability |
+| Benefits | Warranty, clean work, on-time | Volume discounts, priority scheduling, reporting |
+| CTA | "Get Free Estimate" | "Schedule Consultation" |
+| Social Proof | Family testimonials | Property manager testimonials |
+
+#### Entregables Sprint 4
+- [ ] 2 Segment Pages funcionales
+- [ ] Forms específicos
+- [ ] Messaging diferenciado
+- [ ] Links en navegación
+
+---
+
+### 🎯 Sprint 5: Internal Linking Strategy
+
+> **Prioridad:** 🟡 MEDIA
+> **Agente Principal:** `local-seo-schema-specialist`
+> **Agente Soporte:** `qa-consistency-reviewer`
+
+**Objetivo:** Implementar estructura de internal links que distribuya autoridad correctamente.
+
+#### Tareas
+
+| # | Tarea | Archivo | Estado |
+|---|-------|---------|--------|
+| 5.1 | Links Pillar → Services en cada pillar | Pillar pages | [ ] Pendiente |
+| 5.2 | Links Services → Pillar (breadcrumb + contextual) | Service pages | [ ] Pendiente |
+| 5.3 | Links Services → Locations | Service pages | [ ] Pendiente |
+| 5.4 | Links Locations → Services relevantes | Location pages | [ ] Pendiente |
+| 5.5 | Cross-links entre Locations cercanas | Location pages | [ ] Pendiente |
+| 5.6 | Footer: Top services + Top locations | Footer | [ ] Pendiente |
+| 5.7 | Sidebar/Related en blog posts | Blog template | [ ] Pendiente |
+| 5.8 | Auditoría de orphan pages | Todo el sitio | [ ] Pendiente |
+| 5.9 | Verificar anchor text variado | Todo el sitio | [ ] Pendiente |
+
+#### Estructura de Links
+
+```
+                    ┌─────────────┐
+                    │  HOMEPAGE   │
+                    └──────┬──────┘
+                           │
+        ┌──────────────────┼──────────────────┐
+        ▼                  ▼                  ▼
+   ┌─────────┐       ┌──────────┐       ┌──────────┐
+   │ REPAIRS │       │REMODELING│       │EMERGENCY │
+   │ (Pillar)│       │ (Pillar) │       │ (Pillar) │
+   └────┬────┘       └────┬─────┘       └────┬─────┘
+        │                 │                  │
+   ┌────┴────┐       ┌────┴────┐            │
+   ▼         ▼       ▼         ▼            ▼
+┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐    ┌─────────┐
+│Plumb.│ │Elect.│ │Kitch.│ │Bath. │    │24/7 Rep.│
+└──┬───┘ └──┬───┘ └──┬───┘ └──┬───┘    └─────────┘
+   │        │        │        │
+   └────────┴────────┴────────┘
+                │
+        ┌───────┴───────┐
+        ▼               ▼
+   ┌─────────┐    ┌──────────┐
+   │Charlotte│◄──►│Ballantyne│
+   └─────────┘    └──────────┘
+        ▲               ▲
+        │               │
+   ┌────┴────┐    ┌─────┴─────┐
+   │Matthews │◄──►│  Waxhaw   │
+   └─────────┘    └───────────┘
+```
+
+#### Entregables Sprint 5
+- [ ] Flujo de links verificado
+- [ ] Sin orphan pages
+- [ ] Anchor text variado
+- [ ] Breadcrumbs consistentes
+
+---
+
+### 🎯 Sprint 6: QA, Testing & Launch
+
+> **Prioridad:** 🟢 FINAL
+> **Agentes:** `qa-consistency-reviewer`, `local-seo-schema-specialist`
+
+#### Tareas
+
+| # | Tarea | Estado |
+|---|-------|--------|
+| 6.1 | Verificar todos los redirects 301 | [ ] Pendiente |
+| 6.2 | Crawl completo con Screaming Frog o similar | [ ] Pendiente |
+| 6.3 | Validar todos los schemas con Schema.org validator | [ ] Pendiente |
+| 6.4 | Lighthouse audit en todas las nuevas páginas | [ ] Pendiente |
+| 6.5 | Test mobile en dispositivos reales | [ ] Pendiente |
+| 6.6 | Verificar sitemap.xml incluye nuevas URLs | [ ] Pendiente |
+| 6.7 | Verificar robots.txt permite nuevas rutas | [ ] Pendiente |
+| 6.8 | Submit sitemap actualizado a Google Search Console | [ ] Pendiente |
+| 6.9 | Monitorear 404s post-launch (1 semana) | [ ] Pendiente |
+
+#### Checklist Pre-Launch por Página Nueva
+
+| Check | Descripción |
+|-------|-------------|
+| [ ] | Meta title único (≤60 chars) |
+| [ ] | Meta description única (≤160 chars) |
+| [ ] | H1 único con keyword principal |
+| [ ] | Schema JSON-LD válido |
+| [ ] | OG tags completos |
+| [ ] | Breadcrumb funcional |
+| [ ] | Internal links (min 3 entrantes, min 2 salientes) |
+| [ ] | Imágenes con alt text |
+| [ ] | CTA visible above the fold |
+| [ ] | Mobile responsive |
+| [ ] | Lighthouse ≥85 mobile |
+
+---
+
+### 📅 Timeline Estimado
+
+| Sprint | Descripción | Dependencias |
+|--------|-------------|--------------|
+| **Sprint 1** | Location Pages | Ninguna |
+| **Sprint 2** | Pillar Pages | Sprint 1 (para links) |
+| **Sprint 3** | Service Restructure | Sprint 2 (pillar parents) |
+| **Sprint 4** | Segment Pages | Sprint 1-3 (links) |
+| **Sprint 5** | Internal Linking | Sprint 1-4 (todas las páginas) |
+| **Sprint 6** | QA & Launch | Sprint 1-5 |
+
+---
+
+### 📈 Métricas de Éxito
+
+| Métrica | Actual | Objetivo |
+|---------|--------|----------|
+| Páginas indexadas | ~20 | 50+ |
+| Location pages | 1 | 6 |
+| Pillar pages | 0 | 3 |
+| Service pages | 6 | 14 |
+| Segment pages | 0 | 2 |
+| Internal links promedio | ~3 | 8+ |
+| Keywords locales ranking | ? | Top 10 para "handyman [city]" |
+
+---
+
+### 🔗 Documentos Relacionados
+
+- **Estrategia Completa:** `notes/Local SEO Content and Architecture Strategy for IFIXX.md`
+- **Positioning:** `notes/positioning-messaging-strategy-v2-english copy.md`
+- **Visual Identity:** `notes/visual_identity_guide_v2.md`
+
+---
+
 ## 📚 Reference
 
-- **Context Document:** `Context.md`
+- **Context Document:** `notes/Context.md`
 - **Design Assets:** `/public/images/`
 - **Content:** `/src/content/`
