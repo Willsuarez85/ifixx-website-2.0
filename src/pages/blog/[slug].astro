@@ -18,13 +18,18 @@ interface Props {
 const { post } = Astro.props;
 const { Content } = await post.render();
 
-const { title, date, excerpt, category, tags, seo } = post.data;
+const { title, date, excerpt, category, tags, coverImage, seo } = post.data;
 
 // Get related posts (same category, exclude current)
 const allPosts = await getCollection('posts');
 const relatedPosts = allPosts
   .filter(p => p.slug !== post.slug && p.data.category === category)
   .slice(0, 3);
+
+// Use cover image from post data, fallback to default
+const postImage = coverImage
+  ? `https://ifixxnc.com${coverImage}`
+  : "https://ifixxnc.com/images/ui/hero-bg.jpg";
 
 // BlogPosting schema (enhanced for SEO)
 const blogPostSchema = {
@@ -36,22 +41,31 @@ const blogPostSchema = {
   },
   "headline": title,
   "description": excerpt,
-  "image": "https://ifixxnc.com/images/og-default.png",
+  "image": {
+    "@type": "ImageObject",
+    "url": postImage,
+    "width": 1200,
+    "height": 630
+  },
   "url": `https://ifixxnc.com/blog/${post.slug}`,
   "datePublished": date.toISOString(),
   "dateModified": date.toISOString(),
   "author": {
     "@type": "Organization",
+    "@id": "https://ifixxnc.com/#business",
     "name": "iFixx Remodeling & Handyman Services",
     "url": "https://ifixxnc.com"
   },
   "publisher": {
     "@type": "Organization",
+    "@id": "https://ifixxnc.com/#business",
     "name": "iFixx Remodeling & Handyman Services",
     "url": "https://ifixxnc.com",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://ifixxnc.com/images/logo.svg"
+      "url": "https://ifixxnc.com/images/logo.svg",
+      "width": 200,
+      "height": 60
     }
   },
   "articleSection": category,

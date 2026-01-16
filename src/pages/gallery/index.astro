@@ -117,6 +117,27 @@ const breadcrumbSchema = {
     }
   ]
 };
+
+// ImageGallery schema for rich snippets
+const imageGallerySchema = {
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": seoTitle,
+  "description": seoDescription,
+  "url": "https://ifixxnc.com/gallery",
+  "numberOfItems": allImages.length,
+  "image": allImages.slice(0, 20).map((img) => ({
+    "@type": "ImageObject",
+    "contentUrl": `https://ifixxnc.com${img.src}`,
+    "name": img.alt,
+    "description": `${img.alt} - ${img.category} project by iFixx in Charlotte, NC`
+  })),
+  "creator": {
+    "@type": "Organization",
+    "@id": "https://ifixxnc.com/#business",
+    "name": "iFixx Remodeling & Handyman Services"
+  }
+};
 ---
 
 <BaseLayout
@@ -126,6 +147,7 @@ const breadcrumbSchema = {
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(imageGallerySchema)} />
   </Fragment>
 
   <!-- Hero Section -->

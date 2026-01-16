@@ -24,7 +24,13 @@ interface Props {
 const { service } = Astro.props;
 const { Content } = await service.render();
 
-const { title, category, summary, heroImage, bullets, signs, processSteps, faqs, seo } = service.data;
+const { title, category, summary, heroImage, bullets, signs, processSteps, faqs, relatedServices, seo } = service.data;
+
+// Get all services for related services lookup
+const allServices = await getCollection('services');
+const relatedServicesList = relatedServices
+  ? allServices.filter(s => relatedServices.includes(s.slug) && s.slug !== service.slug)
+  : [];
 
 // Map service slugs to hero images (using impactful portfolio images)
 const serviceHeroImages: Record<string, string> = {
@@ -55,16 +61,28 @@ const serviceProjectImages: Record<string, string> = {
 const heroImageSrc = heroImage || serviceHeroImages[service.slug] || '/images/ui/hero-bg.jpg';
 const projectImageSrc = serviceProjectImages[service.slug] || '/images/projects/Ifixx-portfolio3.webp';
 
-// Service schema
+// Service schema with complete provider details
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": title,
   "description": seo.description,
+  "serviceType": title,
+  "url": `https://ifixxnc.com/services/${service.slug}`,
+  "image": `https://ifixxnc.com${heroImageSrc}`,
   "provider": {
     "@type": "HomeAndConstructionBusiness",
+    "@id": "https://ifixxnc.com/#business",
     "name": "iFixx Remodeling & Handyman Services",
-    "url": "https://ifixxnc.com"
+    "url": "https://ifixxnc.com",
+    "telephone": "+1-980-391-6833",
+    "email": "ifixx.hs@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Charlotte",
+      "addressRegion": "NC",
+      "addressCountry": "US"
+    }
   },
   "areaServed": {
     "@type": "City",
@@ -73,6 +91,12 @@ const serviceSchema = {
       "@type": "State",
       "name": "North Carolina"
     }
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "USD",
+    "price": "Contact for Quote"
   }
 };
 
@@ -418,6 +442,44 @@ const categoryLabels: Record<string, string> = {
               </details>
             ))}
           </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Related Services -->
+  {relatedServicesList.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-10">
+          <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-3">
+            Related Services
+          </h2>
+          <p class="text-neutral-600">
+            Explore other services that complement your project needs.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {relatedServicesList.map((relatedService) => (
+            <a
+              href={`/services/${relatedService.slug}`}
+              class="group p-6 bg-neutral-50 rounded-xl hover:bg-primary-50 transition-colors border border-neutral-100 hover:border-primary-200"
+            >
+              <h3 class="text-lg font-heading font-semibold text-neutral-900 group-hover:text-primary-600 mb-2 transition-colors">
+                {relatedService.data.title}
+              </h3>
+              <p class="text-sm text-neutral-600 line-clamp-2 mb-3">
+                {relatedService.data.summary}
+              </p>
+              <span class="inline-flex items-center text-primary-600 text-sm font-medium">
+                Learn more
+                <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </a>
+          ))}
         </div>
       </div>
     </section>

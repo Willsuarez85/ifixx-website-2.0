@@ -7,16 +7,21 @@ const seoDescription = "Family-owned and operated since 2019. iFixx has been ser
 const phoneNumber = "(980) 391-6833";
 const phoneHref = "tel:+19803916833";
 
-// Organization Schema for About Page
+// Organization Schema for About Page (using consistent @id with other pages)
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
-  "@id": "https://ifixxnc.com/#organization",
+  "@id": "https://ifixxnc.com/#business",
   "name": "iFixx Remodeling & Handyman Services",
   "alternateName": "iFixx",
   "description": seoDescription,
   "url": "https://ifixxnc.com",
-  "logo": "https://ifixxnc.com/images/logo.svg",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://ifixxnc.com/images/logo.svg",
+    "width": 200,
+    "height": 60
+  },
   "foundingDate": "2019",
   "founder": {
     "@type": "Person",

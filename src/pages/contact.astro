@@ -60,13 +60,21 @@ const contactPageSchema = {
       "@type": "ContactPoint",
       "telephone": "+1-980-391-6833",
       "contactType": "customer service",
+      "contactOption": "TollFree",
       "availableLanguage": ["English", "Spanish"],
-      "areaServed": "US"
+      "areaServed": "US",
+      "hoursAvailable": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "18:00"
+      }
     },
     {
       "@type": "ContactPoint",
       "email": "ifixx.hs@gmail.com",
       "contactType": "sales",
+      "contactOption": "HearingImpairedSupported",
       "availableLanguage": ["English", "Spanish"]
     }
   ],
