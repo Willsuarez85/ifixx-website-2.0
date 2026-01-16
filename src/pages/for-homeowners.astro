@@ -131,9 +131,21 @@ const benefits = [
   </Fragment>
 
   <!-- Hero Section with Form -->
-  <section class="relative bg-neutral-900 py-16 lg:py-24">
-    <div class="absolute inset-0 bg-gradient-to-br from-primary-600/20 to-transparent"></div>
-    <div class="container relative">
+  <section class="relative bg-neutral-900 py-16 lg:py-24 overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/images/projects/home-addition.webp"
+        alt="Beautiful home exterior in Charlotte NC suburb"
+        class="w-full h-full object-cover"
+        width="1920"
+        height="1080"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-neutral-900/95 via-neutral-900/85 to-neutral-900/70"></div>
+    </div>
+    <div class="container relative z-10">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <!-- Hero Content -->
         <div>
@@ -387,7 +399,7 @@ const benefits = [
         Get a free, no-obligation estimate for your home project. We'll get back to you within 24 hours.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="btn bg-white text-primary-600 hover:bg-neutral-100 text-lg px-8 py-4">
+        <a href="/contact" class="btn btn-emergency text-lg px-8 py-4">
           Request Free Estimate
         </a>
         <a href="tel:+19803916833" class="btn btn-outline-light text-lg px-8 py-4">
