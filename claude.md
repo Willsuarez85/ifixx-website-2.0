@@ -1,7 +1,7 @@
 # iFixx Website 2.0 - Development Documentation
 
-> **Version:** v1.5
-> **Last Updated:** January 16, 2026
+> **Version:** v1.6
+> **Last Updated:** January 16, 2026 (Sprint 1 Location Pages Completado)
 > **Framework:** Astro + Tailwind CSS
 > **Primary Market:** Charlotte, NC
 > **Goal:** Lead Generation (Calls + Webhook Forms)
@@ -50,11 +50,12 @@ ifixx-website/
 │   │   └── forms/           # ContactForm, QuickEstimate
 │   ├── content/
 │   │   ├── services/        # Service MDX files
-│   │   ├── cities/          # City MDX files
+│   │   ├── cities/          # City/Location MDX files (8 ubicaciones)
 │   │   └── posts/           # Blog posts
 │   ├── layouts/
 │   │   ├── BaseLayout.astro
 │   │   ├── ServiceLayout.astro
+│   │   ├── ServiceAreaLayout.astro  # ✅ NUEVO - Sprint 1
 │   │   └── BlogLayout.astro
 │   ├── pages/
 │   │   ├── index.astro
@@ -64,6 +65,9 @@ ifixx-website/
 │   │   │   └── [slug].astro
 │   │   ├── services/           # ⚠️ LEGACY - será migrado
 │   │   │   └── [serviceSlug].astro
+│   │   ├── service-areas/      # ✅ NUEVO - Sprint 1
+│   │   │   ├── index.astro
+│   │   │   └── [locationSlug].astro
 │   │   ├── api/
 │   │   │   └── lead.ts
 │   │   └── [citySlug]/
@@ -888,7 +892,7 @@ Todas las referencias de imágenes han sido actualizadas para usar el portfolio 
 > **Objetivo:** Migrar de estructura plana a modelo Pillar/Cluster para dominar SEO local en Charlotte, NC
 > **Documento de Referencia:** `notes/Local SEO Content and Architecture Strategy for IFIXX.md`
 > **Fecha de Inicio:** Enero 2026
-> **Estado:** 🔴 NO INICIADO
+> **Estado:** 🟡 EN PROGRESO (Sprint 1 Completado)
 
 ---
 
@@ -927,55 +931,76 @@ ESTRUCTURA ACTUAL:                    ESTRUCTURA OBJETIVO:
 
 ---
 
-### 🎯 Sprint 1: Location Pages (MAYOR IMPACTO)
+### ✅ Sprint 1: Location Pages (COMPLETADO - Enero 16, 2026)
 
-> **Prioridad:** 🔴 CRÍTICA
-> **Agente Principal:** `local-seo-schema-specialist`
-> **Agente Soporte:** `astro-frontend-builder`
+> **Prioridad:** ✅ COMPLETADO
+> **Agente Principal:** `astro-frontend-builder`
 
 **Objetivo:** Crear páginas dedicadas por ciudad/área para capturar búsquedas locales como "handyman ballantyne", "plumber matthews nc".
 
-#### Tareas
+**Decisión de implementación:** Se extendió la colección `cities` existente en lugar de crear nueva colección `locations` (menos redundancia, más mantenible).
+
+#### Tareas Completadas
 
 | # | Tarea | Archivo | Estado |
 |---|-------|---------|--------|
-| 1.1 | Crear Content Collection para locations | `src/content/config.ts` | [ ] Pendiente |
-| 1.2 | Crear contenido para Charlotte | `src/content/locations/charlotte.md` | [ ] Pendiente |
-| 1.3 | Crear contenido para Ballantyne | `src/content/locations/ballantyne.md` | [ ] Pendiente |
-| 1.4 | Crear contenido para Matthews | `src/content/locations/matthews.md` | [ ] Pendiente |
-| 1.5 | Crear contenido para Waxhaw | `src/content/locations/waxhaw.md` | [ ] Pendiente |
-| 1.6 | Crear contenido para Mint Hill | `src/content/locations/mint-hill.md` | [ ] Pendiente |
-| 1.7 | Crear contenido para Pineville | `src/content/locations/pineville.md` | [ ] Pendiente |
-| 1.8 | Crear template de Location Page | `src/pages/service-areas/[locationSlug].astro` | [ ] Pendiente |
-| 1.9 | Implementar LocalBusiness schema por ubicación | Template | [ ] Pendiente |
-| 1.10 | Crear ServiceAreaLayout | `src/layouts/ServiceAreaLayout.astro` | [ ] Pendiente |
-| 1.11 | Actualizar página índice service-areas | `src/pages/service-areas/index.astro` | [ ] Pendiente |
-| 1.12 | Agregar links en footer | `src/components/layout/Footer.astro` | [ ] Pendiente |
+| 1.1 | Extender schema cities collection | `src/content/config.ts` | ✅ Completado |
+| 1.2 | Actualizar contenido Charlotte | `src/content/cities/charlotte.md` | ✅ Completado |
+| 1.3 | Crear contenido Ballantyne (nuevo) | `src/content/cities/ballantyne.md` | ✅ Completado |
+| 1.4 | Actualizar contenido Matthews | `src/content/cities/matthews.md` | ✅ Completado |
+| 1.5 | Actualizar contenido Waxhaw | `src/content/cities/waxhaw.md` | ✅ Completado |
+| 1.6 | Crear contenido Mint Hill (nuevo) | `src/content/cities/mint-hill.md` | ✅ Completado |
+| 1.7 | Actualizar contenido Pineville | `src/content/cities/pineville.md` | ✅ Completado |
+| 1.8 | Actualizar contenido Monroe | `src/content/cities/monroe.md` | ✅ Completado |
+| 1.9 | Actualizar contenido Rock Hill (SC) | `src/content/cities/rock-hill.md` | ✅ Completado |
+| 1.10 | Crear template Location Page | `src/pages/service-areas/[locationSlug].astro` | ✅ Completado |
+| 1.11 | Implementar LocalBusiness schema | `src/layouts/ServiceAreaLayout.astro` | ✅ Completado |
+| 1.12 | Crear ServiceAreaLayout | `src/layouts/ServiceAreaLayout.astro` | ✅ Completado |
+| 1.13 | Actualizar página índice service-areas | `src/pages/service-areas/index.astro` | ✅ Completado |
+| 1.14 | Agregar links en footer | `src/components/layout/Footer.astro` | ✅ Completado |
 
-#### Schema para Location Content Collection
-```yaml
-# src/content/locations/*.md
-slug: string           # URL slug (e.g., "ballantyne")
-name: string           # Display name (e.g., "Ballantyne")
-region: string         # NC o SC
-zipCodes: string[]     # ZIP codes servidos
-neighborhoods: string[] # Neighborhoods dentro del área
-description: string    # Intro paragraph único
-highlights: string[]   # Bullet points locales
-coordinates:
-  lat: number
-  lng: number
-seo:
-  title: string
-  description: string
+#### Schema Implementado (Cities Collection)
+```typescript
+// src/content/config.ts - citiesCollection
+{
+  name: z.string(),
+  state: z.string(),
+  region: z.enum(['NC', 'SC']),
+  type: z.enum(['city', 'neighborhood']).default('city'),
+  parentCity: z.string().optional(),
+  localizedIntro: z.string(),
+  description: z.string(),
+  neighborhoods: z.array(z.string()).optional(),
+  highlights: z.array(z.string()).optional(),
+  zipCodes: z.array(z.string()).optional(),
+  coordinates: z.object({ lat: z.number(), lng: z.number() }).optional(),
+  servicesHighlighted: z.array(z.string()).optional(),
+  seo: z.object({ title: z.string(), description: z.string() })
+}
 ```
 
-#### Entregables Sprint 1
-- [ ] 6 Location Pages funcionales
-- [ ] LocalBusiness schema en cada página
-- [ ] Breadcrumb schema
-- [ ] Links desde footer
-- [ ] Internal links a services
+#### Páginas Generadas (8 location pages + 48 city+service combos)
+| Ruta | Descripción |
+|------|-------------|
+| `/service-areas` | Índice con ItemList schema |
+| `/service-areas/charlotte` | Charlotte, NC |
+| `/service-areas/ballantyne` | Ballantyne, NC (neighborhood badge) |
+| `/service-areas/matthews` | Matthews, NC |
+| `/service-areas/waxhaw` | Waxhaw, NC |
+| `/service-areas/mint-hill` | Mint Hill, NC |
+| `/service-areas/pineville` | Pineville, NC |
+| `/service-areas/monroe` | Monroe, NC |
+| `/service-areas/rock-hill` | Rock Hill, SC (geo: US-SC) |
+
+#### Entregables Sprint 1 ✅
+- [x] 8 Location Pages funcionales (2 nuevas: Ballantyne, Mint Hill)
+- [x] LocalBusiness schema con coordinates en cada página
+- [x] Breadcrumb schema en cada página
+- [x] ItemList schema en página índice
+- [x] Links desde footer (8 ubicaciones)
+- [x] Internal links a services desde cada location
+- [x] Geo meta tags dinámicos (US-NC / US-SC)
+- [x] Neighborhood badge para Ballantyne
 
 ---
 
@@ -1223,28 +1248,29 @@ seo:
 
 ### 📅 Timeline Estimado
 
-| Sprint | Descripción | Dependencias |
-|--------|-------------|--------------|
-| **Sprint 1** | Location Pages | Ninguna |
-| **Sprint 2** | Pillar Pages | Sprint 1 (para links) |
-| **Sprint 3** | Service Restructure | Sprint 2 (pillar parents) |
-| **Sprint 4** | Segment Pages | Sprint 1-3 (links) |
-| **Sprint 5** | Internal Linking | Sprint 1-4 (todas las páginas) |
-| **Sprint 6** | QA & Launch | Sprint 1-5 |
+| Sprint | Descripción | Dependencias | Estado |
+|--------|-------------|--------------|--------|
+| **Sprint 1** | Location Pages | Ninguna | ✅ Completado |
+| **Sprint 2** | Pillar Pages | Sprint 1 (para links) | 🔴 Pendiente |
+| **Sprint 3** | Service Restructure | Sprint 2 (pillar parents) | 🔴 Pendiente |
+| **Sprint 4** | Segment Pages | Sprint 1-3 (links) | 🔴 Pendiente |
+| **Sprint 5** | Internal Linking | Sprint 1-4 (todas las páginas) | 🔴 Pendiente |
+| **Sprint 6** | QA & Launch | Sprint 1-5 | 🔴 Pendiente |
 
 ---
 
 ### 📈 Métricas de Éxito
 
-| Métrica | Actual | Objetivo |
-|---------|--------|----------|
-| Páginas indexadas | ~20 | 50+ |
-| Location pages | 1 | 6 |
-| Pillar pages | 0 | 3 |
-| Service pages | 6 | 14 |
-| Segment pages | 0 | 2 |
-| Internal links promedio | ~3 | 8+ |
-| Keywords locales ranking | ? | Top 10 para "handyman [city]" |
+| Métrica | Antes | Actual | Objetivo |
+|---------|-------|--------|----------|
+| Páginas indexadas | ~20 | ~70 | 50+ ✅ |
+| Location pages | 1 | 8 | 6 ✅ |
+| Pillar pages | 0 | 0 | 3 |
+| Service pages | 6 | 6 | 14 |
+| Segment pages | 0 | 0 | 2 |
+| City+Service combos | 36 | 48 | 48 ✅ |
+| Internal links promedio | ~3 | ~5 | 8+ |
+| Keywords locales ranking | ? | ? | Top 10 para "handyman [city]" |
 
 ---
 

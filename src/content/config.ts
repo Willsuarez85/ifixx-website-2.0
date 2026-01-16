@@ -26,14 +26,25 @@ const servicesCollection = defineCollection({
   })
 });
 
-// Cities Collection
+// Cities Collection (also serves as Locations for Service Areas)
 const citiesCollection = defineCollection({
   type: 'content',
   schema: z.object({
     name: z.string(),
     state: z.string(),
+    region: z.enum(['NC', 'SC']),
+    type: z.enum(['city', 'neighborhood']).default('city'),
+    parentCity: z.string().optional(), // For neighborhoods, reference parent city slug
     localizedIntro: z.string(),
+    description: z.string(), // Longer description for the location page
     neighborhoods: z.array(z.string()).optional(),
+    highlights: z.array(z.string()).optional(), // Key selling points for the area
+    zipCodes: z.array(z.string()).optional(),
+    coordinates: z.object({
+      lat: z.number(),
+      lng: z.number()
+    }).optional(),
+    servicesHighlighted: z.array(z.string()).optional(), // Featured services for this location
     seo: z.object({
       title: z.string(),
       description: z.string()

@@ -20,12 +20,14 @@ const companyLinks = [
 ];
 
 const serviceAreas = [
-  'Charlotte, NC',
-  'Matthews, NC',
-  'Waxhaw, NC',
-  'Rock Hill, SC',
-  'Pineville, NC',
-  'Monroe, NC'
+  { name: 'Charlotte, NC', href: '/service-areas/charlotte' },
+  { name: 'Ballantyne, NC', href: '/service-areas/ballantyne' },
+  { name: 'Matthews, NC', href: '/service-areas/matthews' },
+  { name: 'Waxhaw, NC', href: '/service-areas/waxhaw' },
+  { name: 'Mint Hill, NC', href: '/service-areas/mint-hill' },
+  { name: 'Pineville, NC', href: '/service-areas/pineville' },
+  { name: 'Monroe, NC', href: '/service-areas/monroe' },
+  { name: 'Rock Hill, SC', href: '/service-areas/rock-hill' }
 ];
 
 const phoneNumber = '(980) 391-6833';
@@ -146,7 +148,14 @@ const socialLinks = [
         <h4 class="text-white font-heading font-semibold text-lg mb-4">Service Areas</h4>
         <ul class="space-y-2">
           {serviceAreas.map((area) => (
-            <li class="text-neutral-400 text-sm">{area}</li>
+            <li>
+              <a
+                href={area.href}
+                class="text-neutral-400 hover:text-white transition-colors text-sm"
+              >
+                {area.name}
+              </a>
+            </li>
           ))}
         </ul>
       </div>
