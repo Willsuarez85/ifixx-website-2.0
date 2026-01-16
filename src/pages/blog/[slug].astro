@@ -26,6 +26,25 @@ const relatedPosts = allPosts
   .filter(p => p.slug !== post.slug && p.data.category === category)
   .slice(0, 3);
 
+// Get services for the sidebar
+const allServices = await getCollection('services');
+
+// Helper function to get service URL based on pillar
+const getServiceUrl = (serviceSlug: string, pillar?: string) => {
+  const pillars: Record<string, string> = {
+    'repairs': '/repairs/',
+    'remodeling': '/remodeling/',
+    'emergency-services': '/emergency-services/'
+  };
+  const basePath = pillar ? pillars[pillar] || '/services/' : '/services/';
+  return `${basePath}${serviceSlug}`;
+};
+
+// Get highlighted services (mix from each pillar)
+const repairServices = allServices.filter(s => s.data.pillar === 'repairs').slice(0, 3);
+const remodelingServices = allServices.filter(s => s.data.pillar === 'remodeling').slice(0, 2);
+const featuredServices = [...repairServices, ...remodelingServices];
+
 // Use cover image from post data, fallback to default
 const postImage = coverImage
   ? `https://ifixxnc.com${coverImage}`
@@ -212,6 +231,54 @@ const breadcrumbSchema = {
         </div>
       </section>
     )}
+
+    <!-- Related Services -->
+    <section class="section">
+      <div class="container">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4 text-center">
+            Our Services
+          </h2>
+          <p class="text-neutral-600 text-center mb-8 max-w-2xl mx-auto">
+            Need help with a project? We offer expert repair and remodeling services throughout Charlotte.
+          </p>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {featuredServices.map((service) => (
+              <a
+                href={getServiceUrl(service.slug, service.data.pillar)}
+                class="group p-4 bg-neutral-50 rounded-xl border border-neutral-200 hover:border-primary-300 hover:bg-primary-50 transition-all text-center"
+              >
+                <h3 class="font-medium text-neutral-900 group-hover:text-primary-600 transition-colors text-sm">
+                  {service.data.title}
+                </h3>
+              </a>
+            ))}
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
+            <a href="/repairs" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm">
+              All Repair Services
+              <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="/remodeling" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm">
+              All Remodeling Services
+              <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="/emergency-services" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm">
+              Emergency Services
+              <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </article>
 
   <!-- Final CTA -->

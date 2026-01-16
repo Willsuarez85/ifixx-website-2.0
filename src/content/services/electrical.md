@@ -1,6 +1,7 @@
 ---
 title: "Electrical Services"
 category: "handyman"
+pillar: "repairs"
 summary: "Professional electrical repairs, outlet installation, lighting upgrades, panel work, and electrical safety inspections in Charlotte, NC."
 heroImage: "/images/services/electrical.webp"
 bullets:

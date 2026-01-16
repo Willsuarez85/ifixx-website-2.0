@@ -6,6 +6,7 @@ const servicesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     category: z.enum(['emergency', 'handyman', 'remodeling']),
+    pillar: z.enum(['repairs', 'remodeling', 'emergency-services']), // URL pillar for SEO structure
     summary: z.string(),
     heroImage: z.string().optional(),
     bullets: z.array(z.string()).optional(),

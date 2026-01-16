@@ -20,6 +20,41 @@ const { Content } = await city.render();
 // Get all services to link from this location
 const services = await getCollection('services');
 
+// Get all cities for cross-linking
+const allCities = await getCollection('cities');
+const nearbyCities = allCities.filter(c => c.slug !== city.slug).sort((a, b) => {
+  // Sort: Charlotte first, then by state (NC before SC), then alphabetically
+  if (a.slug === 'charlotte') return -1;
+  if (b.slug === 'charlotte') return 1;
+  if (a.data.region !== b.data.region) return a.data.region === 'NC' ? -1 : 1;
+  return a.data.name.localeCompare(b.data.name);
+});
+
+// Pillar pages with descriptions
+const pillarPages = [
+  {
+    slug: 'repairs',
+    name: 'Home Repairs',
+    description: 'Plumbing, electrical, carpentry, painting, and more',
+    href: '/repairs/',
+    icon: 'M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3'
+  },
+  {
+    slug: 'remodeling',
+    name: 'Remodeling',
+    description: 'Kitchens, bathrooms, basements, and outdoor living',
+    href: '/remodeling/',
+    icon: 'M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25'
+  },
+  {
+    slug: 'emergency-services',
+    name: 'Emergency Services',
+    description: '24/7 urgent repairs when you need them most',
+    href: '/emergency-services/',
+    icon: 'M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z'
+  }
+];
+
 // Service display mapping
 const serviceDisplayNames: Record<string, string> = {
   'plumbing': 'Plumbing Services',
@@ -222,6 +257,90 @@ const locationType = city.data.type === 'neighborhood' ? 'Neighborhood' : 'City'
     <div class="container">
       <div class="max-w-3xl mx-auto prose prose-lg prose-neutral">
         <Content />
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Categories (Pillar Links) -->
+  <section class="section bg-neutral-50">
+    <div class="container">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-heading font-bold text-neutral-900 mb-4 text-center">
+          Explore Our Service Categories
+        </h2>
+        <p class="text-lg text-neutral-600 mb-10 text-center max-w-2xl mx-auto">
+          Whether you need a quick fix or a complete transformation, we have the expertise to help.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {pillarPages.map((pillar) => (
+            <a
+              href={pillar.href}
+              class="group bg-white rounded-xl p-6 shadow-sm border border-neutral-200 hover:border-primary-300 hover:shadow-md transition-all"
+            >
+              <div class="w-12 h-12 rounded-lg bg-primary-100 flex items-center justify-center mb-4 group-hover:bg-primary-500 transition-colors">
+                <svg class="w-6 h-6 text-primary-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={pillar.icon} />
+                </svg>
+              </div>
+              <h3 class="text-xl font-heading font-bold text-neutral-900 mb-2 group-hover:text-primary-600 transition-colors">
+                {pillar.name}
+              </h3>
+              <p class="text-neutral-600 text-sm mb-3">
+                {pillar.description}
+              </p>
+              <span class="inline-flex items-center text-primary-600 text-sm font-medium">
+                View all services
+                <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nearby Service Areas (Cross-links) -->
+  <section class="section">
+    <div class="container">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-heading font-bold text-neutral-900 mb-4 text-center">
+          We Also Serve Nearby Areas
+        </h2>
+        <p class="text-lg text-neutral-600 mb-10 text-center max-w-2xl mx-auto">
+          In addition to {city.data.name}, our team provides service throughout the Charlotte metro area.
+        </p>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {nearbyCities.map((nearbyCity) => (
+            <a
+              href={`/service-areas/${nearbyCity.slug}`}
+              class="group p-4 bg-neutral-50 rounded-xl border border-neutral-200 hover:border-primary-300 hover:bg-primary-50 transition-all text-center"
+            >
+              <div class="flex items-center justify-center gap-2">
+                <svg class="w-4 h-4 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span class="font-medium text-neutral-900 group-hover:text-primary-600 transition-colors">
+                  {nearbyCity.data.name}
+                </span>
+              </div>
+              <span class="text-xs text-neutral-500">{nearbyCity.data.state}</span>
+            </a>
+          ))}
+        </div>
+
+        <div class="text-center mt-8">
+          <a href="/service-areas" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium">
+            View all service areas
+            <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>

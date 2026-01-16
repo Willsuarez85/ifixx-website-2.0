@@ -3,33 +3,97 @@ const currentPath = Astro.url.pathname;
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
+  {
+    href: '/services',
+    label: 'Services',
+    dropdown: [
+      { href: '/repairs', label: 'Home Repairs', description: 'Plumbing, electrical, carpentry & more' },
+      { href: '/remodeling', label: 'Remodeling', description: 'Kitchens, bathrooms, basements' },
+      { href: '/emergency-services', label: '24/7 Emergency', description: 'Urgent repairs anytime', emergency: true },
+      { href: '/services', label: 'All Services', description: 'View complete list' }
+    ]
+  },
+  {
+    href: '/for-homeowners',
+    label: 'Who We Serve',
+    dropdown: [
+      { href: '/for-homeowners', label: 'For Homeowners', description: 'Residential repair & remodel services' },
+      { href: '/for-property-managers', label: 'For Property Managers', description: 'Commercial maintenance solutions' }
+    ]
+  },
+  { href: '/service-areas', label: 'Service Areas' },
   { href: '/gallery', label: 'Gallery' },
-  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' }
 ];
+
+const isActivePath = (href: string) => {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+};
 ---
 
 <header class="sticky top-0 z-50 bg-neutral-800/95 backdrop-blur-sm border-b border-neutral-700 shadow-xl">
   <nav class="container">
     <div class="flex items-center justify-between h-16 lg:h-20">
-        <!-- Logo -->
-        <a href="/" class="flex items-center">
-          <img src="/images/ui/logo.png" alt="iFixx Logo" class="h-12 w-auto" />
-        </a>
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <img src="/images/ui/logo.png" alt="iFixx Logo" class="h-12 w-auto" />
+      </a>
 
       <!-- Desktop Navigation -->
-      <div class="hidden lg:flex items-center gap-8">
+      <div class="hidden lg:flex items-center gap-6">
         {navLinks.map((link) => (
-          <a 
-            href={link.href}
-            class:list={[
-              "text-sm font-bold uppercase tracking-wide transition-colors hover:text-primary-500",
-              currentPath === link.href ? "text-primary-500" : "text-white"
-            ]}
-          >
-            {link.label}
-          </a>
+          link.dropdown ? (
+            <div class="relative group">
+              <button
+                class:list={[
+                  "flex items-center gap-1 text-sm font-bold uppercase tracking-wide transition-colors hover:text-primary-500 py-6",
+                  isActivePath(link.href) ? "text-primary-500" : "text-white"
+                ]}
+              >
+                {link.label}
+                <svg class="w-4 h-4 group-hover:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              <!-- Dropdown Menu -->
+              <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="bg-white rounded-xl shadow-2xl border border-neutral-200 py-2 min-w-[280px]">
+                  {link.dropdown.map((item) => (
+                    <a
+                      href={item.href}
+                      class:list={[
+                        "flex flex-col px-4 py-3 hover:bg-neutral-50 transition-colors",
+                        item.emergency && "bg-red-50 hover:bg-red-100"
+                      ]}
+                    >
+                      <span class:list={[
+                        "font-bold text-sm",
+                        item.emergency ? "text-red-600" : "text-neutral-900"
+                      ]}>
+                        {item.emergency && (
+                          <span class="inline-block w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></span>
+                        )}
+                        {item.label}
+                      </span>
+                      <span class="text-xs text-neutral-500">{item.description}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <a
+              href={link.href}
+              class:list={[
+                "text-sm font-bold uppercase tracking-wide transition-colors hover:text-primary-500",
+                isActivePath(link.href) ? "text-primary-500" : "text-white"
+              ]}
+            >
+              {link.label}
+            </a>
+          )
         ))}
       </div>
 
@@ -41,7 +105,7 @@ const navLinks = [
       </div>
 
       <!-- Mobile Menu Button -->
-      <button 
+      <button
         id="mobile-menu-btn"
         class="lg:hidden p-2 text-white hover:text-primary-500 transition-colors"
         aria-label="Toggle menu"
@@ -54,19 +118,48 @@ const navLinks = [
 
     <!-- Mobile Navigation -->
     <div id="mobile-menu" class="hidden lg:hidden pb-4 bg-neutral-800 border-t border-neutral-700 absolute top-full left-0 right-0 shadow-xl px-4">
-      <div class="flex flex-col gap-4 pt-4">
+      <div class="flex flex-col gap-2 pt-4">
         {navLinks.map((link) => (
-          <a 
-            href={link.href}
-            class:list={[
-              "text-base font-bold uppercase py-2 border-b border-neutral-700 transition-colors",
-              currentPath === link.href ? "text-primary-500" : "text-white"
-            ]}
-          >
-            {link.label}
-          </a>
+          link.dropdown ? (
+            <div class="mobile-dropdown">
+              <button
+                class="mobile-dropdown-btn flex items-center justify-between w-full text-base font-bold uppercase py-3 border-b border-neutral-700 text-white"
+              >
+                {link.label}
+                <svg class="w-5 h-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="mobile-dropdown-content hidden pl-4 py-2 space-y-2">
+                {link.dropdown.map((item) => (
+                  <a
+                    href={item.href}
+                    class:list={[
+                      "block py-2 text-sm",
+                      item.emergency ? "text-red-400 font-bold" : "text-neutral-300 hover:text-white"
+                    ]}
+                  >
+                    {item.emergency && (
+                      <span class="inline-block w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></span>
+                    )}
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a
+              href={link.href}
+              class:list={[
+                "text-base font-bold uppercase py-3 border-b border-neutral-700 transition-colors",
+                isActivePath(link.href) ? "text-primary-500" : "text-white"
+              ]}
+            >
+              {link.label}
+            </a>
+          )
         ))}
-        <a href="/contact" class="btn btn-primary w-full justify-center">
+        <a href="/contact" class="btn btn-primary w-full justify-center mt-4">
           Request Free Estimate
         </a>
       </div>
@@ -75,10 +168,22 @@ const navLinks = [
 </header>
 
 <script>
+  // Mobile menu toggle
   const menuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
-  
+
   menuBtn?.addEventListener('click', () => {
     mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Mobile dropdown toggles
+  const dropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
+  dropdownBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('svg');
+      content?.classList.toggle('hidden');
+      icon?.classList.toggle('rotate-180');
+    });
   });
 </script>

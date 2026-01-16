@@ -29,7 +29,22 @@ const SERVICE_TAGS: Record<string, string[]> = {
 export const POST: APIRoute = async ({ request }) => {
     try {
         const data = await request.json();
-        const { firstName, lastName, email, phone, service, message, source, city } = data;
+        const {
+            firstName,
+            lastName,
+            email,
+            phone,
+            service,
+            message,
+            source,
+            city,
+            // Property Manager specific fields
+            segment,
+            companyName,
+            numberOfProperties,
+            propertyTypes,
+            bestTimeToContact
+        } = data;
 
         // 1. Validation
         if (!firstName || !email || !phone) {
@@ -54,11 +69,14 @@ export const POST: APIRoute = async ({ request }) => {
         }
 
         // 2. Build tags array
-        const serviceTags = SERVICE_TAGS[service] || SERVICE_TAGS['other'];
+        const serviceTags = service ? (SERVICE_TAGS[service] || SERVICE_TAGS['other']) : [];
         const allTags = [
             'website-lead',
             ...serviceTags,
-            ...(city ? [`city-${city.toLowerCase().replace(/\s+/g, '-')}`] : [])
+            ...(city ? [`city-${city.toLowerCase().replace(/\s+/g, '-')}`] : []),
+            // Add segment-specific tags
+            ...(segment === 'property-manager' ? ['segment-property-manager', 'b2b-lead'] : []),
+            ...(segment === 'homeowner' ? ['segment-homeowner'] : [])
         ];
 
         // 3. Build custom fields for additional context
@@ -68,6 +86,19 @@ export const POST: APIRoute = async ({ request }) => {
         }
         if (service) {
             customFields.push({ id: 'service_requested', value: service });
+        }
+        // Property Manager specific custom fields
+        if (companyName) {
+            customFields.push({ id: 'company_name', value: companyName });
+        }
+        if (numberOfProperties) {
+            customFields.push({ id: 'number_of_properties', value: numberOfProperties });
+        }
+        if (propertyTypes) {
+            customFields.push({ id: 'property_types', value: propertyTypes });
+        }
+        if (bestTimeToContact) {
+            customFields.push({ id: 'best_time_to_contact', value: bestTimeToContact });
         }
 
         // 4. GHL Contact Upsert

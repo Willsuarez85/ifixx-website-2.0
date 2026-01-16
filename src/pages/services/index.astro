@@ -26,6 +26,12 @@ const getServiceImage = (slug: string) => {
   return serviceImages[slug] || '/images/services/general-repairs.jpg';
 };
 
+// Helper to get pillar URL for a service
+const getPillarUrl = (service: any) => {
+  const pillar = service.data.pillar || 'repairs';
+  return `/${pillar}/${service.slug}`;
+};
+
 // JSON-LD Schema
 const servicesSchema = {
   "@context": "https://schema.org",
@@ -40,7 +46,7 @@ const servicesSchema = {
       "@type": "Service",
       "name": service.data.title,
       "description": service.data.summary,
-      "url": `https://ifixxnc.com/services/${service.slug}`
+      "url": `https://ifixxnc.com${getPillarUrl(service)}`
     }
   }))
 };
@@ -120,7 +126,7 @@ const servicesSchema = {
       <!-- Services Grid with Images -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {services.map((service) => (
-          <a href={`/services/${service.slug}`} class="group relative block rounded-xl overflow-hidden aspect-[4/3] shadow-lg">
+          <a href={getPillarUrl(service)} class="group relative block rounded-xl overflow-hidden aspect-[4/3] shadow-lg">
             <!-- Background Image -->
             <img
               src={getServiceImage(service.slug)}

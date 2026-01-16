@@ -1,6 +1,7 @@
 ---
 title: "Painting & Drywall"
 category: "handyman"
+pillar: "repairs"
 summary: "Professional interior and exterior painting, drywall repair, texture matching, and wall preparation services for homes in Charlotte, NC."
 heroImage: "/images/services/painting.webp"
 bullets:

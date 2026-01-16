@@ -1,6 +1,7 @@
 ---
 title: "Plumbing Services"
 category: "handyman"
+pillar: "repairs"
 summary: "Professional plumbing repairs, leak detection, fixture installation, drain cleaning, and water heater services in Charlotte, NC."
 heroImage: "/images/services/plumbing.webp"
 bullets:

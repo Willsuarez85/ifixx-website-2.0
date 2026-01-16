@@ -1,30 +1,93 @@
 ---
-const testimonials = [
+interface Props {
+  segment?: 'homeowner' | 'property-manager' | 'all';
+  title?: string;
+  subtitle?: string;
+  maxItems?: number;
+}
+
+const {
+  segment = 'all',
+  title = 'What Our Customers Say',
+  subtitle = "Don't just take our word for it — hear from the Charlotte homeowners we've helped.",
+  maxItems = 4
+} = Astro.props;
+
+// All testimonials with segment tags
+const allTestimonials = [
+  // Homeowner testimonials
   {
     name: 'Sarah M.',
     location: 'South Charlotte',
-    text: 'iFixx transformed our outdated bathroom into a modern retreat. Professional, punctual, and the quality exceeded our expectations. Highly recommend!',
-    rating: 5
+    text: 'iFixx fixed our bathroom leak within hours of calling. Professional, clean, and fairly priced. They\'re now our go-to for any home repairs.',
+    rating: 5,
+    segment: 'homeowner'
+  },
+  {
+    name: 'David & Jennifer R.',
+    location: 'Ballantyne',
+    text: 'We used iFixx for our kitchen remodel and couldn\'t be happier. They communicated throughout the project and finished on schedule.',
+    rating: 5,
+    segment: 'homeowner'
   },
   {
     name: 'Michael T.',
+    location: 'Matthews',
+    text: 'After a pipe burst at 2am, iFixx was there by 6am. Their emergency response saved us from major water damage.',
+    rating: 5,
+    segment: 'homeowner'
+  },
+  {
+    name: 'Linda K.',
     location: 'Myers Park',
-    text: 'Had an electrical emergency at 10pm and they were here within the hour. Fixed everything quickly and the price was fair. These guys are the real deal.',
-    rating: 5
+    text: 'Finally found a handyman service I can trust. From drywall repairs to painting, they do quality work every time.',
+    rating: 5,
+    segment: 'homeowner'
+  },
+  // Property Manager testimonials
+  {
+    name: 'Robert Chen',
+    location: 'Parkview Property Management',
+    company: '47 units',
+    text: 'Managing multiple properties means constant maintenance requests. iFixx handles everything from plumbing to HVAC, with same-day response for emergencies. They\'ve cut our maintenance headaches in half.',
+    rating: 5,
+    segment: 'property-manager'
   },
   {
-    name: 'Jennifer K.',
-    location: 'Dilworth',
-    text: 'We\'ve used iFixx for multiple projects — painting, drywall, carpentry. Always reliable, always quality work. They\'re our go-to for everything now.',
-    rating: 5
+    name: 'Amanda Foster',
+    location: 'Foster Realty Group',
+    company: '23 properties',
+    text: 'The volume pricing and priority scheduling have been game-changers for our portfolio. iFixx understands that vacant units cost money.',
+    rating: 5,
+    segment: 'property-manager'
   },
   {
-    name: 'David R.',
-    location: 'Ballantyne',
-    text: 'The kitchen renovation was a big project but they handled it beautifully. Great communication throughout and finished on time. Couldn\'t be happier!',
-    rating: 5
+    name: 'Marcus Williams',
+    location: 'Carolina Investment Properties',
+    company: '65+ doors',
+    text: 'We switched to iFixx after our previous vendor became unreliable. Their reporting and communication keep our investors happy.',
+    rating: 5,
+    segment: 'property-manager'
+  },
+  {
+    name: 'Jennifer Martinez',
+    location: 'Sunrise Property Solutions',
+    company: '32 units',
+    text: 'Tenant turnover prep used to take 2 weeks. With iFixx\'s team approach, we\'re rental-ready in 3-5 days. That\'s real money saved.',
+    rating: 5,
+    segment: 'property-manager'
   }
 ];
+
+// Filter testimonials based on segment
+const testimonials = segment === 'all'
+  ? allTestimonials.slice(0, maxItems)
+  : allTestimonials.filter(t => t.segment === segment).slice(0, maxItems);
+
+// Update subtitle based on segment
+const displaySubtitle = segment === 'property-manager'
+  ? 'See why property managers across Charlotte trust iFixx for their maintenance needs.'
+  : subtitle;
 ---
 
 <section class="section section-alt">
@@ -32,10 +95,10 @@ const testimonials = [
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
       <h2 class="text-3xl lg:text-4xl font-heading font-bold text-neutral-900 mb-4">
-        What Our Customers Say
+        {title}
       </h2>
       <p class="text-lg text-neutral-600">
-        Don't just take our word for it — hear from the Charlotte homeowners we've helped.
+        {displaySubtitle}
       </p>
     </div>
 
@@ -51,12 +114,12 @@ const testimonials = [
               </svg>
             ))}
           </div>
-          
+
           <!-- Quote -->
           <blockquote class="text-neutral-700 leading-relaxed mb-6">
             "{testimonial.text}"
           </blockquote>
-          
+
           <!-- Author -->
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
@@ -66,7 +129,10 @@ const testimonials = [
             </div>
             <div>
               <p class="font-semibold text-neutral-900">{testimonial.name}</p>
-              <p class="text-sm text-neutral-500">{testimonial.location}</p>
+              <p class="text-sm text-neutral-500">
+                {testimonial.location}
+                {testimonial.company && <span class="text-primary-600"> ({testimonial.company})</span>}
+              </p>
             </div>
           </div>
         </div>
@@ -75,9 +141,9 @@ const testimonials = [
 
     <!-- Google Reviews Link -->
     <div class="text-center mt-10">
-      <a 
-        href="https://g.page/ifixxnc" 
-        target="_blank" 
+      <a
+        href="https://g.page/ifixxnc"
+        target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 text-primary-600 font-medium hover:text-primary-700 transition-colors"
       >

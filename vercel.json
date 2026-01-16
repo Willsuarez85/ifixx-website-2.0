@@ -1,0 +1,69 @@
+{
+  "redirects": [
+    {
+      "source": "/services/plumbing",
+      "destination": "/repairs/plumbing/",
+      "permanent": true
+    },
+    {
+      "source": "/services/electrical",
+      "destination": "/repairs/electrical/",
+      "permanent": true
+    },
+    {
+      "source": "/services/carpentry",
+      "destination": "/repairs/carpentry/",
+      "permanent": true
+    },
+    {
+      "source": "/services/painting",
+      "destination": "/repairs/painting/",
+      "permanent": true
+    },
+    {
+      "source": "/services/doors-windows",
+      "destination": "/repairs/doors-windows/",
+      "permanent": true
+    },
+    {
+      "source": "/services/quick-fix",
+      "destination": "/repairs/quick-fix/",
+      "permanent": true
+    },
+    {
+      "source": "/services/furniture-assembly",
+      "destination": "/repairs/furniture-assembly/",
+      "permanent": true
+    },
+    {
+      "source": "/services/tv-mounting",
+      "destination": "/repairs/tv-mounting/",
+      "permanent": true
+    },
+    {
+      "source": "/services/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/services/bathroom-remodeling",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/services/basement-finishing",
+      "destination": "/remodeling/basement-finishing/",
+      "permanent": true
+    },
+    {
+      "source": "/services/flooring-installation",
+      "destination": "/remodeling/flooring-installation/",
+      "permanent": true
+    },
+    {
+      "source": "/services/outdoor-living",
+      "destination": "/remodeling/outdoor-living/",
+      "permanent": true
+    }
+  ]
+}

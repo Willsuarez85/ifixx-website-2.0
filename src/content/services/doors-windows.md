@@ -1,6 +1,7 @@
 ---
 title: "Doors & Windows"
 category: "handyman"
+pillar: "repairs"
 summary: "Expert installation and repair of interior and exterior doors, windows, locks, and hardware to improve security and energy efficiency."
 heroImage: "/images/projects/Ifixx-portfolio55.webp"
 bullets:

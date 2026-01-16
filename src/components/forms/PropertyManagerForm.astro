@@ -1,0 +1,266 @@
+---
+interface Props {
+  formId?: string;
+}
+
+const { formId = 'property-manager-form' } = Astro.props;
+
+const propertyCountOptions = [
+  { value: '1-5', label: '1-5 Properties' },
+  { value: '6-15', label: '6-15 Properties' },
+  { value: '16-30', label: '16-30 Properties' },
+  { value: '31-50', label: '31-50 Properties' },
+  { value: '50+', label: '50+ Properties' }
+];
+
+const propertyTypeOptions = [
+  { value: 'residential', label: 'Residential' },
+  { value: 'commercial', label: 'Commercial' },
+  { value: 'mixed', label: 'Mixed (Residential & Commercial)' }
+];
+
+const contactTimeOptions = [
+  { value: 'morning', label: 'Morning (8am - 12pm)' },
+  { value: 'afternoon', label: 'Afternoon (12pm - 5pm)' },
+  { value: 'evening', label: 'Evening (5pm - 8pm)' },
+  { value: 'anytime', label: 'Anytime' }
+];
+---
+
+<div class="bg-white rounded-2xl shadow-xl p-6 lg:p-8">
+  <!-- Header -->
+  <div class="text-center mb-6">
+    <h3 class="text-xl lg:text-2xl font-heading font-bold text-neutral-900 mb-2">
+      Schedule a Consultation
+    </h3>
+    <p class="text-sm text-neutral-600">
+      Let's discuss your property maintenance needs. No obligation.
+    </p>
+  </div>
+
+  <!-- Form -->
+  <form id={formId} class="space-y-4">
+    <!-- Name Row -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for={`${formId}-firstName`} class="sr-only">First Name</label>
+        <input
+          type="text"
+          id={`${formId}-firstName`}
+          name="firstName"
+          required
+          class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900 placeholder-neutral-500"
+          placeholder="First Name *"
+        />
+      </div>
+      <div>
+        <label for={`${formId}-lastName`} class="sr-only">Last Name</label>
+        <input
+          type="text"
+          id={`${formId}-lastName`}
+          name="lastName"
+          required
+          class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900 placeholder-neutral-500"
+          placeholder="Last Name *"
+        />
+      </div>
+    </div>
+
+    <!-- Company Name -->
+    <div>
+      <label for={`${formId}-company`} class="sr-only">Company / Property Management Firm</label>
+      <input
+        type="text"
+        id={`${formId}-company`}
+        name="companyName"
+        required
+        class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900 placeholder-neutral-500"
+        placeholder="Company / Property Management Firm *"
+      />
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for={`${formId}-email`} class="sr-only">Email Address</label>
+      <input
+        type="email"
+        id={`${formId}-email`}
+        name="email"
+        required
+        class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900 placeholder-neutral-500"
+        placeholder="Email Address *"
+      />
+    </div>
+
+    <!-- Phone -->
+    <div>
+      <label for={`${formId}-phone`} class="sr-only">Phone Number</label>
+      <input
+        type="tel"
+        id={`${formId}-phone`}
+        name="phone"
+        required
+        class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900 placeholder-neutral-500"
+        placeholder="Phone Number *"
+      />
+    </div>
+
+    <!-- Number of Properties -->
+    <div>
+      <label for={`${formId}-propertyCount`} class="sr-only">Number of Properties</label>
+      <select
+        id={`${formId}-propertyCount`}
+        name="numberOfProperties"
+        required
+        class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900"
+      >
+        <option value="">Number of Properties *</option>
+        {propertyCountOptions.map((option) => (
+          <option value={option.value}>{option.label}</option>
+        ))}
+      </select>
+    </div>
+
+    <!-- Property Type -->
+    <div>
+      <label for={`${formId}-propertyType`} class="sr-only">Property Types</label>
+      <select
+        id={`${formId}-propertyType`}
+        name="propertyTypes"
+        required
+        class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900"
+      >
+        <option value="">Property Types *</option>
+        {propertyTypeOptions.map((option) => (
+          <option value={option.value}>{option.label}</option>
+        ))}
+      </select>
+    </div>
+
+    <!-- Best Time to Contact -->
+    <div>
+      <label for={`${formId}-contactTime`} class="sr-only">Best Time to Contact</label>
+      <select
+        id={`${formId}-contactTime`}
+        name="bestTimeToContact"
+        class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900"
+      >
+        <option value="">Best Time to Contact</option>
+        {contactTimeOptions.map((option) => (
+          <option value={option.value}>{option.label}</option>
+        ))}
+      </select>
+    </div>
+
+    <!-- Message -->
+    <div>
+      <label for={`${formId}-message`} class="sr-only">Tell us about your maintenance needs</label>
+      <textarea
+        id={`${formId}-message`}
+        name="message"
+        rows="4"
+        class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900 placeholder-neutral-500 resize-none"
+        placeholder="Tell us about your maintenance needs (optional)..."
+      ></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="w-full btn btn-primary text-lg py-4 justify-center font-bold"
+    >
+      <span class="btn-text">Schedule Consultation</span>
+      <svg class="btn-spinner hidden w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    </button>
+
+    <!-- Trust Text -->
+    <p class="text-xs text-center text-neutral-500">
+      Your information is secure and will never be shared.
+    </p>
+  </form>
+
+  <!-- Success Message -->
+  <div class="form-success hidden mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+    <div class="flex items-center gap-3">
+      <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+      <div>
+        <p class="font-semibold text-green-800 text-sm">Thank you!</p>
+        <p class="text-green-700 text-xs">We'll reach out within one business day to schedule your consultation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Message -->
+  <div class="form-error hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+    <div class="flex items-center gap-3">
+      <svg class="w-5 h-5 text-red-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+      <p class="font-semibold text-red-800 text-sm">Something went wrong. Please try again or call us directly.</p>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ formId }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    const btnText = form.querySelector('.btn-text');
+    const btnSpinner = form.querySelector('.btn-spinner');
+    const successMsg = form.parentElement?.querySelector('.form-success');
+    const errorMsg = form.parentElement?.querySelector('.form-error');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Reset states
+      successMsg?.classList.add('hidden');
+      errorMsg?.classList.add('hidden');
+      btnText?.classList.add('hidden');
+      btnSpinner?.classList.remove('hidden');
+
+      const formData = new FormData(form);
+      const data = {
+        firstName: formData.get('firstName'),
+        lastName: formData.get('lastName'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        companyName: formData.get('companyName'),
+        numberOfProperties: formData.get('numberOfProperties'),
+        propertyTypes: formData.get('propertyTypes'),
+        bestTimeToContact: formData.get('bestTimeToContact'),
+        message: formData.get('message') || '',
+        source: 'Property Manager Form',
+        segment: 'property-manager'
+      };
+
+      try {
+        const response = await fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          successMsg?.classList.remove('hidden');
+          form.reset();
+        } else {
+          throw new Error(result.error || 'Unknown error');
+        }
+      } catch (error) {
+        errorMsg?.classList.remove('hidden');
+      } finally {
+        btnText?.classList.remove('hidden');
+        btnSpinner?.classList.add('hidden');
+      }
+    });
+  });
+</script>

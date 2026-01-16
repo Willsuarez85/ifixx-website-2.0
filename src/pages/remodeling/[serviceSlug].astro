@@ -2,7 +2,6 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
-import BenefitIcons from '../../components/sections/BenefitIcons.astro';
 import CTAIntermediate from '../../components/sections/CTAIntermediate.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import QuickEstimateCompact from '../../components/forms/QuickEstimateCompact.astro';
@@ -11,7 +10,9 @@ import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
-  return services.map((service) => ({
+  // Only generate pages for services in the remodeling pillar
+  const remodelingServices = services.filter(s => s.data.pillar === 'remodeling');
+  return remodelingServices.map((service) => ({
     params: { serviceSlug: service.slug },
     props: { service },
   }));
@@ -24,7 +25,7 @@ interface Props {
 const { service } = Astro.props;
 const { Content } = await service.render();
 
-const { title, category, summary, heroImage, bullets, signs, processSteps, faqs, relatedServices, seo } = service.data;
+const { title, category, pillar, summary, heroImage, bullets, signs, processSteps, faqs, relatedServices, seo } = service.data;
 
 // Get all services for related services lookup
 const allServices = await getCollection('services');
@@ -32,52 +33,44 @@ const relatedServicesList = relatedServices
   ? allServices.filter(s => relatedServices.includes(s.slug) && s.slug !== service.slug)
   : [];
 
-// Helper to get pillar URL for a service
-const getPillarUrl = (svc: any) => {
-  const pillar = svc.data?.pillar || svc.pillar || 'repairs';
-  return `/${pillar}/${svc.slug}`;
-};
+// Get all cities for service areas section
+const allCities = await getCollection('cities');
+const serviceAreas = allCities.sort((a, b) => {
+  // Sort: Charlotte first, then alphabetically
+  if (a.slug === 'charlotte') return -1;
+  if (b.slug === 'charlotte') return 1;
+  return a.data.name.localeCompare(b.data.name);
+});
 
-// Current service's pillar URL
-const currentPillarUrl = getPillarUrl(service);
-
-// Map service slugs to hero images (using impactful portfolio images)
+// Map service slugs to hero images
 const serviceHeroImages: Record<string, string> = {
-  'plumbing': '/images/projects/Ifixx-portfolio45.webp', // Technician working under sink
-  'electrical': '/images/services/electrical.webp', // Keep existing
-  'carpentry': '/images/projects/Ifixx-portfolio12.webp', // Team installing cabinets
-  'painting': '/images/projects/Ifixx-portfolio8.webp', // Team doing painting work
-  'doors-windows': '/images/projects/Ifixx-portfolio55.webp', // Door hinge repair
-  'general-repairs': '/images/projects/Ifixx-portfolio31.webp', // Cabinet repair work
-  'quick-fix': '/images/projects/Ifixx-portfolio5.webp', // Quick repair work
-  'bathroom-remodel': '/images/projects/Ifixx-portfolio32.webp', // Luxury bathroom with freestanding tub
-  'kitchen-remodel': '/images/projects/Ifixx-portfolio60.webp', // Navy luxury kitchen with gold accents
+  'kitchen-remodeling': '/images/projects/Ifixx-portfolio3.webp',
+  'bathroom-remodeling': '/images/projects/Ifixx-portfolio10.webp',
+  'basement-finishing': '/images/projects/Ifixx-portfolio25.webp',
+  'flooring-installation': '/images/projects/Ifixx-portfolio18.webp',
+  'outdoor-living': '/images/projects/Ifixx-portfolio30.webp',
 };
 
-// Map service slugs to project images (showing completed work)
+// Map service slugs to project images
 const serviceProjectImages: Record<string, string> = {
-  'plumbing': '/images/projects/Ifixx-portfolio28.webp', // Modern bathroom with plumbing work
-  'electrical': '/images/projects/Ifixx-portfolio17.webp', // Kitchen with modern lighting
-  'carpentry': '/images/projects/Ifixx-portfolio1.webp', // Kitchen island with beadboard
-  'painting': '/images/projects/Ifixx-portfolio20.webp', // White painted kitchen
-  'doors-windows': '/images/projects/Ifixx-portfolio19.webp', // Room with wainscoting
-  'general-repairs': '/images/projects/Ifixx-portfolio3.webp', // Dark modern kitchen
-  'quick-fix': '/images/projects/Ifixx-portfolio11.webp', // White kitchen
-  'bathroom-remodel': '/images/projects/Ifixx-portfolio32.webp', // Luxury bathroom
-  'kitchen-remodel': '/images/projects/Ifixx-portfolio63.webp', // White luxury kitchen with marble
+  'kitchen-remodeling': '/images/projects/Ifixx-portfolio60.webp',
+  'bathroom-remodeling': '/images/projects/Ifixx-portfolio32.webp',
+  'basement-finishing': '/images/projects/Ifixx-portfolio25.webp',
+  'flooring-installation': '/images/projects/Ifixx-portfolio18.webp',
+  'outdoor-living': '/images/projects/Ifixx-portfolio30.webp',
 };
 
 const heroImageSrc = heroImage || serviceHeroImages[service.slug] || '/images/ui/hero-bg.jpg';
 const projectImageSrc = serviceProjectImages[service.slug] || '/images/projects/Ifixx-portfolio3.webp';
 
-// Service schema with complete provider details
+// Service schema with pillar URL structure
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": title,
   "description": seo.description,
   "serviceType": title,
-  "url": `https://ifixxnc.com${currentPillarUrl}`,
+  "url": `https://ifixxnc.com/remodeling/${service.slug}/`,
   "image": `https://ifixxnc.com${heroImageSrc}`,
   "provider": {
     "@type": "HomeAndConstructionBusiness",
@@ -109,16 +102,7 @@ const serviceSchema = {
   }
 };
 
-// Get pillar label for breadcrumb
-const pillarLabels: Record<string, string> = {
-  'repairs': 'Repairs',
-  'remodeling': 'Remodeling',
-  'emergency-services': 'Emergency Services'
-};
-const currentPillar = service.data.pillar || 'repairs';
-const pillarLabel = pillarLabels[currentPillar] || 'Services';
-
-// Breadcrumb schema
+// Breadcrumb schema with pillar structure
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -132,14 +116,14 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       "position": 2,
-      "name": pillarLabel,
-      "item": `https://ifixxnc.com/${currentPillar}`
+      "name": "Remodeling",
+      "item": "https://ifixxnc.com/remodeling/"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": title,
-      "item": `https://ifixxnc.com${currentPillarUrl}`
+      "item": `https://ifixxnc.com/remodeling/${service.slug}/`
     }
   ]
 };
@@ -158,17 +142,22 @@ const faqSchema = faqs && faqs.length > 0 ? {
   }))
 } : null;
 
-const categoryLabels: Record<string, string> = {
-  emergency: 'Emergency Service',
-  handyman: 'Handyman Service',
-  remodeling: 'Remodeling Service'
+// Helper function to get the correct URL for a service based on its pillar
+const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
+  const pillars: Record<string, string> = {
+    'repairs': '/repairs/',
+    'remodeling': '/remodeling/',
+    'emergency-services': '/emergency-services/'
+  };
+  const basePath = servicePillar ? pillars[servicePillar] || '/services/' : '/services/';
+  return `${basePath}${serviceSlug}`;
 };
 ---
 
 <BaseLayout
   title={seo.title}
   description={seo.description}
-  canonical={currentPillarUrl}
+  canonical={`/remodeling/${service.slug}/`}
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
@@ -176,9 +165,8 @@ const categoryLabels: Record<string, string> = {
     {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   </Fragment>
 
-  <!-- Hero Section with Side-by-Side Form (Above the Fold) -->
+  <!-- Hero Section with Side-by-Side Form -->
   <section class="relative bg-neutral-900 overflow-hidden">
-    <!-- Background Image -->
     <div class="absolute inset-0 z-0">
       <img
         src={heroImageSrc}
@@ -199,7 +187,7 @@ const categoryLabels: Record<string, string> = {
           <ol class="flex items-center gap-2 text-sm text-neutral-300">
             <li><a href="/" class="hover:text-primary-500 transition-colors">Home</a></li>
             <li class="text-neutral-500">/</li>
-            <li><a href={`/${currentPillar}`} class="hover:text-primary-500 transition-colors">{pillarLabel}</a></li>
+            <li><a href="/remodeling" class="hover:text-primary-500 transition-colors">Remodeling</a></li>
             <li class="text-neutral-500">/</li>
             <li class="text-white font-medium">{title}</li>
           </ol>
@@ -210,7 +198,7 @@ const categoryLabels: Record<string, string> = {
           <div class="order-2 lg:order-1">
             <!-- Category Badge -->
             <span class="inline-block px-4 py-2 bg-primary-500 text-neutral-900 text-sm font-bold rounded-full mb-4">
-              {categoryLabels[category] || category}
+              Remodeling Service
             </span>
 
             <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">
@@ -226,18 +214,18 @@ const categoryLabels: Record<string, string> = {
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center">
                   <svg class="w-5 h-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <span class="text-sm text-white font-medium">Quality Guaranteed</span>
+                <span class="text-sm text-white font-medium">Quality Craftsmanship</span>
               </div>
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center">
                   <svg class="w-5 h-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <span class="text-sm text-white font-medium">Fast Response</span>
+                <span class="text-sm text-white font-medium">On-Time Delivery</span>
               </div>
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center">
@@ -246,7 +234,7 @@ const categoryLabels: Record<string, string> = {
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <span class="text-sm text-white font-medium">100% Local</span>
+                <span class="text-sm text-white font-medium">Local Charlotte Team</span>
               </div>
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center">
@@ -254,7 +242,7 @@ const categoryLabels: Record<string, string> = {
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
-                <span class="text-sm text-white font-medium">Fully Insured</span>
+                <span class="text-sm text-white font-medium">Licensed & Insured</span>
               </div>
             </div>
 
@@ -266,13 +254,13 @@ const categoryLabels: Record<string, string> = {
                 </svg>
               </div>
               <div>
-                <p class="text-sm text-neutral-400">Call us now</p>
+                <p class="text-sm text-neutral-400">Schedule a consultation</p>
                 <p class="text-xl font-heading font-bold">(980) 391-6833</p>
               </div>
             </a>
           </div>
 
-          <!-- Form Side (Above the Fold) -->
+          <!-- Form Side -->
           <div class="order-1 lg:order-2">
             <QuickEstimateCompact
               serviceSlug={service.slug}
@@ -293,10 +281,9 @@ const categoryLabels: Record<string, string> = {
     <section class="section">
       <div class="container">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <!-- Content -->
           <div>
             <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-6">
-              What We Offer
+              What's Included
             </h2>
             <ul class="space-y-4 mb-8">
               {bullets.map((bullet) => (
@@ -311,13 +298,11 @@ const categoryLabels: Record<string, string> = {
               ))}
             </ul>
 
-            <!-- Content from MDX -->
             <div class="prose prose-neutral max-w-none">
               <Content />
             </div>
           </div>
 
-          <!-- Image -->
           <div class="relative">
             <div class="rounded-2xl overflow-hidden shadow-2xl">
               <img
@@ -330,16 +315,15 @@ const categoryLabels: Record<string, string> = {
                 decoding="async"
               />
             </div>
-            <!-- Floating Badge -->
             <div class="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-xl p-4 hidden lg:block">
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center">
                   <svg class="w-5 h-5 text-neutral-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                   </svg>
                 </div>
                 <div>
-                  <p class="font-heading font-bold text-neutral-900 text-sm">500+ Projects</p>
+                  <p class="font-heading font-bold text-neutral-900 text-sm">100+ Remodels</p>
                   <p class="text-xs text-neutral-600">Completed in Charlotte</p>
                 </div>
               </div>
@@ -358,8 +342,8 @@ const categoryLabels: Record<string, string> = {
 
   <!-- Intermediate CTA -->
   <CTAIntermediate
-    headline={`Ready to Transform Your Home?`}
-    subheadline="Get a free estimate for your project. No obligation, fast response."
+    headline={`Ready to Transform Your Space?`}
+    subheadline="Schedule a free consultation to discuss your remodeling project."
     variant="primary"
     showPhone={true}
   />
@@ -370,19 +354,19 @@ const categoryLabels: Record<string, string> = {
       <div class="container">
         <div class="max-w-3xl mx-auto text-center mb-12">
           <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">
-            Signs You May Need {title}
+            Signs It's Time for {title}
           </h2>
           <p class="text-neutral-600">
-            Not sure if you need help? Here are common signs it's time to call a professional.
+            If any of these sound familiar, it might be time to consider a remodel.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {signs.map((sign) => (
             <div class="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm">
-              <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
               <span class="text-neutral-700">{sign}</span>
@@ -399,19 +383,18 @@ const categoryLabels: Record<string, string> = {
       <div class="container">
         <div class="max-w-3xl mx-auto text-center mb-12">
           <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">
-            How It Works
+            Our Remodeling Process
           </h2>
           <p class="text-neutral-600">
-            We make getting quality {title.toLowerCase()} simple and stress-free.
+            From design to completion, we guide you through every step.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
           {processSteps.map((step, index) => (
             <div class="text-center relative">
-              {/* Connector line */}
               {index < processSteps.length - 1 && (
-                <div class="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-primary-200"></div>
+                <div class="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-primary-200"></div>
               )}
               <div class="relative">
                 <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-500 flex items-center justify-center shadow-lg">
@@ -474,14 +457,14 @@ const categoryLabels: Record<string, string> = {
             Related Services
           </h2>
           <p class="text-neutral-600">
-            Explore other services that complement your project needs.
+            Explore other services that complement your remodeling project.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {relatedServicesList.map((relatedService) => (
             <a
-              href={getPillarUrl(relatedService)}
+              href={getServiceUrl(relatedService.slug, relatedService.data.pillar)}
               class="group p-6 bg-neutral-50 rounded-xl hover:bg-primary-50 transition-colors border border-neutral-100 hover:border-primary-200"
             >
               <h3 class="text-lg font-heading font-semibold text-neutral-900 group-hover:text-primary-600 mb-2 transition-colors">
@@ -503,9 +486,52 @@ const categoryLabels: Record<string, string> = {
     </section>
   )}
 
+  <!-- Service Areas -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-3">
+          {title} Service Areas
+        </h2>
+        <p class="text-neutral-600 max-w-2xl mx-auto">
+          We proudly serve homeowners throughout the Charlotte metro area. Click your location to learn more about our services in your neighborhood.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        {serviceAreas.map((city) => (
+          <a
+            href={`/service-areas/${city.slug}`}
+            class="group p-4 bg-white rounded-xl border border-neutral-200 hover:border-primary-300 hover:shadow-md transition-all text-center"
+          >
+            <div class="flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="font-medium text-neutral-900 group-hover:text-primary-600 transition-colors">
+                {city.data.name}
+              </span>
+            </div>
+            <span class="text-xs text-neutral-500">{city.data.state}</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="/service-areas" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium">
+          View all service areas
+          <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Final CTA -->
   <CTASection
-    headline={`Ready for Professional ${title}?`}
-    subtext="Get a free estimate and see why Charlotte homeowners trust iFixx for quality work."
+    headline={`Ready for Your ${title} Project?`}
+    subtext="Schedule a free consultation and see why Charlotte homeowners trust iFixx for quality remodeling."
   />
 </BaseLayout>

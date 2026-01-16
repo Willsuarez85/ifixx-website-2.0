@@ -1,0 +1,257 @@
+---
+import PillarLayout from '../../layouts/PillarLayout.astro';
+import { getCollection } from 'astro:content';
+import TrustBar from '../../components/sections/TrustBar.astro';
+
+// Get all services with category 'handyman' (repairs)
+const allServices = await getCollection('services');
+const repairServices = allServices.filter(s => s.data.category === 'handyman');
+
+// Get all locations for internal linking
+const locations = await getCollection('cities');
+
+const pillar = {
+  title: "Home Repair Services",
+  slug: "repairs",
+  description: "Professional home repair services in Charlotte, NC. From plumbing and electrical to carpentry and painting, our skilled handymen fix it right the first time.",
+  seo: {
+    title: "Home Repair Services in Charlotte, NC | Professional Handyman | iFixx",
+    description: "Expert home repair services in Charlotte. Plumbing, electrical, carpentry, painting, doors & windows. Licensed & insured. Same-day service available. Free estimates!"
+  }
+};
+
+const services = repairServices.map(s => ({
+  name: s.data.title,
+  slug: s.slug,
+  description: s.data.summary,
+  image: s.data.heroImage
+}));
+
+// Service image mapping
+const serviceImages: Record<string, string> = {
+  'plumbing': '/images/projects/Ifixx-portfolio15.webp',
+  'electrical': '/images/projects/Ifixx-portfolio22.webp',
+  'carpentry': '/images/projects/Ifixx-portfolio35.webp',
+  'painting': '/images/projects/Ifixx-portfolio8.webp',
+  'doors-windows': '/images/projects/Ifixx-portfolio55.webp',
+  'quick-fix': '/images/projects/Ifixx-portfolio42.webp'
+};
+---
+
+<PillarLayout pillar={pillar} services={services}>
+  <!-- Hero Section -->
+  <section class="relative bg-neutral-900 py-20 lg:py-28">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-600/20 to-transparent"></div>
+    <div class="container relative">
+      <div class="max-w-3xl">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-sm text-neutral-400 mb-6">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <span>/</span>
+          <span class="text-primary-500">Repairs</span>
+        </nav>
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          Professional <span class="text-primary-500">Home Repair</span> Services
+        </h1>
+        <p class="text-xl text-neutral-300 mb-8 leading-relaxed">
+          From leaky faucets to electrical issues, our skilled handymen handle all your home repair needs.
+          Serving Charlotte and surrounding areas with quality workmanship you can trust.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/contact" class="btn btn-primary text-lg px-8 py-4">
+            Get Free Estimate
+          </a>
+          <a href="tel:+19803916833" class="btn btn-outline-light text-lg px-8 py-4">
+            Call (980) 391-6833
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <TrustBar />
+
+  <!-- Services Grid -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="container">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+          Our Repair Services
+        </h2>
+        <p class="text-lg text-neutral-600">
+          Whatever needs fixing in your home, we have the expertise to get it done right.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {repairServices.map((service) => (
+          <a
+            href={`/repairs/${service.slug}`}
+            class="group relative bg-neutral-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+          >
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src={serviceImages[service.slug] || '/images/projects/Ifixx-portfolio1.webp'}
+                alt={`${service.data.title} in Charlotte, NC`}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
+                width="400"
+                height="300"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-neutral-900 mb-2 group-hover:text-primary-600 transition-colors">
+                {service.data.title}
+              </h3>
+              <p class="text-neutral-600 text-sm mb-4 line-clamp-2">
+                {service.data.summary}
+              </p>
+              <div class="flex items-center text-primary-600 font-semibold text-sm">
+                Learn More
+                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-16 lg:py-24 bg-neutral-900 text-white">
+    <div class="container">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Why Charlotte Homeowners Choose iFixx
+          </h2>
+          <p class="text-neutral-300 text-lg mb-8">
+            We're not just another handyman service. We're your neighbors, committed to keeping
+            Charlotte homes in top shape with honest work and fair prices.
+          </p>
+
+          <ul class="space-y-4">
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-white mb-1">Licensed & Insured</h3>
+                <p class="text-neutral-400 text-sm">Fully licensed and insured for your peace of mind.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-white mb-1">Same-Day Service</h3>
+                <p class="text-neutral-400 text-sm">Many repairs can be completed the same day you call.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-white mb-1">Satisfaction Guaranteed</h3>
+                <p class="text-neutral-400 text-sm">We stand behind our work with a quality guarantee.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-white mb-1">Transparent Pricing</h3>
+                <p class="text-neutral-400 text-sm">No hidden fees. You know the price before work begins.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="relative">
+          <img
+            src="/images/projects/Ifixx-portfolio28.webp"
+            alt="iFixx handyman working on home repairs in Charlotte"
+            class="rounded-2xl shadow-2xl"
+            loading="lazy"
+            decoding="async"
+            width="600"
+            height="450"
+          />
+          <div class="absolute -bottom-6 -left-6 bg-primary-500 text-white p-6 rounded-xl shadow-xl">
+            <p class="text-4xl font-bold">15+</p>
+            <p class="text-sm">Years Experience</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Areas -->
+  <section class="py-16 lg:py-24 bg-neutral-50">
+    <div class="container">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+          Service Areas
+        </h2>
+        <p class="text-lg text-neutral-600">
+          We provide home repair services throughout the Charlotte metro area.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {locations.map((location) => (
+          <a
+            href={`/service-areas/${location.slug}`}
+            class="bg-white p-4 rounded-lg text-center hover:bg-primary-50 hover:border-primary-200 border border-neutral-200 transition-colors"
+          >
+            <span class="font-semibold text-neutral-900">{location.data.name}</span>
+            <span class="text-neutral-500 text-sm ml-1">{location.data.state}</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="/service-areas" class="text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+          View All Service Areas →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 lg:py-24 bg-primary-600">
+    <div class="container text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Ready to Fix What's Broken?
+      </h2>
+      <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+        Get a free estimate for your home repair project. No obligation, no pressure.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn bg-white text-primary-600 hover:bg-neutral-100 text-lg px-8 py-4">
+          Request Free Estimate
+        </a>
+        <a href="tel:+19803916833" class="btn btn-outline-light text-lg px-8 py-4">
+          Call Now: (980) 391-6833
+        </a>
+      </div>
+    </div>
+  </section>
+</PillarLayout>

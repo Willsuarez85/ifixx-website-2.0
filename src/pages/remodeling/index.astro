@@ -1,0 +1,334 @@
+---
+import PillarLayout from '../../layouts/PillarLayout.astro';
+import { getCollection } from 'astro:content';
+import TrustBar from '../../components/sections/TrustBar.astro';
+
+// Get all services with category 'remodeling'
+const allServices = await getCollection('services');
+const remodelingServices = allServices.filter(s => s.data.category === 'remodeling');
+
+// Get all locations for internal linking
+const locations = await getCollection('cities');
+
+const pillar = {
+  title: "Home Remodeling Services",
+  slug: "remodeling",
+  description: "Transform your home with professional remodeling services in Charlotte, NC. Kitchen renovations, bathroom remodels, basement finishing, and more.",
+  seo: {
+    title: "Home Remodeling Services in Charlotte, NC | Kitchen & Bath | iFixx",
+    description: "Professional home remodeling in Charlotte. Kitchen renovations, bathroom remodels, basement finishing, flooring. Transform your space. Free consultations!"
+  }
+};
+
+// Define services for schema (these will be created in Sprint 3)
+const plannedServices = [
+  {
+    name: "Kitchen Remodeling",
+    slug: "kitchen-remodeling",
+    description: "Complete kitchen renovations including cabinets, countertops, flooring, and appliance installation.",
+    image: "/images/projects/Ifixx-portfolio3.webp"
+  },
+  {
+    name: "Bathroom Remodeling",
+    slug: "bathroom-remodeling",
+    description: "Full bathroom renovations from tile and fixtures to vanities and lighting upgrades.",
+    image: "/images/projects/Ifixx-portfolio10.webp"
+  },
+  {
+    name: "Basement Finishing",
+    slug: "basement-finishing",
+    description: "Transform your basement into livable space with framing, drywall, flooring, and electrical.",
+    image: "/images/projects/Ifixx-portfolio25.webp"
+  },
+  {
+    name: "Flooring Installation",
+    slug: "flooring-installation",
+    description: "Hardwood, laminate, tile, and vinyl flooring installation for any room in your home.",
+    image: "/images/projects/Ifixx-portfolio18.webp"
+  }
+];
+
+// Use actual services if they exist, otherwise use planned services
+const services = remodelingServices.length > 0
+  ? remodelingServices.map(s => ({
+      name: s.data.title,
+      slug: s.slug,
+      description: s.data.summary,
+      image: s.data.heroImage
+    }))
+  : plannedServices;
+---
+
+<PillarLayout pillar={pillar} services={services}>
+  <!-- Hero Section -->
+  <section class="relative bg-neutral-900 py-20 lg:py-28">
+    <div class="absolute inset-0">
+      <img
+        src="/images/projects/Ifixx-portfolio3.webp"
+        alt="Kitchen remodeling project in Charlotte"
+        class="w-full h-full object-cover opacity-30"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/90 to-neutral-900/70"></div>
+    </div>
+    <div class="container relative">
+      <div class="max-w-3xl">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-sm text-neutral-400 mb-6">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <span>/</span>
+          <span class="text-primary-500">Remodeling</span>
+        </nav>
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          Transform Your Home with <span class="text-primary-500">Expert Remodeling</span>
+        </h1>
+        <p class="text-xl text-neutral-300 mb-8 leading-relaxed">
+          From dream kitchens to spa-like bathrooms, we bring your vision to life.
+          Quality craftsmanship and attention to detail in every project.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/contact" class="btn btn-primary text-lg px-8 py-4">
+            Schedule Free Consultation
+          </a>
+          <a href="tel:+19803916833" class="btn btn-outline-light text-lg px-8 py-4">
+            Call (980) 391-6833
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <TrustBar />
+
+  <!-- Services Grid -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="container">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+          Our Remodeling Services
+        </h2>
+        <p class="text-lg text-neutral-600">
+          Comprehensive remodeling solutions to transform any space in your home.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {services.map((service) => (
+          <div class="group relative bg-neutral-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+            <div class="grid md:grid-cols-2">
+              <div class="aspect-square md:aspect-auto overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={`${service.name} in Charlotte, NC`}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="400"
+                />
+              </div>
+              <div class="p-6 flex flex-col justify-center">
+                <h3 class="text-2xl font-bold text-neutral-900 mb-3">
+                  {service.name}
+                </h3>
+                <p class="text-neutral-600 mb-4">
+                  {service.description}
+                </p>
+                <a
+                  href="/contact"
+                  class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors"
+                >
+                  Get Quote
+                  <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-16 lg:py-24 bg-neutral-900 text-white">
+    <div class="container">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Our Remodeling Process
+        </h2>
+        <p class="text-lg text-neutral-300">
+          From initial consultation to final walkthrough, we guide you through every step.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-white">1</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Consultation</h3>
+          <p class="text-neutral-400 text-sm">
+            We discuss your vision, assess the space, and understand your goals and budget.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-white">2</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Design</h3>
+          <p class="text-neutral-400 text-sm">
+            We create a detailed plan with materials, finishes, and a clear timeline.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-white">3</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Build</h3>
+          <p class="text-neutral-400 text-sm">
+            Our skilled craftsmen execute the project with precision and care.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-white">4</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Reveal</h3>
+          <p class="text-neutral-400 text-sm">
+            Final walkthrough to ensure everything exceeds your expectations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="container">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="relative order-2 lg:order-1">
+          <img
+            src="/images/projects/Ifixx-portfolio10.webp"
+            alt="Bathroom remodeling project by iFixx"
+            class="rounded-2xl shadow-2xl"
+            loading="lazy"
+            decoding="async"
+            width="600"
+            height="450"
+          />
+          <div class="absolute -bottom-6 -right-6 bg-primary-500 text-white p-6 rounded-xl shadow-xl">
+            <p class="text-4xl font-bold">100+</p>
+            <p class="text-sm">Projects Completed</p>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
+            Why Choose iFixx for Your Remodel?
+          </h2>
+          <p class="text-neutral-600 text-lg mb-8">
+            Remodeling is an investment in your home. We treat every project as if it were our own,
+            delivering quality work that stands the test of time.
+          </p>
+
+          <ul class="space-y-4">
+            <li class="flex items-start gap-4">
+              <svg class="w-6 h-6 text-primary-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <div>
+                <h3 class="font-bold text-neutral-900">Quality Craftsmanship</h3>
+                <p class="text-neutral-600 text-sm">Skilled tradesmen who take pride in their work.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <svg class="w-6 h-6 text-primary-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <div>
+                <h3 class="font-bold text-neutral-900">Transparent Communication</h3>
+                <p class="text-neutral-600 text-sm">You're always informed about progress and any changes.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <svg class="w-6 h-6 text-primary-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <div>
+                <h3 class="font-bold text-neutral-900">Clean Job Sites</h3>
+                <p class="text-neutral-600 text-sm">We protect your home and clean up daily.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <svg class="w-6 h-6 text-primary-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <div>
+                <h3 class="font-bold text-neutral-900">Licensed & Insured</h3>
+                <p class="text-neutral-600 text-sm">Full protection for you and your property.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Areas -->
+  <section class="py-16 lg:py-24 bg-neutral-50">
+    <div class="container">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+          Remodeling Services Near You
+        </h2>
+        <p class="text-lg text-neutral-600">
+          We serve homeowners throughout the greater Charlotte area.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {locations.map((location) => (
+          <a
+            href={`/service-areas/${location.slug}`}
+            class="bg-white p-4 rounded-lg text-center hover:bg-primary-50 hover:border-primary-200 border border-neutral-200 transition-colors"
+          >
+            <span class="font-semibold text-neutral-900">{location.data.name}</span>
+            <span class="text-neutral-500 text-sm ml-1">{location.data.state}</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="/service-areas" class="text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+          View All Service Areas →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 lg:py-24 bg-primary-600">
+    <div class="container text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Ready to Transform Your Space?
+      </h2>
+      <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+        Schedule a free consultation to discuss your remodeling project. No obligation, just expert advice.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn bg-white text-primary-600 hover:bg-neutral-100 text-lg px-8 py-4">
+          Schedule Free Consultation
+        </a>
+        <a href="tel:+19803916833" class="btn btn-outline-light text-lg px-8 py-4">
+          Call Now: (980) 391-6833
+        </a>
+      </div>
+    </div>
+  </section>
+</PillarLayout>

@@ -1,0 +1,399 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import TrustBar from '../components/sections/TrustBar.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import QuickEstimateCompact from '../components/forms/QuickEstimateCompact.astro';
+
+// Get locations for service area links
+const locations = await getCollection('cities');
+
+const seo = {
+  title: "Home Repair Services for Charlotte Homeowners | iFixx",
+  description: "Charlotte homeowners trust iFixx for reliable home repairs, remodeling, and 24/7 emergency services. Licensed, insured, and locally owned. Get a free estimate."
+};
+
+// Service pillars for navigation
+const pillars = [
+  {
+    title: 'Home Repairs',
+    href: '/repairs',
+    description: 'Plumbing, electrical, carpentry, painting, and everyday fixes done right.',
+    icon: 'wrench',
+    image: '/images/projects/Ifixx-portfolio15.webp'
+  },
+  {
+    title: 'Remodeling',
+    href: '/remodeling',
+    description: 'Kitchen, bathroom, basement, and flooring transformations.',
+    icon: 'hammer',
+    image: '/images/projects/Ifixx-portfolio28.webp'
+  },
+  {
+    title: '24/7 Emergency',
+    href: '/emergency-services',
+    description: 'Burst pipes, electrical issues, and urgent repairs anytime.',
+    icon: 'bolt',
+    image: '/images/projects/Ifixx-portfolio22.webp'
+  }
+];
+
+// Homeowner pain points
+const painPoints = [
+  {
+    title: "Can't find reliable help",
+    description: "You've been burned by no-shows, sloppy work, or contractors who disappear mid-project."
+  },
+  {
+    title: "Don't have time to manage projects",
+    description: "Between work and family, you don't have hours to spend coordinating repairs."
+  },
+  {
+    title: "Worried about fair pricing",
+    description: "You don't want to overpay, but you also don't trust the cheapest quote."
+  },
+  {
+    title: "Not sure who to trust in your home",
+    description: "Your home is your sanctuary. You need someone trustworthy and professional."
+  }
+];
+
+// Homeowner benefits
+const benefits = [
+  {
+    title: 'Licensed & Insured',
+    description: 'Full coverage and proper licensing for your peace of mind.',
+    icon: 'shield'
+  },
+  {
+    title: 'Clean, Respectful Work',
+    description: 'We treat your home like our own. Protective covers, clean jobsite, every time.',
+    icon: 'sparkles'
+  },
+  {
+    title: 'On-Time, Every Time',
+    description: 'We show up when we say we will. No waiting around wondering.',
+    icon: 'clock'
+  },
+  {
+    title: 'Upfront Pricing',
+    description: 'You know the cost before work begins. No surprises, no hidden fees.',
+    icon: 'dollar'
+  },
+  {
+    title: 'Satisfaction Guaranteed',
+    description: "If you're not happy, we make it right. That's our promise.",
+    icon: 'check'
+  },
+  {
+    title: 'Local & Family-Owned',
+    description: "We're your Charlotte neighbors. Our reputation is everything to us.",
+    icon: 'home'
+  }
+];
+---
+
+<BaseLayout title={seo.title} description={seo.description} canonical="/for-homeowners">
+  <!-- Schema -->
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "iFixx Remodeling & Handyman Services",
+      "description": seo.description,
+      "url": "https://ifixxnc.com/for-homeowners",
+      "telephone": "+1-980-391-6833",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Charlotte",
+        "addressRegion": "NC",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 35.2271,
+          "longitude": -80.8431
+        },
+        "geoRadius": "50000"
+      },
+      "priceRange": "$$"
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ifixxnc.com/" },
+        { "@type": "ListItem", "position": 2, "name": "For Homeowners", "item": "https://ifixxnc.com/for-homeowners" }
+      ]
+    })} />
+  </Fragment>
+
+  <!-- Hero Section with Form -->
+  <section class="relative bg-neutral-900 py-16 lg:py-24">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-600/20 to-transparent"></div>
+    <div class="container relative">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Hero Content -->
+        <div>
+          <!-- Breadcrumb -->
+          <nav class="flex items-center gap-2 text-sm text-neutral-400 mb-6">
+            <a href="/" class="hover:text-white transition-colors">Home</a>
+            <span>/</span>
+            <span class="text-primary-500">For Homeowners</span>
+          </nav>
+
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            Charlotte's Trusted <span class="text-primary-500">Home Repair</span> Partner
+          </h1>
+          <p class="text-xl text-neutral-300 mb-8 leading-relaxed">
+            From quick fixes to complete remodels, iFixx is the one call that handles it all.
+            We're the local, family-owned team Charlotte homeowners trust to get it done right.
+          </p>
+
+          <!-- Quick Stats -->
+          <div class="flex flex-wrap gap-8 mb-8">
+            <div>
+              <p class="text-3xl font-bold text-primary-500">15+</p>
+              <p class="text-sm text-neutral-400">Years Experience</p>
+            </div>
+            <div>
+              <p class="text-3xl font-bold text-primary-500">500+</p>
+              <p class="text-sm text-neutral-400">Projects Completed</p>
+            </div>
+            <div>
+              <p class="text-3xl font-bold text-primary-500">5.0</p>
+              <p class="text-sm text-neutral-400">Google Rating</p>
+            </div>
+          </div>
+
+          <a href="tel:+19803916833" class="btn btn-outline-light text-lg px-8 py-4 lg:hidden">
+            Call (980) 391-6833
+          </a>
+        </div>
+
+        <!-- Form -->
+        <div class="hidden lg:block">
+          <QuickEstimateCompact formId="homeowner-hero-form" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <TrustBar />
+
+  <!-- Pain Points Section -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+          We Understand Homeowner Headaches
+        </h2>
+        <p class="text-lg text-neutral-600">
+          You've got enough on your plate. Finding reliable home help shouldn't add to the stress.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {painPoints.map((point) => (
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-neutral-900 mb-1">{point.title}</h3>
+              <p class="text-neutral-600 text-sm">{point.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-12">
+        <p class="text-lg text-primary-600 font-semibold mb-4">
+          With iFixx, those problems are solved.
+        </p>
+        <a href="/contact" class="btn btn-primary text-lg px-8 py-4">
+          Get Your Free Estimate
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Pillars -->
+  <section class="py-16 lg:py-24 bg-neutral-50">
+    <div class="container">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+          Everything Your Home Needs
+        </h2>
+        <p class="text-lg text-neutral-600">
+          From everyday repairs to complete renovations, we've got you covered.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {pillars.map((pillar) => (
+          <a
+            href={pillar.href}
+            class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+          >
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src={pillar.image}
+                alt={`${pillar.title} services in Charlotte, NC`}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
+                width="400"
+                height="300"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-neutral-900 mb-2 group-hover:text-primary-600 transition-colors">
+                {pillar.title}
+              </h3>
+              <p class="text-neutral-600 text-sm mb-4">
+                {pillar.description}
+              </p>
+              <div class="flex items-center text-primary-600 font-semibold text-sm">
+                Explore Services
+                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-16 lg:py-24 bg-neutral-900 text-white">
+    <div class="container">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Why Charlotte Homeowners Choose iFixx
+        </h2>
+        <p class="text-lg text-neutral-300">
+          We're not just another handyman service. We're your neighbors, committed to quality.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {benefits.map((benefit) => (
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center">
+              {benefit.icon === 'shield' && (
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              )}
+              {benefit.icon === 'sparkles' && (
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              )}
+              {benefit.icon === 'clock' && (
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              )}
+              {benefit.icon === 'dollar' && (
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              )}
+              {benefit.icon === 'check' && (
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              )}
+              {benefit.icon === 'home' && (
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+              )}
+            </div>
+            <div>
+              <h3 class="font-bold text-white mb-1">{benefit.title}</h3>
+              <p class="text-neutral-400 text-sm">{benefit.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <Testimonials
+    segment="homeowner"
+    title="What Homeowners Are Saying"
+    maxItems={4}
+  />
+
+  <!-- Service Areas -->
+  <section class="py-16 lg:py-24 bg-neutral-50">
+    <div class="container">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+          Serving Charlotte & Surrounding Areas
+        </h2>
+        <p class="text-lg text-neutral-600">
+          We're proud to serve homeowners throughout the Charlotte metro area.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        {locations.map((location) => (
+          <a
+            href={`/service-areas/${location.slug}`}
+            class="bg-white p-4 rounded-lg text-center hover:bg-primary-50 hover:border-primary-200 border border-neutral-200 transition-colors"
+          >
+            <span class="font-semibold text-neutral-900">{location.data.name}</span>
+            <span class="text-neutral-500 text-sm ml-1">{location.data.state}</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="/service-areas" class="text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+          View All Service Areas →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Form Section -->
+  <section class="py-16 bg-white lg:hidden">
+    <div class="container">
+      <div class="max-w-md mx-auto">
+        <QuickEstimateCompact formId="homeowner-mobile-form" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16 lg:py-24 bg-primary-600">
+    <div class="container text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Ready to Get Started?
+      </h2>
+      <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+        Get a free, no-obligation estimate for your home project. We'll get back to you within 24 hours.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn bg-white text-primary-600 hover:bg-neutral-100 text-lg px-8 py-4">
+          Request Free Estimate
+        </a>
+        <a href="tel:+19803916833" class="btn btn-outline-light text-lg px-8 py-4">
+          Call Now: (980) 391-6833
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
