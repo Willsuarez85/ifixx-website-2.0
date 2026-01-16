@@ -34,7 +34,7 @@ faqs:
   - q: "Can you convert my tub to a walk-in shower?"
     a: "Yes! Tub-to-shower conversions are one of our most popular services. We can also install walk-in tubs."
   - q: "Do you handle plumbing and electrical?"
-    a: "Yes, our team includes licensed professionals who handle all plumbing and electrical work."
+    a: "Yes, our team includes qualified professionals who handle all plumbing and electrical work."
   - q: "Can you make my bathroom more accessible?"
     a: "Absolutely. We install grab bars, walk-in tubs, curbless showers, and other accessibility features."
 relatedServices:

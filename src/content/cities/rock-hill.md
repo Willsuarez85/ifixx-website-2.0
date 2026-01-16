@@ -18,7 +18,7 @@ highlights:
   - "Charlotte-quality service for Rock Hill homeowners"
   - "Serving Rock Hill and all of York County"
   - "Experience with lakefront and waterfront properties"
-  - "Licensed to work in South Carolina"
+  - "Fully insured to work in South Carolina"
   - "Fast response from nearby Charlotte team"
 zipCodes:
   - "29730"

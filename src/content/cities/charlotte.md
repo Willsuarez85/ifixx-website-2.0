@@ -21,7 +21,7 @@ highlights:
   - "Experience with all Charlotte architectural styles"
   - "Local team with fast response times"
   - "Trusted by hundreds of Charlotte families"
-  - "Fully licensed, bonded, and insured"
+  - "Fully insured and bonded"
 zipCodes:
   - "28202"
   - "28203"
