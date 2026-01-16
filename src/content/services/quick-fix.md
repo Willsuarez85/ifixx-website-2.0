@@ -3,7 +3,7 @@ title: "Quick Fix Services"
 category: "handyman"
 pillar: "repairs"
 summary: "The catch-all solution for your home to-do list. From minor fixes to odd jobs, if it's broken, we can probably fix it."
-heroImage: "/images/services/general-repairs.jpg"
+heroImage: "/images/services/general-repairs.webp"
 bullets:
   - "Furniture assembly"
   - "TV mounting"
