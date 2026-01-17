@@ -27,9 +27,29 @@ export default defineConfig({
           item.priority = 0.9;
           item.changefreq = 'weekly';
         }
+        // Pillar pages - very high priority (SEO hubs)
+        else if (url.match(/\/(repairs|remodeling|emergency-services)\/?$/)) {
+          item.priority = 0.85;
+          item.changefreq = 'weekly';
+        }
+        // Service areas index - high priority (local SEO hub)
+        else if (url.match(/\/service-areas\/?$/)) {
+          item.priority = 0.75;
+          item.changefreq = 'weekly';
+        }
         // Services index and individual service pages - high priority
         else if (url.includes('/services')) {
           item.priority = 0.8;
+          item.changefreq = 'weekly';
+        }
+        // Individual pillar service pages (repairs/plumbing, remodeling/kitchen)
+        else if (url.match(/\/(repairs|remodeling)\/[a-z-]+$/)) {
+          item.priority = 0.8;
+          item.changefreq = 'weekly';
+        }
+        // Location pages (service-areas/charlotte, etc.)
+        else if (url.match(/\/service-areas\/[a-z-]+$/)) {
+          item.priority = 0.75;
           item.changefreq = 'weekly';
         }
         // City + Service pages - medium-high priority (local SEO)

@@ -13,10 +13,10 @@ const locations = await getCollection('cities');
 const pillar = {
   title: "Home Repair Services",
   slug: "repairs",
-  description: "Professional home repair services in Charlotte, NC. From plumbing and electrical to carpentry and painting, our skilled handymen fix it right the first time.",
+  description: "Charlotte's trusted home repair team. Plumbing, electrical, carpentry, painting, doors and windows. Family-owned, fully insured, 500+ projects completed across South Charlotte, Matthews, Ballantyne, and surrounding areas.",
   seo: {
-    title: "Home Repair Services in Charlotte, NC | Professional Handyman | iFixx",
-    description: "Expert home repair services in Charlotte. Plumbing, electrical, carpentry, painting, doors & windows. Fully insured. Same-day service available. Free estimates!"
+    title: "Home Repair & Handyman Services Charlotte NC | iFixx",
+    description: "Family-owned handyman services in Charlotte. Plumbing, electrical, carpentry, painting, doors & windows. 5+ years, 500+ projects. Same-day available. Call (980) 391-6833."
   }
 };
 
@@ -52,16 +52,17 @@ const serviceImages: Record<string, string> = {
         </nav>
 
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-          Professional <span class="text-primary-500">Home Repair</span> Services
+          Your Local Charlotte <span class="text-primary-500">Handyman Team</span>
         </h1>
         <p class="text-xl text-neutral-300 mb-8 leading-relaxed">
-          From leaky faucets to electrical issues, our skilled handymen handle all your home repair needs.
-          Serving Charlotte and surrounding areas with quality workmanship you can trust.
+          We've been fixing homes across Charlotte for over 5 years—500+ projects and counting.
+          From a leaky faucet in Myers Park to a full electrical panel upgrade in Matthews,
+          we're the local team your neighbors call when they need it done right.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="/contact" class="btn btn-primary text-lg px-8 py-4">
-            Get Free Estimate
+            Request Free Estimate
           </a>
           <a href="tel:+19803916833" class="btn btn-outline-light text-lg px-8 py-4">
             Call (980) 391-6833
@@ -79,10 +80,11 @@ const serviceImages: Record<string, string> = {
     <div class="container">
       <div class="text-center max-w-2xl mx-auto mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-          Our Repair Services
+          Home Repairs We Handle Every Day
         </h2>
         <p class="text-lg text-neutral-600">
-          Whatever needs fixing in your home, we have the expertise to get it done right.
+          After 500+ projects across Charlotte, there's not much we haven't seen.
+          From older homes in Plaza Midwood to newer builds in Waxhaw—we know what Charlotte homes need.
         </p>
       </div>
 
@@ -129,11 +131,12 @@ const serviceImages: Record<string, string> = {
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <h2 class="text-3xl md:text-4xl font-bold mb-6">
-            Why Charlotte Homeowners Choose iFixx
+            Why Charlotte Calls iFixx First
           </h2>
           <p class="text-neutral-300 text-lg mb-8">
-            We're not just another handyman service. We're your neighbors, committed to keeping
-            Charlotte homes in top shape with honest work and fair prices.
+            We're a local Charlotte family—not a franchise, not a call center in another state.
+            When you call us, you talk to us. When we show up, it's the same team every time.
+            That's how we've built our reputation over 5 years and 500+ projects.
           </p>
 
           <ul class="space-y-4">
@@ -144,8 +147,8 @@ const serviceImages: Record<string, string> = {
                 </svg>
               </div>
               <div>
-                <h3 class="font-bold text-white mb-1">Fully Insured</h3>
-                <p class="text-neutral-400 text-sm">Full coverage for your peace of mind.</p>
+                <h3 class="font-bold text-white mb-1">Family-Owned, Local</h3>
+                <p class="text-neutral-400 text-sm">We live in Charlotte. Our kids go to school here. Your reputation is our reputation.</p>
               </div>
             </li>
             <li class="flex items-start gap-4">
@@ -155,8 +158,8 @@ const serviceImages: Record<string, string> = {
                 </svg>
               </div>
               <div>
-                <h3 class="font-bold text-white mb-1">Same-Day Service</h3>
-                <p class="text-neutral-400 text-sm">Many repairs can be completed the same day you call.</p>
+                <h3 class="font-bold text-white mb-1">Same-Day Service Available</h3>
+                <p class="text-neutral-400 text-sm">Call in the morning, we can often be there by afternoon. Charlotte traffic? We know the shortcuts.</p>
               </div>
             </li>
             <li class="flex items-start gap-4">
@@ -166,8 +169,8 @@ const serviceImages: Record<string, string> = {
                 </svg>
               </div>
               <div>
-                <h3 class="font-bold text-white mb-1">Satisfaction Guaranteed</h3>
-                <p class="text-neutral-400 text-sm">We stand behind our work with a quality guarantee.</p>
+                <h3 class="font-bold text-white mb-1">Fully Insured</h3>
+                <p class="text-neutral-400 text-sm">Full liability coverage. You're protected, we're protected. Simple.</p>
               </div>
             </li>
             <li class="flex items-start gap-4">
@@ -177,8 +180,8 @@ const serviceImages: Record<string, string> = {
                 </svg>
               </div>
               <div>
-                <h3 class="font-bold text-white mb-1">Transparent Pricing</h3>
-                <p class="text-neutral-400 text-sm">No hidden fees. You know the price before work begins.</p>
+                <h3 class="font-bold text-white mb-1">Upfront Pricing</h3>
+                <p class="text-neutral-400 text-sm">We tell you the price before we start. No surprises, no awkward conversations at the end.</p>
               </div>
             </li>
           </ul>
@@ -195,8 +198,8 @@ const serviceImages: Record<string, string> = {
             height="450"
           />
           <div class="absolute -bottom-6 -left-6 bg-primary-500 text-white p-6 rounded-xl shadow-xl">
-            <p class="text-4xl font-bold">15+</p>
-            <p class="text-sm">Years Experience</p>
+            <p class="text-4xl font-bold">500+</p>
+            <p class="text-sm">Projects Completed</p>
           </div>
         </div>
       </div>
@@ -245,7 +248,7 @@ const serviceImages: Record<string, string> = {
         Get a free estimate for your home repair project. No obligation, no pressure.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="btn btn-emergency text-lg px-8 py-4">
+        <a href="/contact" class="btn bg-white text-primary-600 hover:bg-neutral-100 text-lg px-8 py-4">
           Request Free Estimate
         </a>
         <a href="tel:+19803916833" class="btn btn-outline-light text-lg px-8 py-4">
