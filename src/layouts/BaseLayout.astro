@@ -33,13 +33,9 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <!-- DNS Prefetch for external resources -->
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-
-  <!-- Preconnect for Google Fonts (critical for CWV) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Preload local fonts for faster rendering -->
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
 
   <!-- Preload critical hero image for LCP -->
   <link
@@ -50,12 +46,6 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
     imagesrcset="/images/ui/hero-bg-640.webp 640w, /images/ui/hero-bg-1024.webp 1024w, /images/ui/hero-bg.webp 1920w"
     imagesizes="100vw"
     fetchpriority="high"
-  />
-
-  <!-- Load fonts with font-display: swap -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap"
-    rel="stylesheet"
   />
 
   <!-- Open Graph / Social -->
