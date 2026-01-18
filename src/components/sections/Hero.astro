@@ -5,15 +5,24 @@ const phoneHref = 'tel:+19803916833';
 <section class="relative bg-neutral-900 overflow-hidden">
   <!-- Background Image with Overlay -->
   <div class="absolute inset-0 z-0">
-    <img
-      src="/images/ui/hero-bg.jpg"
-      alt="Beautiful kitchen renovation by iFixx in Charlotte NC"
-      class="w-full h-full object-cover"
-      width="1920"
-      height="1080"
-      fetchpriority="high"
-      decoding="async"
-    />
+    <picture>
+      <source
+        srcset="/images/ui/hero-bg-640.webp 640w,
+                /images/ui/hero-bg-1024.webp 1024w,
+                /images/ui/hero-bg.webp 1920w"
+        sizes="100vw"
+        type="image/webp"
+      />
+      <img
+        src="/images/ui/hero-bg.jpg"
+        alt="Beautiful kitchen renovation by iFixx in Charlotte NC"
+        class="w-full h-full object-cover"
+        width="1920"
+        height="1080"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </picture>
     <!-- Heavy Charcoal Gradient for Text Readability -->
     <div class="absolute inset-0 bg-gradient-to-r from-neutral-900/95 via-neutral-900/80 to-neutral-900/40"></div>
   </div>

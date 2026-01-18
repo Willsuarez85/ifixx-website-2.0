@@ -41,6 +41,17 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+  <!-- Preload critical hero image for LCP -->
+  <link
+    rel="preload"
+    as="image"
+    type="image/webp"
+    href="/images/ui/hero-bg.webp"
+    imagesrcset="/images/ui/hero-bg-640.webp 640w, /images/ui/hero-bg-1024.webp 1024w, /images/ui/hero-bg.webp 1920w"
+    imagesizes="100vw"
+    fetchpriority="high"
+  />
+
   <!-- Load fonts with font-display: swap -->
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap"

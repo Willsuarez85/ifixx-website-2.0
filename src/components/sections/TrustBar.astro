@@ -82,13 +82,16 @@ const reviewPlatforms = [
                   </svg>
                 )}
                 {platform.name === 'Yelp' && (
-                  <img
-                    src="/images/logos/yelp.png"
-                    alt="Yelp"
-                    class="w-8 h-8 object-contain"
-                    width="32"
-                    height="32"
-                  />
+                  <picture>
+                    <source srcset="/images/logos/yelp.webp" type="image/webp" />
+                    <img
+                      src="/images/logos/yelp.png"
+                      alt="Yelp"
+                      class="w-8 h-8 object-contain"
+                      width="32"
+                      height="32"
+                    />
+                  </picture>
                 )}
                 {platform.name === 'Nextdoor' && (
                   <svg class="w-8 h-8" viewBox="0 0 24 24" fill="#00B246">

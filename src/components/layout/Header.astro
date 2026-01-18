@@ -36,7 +36,10 @@ const isActivePath = (href: string) => {
     <div class="flex items-center justify-between h-16 lg:h-20">
       <!-- Logo -->
       <a href="/" class="flex items-center">
-        <img src="/images/ui/logo.png" alt="iFixx Logo" class="h-12 w-auto" />
+        <picture>
+          <source srcset="/images/ui/logo.webp" type="image/webp" />
+          <img src="/images/ui/logo.png" alt="iFixx Logo" class="h-12 w-auto" width="107" height="48" />
+        </picture>
       </a>
 
       <!-- Desktop Navigation -->
