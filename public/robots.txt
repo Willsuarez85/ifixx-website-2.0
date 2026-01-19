@@ -72,3 +72,11 @@ Disallow: /
 # Sitemap Location
 # ============================================
 Sitemap: https://ifixxnc.com/sitemap-index.xml
+
+# ============================================
+# LLMs.txt - Information for AI Assistants
+# This provides structured business info for
+# AI assistants answering user queries
+# (separate from training data scraping)
+# ============================================
+# https://ifixxnc.com/llms.txt
