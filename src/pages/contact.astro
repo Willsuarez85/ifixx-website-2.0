@@ -519,13 +519,15 @@ const breadcrumbSchema = {
       `;
       form.appendChild(successMsg);
 
-      // GTM / Analytics
-      if (typeof window.gtag !== "undefined") {
-        window.gtag("event", "generate_lead", {
-          event_category: "form",
-          event_label: "contact_page",
-        });
-      }
+      // Track form submission in GTM
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'form_submit',
+        'form_id': 'contact-form',
+        'form_name': 'Contact Page Form',
+        'form_location': window.location.pathname,
+        'lead_type': 'contact_request'
+      });
     } catch (error: any) {
       console.error("Form submission error:", error);
 

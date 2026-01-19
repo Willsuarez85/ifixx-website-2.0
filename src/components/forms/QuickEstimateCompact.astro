@@ -185,6 +185,16 @@ const services = [
         if (result.success) {
           successMsg?.classList.remove('hidden');
           form.reset();
+
+          // Track form submission in GTM
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            'event': 'form_submit',
+            'form_id': formId,
+            'form_name': 'Quick Estimate Form',
+            'form_location': window.location.pathname,
+            'lead_type': 'quick_estimate'
+          });
         } else {
           throw new Error(result.error || 'Unknown error');
         }

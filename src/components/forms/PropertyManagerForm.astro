@@ -252,6 +252,16 @@ const contactTimeOptions = [
         if (result.success) {
           successMsg?.classList.remove('hidden');
           form.reset();
+
+          // Track form submission in GTM
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            'event': 'form_submit',
+            'form_id': formId,
+            'form_name': 'Property Manager Form',
+            'form_location': window.location.pathname,
+            'lead_type': 'property_manager'
+          });
         } else {
           throw new Error(result.error || 'Unknown error');
         }
