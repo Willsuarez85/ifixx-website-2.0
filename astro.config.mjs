@@ -13,6 +13,14 @@ export default defineConfig({
     sitemap({
       changefreq: 'weekly',
       lastmod: new Date(),
+      // Exclude redirect pages from sitemap
+      filter: (page) => {
+        // Exclude /services/[slug] pages (these redirect to /repairs/ or /remodeling/)
+        if (page.match(/\/services\/[a-z-]+\/?$/)) return false;
+        // Exclude privacy and terms (low value for SEO)
+        if (page.includes('/privacy') || page.includes('/terms')) return false;
+        return true;
+      },
       // Custom priority based on page type
       serialize(item) {
         const url = item.url;

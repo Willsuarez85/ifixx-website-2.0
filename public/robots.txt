@@ -10,7 +10,6 @@ Crawl-delay: 1
 
 # Disallow admin/API routes
 Disallow: /api/
-Disallow: /_astro/
 
 # ============================================
 # AI Training Bot Restrictions
