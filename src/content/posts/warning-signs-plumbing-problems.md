@@ -2,7 +2,7 @@
 title: "7 Warning Signs of Plumbing Problems (Before It's an Emergency)"
 date: 2026-01-18
 excerpt: "Most plumbing problems give warning signs before they become emergencies. Here are 7 signs Charlotte homeowners should watch for—and what to do about them."
-coverImage: "/images/blog/plumbing-warning-signs.jpg"
+coverImage: "/images/projects/plumbing-water-heater-valve-repair-wrench.webp"
 category: "Home Maintenance"
 tags: ["plumbing", "home maintenance", "warning signs", "Charlotte"]
 seo:

@@ -2,7 +2,7 @@
 title: "5 Home Repairs You Should Never DIY (And What You Can)"
 date: 2026-01-18
 excerpt: "Some home repairs are perfect weekend projects. Others can hurt you, damage your home, or void your insurance. Here's how to know the difference."
-coverImage: "/images/blog/diy-vs-pro.jpg"
+coverImage: "/images/projects/home-repair-tools-collection-workbench-hammer-screwdrivers.webp"
 category: "DIY vs Pro"
 tags: ["DIY", "home repairs", "safety", "when to hire"]
 seo:

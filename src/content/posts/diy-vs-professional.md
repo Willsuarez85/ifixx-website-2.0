@@ -2,7 +2,7 @@
 title: "DIY vs. Professional: When to Call a Handyman"
 date: 2026-01-05
 excerpt: "Save money on some projects, but know when calling a professional handyman is the smarter choice for safety and quality results."
-coverImage: "/images/blog/diy-vs-pro.jpg"
+coverImage: "/images/projects/home-repair-tools-collection-workbench-hammer-screwdrivers.webp"
 category: "DIY vs Pro"
 tags:
   - "handyman"

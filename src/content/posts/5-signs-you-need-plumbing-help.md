@@ -2,7 +2,7 @@
 title: "5 Signs You Need Professional Plumbing Help"
 date: 2026-01-06
 excerpt: "Don't ignore these warning signs! Learn when to call a professional plumber vs. attempting a DIY fix for common household plumbing issues."
-coverImage: "/images/blog/plumbing-signs.jpg"
+coverImage: "/images/projects/plumbing-bathroom-faucet-installation-repair.webp"
 category: "Home Maintenance"
 tags:
   - "plumbing"

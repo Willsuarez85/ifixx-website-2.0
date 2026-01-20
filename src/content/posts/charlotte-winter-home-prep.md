@@ -2,7 +2,7 @@
 title: "Charlotte Winter Home Prep: The Complete Checklist"
 date: 2026-01-18
 excerpt: "Charlotte winters are mild—until they're not. Here's how to prepare your home for freezing temps, ice storms, and everything in between."
-coverImage: "/images/blog/winter-prep-charlotte.jpg"
+coverImage: "/images/projects/remodeling-modern-home-exterior-curb-appeal.webp"
 category: "Home Maintenance"
 tags: ["winter prep", "Charlotte", "seasonal maintenance", "freeze protection"]
 seo:
