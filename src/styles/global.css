@@ -147,17 +147,16 @@ h6 {
   letter-spacing: 0.025em;
 }
 
-/* Primary Button: Gold Background, Charcoal Text */
+/* Primary Button: Red Background, White Text */
 .btn-primary {
-  background-color: var(--color-primary-500);
-  color: var(--color-neutral-800);
+  background-color: var(--color-emergency-500);
+  color: white;
 }
 
 .btn-primary:hover {
-  background-color: #d4a949;
-  /* Slightly darker gold */
+  background-color: var(--color-emergency-600);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(228, 188, 93, 0.4);
+  box-shadow: 0 4px 12px rgba(172, 19, 24, 0.4);
 }
 
 /* Secondary Button: Charcoal Border, White Fill */

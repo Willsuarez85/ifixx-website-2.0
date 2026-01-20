@@ -3,7 +3,7 @@ title: "Outdoor Living Spaces"
 category: "remodeling"
 pillar: "remodeling"
 summary: "Extend your living space outdoors with custom decks, patios, pergolas, and outdoor kitchens in Charlotte, NC."
-heroImage: "/images/projects/Ifixx-portfolio30.webp"
+heroImage: "/images/projects/outdoor-living-covered-porch-deck-wood-ceiling.webp"
 bullets:
   - "Deck construction & repair"
   - "Patio installation"
