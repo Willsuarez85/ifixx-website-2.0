@@ -103,8 +103,14 @@ const serviceSchema = {
   "offers": {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
-    "priceCurrency": "USD",
-    "price": "Contact for Quote"
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "priceCurrency": "USD",
+      "eligibleQuantity": {
+        "@type": "QuantitativeValue",
+        "value": 1
+      }
+    }
   }
 };
 

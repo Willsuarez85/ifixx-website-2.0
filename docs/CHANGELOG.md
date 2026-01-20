@@ -4,7 +4,48 @@
 
 ---
 
-## Sprint 6: QA & Launch (Enero 17, 2026) - EN PROGRESO
+## GTM + GA4 Production Verification (Enero 19, 2026) - COMPLETADO
+
+**Objetivo:** Verificar que el tracking funcione correctamente en producción.
+
+### Problema Detectado
+- Formularios mostraban "Server configuration error" al enviar
+- Causa: Variables de entorno `GHL_API_KEY` y `GHL_LOCATION_ID` no estaban configuradas en Vercel
+
+### Solución Implementada
+- Configuración de variables de entorno en Vercel Dashboard:
+  - `GHL_API_KEY` → API Key de la location específica de GHL
+  - `GHL_LOCATION_ID` → Location ID de GoHighLevel
+- Re-deploy del sitio para aplicar cambios
+
+### Verificación Exitosa
+| Componente | Estado |
+|------------|--------|
+| GTM Container (`GTM-5J8QWJG2`) | ✅ Cargando |
+| GA4 Property (`G-KVM73G9H1L`) | ✅ Recibiendo eventos |
+| API `/api/lead` | ✅ Enviando a GHL |
+| Evento `form_submit` | ✅ Disparando en dataLayer |
+| Evento `generate_lead` ($150) | ✅ Configurado en GTM |
+| Evento `click_to_call` ($50) | ✅ Automático vía GTM |
+| Evento `scroll_depth` | ✅ Automático vía GTM |
+
+### Test Realizado
+- Formulario de contacto enviado exitosamente
+- Lead de prueba creado en GHL con tags correctos
+- Evento capturado en dataLayer:
+```javascript
+{
+  "event": "form_submit",
+  "form_id": "contact-form",
+  "form_name": "Contact Page Form",
+  "form_location": "/contact",
+  "lead_type": "contact_request"
+}
+```
+
+---
+
+## Sprint 6: QA & Launch (Enero 17, 2026) - COMPLETADO
 
 ### Completado
 - Verificar redirects 301 (13 en vercel.json)
@@ -12,11 +53,12 @@
 - Lighthouse audit (Performance 56 dev, SEO 92, A11y 94)
 - Sitemap.xml verificado (154 URLs)
 - robots.txt con AI bot blocking
+- GTM + GA4 tracking verificado en producción ✅
 
 ### Pendiente
-- Test mobile en dispositivos reales (post-deploy)
 - Submit sitemap a Google Search Console (post-launch)
 - Monitorear 404s (1 semana post-launch)
+- Monitorear conversiones en GA4 (7 días post-launch)
 
 ---
 

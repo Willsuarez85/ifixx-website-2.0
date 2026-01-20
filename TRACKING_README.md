@@ -220,8 +220,36 @@ Para cambios en tracking o agregar nuevos eventos, contactar a:
 
 ---
 
+## Configuración de Producción (Vercel)
+
+**IMPORTANTE:** Para que los formularios funcionen en producción, debes configurar estas variables de entorno en Vercel:
+
+### Variables Requeridas
+
+| Variable | Descripción | Dónde obtenerla |
+|----------|-------------|-----------------|
+| `GHL_API_KEY` | API Key de GoHighLevel | GHL → Settings → API Keys |
+| `GHL_LOCATION_ID` | ID de la ubicación | En la URL de GHL: `app.gohighlevel.com/v2/location/XXXXX/...` |
+
+### Pasos para Configurar
+
+1. Ir a https://vercel.com/dashboard
+2. Seleccionar el proyecto
+3. Settings → Environment Variables
+4. Agregar ambas variables para `Production`, `Preview`, y `Development`
+5. **Re-deploy** el sitio para aplicar cambios
+
+### Recomendación de Seguridad
+
+Usar el **API Key de la Location específica** (no el de nivel agencia) para:
+- Limitar acceso solo a lo necesario
+- Proteger otras cuentas si se filtra la key
+
+---
+
 ## Changelog
 
 | Fecha | Versión GTM | Cambio |
 |-------|-------------|--------|
 | 2026-01-19 | v6 | Implementación inicial completa |
+| 2026-01-19 | - | Variables GHL configuradas en Vercel, tracking verificado en producción |
