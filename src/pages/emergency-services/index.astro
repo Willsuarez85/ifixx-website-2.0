@@ -61,7 +61,16 @@ const services = emergencyServices.length > 0
 <PillarLayout pillar={pillar} services={services}>
   <!-- Emergency Hero Section -->
   <section class="relative bg-red-900 py-20 lg:py-28">
-    <div class="absolute inset-0 bg-gradient-to-br from-red-800 to-red-950"></div>
+    <div class="absolute inset-0">
+      <img
+        src="/images/projects/emergency-plumbing-leaking-pipe-water-damage.webp"
+        alt="Emergency plumbing repair - leaking pipe"
+        class="w-full h-full object-cover opacity-25"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-br from-red-900/90 via-red-800/80 to-red-950/90"></div>
     <div class="container relative">
       <div class="max-w-3xl">
         <!-- Emergency Badge -->

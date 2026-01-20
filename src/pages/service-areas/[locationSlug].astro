@@ -81,6 +81,20 @@ const serviceIcons: Record<string, string> = {
 
 // Location type label
 const locationType = city.data.type === 'neighborhood' ? 'Neighborhood' : 'City';
+
+// City hero images mapping
+const cityHeroImages: Record<string, string> = {
+  'charlotte': '/images/projects/remodeling-modern-home-exterior-curb-appeal.webp',
+  'matthews': '/images/projects/outdoor-living-covered-porch-deck-wood-ceiling.webp',
+  'ballantyne': '/images/projects/kitchen-remodeling-luxury-white-cabinets-island-pendant-lights.webp',
+  'waxhaw': '/images/projects/outdoor-living-raised-deck-railing-construction.webp',
+  'mint-hill': '/images/projects/kitchen-remodeling-complete-modern-white-cabinets-island.webp',
+  'pineville': '/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp',
+  'monroe': '/images/projects/flooring-installation-modern-living-room-interior.webp',
+  'rock-hill': '/images/projects/outdoor-living-deck-construction-screened-porch.webp',
+};
+
+const heroImage = cityHeroImages[city.slug] || '/images/projects/remodeling-modern-home-exterior-curb-appeal.webp';
 ---
 
 <ServiceAreaLayout location={{
@@ -93,8 +107,17 @@ const locationType = city.data.type === 'neighborhood' ? 'Neighborhood' : 'City'
 }}>
 
   <!-- Hero Section -->
-  <section class="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 text-white py-16 lg:py-24">
-    <div class="absolute inset-0 bg-black/30"></div>
+  <section class="relative bg-primary-900 text-white py-16 lg:py-24 overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src={heroImage}
+        alt={`Home services in ${city.data.name}, ${city.data.state}`}
+        class="w-full h-full object-cover opacity-35"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-900/90 via-primary-800/80 to-primary-900/90"></div>
     <div class="container relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <div>

@@ -44,20 +44,22 @@ const serviceAreas = allCities.sort((a, b) => {
 
 // Map service slugs to hero images
 const serviceHeroImages: Record<string, string> = {
-  'kitchen-remodeling': '/images/projects/Ifixx-portfolio3.webp',
-  'bathroom-remodeling': '/images/projects/Ifixx-portfolio10.webp',
-  'basement-finishing': '/images/projects/Ifixx-portfolio25.webp',
-  'flooring-installation': '/images/projects/Ifixx-portfolio18.webp',
-  'outdoor-living': '/images/projects/Ifixx-portfolio30.webp',
+  'kitchen-remodeling': '/images/projects/kitchen-remodeling-complete-modern-white-cabinets-island.webp',
+  'bathroom-remodeling': '/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp',
+  'basement-finishing': '/images/projects/living-room-fireplace-white-brick.webp',
+  'flooring-installation': '/images/projects/flooring-installation-modern-living-room-interior.webp',
+  'outdoor-living': '/images/projects/outdoor-living-deck-construction-screened-porch.webp',
+  'home-additions': '/images/projects/construction-wood-framing-window.webp',
 };
 
 // Map service slugs to project images
 const serviceProjectImages: Record<string, string> = {
-  'kitchen-remodeling': '/images/projects/Ifixx-portfolio60.webp',
-  'bathroom-remodeling': '/images/projects/Ifixx-portfolio32.webp',
-  'basement-finishing': '/images/projects/Ifixx-portfolio25.webp',
-  'flooring-installation': '/images/projects/Ifixx-portfolio18.webp',
-  'outdoor-living': '/images/projects/Ifixx-portfolio30.webp',
+  'kitchen-remodeling': '/images/projects/kitchen-remodeling-luxury-white-cabinets-island-pendant-lights.webp',
+  'bathroom-remodeling': '/images/projects/bathroom-remodeling-dual-vanity-installation-progress.webp',
+  'basement-finishing': '/images/projects/closet-built-in-white-organizer.webp',
+  'flooring-installation': '/images/projects/bedroom-bed-wood-dressers.webp',
+  'outdoor-living': '/images/projects/outdoor-living-covered-porch-deck-wood-ceiling.webp',
+  'home-additions': '/images/projects/outdoor-living-raised-deck-railing-construction.webp',
 };
 
 const heroImageSrc = heroImage || serviceHeroImages[service.slug] || '/images/ui/hero-bg.jpg';

@@ -9,53 +9,77 @@ const { serviceSlug = '', title = 'Our Work' } = Astro.props;
 // Gallery images organized by service category
 const galleryImages: Record<string, { src: string; alt: string; category: string }[]> = {
   'plumbing': [
+    { src: '/images/projects/plumbing-bathroom-faucet-installation-repair.webp', alt: 'Bathroom faucet installation and repair', category: 'plumbing' },
+    { src: '/images/projects/plumbing-water-heater-valve-repair-wrench.webp', alt: 'Water heater valve repair', category: 'plumbing' },
+    { src: '/images/projects/plumbing-emergency-copper-pipe-repair-leak-basement.webp', alt: 'Emergency copper pipe repair', category: 'plumbing' },
     { src: '/images/projects/bathroom-glass-shower.webp', alt: 'Modern glass shower installation', category: 'plumbing' },
     { src: '/images/projects/bathroom-team-work.webp', alt: 'Professional bathroom work', category: 'plumbing' },
-    { src: '/images/projects/bathroom-1.webp', alt: 'Bathroom project', category: 'plumbing' },
   ],
   'bathroom-remodel': [
+    { src: '/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp', alt: 'Modern bathroom with glass shower and vanity', category: 'bathroom' },
+    { src: '/images/projects/bathroom-remodeling-dual-vanity-installation-progress.webp', alt: 'Dual vanity installation in progress', category: 'bathroom' },
     { src: '/images/projects/bathroom-glass-shower.webp', alt: 'Modern glass shower installation', category: 'bathroom' },
     { src: '/images/projects/bathroom-team-work.webp', alt: 'Professional bathroom work', category: 'bathroom' },
     { src: '/images/projects/bathroom-1.webp', alt: 'Bathroom project', category: 'bathroom' },
   ],
   'kitchen-remodel': [
+    { src: '/images/projects/kitchen-remodeling-complete-modern-white-cabinets-island.webp', alt: 'Complete kitchen remodel with modern white cabinets', category: 'kitchen' },
+    { src: '/images/projects/kitchen-white-gray-island-black-pendants.webp', alt: 'White kitchen with gray island and black pendants', category: 'kitchen' },
+    { src: '/images/projects/kitchen-remodeling-luxury-white-cabinets-island-pendant-lights.webp', alt: 'Luxury kitchen with white cabinets and pendant lights', category: 'kitchen' },
     { src: '/images/projects/kitchen-dark-modern.webp', alt: 'Dark modern kitchen', category: 'kitchen' },
     { src: '/images/projects/gallery-kitchen-gray-marble.webp', alt: 'Gray marble kitchen', category: 'kitchen' },
     { src: '/images/projects/kitchen-two-tone.webp', alt: 'Two-tone kitchen design', category: 'kitchen' },
-    { src: '/images/projects/gallery-kitchen-dark-subway.webp', alt: 'Kitchen with dark subway tiles', category: 'kitchen' },
-    { src: '/images/projects/kitchen-1.webp', alt: 'Kitchen project', category: 'kitchen' },
   ],
   'carpentry': [
+    { src: '/images/projects/carpentry-stair-repair-technician-drilling-wood.webp', alt: 'Stair repair - technician drilling wood', category: 'carpentry' },
+    { src: '/images/projects/carpentry-baseboard-trim-installation-repair.webp', alt: 'Baseboard and trim installation', category: 'carpentry' },
+    { src: '/images/projects/carpentry-cabinet-door-hinge-installation-repair.webp', alt: 'Cabinet door hinge installation', category: 'carpentry' },
     { src: '/images/projects/home-addition.webp', alt: 'Home addition project', category: 'carpentry' },
     { src: '/images/projects/kitchen-two-tone.webp', alt: 'Custom kitchen cabinets', category: 'carpentry' },
   ],
   'painting': [
+    { src: '/images/projects/painting-drywall-dining-room-wainscoting-chandelier.webp', alt: 'Dining room with drywall and wainscoting', category: 'painting' },
+    { src: '/images/projects/painting-bedroom-mural-custom-wall-art.webp', alt: 'Bedroom mural and custom wall art', category: 'painting' },
     { src: '/images/projects/kitchen-dark-modern.webp', alt: 'Interior painting', category: 'painting' },
     { src: '/images/projects/gallery-kitchen-gray-marble.webp', alt: 'Kitchen painting', category: 'painting' },
   ],
   'general-repairs': [
+    { src: '/images/projects/drywall-repair-patching-hole-spackling.webp', alt: 'Drywall repair and patching', category: 'general' },
+    { src: '/images/projects/tv-mounting-wall-bracket-installation-drilling.webp', alt: 'TV wall mounting installation', category: 'general' },
+    { src: '/images/projects/furniture-assembly-wooden-shelf-unit-screwdriver.webp', alt: 'Furniture assembly', category: 'general' },
     { src: '/images/projects/home-addition.webp', alt: 'Home repairs', category: 'general' },
     { src: '/images/projects/bathroom-team-work.webp', alt: 'Professional repair work', category: 'general' },
   ],
   'electrical': [
+    { src: '/images/projects/electrical-pendant-light-fixture-installation-kitchen.webp', alt: 'Pendant light fixture installation', category: 'electrical' },
+    { src: '/images/projects/electrical-range-hood-wiring-installation-kitchen.webp', alt: 'Range hood wiring installation', category: 'electrical' },
+    { src: '/images/projects/electrical-under-cabinet-lighting-wiring-kitchen.webp', alt: 'Under cabinet lighting wiring', category: 'electrical' },
     { src: '/images/projects/kitchen-dark-modern.webp', alt: 'Kitchen electrical work', category: 'electrical' },
     { src: '/images/projects/home-addition.webp', alt: 'Home electrical installation', category: 'electrical' },
   ],
   'doors-windows': [
+    { src: '/images/projects/door-installation-interior-hinge-leveling-brass.webp', alt: 'Interior door installation with brass hinges', category: 'doors-windows' },
+    { src: '/images/projects/door-window-blinds-installation-leveling.webp', alt: 'Window blinds installation', category: 'doors-windows' },
+    { src: '/images/projects/door-window-repair-oscillating-tool-trim-work.webp', alt: 'Door and window repair trim work', category: 'doors-windows' },
     { src: '/images/projects/home-addition.webp', alt: 'Door and window installation', category: 'doors-windows' },
-    { src: '/images/projects/bathroom-glass-shower.webp', alt: 'Glass installation', category: 'doors-windows' },
+  ],
+  'quick-fix': [
+    { src: '/images/projects/drywall-repair-patching-hole-spackling.webp', alt: 'Drywall repair and patching', category: 'handyman' },
+    { src: '/images/projects/tv-mounting-wall-bracket-installation-drilling.webp', alt: 'TV wall mounting installation', category: 'handyman' },
+    { src: '/images/projects/furniture-assembly-wooden-shelf-unit-screwdriver.webp', alt: 'Furniture assembly', category: 'handyman' },
+    { src: '/images/projects/home-repair-tools-collection-workbench-hammer-screwdrivers.webp', alt: 'Home repair tools collection', category: 'handyman' },
   ],
 };
 
 // Default/fallback images for all services
 const defaultImages = [
-  { src: '/images/projects/bathroom-glass-shower.webp', alt: 'Modern glass shower', category: 'bathroom' },
-  { src: '/images/projects/kitchen-dark-modern.webp', alt: 'Dark modern kitchen', category: 'kitchen' },
-  { src: '/images/projects/gallery-kitchen-gray-marble.webp', alt: 'Gray marble kitchen', category: 'kitchen' },
-  { src: '/images/projects/bathroom-team-work.webp', alt: 'Professional work', category: 'bathroom' },
-  { src: '/images/projects/kitchen-two-tone.webp', alt: 'Two-tone kitchen', category: 'kitchen' },
-  { src: '/images/projects/home-addition.webp', alt: 'Home addition', category: 'remodeling' },
-  { src: '/images/projects/gallery-kitchen-dark-subway.webp', alt: 'Kitchen with subway tiles', category: 'kitchen' },
+  { src: '/images/projects/kitchen-remodeling-complete-modern-white-cabinets-island.webp', alt: 'Modern kitchen remodel', category: 'kitchen' },
+  { src: '/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp', alt: 'Modern bathroom remodel', category: 'bathroom' },
+  { src: '/images/projects/outdoor-living-covered-porch-deck-wood-ceiling.webp', alt: 'Covered porch and deck', category: 'outdoor' },
+  { src: '/images/projects/electrical-pendant-light-fixture-installation-kitchen.webp', alt: 'Electrical installation', category: 'electrical' },
+  { src: '/images/projects/plumbing-bathroom-faucet-installation-repair.webp', alt: 'Plumbing installation', category: 'plumbing' },
+  { src: '/images/projects/carpentry-stair-repair-technician-drilling-wood.webp', alt: 'Carpentry work', category: 'carpentry' },
+  { src: '/images/projects/painting-drywall-dining-room-wainscoting-chandelier.webp', alt: 'Painting and drywall', category: 'painting' },
 ];
 
 // Get images for this service or use defaults
