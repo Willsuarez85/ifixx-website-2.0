@@ -10,39 +10,39 @@ const emergencyServices = allServices.filter(s => s.data.category === 'emergency
 const locations = await getCollection('cities');
 
 const pillar = {
-  title: "24/7 Emergency Services",
+  title: "Same-Day Emergency Services",
   slug: "emergency-services",
-  description: "24/7 emergency home repair services in Charlotte, NC. Burst pipes, electrical failures, storm damage - we respond fast when you need us most.",
+  description: "Same-day emergency home repair services in Charlotte, NC. Burst pipes, electrical failures, storm damage - we respond fast when you need us most.",
   seo: {
-    title: "24/7 Emergency Home Repair Services in Charlotte, NC | iFixx",
-    description: "Emergency home repairs available 24/7 in Charlotte. Burst pipes, electrical emergencies, storm damage, flooding. Fast response. Call (980) 391-6833 now!"
+    title: "Same-Day Emergency Home Repair Services in Charlotte, NC | iFixx",
+    description: "Emergency home repairs with same-day service in Charlotte. Burst pipes, electrical emergencies, storm damage, flooding. Fast response. Call (980) 391-6833 now!"
   }
 };
 
 // Define emergency services (will be expanded in Sprint 3)
 const plannedServices = [
   {
-    name: "Emergency Plumbing",
+    name: "Burst Pipes & Leaks",
     slug: "emergency-plumbing",
-    description: "Burst pipes, major leaks, flooding, sewer backups, and water heater failures. Immediate response 24/7.",
+    description: "Burst pipes, major leaks, flooding, sewer backups, and water heater failures. Same-day response available.",
     image: "/images/projects/Ifixx-portfolio15.webp"
   },
   {
-    name: "Emergency Electrical",
+    name: "Electrical Issues",
     slug: "emergency-electrical",
     description: "Power outages, electrical fires, sparking outlets, and panel failures. Professional electricians on call.",
     image: "/images/projects/Ifixx-portfolio22.webp"
   },
   {
-    name: "Storm Damage Repair",
+    name: "Storm Damage",
     slug: "storm-damage",
     description: "Roof leaks, fallen trees, broken windows, and water intrusion after severe weather.",
     image: "/images/projects/Ifixx-portfolio30.webp"
   },
   {
-    name: "24/7 Urgent Repairs",
-    slug: "urgent-repairs",
-    description: "Any urgent home repair that can't wait. We assess, stabilize, and repair quickly.",
+    name: "Fire Damage",
+    slug: "fire-damage",
+    description: "Fire and smoke damage assessment, stabilization, and repair. We help you recover quickly.",
     image: "/images/projects/Ifixx-portfolio42.webp"
   }
 ];
@@ -76,12 +76,12 @@ const services = emergencyServices.length > 0
         <!-- Emergency Badge -->
         <div class="inline-flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-6 animate-pulse">
           <span class="w-2 h-2 bg-white rounded-full"></span>
-          24/7 EMERGENCY RESPONSE
+          SAME-DAY EMERGENCY RESPONSE
         </div>
 
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
           Home Emergency? <br/>
-          <span class="text-red-300">We're Here 24/7</span>
+          <span class="text-red-300">Same-Day Emergency Help</span>
         </h1>
         <p class="text-xl text-red-100 mb-8 leading-relaxed">
           Burst pipe? Electrical emergency? Storm damage?
@@ -248,7 +248,8 @@ const services = emergencyServices.length > 0
             </svg>
           </div>
           <h3 class="text-2xl font-bold text-white mb-2">Emergency Hotline</h3>
-          <p class="text-red-200 mb-6">Available 24 hours a day, 7 days a week</p>
+          <p class="text-red-200 mb-2">Same-day service available during business hours.</p>
+          <p class="text-red-200 text-sm mb-6">For immediate attention, contact our virtual assistant via chat. A team member will contact you as soon as possible.</p>
           <a
             href="tel:+19803916833"
             class="btn bg-white text-red-700 hover:bg-red-50 text-2xl px-10 py-4 font-bold w-full justify-center"
@@ -293,7 +294,7 @@ const services = emergencyServices.length > 0
         Don't Wait - Call Now
       </h2>
       <p class="text-xl text-red-100 mb-8 max-w-2xl mx-auto">
-        Every minute counts in an emergency. Our team is standing by to help you 24/7.
+        Every minute counts in an emergency. Our team provides same-day service to help you fast.
       </p>
       <a
         href="tel:+19803916833"

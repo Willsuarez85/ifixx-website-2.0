@@ -30,13 +30,13 @@ faqs:
   - q: "Can you install a new outlet in my garage?"
     a: "Absolutely. We can add outlets anywhere in your home, including 220V outlets for workshops and EV chargers."
   - q: "How quickly can you respond to electrical emergencies?"
-    a: "We offer 24/7 emergency electrical services. Call us anytime for urgent electrical issues."
+    a: "We offer same-day emergency electrical services. Call us for urgent electrical issues."
 relatedServices:
   - "general-repairs"
   - "lighting"
 seo:
   title: "Electrical Services in Charlotte, NC | Professional Electricians | iFixx"
-  description: "Professional electrical services in Charlotte, NC. Outlet installation, lighting, panel upgrades, electrical safety. 24/7 emergency service available. Free estimates!"
+  description: "Professional electrical services in Charlotte, NC. Outlet installation, lighting, panel upgrades, electrical safety. Same-day emergency service available. Free estimates!"
 ---
 
 Keep your home safe and powered with our professional electrical services. From simple outlet repairs to complete panel upgrades, our experienced electricians handle all your electrical needs with expertise and care.

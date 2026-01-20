@@ -26,7 +26,7 @@ processSteps:
     description: "We fix it right the first time using quality parts and proven techniques."
 faqs:
   - q: "Do you handle emergency plumbing?"
-    a: "Yes! Burst pipes, major leaks, and flooding are emergencies. We offer 24/7 emergency plumbing response."
+    a: "Yes! Burst pipes, major leaks, and flooding are emergencies. We offer same-day emergency plumbing response."
   - q: "Can you install a new faucet I purchased?"
     a: "Absolutely. We can install any faucet, showerhead, or fixture you've purchased."
   - q: "How do I know if I have a hidden leak?"
@@ -37,7 +37,7 @@ relatedServices:
   - "emergency-plumbing"
 seo:
   title: "Plumbing Services in Charlotte, NC | iFixx"
-  description: "Professional plumbing services in Charlotte. Leak repair, drain cleaning, fixture installation, water heaters. 24/7 emergency service. Free estimates!"
+  description: "Professional plumbing services in Charlotte. Leak repair, drain cleaning, fixture installation, water heaters. Same-day emergency service. Free estimates!"
 ---
 
 From dripping faucets to major plumbing repairs, our experienced team handles all your plumbing needs. We diagnose problems accurately, explain your options clearly, and fix things right the first time.
