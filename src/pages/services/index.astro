@@ -9,17 +9,21 @@ const services = await getCollection('services');
 const seoTitle = "Our Services | iFixx Remodeling & Handyman Services";
 const seoDescription = "Professional handyman and remodeling services in Charlotte, NC. Painting, electrical, plumbing, carpentry, and more. Fully insured.";
 
-// Map service slugs to images (using best portfolio images)
+// Map service slugs to images (using descriptive project images)
 const serviceImages: Record<string, string> = {
-  'painting': '/images/projects/Ifixx-portfolio8.webp', // Team doing painting work
-  'electrical': '/images/services/electrical.webp', // Keep existing
-  'doors-windows': '/images/projects/Ifixx-portfolio55.webp', // Door hinge repair
-  'carpentry': '/images/projects/Ifixx-portfolio12.webp', // Team installing cabinets
-  'plumbing': '/images/projects/Ifixx-portfolio45.webp', // Technician plumbing under cabinet
-  'quick-fix': '/images/projects/Ifixx-portfolio5.webp', // Technician repairing cabinet
-  'general-repairs': '/images/projects/Ifixx-portfolio31.webp', // General repair work
-  'bathroom-remodel': '/images/projects/Ifixx-portfolio32.webp', // Luxury bathroom with freestanding tub
-  'kitchen-remodel': '/images/projects/Ifixx-portfolio60.webp' // Navy luxury kitchen with gold accents
+  'painting': '/images/projects/painting-drywall-dining-room-wainscoting-chandelier.webp',
+  'electrical': '/images/projects/electrical-range-hood-wiring-installation-kitchen.webp',
+  'doors-windows': '/images/projects/door-window-blinds-installation-leveling.webp',
+  'carpentry': '/images/projects/carpentry-baseboard-trim-installation-repair.webp',
+  'plumbing': '/images/projects/plumbing-water-heater-valve-repair-wrench.webp',
+  'quick-fix': '/images/projects/home-repair-tools-collection-workbench-hammer-screwdrivers.webp',
+  'bathroom-remodeling': '/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp',
+  'kitchen-remodeling': '/images/projects/kitchen-remodeling-complete-modern-white-cabinets-island.webp',
+  'basement-finishing': '/images/projects/construction-wood-framing-window.webp',
+  'flooring-installation': '/images/projects/flooring-installation-modern-living-room-interior.webp',
+  'furniture-assembly': '/images/projects/furniture-assembly-wooden-shelf-unit-screwdriver.webp',
+  'outdoor-living': '/images/projects/outdoor-living-covered-porch-deck-wood-ceiling.webp',
+  'tv-mounting': '/images/projects/tv-mounting-wall-bracket-installation-drilling.webp'
 };
 
 const getServiceImage = (slug: string) => {
