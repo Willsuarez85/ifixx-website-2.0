@@ -70,8 +70,54 @@ const postsCollection = defineCollection({
   })
 });
 
+// City-Service Content Collection (for unique local content)
+// File naming: {citySlug}-{serviceSlug}.md (e.g., charlotte-plumbing.md)
+const cityServiceCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    // Reference fields (required)
+    citySlug: z.string(),
+    serviceSlug: z.string(),
+
+    // Unique local content (all optional - add as you create content)
+    localIntro: z.string().optional(), // 150-200 words intro specific to this city+service
+
+    // Project highlight/case study
+    projectHighlight: z.object({
+      title: z.string(),
+      neighborhood: z.string(),
+      description: z.string(), // 200-300 words
+      beforeImage: z.string().optional(),
+      afterImage: z.string().optional()
+    }).optional(),
+
+    // Local-specific bullets (replaces generic service bullets)
+    localBullets: z.array(z.string()).optional(),
+
+    // Local FAQs (adds to or replaces service FAQs)
+    localFaqs: z.array(z.object({
+      q: z.string(),
+      a: z.string()
+    })).optional(),
+
+    // Local regulations/permits info
+    localInfo: z.object({
+      permits: z.string().optional(),
+      regulations: z.string().optional(),
+      hoaConsiderations: z.string().optional()
+    }).optional(),
+
+    // SEO override (optional - defaults to generated values)
+    seo: z.object({
+      title: z.string(),
+      description: z.string()
+    }).optional()
+  })
+});
+
 export const collections = {
   'services': servicesCollection,
   'cities': citiesCollection,
-  'posts': postsCollection
+  'posts': postsCollection,
+  'city-service': cityServiceCollection
 };
