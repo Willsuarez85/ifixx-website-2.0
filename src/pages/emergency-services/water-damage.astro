@@ -1,0 +1,338 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all locations for service area section
+const locations = await getCollection('cities');
+
+const seo = {
+  title: "Water Damage Repair Charlotte NC | Same-Day Cleanup | iFIXX",
+  description: "Water damage in your Charlotte home? Same-day cleanup and repair. Drywall repair, ceiling damage, flood cleanup. Call Jaime or Hamed: (980) 391-6833"
+};
+
+// Schema markup for the page
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Water Damage Repair Charlotte NC",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "iFIXX Services",
+    "telephone": "(980) 391-6833",
+    "areaServed": "Charlotte, NC"
+  },
+  "description": "Same-day water damage cleanup and repair services in Charlotte, NC. Drywall repair, ceiling damage, water extraction.",
+  "areaServed": {
+    "@type": "City",
+    "name": "Charlotte",
+    "addressRegion": "NC"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How fast can you respond to water damage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We respond same-day in most cases. Call us immediately and we'll get there as fast as possible to minimize damage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What water damage repairs do you handle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We handle water damage cleanup, drywall repair and replacement, ceiling repair, painting after water damage, and mold prevention. For major plumbing repairs like burst pipes inside walls, you'll need a licensed plumber."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a plumber or can you help?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the leak is from a faucet, toilet, or simple fixture, we can fix it. If the pipe burst inside a wall or you need major plumbing work, you'll need a licensed plumber first. We handle the cleanup and repair AFTER the source is fixed."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout title={seo.title} description={seo.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero Section -->
+  <section class="relative bg-blue-900 py-20 lg:py-28">
+    <div class="absolute inset-0">
+      <img
+        src="/images/projects/drywall-repair-patching-hole-spackling.webp"
+        alt="Water damage repair in Charlotte"
+        class="w-full h-full object-cover opacity-20"
+        loading="eager"
+      />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-900/90 via-blue-800/80 to-blue-950/90"></div>
+    
+    <div class="container relative">
+      <div class="max-w-3xl">
+        <nav class="text-blue-300 text-sm mb-6">
+          <a href="/" class="hover:text-white">Home</a>
+          <span class="mx-2">›</span>
+          <a href="/emergency-services" class="hover:text-white">Emergency Services</a>
+          <span class="mx-2">›</span>
+          <span class="text-white">Water Damage</span>
+        </nav>
+
+        <div class="inline-flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-6">
+          <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+          SAME-DAY RESPONSE
+        </div>
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          Water Damage Repair <br/>
+          <span class="text-blue-300">in Charlotte, NC</span>
+        </h1>
+        
+        <p class="text-xl text-blue-100 mb-6 leading-relaxed">
+          Water in your ceiling? Flooded basement? We handle the cleanup and repair — same-day when you need it most.
+        </p>
+        
+        <p class="text-blue-200 mb-8">
+          📷 <strong>Text us photos for a free estimate:</strong> (980) 391-6833
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="tel:+19803916833"
+            class="btn bg-white text-blue-700 hover:bg-blue-50 text-xl px-10 py-5 font-bold shadow-xl"
+          >
+            <svg class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            Call (980) 391-6833
+          </a>
+          <a href="/contact" class="btn border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-5">
+            Request Estimate
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Handle -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-6 text-center">
+          Water Damage Services We Provide
+        </h2>
+        <p class="text-lg text-neutral-600 text-center mb-12">
+          We handle the cleanup and repair after water damage. Here's what we do:
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-neutral-50 p-6 rounded-xl border-l-4 border-blue-500">
+            <h3 class="font-bold text-xl text-neutral-900 mb-3">💧 Water Damage Cleanup</h3>
+            <ul class="space-y-2 text-neutral-600">
+              <li>• Water extraction from floors</li>
+              <li>• Removing water-damaged materials</li>
+              <li>• Drying and dehumidifying areas</li>
+              <li>• Mold prevention treatment</li>
+            </ul>
+          </div>
+
+          <div class="bg-neutral-50 p-6 rounded-xl border-l-4 border-blue-500">
+            <h3 class="font-bold text-xl text-neutral-900 mb-3">🔨 Drywall Repair</h3>
+            <ul class="space-y-2 text-neutral-600">
+              <li>• Cut out and replace damaged drywall</li>
+              <li>• Texture matching</li>
+              <li>• Ceiling repair after leaks</li>
+              <li>• Prime and paint to match</li>
+            </ul>
+          </div>
+
+          <div class="bg-neutral-50 p-6 rounded-xl border-l-4 border-blue-500">
+            <h3 class="font-bold text-xl text-neutral-900 mb-3">🎨 Restoration & Painting</h3>
+            <ul class="space-y-2 text-neutral-600">
+              <li>• Repaint water-stained areas</li>
+              <li>• Baseboard and trim replacement</li>
+              <li>• Cabinet repair if needed</li>
+              <li>• Full restoration to pre-damage condition</li>
+            </ul>
+          </div>
+
+          <div class="bg-neutral-50 p-6 rounded-xl border-l-4 border-blue-500">
+            <h3 class="font-bold text-xl text-neutral-900 mb-3">🚿 Fixture Repairs</h3>
+            <ul class="space-y-2 text-neutral-600">
+              <li>• Fix leaky faucets causing damage</li>
+              <li>• Toilet repairs (running, leaking)</li>
+              <li>• Shower head replacement</li>
+              <li>• Simple fixture swaps</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We DON'T Do -->
+  <section class="py-12 bg-amber-50 border-y border-amber-200">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center">
+        <h3 class="text-xl font-bold text-amber-800 mb-4">
+          ⚠️ What Requires a Specialist
+        </h3>
+        <p class="text-amber-700 mb-4">
+          We're honest about what we can and can't do. For these situations, you'll need a licensed professional first:
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <span class="bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm">Burst pipes inside walls</span>
+          <span class="bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm">Main water line breaks</span>
+          <span class="bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm">Sewer backups</span>
+          <span class="bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm">Water heater replacement</span>
+        </div>
+        <p class="text-amber-700 mt-4 text-sm">
+          Once the source is fixed by a plumber, we handle all the cleanup and repair work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Process -->
+  <section class="py-16 lg:py-24 bg-neutral-900 text-white">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+          Our Water Damage Repair Process
+        </h2>
+
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold">1</span>
+            </div>
+            <h3 class="font-bold mb-2">Call or Text</h3>
+            <p class="text-neutral-400 text-sm">Send us photos of the damage. We'll give you a quick estimate.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold">2</span>
+            </div>
+            <h3 class="font-bold mb-2">We Arrive Same-Day</h3>
+            <p class="text-neutral-400 text-sm">Jaime or Hamed shows up to assess the situation in person.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold">3</span>
+            </div>
+            <h3 class="font-bold mb-2">Cleanup & Repair</h3>
+            <p class="text-neutral-400 text-sm">We remove damaged materials, dry the area, and start repairs.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold">4</span>
+            </div>
+            <h3 class="font-bold mb-2">Restore & Finish</h3>
+            <p class="text-neutral-400 text-sm">Drywall, paint, and trim — back to how it looked before.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-neutral-900 mb-8 text-center">
+          Water Damage FAQs
+        </h2>
+        
+        <div class="space-y-6">
+          <div class="bg-neutral-50 p-6 rounded-xl">
+            <h3 class="font-bold text-lg text-neutral-900 mb-2">How fast can you respond to water damage?</h3>
+            <p class="text-neutral-600">We respond same-day in most cases. Water damage gets worse every hour, so call us immediately. We'll get there as fast as possible to minimize damage to your home.</p>
+          </div>
+          
+          <div class="bg-neutral-50 p-6 rounded-xl">
+            <h3 class="font-bold text-lg text-neutral-900 mb-2">What water damage repairs do you handle?</h3>
+            <p class="text-neutral-600">We handle water extraction, drywall repair and replacement, ceiling repair, painting, baseboard replacement, and general restoration. For major plumbing repairs like burst pipes inside walls, you'll need a licensed plumber first — then we handle the aftermath.</p>
+          </div>
+          
+          <div class="bg-neutral-50 p-6 rounded-xl">
+            <h3 class="font-bold text-lg text-neutral-900 mb-2">Do I need a plumber or can you help?</h3>
+            <p class="text-neutral-600">If the leak is from a faucet, toilet, or simple fixture — we can fix it. If a pipe burst inside a wall or you need major plumbing work, call a licensed plumber first. Once the source is fixed, we handle all the cleanup and repair work.</p>
+          </div>
+          
+          <div class="bg-neutral-50 p-6 rounded-xl">
+            <h3 class="font-bold text-lg text-neutral-900 mb-2">How much does water damage repair cost?</h3>
+            <p class="text-neutral-600">It depends on the extent of damage. Small ceiling repairs might be $200-500. Larger repairs with drywall replacement can be $500-2,000+. Text us photos and we'll give you a free estimate before we start.</p>
+          </div>
+          
+          <div class="bg-neutral-50 p-6 rounded-xl">
+            <h3 class="font-bold text-lg text-neutral-900 mb-2">Will you work with my insurance?</h3>
+            <p class="text-neutral-600">We can provide documentation and photos for your insurance claim. We're not a restoration company that bills insurance directly, but we'll give you everything you need to file your claim.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Areas -->
+  <section class="py-16 bg-neutral-50">
+    <div class="container">
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <h2 class="text-2xl font-bold text-neutral-900 mb-4">
+          Water Damage Repair Service Areas
+        </h2>
+        <p class="text-neutral-600">
+          We respond to water damage emergencies throughout the Charlotte metro area.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 max-w-4xl mx-auto">
+        {locations.slice(0, 12).map((location) => (
+          <a
+            href={`/service-areas/${location.slug}`}
+            class="bg-white p-3 rounded-lg text-center hover:bg-blue-50 border border-neutral-200 transition-colors text-sm"
+          >
+            <span class="font-medium text-neutral-900">{location.data.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16 lg:py-24 bg-blue-600">
+    <div class="container text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Water Damage? Call Now.
+      </h2>
+      <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+        Every hour matters with water damage. Call Jaime or Hamed directly — we respond same-day.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="tel:+19803916833"
+          class="btn bg-white text-blue-700 hover:bg-blue-50 text-2xl px-12 py-5 font-bold inline-flex items-center justify-center shadow-xl"
+        >
+          <svg class="w-7 h-7 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          (980) 391-6833
+        </a>
+        <a href="/emergency-services" class="btn border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-5">
+          All Emergency Services
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
