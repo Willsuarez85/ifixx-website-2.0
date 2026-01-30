@@ -1,6 +1,6 @@
 # ============================================
 # iFixx Remodeling & Handyman Services
-# https://ifixxnc.com
+# https://www.ifixxnc.com
 # ============================================
 
 # Default rules for all crawlers
@@ -70,7 +70,7 @@ Disallow: /
 # ============================================
 # Sitemap Location
 # ============================================
-Sitemap: https://ifixxnc.com/sitemap-index.xml
+Sitemap: https://www.ifixxnc.com/sitemap-0.xml
 
 # ============================================
 # LLMs.txt - Information for AI Assistants

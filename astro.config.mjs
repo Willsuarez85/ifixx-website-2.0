@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://ifixxnc.com',
+  site: 'https://www.ifixxnc.com',
   output: 'static',
   adapter: vercel(),
   integrations: [
@@ -26,7 +26,7 @@ export default defineConfig({
         const url = item.url;
 
         // Homepage - highest priority
-        if (url === 'https://ifixxnc.com/' || url === 'https://ifixxnc.com') {
+        if (url === 'https://www.ifixxnc.com/' || url === 'https://www.ifixxnc.com') {
           item.priority = 1.0;
           item.changefreq = 'daily';
         }
