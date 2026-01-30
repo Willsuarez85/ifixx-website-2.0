@@ -25,13 +25,13 @@ The internet is full of DIY tutorials that make every home improvement project l
 
 ## Call a Professional
 
-**Electrical work** - Anything beyond changing a light bulb or outlet cover should be done by a licensed electrician for safety.
+**Electrical work** - Anything beyond changing a light bulb or outlet cover should be done by a professional electrician for safety.
 
 **Plumbing behind walls** - A dripping faucet is one thing, but anything involving pipes in walls needs professional skills and tools.
 
 **Structural changes** - Never remove walls or make structural modifications without a professional assessment.
 
-**Anything with permits** - If the job requires permits, you typically need a licensed contractor.
+**Anything with permits** - If the job requires permits, you typically need a qualified contractor.
 
 ## The Hidden Costs of DIY Gone Wrong
 
