@@ -87,12 +87,12 @@ const serviceSchema = {
   "name": `${serviceData.title} in ${cityData.name}`,
   "description": seoDescription,
   "serviceType": serviceData.title,
-  "url": `https://ifixxnc.com/${city.slug}/${service.slug}`,
+  "url": `https://www.ifixxnc.com/${city.slug}/${service.slug}`,
   "provider": {
     "@type": "HomeAndConstructionBusiness",
-    "@id": "https://ifixxnc.com/#business",
+    "@id": "https://www.ifixxnc.com/#business",
     "name": "iFixx Remodeling & Handyman Services",
-    "url": "https://ifixxnc.com",
+    "url": "https://www.ifixxnc.com",
     "telephone": "+1-980-391-6833",
     "email": "ifixx.hs@gmail.com",
     "address": {
@@ -141,25 +141,25 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://ifixxnc.com"
+      "item": "https://www.ifixxnc.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": pillarLabel,
-      "item": `https://ifixxnc.com/${currentPillar}`
+      "item": `https://www.ifixxnc.com/${currentPillar}`
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": serviceData.title,
-      "item": `https://ifixxnc.com${pillarUrl}`
+      "item": `https://www.ifixxnc.com${pillarUrl}`
     },
     {
       "@type": "ListItem",
       "position": 4,
       "name": `${serviceData.title} in ${cityData.name}`,
-      "item": `https://ifixxnc.com/${city.slug}/${service.slug}`
+      "item": `https://www.ifixxnc.com/${city.slug}/${service.slug}`
     }
   ]
 };

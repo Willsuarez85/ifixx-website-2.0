@@ -162,13 +162,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://ifixxnc.com"
+      "item": "https://www.ifixxnc.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Gallery",
-      "item": "https://ifixxnc.com/gallery"
+      "item": "https://www.ifixxnc.com/gallery"
     }
   ]
 };
@@ -179,17 +179,17 @@ const imageGallerySchema = {
   "@type": "ImageGallery",
   "name": seoTitle,
   "description": seoDescription,
-  "url": "https://ifixxnc.com/gallery",
+  "url": "https://www.ifixxnc.com/gallery",
   "numberOfItems": allImages.length,
   "image": allImages.slice(0, 20).map((img) => ({
     "@type": "ImageObject",
-    "contentUrl": `https://ifixxnc.com${img.src}`,
+    "contentUrl": `https://www.ifixxnc.com${img.src}`,
     "name": img.alt,
     "description": `${img.alt} - ${img.category} project by iFixx in Charlotte, NC`
   })),
   "creator": {
     "@type": "Organization",
-    "@id": "https://ifixxnc.com/#business",
+    "@id": "https://www.ifixxnc.com/#business",
     "name": "iFixx Remodeling & Handyman Services"
   }
 };

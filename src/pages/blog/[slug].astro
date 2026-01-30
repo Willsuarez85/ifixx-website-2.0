@@ -53,8 +53,8 @@ const featuredServices = [...repairServices, ...remodelingServices];
 
 // Use cover image from post data, fallback to default
 const postImage = coverImage
-  ? `https://ifixxnc.com${coverImage}`
-  : "https://ifixxnc.com/images/ui/hero-bg.jpg";
+  ? `https://www.ifixxnc.com${coverImage}`
+  : "https://www.ifixxnc.com/images/ui/hero-bg.jpg";
 
 // BlogPosting schema (enhanced for SEO)
 const blogPostSchema = {
@@ -62,7 +62,7 @@ const blogPostSchema = {
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": `https://ifixxnc.com/blog/${post.slug}`
+    "@id": `https://www.ifixxnc.com/blog/${post.slug}`
   },
   "headline": title,
   "description": excerpt,
@@ -72,23 +72,23 @@ const blogPostSchema = {
     "width": 1200,
     "height": 630
   },
-  "url": `https://ifixxnc.com/blog/${post.slug}`,
+  "url": `https://www.ifixxnc.com/blog/${post.slug}`,
   "datePublished": date.toISOString(),
   "dateModified": date.toISOString(),
   "author": {
     "@type": "Organization",
-    "@id": "https://ifixxnc.com/#business",
+    "@id": "https://www.ifixxnc.com/#business",
     "name": "iFixx Remodeling & Handyman Services",
-    "url": "https://ifixxnc.com"
+    "url": "https://www.ifixxnc.com"
   },
   "publisher": {
     "@type": "Organization",
-    "@id": "https://ifixxnc.com/#business",
+    "@id": "https://www.ifixxnc.com/#business",
     "name": "iFixx Remodeling & Handyman Services",
-    "url": "https://ifixxnc.com",
+    "url": "https://www.ifixxnc.com",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://ifixxnc.com/images/logo.svg",
+      "url": "https://www.ifixxnc.com/images/logo.svg",
       "width": 200,
       "height": 60
     }
@@ -106,19 +106,19 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://ifixxnc.com"
+      "item": "https://www.ifixxnc.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Blog",
-      "item": "https://ifixxnc.com/blog"
+      "item": "https://www.ifixxnc.com/blog"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": title,
-      "item": `https://ifixxnc.com/blog/${post.slug}`
+      "item": `https://www.ifixxnc.com/blog/${post.slug}`
     }
   ]
 };

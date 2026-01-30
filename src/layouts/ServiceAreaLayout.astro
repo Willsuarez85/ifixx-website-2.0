@@ -27,15 +27,15 @@ const geoPlacename = location.name;
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
-  "@id": `https://ifixxnc.com/service-areas/${location.slug}#business`,
+  "@id": `https://www.ifixxnc.com/service-areas/${location.slug}#business`,
   "name": "iFixx Remodeling & Handyman Services",
   "description": location.seo.description,
-  "url": `https://ifixxnc.com/service-areas/${location.slug}`,
+  "url": `https://www.ifixxnc.com/service-areas/${location.slug}`,
   "telephone": "+1-980-391-6833",
   "email": "info@ifixxnc.com",
   "priceRange": "$$",
-  "image": "https://ifixxnc.com/images/ui/hero-bg.jpg",
-  "logo": "https://ifixxnc.com/images/logo.png",
+  "image": "https://www.ifixxnc.com/images/ui/hero-bg.jpg",
+  "logo": "https://www.ifixxnc.com/images/logo.png",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": location.name,
@@ -93,19 +93,19 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://ifixxnc.com/"
+      "item": "https://www.ifixxnc.com/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Service Areas",
-      "item": "https://ifixxnc.com/service-areas"
+      "item": "https://www.ifixxnc.com/service-areas"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": `${location.name}, ${location.state}`,
-      "item": `https://ifixxnc.com/service-areas/${location.slug}`
+      "item": `https://www.ifixxnc.com/service-areas/${location.slug}`
     }
   ]
 };
