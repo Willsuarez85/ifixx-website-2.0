@@ -10,40 +10,40 @@ const emergencyServices = allServices.filter(s => s.data.category === 'emergency
 const locations = await getCollection('cities');
 
 const pillar = {
-  title: "Same-Day Emergency Services",
+  title: "Same-Day Emergency Handyman Services",
   slug: "emergency-services",
-  description: "Same-day emergency home repair services in Charlotte, NC. Burst pipes, electrical failures, storm damage - we respond fast when you need us most.",
+  description: "Same-day emergency handyman services in Charlotte, NC. Water damage cleanup, fixture repairs, door emergencies - we respond fast when you need us most.",
   seo: {
-    title: "Same-Day Emergency Home Repair Services in Charlotte, NC | iFixx",
-    description: "Emergency home repairs with same-day service in Charlotte. Burst pipes, electrical emergencies, storm damage, flooding. Fast response. Call (980) 391-6833 now!"
+    title: "Emergency Handyman Charlotte NC | Same-Day Repairs | iFIXX",
+    description: "Need emergency home repairs in Charlotte? Same-day handyman service. Water damage, fixture repairs, doors & windows. Call owners Jaime or Hamed: (980) 391-6833"
   }
 };
 
-// Define emergency services (will be expanded in Sprint 3)
+// Define emergency services - what we CAN do as handymen
 const plannedServices = [
   {
-    name: "Burst Pipes & Leaks",
-    slug: "emergency-plumbing",
-    description: "Burst pipes, major leaks, flooding, sewer backups, and water heater failures. Same-day response available.",
+    name: "Water Damage Cleanup & Repair",
+    slug: "water-damage",
+    description: "Water damage cleanup, drywall repair after leaks, ceiling damage repair. We handle the aftermath same-day.",
+    image: "/images/projects/drywall-repair-patching-hole-spackling.webp"
+  },
+  {
+    name: "Faucet & Fixture Emergencies",
+    slug: "fixture-repair",
+    description: "Leaky faucets, running toilets, dripping showers. Quick fixes that can't wait - no plumber needed for simple repairs.",
     image: "/images/projects/plumbing-emergency-copper-pipe-repair-leak-basement.webp"
   },
   {
-    name: "Electrical Issues",
-    slug: "emergency-electrical",
-    description: "Power outages, electrical fires, sparking outlets, and panel failures. Professional electricians on call.",
-    image: "/images/projects/electrical-range-hood-wiring-installation-kitchen.webp"
-  },
-  {
-    name: "Storm Damage",
-    slug: "storm-damage",
-    description: "Roof leaks, fallen trees, broken windows, and water intrusion after severe weather.",
+    name: "Door & Window Emergencies",
+    slug: "doors-windows",
+    description: "Door won't lock? Window broken? We secure your home same-day. Board-ups, lock repairs, frame fixes.",
     image: "/images/projects/construction-wood-framing-window.webp"
   },
   {
-    name: "Fire Damage",
-    slug: "fire-damage",
-    description: "Fire and smoke damage assessment, stabilization, and repair. We help you recover quickly.",
-    image: "/images/projects/drywall-repair-patching-hole-spackling.webp"
+    name: "Outlet & Fixture Repairs",
+    slug: "electrical-fixtures",
+    description: "Outlet stopped working? Light switch broken? We replace fixtures and outlets same-day - simple swaps that don't require an electrician.",
+    image: "/images/projects/electrical-range-hood-wiring-installation-kitchen.webp"
   }
 ];
 
@@ -81,11 +81,14 @@ const services = emergencyServices.length > 0
 
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
           Home Emergency? <br/>
-          <span class="text-red-300">Same-Day Emergency Help</span>
+          <span class="text-red-300">Same-Day Handyman Help</span>
         </h1>
         <p class="text-xl text-red-100 mb-8 leading-relaxed">
-          Burst pipe? Electrical emergency? Storm damage?
-          Don't wait - call now and we'll be there fast.
+          Leaky faucet? Door won't lock? Water damage?
+          Call Jaime or Hamed directly — not a call center. We respond same-day.
+        </p>
+        <p class="text-red-200 mb-6 text-lg">
+          📷 <strong>Text us photos for a free virtual estimate</strong>
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4">
@@ -115,8 +118,8 @@ const services = emergencyServices.length > 0
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <div class="text-left">
-            <p class="text-white font-bold">Fast Response</p>
-            <p class="text-neutral-400 text-sm">Quick arrival times</p>
+            <p class="text-white font-bold">Same-Day Response</p>
+            <p class="text-neutral-400 text-sm">Talk to owners, not a call center</p>
           </div>
         </div>
         <div class="flex items-center justify-center gap-3">
@@ -283,6 +286,44 @@ const services = emergencyServices.length > 0
             <span class="text-neutral-500 text-sm ml-1">{location.data.state}</span>
           </a>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-8 text-center">
+          Frequently Asked Questions
+        </h2>
+        
+        <div class="space-y-6">
+          <div class="bg-neutral-50 p-6 rounded-xl">
+            <h3 class="font-bold text-lg text-neutral-900 mb-2">How fast can you respond to emergencies?</h3>
+            <p class="text-neutral-600">Most emergency calls, we're there same-day. Sometimes within a few hours, depending on our schedule and your location in the Charlotte area. We'll give you an honest timeframe when you call.</p>
+          </div>
+          
+          <div class="bg-neutral-50 p-6 rounded-xl">
+            <h3 class="font-bold text-lg text-neutral-900 mb-2">Do you charge extra for same-day service?</h3>
+            <p class="text-neutral-600">No hidden emergency fees. Our pricing is the same whether you call Monday morning or Saturday afternoon. We always quote before we start work.</p>
+          </div>
+          
+          <div class="bg-neutral-50 p-6 rounded-xl">
+            <h3 class="font-bold text-lg text-neutral-900 mb-2">What emergencies do you handle vs. what needs a specialist?</h3>
+            <p class="text-neutral-600">We handle: water damage cleanup, faucet/fixture repairs, door and window emergencies, outlet replacements, drywall repair. For major plumbing (broken pipes in walls), electrical panel issues, or gas leaks, you'll need a licensed specialist — and we'll tell you honestly if that's the case.</p>
+          </div>
+          
+          <div class="bg-neutral-50 p-6 rounded-xl">
+            <h3 class="font-bold text-lg text-neutral-900 mb-2">How do I get an estimate?</h3>
+            <p class="text-neutral-600">Text us photos of the problem at (980) 391-6833. We'll look at it and give you a free virtual estimate — approximate cost and how soon we can get there. No charge, no pressure.</p>
+          </div>
+          
+          <div class="bg-neutral-50 p-6 rounded-xl">
+            <h3 class="font-bold text-lg text-neutral-900 mb-2">What if it's after hours?</h3>
+            <p class="text-neutral-600">We're not 24/7, but we do respond to calls and texts in the evening and on weekends. Leave a message or text us, and we'll get back to you quickly. For true emergencies like gas leaks, call 911 or your utility company first.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
