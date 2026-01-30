@@ -1,5 +1,5 @@
 ---
-title: "Outlet & Fixture Repairs"
+title: "Electrical Fixtures & Outlets"
 category: "handyman"
 pillar: "repairs"
 summary: "Same-day outlet repairs, light switch replacement, ceiling fan installation, and fixture upgrades in Charlotte, NC. Simple electrical fixes that don't require an electrician."
