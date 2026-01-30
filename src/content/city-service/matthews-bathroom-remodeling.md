@@ -25,7 +25,7 @@ localFaqs:
   - q: "Can you work with the smaller bathrooms in older Matthews homes?"
     a: "Absolutely. Many Matthews homes from the 80s and 90s have smaller bathrooms that need creative solutions. We specialize in maximizing space with smart storage, appropriate fixtures, and design choices that make small bathrooms feel larger and more functional."
   - q: "Do you handle the plumbing and electrical in Matthews bathroom remodels?"
-    a: "Yes, our team handles all aspects of bathroom remodeling including plumbing and electrical work. We're licensed and insured for this work in Mecklenburg County, and we pull all required permits and coordinate inspections."
+    a: "We handle many aspects of bathroom remodeling. For work that requires licensed plumbers or electricians, we coordinate with trusted local professionals. We're fully insured and handle permits and inspections as part of our service."
 
 localInfo:
   permits: "Bathroom remodels in Matthews require Mecklenburg County permits for plumbing changes, electrical work, and structural modifications. We handle permit applications and coordinate inspections as part of our service."
