@@ -1,50 +1,92 @@
 ---
-title: "Electrical Services"
+title: "Outlet & Fixture Repairs"
 category: "handyman"
 pillar: "repairs"
-summary: "Professional electrical repairs, outlet installation, lighting upgrades, panel work, and electrical safety inspections in Charlotte, NC."
+summary: "Same-day outlet repairs, light switch replacement, ceiling fan installation, and fixture upgrades in Charlotte, NC. Simple electrical fixes that don't require an electrician."
 heroImage: "/images/services/electrical.webp"
 bullets:
-  - "Outlet & switch installation"
-  - "Lighting installation & upgrades"
+  - "Outlet replacement & repair"
+  - "Light switch replacement"
   - "Ceiling fan installation"
-  - "Electrical troubleshooting"
-  - "Panel upgrades"
-  - "Safety inspections"
+  - "Light fixture replacement"
+  - "Smoke detector installation"
+  - "Dimmer switch installation"
 signs:
-  - "Flickering or dimming lights"
-  - "Outlets that don't work"
-  - "Frequent circuit breaker trips"
-  - "Burning smell from outlets"
-  - "Buzzing sounds from electrical panel"
+  - "Outlet stopped working"
+  - "Light switch won't toggle"
+  - "Want to replace a light fixture"
+  - "Need a ceiling fan installed"
+  - "Smoke detector beeping or old"
+  - "Want dimmer switches"
 processSteps:
-  - title: "Electrical Assessment"
-    description: "Our professional electricians diagnose the issue and explain what needs to be done."
-  - title: "Safe Repairs"
-    description: "We follow all electrical codes and safety standards for every job."
-  - title: "Testing & Cleanup"
-    description: "Every repair is tested thoroughly. We clean up and ensure everything works perfectly."
+  - title: "Quick Assessment"
+    description: "Tell us what's not working or what you want installed. Text us a photo for a quick estimate."
+  - title: "Same-Day Service"
+    description: "Most outlet and fixture repairs can be done same-day. We show up and get it done."
+  - title: "Test & Verify"
+    description: "We test everything before we leave to make sure it works properly."
 faqs:
-  - q: "Are your electricians experienced?"
-    a: "Yes! All our electrical work is performed by experienced, insured electricians who follow NC electrical codes."
-  - q: "Can you install a new outlet in my garage?"
-    a: "Absolutely. We can add outlets anywhere in your home, including 220V outlets for workshops and EV chargers."
-  - q: "How quickly can you respond to electrical emergencies?"
-    a: "We offer same-day emergency electrical services. Call us for urgent electrical issues."
+  - q: "Do I need an electrician for a broken outlet?"
+    a: "Not usually. If you're just replacing an existing outlet or switch in the same location, that's a simple swap we can handle as handymen. No electrician needed."
+  - q: "Can you install a ceiling fan where I already have a light?"
+    a: "Yes! If there's already an electrical box in the ceiling for a light fixture, we can swap it for a ceiling fan. If there's no existing wiring, you'd need an electrician to run new wire."
+  - q: "What electrical work CAN'T you do?"
+    a: "We don't do panel work, run new wiring in walls, or add new circuits. For that, you need a licensed electrician. We're happy to refer you if needed."
+  - q: "How much does outlet replacement cost?"
+    a: "Simple outlet or switch replacement is typically $50-100. Ceiling fan installation runs $100-200 depending on the fan and setup."
 relatedServices:
-  - "general-repairs"
-  - "lighting"
+  - "quick-fix"
+  - "tv-mounting"
 seo:
-  title: "Electrical Services in Charlotte, NC | Professional Electricians | iFixx"
-  description: "Professional electrical services in Charlotte, NC. Outlet installation, lighting, panel upgrades, electrical safety. Same-day emergency service available. Free estimates!"
+  title: "Outlet Repair Charlotte NC | Light Switch & Fixture Installation | iFIXX"
+  description: "Outlet not working? Need a ceiling fan installed? Same-day fixture repairs in Charlotte. Simple electrical fixes - no electrician needed. Call (980) 391-6833"
 ---
 
-Keep your home safe and powered with our professional electrical services. From simple outlet repairs to complete panel upgrades, our experienced electricians handle all your electrical needs with expertise and care.
+## Simple Electrical Fixes — No Electrician Needed
 
-## Safety First
+Not every electrical problem needs a licensed electrician. Replacing an outlet, swapping a light switch, or installing a ceiling fan where wiring already exists? That's handyman work — and we do it same-day.
 
-Electrical work isn't a DIY project. Our professional electricians have the training and experience to handle everything from minor repairs to major installations safely and correctly. We follow all local codes and get permits when required.
+## What We Handle
 
-## Services We Provide
+**Outlets & Switches**
+- Replace outlets that stopped working
+- Upgrade to USB outlets
+- Install dimmer switches
+- Replace old/ugly switch plates
+- GFCI outlet replacement
 
-Whether you need a new ceiling fan installed, want to upgrade your lighting, or have an outlet that doesn't work, we've got you covered. We also handle more complex work like panel upgrades and home rewiring when needed.
+**Fixtures & Fans**
+- Ceiling fan installation (existing wiring)
+- Light fixture replacement
+- Chandelier installation
+- Under-cabinet lighting
+- Bathroom exhaust fan replacement
+
+**Safety Devices**
+- Smoke detector installation
+- Carbon monoxide detector installation
+- Doorbell installation
+
+## What Needs a Licensed Electrician
+
+We're honest about our limits. For these jobs, you'll need a licensed electrician:
+
+- Adding new circuits or outlets where none exist
+- Panel upgrades or repairs
+- Running new wire through walls
+- Whole-house rewiring
+- Any work requiring permits
+
+**Not sure?** Text us a photo and we'll tell you honestly if we can help or if you need a specialist.
+
+## Why Call Us Instead of an Electrician?
+
+**Faster** — Electricians are often booked days out. We can usually come same-day.
+
+**Often Cheaper** — No electrician service call fees for simple fixture swaps.
+
+**Honest** — If you actually need an electrician, we'll tell you.
+
+## Same-Day Service
+
+Outlet stopped working? Light switch broken? Call or text us at (980) 391-6833. We'll get it fixed today.

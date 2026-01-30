@@ -2,64 +2,80 @@
 citySlug: "charlotte"
 serviceSlug: "plumbing"
 
-localIntro: "Charlotte plumbing is as varied as its neighborhoods. Dilworth homes from the 1920s still run on original galvanized pipes. Myers Park colonials have a mix of copper and plastic from multiple renovations. And South Charlotte new construction uses all PEX. After 300+ plumbing jobs across the Queen City, our team knows what to expect when we walk through your door—and how to fix it right the first time."
+localIntro: "Got a leaky faucet or running toilet in Charlotte? You don't always need a plumber. For simple fixture repairs and replacements, our handyman team handles it same-day — often faster and cheaper than waiting for a plumber. We've fixed faucets and toilets across Dilworth, Myers Park, South Charlotte, and beyond."
 
 projectHighlight:
-  title: "Whole-House Repipe in Plaza Midwood"
-  neighborhood: "Plaza Midwood"
-  description: "This 1945 Plaza Midwood craftsman had its original galvanized water lines—corroded to the point where water pressure had dropped to a trickle. We replaced all supply lines with PEX, updated the main shut-off valve, and installed new hose bibs. The project took 3 days with minimal wall damage. The homeowners went from barely filling a bathtub to full pressure throughout the house."
+  title: "Kitchen Faucet Replacement in Dilworth"
+  neighborhood: "Dilworth"
+  description: "This 1920s Dilworth home had an old faucet that wouldn't stop dripping — wasting water and driving the homeowner crazy. We replaced it with a modern pull-down faucet in under an hour. No plumber needed, no waiting days for an appointment."
 
 localBullets:
-  - "300+ plumbing projects completed across Charlotte"
-  - "Specialists in older Charlotte homes with galvanized and cast iron systems"
-  - "Same-day service available for Charlotte metro emergencies"
-  - "Licensed and insured for all Mecklenburg County work"
-  - "Upfront pricing—no surprise charges after we start"
-  - "Experience with Charlotte's hard water issues and solutions"
+  - "Same-day faucet and toilet repairs across Charlotte"
+  - "No plumber needed for simple fixture swaps"
+  - "Serving Dilworth, Myers Park, South Charlotte, and more"
+  - "Honest about what we can and can't do"
+  - "Upfront pricing — no surprise charges"
+  - "Text us photos for a quick estimate"
 
 localFaqs:
-  - q: "Do Charlotte's older homes have plumbing problems?"
-    a: "Many do. Homes built before 1970 often have galvanized steel pipes that corrode from the inside, reducing water pressure and eventually leaking. We see this constantly in Dilworth, Plaza Midwood, Myers Park, and Elizabeth. The good news is that repiping technology has come a long way—we can replace your pipes with minimal wall damage and disruption."
-  - q: "What causes low water pressure in Charlotte homes?"
-    a: "The most common causes we see in Charlotte are corroded galvanized pipes (especially in older neighborhoods), mineral buildup from Charlotte's hard water, failing pressure regulators, and partially closed shut-off valves. We diagnose the exact cause before recommending solutions—sometimes it's a simple fix, sometimes repiping makes more sense long-term."
-  - q: "Do you handle emergency plumbing in Charlotte?"
-    a: "Yes, we offer same-day emergency plumbing service throughout the Charlotte metro area. Water leaks, burst pipes, and backed-up drains can't wait. Call us directly—you'll talk to a real person who can dispatch help quickly. We serve Charlotte, South Charlotte, Ballantyne, and surrounding areas."
-  - q: "Is Charlotte water hard? Do I need a water softener?"
-    a: "Charlotte-Mecklenburg water is moderately hard, which can cause mineral buildup in pipes and fixtures over time. Whether you need a water softener depends on your specific situation—we can test your water and make an honest recommendation. Some Charlotte homeowners benefit from whole-house filtration or softening; others do fine with periodic maintenance."
+  - q: "Do I need a plumber for a leaky faucet in Charlotte?"
+    a: "Usually not. Faucet repairs and replacements are handyman work. We swap faucets, replace cartridges, and fix drips without needing a licensed plumber. Faster and often cheaper."
+  - q: "What fixture repairs do you handle?"
+    a: "We handle faucet repairs and replacement, running toilet fixes, shower head swaps, toilet seat replacement, garbage disposal resets, and simple drain clogs. For pipes inside walls or water heater work, you'll need a licensed plumber."
+  - q: "How fast can you fix my faucet in Charlotte?"
+    a: "Usually same-day. Call or text us and we can often be there within a few hours. Much faster than waiting for a plumber appointment."
+  - q: "What plumbing work CAN'T you do?"
+    a: "We don't do pipes inside walls, water heater installation, repiping, or sewer work. That requires a licensed plumber. We're honest about our limits — if you need a plumber, we'll tell you and can recommend one."
 
 localInfo:
-  permits: "Mecklenburg County requires permits for new plumbing installations, repiping, water heater installations, and major repairs. We handle permit applications and coordinate inspections. Typical turnaround is 5-7 business days."
-  regulations: "Charlotte follows NC Plumbing Code. Backflow prevention required on irrigation systems. Water heater installations must meet current energy codes. All supply line work requires inspection before wall closure."
-  hoaConsiderations: "Some Charlotte HOAs require notification for exterior plumbing work or water heater replacements. Condo buildings often have shared plumbing stacks—we coordinate with building management when needed."
+  permits: "Simple fixture replacements don't require permits. For major plumbing work that does require permits, you'll need a licensed plumber."
+  regulations: "We handle fixture-level repairs only — faucets, toilets, shower heads, and similar items that don't require modifying the plumbing system."
+  hoaConsiderations: "Most HOAs don't have restrictions on basic fixture repairs and replacements."
 
 seo:
-  title: "Plumbing Services Charlotte NC | 300+ Jobs | Same-Day | iFixx"
-  description: "Charlotte plumber with 300+ Queen City projects. Same-day emergency service. Dilworth, Myers Park, South Charlotte. Older home specialists. Licensed & insured. Free estimates!"
+  title: "Faucet Repair Charlotte NC | Leaky Faucet Fix | Same-Day | iFIXX"
+  description: "Leaky faucet in Charlotte? Running toilet? Same-day fixture repairs — no plumber needed for simple fixes. Dilworth, Myers Park, South Charlotte. Call (980) 391-6833"
 ---
 
-## Charlotte Plumbing Expertise You Can Trust
+## Faucet & Fixture Repair in Charlotte
 
-After 300+ plumbing jobs across Charlotte, we've seen every plumbing challenge Queen City homes can throw at us. From corroded galvanized pipes in 1920s Dilworth bungalows to modern PEX systems in new South Charlotte construction—our team has the experience to handle it all.
+Leaky faucet? Toilet that won't stop running? You don't need to wait days for a plumber. For simple fixture repairs, our handyman team gets it done same-day.
 
-### Why Charlotte Homeowners Call Us
+### What We Fix
 
-**Older Home Specialists**: We know Charlotte's older neighborhoods intimately. Galvanized pipes in Dilworth, lead bends in Myers Park, clay sewer lines in Plaza Midwood—we've worked on them all. We understand when repairs make sense and when replacement is the smarter investment.
+**Faucets**
+- Dripping/leaky faucets (kitchen, bathroom)
+- Faucet replacement
+- Cartridge and washer replacement
+- Handle repairs
 
-**Same-Day Emergency Service**: Plumbing emergencies don't wait. We offer same-day service throughout the Charlotte metro for urgent situations like water leaks, burst pipes, and backed-up drains.
+**Toilets**
+- Running toilet repair
+- Flapper and fill valve replacement
+- Handle repair
+- Toilet seat replacement
 
-**Honest Assessments**: We don't upsell unnecessary work. If your problem has a simple fix, that's what we recommend. If you need bigger repairs, we explain exactly why and what the alternatives are.
+**Other Fixtures**
+- Shower head replacement
+- Garbage disposal resets
+- Simple drain clogs
+- P-trap replacement
 
-### Common Charlotte Plumbing Issues We Solve
+### What Needs a Licensed Plumber
 
-- **Low water pressure** from corroded pipes or failing regulators
-- **Slow drains** and recurring clogs
-- **Water heater problems** including replacements and tankless upgrades
-- **Leak detection and repair** before they become water damage
-- **Repiping** for homes with failing galvanized or polybutylene pipes
-- **Fixture installation** from basic repairs to full bathroom/kitchen plumbing
+We're honest about our limits. For these jobs, you need a licensed plumber:
+- Pipes inside walls (burst, leaking, replacing)
+- Water heater installation
+- Repiping
+- Sewer line work
+- Any work requiring permits
 
-### Service Areas
+**Not sure?** Text us a photo — we'll tell you honestly if we can help.
 
-We serve all of Charlotte and surrounding areas including South Charlotte, Ballantyne, Dilworth, Myers Park, Plaza Midwood, NoDa, University, SouthPark, and Cotswold.
+### Charlotte Areas We Serve
 
-Need a Charlotte plumber you can trust? Call us today for honest service and upfront pricing.
+Dilworth, Myers Park, Plaza Midwood, South Charlotte, Ballantyne, NoDa, University, SouthPark, Cotswold, and all Charlotte neighborhoods.
+
+### Same-Day Service
+
+Call or text (980) 391-6833. We'll stop that drip today.

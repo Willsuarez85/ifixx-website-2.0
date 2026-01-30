@@ -1,49 +1,116 @@
 ---
-title: "Painting & Drywall"
+title: "Painting & Drywall Repair"
 category: "handyman"
 pillar: "repairs"
-summary: "Professional interior and exterior painting, drywall repair, texture matching, and wall preparation services for homes in Charlotte, NC."
+summary: "Professional drywall repair, interior painting, and wall restoration in Charlotte, NC. Holes patched, cracks fixed, walls painted — same-day for small jobs."
 heroImage: "/images/services/painting.webp"
 bullets:
-  - "Interior & exterior painting"
-  - "Drywall installation & repair"
+  - "Drywall hole repair"
+  - "Drywall crack repair"
+  - "Water damage drywall repair"
   - "Texture matching"
-  - "Popcorn ceiling removal"
-  - "Cabinet painting"
-  - "Wallpaper removal"
+  - "Interior painting"
+  - "Ceiling repair"
 signs:
-  - "Peeling, cracking, or bubbling paint"
-  - "Holes or dents in drywall"
-  - "Water stains on walls or ceiling"
-  - "Faded or outdated colors"
-  - "Cracks in corners or seams"
+  - "Holes in walls (any size)"
+  - "Cracks in drywall or ceiling"
+  - "Water stains or damage"
+  - "Peeling or bubbling paint"
+  - "Nail pops"
+  - "Damaged corners"
 processSteps:
-  - title: "Free Consultation"
-    description: "We assess the scope of work, discuss your color preferences, and provide a detailed quote."
-  - title: "Surface Preparation"
-    description: "Proper prep is key. We patch holes, sand surfaces, and protect your furniture and floors."
-  - title: "Professional Finish"
-    description: "Our experienced painters apply quality paints with precision for a flawless, lasting finish."
+  - title: "Free Estimate"
+    description: "Text us a photo of the damage. We'll give you a quick estimate — no visit needed for simple jobs."
+  - title: "Repair & Prep"
+    description: "We cut out damaged drywall, patch it properly, tape seams, and apply mud. Then sand smooth."
+  - title: "Texture & Paint"
+    description: "We match your existing texture, prime, and paint. Looks like it never happened."
 faqs:
-  - q: "How long does interior painting take?"
-    a: "Most rooms can be painted in 1-2 days. A full house typically takes 3-5 days depending on size and prep needed."
-  - q: "Do you provide the paint or should I?"
-    a: "We can provide premium paints at competitive prices, or use paint you've already purchased. Your choice!"
-  - q: "How do you handle furniture and floors?"
-    a: "We move furniture to the center of rooms, cover everything with drop cloths, and protect floors with plastic sheeting."
+  - q: "Can you repair drywall same-day?"
+    a: "Small repairs (holes under 6 inches) can often be done same-day. Larger repairs may need 2 visits to allow mud to dry before painting."
+  - q: "Do you match the existing texture?"
+    a: "Yes. We match knockdown, orange peel, smooth, and other common textures. We bring samples to get it right."
+  - q: "How much does drywall repair cost in Charlotte?"
+    a: "Small holes: $75-150. Medium repairs: $150-300. Large sections or water damage: $300-600+. We quote before starting."
+  - q: "Can you fix ceiling water damage?"
+    a: "Yes — once the leak source is fixed. We cut out damaged drywall, replace it, texture match, and paint. Looks new again."
+  - q: "Do you do full room painting?"
+    a: "Absolutely. We handle everything from touch-ups to full rooms to whole houses. Interior and exterior."
 relatedServices:
-  - "drywall-repair"
+  - "quick-fix"
   - "carpentry"
-  - "general-repairs"
 seo:
-  title: "Painting & Drywall Services in Charlotte, NC | iFixx"
-  description: "Professional painting and drywall repair services in Charlotte. Interior & exterior painting, texture matching, drywall installation. Free estimates!"
+  title: "Drywall Repair Charlotte NC | Hole Repair & Painting | iFIXX"
+  description: "Drywall repair in Charlotte NC. Holes patched, cracks fixed, water damage repaired. Texture matching and painting. Same-day for small jobs. (980) 391-6833"
 ---
 
-Transform your home with our professional painting and drywall services. Whether you're refreshing a single room or need a complete home makeover, our experienced team delivers flawless results that last.
+## Drywall Repair Charlotte NC
 
-## Why Choose iFixx for Painting & Drywall?
+Holes in your walls? Cracks in the ceiling? Water damage? We fix drywall problems and make your walls look new again — often same-day for small repairs.
 
-At iFixx, we understand that a quality paint job starts with proper preparation. Our team takes the time to properly prep surfaces, repair any imperfections, and protect your belongings before picking up a brush.
+## What We Repair
 
-We use premium paints and professional techniques to ensure your walls look beautiful for years to come. From color consultation to final cleanup, we handle every detail.
+**Drywall Holes**
+- Small holes (doorknob damage, anchor holes)
+- Medium holes (accidents, repairs)
+- Large holes (plumbing access, damage)
+- Ceiling holes
+
+**Cracks & Damage**
+- Corner cracks
+- Seam cracks
+- Nail pops
+- Settling cracks
+- Water-damaged drywall
+
+**Texture Matching**
+- Knockdown texture
+- Orange peel
+- Skip trowel
+- Smooth finish
+- Popcorn ceiling repair
+
+## Our Drywall Repair Process
+
+**1. Assess the Damage**
+We look at the size, location, and cause. If there's water damage, we make sure the leak is fixed first.
+
+**2. Cut & Patch**
+We cut out the damaged section cleanly, install a patch or new drywall piece, and tape the seams.
+
+**3. Mud & Sand**
+We apply joint compound, let it dry, and sand smooth. Multiple coats for a seamless finish.
+
+**4. Texture Match**
+We match your existing wall texture. This is where experience matters — bad texture matching is obvious.
+
+**5. Prime & Paint**
+We prime the repair and paint to match your wall. Done right, you can't tell there was ever damage.
+
+## Painting Services
+
+Beyond drywall repair, we handle all interior painting:
+
+- Single room painting
+- Accent walls
+- Full house interior
+- Cabinet painting
+- Ceiling painting
+- Trim and door painting
+
+## Pricing Guide
+
+| Repair Type | Typical Cost |
+|-------------|--------------|
+| Small hole (under 4") | $75-125 |
+| Medium hole (4-8") | $125-200 |
+| Large hole (8"+) | $200-400 |
+| Ceiling repair | $150-350 |
+| Water damage section | $300-600+ |
+| Single room paint | $300-600 |
+
+*Prices vary based on texture matching difficulty and paint needs. We always quote before starting.*
+
+## Same-Day Service Available
+
+For small drywall repairs, we can often come same-day. Call or text us a photo at (980) 391-6833 and we'll let you know.
