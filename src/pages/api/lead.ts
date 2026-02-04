@@ -122,18 +122,14 @@ export const POST: APIRoute = async ({ request }) => {
             tags: allTags
         };
 
-        // Add Google Ads tracking (GCLID) - required for offline conversion tracking
-        if (gclid) {
-            upsertBody.gclid = gclid;
-        }
-
-        // Add UTM parameters for attribution
-        if (utm_source || utm_medium || utm_campaign) {
+        // Add UTM parameters and GCLID for attribution & offline conversion tracking
+        if (utm_source || utm_medium || utm_campaign || gclid) {
             upsertBody.attributionSource = {
-                ...(utm_source && { utm_source }),
-                ...(utm_medium && { utm_medium }),
-                ...(utm_campaign && { utm_campaign }),
-                ...(utm_term && { utm_term })
+                ...(utm_source && { utmSource: utm_source }),
+                ...(utm_medium && { utmMedium: utm_medium }),
+                ...(utm_campaign && { utmCampaign: utm_campaign }),
+                ...(utm_term && { utmTerm: utm_term }),
+                ...(gclid && { gclid })
             };
         }
 
