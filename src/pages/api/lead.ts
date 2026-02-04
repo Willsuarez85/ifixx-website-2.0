@@ -43,7 +43,13 @@ export const POST: APIRoute = async ({ request }) => {
             companyName,
             numberOfProperties,
             propertyTypes,
-            bestTimeToContact
+            bestTimeToContact,
+            // UTM & Google Ads tracking
+            utm_source,
+            utm_medium,
+            utm_campaign,
+            utm_term,
+            gclid
         } = data;
 
         // 1. Validation
@@ -115,6 +121,21 @@ export const POST: APIRoute = async ({ request }) => {
             source: source || 'Website Form',
             tags: allTags
         };
+
+        // Add Google Ads tracking (GCLID) - required for offline conversion tracking
+        if (gclid) {
+            upsertBody.gclid = gclid;
+        }
+
+        // Add UTM parameters for attribution
+        if (utm_source || utm_medium || utm_campaign) {
+            upsertBody.attributionSource = {
+                ...(utm_source && { utm_source }),
+                ...(utm_medium && { utm_medium }),
+                ...(utm_campaign && { utm_campaign }),
+                ...(utm_term && { utm_term })
+            };
+        }
 
         // Add custom fields if present
         if (customFields.length > 0) {
