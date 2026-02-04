@@ -508,18 +508,7 @@ const breadcrumbSchema = {
 
       if (!response.ok) throw new Error(result.error || "Submission failed");
 
-      // Success Logic
-      form.reset();
-      const successMsg = document.createElement("div");
-      successMsg.className =
-        "form-status p-4 mt-4 bg-green-50 text-green-700 rounded-lg border border-green-200 text-center";
-      successMsg.innerHTML = `
-        <p class="font-semibold">Thank you for your request!</p>
-        <p class="text-sm">We have received your information and will be in touch shortly.</p>
-      `;
-      form.appendChild(successMsg);
-
-      // Track form submission in GTM
+      // Track form submission in GTM before redirect
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         'event': 'form_submit',
@@ -528,6 +517,9 @@ const breadcrumbSchema = {
         'form_location': window.location.pathname,
         'lead_type': 'contact_request'
       });
+      
+      // Redirect to thank you page
+      window.location.href = '/lp/thank-you';
     } catch (error: any) {
       console.error("Form submission error:", error);
 

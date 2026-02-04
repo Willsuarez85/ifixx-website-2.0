@@ -250,10 +250,7 @@ const contactTimeOptions = [
         const result = await response.json();
 
         if (result.success) {
-          successMsg?.classList.remove('hidden');
-          form.reset();
-
-          // Track form submission in GTM
+          // Track form submission in GTM before redirect
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
             'event': 'form_submit',
@@ -262,6 +259,9 @@ const contactTimeOptions = [
             'form_location': window.location.pathname,
             'lead_type': 'property_manager'
           });
+          
+          // Redirect to thank you page
+          window.location.href = '/lp/thank-you';
         } else {
           throw new Error(result.error || 'Unknown error');
         }
