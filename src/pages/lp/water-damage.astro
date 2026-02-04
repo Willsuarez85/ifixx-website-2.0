@@ -2,6 +2,7 @@
 import LandingLayout from '../../layouts/LandingLayout.astro';
 import LandingForm from '../../components/forms/LandingForm.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
+import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 
 const seo = {
@@ -58,7 +59,7 @@ const faqs = [
   <section class="relative bg-neutral-900 overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img src="/images/projects/emergency-plumbing-leaking-pipe-water-damage.webp" alt="Water damage emergency" class="w-full h-full object-cover" width="1920" height="1080" />
-      <div class="absolute inset-0 bg-gradient-to-r from-neutral-900/95 via-neutral-900/85 to-neutral-900/60"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-neutral-900/95 via-neutral-900/80 to-neutral-900/40"></div>
     </div>
     <div class="container relative z-10">
       <div class="py-12 lg:py-20">
@@ -182,6 +183,9 @@ const faqs = [
     </div>
   </section>
 
+  <!-- Project Gallery — real work photos -->
+  <ScrollGallery title="Our Recent Projects" serviceSlug="plumbing" />
+
   <GoogleReviews title="What Charlotte Homeowners Say" />
 
   <!-- About -->
@@ -189,7 +193,7 @@ const faqs = [
     <div class="container">
       <div class="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
         <div class="rounded-2xl overflow-hidden shadow-2xl">
-          <img src="/images/projects/bathroom-team-work.webp" alt="iFIXX team" class="w-full h-auto object-cover aspect-[4/3]" loading="lazy" />
+          <img src="/images/ui/team.webp" alt="iFIXX team — Jaime & Hamed" class="w-full h-auto object-cover aspect-[4/3]" loading="lazy" decoding="async" />
         </div>
         <div>
           <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Why Trust iFIXX with Water Damage?</h2>

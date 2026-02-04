@@ -2,6 +2,7 @@
 import LandingLayout from '../../layouts/LandingLayout.astro';
 import LandingForm from '../../components/forms/LandingForm.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
+import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 
 const seo = {
@@ -48,8 +49,8 @@ const faqs = [
   <!-- Hero Section -->
   <section class="relative bg-neutral-900 overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <img src="/images/projects/home-repair-tools-collection-workbench-hammer-screwdrivers.webp" alt="Emergency repair tools" class="w-full h-full object-cover" width="1920" height="1080" />
-      <div class="absolute inset-0 bg-gradient-to-r from-neutral-900/95 via-neutral-900/85 to-neutral-900/60"></div>
+      <img src="/images/projects/plumbing-emergency-copper-pipe-repair-leak-basement.webp" alt="Emergency plumbing repair in Charlotte" class="w-full h-full object-cover" width="1920" height="1080" fetchpriority="high" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-neutral-900/95 via-neutral-900/80 to-neutral-900/40"></div>
     </div>
     <div class="container relative z-10">
       <div class="py-12 lg:py-20">
@@ -161,13 +162,15 @@ const faqs = [
         <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Emergency Services We Handle</h2>
         <p class="text-neutral-600 max-w-2xl mx-auto">From water damage to broken fixtures — one call covers it all.</p>
       </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
         {emergencyServices.map((service) => (
-          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-neutral-100">
-            <img src={service.image} alt={service.title} class="w-full h-40 object-cover" loading="lazy" />
-            <div class="p-5">
-              <h3 class="font-bold text-neutral-900 mb-2 flex items-center gap-2">
-                <span>{service.icon}</span> {service.title}
+          <div class="card group overflow-hidden">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src={service.image} alt={service.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="400" height="300" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-heading font-bold text-neutral-900 mb-2 flex items-center gap-2">
+                <span class="text-xl">{service.icon}</span> {service.title}
               </h3>
               <p class="text-sm text-neutral-600">{service.desc}</p>
             </div>
@@ -176,6 +179,9 @@ const faqs = [
       </div>
     </div>
   </section>
+
+  <!-- Project Gallery — real work photos -->
+  <ScrollGallery title="Our Recent Emergency Repairs" />
 
   <!-- Intermediate CTA -->
   <section class="py-10 md:py-14 bg-gradient-to-r from-primary-600 to-primary-500">
@@ -251,8 +257,22 @@ const faqs = [
   <section class="section section-alt">
     <div class="container">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-        <div class="rounded-2xl overflow-hidden shadow-2xl">
-          <img src="/images/projects/bathroom-team-work.webp" alt="iFIXX team at work" class="w-full h-auto object-cover aspect-[4/3]" loading="lazy" />
+        <div class="relative">
+          <div class="rounded-2xl overflow-hidden shadow-2xl">
+            <img src="/images/ui/team.webp" alt="iFIXX team — Jaime & Hamed" class="w-full h-auto object-cover aspect-[4/3]" loading="lazy" decoding="async" />
+          </div>
+          <!-- Badge overlay like homepage -->
+          <div class="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-xl p-4 hidden lg:block">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center">
+                <svg class="w-5 h-5 text-neutral-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <div>
+                <p class="font-heading font-bold text-neutral-900 text-sm">500+ Projects</p>
+                <p class="text-xs text-neutral-600">Completed in Charlotte</p>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
           <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Meet Jaime & Hamed</h2>
