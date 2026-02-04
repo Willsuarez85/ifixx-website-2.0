@@ -1,0 +1,159 @@
+---
+import LandingLayout from '../../layouts/LandingLayout.astro';
+
+const seo = {
+  title: "Thank You! | iFIXX Charlotte",
+  description: "We received your request. A member of our team will contact you shortly."
+};
+---
+
+<LandingLayout title={seo.title} description={seo.description} canonical="/lp/thank-you">
+
+  <!-- Main Content -->
+  <section class="min-h-screen bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 flex items-center justify-center py-12 px-4">
+    <div class="max-w-2xl mx-auto text-center">
+      
+      <!-- Success Icon -->
+      <div class="mb-8">
+        <div class="w-24 h-24 mx-auto bg-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 animate-bounce-slow">
+          <svg class="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Main Message -->
+      <h1 class="text-4xl lg:text-5xl font-heading font-bold text-white mb-4">
+        We Got Your Request!
+      </h1>
+      <p class="text-xl text-neutral-300 mb-8">
+        Thank you for choosing iFIXX. Your home is in good hands.
+      </p>
+
+      <!-- Team Photo & Promise Card -->
+      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-white/20 mb-8">
+        <div class="flex flex-col lg:flex-row items-center gap-6">
+          
+          <!-- Photo -->
+          <div class="flex-shrink-0">
+            <div class="relative">
+              <img 
+                src="/images/ui/team.webp" 
+                alt="Jaime - iFIXX Owner" 
+                class="w-32 h-32 lg:w-40 lg:h-40 rounded-full object-cover border-4 border-primary-500 shadow-xl"
+                width="160"
+                height="160"
+              />
+              <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center border-4 border-neutral-800">
+                <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div class="text-left">
+            <p class="text-lg text-white font-medium mb-2">
+              "Hi, I'm <span class="text-primary-500 font-bold">Jaime</span>, one of the owners of iFIXX."
+            </p>
+            <p class="text-neutral-300">
+              I personally review every request that comes in. <strong class="text-white">I'll call you within 2 hours</strong> during business hours, or first thing tomorrow morning if you reached out after hours.
+            </p>
+            <p class="text-neutral-400 text-sm mt-3">
+              — Jaime, Co-Owner
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- What Happens Next -->
+      <div class="bg-neutral-800/50 rounded-xl p-6 mb-8 text-left">
+        <h2 class="text-lg font-heading font-bold text-white mb-4 flex items-center gap-2">
+          <svg class="w-5 h-5 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          What Happens Next
+        </h2>
+        <div class="space-y-4">
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-500 text-neutral-900 flex items-center justify-center font-bold text-sm">1</div>
+            <div>
+              <p class="text-white font-medium">We'll Call You</p>
+              <p class="text-neutral-400 text-sm">Jaime or Hamed will personally reach out to discuss your project.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-500 text-neutral-900 flex items-center justify-center font-bold text-sm">2</div>
+            <div>
+              <p class="text-white font-medium">Free Estimate</p>
+              <p class="text-neutral-400 text-sm">We'll provide an honest, no-obligation quote. No surprises, ever.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-500 text-neutral-900 flex items-center justify-center font-bold text-sm">3</div>
+            <div>
+              <p class="text-white font-medium">Get It Done</p>
+              <p class="text-neutral-400 text-sm">If you decide to move forward, we schedule and complete the work on your timeline.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Options -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+        <a href="tel:+19803916833" class="inline-flex items-center justify-center gap-3 bg-primary-500 hover:bg-primary-400 text-neutral-900 font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-primary-500/30">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Call Now: (980) 391-6833
+        </a>
+        <a href="/" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-medium py-4 px-8 rounded-xl transition-all border border-white/20">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          Back to Homepage
+        </a>
+      </div>
+
+      <!-- Trust Signals -->
+      <div class="flex flex-wrap justify-center gap-6 text-neutral-400 text-sm">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          5.0 Google Rating
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          Fully Insured
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Charlotte Local
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</LandingLayout>
+
+<style>
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  .animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+  }
+</style>

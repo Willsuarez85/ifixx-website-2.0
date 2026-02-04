@@ -125,8 +125,7 @@ const services = [
         const result = await response.json();
 
         if (result.success) {
-          successMsg?.classList.remove('hidden');
-          form.reset();
+          // Push dataLayer event before redirect
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
             'event': 'generate_lead',
@@ -138,6 +137,8 @@ const services = [
             'utm_medium': data.utm_medium,
             'utm_campaign': data.utm_campaign
           });
+          // Redirect to thank you page
+          window.location.href = '/lp/thank-you';
         } else {
           throw new Error(result.error || 'Unknown error');
         }
