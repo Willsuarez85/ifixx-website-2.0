@@ -2,10 +2,13 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
+import EmergencyBand from '../../components/sections/EmergencyBand.astro';
 import CTAIntermediate from '../../components/sections/CTAIntermediate.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import QuickEstimateCompact from '../../components/forms/QuickEstimateCompact.astro';
 import ScrollGallery from '../../components/sections/ScrollGallery.astro';
+import FeaturedWork from '../../components/sections/FeaturedWork.astro';
+import WhyChooseUs from '../../components/sections/WhyChooseUs.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 
 export async function getStaticPaths() {
@@ -292,6 +295,9 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
   <!-- Trust Bar -->
   <TrustBar variant="light" />
 
+  <!-- Emergency Band — matches homepage -->
+  <EmergencyBand />
+
   <!-- What We Offer + Image -->
   {bullets && bullets.length > 0 && (
     <section class="section">
@@ -355,6 +361,9 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
     serviceSlug={service.slug}
     title={`Our ${title} Projects`}
   />
+
+  <!-- Featured Work — project photo grid like homepage -->
+  <FeaturedWork />
 
   <!-- Intermediate CTA -->
   <CTAIntermediate
@@ -431,6 +440,9 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
   )}
 
   <!-- Google Reviews -->
+  <!-- Why Choose Us — same as homepage -->
+  <WhyChooseUs />
+
   <GoogleReviews title="What Charlotte Homeowners Say" />
 
   <!-- FAQs -->
