@@ -80,25 +80,29 @@ export const POST: APIRoute = async ({ request }) => {
         ];
 
         // 3. Build custom fields for additional context
+        // GHL Custom Field IDs (from iFIXX location KoSPUTpwwHX6t12vY7TO):
+        // - HhBO7YQAST3aZR770LJO = Project Notes
+        // - HlJkS0SwN86VE61qCaYu = Services Requested
+        // - 3enbIg3RvepWmNKHDc5N = Contact Preferences (best time to contact)
         const customFields: { id: string; value: string }[] = [];
         if (message) {
-            customFields.push({ id: 'message', value: message });
+            customFields.push({ id: 'HhBO7YQAST3aZR770LJO', value: message }); // Project Notes
         }
         if (service) {
-            customFields.push({ id: 'service_requested', value: service });
+            customFields.push({ id: 'HlJkS0SwN86VE61qCaYu', value: service }); // Services Requested
         }
         // Property Manager specific custom fields
         if (companyName) {
-            customFields.push({ id: 'company_name', value: companyName });
+            customFields.push({ id: 'company_name', value: companyName }); // TODO: create in GHL
         }
         if (numberOfProperties) {
-            customFields.push({ id: 'number_of_properties', value: numberOfProperties });
+            customFields.push({ id: 'number_of_properties', value: numberOfProperties }); // TODO: create in GHL
         }
         if (propertyTypes) {
-            customFields.push({ id: 'property_types', value: propertyTypes });
+            customFields.push({ id: 'property_types', value: propertyTypes }); // TODO: create in GHL
         }
         if (bestTimeToContact) {
-            customFields.push({ id: 'best_time_to_contact', value: bestTimeToContact });
+            customFields.push({ id: '3enbIg3RvepWmNKHDc5N', value: bestTimeToContact }); // Contact Preferences
         }
 
         // 4. GHL Contact Upsert
