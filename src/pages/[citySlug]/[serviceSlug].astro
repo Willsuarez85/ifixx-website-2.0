@@ -2,6 +2,10 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import CTAIntermediate from '../../components/sections/CTAIntermediate.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import ScrollGallery from '../../components/sections/ScrollGallery.astro';
+import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -12,7 +16,6 @@ export async function getStaticPaths() {
 
   for (const city of cities) {
     for (const service of services) {
-      // Find unique content for this city+service combination (if exists)
       const uniqueContent = cityServiceContent.find(
         content => content.data.citySlug === city.slug && content.data.serviceSlug === service.slug
       );
@@ -22,7 +25,7 @@ export async function getStaticPaths() {
           citySlug: city.slug,
           serviceSlug: service.slug
         },
-        props: { city, service, uniqueContent: uniqueContent || null },
+        props: { city, service, uniqueContent: uniqueContent || null, allServices: services, allCities: cities },
       });
     }
   }
@@ -34,12 +37,13 @@ interface Props {
   city: CollectionEntry<'cities'>;
   service: CollectionEntry<'services'>;
   uniqueContent: CollectionEntry<'city-service'> | null;
+  allServices: CollectionEntry<'services'>[];
+  allCities: CollectionEntry<'cities'>[];
 }
 
-const { city, service, uniqueContent } = Astro.props;
+const { city, service, uniqueContent, allServices, allCities } = Astro.props;
 const { Content: ServiceContent } = await service.render();
 
-// Render unique content markdown body if exists
 let UniqueContentBody = null;
 if (uniqueContent) {
   const rendered = await uniqueContent.render();
@@ -49,17 +53,12 @@ if (uniqueContent) {
 const cityData = city.data;
 const serviceData = service.data;
 const localContent = uniqueContent?.data;
-
-// Check if this page has unique content (for adding "local content" signal)
 const hasUniqueContent = !!localContent;
 
 const pageTitle = `${serviceData.title} in ${cityData.name}, ${cityData.state}`;
-
-// Helper to get pillar URL for a service
 const currentPillar = serviceData.pillar || 'repairs';
 const pillarUrl = `/${currentPillar}/${service.slug}`;
 
-// Pillar labels for breadcrumb
 const pillarLabels: Record<string, string> = {
   'repairs': 'Repairs',
   'remodeling': 'Remodeling',
@@ -67,20 +66,44 @@ const pillarLabels: Record<string, string> = {
 };
 const pillarLabel = pillarLabels[currentPillar] || 'Services';
 
-// SEO - use unique content SEO if available, otherwise generate
 const seoTitle = localContent?.seo?.title || `${serviceData.title} in ${cityData.name}, ${cityData.state} | iFixx`;
 const seoDescription = localContent?.seo?.description || `Professional ${serviceData.title.toLowerCase()} services in ${cityData.name}, ${cityData.state}. Serving ${cityData.neighborhoods?.slice(0, 3).join(', ')} & more. Fully insured, free estimates!`;
 
-// Use local intro if available, otherwise city's generic intro
 const introText = localContent?.localIntro || cityData.localizedIntro;
-
-// Use local bullets if available, otherwise service bullets
 const displayBullets = localContent?.localBullets || serviceData.bullets;
-
-// Use local FAQs if available, otherwise service FAQs
 const displayFaqs = localContent?.localFaqs || serviceData.faqs;
 
-// Service + LocalBusiness schema (enhanced)
+// Related services (same pillar, different service)
+const relatedServices = allServices
+  .filter(s => s.slug !== service.slug && s.data.pillar === currentPillar)
+  .slice(0, 4);
+
+// Same service in other cities
+const otherCities = allCities
+  .filter(c => c.slug !== city.slug)
+  .slice(0, 6);
+
+// Hero image mapping (same as service pages)
+const serviceHeroImages: Record<string, string> = {
+  'plumbing': '/images/projects/plumbing-bathroom-faucet-installation-repair.webp',
+  'electrical-fixtures': '/images/projects/electrical-pendant-light-fixture-installation-kitchen.webp',
+  'carpentry': '/images/projects/carpentry-stair-repair-technician-drilling-wood.webp',
+  'painting': '/images/projects/painting-drywall-dining-room-wainscoting-chandelier.webp',
+  'drywall': '/images/projects/drywall-repair-patching-hole-spackling.webp',
+  'doors-windows': '/images/projects/door-installation-interior-hinge-leveling-brass.webp',
+  'quick-fix': '/images/projects/home-repair-tools-collection-workbench-hammer-screwdrivers.webp',
+  'furniture-assembly': '/images/projects/furniture-assembly-wooden-shelf-unit-screwdriver.webp',
+  'tv-mounting': '/images/projects/tv-mounting-wall-bracket-installation-drilling.webp',
+  'bathroom-remodeling': '/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp',
+  'kitchen-remodeling': '/images/projects/kitchen-remodeling-complete-modern-white-cabinets-island.webp',
+  'basement-finishing': '/images/projects/home-addition.webp',
+  'flooring-installation': '/images/projects/gallery-kitchen-gray-marble.webp',
+  'outdoor-living': '/images/projects/home-addition.webp',
+};
+
+const heroImageSrc = serviceData.heroImage || serviceHeroImages[service.slug] || '/images/ui/hero-bg.webp';
+
+// Schema
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
@@ -88,6 +111,7 @@ const serviceSchema = {
   "description": seoDescription,
   "serviceType": serviceData.title,
   "url": `https://www.ifixxnc.com/${city.slug}/${service.slug}`,
+  "image": `https://www.ifixxnc.com${heroImageSrc}`,
   "provider": {
     "@type": "HomeAndConstructionBusiness",
     "@id": "https://www.ifixxnc.com/#business",
@@ -110,18 +134,6 @@ const serviceSchema = {
       "name": cityData.state === 'NC' ? 'North Carolina' : 'South Carolina'
     }
   },
-  "offers": {
-    "@type": "Offer",
-    "availability": "https://schema.org/InStock",
-    "priceSpecification": {
-      "@type": "PriceSpecification",
-      "priceCurrency": "USD",
-      "eligibleQuantity": {
-        "@type": "QuantitativeValue",
-        "value": 1
-      }
-    }
-  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
@@ -132,49 +144,24 @@ const serviceSchema = {
   }
 };
 
-// Breadcrumb schema (links to pillar-based URLs)
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.ifixxnc.com"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": pillarLabel,
-      "item": `https://www.ifixxnc.com/${currentPillar}`
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": serviceData.title,
-      "item": `https://www.ifixxnc.com${pillarUrl}`
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "name": `${serviceData.title} in ${cityData.name}`,
-      "item": `https://www.ifixxnc.com/${city.slug}/${service.slug}`
-    }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ifixxnc.com" },
+    { "@type": "ListItem", "position": 2, "name": pillarLabel, "item": `https://www.ifixxnc.com/${currentPillar}` },
+    { "@type": "ListItem", "position": 3, "name": serviceData.title, "item": `https://www.ifixxnc.com${pillarUrl}` },
+    { "@type": "ListItem", "position": 4, "name": `${serviceData.title} in ${cityData.name}`, "item": `https://www.ifixxnc.com/${city.slug}/${service.slug}` }
   ]
 };
 
-// FAQPage schema (for rich snippets) - use displayFaqs
 const faqSchema = displayFaqs && displayFaqs.length > 0 ? {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": displayFaqs.map(faq => ({
     "@type": "Question",
     "name": faq.q,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": faq.a
-    }
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
   }))
 } : null;
 
@@ -183,6 +170,9 @@ const categoryLabels: Record<string, string> = {
   handyman: 'Handyman Service',
   remodeling: 'Remodeling Service'
 };
+
+// Google Maps embed URL
+const mapEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(cityData.name + ', ' + cityData.state)}&zoom=11`;
 ---
 
 <BaseLayout
@@ -195,69 +185,123 @@ const categoryLabels: Record<string, string> = {
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-    {faqSchema && (
-      <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-    )}
+    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   </Fragment>
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-neutral-50 to-white py-16 lg:py-20">
-    <div class="container">
-      <!-- Breadcrumb -->
-      <nav class="mb-6">
-        <ol class="flex items-center gap-2 text-sm text-neutral-500 flex-wrap">
-          <li><a href="/" class="hover:text-primary-600">Home</a></li>
-          <li>/</li>
-          <li><a href={`/${currentPillar}`} class="hover:text-primary-600">{pillarLabel}</a></li>
-          <li>/</li>
-          <li><a href={pillarUrl} class="hover:text-primary-600">{serviceData.title}</a></li>
-          <li>/</li>
-          <li class="text-neutral-900 font-medium">{cityData.name}</li>
-        </ol>
-      </nav>
+  <!-- Hero Section with Background Image -->
+  <section class="relative bg-neutral-900 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src={heroImageSrc}
+        alt={`${serviceData.title} services in ${cityData.name} - iFixx professional team`}
+        class="w-full h-full object-cover"
+        width="1920"
+        height="1080"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-neutral-900/95 via-neutral-900/85 to-neutral-900/60"></div>
+    </div>
 
-      <div class="max-w-3xl">
-        <!-- Category Badge -->
-        <span class="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-sm font-medium rounded-full mb-4">
-          {categoryLabels[serviceData.category] || serviceData.category}
-        </span>
+    <div class="container relative z-10">
+      <div class="py-16 lg:py-24">
+        <!-- Breadcrumb -->
+        <nav class="mb-6">
+          <ol class="flex items-center gap-2 text-sm text-neutral-300 flex-wrap">
+            <li><a href="/" class="hover:text-primary-500 transition-colors">Home</a></li>
+            <li class="text-neutral-500">/</li>
+            <li><a href={`/${currentPillar}`} class="hover:text-primary-500 transition-colors">{pillarLabel}</a></li>
+            <li class="text-neutral-500">/</li>
+            <li><a href={pillarUrl} class="hover:text-primary-500 transition-colors">{serviceData.title}</a></li>
+            <li class="text-neutral-500">/</li>
+            <li class="text-white font-medium">{cityData.name}</li>
+          </ol>
+        </nav>
 
-        <h1 class="text-4xl lg:text-5xl font-heading font-bold text-neutral-900 mb-4">
-          {pageTitle}
-        </h1>
+        <div class="max-w-3xl">
+          <!-- Category Badge -->
+          <span class="inline-block px-4 py-2 bg-primary-500 text-neutral-900 text-sm font-bold rounded-full mb-4">
+            {categoryLabels[serviceData.category] || 'Professional Service'}
+          </span>
 
-        <!-- Localized Intro (uses unique content if available) -->
-        <p class="text-lg text-neutral-600 mb-8">
-          {introText}
-        </p>
+          <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">
+            {pageTitle}
+          </h1>
 
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/contact" class="btn btn-primary">
-            Get Free Estimate in {cityData.name}
-          </a>
-          <a href="tel:+19803916833" class="btn btn-secondary" data-event="phone_click">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
-            Call Now
-          </a>
+          <p class="text-lg text-neutral-200 mb-8 max-w-2xl">
+            {introText}
+          </p>
+
+          <!-- Benefit Icons -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center">
+                <svg class="w-5 h-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <span class="text-sm text-white font-medium">Quality Work</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center">
+                <svg class="w-5 h-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <span class="text-sm text-white font-medium">Same-Day Service</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center">
+                <svg class="w-5 h-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <span class="text-sm text-white font-medium">100% Local</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center">
+                <svg class="w-5 h-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <span class="text-sm text-white font-medium">Fully Insured</span>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/contact" class="btn btn-primary">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Get Free Estimate
+            </a>
+            <a href="tel:+19803916833" class="btn btn-outline-light" data-event="phone_click">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              (980) 391-6833
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Trust Bar -->
+  <TrustBar variant="light" />
+
   <!-- Neighborhoods Served -->
   {cityData.neighborhoods && cityData.neighborhoods.length > 0 && (
-    <section class="py-8 border-b border-neutral-100">
+    <section class="py-6 bg-neutral-50 border-b border-neutral-200">
       <div class="container">
-        <div class="flex flex-wrap items-center gap-2 justify-center">
-          <span class="text-neutral-600 font-medium">Serving:</span>
+        <div class="flex flex-wrap items-center gap-2 justify-center text-sm">
+          <span class="text-neutral-600 font-medium">📍 Serving:</span>
           {cityData.neighborhoods.map((neighborhood, index) => (
             <>
               <span class="text-neutral-700">{neighborhood}</span>
-              {index < cityData.neighborhoods!.length - 1 && (
-                <span class="text-neutral-300">•</span>
-              )}
+              {index < cityData.neighborhoods!.length - 1 && <span class="text-neutral-300">•</span>}
             </>
           ))}
         </div>
@@ -265,149 +309,244 @@ const categoryLabels: Record<string, string> = {
     </section>
   )}
 
-  <!-- Service Details -->
+  <!-- What We Offer - Service Cards -->
   <section class="section">
     <div class="container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <!-- Service Bullets (uses local bullets if available) -->
-        <div>
-          <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-6">
-            {serviceData.title} Services in {cityData.name}
-          </h2>
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">
+          {serviceData.title} Services We Offer in {cityData.name}
+        </h2>
+        <p class="text-neutral-600">
+          Professional, reliable service from a local family business with 500+ completed projects.
+        </p>
+      </div>
 
-          {displayBullets && displayBullets.length > 0 && (
-            <ul class="space-y-4 mb-8">
-              {displayBullets.map((bullet) => (
-                <li class="flex items-start gap-3">
-                  <svg class="w-6 h-6 text-secondary-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-neutral-700">{bullet}</span>
-                </li>
-              ))}
-            </ul>
-          )}
+      {displayBullets && displayBullets.length > 0 && (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {displayBullets.map((bullet) => (
+            <div class="flex items-start gap-4 p-5 bg-white rounded-xl border border-neutral-200 hover:border-primary-300 hover:shadow-md transition-all">
+              <div class="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-neutral-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <span class="text-neutral-700 font-medium">{bullet}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Project Gallery -->
+  <ScrollGallery
+    serviceSlug={service.slug}
+    title={`Our ${serviceData.title} Projects in ${cityData.name}`}
+  />
+
+  <!-- Main Content Section -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <!-- Main Content -->
+        <div class="lg:col-span-2">
+          <div class="prose prose-neutral prose-lg max-w-none prose-headings:font-heading prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3">
+            {hasUniqueContent && UniqueContentBody ? (
+              <UniqueContentBody />
+            ) : (
+              <>
+                <h2>Why {cityData.name} Homeowners Trust iFixx</h2>
+                <p>
+                  We're a local {cityData.name} family who has been doing this for 5+ years — 500+ projects and counting.
+                  From older {cityData.neighborhoods?.[0] || 'historic'} homes to brand new builds, we treat every project like it's our own.
+                </p>
+
+                <h3>What Makes Us Different</h3>
+                <ul>
+                  <li><strong>Local & Responsive:</strong> We live and work in the Charlotte area. When you call, you get us — not a call center.</li>
+                  <li><strong>Honest Pricing:</strong> Free written estimates before any work starts. No surprises.</li>
+                  <li><strong>Quality Guaranteed:</strong> We stand behind our work. If something's not right, we fix it.</li>
+                </ul>
+
+                <h3>Our {serviceData.title} Expertise</h3>
+                <ServiceContent />
+
+                <h3>What to Expect</h3>
+                <ol>
+                  <li><strong>Quick Response:</strong> Call or text us and we'll get back to you within hours, not days.</li>
+                  <li><strong>Free Estimate:</strong> We'll assess the job and give you a clear, written quote.</li>
+                  <li><strong>Professional Service:</strong> We show up on time, do quality work, and clean up after ourselves.</li>
+                  <li><strong>Satisfaction Guaranteed:</strong> We're not done until you're happy with the result.</li>
+                </ol>
+              </>
+            )}
+          </div>
         </div>
 
-        <!-- Content / Why Choose (uses unique content body if available) -->
-        <div class="prose prose-neutral max-w-none">
-          {hasUniqueContent && UniqueContentBody ? (
-            <UniqueContentBody />
-          ) : (
-            <>
-              <h3>Why {cityData.name} Homeowners Choose iFixx</h3>
-              <ServiceContent />
-              <p>
-                We've been proudly serving {cityData.name} and the surrounding areas for over 5 years.
-                Our team understands the unique needs of homes in this area, from older
-                {cityData.neighborhoods?.[0] || 'historic'} properties to newer construction.
-              </p>
-            </>
-          )}
+        <!-- Sidebar -->
+        <div class="space-y-6">
+          <!-- Map -->
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-neutral-200">
+            <div class="p-4 bg-neutral-50 border-b border-neutral-200">
+              <h3 class="font-heading font-bold text-neutral-900 flex items-center gap-2">
+                <svg class="w-5 h-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                Our {cityData.name} Service Area
+              </h3>
+            </div>
+            <iframe
+              src={mapEmbedUrl}
+              width="100%"
+              height="250"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title={`Map of ${cityData.name}, ${cityData.state}`}
+            ></iframe>
+          </div>
+
+          <!-- Quick Contact -->
+          <div class="bg-primary-50 rounded-xl p-6 border border-primary-200">
+            <h3 class="font-heading font-bold text-neutral-900 mb-4">Need Help Today?</h3>
+            <p class="text-neutral-600 text-sm mb-4">
+              We offer same-day service for most repairs. Call now or request an estimate online.
+            </p>
+            <a href="tel:+19803916833" class="flex items-center justify-center gap-2 w-full btn btn-primary mb-3" data-event="phone_click">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              Call (980) 391-6833
+            </a>
+            <a href="/contact" class="flex items-center justify-center gap-2 w-full btn btn-secondary">
+              Request Estimate
+            </a>
+          </div>
+
+          <!-- Helpful Resources -->
+          <div class="bg-white rounded-xl p-6 border border-neutral-200">
+            <h3 class="font-heading font-bold text-neutral-900 mb-4 flex items-center gap-2">
+              <svg class="w-5 h-5 text-secondary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+              Helpful Resources
+            </h3>
+            <ul class="space-y-3 text-sm">
+              <li>
+                <a href="https://www.homedepot.com" target="_blank" rel="noopener" class="flex items-center gap-2 text-neutral-700 hover:text-primary-600 transition-colors">
+                  <span>🏠</span> Home Depot - Materials & Supplies
+                </a>
+              </li>
+              <li>
+                <a href="https://www.lowes.com" target="_blank" rel="noopener" class="flex items-center gap-2 text-neutral-700 hover:text-primary-600 transition-colors">
+                  <span>🔧</span> Lowe's - Tools & Hardware
+                </a>
+              </li>
+              <li>
+                <a href="https://www.thisoldhouse.com" target="_blank" rel="noopener" class="flex items-center gap-2 text-neutral-700 hover:text-primary-600 transition-colors">
+                  <span>📺</span> This Old House - DIY Tips
+                </a>
+              </li>
+              <li>
+                <a href="https://www.familyhandyman.com" target="_blank" rel="noopener" class="flex items-center gap-2 text-neutral-700 hover:text-primary-600 transition-colors">
+                  <span>📖</span> Family Handyman - Inspiration
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Project Highlight (only if unique content has it) -->
-  {localContent?.projectHighlight && (
-    <section class="section section-alt">
-      <div class="container">
-        <div class="max-w-4xl mx-auto">
-          <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-8 text-center">
-            Featured {serviceData.title} Project in {localContent.projectHighlight.neighborhood}
-          </h2>
+  <!-- Intermediate CTA -->
+  <CTAIntermediate
+    headline="Need This Done Today?"
+    subheadline="We offer same-day service for most repairs in the Charlotte area."
+    buttonText="Request Urgent Estimate"
+    variant="emergency"
+  />
 
-          <div class="bg-white rounded-2xl shadow-sm p-8">
-            <h3 class="text-xl font-heading font-semibold text-neutral-900 mb-4">
-              {localContent.projectHighlight.title}
+  <!-- How to Choose a Contractor -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-10">
+          <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">
+            How to Choose the Right Contractor
+          </h2>
+          <p class="text-neutral-600">
+            We know you're comparing options. Here's what to look for (and what to avoid):
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Do's -->
+          <div class="bg-white rounded-xl p-6 border-2 border-secondary-200">
+            <h3 class="flex items-center gap-2 font-heading font-bold text-lg text-neutral-900 mb-4">
+              <svg class="w-6 h-6 text-secondary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              ✅ What to Look For
             </h3>
-            <p class="text-neutral-600 leading-relaxed">
-              {localContent.projectHighlight.description}
-            </p>
+            <ul class="space-y-3 text-neutral-700 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-secondary-500 mt-0.5">•</span>
+                <span><strong>Insurance:</strong> Always verify they're insured.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-secondary-500 mt-0.5">•</span>
+                <span><strong>Written Estimates:</strong> Get it in writing before work starts.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-secondary-500 mt-0.5">•</span>
+                <span><strong>Local Reviews:</strong> Check Google reviews from real customers.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-secondary-500 mt-0.5">•</span>
+                <span><strong>Communication:</strong> Quick, clear responses are a good sign.</span>
+              </li>
+            </ul>
+          </div>
 
-            {(localContent.projectHighlight.beforeImage || localContent.projectHighlight.afterImage) && (
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                {localContent.projectHighlight.beforeImage && (
-                  <div>
-                    <p class="text-sm text-neutral-500 mb-2">Before</p>
-                    <img
-                      src={localContent.projectHighlight.beforeImage}
-                      alt={`Before ${localContent.projectHighlight.title}`}
-                      class="rounded-lg w-full"
-                    />
-                  </div>
-                )}
-                {localContent.projectHighlight.afterImage && (
-                  <div>
-                    <p class="text-sm text-neutral-500 mb-2">After</p>
-                    <img
-                      src={localContent.projectHighlight.afterImage}
-                      alt={`After ${localContent.projectHighlight.title}`}
-                      class="rounded-lg w-full"
-                    />
-                  </div>
-                )}
-              </div>
-            )}
+          <!-- Don'ts -->
+          <div class="bg-white rounded-xl p-6 border-2 border-emergency-200">
+            <h3 class="flex items-center gap-2 font-heading font-bold text-lg text-neutral-900 mb-4">
+              <svg class="w-6 h-6 text-emergency-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              🚩 Red Flags to Avoid
+            </h3>
+            <ul class="space-y-3 text-neutral-700 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-emergency-500 mt-0.5">•</span>
+                <span><strong>No written estimate:</strong> Verbal quotes can change.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emergency-500 mt-0.5">•</span>
+                <span><strong>Demands cash upfront:</strong> Pay after work is done.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emergency-500 mt-0.5">•</span>
+                <span><strong>No online presence:</strong> Legit businesses have reviews.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emergency-500 mt-0.5">•</span>
+                <span><strong>Pressure tactics:</strong> "Today only" deals are suspicious.</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </section>
-  )}
+    </div>
+  </section>
 
-  <!-- Local Info (permits, regulations - only if unique content has it) -->
-  {localContent?.localInfo && (localContent.localInfo.permits || localContent.localInfo.regulations || localContent.localInfo.hoaConsiderations) && (
-    <section class="section">
-      <div class="container">
-        <div class="max-w-4xl mx-auto">
-          <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-8 text-center">
-            {serviceData.title} Information for {cityData.name}
-          </h2>
+  <!-- Google Reviews -->
+  <GoogleReviews title={`What ${cityData.name} Homeowners Say`} />
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {localContent.localInfo.permits && (
-              <div class="bg-neutral-50 rounded-xl p-6">
-                <h3 class="text-lg font-heading font-semibold text-neutral-900 mb-3 flex items-center gap-2">
-                  <svg class="w-5 h-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  Permits
-                </h3>
-                <p class="text-neutral-600 text-sm">{localContent.localInfo.permits}</p>
-              </div>
-            )}
-
-            {localContent.localInfo.regulations && (
-              <div class="bg-neutral-50 rounded-xl p-6">
-                <h3 class="text-lg font-heading font-semibold text-neutral-900 mb-3 flex items-center gap-2">
-                  <svg class="w-5 h-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                  Regulations
-                </h3>
-                <p class="text-neutral-600 text-sm">{localContent.localInfo.regulations}</p>
-              </div>
-            )}
-
-            {localContent.localInfo.hoaConsiderations && (
-              <div class="bg-neutral-50 rounded-xl p-6">
-                <h3 class="text-lg font-heading font-semibold text-neutral-900 mb-3 flex items-center gap-2">
-                  <svg class="w-5 h-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                  </svg>
-                  HOA Considerations
-                </h3>
-                <p class="text-neutral-600 text-sm">{localContent.localInfo.hoaConsiderations}</p>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- Process Steps (if available) -->
+  <!-- Process Steps -->
   {serviceData.processSteps && serviceData.processSteps.length > 0 && (
     <section class="section section-alt">
       <div class="container">
@@ -416,16 +555,17 @@ const categoryLabels: Record<string, string> = {
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {serviceData.processSteps.map((step, index) => (
-            <div class="text-center">
-              <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-100 flex items-center justify-center">
-                <span class="text-2xl font-heading font-bold text-primary-600">{index + 1}</span>
+            <div class="text-center relative">
+              {index < serviceData.processSteps!.length - 1 && (
+                <div class="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-primary-200"></div>
+              )}
+              <div class="relative">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-500 flex items-center justify-center shadow-lg">
+                  <span class="text-2xl font-heading font-bold text-neutral-900">{index + 1}</span>
+                </div>
               </div>
-              <h3 class="text-lg font-heading font-semibold text-neutral-900 mb-2">
-                {step.title}
-              </h3>
-              <p class="text-neutral-600 text-sm">
-                {step.description}
-              </p>
+              <h3 class="text-lg font-heading font-semibold text-neutral-900 mb-2">{step.title}</h3>
+              <p class="text-neutral-600 text-sm">{step.description}</p>
             </div>
           ))}
         </div>
@@ -433,27 +573,72 @@ const categoryLabels: Record<string, string> = {
     </section>
   )}
 
-  <!-- Local FAQs (uses local FAQs if available, otherwise service FAQs) -->
+  <!-- Related Services & Other Areas -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Other Services in This City -->
+        {relatedServices.length > 0 && (
+          <div>
+            <h2 class="text-xl font-heading font-bold text-neutral-900 mb-6">
+              Other Services in {cityData.name}
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {relatedServices.map(s => (
+                <a href={`/${city.slug}/${s.slug}`} class="flex items-center gap-3 p-4 bg-white rounded-lg border border-neutral-200 hover:border-primary-400 hover:shadow-md transition-all">
+                  <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                  <span class="text-neutral-700 font-medium text-sm">{s.data.title}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- This Service in Other Cities -->
+        {otherCities.length > 0 && (
+          <div>
+            <h2 class="text-xl font-heading font-bold text-neutral-900 mb-6">
+              {serviceData.title} in Other Areas
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {otherCities.map(c => (
+                <a href={`/${c.slug}/${service.slug}`} class="flex items-center gap-3 p-4 bg-white rounded-lg border border-neutral-200 hover:border-secondary-400 hover:shadow-md transition-all">
+                  <svg class="w-5 h-5 text-secondary-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                  <span class="text-neutral-700 font-medium text-sm">{c.data.name}, {c.data.state}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
   {displayFaqs && displayFaqs.length > 0 && (
-    <section class="section">
+    <section class="section section-alt">
       <div class="container">
         <div class="max-w-3xl mx-auto">
           <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-8 text-center">
-            {serviceData.title} FAQs for {cityData.name}
+            {serviceData.title} FAQs
           </h2>
 
           <div class="space-y-4">
-            {displayFaqs.map((faq) => (
-              <details class="group bg-neutral-50 rounded-xl p-6">
-                <summary class="flex items-center justify-between cursor-pointer list-none">
+            {displayFaqs.map((faq, index) => (
+              <details class="group bg-white rounded-xl shadow-sm" open={index === 0}>
+                <summary class="flex items-center justify-between cursor-pointer list-none p-6">
                   <span class="font-semibold text-neutral-900 pr-4">{faq.q}</span>
-                  <svg class="w-5 h-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  <svg class="w-5 h-5 text-primary-500 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </summary>
-                <p class="mt-4 text-neutral-600 leading-relaxed">
-                  {faq.a}
-                </p>
+                <div class="px-6 pb-6">
+                  <p class="text-neutral-600 leading-relaxed">{faq.a}</p>
+                </div>
               </details>
             ))}
           </div>
@@ -465,6 +650,6 @@ const categoryLabels: Record<string, string> = {
   <!-- Final CTA -->
   <CTASection
     headline={`Ready for ${serviceData.title} in ${cityData.name}?`}
-    subtext={`Get a free estimate from ${cityData.name}'s trusted handyman team.`}
+    subtext={`Get a free estimate from ${cityData.name}'s trusted handyman team. We respond fast.`}
   />
 </BaseLayout>
