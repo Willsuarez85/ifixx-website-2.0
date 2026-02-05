@@ -144,6 +144,18 @@ const seo = {
 
 </LandingLayout>
 
+<!-- Google Ads Conversion Tracking - Fires on page load -->
+<script is:inline>
+  // Fire Google Ads conversion when thank-you page loads
+  if (typeof gtag === 'function') {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-1170602007/mVQ-CKbl7PIbENy326xB',
+      'value': 50.0,
+      'currency': 'USD'
+    });
+  }
+</script>
+
 <style>
   @keyframes bounce-slow {
     0%, 100% {

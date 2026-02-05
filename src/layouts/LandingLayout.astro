@@ -25,16 +25,7 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
   <meta name="description" content={description} />
   <meta name="robots" content="noindex, nofollow" />
 
-  <!-- Google Tag Manager -->
-  <script is:inline>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5J8QWJG2');
-  </script>
-
-  <!-- Google Analytics 4 + Google Ads -->
+  <!-- Google Analytics 4 + Google Ads - Direct tracking without GTM -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KVM73G9H1L" is:inline></script>
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
@@ -68,12 +59,6 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
   <slot name="schema" />
 </head>
 <body class="min-h-screen bg-white antialiased flex flex-col">
-  <!-- GTM noscript -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5J8QWJG2"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-
   <!-- Minimal Header -->
   <header class="sticky top-0 z-50 bg-neutral-800 border-b border-neutral-700 shadow-xl">
     <div class="container">
