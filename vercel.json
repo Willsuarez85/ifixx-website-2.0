@@ -1,6 +1,17 @@
 {
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "ifixxnc.com"
+        }
+      ],
+      "destination": "https://www.ifixxnc.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/kitchen-remodeling-charlotte",
       "destination": "/charlotte/kitchen-remodeling/",
       "permanent": true
