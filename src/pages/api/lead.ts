@@ -87,15 +87,18 @@ export const POST: APIRoute = async ({ request }) => {
 
         // 3. Build custom fields for additional context
         // GHL Custom Field IDs (from iFIXX location KoSPUTpwwHX6t12vY7TO):
+        // Updated 2026-02-05:
         // - HhBO7YQAST3aZR770LJO = Project Notes
-        // - HlJkS0SwN86VE61qCaYu = Services Requested
-        // - 3enbIg3RvepWmNKHDc5N = Contact Preferences (best time to contact)
+        // - 6PzFTQhylccNWI2VtAn7 = Service Needed (multi-select)
+        // - 3enbIg3RvepWmNKHDc5N = Contact Preferences
+        // - pZTERD3dvBvPEiq0RARf = Lead Source
+        // - vwPsQ0pHJcnap7ZtULld = Urgency
         const customFields: { id: string; value: string }[] = [];
         if (message) {
             customFields.push({ id: 'HhBO7YQAST3aZR770LJO', value: message }); // Project Notes
         }
         if (service) {
-            customFields.push({ id: 'HlJkS0SwN86VE61qCaYu', value: service }); // Services Requested
+            customFields.push({ id: '6PzFTQhylccNWI2VtAn7', value: service }); // Service Needed
         }
         // Property Manager specific custom fields
         if (companyName) {
