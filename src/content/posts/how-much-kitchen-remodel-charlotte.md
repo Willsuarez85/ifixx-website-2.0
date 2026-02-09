@@ -2,7 +2,7 @@
 title: "How Much Does a Kitchen Remodel Cost in Charlotte? (2026 Guide)"
 date: 2026-02-09
 excerpt: "Get real kitchen remodeling costs for Charlotte, NC. From minor updates to complete renovations, learn what to budget for your project."
-coverImage: "/images/projects/kitchen-remodeling-modern-white-cabinets-countertops.webp"
+coverImage: "/images/projects/kitchen-remodeling-complete-modern-white-cabinets-island.webp"
 category: "Kitchen Remodeling"
 tags:
   - "kitchen remodeling"

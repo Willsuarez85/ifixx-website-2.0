@@ -2,7 +2,7 @@
 title: "How Much Does a Bathroom Remodel Cost in Charlotte? (2026 Guide)"
 date: 2026-02-09
 excerpt: "Get real bathroom remodeling costs for Charlotte, NC. From powder room updates to luxury master baths, learn what to budget for your project."
-coverImage: "/images/projects/bathroom-remodeling-modern-walk-in-shower.webp"
+coverImage: "/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp"
 category: "Bathroom Remodeling"
 tags:
   - "bathroom remodeling"
