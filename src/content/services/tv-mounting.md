@@ -3,7 +3,7 @@ title: "TV Mounting"
 category: "handyman"
 pillar: "repairs"
 summary: "Professional TV mounting and installation with hidden wires. Wall mount any size TV safely and securely in Charlotte, NC."
-heroImage: "/images/projects/Ifixx-portfolio45.webp"
+heroImage: "/images/projects/tv-mounting-wall-bracket-installation-drilling.webp"
 bullets:
   - "Flat & tilting mount installation"
   - "Full-motion mount installation"
