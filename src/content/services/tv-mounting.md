@@ -42,8 +42,8 @@ relatedServices:
   - "electrical"
   - "quick-fix"
 seo:
-  title: "TV Mounting Services in Charlotte, NC | Wall Mount Installation | iFixx"
-  description: "Professional TV mounting in Charlotte. All sizes, hidden wires, above fireplace. Safe, secure installation. Enjoy your mounted TV today. Book now!"
+  title: "TV Mounting Charlotte NC | From $99 | Same-Day Service | iFIXX"
+  description: "TV mounting in Charlotte from $99. All sizes 32\"-85\"+. Hidden cables, above fireplace specialists. Same-day service available. Call (704) 729-1419"
 ---
 
 Transform your living space with a professionally mounted TV. No more bulky furniture, tangled cables, or TV at the wrong height. We mount your TV securely and hide the wires for a clean, modern look.

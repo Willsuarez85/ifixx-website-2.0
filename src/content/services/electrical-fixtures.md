@@ -38,8 +38,8 @@ relatedServices:
   - "quick-fix"
   - "tv-mounting"
 seo:
-  title: "Outlet Repair Charlotte NC | Light Switch & Fixture Installation | iFIXX"
-  description: "Outlet not working? Need a ceiling fan installed? Same-day fixture repairs in Charlotte. Simple electrical fixes - no electrician needed. Call (980) 391-6833"
+  title: "Electrical Repairs Charlotte NC | Outlets, Fans, Lights | Same-Day | iFIXX"
+  description: "Electrical repairs in Charlotte — outlets, ceiling fans, light fixtures, switches. Same-day service, no electrician prices. Call (704) 729-1419 for free estimate."
 ---
 
 ## Simple Electrical Fixes — No Electrician Needed

@@ -40,8 +40,8 @@ relatedServices:
   - "quick-fix"
   - "carpentry"
 seo:
-  title: "Drywall Repair Charlotte NC | Hole Repair & Painting | iFIXX"
-  description: "Drywall repair in Charlotte NC. Holes patched, cracks fixed, water damage repaired. Texture matching and painting. Same-day for small jobs. (980) 391-6833"
+  title: "Painting & Drywall Repair Charlotte NC | Same-Day Service | iFIXX"
+  description: "Interior painting & drywall repair in Charlotte. Holes patched, walls painted, texture matched perfectly. Same-day for small jobs. Call (704) 729-1419 for free estimate."
 ---
 
 ## Drywall Repair Charlotte NC
