@@ -35,8 +35,8 @@ servicesHighlighted:
   - "electrical"
   - "painting"
 seo:
-  title: "Handyman & Remodeling Services in Rock Hill, SC | iFixx"
-  description: "Rock Hill, SC handyman and remodeling services. Serving Lake Wylie, Tega Cay, Fort Mill & York County. Fully insured, free estimates!"
+  title: "Handyman & Remodeling Rock Hill SC | Same-Day Service | iFIXX"
+  description: "Rock Hill handyman & remodeling from Charlotte's trusted team. Lake Wylie, Tega Cay, Fort Mill. Same-day repairs, kitchen & bath remodels. Call (980) 391-6833"
 ---
 
 Rock Hill and York County residents trust iFixx for professional handyman and remodeling services. We bring the same quality and reliability that Charlotte homeowners love.
@@ -52,3 +52,49 @@ Whether you're near Downtown Rock Hill, enjoying lakeside living at Lake Wylie, 
 - **Fast Response**: Quick service from our nearby team
 - **Quality Guaranteed**: Professional work you can trust
 - **Fair Pricing**: Competitive rates for Rock Hill homeowners
+
+## Our Most Requested Services in Rock Hill
+
+### Handyman Services
+From honey-do lists to emergency repairs, we handle it all:
+- Drywall repair and patching
+- Door and window repairs
+- Deck repairs and maintenance
+- Pressure washing
+- TV mounting and furniture assembly
+- Ceiling fan installation
+
+### Kitchen Remodeling
+Transform your Rock Hill kitchen with:
+- Custom and semi-custom cabinets
+- Quartz and granite countertops
+- Tile backsplash installation
+- Flooring upgrades
+- Appliance installation
+
+### Bathroom Remodeling
+Popular upgrades for Rock Hill homes:
+- Walk-in shower conversions
+- Vanity and countertop replacement
+- Tile flooring and surrounds
+- Fixture updates
+- Accessibility modifications
+
+## Rock Hill Neighborhoods We Serve
+
+| Area | Services We Provide |
+|------|---------------------|
+| **Downtown Rock Hill** | Historic home repairs, renovations |
+| **Lake Wylie** | Dock repairs, waterfront remodeling |
+| **Tega Cay** | HOA-approved renovations |
+| **Fort Mill** | New construction punch lists, upgrades |
+| **India Hook** | Bathroom & kitchen remodels |
+| **Riverwalk** | Handyman services, repairs |
+
+## York County Building Info
+
+Unlike Mecklenburg County, York County has different permit requirements. We handle all the paperwork so you don't have to worry about SC vs NC differences.
+
+## Ready to Get Started?
+
+Call us at **(980) 391-6833** or [request a free estimate](/contact). We typically respond within 2 hours during business hours.
