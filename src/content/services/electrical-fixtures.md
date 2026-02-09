@@ -39,7 +39,7 @@ relatedServices:
   - "tv-mounting"
 seo:
   title: "Electrical Repairs Charlotte NC | Outlets, Fans, Lights | Same-Day | iFIXX"
-  description: "Electrical repairs in Charlotte — outlets, ceiling fans, light fixtures, switches. Same-day service, no electrician prices. Call (704) 729-1419 for free estimate."
+  description: "Electrical repairs in Charlotte — outlets, ceiling fans, light fixtures, switches. Same-day service, no electrician prices. Call (980) 391-6833 for free estimate."
 ---
 
 ## Simple Electrical Fixes — No Electrician Needed

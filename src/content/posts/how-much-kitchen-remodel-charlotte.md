@@ -176,9 +176,16 @@ According to recent data, kitchen remodels in the Charlotte market recoup **60-8
 
 Charlotte's hot real estate market means homes with updated kitchens sell faster and often above asking price—especially in neighborhoods like Ballantyne, SouthPark, and NoDa.
 
-## Get a Free Kitchen Remodel Estimate
+## Ready to Start Your Charlotte Kitchen Remodel?
 
-Ready to get real numbers for your kitchen project? We offer free in-home estimates throughout the Charlotte metro area.
+We've completed [150+ kitchen projects across Charlotte](/charlotte/kitchen-remodeling/) — from historic Dilworth bungalows to modern Ballantyne homes. Our local team knows Charlotte neighborhoods, permit requirements, and trusted suppliers.
+
+**Why Charlotte homeowners choose iFixx:**
+
+- Local team (not subcontractors)
+- Mecklenburg County permits handled
+- Fixed pricing — no surprises
+- Free in-home estimates
 
 **What's included in our estimate:**
 
@@ -187,7 +194,7 @@ Ready to get real numbers for your kitchen project? We offer free in-home estima
 - Realistic timeline
 - Transparent pricing with no hidden fees
 
-[Get Your Free Estimate](/contact) or call us at **(704) 729-1419** to discuss your kitchen remodel project.
+[Get Your Free Estimate](/contact) or call us at **(980) 391-6833** to discuss your kitchen remodel project.
 
 ---
 

@@ -71,6 +71,8 @@ Charlotte homeowners often ask us: "How much will my kitchen remodel cost?" Here
 
 **Good news**: Charlotte labor costs run 10-15% below national averages, so your budget goes further here than in cities like Raleigh or DC.
 
+📖 **Detailed pricing guide**: [How Much Does a Kitchen Remodel Cost in Charlotte? (2026 Guide)](/blog/how-much-kitchen-remodel-charlotte/)
+
 ### Factors That Affect Your Charlotte Kitchen Remodel Cost
 
 - **Kitchen size**: A 100 sq ft galley costs less than a 250 sq ft open-concept space

@@ -41,7 +41,7 @@ relatedServices:
   - "carpentry"
 seo:
   title: "Furniture Assembly Charlotte NC | IKEA, Wayfair | From $49 | iFIXX"
-  description: "Furniture assembly in Charlotte from $49. IKEA, Wayfair, Amazon — all brands. Same-day service available. Skip the frustration. Call (704) 729-1419"
+  description: "Furniture assembly in Charlotte from $49. IKEA, Wayfair, Amazon — all brands. Same-day service available. Skip the frustration. Call (980) 391-6833"
 ---
 
 Skip the frustration of furniture assembly. Those boxes of parts, confusing instructions, and missing tools add up to hours of your weekend. Let iFixx handle it while you enjoy your free time.

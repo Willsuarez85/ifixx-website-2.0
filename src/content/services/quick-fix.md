@@ -35,7 +35,7 @@ relatedServices:
   - "plumbing"
 seo:
   title: "Handyman Charlotte NC | Same-Day Service | From $75/hr | iFIXX"
-  description: "Charlotte handyman services from $75/hr. Odd jobs, repairs, honey-do lists — we do it all. Same-day service available. Call (704) 729-1419 for free estimate."
+  description: "Charlotte handyman services from $75/hr. Odd jobs, repairs, honey-do lists — we do it all. Same-day service available. Call (980) 391-6833 for free estimate."
 ---
 
 Don't let that "honey-do" list stress you out. iFixx is here to handle all the quick fixes and maintenance tasks that keep your home running smoothly.

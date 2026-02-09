@@ -39,7 +39,7 @@ relatedServices:
   - "bathroom-remodeling"
 seo:
   title: "Plumbing Repairs Charlotte NC | Faucets, Toilets | Same-Day | iFIXX"
-  description: "Plumbing repairs in Charlotte — leaky faucets, running toilets, garbage disposals. Same-day service, no plumber prices. Call (704) 729-1419 for free estimate."
+  description: "Plumbing repairs in Charlotte — leaky faucets, running toilets, garbage disposals. Same-day service, no plumber prices. Call (980) 391-6833 for free estimate."
 ---
 
 ## Simple Fixture Repairs — No Plumber Needed
