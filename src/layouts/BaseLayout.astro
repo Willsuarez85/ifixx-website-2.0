@@ -30,14 +30,15 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
 
-  <!-- Google Tag + Google Ads (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GT-K8FL8PN9" is:inline></script>
+  <!-- Google Tag (gtag.js) - GA4 + Google Ads -->
+  <!-- Fixed 2026-02-09: Corrected Measurement ID and Ads ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XV0NEL86VN" is:inline></script>
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'GT-K8FL8PN9');
-    gtag('config', 'AW-17542077404');
+    gtag('config', 'G-XV0NEL86VN');  // GA4 Measurement ID
+    gtag('config', 'AW-1170602007'); // Google Ads Conversion Tag
   </script>
   <!-- End Google Tag -->
 
