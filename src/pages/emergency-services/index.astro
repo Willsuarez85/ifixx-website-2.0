@@ -37,6 +37,12 @@ const pageSchema = {
         "position": 3,
         "url": "https://www.ifixxnc.com/emergency-services/doors-windows",
         "name": "Door & Window Repair"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "url": "https://www.ifixxnc.com/emergency-services/electrical-fixtures",
+        "name": "Outlet & Switch Repair"
       }
     ]
   }
@@ -63,6 +69,13 @@ const emergencyServices = [
     description: "Door won't lock? Window broken? We secure your home same-day. Your safety is our priority.",
     icon: "🚪",
     image: "/images/projects/door-installation-interior-hinge-leveling-brass.webp"
+  },
+  {
+    slug: "electrical-fixtures",
+    title: "Outlet & Switch Repair",
+    description: "Dead outlet? Flickering switch? Ceiling fan not working? We restore power to your fixtures same-day.",
+    icon: "💡",
+    image: "/images/projects/electrical-pendant-light-fixture-installation-kitchen.webp"
   }
 ];
 ---
@@ -214,7 +227,7 @@ const emergencyServices = [
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {emergencyServices.map((service) => (
           <a 
             href={`/emergency-services/${service.slug}`}
