@@ -29,3 +29,5 @@ pnpm-debug.log*
 # claude code settings
 .claude/
 .vercel/
+.vercel
+.env*.local
