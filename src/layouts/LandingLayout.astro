@@ -48,6 +48,32 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
     })();
   </script>
 
+  <!-- Click-to-Call Tracking -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Track all tel: links
+      document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+        link.addEventListener('click', function() {
+          // GA4 Event
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'click_to_call', {
+              'event_category': 'engagement',
+              'event_label': this.href.replace('tel:', ''),
+              'value': 1
+            });
+            // Google Ads Conversion
+            gtag('event', 'conversion', {
+              'send_to': 'AW-17542077404/mVQ-CKbl6xPIbENy326xB',
+              'value': 50.0,
+              'currency': 'USD'
+            });
+          }
+          console.log('[iFIXX] Click-to-Call tracked:', this.href);
+        });
+      });
+    });
+  </script>
+
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
