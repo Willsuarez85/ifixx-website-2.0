@@ -88,25 +88,86 @@ const serviceSchema = {
       "addressCountry": "US"
     }
   },
-  "areaServed": {
-    "@type": "City",
-    "name": "Charlotte",
-    "containedInPlace": {
-      "@type": "State",
-      "name": "North Carolina"
-    }
-  },
-  "offers": {
-    "@type": "Offer",
-    "availability": "https://schema.org/InStock",
-    "priceSpecification": {
-      "@type": "PriceSpecification",
-      "priceCurrency": "USD",
-      "eligibleQuantity": {
-        "@type": "QuantitativeValue",
-        "value": 1
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Charlotte",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "North Carolina"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Ballantyne",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "North Carolina"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Matthews",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "North Carolina"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Mint Hill",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "North Carolina"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Concord",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "North Carolina"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Monroe",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "North Carolina"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Pineville",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "North Carolina"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Rock Hill",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "South Carolina"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Waxhaw",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "North Carolina"
       }
     }
+  ],
+  "offers": {
+    "@type": "AggregateOffer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "USD",
+    "lowPrice": service.slug === 'kitchen-remodeling' ? "8000" : (service.slug === 'bathroom-remodeling' ? "5000" : "500"),
+    "highPrice": service.slug === 'kitchen-remodeling' ? "60000" : (service.slug === 'bathroom-remodeling' ? "40000" : "10000")
   },
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -85,6 +85,96 @@
       "source": "/services/outdoor-living",
       "destination": "/remodeling/outdoor-living/",
       "permanent": true
+    },
+    {
+      "source": "/ballantyne/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/concord/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/mint-hill/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/monroe/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/rock-hill/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/waxhaw/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/bathroom-remodeling",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/bathroom-remodeling",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/concord/bathroom-remodeling",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/bathroom-remodeling",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/mint-hill/bathroom-remodeling",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/monroe/bathroom-remodeling",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/bathroom-remodeling",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/rock-hill/bathroom-remodeling",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/waxhaw/bathroom-remodeling",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
     }
   ]
 }

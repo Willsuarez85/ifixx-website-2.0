@@ -19,6 +19,10 @@ export default defineConfig({
         if (page.match(/\/services\/[a-z-]+\/?$/)) return false;
         // Exclude privacy and terms (low value for SEO)
         if (page.includes('/privacy') || page.includes('/terms')) return false;
+        // Exclude duplicate kitchen-remodeling location pages (redirect to canonical)
+        if (page.match(/\/(ballantyne|charlotte|concord|matthews|mint-hill|monroe|pineville|rock-hill|waxhaw)\/kitchen-remodeling\/?$/)) return false;
+        // Exclude duplicate bathroom-remodeling location pages (redirect to canonical)
+        if (page.match(/\/(ballantyne|charlotte|concord|matthews|mint-hill|monroe|pineville|rock-hill|waxhaw)\/bathroom-remodeling\/?$/)) return false;
         return true;
       },
       // Custom priority based on page type
