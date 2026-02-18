@@ -92,25 +92,23 @@ const serviceSchema = {
       "addressCountry": "US"
     }
   },
-  "areaServed": {
-    "@type": "City",
-    "name": "Charlotte",
-    "containedInPlace": {
-      "@type": "State",
-      "name": "North Carolina"
-    }
-  },
+  "areaServed": [
+    {"@type": "City", "name": "Charlotte"},
+    {"@type": "City", "name": "Ballantyne"},
+    {"@type": "City", "name": "Matthews"},
+    {"@type": "City", "name": "Mint Hill"},
+    {"@type": "City", "name": "Concord"},
+    {"@type": "City", "name": "Monroe"},
+    {"@type": "City", "name": "Pineville"},
+    {"@type": "City", "name": "Rock Hill"},
+    {"@type": "City", "name": "Waxhaw"}
+  ],
   "offers": {
-    "@type": "Offer",
+    "@type": "AggregateOffer",
     "availability": "https://schema.org/InStock",
-    "priceSpecification": {
-      "@type": "PriceSpecification",
-      "priceCurrency": "USD",
-      "eligibleQuantity": {
-        "@type": "QuantitativeValue",
-        "value": 1
-      }
-    }
+    "priceCurrency": "USD",
+    "lowPrice": service.slug === 'painting' ? "300" : service.slug === 'drywall' ? "100" : "100",
+    "highPrice": service.slug === 'painting' ? "8000" : service.slug === 'drywall' ? "1500" : "5000"
   },
   "aggregateRating": {
     "@type": "AggregateRating",

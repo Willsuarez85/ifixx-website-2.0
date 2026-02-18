@@ -48,8 +48,6 @@ faqs:
     a: "Price depends on size of damage, number of repairs (multiple small repairs in one room can often batch for slight discount), texture complexity (smooth finish or custom texture takes longer than standard orange peel), whether paint is included (spot painting vs. full wall), and accessibility (high ceilings, cathedral ceilings, or tight spaces require additional time and equipment)."
   - q: "Can you fix water-damaged drywall?"
     a: "Yes, but only AFTER the water source is fixed. We cut out the damaged section (water-damaged drywall is compromised and likely holds mold), dry the cavity completely, install fresh material, tape, texture, and prime. If there's visible mold or a musty smell, we remove the affected drywall completely. For major mold issues, you may need a remediation specialist first."
-  - q: "What areas do you serve in Charlotte?"
-    a: "iFIXX serves Charlotte metro and surrounding areas including all Charlotte neighborhoods, South Charlotte, Ballantyne, Matthews, Mint Hill, Huntersville, Cornelius, Davidson, Pineville, Indian Trail, Rock Hill SC, and Fort Mill SC. We work frequently in Myers Park, Dilworth, Plaza Midwood, NoDa, Elizabeth, South End, Cotswold, Eastover, Ballantyne, Stonecrest, and Blakeney. Call (980) 391-6833 if you're not sure if we cover your area."
 relatedServices:
   - "painting"
   - "quick-fix"
@@ -211,6 +209,28 @@ Standard height (8-9 ft ceilings) = standard pricing. High ceilings, cathedral c
 
 ---
 
+## 🌍 Service Areas — Where We Repair Drywall
+
+iFIXX provides professional drywall repair services throughout the Charlotte metro area. We serve homeowners in all neighborhoods and surrounding cities.
+
+**Areas We Serve:**
+
+- **Charlotte:** All neighborhoods—settling cracks are especially common in older brick homes in Myers Park, Dilworth, and Plaza Midwood
+- **Ballantyne:** Texture matching specialists for luxury homes and high-end finishes
+- **Matthews:** Water damage repairs from storm season roof leaks, family homes needing wall repairs
+- **Mint Hill:** Complete wall replacement, hole patching, ceiling repairs
+- **Concord:** Storm damage drywall repairs, settling crack reinforcement
+- **Monroe:** Hole patching experts, water damage restoration
+- **Pineville:** Ceiling repairs, wall damage from impact or settling
+- **Rock Hill, SC:** Cross-border drywall contractors, same professional service
+- **Waxhaw:** Historic home drywall specialists, careful texture matching for period homes
+
+**Additional areas:** Huntersville, Cornelius, Davidson, Indian Trail, Fort Mill SC
+
+**Not sure if we cover your area?** Call (980) 391-6833 and ask. We likely do.
+
+---
+
 ## Before/After Examples & Charlotte Context
 
 **See our work:** Check out our project gallery for before-and-after photos of drywall repairs across Charlotte.
@@ -254,7 +274,7 @@ Small holes become big problems. Cracks get worse. Water damage spreads. Fix it 
 
 ### Serving Charlotte Metro & Surrounding Areas
 
-**Main Service Areas:** Charlotte, Ballantyne, Matthews, Mint Hill, Huntersville, Cornelius, Davidson, Pineville, Indian Trail, Rock Hill SC, Fort Mill SC
+**Main Service Areas:** Charlotte, Ballantyne, Matthews, Mint Hill, Huntersville, Cornelius, Davidson, Pineville, Indian Trail, Rock Hill SC, Fort Mill SC, Waxhaw
 
 **Drywall Services:** Hole repair, crack repair, water damage repair, texture matching, ceiling repair, wall repair, complete drywall replacement, painting.
 

@@ -23,6 +23,10 @@ export default defineConfig({
         if (page.match(/\/(ballantyne|charlotte|concord|matthews|mint-hill|monroe|pineville|rock-hill|waxhaw)\/kitchen-remodeling\/?$/)) return false;
         // Exclude duplicate bathroom-remodeling location pages (redirect to canonical)
         if (page.match(/\/(ballantyne|charlotte|concord|matthews|mint-hill|monroe|pineville|rock-hill|waxhaw)\/bathroom-remodeling\/?$/)) return false;
+        // Exclude duplicate painting location pages (redirect to canonical)
+        if (page.match(/\/(ballantyne|charlotte|concord|matthews|mint-hill|monroe|pineville|rock-hill|waxhaw)\/painting\/?$/)) return false;
+        // Exclude duplicate drywall location pages (redirect to canonical)
+        if (page.match(/\/(ballantyne|charlotte|concord|matthews|mint-hill|monroe|pineville|rock-hill|waxhaw)\/drywall\/?$/)) return false;
         return true;
       },
       // Custom priority based on page type
