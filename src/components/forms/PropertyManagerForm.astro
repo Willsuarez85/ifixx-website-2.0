@@ -260,8 +260,11 @@ const contactTimeOptions = [
             'lead_type': 'property_manager'
           });
           
-          // Redirect to thank you page
-          window.location.href = '/lp/thank-you';
+          // Wait 300ms to ensure GA4 event is sent before redirect
+          // Fixed 2026-02-18: Prevent event loss due to immediate redirect
+          setTimeout(() => {
+            window.location.href = '/lp/thank-you';
+          }, 300);
         } else {
           throw new Error(result.error || 'Unknown error');
         }
