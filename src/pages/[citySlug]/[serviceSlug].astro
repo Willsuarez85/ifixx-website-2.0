@@ -13,7 +13,7 @@ export async function getStaticPaths() {
   const cityServiceContent = await getCollection('city-service');
 
   // Services consolidated to canonical pages (exclude from city-level generation)
-  const consolidatedServices = ['kitchen-remodeling', 'bathroom-remodeling'];
+  const consolidatedServices = ['kitchen-remodeling', 'bathroom-remodeling', 'painting', 'drywall'];
 
   const paths = [];
 
