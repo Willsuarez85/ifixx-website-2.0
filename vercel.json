@@ -182,7 +182,17 @@
       "permanent": true
     },
     {
+      "source": "/ballantyne/painting/",
+      "destination": "/repairs/painting/",
+      "permanent": true
+    },
+    {
       "source": "/charlotte/painting",
+      "destination": "/repairs/painting/",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/painting/",
       "destination": "/repairs/painting/",
       "permanent": true
     },
@@ -192,7 +202,17 @@
       "permanent": true
     },
     {
+      "source": "/concord/painting/",
+      "destination": "/repairs/painting/",
+      "permanent": true
+    },
+    {
       "source": "/matthews/painting",
+      "destination": "/repairs/painting/",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/painting/",
       "destination": "/repairs/painting/",
       "permanent": true
     },
@@ -202,7 +222,17 @@
       "permanent": true
     },
     {
+      "source": "/mint-hill/painting/",
+      "destination": "/repairs/painting/",
+      "permanent": true
+    },
+    {
       "source": "/monroe/painting",
+      "destination": "/repairs/painting/",
+      "permanent": true
+    },
+    {
+      "source": "/monroe/painting/",
       "destination": "/repairs/painting/",
       "permanent": true
     },
@@ -212,7 +242,17 @@
       "permanent": true
     },
     {
+      "source": "/pineville/painting/",
+      "destination": "/repairs/painting/",
+      "permanent": true
+    },
+    {
       "source": "/rock-hill/painting",
+      "destination": "/repairs/painting/",
+      "permanent": true
+    },
+    {
+      "source": "/rock-hill/painting/",
       "destination": "/repairs/painting/",
       "permanent": true
     },
@@ -222,7 +262,17 @@
       "permanent": true
     },
     {
+      "source": "/waxhaw/painting/",
+      "destination": "/repairs/painting/",
+      "permanent": true
+    },
+    {
       "source": "/ballantyne/drywall",
+      "destination": "/repairs/drywall/",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/drywall/",
       "destination": "/repairs/drywall/",
       "permanent": true
     },
@@ -232,7 +282,17 @@
       "permanent": true
     },
     {
+      "source": "/charlotte/drywall/",
+      "destination": "/repairs/drywall/",
+      "permanent": true
+    },
+    {
       "source": "/concord/drywall",
+      "destination": "/repairs/drywall/",
+      "permanent": true
+    },
+    {
+      "source": "/concord/drywall/",
       "destination": "/repairs/drywall/",
       "permanent": true
     },
@@ -242,7 +302,17 @@
       "permanent": true
     },
     {
+      "source": "/matthews/drywall/",
+      "destination": "/repairs/drywall/",
+      "permanent": true
+    },
+    {
       "source": "/mint-hill/drywall",
+      "destination": "/repairs/drywall/",
+      "permanent": true
+    },
+    {
+      "source": "/mint-hill/drywall/",
       "destination": "/repairs/drywall/",
       "permanent": true
     },
@@ -252,7 +322,17 @@
       "permanent": true
     },
     {
+      "source": "/monroe/drywall/",
+      "destination": "/repairs/drywall/",
+      "permanent": true
+    },
+    {
       "source": "/pineville/drywall",
+      "destination": "/repairs/drywall/",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/drywall/",
       "destination": "/repairs/drywall/",
       "permanent": true
     },
@@ -262,7 +342,17 @@
       "permanent": true
     },
     {
+      "source": "/rock-hill/drywall/",
+      "destination": "/repairs/drywall/",
+      "permanent": true
+    },
+    {
       "source": "/waxhaw/drywall",
+      "destination": "/repairs/drywall/",
+      "permanent": true
+    },
+    {
+      "source": "/waxhaw/drywall/",
       "destination": "/repairs/drywall/",
       "permanent": true
     }
