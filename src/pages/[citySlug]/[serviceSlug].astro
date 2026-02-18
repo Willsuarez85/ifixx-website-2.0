@@ -12,10 +12,18 @@ export async function getStaticPaths() {
   const cities = await getCollection('cities');
   const cityServiceContent = await getCollection('city-service');
 
+  // Services consolidated to canonical pages (exclude from city-level generation)
+  const consolidatedServices = ['kitchen-remodeling', 'bathroom-remodeling'];
+
   const paths = [];
 
   for (const city of cities) {
     for (const service of services) {
+      // Skip generating city+service pages for consolidated services
+      if (consolidatedServices.includes(service.slug)) {
+        continue;
+      }
+
       const uniqueContent = cityServiceContent.find(
         content => content.data.citySlug === city.slug && content.data.serviceSlug === service.slug
       );
