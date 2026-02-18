@@ -35,8 +35,8 @@ servicesHighlighted:
   - "electrical-fixtures"
   - "carpentry"
 seo:
-  title: "Handyman Services in Concord, NC | Same-Day Repairs | iFixx"
-  description: "Concord's trusted handyman team. Serving Downtown Concord, Afton Village, Christenbury, Harrisburg & Kannapolis. Same-day service, honest pricing, free estimates!"
+  title: "Concord NC Handyman & Remodeling | Same-Day Service | ⭐5.0 | iFIXX"
+  description: "Concord's trusted handyman & remodeling team. Serving Downtown Concord, Afton Village, Christenbury, Harrisburg & Kannapolis. ⭐5.0 rated. Free estimates! Call (980) 391-6833."
 ---
 
 Concord homeowners deserve reliable, honest service — and that's exactly what iFixx delivers. From the charming homes near Downtown Concord to the growing neighborhoods of Christenbury and Skybrook, our team handles repairs and improvements with the care your home deserves.

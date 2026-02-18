@@ -33,8 +33,8 @@ relatedServices:
   - "carpentry"
   - "general-repairs"
 seo:
-  title: "Door & Window Services in Charlotte, NC | iFixx"
-  description: "Professional door and window installation and repair in Charlotte. Entry doors, interior doors, window replacement, and hardware upgrades."
+  title: "Door & Window Repair Charlotte $75+ | Installation & Locks | ⭐5.0 | iFIXX"
+  description: "Door won't close? Window drafty? Expert door & window repair in Charlotte. Installation, locks, weatherstripping—$75+. ⭐5.0 rated pros. Free estimates! Call (980) 391-6833 or book online."
 ---
 
 Your doors and windows are vital for security, energy efficiency, and curb appeal. Whether you have a sticky door, a drafty window, or want to upgrade your home's look, iFixx has the expertise to help.

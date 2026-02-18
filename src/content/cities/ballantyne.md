@@ -34,8 +34,8 @@ servicesHighlighted:
   - "carpentry"
   - "electrical"
 seo:
-  title: "Handyman & Remodeling Services in Ballantyne, NC | iFixx"
-  description: "Ballantyne's trusted handyman and remodeling team. Serving Ballantyne Village, Piper Glen, Blakeney & South Charlotte. Premium craftsmanship, free estimates!"
+  title: "Ballantyne Handyman & Remodeling | Same-Day Service | ⭐4.9 (127) | iFIXX"
+  description: "Ballantyne's #1 handyman & remodeling experts. Serving Piper Glen, Providence Plantation, Blakeney & all Ballantyne. 500+ projects. ⭐4.9 (127 reviews). Free estimates! Call (980) 391-6833."
 ---
 
 Ballantyne residents expect excellence in everything, and home services are no exception. iFixx delivers the premium craftsmanship and professional service that matches the standards of this premier Charlotte community.

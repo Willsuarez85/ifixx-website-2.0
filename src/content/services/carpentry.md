@@ -33,8 +33,8 @@ relatedServices:
   - "doors-windows"
   - "painting"
 seo:
-  title: "Carpentry Services in Charlotte, NC | Custom Woodwork | iFixx"
-  description: "Expert carpentry services in Charlotte. Custom built-ins, trim work, deck repairs, and rot replacement. skilled craftsmanship you can trust."
+  title: "Carpentry Charlotte NC $99+ | Custom Built-Ins, Trim, Decks | ⭐5.0 | iFIXX"
+  description: "Need custom shelving or trim work? Expert carpentry in Charlotte. Built-ins, crown molding, deck repairs—$99+. Charlotte's ⭐5.0 carpentry pros. Free estimates! Call (980) 391-6833 or book online."
 ---
 
 Quality carpentry adds character and value to your home. From functional storage solutions to decorative trim that elevates a room's style, our skilled carpenters bring your vision to life.

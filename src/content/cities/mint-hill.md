@@ -31,8 +31,8 @@ servicesHighlighted:
   - "carpentry"
   - "quick-fix"
 seo:
-  title: "Handyman & Remodeling Services in Mint Hill, NC | iFixx"
-  description: "Mint Hill's trusted handyman and remodeling services. Serving Downtown Mint Hill, Bain Creek, Clear Creek & surrounding areas. Fully insured, free estimates!"
+  title: "Mint Hill NC Handyman & Remodeling | Same-Day Service | ⭐5.0 | iFIXX"
+  description: "Mint Hill's trusted handyman & remodeling experts. Serving Downtown Mint Hill, Bain Creek, Clear Creek & surrounding areas. ⭐5.0 rated. Free estimates! Call (980) 391-6833."
 ---
 
 Mint Hill combines small-town charm with convenient access to Charlotte, and iFixx brings the same balance: professional service with a personal touch. We understand this growing community and deliver reliable home repair and remodeling services you can count on.

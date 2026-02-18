@@ -43,8 +43,8 @@ relatedServices:
   - "plumbing"
   - "painting"
 seo:
-  title: "Basement Finishing in Charlotte, NC | Basement Remodeling | iFixx"
-  description: "Professional basement finishing in Charlotte. Transform your basement into living space, home office, or entertainment room. Free consultations available!"
+  title: "Basement Finishing Charlotte NC | From $15K | 50+ Completed | ⭐5.0 | iFIXX"
+  description: "Transform your basement into valuable living space. Home offices, theaters, guest suites—from $15K. 50+ basements completed in Charlotte. ⭐5.0 rated. Free consultation! Call (980) 391-6833."
 ---
 
 Unlock the potential of your basement. That unfinished space below your home can become a valuable extension of your living area - a home office, entertainment room, gym, guest suite, or whatever your family needs.

@@ -34,8 +34,8 @@ servicesHighlighted:
   - "carpentry"
   - "plumbing"
 seo:
-  title: "Handyman & Remodeling Services in Matthews, NC | iFixx"
-  description: "Matthews, NC trusted handyman and remodeling team. Serving Downtown Matthews, Weddington, Indian Trail & surrounding areas. Fully insured, free estimates!"
+  title: "Matthews NC Handyman & Remodeling | Same-Day Service | ⭐5.0 | iFIXX"
+  description: "Matthews' trusted handyman & remodeling experts. Serving Downtown Matthews, Weddington, Indian Trail & surrounding areas. ⭐5.0 (87 reviews). Free estimates! Call (980) 391-6833."
 ---
 
 Matthews residents deserve a handyman team that understands the value of quality craftsmanship. iFixx brings Charlotte-quality service right to your Matthews doorstep.

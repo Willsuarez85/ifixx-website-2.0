@@ -32,8 +32,8 @@ servicesHighlighted:
   - "painting"
   - "doors-windows"
 seo:
-  title: "Handyman & Remodeling Services in Waxhaw, NC | iFixx"
-  description: "Waxhaw, NC handyman and remodeling services. Serving Downtown Waxhaw, Marvin, Wesley Chapel & Union County. Quality work, free estimates!"
+  title: "Waxhaw NC Handyman & Remodeling | Same-Day Service | ⭐5.0 | iFIXX"
+  description: "Waxhaw's trusted handyman & remodeling experts. Serving Downtown Waxhaw, Marvin, Wesley Chapel & Union County. ⭐5.0 (87 reviews). Free estimates! Call (980) 391-6833."
 ---
 
 From the historic streets of Downtown Waxhaw to the elegant homes of Marvin, iFixx delivers professional handyman and remodeling services tailored to your needs.

@@ -32,8 +32,8 @@ servicesHighlighted:
   - "quick-fix"
   - "carpentry"
 seo:
-  title: "Handyman & Remodeling Services in Pineville, NC | iFixx"
-  description: "Pineville, NC handyman and remodeling services. Serving Downtown Pineville, Carolina Place & South Charlotte. Fast response, free estimates!"
+  title: "Pineville NC Handyman & Remodeling | Same-Day Service | ⭐5.0 | iFIXX"
+  description: "Pineville's trusted handyman & remodeling experts. Serving Downtown Pineville, Carolina Place & South Charlotte. ⭐5.0 rated. Fast response. Free estimates! Call (980) 391-6833."
 ---
 
 Pineville's convenient location means fast service from iFixx. Our team is just minutes away and ready to help with any home repair or remodeling project.
