@@ -25,6 +25,10 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
   <meta name="description" content={description} />
   <meta name="robots" content="noindex, nofollow" />
 
+  <!-- Google Tag Manager — GTM-KXPL7CDR (new clean account, 2026-02-26) -->
+  <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KXPL7CDR');</script>
+  <!-- End Google Tag Manager -->
+
   <!-- Google Tag + Google Ads -->
   <!-- Google Tag (gtag.js) - GA4 + Google Ads -->
   <!-- Fixed 2026-02-09: Corrected Measurement ID and Ads ID -->
@@ -87,6 +91,9 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
   <slot name="schema" />
 </head>
 <body class="min-h-screen bg-white antialiased flex flex-col">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KXPL7CDR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <!-- Minimal Header -->
   <header class="sticky top-0 z-50 bg-neutral-800 border-b border-neutral-700 shadow-xl">
     <div class="container">
