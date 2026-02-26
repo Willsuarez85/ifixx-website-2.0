@@ -125,23 +125,25 @@ const services = [
         const result = await response.json();
 
         if (result.success) {
-          // Push dataLayer event before redirect
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            'event': 'generate_lead',
-            'form_id': formId,
-            'form_name': formName,
-            'form_location': window.location.pathname,
-            'lead_type': 'google_ads',
-            'utm_source': data.utm_source,
-            'utm_medium': data.utm_medium,
-            'utm_campaign': data.utm_campaign
-          });
-          // Wait 300ms to ensure GA4 event is sent before redirect
-          // Fixed 2026-02-18: Prevent event loss due to immediate redirect
+          // Fire generate_lead directly via gtag (bypasses GTM, goes to hardcoded GA4 stream)
+          // Fixed 2026-02-26: Changed from dataLayer.push to gtag('event') — dataLayer.push
+          // was routing to the old/blocked GTM stream instead of G-XV0NEL86VN
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'generate_lead', {
+              'form_id': formId,
+              'form_name': formName,
+              'form_location': window.location.pathname,
+              'lead_type': 'google_ads',
+              'utm_source': data.utm_source,
+              'utm_medium': data.utm_medium,
+              'utm_campaign': data.utm_campaign
+            });
+          }
+          // Wait 500ms to ensure GA4 event is sent before redirect
+          // Fixed 2026-02-18: Prevent event loss due to immediate redirect (was 300ms, bumped to 500ms for reliability)
           setTimeout(() => {
             window.location.href = '/lp/thank-you';
-          }, 300);
+          }, 500);
         } else {
           throw new Error(result.error || 'Unknown error');
         }

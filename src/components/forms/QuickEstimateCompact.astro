@@ -183,21 +183,19 @@ const services = [
         const result = await response.json();
 
         if (result.success) {
-          // Track form submission in GTM before redirect
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            'event': 'form_submit',
-            'form_id': formId,
-            'form_name': 'Quick Estimate Form',
-            'form_location': window.location.pathname,
-            'lead_type': 'quick_estimate'
-          });
-          
-          // Wait 300ms to ensure GA4 event is sent before redirect
-          // Fixed 2026-02-18: Prevent event loss due to immediate redirect
+          // Fixed 2026-02-26: Changed from dataLayer.push to gtag('event') — routes to G-XV0NEL86VN directly
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'form_submit', {
+              'form_id': formId,
+              'form_name': 'Quick Estimate Form',
+              'form_location': window.location.pathname,
+              'lead_type': 'quick_estimate'
+            });
+          }
+          // Wait 500ms to ensure GA4 event fires before redirect
           setTimeout(() => {
             window.location.href = '/lp/thank-you';
-          }, 300);
+          }, 500);
         } else {
           throw new Error(result.error || 'Unknown error');
         }
