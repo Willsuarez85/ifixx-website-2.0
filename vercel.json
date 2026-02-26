@@ -27,12 +27,37 @@
       "permanent": true
     },
     {
+      "source": "/services/plumbing/",
+      "destination": "/repairs/plumbing/",
+      "permanent": true
+    },
+    {
       "source": "/services/electrical",
-      "destination": "/repairs/electrical/",
+      "destination": "/repairs/electrical-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/services/electrical/",
+      "destination": "/repairs/electrical-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/services/electrical-fixtures",
+      "destination": "/repairs/electrical-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/services/electrical-fixtures/",
+      "destination": "/repairs/electrical-fixtures/",
       "permanent": true
     },
     {
       "source": "/services/carpentry",
+      "destination": "/repairs/carpentry/",
+      "permanent": true
+    },
+    {
+      "source": "/services/carpentry/",
       "destination": "/repairs/carpentry/",
       "permanent": true
     },
@@ -42,7 +67,17 @@
       "permanent": true
     },
     {
+      "source": "/services/painting/",
+      "destination": "/repairs/painting/",
+      "permanent": true
+    },
+    {
       "source": "/services/doors-windows",
+      "destination": "/repairs/doors-windows/",
+      "permanent": true
+    },
+    {
+      "source": "/services/doors-windows/",
       "destination": "/repairs/doors-windows/",
       "permanent": true
     },
@@ -52,7 +87,17 @@
       "permanent": true
     },
     {
+      "source": "/services/quick-fix/",
+      "destination": "/repairs/quick-fix/",
+      "permanent": true
+    },
+    {
       "source": "/services/furniture-assembly",
+      "destination": "/repairs/furniture-assembly/",
+      "permanent": true
+    },
+    {
+      "source": "/services/furniture-assembly/",
       "destination": "/repairs/furniture-assembly/",
       "permanent": true
     },
@@ -62,7 +107,17 @@
       "permanent": true
     },
     {
+      "source": "/services/tv-mounting/",
+      "destination": "/repairs/tv-mounting/",
+      "permanent": true
+    },
+    {
       "source": "/services/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/services/kitchen-remodeling/",
       "destination": "/remodeling/kitchen-remodeling/",
       "permanent": true
     },
@@ -72,7 +127,17 @@
       "permanent": true
     },
     {
+      "source": "/services/bathroom-remodeling/",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
       "source": "/services/basement-finishing",
+      "destination": "/remodeling/basement-finishing/",
+      "permanent": true
+    },
+    {
+      "source": "/services/basement-finishing/",
       "destination": "/remodeling/basement-finishing/",
       "permanent": true
     },
@@ -82,12 +147,42 @@
       "permanent": true
     },
     {
+      "source": "/services/flooring-installation/",
+      "destination": "/remodeling/flooring-installation/",
+      "permanent": true
+    },
+    {
       "source": "/services/outdoor-living",
       "destination": "/remodeling/outdoor-living/",
       "permanent": true
     },
     {
+      "source": "/services/outdoor-living/",
+      "destination": "/remodeling/outdoor-living/",
+      "permanent": true
+    },
+    {
+      "source": "/services/drywall",
+      "destination": "/repairs/drywall/",
+      "permanent": true
+    },
+    {
+      "source": "/services/drywall/",
+      "destination": "/repairs/drywall/",
+      "permanent": true
+    },
+    {
+      "source": "/services/tv-mounting",
+      "destination": "/repairs/tv-mounting/",
+      "permanent": true
+    },
+    {
       "source": "/ballantyne/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/kitchen-remodeling/",
       "destination": "/remodeling/kitchen-remodeling/",
       "permanent": true
     },
@@ -97,7 +192,17 @@
       "permanent": true
     },
     {
+      "source": "/charlotte/kitchen-remodeling/",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
       "source": "/concord/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/concord/kitchen-remodeling/",
       "destination": "/remodeling/kitchen-remodeling/",
       "permanent": true
     },
@@ -107,7 +212,17 @@
       "permanent": true
     },
     {
+      "source": "/matthews/kitchen-remodeling/",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
       "source": "/mint-hill/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/mint-hill/kitchen-remodeling/",
       "destination": "/remodeling/kitchen-remodeling/",
       "permanent": true
     },
@@ -117,7 +232,17 @@
       "permanent": true
     },
     {
+      "source": "/monroe/kitchen-remodeling/",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
       "source": "/pineville/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/kitchen-remodeling/",
       "destination": "/remodeling/kitchen-remodeling/",
       "permanent": true
     },
@@ -127,7 +252,17 @@
       "permanent": true
     },
     {
+      "source": "/rock-hill/kitchen-remodeling/",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
       "source": "/waxhaw/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/waxhaw/kitchen-remodeling/",
       "destination": "/remodeling/kitchen-remodeling/",
       "permanent": true
     },
@@ -137,7 +272,17 @@
       "permanent": true
     },
     {
+      "source": "/ballantyne/bathroom-remodeling/",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
       "source": "/charlotte/bathroom-remodeling",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/bathroom-remodeling/",
       "destination": "/remodeling/bathroom-remodeling/",
       "permanent": true
     },
@@ -147,7 +292,17 @@
       "permanent": true
     },
     {
+      "source": "/concord/bathroom-remodeling/",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
       "source": "/matthews/bathroom-remodeling",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/bathroom-remodeling/",
       "destination": "/remodeling/bathroom-remodeling/",
       "permanent": true
     },
@@ -157,7 +312,17 @@
       "permanent": true
     },
     {
+      "source": "/mint-hill/bathroom-remodeling/",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
       "source": "/monroe/bathroom-remodeling",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/monroe/bathroom-remodeling/",
       "destination": "/remodeling/bathroom-remodeling/",
       "permanent": true
     },
@@ -167,12 +332,27 @@
       "permanent": true
     },
     {
+      "source": "/pineville/bathroom-remodeling/",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
       "source": "/rock-hill/bathroom-remodeling",
       "destination": "/remodeling/bathroom-remodeling/",
       "permanent": true
     },
     {
+      "source": "/rock-hill/bathroom-remodeling/",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
       "source": "/waxhaw/bathroom-remodeling",
+      "destination": "/remodeling/bathroom-remodeling/",
+      "permanent": true
+    },
+    {
+      "source": "/waxhaw/bathroom-remodeling/",
       "destination": "/remodeling/bathroom-remodeling/",
       "permanent": true
     },
