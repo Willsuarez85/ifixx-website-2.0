@@ -8,8 +8,8 @@ import { getCollection } from 'astro:content';
 const locations = await getCollection('cities');
 
 const seo = {
-  title: "Faucet Repair Charlotte NC | Leaky Faucet Fix | Same-Day | iFIXX",
-  description: "Leaky faucet? Running toilet? Same-day fixture repairs in Charlotte. No plumber needed for simple fixes. Call Jaime or Hamed: (980) 391-6833"
+  title: "Emergency Fixture Repair Charlotte NC | Faucets & Toilets | iFIXX",
+  description: "Faucet won't shut off? Toilet overflowing? Same-day emergency fixture repair in Charlotte, NC. No plumber needed for most fixes. Call (980) 391-6833 now."
 };
 
 const heroImage = "/images/projects/plumbing-bathroom-faucet-installation-repair.webp";
@@ -18,12 +18,23 @@ const projectImage = "/images/projects/plumbing-water-heater-valve-repair-wrench
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Faucet and Fixture Repair Charlotte NC",
+  "name": "Emergency Fixture Repair Charlotte NC",
   "description": seo.description,
   "provider": {
     "@type": "LocalBusiness",
-    "name": "iFIXX Services",
-    "telephone": "(980) 391-6833"
+    "name": "iFIXX Remodeling & Handyman",
+    "telephone": "(980) 391-6833",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Charlotte",
+      "addressRegion": "NC"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "87"
+    },
+    "priceRange": "$75-$200"
   },
   "areaServed": { "@type": "City", "name": "Charlotte", "addressRegion": "NC" }
 };
@@ -34,10 +45,34 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Can you fix a leaky faucet same-day?",
+      "name": "Can you come out the same day for a fixture emergency?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes! Leaky faucet repairs are one of our most common same-day jobs. Call or text us and we can usually get there within a few hours."
+        "text": "Yes. Call (980) 391-6833 and we'll give you a same-day appointment. If water is running and you can't stop it, that's a priority call."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does faucet or fixture repair cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most faucet repairs run $75–$200, parts included. We always give you a free estimate before touching anything — no surprise bills."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you do full plumbing work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — we handle fixture-level repairs only. If you need main pipe repairs or in-wall plumbing, you'll need a licensed plumber. We'll tell you that upfront before charging you anything."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A running toilet wastes how much water?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A running toilet can waste up to 200 gallons per day — that's $600–$1,000 per year at Charlotte water rates. Most causes are simple: worn flapper, faulty fill valve, or float set too high. All straightforward, affordable fixes."
       }
     },
     {
@@ -45,45 +80,39 @@ const faqSchema = {
       "name": "Do I need a plumber for a dripping faucet?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not usually. Faucet replacements, washer changes, and cartridge swaps don't require a plumber. We handle these as handyman repairs - faster and often less expensive."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much does faucet repair cost in Charlotte?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simple repairs like washer replacement: $50-100. Full faucet replacement: $150-300+ depending on the faucet. We always quote before starting work."
+        "text": "Not usually. Faucet replacements, washer changes, and cartridge swaps don't require a plumber. We handle these as handyman repairs — faster and often less expensive."
       }
     }
   ]
 };
 
 const bullets = [
-  "Leaky faucet repair",
-  "Faucet replacement (kitchen & bath)",
-  "Running toilet repair",
-  "Toilet parts replacement",
-  "Shower head replacement",
-  "Simple drain clearing"
+  "Faucet handles, cartridges & valve stems",
+  "Supply lines & shut-off valve replacement",
+  "Full faucet replacement (kitchen & bath)",
+  "Running toilet — flapper, fill valve, flush mechanism",
+  "Wax ring replacement & toilet remount",
+  "Shower head repair & replacement",
+  "Basic drain clearing (snake/auger)",
+  "Loose or detached fixture remounting"
 ];
 
 const faqs = [
   {
-    q: "Can you fix a leaky faucet same-day?",
-    a: "Yes! Leaky faucet repairs are one of our most common same-day jobs. Call or text us and we can usually get there within a few hours."
+    q: "Can you come out the same day for a fixture emergency?",
+    a: "Yes. Call (980) 391-6833 and we'll give you a same-day appointment. If water is running and you can't stop it, that's a priority call — we treat it as urgent."
   },
   {
-    q: "Do I need a plumber for a dripping faucet?",
-    a: "Usually not. Faucet repairs and replacements are handyman work. We swap faucets, replace cartridges, and fix drips without needing a licensed plumber — faster and often less expensive."
+    q: "How much does faucet or fixture repair cost?",
+    a: "Most faucet repairs run $75–$200, parts included. We always give you a free estimate before touching anything — no surprise bills."
   },
   {
-    q: "How much does faucet repair cost in Charlotte?",
-    a: "Simple repairs like washer or cartridge replacement: $50-100. Full faucet replacement: $150-300+ depending on the faucet you choose. We always quote before starting work — no surprises."
+    q: "Do you do full plumbing work?",
+    a: "No — we handle fixture-level repairs only. Main pipe repairs or in-wall plumbing requires a licensed plumber. We'll tell you that upfront before charging you anything."
   },
   {
     q: "Can you fix a toilet that keeps running?",
-    a: "Absolutely. Running toilets are usually a flapper, fill valve, or chain issue — quick fixes we do all the time. Typically $50-100 to fix."
+    a: "Absolutely. Running toilets are usually a flapper, fill valve, or chain issue — quick fixes we do all the time. Typically $75–$150 to fix, and a running toilet can cost you $600–$1,000/year in wasted water at Charlotte rates."
   },
   {
     q: "Do you supply the faucet or do I buy it?",
@@ -134,11 +163,11 @@ const faqs = [
             </span>
 
             <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">
-              Faucet & Fixture Repair in Charlotte, NC
+              Emergency Fixture Repair in Charlotte, NC
             </h1>
 
             <p class="text-lg text-neutral-200 mb-6 max-w-xl">
-              Leaky faucet driving you crazy? Toilet won't stop running? We fix it same-day — no plumber needed for simple repairs.
+              Faucet handle snapped off and water won't stop? Toilet overflowing? These aren't problems that can wait. iFIXX responds same-day across Charlotte. Most repairs run $75–$200. <strong class="text-primary-400">Call (980) 391-6833 now.</strong>
             </p>
 
             <!-- Benefit Icons -->
@@ -213,13 +242,13 @@ const faqs = [
       <div class="max-w-4xl mx-auto">
         <div class="prose prose-lg max-w-none text-neutral-600">
           <p>
-            There's nothing quite like the maddening sound of a faucet that won't stop dripping. Or the frustration of a toilet that runs constantly, wasting water and money every single hour. These aren't problems you can ignore—and they're definitely not problems you should have to live with for days while waiting for someone to show up.
+            A dripping faucet sounds like a minor inconvenience. A toilet that won't flush right seems like something you can deal with later. But small fixture problems have a way of turning into real emergencies — fast. That slow leak under your sink becomes water damage to the cabinet floor. That running toilet quietly adds hundreds of dollars to your water bill every month. A faucet handle that snaps off leaves water running with no way to stop it.
           </p>
           <p>
-            At iFIXX, we specialize in getting your fixtures back in working order the same day you call. We're a family-owned repair service right here in Charlotte, and we've helped hundreds of homeowners stop the drips, silence the running, and restore function to bathrooms and kitchens all over the city. When you call us, you'll talk directly with the owners—real people who understand that a malfunctioning fixture isn't just annoying, it's costing you money.
+            At iFIXX Remodeling &amp; Handyman, we handle fixture repairs the same day in Charlotte, NC and the surrounding area. We're insured, local, and honest about what we can fix — and what needs a licensed plumber. Most repairs run $75–$200 and we're done in a single visit.
           </p>
           <p>
-            The truth is, most fixture problems aren't complicated. A worn-out washer. A faulty flapper. A clogged aerator. But knowing what's wrong and having the right parts to fix it? That's where most homeowners get stuck. That's where we come in. We arrive with the tools, the knowledge, and the parts to handle the vast majority of fixture repairs in a single visit.
+            If water is running right now and you can't stop it, don't wait. <strong>Call (980) 391-6833 immediately.</strong> We'll walk you through steps to minimize damage until we arrive, and we'll be there the same day.
           </p>
         </div>
       </div>
@@ -252,11 +281,13 @@ const faqs = [
           <div class="bg-neutral-100 p-6 rounded-xl">
             <h3 class="font-heading font-bold text-neutral-900 mb-2">💡 Typical Pricing</h3>
             <ul class="text-sm text-neutral-600 space-y-1">
-              <li>• Simple faucet repair: $50-100</li>
-              <li>• Faucet replacement: $150-300</li>
-              <li>• Running toilet fix: $50-100</li>
-              <li>• Shower head swap: $50-75</li>
+              <li>• Most faucet repairs: $75–$200 (parts included)</li>
+              <li>• Running toilet fix (flapper, fill valve): $75–$150</li>
+              <li>• Wax ring / toilet remount: $100–$175</li>
+              <li>• Supply line or shut-off valve: $75–$150</li>
+              <li>• Drain clearing (snake/auger): $75–$125</li>
             </ul>
+            <p class="text-xs text-neutral-500 mt-3">Free estimate always. We quote before we touch anything.</p>
           </div>
         </div>
 
@@ -420,6 +451,116 @@ const faqs = [
             <h3 class="font-heading font-bold text-xl mb-2">Honest</h3>
             <p class="text-neutral-400">If you actually need a plumber, we'll tell you and can recommend one.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toilet Water Waste Alert -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <div class="card p-8 border-l-8 border-emergency-600">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="text-5xl">🚽</div>
+            <div>
+              <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-2">
+                A Running Toilet Costs You $600–$1,000 Per Year
+              </h2>
+              <p class="text-lg text-neutral-700">
+                A running toilet can waste up to <strong>200 gallons of water per day</strong> at Charlotte water rates. Most causes are simple: a worn flapper, faulty fill valve, or float set too high. These are straightforward, affordable fixes — usually $75–$150 for us to handle.
+              </p>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-neutral-50 p-4 rounded-lg">
+              <h3 class="font-heading font-bold text-neutral-900 mb-2">What we fix on toilets:</h3>
+              <ul class="text-sm text-neutral-700 space-y-1">
+                <li>✓ Flapper and fill valve replacement</li>
+                <li>✓ Handle and flush mechanism repair</li>
+                <li>✓ Wax ring replacement (rocking toilet)</li>
+                <li>✓ Full toilet replacement if cracked or damaged</li>
+              </ul>
+            </div>
+            <div class="bg-emergency-50 p-4 rounded-lg border-l-4 border-emergency-600">
+              <h3 class="font-heading font-bold text-emergency-600 mb-2">⚠️ Rocking toilet = urgent</h3>
+              <p class="text-sm text-neutral-700">
+                A toilet that moves at the base breaks the wax ring seal — sewage can seep under your floor. This is not a "schedule it for next week" situation. Call us today.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When Is It an Emergency? -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="text-3xl lg:text-4xl font-heading font-bold text-neutral-900 mb-4 text-center">
+        When Is It an Emergency vs. Can It Wait?
+      </h2>
+      <p class="text-xl text-neutral-700 text-center max-w-2xl mx-auto mb-12">
+        Not sure if your fixture problem is urgent? Here's a straightforward guide.
+      </p>
+
+      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+        <div class="card p-8 border-t-4 border-emergency-600">
+          <h3 class="text-xl font-heading font-bold text-emergency-600 mb-4">
+            🚨 Call Us Today
+          </h3>
+          <ul class="space-y-3 text-neutral-700">
+            <li class="flex items-start gap-2">
+              <span class="text-emergency-600 font-bold">•</span>
+              <span>Water running and you can't shut it off</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emergency-600 font-bold">•</span>
+              <span>Toilet overflow or backup</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emergency-600 font-bold">•</span>
+              <span>Water getting into floors, walls, or cabinets</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emergency-600 font-bold">•</span>
+              <span>Toilet rocking at the base</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emergency-600 font-bold">•</span>
+              <span>Faucet handle snapped off</span>
+            </li>
+          </ul>
+          <a href="tel:+19803916833" class="btn bg-emergency-600 text-white hover:bg-emergency-700 mt-6 w-full text-center">
+            Call Now: (980) 391-6833
+          </a>
+        </div>
+
+        <div class="card p-8 border-t-4 border-neutral-300">
+          <h3 class="text-xl font-heading font-bold text-neutral-700 mb-4">
+            📅 Schedule This Week
+          </h3>
+          <ul class="space-y-3 text-neutral-700">
+            <li class="flex items-start gap-2">
+              <span class="text-neutral-500 font-bold">•</span>
+              <span>Slow drip not getting worse</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-neutral-500 font-bold">•</span>
+              <span>Toilet that runs occasionally but stops</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-neutral-500 font-bold">•</span>
+              <span>Drain that's slow but not fully blocked</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-neutral-500 font-bold">•</span>
+              <span>Shower head with low pressure</span>
+            </li>
+          </ul>
+          <p class="text-sm text-neutral-600 mt-6 italic">
+            When in doubt, call us — we'll tell you honestly whether it needs attention today or can wait.
+          </p>
         </div>
       </div>
     </div>

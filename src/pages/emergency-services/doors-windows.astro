@@ -8,8 +8,8 @@ import { getCollection } from 'astro:content';
 const locations = await getCollection('cities');
 
 const seo = {
-  title: "Door Repair Charlotte NC | Emergency Door & Window Fix | iFIXX",
-  description: "Door won't lock? Window broken? Same-day emergency door and window repair in Charlotte. We secure your home fast. Call Jaime or Hamed: (980) 391-6833"
+  title: "Emergency Door & Window Repair Charlotte NC | Same-Day | iFIXX",
+  description: "Door won't latch or lock? Window broken after a storm? Same-day emergency door and window repair in Charlotte, NC. 5.0★ across 87 reviews. Call (980) 391-6833."
 };
 
 const heroImage = "/images/projects/door-installation-interior-hinge-leveling-brass.webp";
@@ -18,12 +18,23 @@ const projectImage = "/images/projects/construction-wood-framing-window.webp";
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Door and Window Repair Charlotte NC",
+  "name": "Emergency Door and Window Repair Charlotte NC",
   "description": seo.description,
   "provider": {
     "@type": "LocalBusiness",
-    "name": "iFIXX Services",
-    "telephone": "(980) 391-6833"
+    "name": "iFIXX Remodeling & Handyman",
+    "telephone": "(980) 391-6833",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Charlotte",
+      "addressRegion": "NC"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "87"
+    },
+    "priceRange": "$150-$600"
   },
   "areaServed": { "@type": "City", "name": "Charlotte", "addressRegion": "NC" }
 };
@@ -34,52 +45,79 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Can you fix a door that won't close properly?",
+      "name": "Can you board a broken window the same day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes! Doors that stick, don't latch, or won't close are common fixes. Usually it's the hinges, strike plate, or frame - all things we can repair same-day."
+        "text": "Yes. Call us and we come out same-day with materials to secure the opening. We handle temporary boarding and can coordinate permanent glass replacement."
       }
     },
     {
       "@type": "Question",
-      "name": "Do you board up broken windows?",
+      "name": "Can you fix a door that won't close or lock properly?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. We can board up a broken window same-day to secure your home, then help with permanent repair or coordinate with a glass company for replacement."
+        "text": "Yes. Doors that won't latch or lock are usually a frame alignment issue from settling. We adjust the strike plate, plane the door edge, or reframe the opening as needed — same-day for exterior door security issues."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the door is too damaged to repair?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We'll tell you upfront. If replacement is needed, we handle it — we won't push repair when replacement is the right call. You'll get an honest assessment before we start any work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with homeowner's insurance for storm damage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We provide full documentation and itemized invoices you can submit to your insurer. Every hour after storm damage means more moisture getting in and more complicated insurance documentation, so acting fast matters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you do locksmith work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — we handle the door and frame structure, not rekeying or cylinder replacement. For locksmith work, you'll need a licensed locksmith. We handle the structural part the lock mounts to."
       }
     }
   ]
 };
 
 const bullets = [
-  "Door won't close or latch properly",
-  "Sticking or dragging doors",
-  "Door frame repairs",
-  "Lock replacement & deadbolt installation",
-  "Broken window board-up",
-  "Window won't open or close"
+  "Door won't close, latch, or lock",
+  "Sagging hinges — retighten, repack, or replace",
+  "Door frame repair (impact damage, moisture rot)",
+  "Strike plate adjustment & realignment",
+  "Full door replacement (warped or compromised)",
+  "Kicked-in frame repair after break-in",
+  "Same-day boarding for broken windows",
+  "Window frame repair & seal replacement",
+  "Windows that won't open, close, or lock"
 ];
 
 const faqs = [
   {
-    q: "Can you fix a door that won't close properly?",
-    a: "Yes! Doors that stick, don't latch, or won't close are common fixes for us. Usually it's the hinges, strike plate, or frame — all things we can repair same-day."
+    q: "Can you board a broken window the same day?",
+    a: "Yes. Call us and we come out same-day with materials to secure the opening. We carry materials to board windows immediately, keeping out weather, insects, and security risks while you arrange permanent glass replacement."
   },
   {
-    q: "Do you board up broken windows?",
-    a: "Yes. We can board up a broken window same-day to secure your home and keep weather out. Then we can help with permanent repair or coordinate with a glass company for replacement."
+    q: "Can you fix a door that won't close or lock properly?",
+    a: "Yes — and exterior door security issues get same-day priority. A door that won't secure is not a 'schedule it for next week' problem. Usually it's the frame alignment, strike plate, or hinges — all things we fix fast."
   },
   {
     q: "How much does door repair cost?",
-    a: "Simple adjustments (hinges, strike plate): $75-150. Door frame repair: $150-300+. Lock replacement: $75-200. We always quote before starting work."
+    a: "Door adjustment (hinges, strike plate): $150–$250. Door frame repair: $200–$400. Kicked-in frame repair: $200–$450. Full door replacement: $300–$600+. We always quote before starting work — no surprises."
   },
   {
     q: "Can you help after a break-in?",
-    a: "Absolutely. We repair kicked-in door frames, replace damaged locks, and restore your door's security. We understand this is stressful — we respond quickly."
+    a: "Absolutely. The most common failure after a break-in attempt is a frame that splits at the strike plate. We repair it properly — not just cosmetically — so it holds. We respond quickly because we understand the stress and urgency."
   },
   {
-    q: "Do you replace glass in windows?",
-    a: "We can handle some window repairs, but for glass replacement on large windows, you'll need a glass company. We can board up the window to secure it while you wait for glass replacement."
+    q: "Do you do locksmith work?",
+    a: "No — we handle the door and frame structure, not rekeying or cylinder replacement. For locksmith work, you'll need a licensed locksmith. We handle the structural part the lock mounts to, and we'll tell you upfront what each trade handles."
   }
 ];
 ---
@@ -126,11 +164,11 @@ const faqs = [
             </span>
 
             <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">
-              Door & Window Repair in Charlotte, NC
+              Emergency Door & Window Repair in Charlotte, NC
             </h1>
 
             <p class="text-lg text-neutral-200 mb-6 max-w-xl">
-              Door won't lock? Window broken? We secure your home same-day. Your safety can't wait.
+              A door that won't latch or lock is a security problem — tonight, not next week. A broken window lets in rain, insects, and outside temperatures within hours. iFIXX responds same-day across Charlotte. 5.0★ across 87 reviews. <strong class="text-primary-400">Call (980) 391-6833 now.</strong>
             </p>
 
             <!-- Benefit Icons -->
@@ -205,13 +243,13 @@ const faqs = [
       <div class="max-w-4xl mx-auto">
         <div class="prose prose-lg max-w-none text-neutral-600">
           <p>
-            A door that won't lock properly isn't just an annoyance—it's a security risk. A window that won't close means bugs, weather, and worry. And a stuck door that you have to fight with every single time? That's the kind of daily frustration that wears you down. These aren't problems you should have to live with, and they're definitely not problems that can wait.
+            A door that won't latch or lock is a security problem — tonight, not next week. A broken window isn't just an eyesore; it's rain, insects, and outside temperatures getting in within hours. iFIXX responds the same day across Charlotte and surrounding area for door and window emergencies.
           </p>
           <p>
-            iFIXX provides same-day door and window repair for homeowners across Charlotte. We're a family-owned business, and when you call, you speak directly with the owners—not a call center, not a receptionist, but the people who actually care about getting your problem solved. We understand that when your door won't lock before you leave for work, or your window is stuck open with a storm coming, you need someone there NOW.
+            When you call, you talk directly to the owners — real people who understand that an exterior door that won't secure is not a problem you can postpone. We prioritize security issues and are honest about what needs to be done versus what can wait. Same-day service, upfront pricing, no runaround.
           </p>
           <p>
-            Most door and window issues come down to alignment, worn hardware, or damaged components. Hinges sag. Locks misalign. Latches wear out. Weather stripping fails. These are problems we see every day, and we come prepared to fix them on the spot. Our trucks are stocked with the parts and tools needed for the most common repairs, so one visit usually gets the job done.
+            Most door problems are frame alignment from settling, sagging hinges, or hardware failure. Most window emergencies are broken glass, failed seals, or mechanisms that won't operate. These are problems we see every day — we come prepared with the right tools and materials to handle the most common repairs in a single visit.
           </p>
         </div>
       </div>
@@ -244,11 +282,14 @@ const faqs = [
           <div class="bg-neutral-100 p-6 rounded-xl">
             <h3 class="font-heading font-bold text-neutral-900 mb-2">💰 Typical Pricing</h3>
             <ul class="text-sm text-neutral-600 space-y-1">
-              <li>• Door adjustment (hinges, strike): $75-150</li>
-              <li>• Door frame repair: $150-300+</li>
-              <li>• Lock replacement: $75-200</li>
-              <li>• Window board-up: $100-200</li>
+              <li>• Door adjustment (hinges, strike plate): $150–$250</li>
+              <li>• Door frame repair: $200–$400</li>
+              <li>• Kicked-in frame repair: $200–$450</li>
+              <li>• Same-day window boarding: $150–$250</li>
+              <li>• Window frame repair: $150–$350</li>
+              <li>• Full door replacement: $300–$600+</li>
             </ul>
+            <p class="text-xs text-neutral-500 mt-3">Free estimate always. Security issues prioritized for same-day service.</p>
           </div>
         </div>
 
@@ -403,8 +444,55 @@ const faqs = [
     </div>
   </section>
 
+  <!-- Storm & Weather Damage + Security Issues -->
+  <section class="section bg-white">
+    <div class="container">
+      <h2 class="text-3xl lg:text-4xl font-heading font-bold text-neutral-900 mb-12 text-center">
+        Storm Damage & Security Emergencies
+      </h2>
+
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+        <!-- Storm Damage -->
+        <div class="card p-8 border-t-4 border-emergency-600">
+          <div class="text-4xl mb-4">⛈️</div>
+          <h3 class="text-xl font-heading font-bold text-neutral-900 mb-4">Charlotte Storm & Weather Damage</h3>
+          <p class="text-neutral-700 mb-4">
+            Charlotte storms hit fast. Hail, tree branches, and wind can damage doors and windows in minutes. Acting fast matters — every hour after storm damage means more moisture getting in, more structural degradation, and more complicated insurance documentation.
+          </p>
+          <ul class="text-sm text-neutral-700 space-y-2 mb-6">
+            <li>✓ Same-day response for storm damage boarding</li>
+            <li>✓ Single-pane and double-pane (insulated glass unit) replacement</li>
+            <li>✓ Damaged window frames — repair or replace</li>
+            <li>✓ Detailed documentation and itemized invoices for insurance claims</li>
+          </ul>
+          <div class="bg-emergency-50 p-4 rounded-lg text-sm text-neutral-700">
+            <strong>Foggy double-pane windows?</strong> That means the seal has failed and insulating gas escaped. We replace the glass unit — not just patch it.
+          </div>
+        </div>
+
+        <!-- Security Issues -->
+        <div class="card p-8 border-t-4 border-primary-600">
+          <div class="text-4xl mb-4">🔒</div>
+          <h3 class="text-xl font-heading font-bold text-neutral-900 mb-4">Door Security & Break-In Repair</h3>
+          <p class="text-neutral-700 mb-4">
+            The most common door security failure is a frame that splits at the strike plate when kicked. Most homeowners don't realize the door itself is fine — the frame is the weak point. We fix it properly, not just cosmetically.
+          </p>
+          <ul class="text-sm text-neutral-700 space-y-2 mb-6">
+            <li>✓ Frame repair after kick-in damage</li>
+            <li>✓ Strike plate reinforcement (the real security upgrade)</li>
+            <li>✓ Same-day temporary boarding if door can't be used</li>
+            <li>✓ Interior vs. exterior prioritization — exterior gets same-day response</li>
+          </ul>
+          <div class="bg-neutral-100 p-4 rounded-lg text-sm text-neutral-700">
+            <strong>Note:</strong> We handle the door and frame structure — not rekeying or cylinder replacement. For locksmith work, you'll need a licensed locksmith. We'll tell you upfront what each trade handles.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ Section -->
-  <section class="section">
+  <section class="section section-alt">
     <div class="container">
       <div class="max-w-3xl mx-auto">
         <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-8 text-center">

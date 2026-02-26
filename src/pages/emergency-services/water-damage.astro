@@ -4,7 +4,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 
 const seo = {
-  title: "Water Damage Repair Charlotte NC | Same-Day Service | iFIXX",
+  title: "Emergency Water Damage Repair Charlotte NC | Same-Day | iFIXX",
   description: "Water damage emergency in Charlotte? iFIXX stops leaks and repairs damage same-day. Ceiling leaks, floods, fixtures. Call (980) 391-6833 now."
 };
 
@@ -65,7 +65,7 @@ const faqSchema = {
       "name": "What water damage repairs do you handle?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We handle water damage cleanup, drywall repair and replacement, ceiling repair, painting after water damage, and mold prevention. For major plumbing repairs like burst pipes inside walls, you'll need a licensed plumber."
+        "text": "We handle drywall repair and replacement, subfloor and flooring repair, ceiling repairs, wall framing and structural repairs, and texture matching. For major plumbing repairs like burst pipes inside walls, you'll need a licensed plumber — but we handle everything structural after the water stops."
       }
     },
     {
@@ -78,10 +78,26 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "What should I do in the first 10 minutes of water damage?",
+      "name": "Do you work with homeowner's insurance?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Stop the water source first. Find your main water shutoff valve (usually in basement, crawl space, or near water heater) and turn it off. If water is near electrical outlets, turn off electricity at the main breaker before doing anything else."
+        "text": "Yes. We provide detailed documentation and itemized invoices you can submit to your insurer. We don't file claims on your behalf, but we make the paperwork easy on your end."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does water damage repair take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most jobs are completed in one visit. Smaller repairs (single wall section, ceiling patch) typically take 2-4 hours. Larger jobs with multiple areas may take a full day or require a follow-up visit for finish work after mud dries."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if there's mold behind the wall?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If we open the wall and find active mold growth, we'll let you know immediately. Minor surface mold on drywall we're already replacing isn't typically a separate issue — removing the compromised material handles it. For significant mold infestations, we'll recommend a mold remediation specialist before we do our structural repairs."
       }
     }
   ]
@@ -152,6 +168,62 @@ const faqSchema = {
 
   <!-- Trust Bar -->
   <TrustBar />
+
+  <!-- Signs of Water Damage -->
+  <section class="section bg-white">
+    <div class="container">
+      <h2 class="text-3xl lg:text-4xl font-heading font-bold text-neutral-900 mb-4 text-center">
+        Signs of Water Damage: What to Look For
+      </h2>
+      <p class="text-xl text-neutral-700 text-center max-w-3xl mx-auto mb-12">
+        In Charlotte's humid climate, the timeline from surface leak to mold is 24–48 hours. Know the warning signs.
+      </p>
+
+      <div class="max-w-5xl mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div class="card p-6">
+          <div class="text-3xl mb-3">🟡</div>
+          <h3 class="text-lg font-heading font-bold text-neutral-900 mb-2">Ceiling and Wall Stains</h3>
+          <p class="text-neutral-700 text-sm">Yellow, brown, or rust-colored spots are classic indicators of water intrusion from above — roof leak, upstairs bathroom, etc. Even if the stain looks dry, the damage underneath may still be active.</p>
+        </div>
+
+        <div class="card p-6">
+          <div class="text-3xl mb-3">👃</div>
+          <h3 class="text-lg font-heading font-bold text-neutral-900 mb-2">Musty or Earthy Smell</h3>
+          <p class="text-neutral-700 text-sm">If a room starts smelling like a damp basement, that's mold or mildew developing inside your walls or under your floors. Don't ignore it — that smell means active biological growth.</p>
+        </div>
+
+        <div class="card p-6">
+          <div class="text-3xl mb-3">🏠</div>
+          <h3 class="text-lg font-heading font-bold text-neutral-900 mb-2">Swollen or Warped Flooring</h3>
+          <p class="text-neutral-700 text-sm">Hardwood, laminate, and tile floors will visibly warp when they absorb moisture. If your floor feels soft underfoot or you see raised edges at the seams, water damage is likely underneath.</p>
+        </div>
+
+        <div class="card p-6">
+          <div class="text-3xl mb-3">🎨</div>
+          <h3 class="text-lg font-heading font-bold text-neutral-900 mb-2">Bubbling or Peeling Paint</h3>
+          <p class="text-neutral-700 text-sm">Paint that bubbles, peels, or pulls away from the wall surface is a sign that moisture is trapped behind it. This usually means the drywall behind the paint has been compromised.</p>
+        </div>
+
+        <div class="card p-6 border-2 border-emergency-400">
+          <div class="text-3xl mb-3">🔴</div>
+          <h3 class="text-lg font-heading font-bold text-emergency-600 mb-2">Visible Mold Growth</h3>
+          <p class="text-neutral-700 text-sm">Black, green, or white fuzzy patches on walls, ceilings, or in corners are a clear sign that water damage has been present long enough to allow mold to develop. Act immediately.</p>
+        </div>
+
+        <div class="card p-6 border-2 border-emergency-400">
+          <div class="text-3xl mb-3">⚠️</div>
+          <h3 class="text-lg font-heading font-bold text-emergency-600 mb-2">Sagging Drywall or Ceiling</h3>
+          <p class="text-neutral-700 text-sm">If your ceiling is visibly drooping or your drywall feels soft to the touch, there's likely standing water or saturated material above it. This can become a collapse hazard — evacuate the room and call immediately.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="tel:+19803916833" class="btn bg-emergency-600 text-white hover:bg-emergency-700 text-lg px-8 py-4 inline-flex items-center gap-3">
+          Seeing These Signs? Call Now: (980) 391-6833
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- THE FIRST 24 HOURS - HIGHLIGHTED SECTION -->
   <section class="section bg-gradient-to-br from-emergency-50 to-primary-50">
@@ -528,13 +600,14 @@ const faqSchema = {
             <div>
               <h4 class="font-heading font-bold text-primary-600 text-lg mb-2">Step 3: Dry & Repair</h4>
               <p class="text-neutral-700 mb-3">
-                We don't just stop the leak and leave you with damaged walls. We handle the full restoration:
+                We don't just stop the leak and leave you with damaged walls. We handle the full structural restoration:
               </p>
-              <ul class="text-neutral-700 space-y-1 ml-6">
-                <li>• Remove wet drywall and insulation</li>
-                <li>• Dry the area completely</li>
-                <li>• Replace drywall sections</li>
-                <li>• Tape, mud, sand, prime, paint to match</li>
+              <ul class="text-neutral-700 space-y-2 ml-6">
+                <li>• <strong>Drywall repair and replacement</strong> — Wet drywall can't be saved. We remove damaged sections, dry out the cavity, and install new drywall — taped, mudded, and ready for paint.</li>
+                <li>• <strong>Subfloor and flooring repair</strong> — Water-damaged subfloors become soft and structurally unsound. We assess, replace compromised sections, and restore your flooring.</li>
+                <li>• <strong>Ceiling repairs</strong> — Water-damaged ceilings can sag, crack, or develop soft spots. We cut out the damaged material and rebuild it properly.</li>
+                <li>• <strong>Wall framing and structural repairs</strong> — When water has been present long enough to damage wood framing, we address structural issues so the repair is solid, not just cosmetic.</li>
+                <li>• <strong>Texture matching and painting prep</strong> — We match your existing wall texture and leave surfaces primed and ready for paint so repaired areas blend in seamlessly.</li>
               </ul>
             </div>
           </div>
@@ -587,19 +660,19 @@ const faqSchema = {
         <div class="grid md:grid-cols-3 gap-6 mb-8">
           <div class="card p-6">
             <div class="text-4xl mb-2">🔧</div>
-            <h3 class="font-heading font-bold text-neutral-900 mb-2">Minor Leak Repair</h3>
-            <div class="text-3xl font-bold text-primary-600 mb-2">$150-$300</div>
+            <h3 class="font-heading font-bold text-neutral-900 mb-2">Small Repairs</h3>
+            <div class="text-3xl font-bold text-primary-600 mb-2">$150–$300</div>
             <p class="text-neutral-700 text-sm">
-              Replace leaking faucet, toilet valve, or shut-off valve. Includes parts and labor.
+              Single ceiling or wall stain, small section of drywall. Includes tape, mud, and paint-ready finish.
             </p>
           </div>
 
           <div class="card p-6">
             <div class="text-4xl mb-2">🔨</div>
-            <h3 class="font-heading font-bold text-neutral-900 mb-2">Drywall Replacement</h3>
-            <div class="text-3xl font-bold text-primary-600 mb-2">$200-$500</div>
+            <h3 class="font-heading font-bold text-neutral-900 mb-2">Mid-Range Damage</h3>
+            <div class="text-3xl font-bold text-primary-600 mb-2">$300–$700</div>
             <p class="text-neutral-700 text-sm">
-              Replace damaged drywall (up to 4x4 ft section). Tape, mud, sand, prime, paint to match.
+              Multiple affected areas, partial floor or ceiling section, moderate drywall replacement.
             </p>
             <p class="text-sm mt-2">
               <a href="/repairs/drywall/" class="text-primary-600 hover:text-primary-700 font-medium">
@@ -610,10 +683,10 @@ const faqSchema = {
 
           <div class="card p-6">
             <div class="text-4xl mb-2">🏠</div>
-            <h3 class="font-heading font-bold text-neutral-900 mb-2">Full Ceiling Section</h3>
-            <div class="text-3xl font-bold text-primary-600 mb-2">$400-$800</div>
+            <h3 class="font-heading font-bold text-neutral-900 mb-2">Extensive Damage</h3>
+            <div class="text-3xl font-bold text-primary-600 mb-2">$700+</div>
             <p class="text-neutral-700 text-sm">
-              Replace entire ceiling section or multiple areas. Includes insulation removal if needed.
+              Multiple rooms, structural involvement, subfloor replacement, or significant ceiling and wall sections.
             </p>
           </div>
         </div>
@@ -734,6 +807,33 @@ const faqSchema = {
           </div>
           <p class="text-neutral-700 mt-4">
             <strong>If you're not sure, call us.</strong> We'll assess and refer you to a licensed plumber if needed. Then we'll handle all the repair work once the plumbing is fixed.
+          </p>
+        </div>
+
+        <div class="card p-6">
+          <h3 class="text-xl font-heading font-bold text-neutral-900 mb-2">
+            Can you really get here the same day?
+          </h3>
+          <p class="text-neutral-700">
+            In most cases, yes — especially for calls received in the morning or early afternoon. There are times — major storms that hit the whole region at once, for example — when our schedule gets stretched thin. In those situations, we'll be honest with you and give you the soonest realistic window. Call <a href="tel:+19803916833" class="text-emergency-600 font-bold">(980) 391-6833</a> and we'll tell you straight up.
+          </p>
+        </div>
+
+        <div class="card p-6">
+          <h3 class="text-xl font-heading font-bold text-neutral-900 mb-2">
+            What if there's mold behind the wall?
+          </h3>
+          <p class="text-neutral-700">
+            If we open the wall and find active mold growth, we'll let you know immediately. Minor surface mold on drywall we're already replacing isn't typically a separate issue — removing the compromised material handles it. For significant mold infestations in wall cavities or subfloors, we'll recommend you bring in a mold remediation specialist before we do our structural repairs.
+          </p>
+        </div>
+
+        <div class="card p-6">
+          <h3 class="text-xl font-heading font-bold text-neutral-900 mb-2">
+            What if the damage is bigger than expected once you open the wall or floor?
+          </h3>
+          <p class="text-neutral-700">
+            It happens, and we handle it the right way. If we discover the damage is more extensive than the initial assessment showed, we stop, explain what we found, and give you a revised estimate before proceeding. You always have the choice to approve additional work — we never just keep going and surprise you with a bigger bill.
           </p>
         </div>
       </div>
