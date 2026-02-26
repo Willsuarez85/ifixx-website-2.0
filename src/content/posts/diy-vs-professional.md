@@ -9,8 +9,8 @@ tags:
   - "DIY"
   - "home improvement"
 seo:
-  title: "DIY vs. Professional: When to Call a Handyman | iFixx Blog"
-  description: "Learn which home projects you can tackle yourself and when it's better to call a professional handyman. Save time, money, and avoid costly mistakes."
+  title: "DIY vs Hiring a Handyman in Charlotte | When to Call a Pro | iFIXX"
+  description: "Not sure whether to DIY or hire a handyman in Charlotte NC? Learn which projects save money and when calling a pro is the smarter move. Free estimates — iFIXX."
 ---
 
 The internet is full of DIY tutorials that make every home improvement project look easy. But while some projects are great for weekend warriors, others are best left to the pros.

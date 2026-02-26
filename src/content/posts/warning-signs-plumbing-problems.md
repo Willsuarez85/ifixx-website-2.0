@@ -6,8 +6,8 @@ coverImage: "/images/projects/plumbing-water-heater-valve-repair-wrench.webp"
 category: "Home Maintenance"
 tags: ["plumbing", "home maintenance", "warning signs", "Charlotte"]
 seo:
-  title: "7 Warning Signs of Plumbing Problems | iFixx Charlotte"
-  description: "Most plumbing problems give warning signs before they become emergencies. Here are 7 signs Charlotte homeowners should watch for—and what to do about them."
+  title: "Warning Signs of Plumbing Problems | Charlotte Homeowners | iFIXX"
+  description: "Catch plumbing problems before they become emergencies. 7 warning signs Charlotte homeowners should watch for. Same-day service · (980) 391-6833 · iFIXX."
 ---
 
 That slow drain in your bathroom? The weird sound your pipes make at night? Your home is trying to tell you something.

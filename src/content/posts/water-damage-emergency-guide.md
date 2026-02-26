@@ -10,8 +10,8 @@ tags:
   - "Charlotte"
   - "home repair"
 seo:
-  title: "Water Damage Emergency Guide Charlotte NC | First 24 Hours | iFIXX"
-  description: "Water damage in your Charlotte home? Learn exactly what to do in the first 24 hours. Same-day response from iFIXX. Call (980) 391-6833"
+  title: "Water Damage in Your Home? What to Do First | Charlotte NC | iFIXX"
+  description: "Water damage in your Charlotte home? Here's exactly what to do in the first 24 hours. Same-day emergency response from iFIXX. Call (980) 391-6833 now."
 ---
 
 Water damage doesn't wait for business hours. Whether it's 2 AM on a Sunday or during your kid's birthday party, when water starts pooling on your floor, you need to act fast.

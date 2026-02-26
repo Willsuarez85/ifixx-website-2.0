@@ -10,8 +10,8 @@ tags:
   - "cost guide"
   - "home improvement"
 seo:
-  title: "How Much Does a Bathroom Remodel Cost in Charlotte NC? [2026 Prices]"
-  description: "Bathroom remodel costs in Charlotte range from $5,000 to $50,000+. Get accurate pricing for showers, vanities, tile & labor from local contractors."
+  title: "Bathroom Remodel Cost Charlotte NC 2026 | From $5,000 | iFIXX"
+  description: "Bathroom remodel costs in Charlotte range from $5,000 to $50,000+. Get 2026 pricing for showers, vanities & tile from iFIXX. ⭐5.0. Free estimates available."
 ---
 
 Thinking about remodeling your bathroom in Charlotte? The question on everyone's mind: **How much is this going to cost?**

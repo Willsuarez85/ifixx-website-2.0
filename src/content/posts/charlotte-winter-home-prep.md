@@ -6,8 +6,8 @@ coverImage: "/images/projects/remodeling-modern-home-exterior-curb-appeal.webp"
 category: "Home Maintenance"
 tags: ["winter prep", "Charlotte", "seasonal maintenance", "freeze protection"]
 seo:
-  title: "Charlotte Winter Home Prep Checklist | iFixx"
-  description: "Charlotte winters are mild—until they're not. Here's how to prepare your home for freezing temps, ice storms, and everything in between."
+  title: "Charlotte Winter Home Prep Checklist | Protect Your Home | iFIXX"
+  description: "Charlotte winters can catch you off guard. Use this checklist to protect your pipes, roof & home before freezing temps hit. Call (980) 391-6833 — iFIXX."
 ---
 
 Charlotte winters are unpredictable. One week it's 60 degrees and sunny. The next, there's an ice storm that knocks out power for three days.
