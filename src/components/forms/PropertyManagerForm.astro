@@ -252,6 +252,13 @@ const contactTimeOptions = [
         if (result.success) {
           // Fixed 2026-02-26: Changed from dataLayer.push to gtag('event') — routes to G-XV0NEL86VN directly
           if (typeof gtag !== 'undefined') {
+            // Enhanced Conversions: send user data before conversion event
+            // Added 2026-03-06
+            gtag('set', 'user_data', {
+              'email': data.email,
+              'phone_number': data.phone,
+              'address': { 'first_name': data.firstName }
+            });
             gtag('event', 'form_submit', {
               'form_id': formId,
               'form_name': 'Property Manager Form',

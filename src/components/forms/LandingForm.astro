@@ -129,6 +129,17 @@ const services = [
           // Fixed 2026-02-26: Changed from dataLayer.push to gtag('event') — dataLayer.push
           // was routing to the old/blocked GTM stream instead of G-XV0NEL86VN
           if (typeof gtag !== 'undefined') {
+            // Enhanced Conversions: send hashed user data before conversion event
+            // Enables Google Ads to match conversions more accurately
+            // Added 2026-03-06: Fixes "Needs attention" in Enhanced Conversions diagnostics
+            gtag('set', 'user_data', {
+              'email': data.email,
+              'phone_number': data.phone,
+              'address': {
+                'first_name': data.firstName
+              }
+            });
+
             gtag('event', 'generate_lead', {
               'form_id': formId,
               'form_name': formName,
