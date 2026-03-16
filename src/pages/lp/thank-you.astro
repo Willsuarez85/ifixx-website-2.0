@@ -149,8 +149,9 @@ const seo = {
   // Fire Google Ads conversion when thank-you page loads
   // Fixed 2026-02-09: Corrected Ads ID
   if (typeof gtag === 'function') {
+    // Lead Form Submit conversion — fires when user reaches thank-you page after form submission
     gtag('event', 'conversion', {
-      'send_to': 'AW-17542077404/mVQ-CKbl7PIbENy326xB',
+      'send_to': 'AW-17542077404/mVQ-CKbl7PIbENy326xB',  // Lead Form Submit conversion
       'value': 50.0,
       'currency': 'USD'
     });
