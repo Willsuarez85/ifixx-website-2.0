@@ -294,63 +294,146 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
   <!-- Trust Bar -->
   <TrustBar variant="light" />
 
-  <!-- What We Offer + Image -->
-  {bullets && bullets.length > 0 && (
-    <section class="section">
-      <div class="container">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-6">
-              What We Offer
-            </h2>
-            <ul class="space-y-4 mb-8">
-              {bullets.map((bullet) => (
-                <li class="flex items-start gap-3">
-                  <div class="w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg class="w-4 h-4 text-neutral-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span class="text-neutral-700">{bullet}</span>
-                </li>
-              ))}
-            </ul>
+  <!-- Content + Sticky Sidebar -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
-            <div class="prose prose-neutral max-w-none">
-              <Content />
+        <!-- Main Content — Left -->
+        <div class="lg:col-span-7 xl:col-span-8">
+
+          <!-- What We Fix -->
+          {bullets && bullets.length > 0 && (
+            <div class="mb-10">
+              <h2 class="text-2xl font-heading font-bold text-neutral-900 mb-6">
+                What We Fix
+              </h2>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {bullets.map((bullet) => (
+                  <li class="flex items-start gap-3 p-3 bg-neutral-50 rounded-lg">
+                    <div class="w-5 h-5 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg class="w-3 h-3 text-neutral-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span class="text-neutral-700 text-sm">{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <!-- Inline CTA 1 -->
+          <div class="my-8 p-6 bg-primary-50 border-l-4 border-primary-500 rounded-r-xl">
+            <p class="font-semibold text-neutral-900 mb-2">Need this fixed today?</p>
+            <p class="text-neutral-600 text-sm mb-4">Same-day service available in Charlotte. Text us a photo for a fast estimate.</p>
+            <a href="tel:+19803916833" class="inline-flex items-center gap-2 bg-primary-500 text-neutral-900 font-bold px-5 py-2.5 rounded-lg hover:bg-primary-400 transition-colors">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              (980) 391-6833
+            </a>
+          </div>
+
+          <!-- Full Markdown Content with prose -->
+          <div class="prose prose-neutral prose-headings:font-heading prose-headings:text-neutral-900 prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-neutral-600 prose-p:leading-relaxed prose-li:text-neutral-600 prose-strong:text-neutral-900 max-w-none">
+            <Content />
+          </div>
+
+          <!-- Inline CTA 2 (mid-content) -->
+          <div class="my-10 p-6 bg-neutral-900 rounded-xl text-center">
+            <p class="text-white font-heading font-bold text-xl mb-2">Free Estimate — No Obligation</p>
+            <p class="text-neutral-400 text-sm mb-4">Talk directly to Jaime or Hamed. Honest pricing. Same-day when possible.</p>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+              <a href="tel:+19803916833" class="inline-flex items-center justify-center gap-2 bg-primary-500 text-neutral-900 font-bold px-6 py-3 rounded-lg hover:bg-primary-400 transition-colors">
+                Call (980) 391-6833
+              </a>
+              <a href="/contact" class="inline-flex items-center justify-center gap-2 border border-neutral-600 text-white font-medium px-6 py-3 rounded-lg hover:border-primary-500 hover:text-primary-400 transition-colors">
+                Get Free Estimate
+              </a>
             </div>
           </div>
 
-          <div class="relative">
-            <div class="rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src={projectImageSrc}
-                alt={`${title} project by iFixx in Charlotte NC`}
-                class="w-full h-auto object-cover aspect-[4/3]"
-                width="600"
-                height="450"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-xl p-4 hidden lg:block">
+        </div>
+
+        <!-- Sticky Sidebar — Right -->
+        <div class="lg:col-span-5 xl:col-span-4">
+          <div class="sticky top-24 space-y-6">
+
+            <!-- Form -->
+            <QuickEstimateCompact
+              serviceSlug={service.slug}
+              serviceTitle={title}
+              formId={`sidebar-estimate-${service.slug}`}
+            />
+
+            <!-- Trust Block -->
+            <div class="bg-neutral-50 rounded-xl p-5 space-y-4">
               <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center">
-                  <svg class="w-5 h-5 text-neutral-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 </div>
                 <div>
-                  <p class="font-heading font-bold text-neutral-900 text-sm">500+ Projects</p>
-                  <p class="text-xs text-neutral-600">Completed in Charlotte</p>
+                  <p class="font-bold text-neutral-900">5.0 · 87 Reviews</p>
+                  <p class="text-xs text-neutral-500">Google & Facebook</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-bold text-neutral-900">Fully Insured</p>
+                  <p class="text-xs text-neutral-500">Licensed & covered in NC</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-bold text-neutral-900">Charlotte-Based</p>
+                  <p class="text-xs text-neutral-500">Family-owned since 2019</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-bold text-neutral-900">Same-Day Available</p>
+                  <p class="text-xs text-neutral-500">Call before noon</p>
                 </div>
               </div>
             </div>
+
+            <!-- Project Image -->
+            <div class="rounded-xl overflow-hidden shadow-lg">
+              <img
+                src={projectImageSrc}
+                alt={`${title} project by iFixx in Charlotte NC`}
+                class="w-full h-48 object-cover"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </div>
+
           </div>
         </div>
+
       </div>
-    </section>
-  )}
+    </div>
+  </section>
 
   <!-- Project Gallery -->
   <ScrollGallery
