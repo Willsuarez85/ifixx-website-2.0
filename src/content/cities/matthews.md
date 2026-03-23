@@ -3,7 +3,7 @@ name: "Matthews"
 state: "NC"
 region: "NC"
 type: "city"
-localizedIntro: "We're a Charlotte-area family who has been serving Matthews homeowners for 5+ years. From historic Downtown Matthews to the newer developments near Indian Trail, we've completed hundreds of projects—and we treat every home like our own."
+localizedIntro: "Looking for a handyman in Matthews NC? iFIXX is a Charlotte-area family business serving Matthews, Stallings, Indian Trail, and Weddington for 5+ years. From drywall repair and outlet replacement to full bathroom remodels — same-day service, honest pricing, owners answer every call."
 description: "iFixx is a family-owned business based in the Charlotte metro. We've been serving Matthews and Union County for 5+ years, completing projects in Downtown Matthews, Weddington, Stallings, Indian Trail, and everywhere in between. When you call us, you talk to us—not a call center. Same team, every time."
 neighborhoods:
   - "Downtown Matthews"
@@ -34,8 +34,8 @@ servicesHighlighted:
   - "carpentry"
   - "plumbing"
 seo:
-  title: "Matthews NC Handyman & Remodeling | Same-Day Service | ⭐5.0 | iFIXX"
-  description: "Matthews' trusted handyman & remodeling experts. Serving Downtown Matthews, Weddington, Indian Trail & surrounding areas. ⭐5.0 (87 reviews). Free estimates! Call (980) 391-6833."
+  title: "Handyman Matthews NC | Same-Day Service | ⭐5.0 (87 Reviews) | iFIXX"
+  description: "Handyman in Matthews NC — same-day repairs, remodeling, drywall, faucets, ceiling fans & more. Serving Downtown Matthews, Weddington, Indian Trail & Stallings. Call (980) 391-6833."
 ---
 
 Matthews residents deserve a handyman team that understands the value of quality craftsmanship. iFixx brings Charlotte-quality service right to your Matthews doorstep.
