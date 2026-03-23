@@ -24,7 +24,7 @@ const services = [
 ];
 ---
 
-<div class="bg-white rounded-2xl shadow-2xl p-6 lg:p-8 border border-neutral-200">
+<div class="bg-white rounded-2xl shadow-2xl p-6 lg:p-8 border border-neutral-200" data-form-wrapper>
   <div class="text-center mb-5">
     <h3 class="text-xl font-heading font-bold text-neutral-900 mb-1">Get Your Free Estimate</h3>
     <p class="text-sm text-neutral-600">No obligation. We respond fast.</p>
@@ -96,8 +96,9 @@ const services = [
 
     const btnText = form.querySelector('.btn-text');
     const btnSpinner = form.querySelector('.btn-spinner');
-    const successMsg = form.parentElement?.querySelector('.form-success');
-    const errorMsg = form.parentElement?.querySelector('.form-error');
+    const wrapper = form.closest('[data-form-wrapper]') || form.parentElement;
+    const successMsg = wrapper?.querySelector('.form-success');
+    const errorMsg = wrapper?.querySelector('.form-error');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
