@@ -21,7 +21,9 @@ const {
   geoPlacename = 'Charlotte'
 } = Astro.props;
 const siteUrl = 'https://www.ifixxnc.com';
-const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
+// Always force www canonical — prevents duplicate indexing between ifixxnc.com and www.ifixxnc.com
+const rawCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
+const fullCanonical = rawCanonical.replace('https://ifixxnc.com', 'https://www.ifixxnc.com');
 ---
 <!DOCTYPE html>
 <html lang="en">
