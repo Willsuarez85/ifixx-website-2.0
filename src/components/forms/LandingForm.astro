@@ -30,7 +30,13 @@ const services = [
     <p class="text-sm text-neutral-600">No obligation. We respond fast.</p>
   </div>
 
-  <form id={formId} class="space-y-3">
+  <!-- WebMCP: Declarative API — agent-callable emergency service request tool -->
+  <form 
+    id={formId} 
+    class="space-y-3"
+    toolname="RequestEmergencyService"
+    tooldescription="Request emergency handyman service from iFIXX in Charlotte, NC. Provide name, phone, and description of the emergency. iFIXX responds same day, often within the hour."
+  >
     <input type="text" name="firstName" required
       class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-neutral-900 placeholder-neutral-500"
       placeholder="Your Name *" />

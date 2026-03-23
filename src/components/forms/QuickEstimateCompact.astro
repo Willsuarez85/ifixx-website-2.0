@@ -33,7 +33,13 @@ const services = [
   </div>
 
   <!-- Form -->
-  <form id={formId} class="space-y-4">
+  <!-- WebMCP: Declarative API — agent-callable estimate request tool -->
+  <form 
+    id={formId} 
+    class="space-y-4"
+    toolname="RequestEstimate"
+    tooldescription={`Request a free handyman estimate from iFIXX for ${serviceTitle || 'home repair services'} in Charlotte, NC. Provide name, phone, email, service type, and message.`}
+  >
     <!-- Name -->
     <div>
       <label for={`${formId}-name`} class="sr-only">Your Name</label>
