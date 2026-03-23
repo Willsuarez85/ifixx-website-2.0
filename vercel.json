@@ -535,6 +535,16 @@
       "source": "/waxhaw/drywall/",
       "destination": "/repairs/drywall/",
       "permanent": true
+    },
+    {
+      "source": "/rock-hill/electrical",
+      "destination": "/repairs/electrical-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/rock-hill/electrical/",
+      "destination": "/repairs/electrical-fixtures/",
+      "permanent": true
     }
   ]
 }
