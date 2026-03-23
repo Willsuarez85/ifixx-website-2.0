@@ -96,3 +96,11 @@ We're honest about what we can and can't do:
 ## Same-Day Service
 
 Leaky faucet driving you crazy? Call or text us today. We'll stop the drip.
+
+## Service Areas — Faucet & Fixture Repair Charlotte NC
+
+iFIXX provides same-day faucet and fixture repairs throughout the Charlotte area. We serve **Charlotte, Matthews, Huntersville, South Charlotte, Ballantyne, Mint Hill, Concord, Indian Trail**, and surrounding communities. Leaky faucet in Myers Park? Running toilet in Matthews? We're there fast.
+
+**Zip codes served:** 28277, 28105, 28226, 28269, 28210, 28207, 28209, 28212
+
+📞 **Call/text (980) 391-6833** for a free estimate. Same-day service available Mon-Fri.

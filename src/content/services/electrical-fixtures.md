@@ -90,3 +90,11 @@ We're honest about our limits. For these jobs, you'll need a licensed electricia
 ## Same-Day Service
 
 Outlet stopped working? Light switch broken? Call or text us at (980) 391-6833. We'll get it fixed today.
+
+## Service Areas — Electrical Repairs Charlotte NC
+
+iFIXX provides same-day electrical fixture repairs across the Charlotte metro area. We serve homeowners in **Charlotte, Matthews, Huntersville, South Charlotte, Ballantyne, Mint Hill, Dilworth, Myers Park**, and surrounding neighborhoods. Whether you're in a newer home in Ballantyne or a classic brick home in Dilworth, we handle outlets, switches, fans, and fixtures fast.
+
+**Zip codes served:** 28277, 28105, 28226, 28269, 28210, 28207, 28209, 28212
+
+📞 **Call/text (980) 391-6833** for a free estimate. Same-day service available Mon-Fri.
