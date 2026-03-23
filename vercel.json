@@ -545,6 +545,46 @@
       "source": "/rock-hill/electrical/",
       "destination": "/repairs/electrical-fixtures/",
       "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/rock-hill/outdoor-living",
+      "destination": "/remodeling/outdoor-living/",
+      "permanent": true
+    },
+    {
+      "source": "/rock-hill/outdoor-living/",
+      "destination": "/remodeling/outdoor-living/",
+      "permanent": true
+    },
+    {
+      "source": "/rock-hill/quick-fix",
+      "destination": "/repairs/quick-fix/",
+      "permanent": true
+    },
+    {
+      "source": "/rock-hill/quick-fix/",
+      "destination": "/repairs/quick-fix/",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/basement-finishing",
+      "destination": "/remodeling/basement-finishing/",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/basement-finishing/",
+      "destination": "/remodeling/basement-finishing/",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/services/",
+      "permanent": true
     }
   ]
 }
