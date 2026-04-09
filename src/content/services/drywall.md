@@ -3,7 +3,7 @@ title: "Drywall Repair"
 category: "handyman"
 pillar: "repairs"
 summary: "Professional drywall repair in Charlotte. Holes, cracks, water damage, texture matching. Same-day service available. Free estimates. Expert texture matching that makes repairs invisible."
-heroImage: "/images/projects/drywall-repair-patching-hole-spackling.webp"
+heroImage: "/images/services/drywall/dr-02-before-after-split.png"
 bullets:
   - "Hole repair (small, medium, and large)"
   - "Crack repair and reinforcement"
