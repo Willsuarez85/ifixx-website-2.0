@@ -8,17 +8,17 @@ import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 import { Image } from 'astro:assets';
 
-import heroImg from '../../assets/images/pressure-washing/selected/pw-07-v3.png';
-import imgDriveway from '../../assets/images/pressure-washing/selected/pw-01-v3.png';
-import imgSiding from '../../assets/images/pressure-washing/selected/pw-02-v4.png';
-import imgDeck from '../../assets/images/pressure-washing/selected/pw-05-driveway-action.png';
-import imgGarage from '../../assets/images/pressure-washing/selected/pw-04-v4.png';
+import heroImg from '../../assets/images/pressure-washing/selected/pw-07-v3.webp';
+import imgDriveway from '../../assets/images/pressure-washing/selected/pw-01-v3.webp';
+import imgSiding from '../../assets/images/pressure-washing/selected/pw-02-v4.webp';
+import imgDeck from '../../assets/images/pressure-washing/selected/pw-05-driveway-action.webp';
+import imgGarage from '../../assets/images/pressure-washing/selected/pw-04-v4.webp';
 
 const serviceCards = [
-  { title: 'Driveway & Walkway', subtitle: 'Concrete · Pavers · Sidewalks', body: 'Oil stains, mildew, dirt buildup, leaf marks. We bring back your concrete to the day it was poured. Most driveways finished in 60-90 minutes.', price: '$149', img: imgDriveway, alt: 'Pressure washing driveway before and after in Charlotte NC' },
+  { title: 'Driveway & Walkway', subtitle: 'Concrete · Pavers · Sidewalks', body: 'Oil stains, mildew, dirt buildup, leaf marks. We bring back your concrete to the day it was poured. Most driveways finished in 60-90 minutes.', price: '$150', img: imgDriveway, alt: 'Pressure washing driveway before and after in Charlotte NC' },
   { title: 'House Siding', subtitle: 'Vinyl · Brick · Stucco', body: "Soft-wash safe for vinyl and painted surfaces. Removes algae, mildew, pollen, and Charlotte's red clay dust without damaging your home's exterior.", price: '$249', img: imgSiding, alt: 'Pressure washing house siding before and after in Charlotte NC' },
   { title: 'Deck & Patio', subtitle: 'Wood · Composite · Concrete', body: 'Strip away years of weather staining and prep wood decks for sealing or staining. We adjust pressure to protect softer woods.', price: '$199', img: imgDeck, alt: 'Pressure washing deck before and after in Charlotte NC' },
-  { title: 'Window Washing', subtitle: 'Exterior · Siding · Frames', body: 'Grime, algae, and pollen buildup removed from window frames and glass. We adjust pressure for safe, streak-free results.', price: '$99', img: imgGarage, alt: 'Pressure washing garage floor in Charlotte NC' },
+  { title: 'Window Washing', subtitle: 'Exterior · Siding · Frames', body: 'Grime, algae, and pollen buildup removed from window frames and glass. We adjust pressure for safe, streak-free results.', price: '$150', img: imgGarage, alt: 'Window washing exterior in Charlotte NC' },
 ];
 
 
@@ -29,7 +29,7 @@ const processSteps = [
 ];
 
 const faqs = [
-  { q: 'How much does pressure washing cost in Charlotte?', a: 'Most residential pressure washing jobs in Charlotte run between $149 and $649 depending on the surface and size. A typical 1-car driveway is $149-249, a 1-story house siding is $249-449, and a wood deck is $199-399. We give you a real quote over the phone in 5 minutes — call (980) 391-6833.' },
+  { q: 'How much does pressure washing cost in Charlotte?', a: 'Most residential pressure washing jobs in Charlotte run between $150 and $649 depending on the surface and size. A typical 1-car driveway is $150-249, a 1-story house siding is $249-449, and a wood deck is $199-399. We give you a real quote over the phone in 5 minutes — call (980) 391-6833.' },
   { q: 'Do you bring your own water and equipment?', a: 'Yes — iFIXX brings everything: commercial pressure washer, soft-wash chemicals (when needed), and a water tank for properties without easy outdoor spigot access. You don\'t need to provide anything except access to the area being cleaned.' },
   { q: 'Will pressure washing damage my siding or deck?', a: 'Not when done right. We use soft-wash techniques on vinyl, painted wood, and stucco surfaces (low pressure + cleaning solution that does the work, not raw PSI). For hard surfaces like concrete and brick, we use higher pressure safely. Our team has been pressure washing Charlotte homes since 2019 — we know what each surface can handle.' },
   { q: 'Can you pressure wash my house if I have a busy schedule?', a: "Yes. Most pressure washing jobs don't require you to be home. Just leave your outdoor spigot accessible, secure pets indoors, and we'll handle the rest. We text you a \"starting\" photo when we arrive and a \"done\" photo when we leave. Payment can be done over the phone or by check left at the door." },
@@ -55,11 +55,11 @@ const serviceSchema = JSON.stringify({
   "offers": {
     "@type": "Offer",
     "priceCurrency": "USD",
-    "price": "149",
-    "priceSpecification": { "@type": "PriceSpecification", "minPrice": "149", "maxPrice": "949", "priceCurrency": "USD" }
+    "price": "150",
+    "priceSpecification": { "@type": "PriceSpecification", "minPrice": "150", "maxPrice": "949", "priceCurrency": "USD" }
   },
   "name": "Pressure Washing Charlotte NC",
-  "description": "Driveway, house siding, deck, patio, and fence pressure washing in Charlotte NC. Family-owned handyman team. Same-day service available. Starting at $149.",
+  "description": "Driveway, house siding, deck, patio, and fence pressure washing in Charlotte NC. Family-owned handyman team. Same-day service available. Starting at $150.",
   "url": "https://ifixxnc.com/services/pressure-washing"
 });
 
@@ -85,7 +85,7 @@ const breadcrumbSchema = JSON.stringify({
 ---
 
 <LandingLayout
-  title="Pressure Washing Charlotte NC | Same-Day Service from $149 | iFIXX"
+  title="Pressure Washing Charlotte NC | Same-Day Service from $150 | iFIXX"
   description="Charlotte's family-owned handyman team — pressure washing for driveways, decks, siding, patios, and fences. Same-day available. Free estimate. Call (980) 391-6833."
   ogImage="/images/services/pressure-washing-hero.webp"
   canonical="/services/pressure-washing"
