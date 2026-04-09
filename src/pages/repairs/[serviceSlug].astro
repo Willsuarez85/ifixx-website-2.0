@@ -161,6 +161,8 @@ const faqSchema = faqs && faqs.length > 0 ? {
   }))
 } : null;
 
+const processGridCols = processSteps && processSteps.length >= 4 ? "md:grid-cols-4 lg:grid-cols-4" : "md:grid-cols-3 lg:grid-cols-3";
+
 // Helper function to get the correct URL for a service based on its pillar
 const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
   const pillars: Record<string, string> = {
@@ -409,7 +411,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class={`grid grid-cols-1 ${processGridCols} gap-8 max-w-5xl mx-auto`}>
           {processSteps.map((step, index) => (
             <div class="text-center relative">
               {index < processSteps.length - 1 && (
