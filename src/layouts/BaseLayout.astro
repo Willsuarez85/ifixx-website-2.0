@@ -21,7 +21,9 @@ const {
   geoPlacename = 'Charlotte'
 } = Astro.props;
 const siteUrl = 'https://www.ifixxnc.com';
-const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
+// Always force www canonical — prevents duplicate indexing between ifixxnc.com and www.ifixxnc.com
+const rawCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
+const fullCanonical = rawCanonical.replace('https://ifixxnc.com', 'https://www.ifixxnc.com');
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +58,7 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
               'value': 1
             });
             gtag('event', 'conversion', {
-              'send_to': 'AW-17542077404/mVQ-CKbl7PIbENy326xB',
+              'send_to': 'AW-17542077404/QjnuCMqS4PIbENy326xB',  // Phone Click conversion
               'value': 50.0,
               'currency': 'USD'
             });
@@ -117,6 +119,52 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
   <meta name="geo.placename" content={geoPlacename} />
 
   <title>{title}</title>
+
+  <!-- LocalBusiness Schema (Global) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "iFIXX Handyman Services",
+    "telephone": "(980) 391-6833",
+    "url": "https://www.ifixxnc.com",
+    "image": "https://www.ifixxnc.com/images/ifixx-logo.png",
+    "priceRange": "$$",
+    "openingHours": "Mo-Fr 08:00-18:00",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Charlotte",
+      "addressRegion": "NC",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "35.2271",
+      "longitude": "-80.8431"
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Charlotte"},
+      {"@type": "City", "name": "Matthews"},
+      {"@type": "City", "name": "Huntersville"},
+      {"@type": "City", "name": "South Charlotte"},
+      {"@type": "City", "name": "Ballantyne"},
+      {"@type": "City", "name": "Mint Hill"},
+      {"@type": "City", "name": "Dilworth"},
+      {"@type": "City", "name": "Myers Park"},
+      {"@type": "City", "name": "Concord"},
+      {"@type": "City", "name": "Indian Trail"}
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "87"
+    },
+    "sameAs": [
+      "https://www.facebook.com/ifixxnc",
+      "https://www.instagram.com/ifixxnc"
+    ]
+  }
+  </script>
 
   <!-- JSON-LD Schema Slot -->
   <slot name="schema" />

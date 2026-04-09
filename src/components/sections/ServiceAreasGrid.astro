@@ -1,0 +1,79 @@
+---
+const areas = [
+  {
+    name: "Charlotte",
+    neighborhoods: "Myers Park, Dilworth, South End, NoDa, Plaza Midwood, Eastover, Foxcroft, Cotswold",
+    zip: "28207, 28203, 28209, 28210, 28212",
+    icon: "🏙️"
+  },
+  {
+    name: "Matthews, NC",
+    neighborhoods: "Matthews Township, Fullwood, Stallings, Mint Hill",
+    zip: "28105, 28104",
+    icon: "🏘️"
+  },
+  {
+    name: "South Charlotte",
+    neighborhoods: "Ballantyne, Pineville, Carmel, Rea Farms, Providence",
+    zip: "28277, 28226, 28134",
+    icon: "🌳"
+  },
+  {
+    name: "Huntersville, NC",
+    neighborhoods: "Birkdale, Gilead, Northstone, Vermillion",
+    zip: "28078",
+    icon: "🏡"
+  },
+  {
+    name: "Concord, NC",
+    neighborhoods: "Harrisburg, Kannapolis, Midland",
+    zip: "28025, 28027",
+    icon: "🔧"
+  },
+  {
+    name: "Indian Trail, NC",
+    neighborhoods: "Waxhaw, Monroe, Wesley Chapel",
+    zip: "28079, 28173",
+    icon: "🌿"
+  }
+];
+---
+
+<section class="section bg-neutral-50">
+  <div class="container">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-3xl lg:text-4xl font-heading font-bold text-neutral-900 mb-4">
+        Handyman Service Areas — Charlotte Metro
+      </h2>
+      <p class="text-lg text-neutral-600">
+        iFIXX provides same-day handyman services across Charlotte and surrounding communities.
+        Family-owned. Fully insured. We know these neighborhoods.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+      {areas.map((area) => (
+        <div class="bg-white rounded-xl border border-neutral-200 p-6 hover:border-primary-400 transition-colors">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-2xl">{area.icon}</span>
+            <h3 class="text-lg font-heading font-bold text-neutral-900">{area.name}</h3>
+          </div>
+          <p class="text-sm text-neutral-600 mb-2">{area.neighborhoods}</p>
+          <p class="text-xs text-neutral-400">Zip codes: {area.zip}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom paragraph — keyword rich for SEO -->
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-neutral-600 leading-relaxed">
+        As Charlotte's trusted handyman service, iFIXX covers the full metro area —
+        from <strong>Uptown Charlotte</strong> to <strong>Ballantyne</strong>, from <strong>Matthews</strong> to <strong>Huntersville</strong>.
+        Whether you need same-day drywall repair in Dilworth, outlet replacement in Myers Park,
+        ceiling fan installation in Ballantyne, or a full bathroom remodel in Matthews —
+        we're your local handyman in Charlotte, NC.
+        Call or text <a href="tel:+19803916833" class="text-primary-600 font-semibold hover:underline">(980) 391-6833</a> for a free estimate.
+      </p>
+    </div>
+  </div>
+</section>
