@@ -65,11 +65,11 @@ seo:
 
 iFIXX specializes in complete home repair—from stopping the leak to fixing the drywall to painting it to match. One call. One crew. Problem solved.
 
-### 🔨 **FREE ESTIMATE: CALL/TEXT [(980) 391-6833](tel:9803916833)**
+### **FREE ESTIMATE: CALL/TEXT [(980) 391-6833](tel:9803916833)**
 
 **Same-day drywall repair available in Charlotte.** Talk directly to owners Jaime or Hamed. Honest pricing. Professional results. No patches that stand out.
 
-**Trusted by Charlotte homeowners:** 87 reviews, 5.0 stars ⭐⭐⭐⭐⭐ — Serving Charlotte since 2021.
+**Trusted by Charlotte homeowners:** 87 reviews, 5.0 stars ⭐⭐⭐⭐⭐ — Serving Charlotte since 2019.
 
 ---
 
@@ -150,7 +150,7 @@ Urgent repair? We prioritize emergency drywall work (especially water damage). C
 This is our specialty. We've done 500+ drywall repairs in Charlotte. We know the textures in this area and how to match them.
 
 **Paint coordination:**  
-Drywall repair often means painting. We handle both, so you're not coordinating multiple contractors.
+Drywall repair often means painting. We handle both, so you're not coordinating multiple handyman services.
 
 > **Related service:** Need more than spot painting? See our [painting services](/repairs/painting/).
 
@@ -222,7 +222,7 @@ iFIXX provides professional drywall repair services throughout the Charlotte met
 - **Concord:** Storm damage drywall repairs, settling crack reinforcement
 - **Monroe:** Hole patching experts, water damage restoration
 - **Pineville:** Ceiling repairs, wall damage from impact or settling
-- **Rock Hill, SC:** Cross-border drywall contractors, same professional service
+- **Rock Hill, SC:** Cross-border drywall specialists, same professional service
 - **Waxhaw:** Historic home drywall specialists, careful texture matching for period homes
 
 **Additional areas:** Huntersville, Cornelius, Davidson, Indian Trail, Fort Mill SC
@@ -255,7 +255,7 @@ Charlotte summers = 80%+ humidity + heavy AC use. AC condensation leaks are comm
 
 Small holes become big problems. Cracks get worse. Water damage spreads. Fix it now before it costs more.
 
-### 🔨 **CALL OR TEXT: [(980) 391-6833](tel:9803916833)**
+### **CALL OR TEXT: [(980) 391-6833](tel:9803916833)**
 
 **Professional drywall repair in Charlotte.** Talk directly to Jaime or Hamed. Free estimates. Honest pricing. Perfect texture matching.
 
@@ -266,7 +266,7 @@ Small holes become big problems. Cracks get worse. Water damage spreads. Fix it 
 - ✅ Owner-operated (talk to the people doing the work)
 - ✅ Upfront pricing—no surprises
 - ✅ 87 reviews, 5.0 stars
-- ✅ Serving Charlotte since 2021
+- ✅ Serving Charlotte since 2019
 
 **Free estimate.** Text photos or schedule a visit. Let's fix it right.
 

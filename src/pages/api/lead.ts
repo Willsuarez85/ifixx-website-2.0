@@ -22,6 +22,10 @@ const SERVICE_TAGS: Record<string, string[]> = {
     'kitchen-remodel': ['project-kitchen', 'remodeling'],
     'bathroom-remodel': ['project-bathroom', 'remodeling'],
 
+    // Specialty Services → Pipeline: Handyman
+    'pressure-washing': ['service-pressure-washing', 'handyman'],
+    'drywall': ['service-drywall', 'handyman'],
+
     // Default → Pipeline: Handyman
     'other': ['general-inquiry', 'handyman']
 };

@@ -3,7 +3,6 @@ import LandingLayout from '../../layouts/LandingLayout.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import ServiceForm from '../../components/forms/ServiceForm.astro';
 import CTASection from '../../components/sections/CTASection.astro';
-import CTAIntermediate from '../../components/sections/CTAIntermediate.astro';
 import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 import { Image } from 'astro:assets';
@@ -42,7 +41,8 @@ const serviceSchema = JSON.stringify({
   "@type": "Service",
   "serviceType": "Pressure Washing",
   "provider": {
-    "@type": "LocalBusiness",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": "https://ifixxnc.com/#business",
     "name": "iFIXX Remodeling & Handyman",
     "telephone": "+1-980-391-6833",
     "address": { "@type": "PostalAddress", "addressLocality": "Charlotte", "addressRegion": "NC", "addressCountry": "US" },
@@ -71,6 +71,16 @@ const faqSchema = JSON.stringify({
     "acceptedAnswer": { "@type": "Answer", "text": f.a }
   }))
 });
+
+const breadcrumbSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ifixxnc.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://ifixxnc.com/services/" },
+    { "@type": "ListItem", "position": 3, "name": "Pressure Washing", "item": "https://ifixxnc.com/services/pressure-washing" }
+  ]
+});
 ---
 
 <LandingLayout
@@ -78,10 +88,12 @@ const faqSchema = JSON.stringify({
   description="Charlotte's family-owned handyman team — pressure washing for driveways, decks, siding, patios, and fences. Same-day available. Free estimate. Call (980) 391-6833."
   ogImage="/images/services/pressure-washing-hero.webp"
   canonical="/services/pressure-washing"
+  indexable={true}
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={serviceSchema} />
     <script type="application/ld+json" set:html={faqSchema} />
+    <script type="application/ld+json" set:html={breadcrumbSchema} />
   </Fragment>
 
   <!-- HERO -->
@@ -133,7 +145,7 @@ const faqSchema = JSON.stringify({
               Call Now · (980) 391-6833
             </a>
             <a href="#estimate-form" class="btn btn-secondary text-lg px-8 py-4">
-              Get Free Estimate
+              Request Free Estimate
             </a>
           </div>
         </div>
