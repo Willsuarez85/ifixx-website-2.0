@@ -165,21 +165,21 @@ We believe in upfront pricing. Here's what drywall repair typically costs in Cha
 
 ### Standard Pricing Ranges
 
-**Small repairs (< 6 inches):** $100-$200  
+**Small repairs (< 6 inches):** $150-$249  
 - Nail pops, small holes, minor cracks
 - Includes patching, sanding, priming
 - Paint touch-up (if we have matching paint)
 
-**Medium repairs (6"-24"):** $200-$400  
+**Medium repairs (6"-24"):** $249-$449  
 - Doorknob holes, larger cracks, small sections of water damage
 - Includes backing, patching, texture matching, priming
 - Spot painting or wall painting (quote depends on size)
 
-**Large repairs (24"+):** $400-$800  
+**Large repairs (24"+):** $449-$849  
 - Extensive water damage, large holes, multiple repairs
 - Full section replacement, texture matching, priming, painting
 
-**Full wall or ceiling replacement:** $800-$1,500+  
+**Full wall or ceiling replacement:** $849-$1,500+  
 - Severe water damage, complete drywall replacement
 - Includes demo, new drywall installation, taping, mudding, texture, prime, paint
 - Price depends on room size and accessibility
