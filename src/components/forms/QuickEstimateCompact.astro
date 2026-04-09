@@ -8,15 +8,17 @@ interface Props {
 const { serviceSlug = '', serviceTitle = '', formId = 'quick-estimate-form' } = Astro.props;
 
 const services = [
-  { value: 'plumbing', label: 'Plumbing' },
-  { value: 'electrical', label: 'Electrical' },
-  { value: 'carpentry', label: 'Carpentry' },
+  { value: 'drywall', label: 'Drywall Repair' },
   { value: 'painting', label: 'Painting' },
   { value: 'doors-windows', label: 'Doors & Windows' },
-  { value: 'quick-fix', label: 'Quick Fix Services' },
+  { value: 'electrical', label: 'Electrical Fixtures' },
+  { value: 'carpentry', label: 'Carpentry' },
+  { value: 'tv-mounting', label: 'TV Mounting' },
+  { value: 'furniture-assembly', label: 'Furniture Assembly' },
+  { value: 'pressure-washing', label: 'Pressure Washing' },
+  { value: 'quick-fix', label: 'Quick Fix / Multiple Repairs' },
   { value: 'bathroom-remodel', label: 'Bathroom Remodel' },
   { value: 'kitchen-remodel', label: 'Kitchen Remodel' },
-  { value: 'emergency-plumbing', label: 'Emergency Plumbing' },
   { value: 'other', label: 'Other' }
 ];
 ---

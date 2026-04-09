@@ -26,30 +26,28 @@ const services = [
 
 <div class="bg-white rounded-2xl shadow-2xl p-6 lg:p-8 border border-neutral-200" data-form-wrapper>
   <div class="text-center mb-5">
-    <h3 class="text-xl font-heading font-bold text-neutral-900 mb-1">Get a Free Estimate Today</h3>
-    <p class="text-sm text-neutral-600">Most requests answered same day. No obligation.</p>
+    <h3 class="text-xl font-heading font-bold text-neutral-900 mb-1">Get Your Free Estimate</h3>
+    <p class="text-sm text-neutral-600">No obligation. We respond fast.</p>
   </div>
 
-  <!-- WebMCP: Declarative API — agent-callable emergency service request tool -->
-  <form 
-    id={formId} 
-    class="space-y-3"
-    toolname="RequestEmergencyService"
-    tooldescription="Request emergency handyman service from iFIXX in Charlotte, NC. Provide name, phone, and description of the emergency. iFIXX responds same day, often within the hour."
-  >
-    <input type="text" name="firstName" required
+  <form id={formId} class="space-y-3" toolname="RequestHandymanQuote" tooldescription="Request a free quote from iFIXX, a family-owned handyman in Charlotte NC. Provide name, phone, email, and what you need fixed (drywall repair, painting, doors, fixtures, TV mounting, carpentry, pressure washing). iFIXX is fully insured and responds same day.">
+    <label for={`${formId}-name`} class="sr-only">Your Name</label>
+    <input type="text" id={`${formId}-name`} name="firstName" required
       class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-neutral-900 placeholder-neutral-500"
       placeholder="Your Name *" />
 
-    <input type="tel" name="phone" required
+    <label for={`${formId}-phone`} class="sr-only">Phone Number</label>
+    <input type="tel" id={`${formId}-phone`} name="phone" required
       class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-neutral-900 placeholder-neutral-500"
       placeholder="Phone Number *" />
 
-    <input type="email" name="email" required
+    <label for={`${formId}-email`} class="sr-only">Email Address</label>
+    <input type="email" id={`${formId}-email`} name="email" required
       class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-neutral-900 placeholder-neutral-500"
       placeholder="Email Address *" />
 
-    <select name="service" required
+    <label for={`${formId}-service`} class="sr-only">What service do you need?</label>
+    <select id={`${formId}-service`} name="service" required
       class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-neutral-900">
       <option value="">What do you need help with? *</option>
       {services.map((s) => (
@@ -57,7 +55,8 @@ const services = [
       ))}
     </select>
 
-    <textarea name="message" rows="2"
+    <label for={`${formId}-message`} class="sr-only">Project description</label>
+    <textarea id={`${formId}-message`} name="message" rows="2"
       class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-neutral-900 placeholder-neutral-500 resize-none"
       placeholder="Briefly describe the issue (optional)"></textarea>
 

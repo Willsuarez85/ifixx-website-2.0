@@ -64,6 +64,7 @@ const serviceProjectImages: Record<string, string> = {
   'quick-fix': '/images/projects/home-repair-tools-collection-workbench-hammer-screwdrivers.webp',
   'furniture-assembly': '/images/projects/furniture-assembly-wooden-shelf-unit-screwdriver.webp',
   'tv-mounting': '/images/projects/tv-mounting-wall-bracket-installation-drilling.webp',
+  'drywall': '/images/projects/drywall-repair-patching-hole-spackling.webp',
 };
 
 const heroImageSrc = heroImage || serviceHeroImages[service.slug] || '/images/ui/hero-bg.jpg';
@@ -107,7 +108,7 @@ const serviceSchema = {
     "@type": "AggregateOffer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "lowPrice": service.slug === 'painting' ? "300" : service.slug === 'drywall' ? "100" : "100",
+    "lowPrice": service.slug === 'painting' ? "300" : service.slug === 'drywall' ? "150" : "150",
     "highPrice": service.slug === 'painting' ? "8000" : service.slug === 'drywall' ? "1500" : "5000"
   },
   "aggregateRating": {
@@ -160,6 +161,8 @@ const faqSchema = faqs && faqs.length > 0 ? {
   }))
 } : null;
 
+const processGridCols = processSteps && processSteps.length >= 4 ? "md:grid-cols-4 lg:grid-cols-4" : "md:grid-cols-3 lg:grid-cols-3";
+
 // Helper function to get the correct URL for a service based on its pillar
 const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
   const pillars: Record<string, string> = {
@@ -184,7 +187,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
   </Fragment>
 
   <!-- Hero Section with Side-by-Side Form -->
-  <section class="relative bg-neutral-900 overflow-hidden">
+  <section id="service-hero" class="relative bg-neutral-900 overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img
         src={heroImageSrc}
@@ -447,6 +450,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
     subheadline="Get a free estimate for your repair project. No obligation, fast response."
     variant="primary"
     showPhone={true}
+    buttonHref="#service-hero"
   />
 
   <!-- Signs You Need This Service -->
@@ -491,7 +495,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class={`grid grid-cols-1 ${processGridCols} gap-8 max-w-5xl mx-auto`}>
           {processSteps.map((step, index) => (
             <div class="text-center relative">
               {index < processSteps.length - 1 && (
@@ -634,5 +638,6 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
   <CTASection
     headline={`Ready for Professional ${title}?`}
     subtext="Get a free estimate and see why Charlotte homeowners trust iFixx for quality work."
+    buttonHref="#service-hero"
   />
 </BaseLayout>
