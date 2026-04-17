@@ -254,7 +254,7 @@ const bestTimes = [
             'phone_number': data.phone,
             'address': { 'first_name': data.firstName }
           });
-          gtag('event', 'form_submit', {
+          gtag('event', 'generate_lead', {
             'form_id': 'service-estimate-form',
             'form_name': 'Service Estimate Form',
             'form_location': window.location.pathname,
