@@ -10,41 +10,41 @@ import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 const heroImage = "/images/projects/construction-wood-framing-window.webp"; // TODO-MUSE: window-screen-rescreen-frame-repair-hero.webp
 
 const seo = {
-  title: "Window Screen Repair Charlotte NC | Same-Day Rescreen | iFIXX",
-  description: "Window screen repair Charlotte NC — torn screens, broken frames, glass panes. Family-owned, insured, same-day available. From $89. Call (980) 391-6833."
+  title: "Window Repair Charlotte NC | Stuck, Drafty, Broken Windows Fixed | iFIXX",
+  description: "Window repair Charlotte NC — stuck sashes, foggy panes, broken balancers, torn screens. Family-owned, insured, same-day available. Call (980) 391-6833."
 };
 
 const services = [
-  { icon: "🪟", title: "Window Screen Rescreen", desc: "Torn or pet-damaged screens replaced same-day. From $89.", image: "/images/projects/door-window-blinds-installation-leveling.webp" }, // TODO-MUSE: window-screen-rescreen-mesh-spline-roller.webp
-  { icon: "🔲", title: "Screen Frame Repair", desc: "Bent, broken, or popped-out frames restored or replaced.", image: "/images/projects/door-window-repair-oscillating-tool-trim-work.webp" }, // TODO-MUSE: window-screen-frame-bent-repair-aluminum.webp
-  { icon: "🪟", title: "Window Pane Repair", desc: "Cracked, foggy, or broken glass panes — single or double pane.", image: "/images/projects/construction-wood-framing-window.webp" }, // TODO-MUSE: window-pane-glass-replacement-broken-residential.webp
-  { icon: "🌬️", title: "Storm Window Repair", desc: "Aluminum storm windows, broken latches, missing screens.", image: "/images/projects/door-window-blinds-installation-leveling.webp" }, // TODO-MUSE: storm-window-aluminum-latch-repair-charlotte-home.webp
-  { icon: "🏠", title: "Window Screen Replacement", desc: "Full screen replacement with new spline & mesh. Pet-resistant available.", image: "/images/projects/door-window-repair-oscillating-tool-trim-work.webp" }, // TODO-MUSE: window-screen-replacement-pet-resistant-mesh.webp
-  { icon: "🛠️", title: "Window Trim & Sash Repair", desc: "Wood trim rot, stuck sashes, weather stripping.", image: "/images/projects/construction-wood-framing-window.webp" }, // TODO-MUSE: window-trim-sash-wood-repair-painted-white.webp
+  { icon: "🪟", title: "Stuck or Won't-Close Window Repair", desc: "Sash that won't lift, jammed tracks, painted-shut windows — back to smooth operation.", image: "/images/projects/construction-wood-framing-window.webp" }, // TODO-MUSE: window-trim-sash-wood-repair-painted-white.webp
+  { icon: "🌬️", title: "Drafty Window & Weatherstrip Fix", desc: "Feel cold air through the frame? Reseal, re-weatherstrip, and re-caulk for tight windows.", image: "/images/projects/door-window-repair-oscillating-tool-trim-work.webp" }, // TODO-MUSE: window-screen-frame-bent-repair-aluminum.webp
+  { icon: "⚙️", title: "Window Balancer & Sash Cord", desc: "Snapped balancer? Sash falls down? We replace the spring or cord so it stays where you put it.", image: "/images/projects/door-window-blinds-installation-leveling.webp" }, // TODO-MUSE: storm-window-aluminum-latch-repair-charlotte-home.webp
+  { icon: "🌫️", title: "Foggy or Broken Glass Pane", desc: "Cracked single-pane, failed-seal double-pane, foggy IGUs — residential glass replaced.", image: "/images/projects/construction-wood-framing-window.webp" }, // TODO-MUSE: window-pane-glass-replacement-broken-residential.webp
+  { icon: "🪵", title: "Frame & Trim Rot Repair", desc: "Soft wood, rotted sills, peeling exterior trim — cut out, rebuild, paint to match.", image: "/images/projects/door-window-repair-oscillating-tool-trim-work.webp" }, // TODO-MUSE: window-screen-replacement-pet-resistant-mesh.webp
+  { icon: "🪟", title: "Screen Repair & Rescreen", desc: "Torn, popped-out, or pet-damaged screens. Standard and pet-resistant mesh available.", image: "/images/projects/door-window-blinds-installation-leveling.webp" }, // TODO-MUSE: window-screen-rescreen-mesh-spline-roller.webp
 ];
 
 const whyChooseUs = [
   { title: "Talk to the Owners", desc: "When you call, Jaime or Hamed answer. No dispatchers, no call centers, no runaround." },
   { title: "Upfront Pricing", desc: "We tell you the price before we start. No surprises, no awkward conversations at the end." },
   { title: "Same-Day Available", desc: "Need it done today? We'll do our best to get there same-day for urgent jobs." },
-  { title: "Pet-Resistant Mesh Available", desc: "Heavy-gauge upgrade — claws and curious dogs won't tear through. Ask us about it." },
+  { title: "Repair Specialists, Not Replacers", desc: "Big window companies push full replacement. We fix what can be fixed — saves you thousands when you don't need new windows." },
   { title: "We Make It Right", desc: "If something's not perfect, we fix it. That's not a policy — that's just how we work." },
   { title: "Fully Insured", desc: "Full liability coverage on every project. Your home is protected, and so are we." },
 ];
 
 const processSteps = [
-  { title: "Tell Us What You Need", description: "Call, text, or fill out our form. Send photos of the torn screen or broken pane if you can." },
+  { title: "Tell Us What's Wrong", description: "Call, text, or fill out our form. Stuck window? Foggy glass? Send a photo or video if you can — saves the diagnostic visit." },
   { title: "Get a Free Estimate", description: "We assess size, frame condition, and mesh type — transparent quote before starting." },
-  { title: "We Get It Done", description: "Most window screen jobs done same-day. We clean up and you're back to bug-free." },
+  { title: "We Fix It", description: "Most window repairs done in one visit. Clean up after. Window that opens, closes, and locks the way it should." },
 ];
 
 const faqs = [
-  { q: "How much does window screen repair cost in Charlotte?", a: "Most window screen rescreens run $89–$185 depending on size and frame condition. Larger or custom screens may run $200–$300. We always quote before starting, so you know exactly what to expect." },
-  { q: "Can you repair just the screen mesh, or do I need a new frame?", a: "Often we can rescreen the existing frame — that's the cheaper option ($89–$120). If the aluminum frame is bent beyond repair or the wood is rotted, full replacement runs more ($160–$300). We'll tell you straight which one your screen needs." },
-  { q: "Do you fix foggy or broken window glass?", a: "Yes — we replace single-pane and standard double-pane residential glass. Foggy double panes (failed seal) we replace the insulated glass unit. Custom shapes or large commercial panes we refer out." },
-  { q: "What if my window screen has pet damage?", a: "Very common in Charlotte. We upgrade to heavy-gauge pet-resistant mesh for about $25–$40 extra per screen. It's worth it if you have dogs or cats — regular mesh won't last a year with claws." },
-  { q: "How fast can you come out?", a: "Same-day for urgent jobs in Charlotte, Ballantyne, Matthews, and Concord. Call before 10am for best chance of same-day. After-hours? Leave a voicemail or chat with our virtual assistant and we'll get back first thing." },
-  { q: "Are you insured?", a: "Yes, fully insured. We can provide proof of insurance upon request — homeowners and property managers ask all the time, no problem." },
+  { q: "Why won't my window open or close anymore?", a: "Usually one of three things: a broken balancer or sash cord (spring snapped, sash falls), paint sealing the sash shut, or warped/swollen wood from moisture. All three are fixable without replacing the whole window — we diagnose and tell you which it is." },
+  { q: "Can you fix foggy or broken double-pane glass?", a: "Yes. Foggy double-pane means the seal between the two panes failed — we replace the insulated glass unit (IGU) inside the existing frame. Cracked single-pane and standard residential double-pane both replaceable. Custom shapes or large commercial panes we'll refer to a glass specialist." },
+  { q: "Do you replace whole windows or just repair them?", a: "We're repair specialists first. Most homeowners think they need new windows when really they need a balancer, weatherstrip, or pane swap — saves thousands. If repair isn't worth it (full frame rot, failed multiple panes), we'll say so honestly and refer you to a replacement contractor we trust." },
+  { q: "My window won't lock — can you fix that?", a: "Yes, and it's a security priority. Usually a worn or broken sash lock, misaligned strike plate, or sash that's dropped out of alignment. Most window-lock fixes are same-visit, often under $150." },
+  { q: "How fast can you come out for a window repair?", a: "Same-day available for urgent jobs in Charlotte, Ballantyne, Matthews, Concord, and surrounding areas. Call before 10am for best chance. After-hours? Leave a voicemail or chat with our virtual assistant — we respond first thing." },
+  { q: "Are you insured?", a: "Yes, fully insured. We can send proof of insurance on request — homeowners and property managers ask all the time, no problem." },
 ];
 ---
 
@@ -60,12 +60,12 @@ const faqs = [
       <div class="py-12 lg:py-20">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           <div class="order-1 lg:order-1">
-            <span class="inline-block px-4 py-2 bg-primary-500 text-neutral-900 text-sm font-bold rounded-full mb-4">Charlotte's Window & Screen Specialists</span>
+            <span class="inline-block px-4 py-2 bg-primary-500 text-neutral-900 text-sm font-bold rounded-full mb-4">Charlotte's Window Repair Specialists</span>
             <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4 leading-tight">
-              Window Screen Repair <span class="text-primary-500">Charlotte NC</span> — Same-Day Service
+              Window Repair <span class="text-primary-500">Charlotte NC</span> — Stuck, Drafty, Broken? We Fix It.
             </h1>
             <p class="text-lg text-neutral-200 mb-6 max-w-xl">
-              Torn screens, broken frames, foggy glass panes — we fix them all. Family-owned, insured, 500+ projects across Charlotte, Ballantyne, Matthews & Concord.
+              Windows that won't open, drafty frames, foggy double-panes, broken balancers, torn screens — <strong class="text-white">one team fixes all of it.</strong> Family-owned, insured, 500+ projects across Charlotte, Ballantyne, Matthews & Concord.
             </p>
 
             <div class="grid grid-cols-3 gap-4 mb-8">
@@ -78,8 +78,8 @@ const faqs = [
                 <p class="text-white/80 text-sm">Google Rating</p>
               </div>
               <div class="bg-white/5 rounded-lg p-4 text-center">
-                <p class="text-3xl font-heading font-bold text-primary-500">$89</p>
-                <p class="text-white/80 text-sm">Starting At</p>
+                <p class="text-3xl font-heading font-bold text-primary-500">Insured</p>
+                <p class="text-white/80 text-sm">Fully Covered</p>
               </div>
             </div>
 
@@ -110,22 +110,23 @@ const faqs = [
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
           <span class="inline-block px-4 py-2 bg-red-100 text-red-700 text-sm font-bold rounded-full mb-4">Sound Familiar?</span>
-          <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Living With Torn Screens & Bug-Filled Rooms</h2>
+          <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Living With Broken Windows</h2>
           <ul class="space-y-3 text-neutral-600">
-            <li class="flex gap-3"><span class="text-red-500">✗</span> The screen the dog clawed through last summer</li>
-            <li class="flex gap-3"><span class="text-red-500">✗</span> That foggy double-pane you've been ignoring for years</li>
-            <li class="flex gap-3"><span class="text-red-500">✗</span> The bent frame that won't sit right in the window</li>
-            <li class="flex gap-3"><span class="text-red-500">✗</span> Mosquitoes inside every time you open the window</li>
-            <li class="flex gap-3"><span class="text-red-500">✗</span> Calling specialty glass shops with $300 minimums for a $90 fix</li>
+            <li class="flex gap-3"><span class="text-red-500">✗</span> The window that won't open since last winter</li>
+            <li class="flex gap-3"><span class="text-red-500">✗</span> Cold drafts you can feel through the frame</li>
+            <li class="flex gap-3"><span class="text-red-500">✗</span> Foggy double-pane you've ignored for years</li>
+            <li class="flex gap-3"><span class="text-red-500">✗</span> A balancer that snapped — sash falls every time</li>
+            <li class="flex gap-3"><span class="text-red-500">✗</span> A window that won't lock — security concern</li>
+            <li class="flex gap-3"><span class="text-red-500">✗</span> A torn screen letting bugs in</li>
           </ul>
         </div>
         <div>
           <span class="inline-block px-4 py-2 bg-green-100 text-green-700 text-sm font-bold rounded-full mb-4">The Fix</span>
-          <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Same-Day Screens, Honest Pricing.</h2>
+          <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Repair First. Replace Only When We Have To.</h2>
           <ul class="space-y-3 text-neutral-600">
-            <li class="flex gap-3"><span class="text-green-500 font-bold">✓</span> Rescreen, replace, or rebuild — <strong>one team handles all of it</strong></li>
+            <li class="flex gap-3"><span class="text-green-500 font-bold">✓</span> Stuck sashes, balancers, weatherstrip, glass, frames, screens — <strong>one team handles all of it</strong></li>
             <li class="flex gap-3"><span class="text-green-500 font-bold">✓</span> Talk to the owners, not a dispatcher</li>
-            <li class="flex gap-3"><span class="text-green-500 font-bold">✓</span> Pet-resistant mesh upgrade available — <strong>no more clawed screens</strong></li>
+            <li class="flex gap-3"><span class="text-green-500 font-bold">✓</span> Honest repair-vs-replace advice — <strong>we'll save you thousands when replacement isn't needed</strong></li>
             <li class="flex gap-3"><span class="text-green-500 font-bold">✓</span> Same-day for most jobs in Charlotte metro</li>
             <li class="flex gap-3"><span class="text-green-500 font-bold">✓</span> Insured, upfront priced, 500+ projects done</li>
           </ul>
@@ -138,8 +139,8 @@ const faqs = [
   <section class="section section-alt">
     <div class="container">
       <div class="text-center mb-12">
-        <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Everything Window & Screen Related</h2>
-        <p class="text-neutral-600 max-w-2xl mx-auto">From a single torn screen to full window pane replacement — one call covers it all.</p>
+        <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Every Window Problem We Fix</h2>
+        <p class="text-neutral-600 max-w-2xl mx-auto">From a stuck sash to a foggy double-pane to a torn screen — one call covers it all.</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
         {services.map((service) => (
@@ -157,14 +158,14 @@ const faqs = [
     </div>
   </section>
 
-  <ScrollGallery title="Our Recent Window & Screen Projects" serviceSlug="general-repairs" />
+  <ScrollGallery title="Recent Window Repair Projects" serviceSlug="general-repairs" />
 
   <!-- CTA Banner -->
   <section class="py-10 md:py-14 bg-gradient-to-r from-primary-600 to-primary-500">
     <div class="container">
       <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
         <div class="text-center lg:text-left max-w-2xl">
-          <h2 class="text-2xl md:text-3xl font-heading font-bold text-white mb-2">Don't Live With Torn Screens</h2>
+          <h2 class="text-2xl md:text-3xl font-heading font-bold text-white mb-2">Stop Living With Broken Windows</h2>
           <p class="text-lg text-primary-100">Free estimate, same-day available, no obligation.</p>
         </div>
         <div class="flex flex-col sm:flex-row items-center gap-4">
@@ -178,7 +179,7 @@ const faqs = [
   <!-- Why Choose Us -->
   <section class="section">
     <div class="container">
-      <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 text-center mb-10">Why Charlotte Homeowners Choose iFIXX for Screens</h2>
+      <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 text-center mb-10">Why Charlotte Homeowners Choose iFIXX for Window Repair</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
         {whyChooseUs.map((item) => (
           <div class="flex gap-4">
@@ -200,7 +201,7 @@ const faqs = [
     <div class="container">
       <div class="max-w-3xl mx-auto text-center mb-12">
         <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">How It Works</h2>
-        <p class="text-neutral-600">Three simple steps to bug-free windows.</p>
+        <p class="text-neutral-600">Three simple steps to windows that work right.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
         {processSteps.map((step, index) => (
@@ -239,7 +240,7 @@ const faqs = [
         </div>
         <div>
           <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Not a Franchise. Your Neighbors.</h2>
-          <p class="text-neutral-600 mb-4">We're Jaime and Hamed — a Charlotte family that's been fixing homes for over 5 years. Window screens and small repairs are some of our favorite jobs because they're the ones the big companies don't want to take.</p>
+          <p class="text-neutral-600 mb-4">We're Jaime and Hamed — a Charlotte family that's been fixing homes for over 5 years. Window repair is one of our favorite jobs because the big companies push full replacement when most windows just need a balancer, a weatherstrip, or a pane swap. We'll tell you the truth, then do the work.</p>
           <p class="text-neutral-600 mb-4">Our promise is simple: <strong>answer the phone, show up on time, do quality work, and charge a fair price.</strong> That's it. That's the whole business model.</p>
           <p class="text-neutral-600">We live in Charlotte, we work in Charlotte, and we've built our reputation one project at a time — 500+ and counting.</p>
         </div>
@@ -292,8 +293,8 @@ const faqs = [
     <div class="container">
       <div class="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
         <div class="text-center lg:text-left">
-          <h2 class="text-3xl lg:text-4xl font-heading font-bold text-white mb-4">Get Your Windows Right</h2>
-          <p class="text-lg text-white/80 mb-6">Free estimate, honest pricing, no obligation. Bug-free windows in one visit.</p>
+          <h2 class="text-3xl lg:text-4xl font-heading font-bold text-white mb-4">Get Your Windows Working Right</h2>
+          <p class="text-lg text-white/80 mb-6">Free estimate, honest repair-vs-replace advice, no obligation.</p>
           <a href="tel:+19803916833" class="btn btn-emergency text-xl px-10 py-5 inline-flex">
             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
             (980) 391-6833
