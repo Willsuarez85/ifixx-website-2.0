@@ -35,8 +35,8 @@ localInfo:
   hoaConsiderations: "Exterior fixture changes in some Mint Hill HOAs may require approval. Interior fixture work typically doesn't require notification."
 
 seo:
-  title: "Electrical Fixtures & Lighting Mint Hill NC | iFixx"
-  description: "Mint Hill electrical fixture installation. Ceiling fans, lighting, outlets & smart home. Serving Cheval, Olde Sycamore & all Mint Hill. Fully insured!"
+  title: "Electrical Fixtures Mint Hill NC ⭐5.0 (87★) | iFIXX"
+  description: "Electrical fixtures — outlets, switches, ceiling fans, lights in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Quality Fixture Installation for Mint Hill Homes

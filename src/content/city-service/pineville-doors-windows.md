@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Some Pineville HOAs have requirements for window styles, colors, or door designs. Communities near Carolina Place and Johnston Road may have architectural guidelines. We help verify requirements before ordering materials."
 
 seo:
-  title: "Door & Window Installation Pineville NC | Replacement | iFixx"
-  description: "Pineville door and window installation. Energy-efficient replacements, entry doors, storm doors. Carolina Place, Park Road areas. Free estimates!"
+  title: "Door & Window Repair Pineville NC | Frames, Locks & Glass | iFIXX"
+  description: "Door & window repair — frames, locks, glass, weatherproofing in Pineville, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Pineville Homeowners Trust iFixx for Door & Window Services

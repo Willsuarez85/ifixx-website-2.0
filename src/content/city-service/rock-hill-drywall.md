@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Interior drywall repairs don't require HOA approval."
 
 seo:
-  title: "Drywall Repair Rock Hill SC | Hole Repair & Water Damage | iFixx"
-  description: "Rock Hill drywall repair experts. Hole repair, water damage, ceiling texture matching. Lake Wylie, Tega Cay, Fort Mill. Same-day service. Call (980) 391-6833."
+  title: "Drywall Repair Rock Hill SC | Holes, Cracks & Texture ⭐5.0 | iFIXX"
+  description: "Drywall repair — holes, cracks, water damage, texture in Rock Hill, SC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Drywall Repair Services in Rock Hill

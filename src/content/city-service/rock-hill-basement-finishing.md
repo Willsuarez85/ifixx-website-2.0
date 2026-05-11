@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Basement finishing is typically interior work not subject to HOA review. However, if egress window installation affects exterior appearance, HOA approval may be required in some Tega Cay and Fort Mill communities."
 
 seo:
-  title: "Basement Finishing Rock Hill SC | Add Living Space | iFixx"
-  description: "Basement finishing in Rock Hill SC. Transform unused space into living area, home theater, or guest suite. Tega Cay, Fort Mill, Lake Wylie. Call (980) 391-6833."
+  title: "Basement Finishing Rock Hill SC | Custom Living Spaces | iFIXX"
+  description: "Basement finishing — egress, framing, drywall, flooring in Rock Hill, SC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Basement Finishing in Rock Hill

@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Interior fixture work typically doesn't require HOA approval."
 
 seo:
-  title: "Fixture Repair Rock Hill SC | Faucets, Toilets & Disposals | iFixx"
-  description: "Rock Hill fixture repair—faucets, toilets, garbage disposals, leak repairs. Fast, insured service in Lake Wylie, Tega Cay, Fort Mill. Call for same-day help!"
+  title: "Plumbing Repair Rock Hill SC | Faucets, Drains & Toilets | iFIXX"
+  description: "Plumbing repair — faucets, drains, toilets, disposals in Rock Hill, SC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Fixture Repair Services in Rock Hill

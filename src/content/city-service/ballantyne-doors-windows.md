@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Some Ballantyne HOAs have guidelines for front door colors and styles. Check your covenants before selecting an exterior door. Interior work doesn't require approval."
 
 seo:
-  title: "Door & Window Repair Ballantyne NC | Locks, Hardware | iFixx"
-  description: "Ballantyne door and window repair. Sticking doors, lock problems, window hardware. Serving Piper Glen, Providence Plantation. Same-day emergency service!"
+  title: "Door & Window Repair Ballantyne NC | Frames, Locks & Glass | iFIXX"
+  description: "Door & window repair — frames, locks, glass, weatherproofing in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Door and Window Repair in Ballantyne

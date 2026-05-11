@@ -43,8 +43,8 @@ localInfo:
   hoaConsiderations: "Basement finishing is interior work and typically doesn't require HOA approval. Exterior changes for egress windows may need review in some Union County communities."
 
 seo:
-  title: "Basement Finishing Waxhaw NC | Union County | iFixx"
-  description: "Waxhaw basement finishing services. Home theaters, guest suites, rec rooms. Serving Marvin, Wesley Chapel, Weddington & Union County. Free estimates."
+  title: "Basement Finishing Waxhaw NC | Custom Living Spaces ⭐5.0 | iFIXX"
+  description: "Basement finishing — egress, framing, drywall, flooring in Waxhaw, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Transform Your Waxhaw Basement Into Valuable Living Space

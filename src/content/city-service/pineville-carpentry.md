@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Interior carpentry typically doesn't require HOA approval. Exterior work like deck repairs may need approval in some Pineville communities—we help navigate requirements."
 
 seo:
-  title: "Carpentry Services Pineville NC | Custom Built-Ins, Trim | iFixx"
-  description: "Pineville carpentry services. Custom built-ins, crown molding, trim, decks & more. Quality craftsmanship, fair prices. Call (980) 391-6833."
+  title: "Carpentry Pineville NC | Custom Trim & Built-Ins ⭐5.0 | iFIXX"
+  description: "Carpentry — built-ins, trim, crown molding, shelving in Pineville, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Carpentry Services in Pineville

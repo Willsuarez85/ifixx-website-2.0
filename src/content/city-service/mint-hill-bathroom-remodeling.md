@@ -35,8 +35,8 @@ localInfo:
   hoaConsiderations: "Some Mint Hill HOAs in communities like Olde Sycamore and Cheval may require notification for major renovations. We help navigate HOA requirements as part of our service."
 
 seo:
-  title: "Bathroom Remodeling Mint Hill NC | Local Experts | iFixx"
-  description: "Mint Hill bathroom remodeling by local experts. Serving Olde Sycamore, Bain Creek, Clear Creek & Downtown Mint Hill. Free estimates, fully insured!"
+  title: "Bathroom Remodeling Mint Hill NC | Tubs, Tile & Vanity | iFIXX"
+  description: "Bathroom remodeling — tubs, tile, vanities, plumbing in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Mint Hill Homeowners Trust iFixx for Bathroom Remodeling

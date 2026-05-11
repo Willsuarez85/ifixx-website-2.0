@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Some Concord HOAs have requirements for door and window styles or colors. We can help you navigate these requirements."
 
 seo:
-  title: "Door & Window Installation Concord NC | Repair & Replacement | iFixx"
-  description: "Door and window services in Concord NC. Installation, repair, replacement. Serving Afton Village, Harrisburg, Kannapolis & Cabarrus County. Free estimates!"
+  title: "Door & Window Repair Concord NC | Frames, Locks & Glass | iFIXX"
+  description: "Door & window repair — frames, locks, glass, weatherproofing in Concord, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Concord Homeowners Trust iFixx for Doors & Windows

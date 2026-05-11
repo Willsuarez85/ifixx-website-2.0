@@ -39,8 +39,8 @@ localInfo:
   hoaConsiderations: "Changing exterior door or window styles, colors, or sizes may require HOA approval in Tega Cay, Lake Wylie, and Fort Mill communities. Repairs maintaining existing appearance typically don't need approval."
 
 seo:
-  title: "Door & Window Repair Rock Hill SC | Fix Sticking Doors | iFixx"
-  description: "Door and window repair in Rock Hill SC. Fix sticking doors, drafty windows, broken hardware. Lake Wylie, Tega Cay, Fort Mill. Call (980) 391-6833."
+  title: "Door & Window Repair Rock Hill SC | Frames, Locks & Glass | iFIXX"
+  description: "Door & window repair — frames, locks, glass, weatherproofing in Rock Hill, SC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Door & Window Repair in Rock Hill

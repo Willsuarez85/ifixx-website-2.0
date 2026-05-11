@@ -39,8 +39,8 @@ localInfo:
   hoaConsiderations: "Interior carpentry doesn't require HOA approval. Exterior trim replacement may need to match community standards in some Concord neighborhoods."
 
 seo:
-  title: "Carpentry Services Concord NC | Trim & Built-Ins | iFixx"
-  description: "Concord carpentry: crown molding, custom built-ins, trim repair. Quality craftsmanship in Christenbury, Harrisburg, Afton Village. Call (980) 391-6833."
+  title: "Carpentry Concord NC | Custom Trim & Built-Ins ⭐5.0 | iFIXX"
+  description: "Carpentry — built-ins, trim, crown molding, shelving in Concord, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Quality Carpentry for Concord Homes

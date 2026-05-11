@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Ballantyne Country Club, Providence Plantation, and other communities have architectural guidelines. Interior carpentry typically doesn't require approval; exterior work may need review."
 
 seo:
-  title: "Carpentry Services Ballantyne NC | Custom Built-Ins & Trim | iFixx"
-  description: "Expert carpentry services in Ballantyne NC. Custom built-ins, crown molding, entertainment centers. Ballantyne Country Club, Ardrey Kell, Providence. Free estimates."
+  title: "Carpentry Ballantyne NC | Custom Trim & Built-Ins ⭐5.0 | iFIXX"
+  description: "Carpentry — built-ins, trim, crown molding, shelving in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Expert Carpentry Services in Ballantyne, NC

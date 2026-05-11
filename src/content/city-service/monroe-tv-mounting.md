@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Interior TV mounting doesn't require HOA approval. Outdoor TV mounting on exterior walls may need review in some Monroe subdivisions."
 
 seo:
-  title: "TV Mounting Monroe NC | Cable Concealment | iFixx"
-  description: "Professional TV mounting in Monroe NC. All sizes, cable hiding, soundbar mounting. Serving Union County. Clean installations, fair pricing. Same-day available!"
+  title: "TV Mounting Monroe NC | Cable Concealment & Soundbars ⭐5.0 | iFIXX"
+  description: "TV mounting — wall mounts, cable concealment, soundbars in Monroe, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Monroe TV Mounting Services

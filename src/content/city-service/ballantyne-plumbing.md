@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Most Ballantyne HOAs don't restrict basic fixture repairs."
 
 seo:
-  title: "Faucet Repair Ballantyne NC | Leaky Faucet Fix | Same-Day | iFIXX"
-  description: "Leaky faucet in Ballantyne? Running toilet? Same-day fixture repairs — no plumber needed. Serving Ballantyne and South Charlotte. Call (980) 391-6833"
+  title: "Plumbing Repair Ballantyne NC | Faucets, Drains & Toilets | iFIXX"
+  description: "Plumbing repair — faucets, drains, toilets, disposals in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Faucet & Fixture Repair in Ballantyne

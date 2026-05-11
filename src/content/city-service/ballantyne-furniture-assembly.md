@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Furniture assembly is interior work and never requires HOA approval. Outdoor furniture assembly is also typically unrestricted in Ballantyne communities."
 
 seo:
-  title: "Furniture Assembly Ballantyne NC | IKEA, Wayfair & More | iFixx"
-  description: "Fast furniture assembly in Ballantyne NC. IKEA, Wayfair, gym equipment, patio furniture. Same-day service in Ballantyne Country Club, Ardrey Kell, Providence."
+  title: "Furniture Assembly Ballantyne NC | IKEA, Wayfair & More | iFIXX"
+  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Furniture Assembly in Ballantyne, NC

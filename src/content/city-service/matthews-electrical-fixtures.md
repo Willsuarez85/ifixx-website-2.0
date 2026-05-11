@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Interior electrical work doesn't require HOA approval."
 
 seo:
-  title: "Electrical Fixtures Matthews NC | Outlets, Fans, Switches | iFixx"
-  description: "Matthews outlet replacement, ceiling fan installation, switch upgrades. Serving downtown Matthews, Weddington, Stallings. Free estimates!"
+  title: "Electrical Fixtures Matthews NC ⭐5.0 (87★) | iFIXX"
+  description: "Electrical fixtures — outlets, switches, ceiling fans, lights in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Matthews Electrical Fixture Services

@@ -43,8 +43,8 @@ localInfo:
   hoaConsiderations: "Interior repairs don't require HOA approval in Union County communities."
 
 seo:
-  title: "Quick Fix Handyman Service Waxhaw NC | Small Repairs | iFixx"
-  description: "Waxhaw Quick Fix handyman service. Small repairs, to-do lists, maintenance tasks. Serving Union County. Hourly rates, no job too small."
+  title: "Quick-Fix Handyman Waxhaw NC | Same-Day Small Repairs ⭐5.0 | iFIXX"
+  description: "Same-day handyman — small repairs, no minimum, fast response in Waxhaw, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Quick Fix Handyman Service in Waxhaw

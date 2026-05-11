@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Most interior quick fixes don't require HOA approval. Exterior work like door replacement may have guidelines in some communities."
 
 seo:
-  title: "Handyman Quick Fix Services Rock Hill SC | Small Repairs | iFixx"
-  description: "Rock Hill quick fix and handyman services—drywall repair, TV mounting, door fixes, furniture assembly. No job too small. Lake Wylie, Tega Cay, Fort Mill."
+  title: "Quick-Fix Handyman Rock Hill SC | Same-Day Small Repairs | iFIXX"
+  description: "Same-day handyman — small repairs, no minimum, fast response in Rock Hill, SC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Quick Fix & Handyman Services in Rock Hill

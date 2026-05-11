@@ -35,8 +35,8 @@ localInfo:
   hoaConsiderations: "No HOA considerations for furniture assembly."
 
 seo:
-  title: "Furniture Assembly Mint Hill NC | IKEA & All Brands | iFixx"
-  description: "Fast furniture assembly in Mint Hill. IKEA, Wayfair, Amazon & all brands. Serving Olde Sycamore, Bain Creek & all Mint Hill. Same-day available!"
+  title: "Furniture Assembly Mint Hill NC | IKEA, Wayfair & More | iFIXX"
+  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Fast, Professional Furniture Assembly in Mint Hill

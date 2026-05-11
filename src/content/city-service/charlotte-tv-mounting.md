@@ -35,8 +35,8 @@ localInfo:
   hoaConsiderations: "Interior TV mounting doesn't require HOA approval. Exterior mounting on patios or porches might need approval in some Charlotte communities."
 
 seo:
-  title: "TV Mounting Charlotte NC | Hidden Cables | All Sizes | Same-Day | iFixx"
-  description: "Professional TV mounting in Charlotte. All sizes 32\"-85\"+. Hidden cable options. Above fireplace specialists. Same-day service available. From $99. Free estimates!"
+  title: "TV Mounting Charlotte NC | Cable Concealment & Soundbars | iFIXX"
+  description: "TV mounting — wall mounts, cable concealment, soundbars in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional TV Mounting in Charlotte

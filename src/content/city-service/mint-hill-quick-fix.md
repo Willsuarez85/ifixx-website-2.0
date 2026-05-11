@@ -35,8 +35,8 @@ localInfo:
   hoaConsiderations: "Interior repairs and maintenance don't require HOA notification."
 
 seo:
-  title: "Handyman & Quick Fix Services Mint Hill NC | iFixx"
-  description: "Reliable handyman service in Mint Hill. Small repairs, odd jobs, honey-do lists. Serving Cheval, Olde Sycamore & all Mint Hill. Same-day available!"
+  title: "Quick-Fix Handyman Mint Hill NC | Same-Day Small Repairs | iFIXX"
+  description: "Same-day handyman — small repairs, no minimum, fast response in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Fast, Reliable Handyman Service in Mint Hill

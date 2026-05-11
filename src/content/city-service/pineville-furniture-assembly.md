@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Furniture assembly is interior work and doesn't require HOA notification."
 
 seo:
-  title: "Furniture Assembly Pineville NC | IKEA, Wayfair | Same Day | iFixx"
-  description: "Pineville furniture assembly. IKEA, Wayfair, Amazon & more. Same-day service, flat-rate pricing. Beds, desks, dressers, shelving. Call (980) 391-6833."
+  title: "Furniture Assembly Pineville NC | IKEA, Wayfair & More | iFIXX"
+  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Pineville, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Fast, Professional Furniture Assembly in Pineville

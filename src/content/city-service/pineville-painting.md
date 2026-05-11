@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Many Pineville HOAs have requirements for exterior paint colors. Communities near Carolina Place and Johnston Road typically require approval before exterior painting. We help coordinate with your HOA requirements."
 
 seo:
-  title: "House Painting Pineville NC | Interior & Exterior | iFixx"
-  description: "Pineville house painting services. Interior painting, exterior painting, cabinet refinishing. Carolina Place & Park Road areas. Free estimates!"
+  title: "Painting Pineville NC | Interior, Exterior & Cabinets ⭐5.0 | iFIXX"
+  description: "Painting — interior, exterior, trim, cabinets, color consult in Pineville, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Pineville Homeowners Trust iFixx for Painting Services

@@ -43,8 +43,8 @@ localInfo:
   hoaConsiderations: "Many Union County HOAs in Marvin, Weddington, and Wesley Chapel require architectural approval for outdoor additions. We help navigate the approval process."
 
 seo:
-  title: "Outdoor Living Waxhaw NC | Decks, Porches, Patios | iFixx"
-  description: "Waxhaw outdoor living construction. Decks, screened porches, covered patios, outdoor kitchens. Serving Union County. Free estimates."
+  title: "Outdoor Living Waxhaw NC | Decks, Patios & Pergolas ⭐5.0 | iFIXX"
+  description: "Outdoor living — decks, patios, pergolas, fencing in Waxhaw, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Create Your Perfect Outdoor Living Space in Waxhaw

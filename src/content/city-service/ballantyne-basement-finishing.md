@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Interior basement finishing typically doesn't require Ballantyne HOA approval. Exterior changes like egress window wells may need architectural review in some communities."
 
 seo:
-  title: "Basement Finishing Ballantyne NC | Home Theater, Guest Suite | iFixx"
-  description: "Professional basement finishing in Ballantyne NC. Home theaters, guest suites, offices. Ballantyne Country Club, Ardrey Kell, Providence. Permits included. Free estimates."
+  title: "Basement Finishing Ballantyne NC | Custom Living Spaces | iFIXX"
+  description: "Basement finishing — egress, framing, drywall, flooring in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Basement Finishing in Ballantyne, NC

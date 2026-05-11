@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Interior fixture work doesn't require HOA approval. Exterior fixtures may need approval in some Concord communities."
 
 seo:
-  title: "Electrical Fixture Installation Concord NC | Fans & Lights | iFixx"
-  description: "Electrical fixture installation in Concord NC. Ceiling fans, light fixtures, outlets, switches. Serving Afton Village, Harrisburg, Kannapolis. Insured, free estimates!"
+  title: "Electrical Fixtures Concord NC ⭐5.0 (87★) | iFIXX"
+  description: "Electrical fixtures — outlets, switches, ceiling fans, lights in Concord, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Concord Homeowners Trust iFixx for Electrical Fixtures

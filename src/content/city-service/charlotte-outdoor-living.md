@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Many Charlotte HOAs require architectural review for decks, porches, and outdoor structures. Ballantyne, Providence Plantation, and SouthPark communities often have specific material, color, and design requirements. We help navigate HOA approval processes."
 
 seo:
-  title: "Custom Decks & Outdoor Living Charlotte NC ⭐5.0 | iFIXX"
-  description: "Custom decks, pergolas, screened porches & outdoor kitchens in Charlotte. Permits handled. Myers Park, Ballantyne. ⭐5.0 (87★) Free design ☎ (980) 391-6833."
+  title: "Outdoor Living Charlotte NC | Decks, Patios & Pergolas | iFIXX"
+  description: "Outdoor living — decks, patios, pergolas, fencing in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Charlotte Homeowners Trust iFixx for Outdoor Living

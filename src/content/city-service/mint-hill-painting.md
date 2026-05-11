@@ -35,8 +35,8 @@ localInfo:
   hoaConsiderations: "Many Mint Hill HOAs require approval for exterior color changes. We can help you navigate the approval process and work within approved color palettes."
 
 seo:
-  title: "Painting Services Mint Hill NC | Interior & Exterior | iFixx"
-  description: "Professional painting in Mint Hill. Interior, exterior & cabinet painting. Serving Olde Sycamore, Bain Creek, Cheval & more. Free estimates, fully insured!"
+  title: "Painting Mint Hill NC | Interior, Exterior & Cabinets ⭐5.0 | iFIXX"
+  description: "Painting — interior, exterior, trim, cabinets, color consult in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Painting for Mint Hill Homes

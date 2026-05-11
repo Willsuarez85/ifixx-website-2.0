@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Interior electrical work doesn't require HOA approval."
 
 seo:
-  title: "Electrical Fixtures Ballantyne | Outlets, Fans, Switches | iFixx"
-  description: "Ballantyne outlet replacement, ceiling fan installation, light fixture upgrades. Smart home switches. Same-day service. Free estimates!"
+  title: "Electrical Fixtures Ballantyne NC ⭐5.0 (87★) | iFIXX"
+  description: "Electrical fixtures — outlets, switches, ceiling fans, lights in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Ballantyne Electrical Fixture Services

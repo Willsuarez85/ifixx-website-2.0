@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Many Concord HOAs (especially in Christenbury, Skybrook, and Afton Village) require approval for exterior paint colors. We can help you navigate the approval process."
 
 seo:
-  title: "Painting Services Concord NC | Interior & Exterior | iFixx"
-  description: "Professional painting in Concord NC. Interior and exterior painting services. Serving Afton Village, Harrisburg, Kannapolis & Cabarrus County. Free estimates!"
+  title: "Painting Concord NC | Interior, Exterior & Cabinets ⭐5.0 | iFIXX"
+  description: "Painting — interior, exterior, trim, cabinets, color consult in Concord, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Concord Homeowners Trust iFixx for Painting

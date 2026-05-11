@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "No HOA considerations for interior furniture. Outdoor storage shed assembly may have placement restrictions in some Concord communities."
 
 seo:
-  title: "Furniture Assembly Concord NC | IKEA & All Brands | iFixx"
-  description: "Concord furniture assembly: IKEA, Wayfair, Amazon & more. Beds, desks, wardrobes assembled fast. Christenbury, Harrisburg. Call (980) 391-6833."
+  title: "Furniture Assembly Concord NC | IKEA, Wayfair & More ⭐5.0 | iFIXX"
+  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Concord, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Furniture Assembly for Concord Homes

@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Exterior fixture changes may require HOA approval in some Rock Hill communities. Check your community guidelines."
 
 seo:
-  title: "Electrical Fixture Installation Rock Hill SC | Ceiling Fans & Lights | iFixx"
-  description: "Rock Hill electrical fixture installation—ceiling fans, light fixtures, outlets, switches. Insured team serving Lake Wylie, Tega Cay, Fort Mill. Call for same-day service!"
+  title: "Electrical Fixtures Rock Hill SC ⭐5.0 (87★) | iFIXX"
+  description: "Electrical fixtures — outlets, switches, ceiling fans, lights in Rock Hill, SC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Electrical Fixture Services in Rock Hill

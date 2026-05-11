@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Interior basement finishing doesn't typically require HOA approval. Exterior changes for egress windows may need review in some Monroe subdivisions."
 
 seo:
-  title: "Basement Finishing Monroe NC | Union County | iFixx"
-  description: "Monroe basement finishing services. Transform unfinished space into living area. Framing, drywall, flooring, electrical. Serving Union County. Free estimates!"
+  title: "Basement Finishing Monroe NC | Custom Living Spaces ⭐5.0 | iFIXX"
+  description: "Basement finishing — egress, framing, drywall, flooring in Monroe, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Monroe Basement Finishing Services

@@ -42,8 +42,8 @@ localInfo:
   hoaConsiderations: "Many Union County HOAs require approval for exterior door and window changes. We help navigate approval requirements in Marvin, Weddington, and Wesley Chapel communities."
 
 seo:
-  title: "Door & Window Installation Waxhaw NC | Union County | iFixx"
-  description: "Waxhaw door and window installation. Entry doors, interior doors, window replacement. Serving Marvin, Wesley Chapel, Weddington & Union County. Free estimates."
+  title: "Door & Window Repair Waxhaw NC | Frames, Locks & Glass | iFIXX"
+  description: "Door & window repair — frames, locks, glass, weatherproofing in Waxhaw, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Quality Door & Window Services in Waxhaw

@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Interior fixture work typically doesn't require HOA approval in Pineville communities."
 
 seo:
-  title: "Plumbing Fixture Repair Pineville NC | Faucets & Toilets | iFixx"
-  description: "Pineville plumbing fixture repair. Faucet repair, toilet fixes, garbage disposals, water heater service. Carolina Place area. Same-day service!"
+  title: "Plumbing Repair Pineville NC | Faucets, Drains & Toilets | iFIXX"
+  description: "Plumbing repair — faucets, drains, toilets, disposals in Pineville, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Pineville Homeowners Trust iFixx for Fixture Repair

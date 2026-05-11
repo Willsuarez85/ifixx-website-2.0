@@ -42,8 +42,8 @@ localInfo:
   hoaConsiderations: "Many Union County HOAs in Marvin, Weddington, and Wesley Chapel require approval for exterior color changes. We can help you navigate the approval process."
 
 seo:
-  title: "Painting Services Waxhaw NC | Interior & Exterior | iFixx"
-  description: "Waxhaw painting services for interior and exterior. Premium paints, quality prep work. Serving Marvin, Wesley Chapel, Weddington & Union County. Free estimates."
+  title: "Painting Waxhaw NC | Interior, Exterior & Cabinets ⭐5.0 | iFIXX"
+  description: "Painting — interior, exterior, trim, cabinets, color consult in Waxhaw, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Painting Services in Waxhaw

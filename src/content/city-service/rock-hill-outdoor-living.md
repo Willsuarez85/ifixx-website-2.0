@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Lake Wylie and Tega Cay HOAs often have guidelines for deck materials, colors, and fence styles. We help ensure compliance."
 
 seo:
-  title: "Outdoor Living Services Rock Hill SC | Deck Repair & Patios | iFixx"
-  description: "Rock Hill deck repair, patio services, fence repair & outdoor living upgrades. Lake Wylie, Tega Cay, Fort Mill. Insured team, free estimates!"
+  title: "Outdoor Living Rock Hill SC | Decks, Patios & Pergolas | iFIXX"
+  description: "Outdoor living — decks, patios, pergolas, fencing in Rock Hill, SC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Outdoor Living Services in Rock Hill

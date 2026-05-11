@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Interior TV mounting doesn't require HOA approval."
 
 seo:
-  title: "TV Mounting Matthews NC | Hidden Cables | Same-Day | iFixx"
-  description: "Professional TV mounting in Matthews. All sizes, hidden cable options. Serving downtown Matthews, Weddington, Stallings. From $99. Free estimates!"
+  title: "TV Mounting Matthews NC | Cable Concealment & Soundbars | iFIXX"
+  description: "TV mounting — wall mounts, cable concealment, soundbars in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## TV Mounting in Matthews

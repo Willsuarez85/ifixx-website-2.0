@@ -43,8 +43,8 @@ localInfo:
   hoaConsiderations: "Interior carpentry doesn't require HOA approval. Exterior trim work visible from outside may need review in some Union County communities."
 
 seo:
-  title: "Carpentry Services Waxhaw NC | Trim & Custom Built-Ins | iFixx"
-  description: "Waxhaw carpentry services. Crown molding, trim, custom built-ins, wainscoting. Serving Marvin, Wesley Chapel, Weddington & Union County. Free estimates."
+  title: "Carpentry Waxhaw NC | Custom Trim & Built-Ins ⭐5.0 | iFIXX"
+  description: "Carpentry — built-ins, trim, crown molding, shelving in Waxhaw, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Quality Carpentry Services in Waxhaw

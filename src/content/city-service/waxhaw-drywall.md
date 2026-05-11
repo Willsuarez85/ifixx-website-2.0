@@ -42,8 +42,8 @@ localInfo:
   hoaConsiderations: "Drywall work is interior and typically doesn't require HOA approval in Union County communities."
 
 seo:
-  title: "Drywall Repair & Installation Waxhaw NC | Union County | iFixx"
-  description: "Waxhaw drywall repair and installation. Hole patching, water damage, texture matching, new installation. Serving Union County. Free estimates."
+  title: "Drywall Repair Waxhaw NC | Holes, Cracks & Texture ⭐5.0 | iFIXX"
+  description: "Drywall repair — holes, cracks, water damage, texture in Waxhaw, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Expert Drywall Services in Waxhaw

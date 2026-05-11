@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Some Monroe subdivisions have HOA requirements for exterior changes. Interior kitchen remodels rarely require HOA approval, but we verify requirements as part of our service."
 
 seo:
-  title: "Kitchen Remodeling Monroe NC | Union County | iFixx"
-  description: "Monroe kitchen remodeling by local experts. Serving Downtown Monroe, Wingate, Unionville & Union County. Custom cabinets, countertops, islands. Free estimates!"
+  title: "Kitchen Remodeling Monroe NC | Cabinets & Counters ⭐5.0 | iFIXX"
+  description: "Kitchen remodeling — cabinets, countertops, backsplash in Monroe, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Monroe Homeowners Trust iFixx for Kitchen Remodeling

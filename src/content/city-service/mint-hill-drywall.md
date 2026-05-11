@@ -35,8 +35,8 @@ localInfo:
   hoaConsiderations: "Interior drywall work typically doesn't require HOA approval in Mint Hill communities."
 
 seo:
-  title: "Drywall Repair & Installation Mint Hill NC | iFixx"
-  description: "Professional drywall services in Mint Hill. Repairs, patching, water damage, finishing. Serving Olde Sycamore, Bain Creek & all Mint Hill. Fully insured!"
+  title: "Drywall Repair Mint Hill NC | Holes, Cracks & Texture ⭐5.0 | iFIXX"
+  description: "Drywall repair — holes, cracks, water damage, texture in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Expert Drywall Services for Mint Hill Homes

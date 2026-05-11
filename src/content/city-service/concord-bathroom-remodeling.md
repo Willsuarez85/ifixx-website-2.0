@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Interior bathroom remodels typically don't require HOA approval in Concord communities, but check your specific HOA rules."
 
 seo:
-  title: "Bathroom Remodeling Concord NC | Cabarrus County | iFixx"
-  description: "Concord bathroom remodeling experts. Tub-to-shower conversions, vanity upgrades, complete renovations. Serving Afton Village, Harrisburg, Kannapolis. Free estimates!"
+  title: "Bathroom Remodeling Concord NC | Tubs, Tile & Vanity ⭐5.0 | iFIXX"
+  description: "Bathroom remodeling — tubs, tile, vanities, plumbing in Concord, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Concord Homeowners Trust iFixx for Bathroom Remodeling

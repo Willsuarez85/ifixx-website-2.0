@@ -35,8 +35,8 @@ localInfo:
   hoaConsiderations: "Some Mint Hill HOAs in multi-family buildings may have flooring requirements. Single-family homes typically have no restrictions."
 
 seo:
-  title: "Flooring Installation Mint Hill NC | Hardwood, LVP, Tile | iFixx"
-  description: "Professional flooring installation in Mint Hill. Hardwood, LVP, tile, carpet. Serving Cheval, Olde Sycamore & all Mint Hill. Free estimates, fully insured!"
+  title: "Flooring Installation Mint Hill NC | Hardwood, LVP & Tile | iFIXX"
+  description: "Flooring installation — hardwood, LVP, tile, refinishing in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Expert Flooring Installation for Mint Hill Homes

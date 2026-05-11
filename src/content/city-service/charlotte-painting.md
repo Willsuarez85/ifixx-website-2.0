@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Many Charlotte HOAs require approval for exterior color changes. Some communities (especially in Ballantyne and South Charlotte) have strict color palettes. We can help you select colors that meet HOA requirements and still achieve your vision."
 
 seo:
-  title: "Painting Services Charlotte NC | 400+ Projects | Interior & Exterior | iFixx"
-  description: "Charlotte painters with 400+ Queen City projects. Interior & exterior painting. Dilworth, Myers Park, South Charlotte. Premium paints for Charlotte climate. Free estimates!"
+  title: "Painting Charlotte NC | Interior, Exterior & Cabinets ⭐5.0 | iFIXX"
+  description: "Painting — interior, exterior, trim, cabinets, color consult in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Charlotte's Painting Professionals

@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Many Monroe subdivisions have specific requirements for outdoor structures including materials, colors, and placement. We recommend checking HOA guidelines before project planning."
 
 seo:
-  title: "Outdoor Living Monroe NC | Decks, Porches, Pergolas | iFixx"
-  description: "Monroe outdoor living construction. Decks, screen porches, pergolas, outdoor kitchens. Serving Union County. Quality craftsmanship, free estimates!"
+  title: "Outdoor Living Monroe NC | Decks, Patios & Pergolas ⭐5.0 | iFIXX"
+  description: "Outdoor living — decks, patios, pergolas, fencing in Monroe, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Monroe Outdoor Living Services

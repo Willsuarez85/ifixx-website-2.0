@@ -35,8 +35,8 @@ localInfo:
   hoaConsiderations: "Interior fixture work typically doesn't require HOA approval in Mint Hill communities."
 
 seo:
-  title: "Fixture Repair & Installation Mint Hill NC | iFixx"
-  description: "Mint Hill fixture repair and installation services. Faucets, toilets, water heaters & more. Serving Olde Sycamore, Bain Creek & all Mint Hill. Fully insured!"
+  title: "Plumbing Repair Mint Hill NC | Faucets, Drains & Toilets | iFIXX"
+  description: "Plumbing repair — faucets, drains, toilets, disposals in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Reliable Fixture Services for Mint Hill Homes

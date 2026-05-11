@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Furniture assembly is interior work and doesn't require HOA approval."
 
 seo:
-  title: "Furniture Assembly Matthews NC | IKEA, Wayfair & More | iFixx"
-  description: "Fast furniture assembly in Matthews NC. IKEA, Wayfair, gym equipment, patio furniture. Same-day service in Matthews, Stallings, Indian Trail. Call today!"
+  title: "Furniture Assembly Matthews NC | IKEA, Wayfair & More ⭐5.0 | iFIXX"
+  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Furniture Assembly in Matthews, NC

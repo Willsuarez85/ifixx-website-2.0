@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Most HOAs don't have restrictions on basic fixture repairs and replacements."
 
 seo:
-  title: "Faucet Repair Charlotte NC | Leaky Faucet Fix | Same-Day | iFIXX"
-  description: "Leaky faucet in Charlotte? Running toilet? Same-day fixture repairs — no plumber needed for simple fixes. Dilworth, Myers Park, South Charlotte. Call (980) 391-6833"
+  title: "Plumbing Repair Charlotte NC | Faucets, Drains & Toilets | iFIXX"
+  description: "Plumbing repair — faucets, drains, toilets, disposals in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Faucet & Fixture Repair in Charlotte

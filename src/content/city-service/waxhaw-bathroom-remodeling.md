@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Most bathroom remodels don't require HOA approval since they're interior work. However, some Union County communities have rules about construction hours and contractor access."
 
 seo:
-  title: "Bathroom Remodeling Waxhaw NC | Union County | iFixx"
-  description: "Waxhaw bathroom remodeling services. From powder rooms to primary suites. Serving Marvin, Wesley Chapel, Weddington & Union County. Free estimates."
+  title: "Bathroom Remodeling Waxhaw NC | Tubs, Tile & Vanity ⭐5.0 | iFIXX"
+  description: "Bathroom remodeling — tubs, tile, vanities, plumbing in Waxhaw, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Waxhaw Homeowners Choose iFixx for Bathroom Remodeling

@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Charlotte condos and townhomes often have HOA requirements for flooring—many require sound underlayment or prohibit certain materials on upper floors. We're familiar with common requirements in SouthPark and Uptown buildings."
 
 seo:
-  title: "Flooring Installation Charlotte NC | Hardwood, LVP, Tile | iFixx"
-  description: "Charlotte flooring installation and refinishing. Hardwood, LVP, and tile experts. Historic home specialists in Dilworth & Myers Park. Free estimates, humidity-smart solutions."
+  title: "Flooring Installation Charlotte NC | Hardwood, LVP & Tile | iFIXX"
+  description: "Flooring installation — hardwood, LVP, tile, refinishing in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Charlotte Homeowners Trust iFixx for Flooring

@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Interior drywall work doesn't typically require HOA approval in Monroe subdivisions."
 
 seo:
-  title: "Drywall Repair Monroe NC | Patches, Texture Matching | iFixx"
-  description: "Monroe drywall repair by local experts. Hole patches, texture matching, water damage, ceiling repair. Serving Union County. Invisible repairs, fair pricing!"
+  title: "Drywall Repair Monroe NC | Holes, Cracks & Texture ⭐5.0 | iFIXX"
+  description: "Drywall repair — holes, cracks, water damage, texture in Monroe, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Monroe Drywall Repair & Installation

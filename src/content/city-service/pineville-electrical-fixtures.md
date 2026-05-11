@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Interior fixture changes typically don't require HOA approval in Pineville communities. Exterior lighting changes may require review in some communities."
 
 seo:
-  title: "Electrical Fixture Installation Pineville NC | Lighting | iFixx"
-  description: "Pineville electrical fixture installation. Ceiling fans, light fixtures, LED upgrades, outlets. Carolina Place & South Charlotte. Free estimates!"
+  title: "Electrical Fixtures Pineville NC ⭐5.0 (87★) | iFIXX"
+  description: "Electrical fixtures — outlets, switches, ceiling fans, lights in Pineville, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Pineville Homeowners Trust iFixx for Electrical Fixture Services

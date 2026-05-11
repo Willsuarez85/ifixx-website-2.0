@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Ballantyne HOAs typically require architectural approval for exterior color changes. The approval process usually takes 2-4 weeks. We recommend starting this process early and can help you prepare your submission with color samples and descriptions."
 
 seo:
-  title: "Painting Services Ballantyne NC | Interior & Exterior | iFixx"
-  description: "Ballantyne painting with premium paints and professional results. Interior & exterior. HOA color guidance. Piper Glen, Providence Plantation. Free estimates!"
+  title: "Painting Ballantyne NC | Interior, Exterior & Cabinets | iFIXX"
+  description: "Painting — interior, exterior, trim, cabinets, color consult in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Ballantyne's Professional Painting Team

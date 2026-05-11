@@ -35,8 +35,8 @@ localInfo:
   hoaConsiderations: "Exterior door and window changes in some Mint Hill HOAs may require approval, especially for color or style changes. We can help navigate the approval process."
 
 seo:
-  title: "Door & Window Installation Mint Hill NC | iFixx"
-  description: "Professional door and window services in Mint Hill. Installation, replacement, repairs. Serving Bain Creek, Olde Sycamore & all Mint Hill. Fully insured!"
+  title: "Door & Window Repair Mint Hill NC | Frames, Locks & Glass | iFIXX"
+  description: "Door & window repair — frames, locks, glass, weatherproofing in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Quality Door & Window Services for Mint Hill Homes

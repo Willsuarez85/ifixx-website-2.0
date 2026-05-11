@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Quick fixes are typically interior work that doesn't require HOA notification."
 
 seo:
-  title: "Handyman Quick Fixes Pineville NC | Same Day Service | iFixx"
-  description: "Pineville quick-fix handyman services. Small repairs, honey-do lists, same-day service. Doors, faucets, drywall, fixtures & more. No job too small. Call (980) 391-6833."
+  title: "Quick-Fix Handyman Pineville NC | Same-Day Small Repairs | iFIXX"
+  description: "Same-day handyman — small repairs, no minimum, fast response in Pineville, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Quick-Fix Services in Pineville

@@ -35,8 +35,8 @@ localInfo:
   hoaConsiderations: "Many Mint Hill HOAs require approval for outdoor structures. We can help with drawings and documentation for HOA submissions."
 
 seo:
-  title: "Outdoor Living Mint Hill NC | Decks, Patios, Pergolas | iFixx"
-  description: "Create your perfect outdoor space in Mint Hill. Decks, patios, pergolas, screen porches. Serving Olde Sycamore, Bain Creek & all Mint Hill. Free estimates!"
+  title: "Outdoor Living Mint Hill NC | Decks, Patios & Pergolas | iFIXX"
+  description: "Outdoor living — decks, patios, pergolas, fencing in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Create Your Perfect Outdoor Space in Mint Hill

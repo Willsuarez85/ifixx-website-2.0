@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Most Matthews HOAs don't require approval for interior bathroom work. If your project involves any exterior changes (like venting), check with your HOA. We can help coordinate if needed."
 
 seo:
-  title: "Bathroom Remodeling Matthews NC | 50+ Projects | iFixx"
-  description: "Matthews bathroom remodeling experts. McKee Farms, Sardis Woods, Weddington. Quality work, fair prices. Free estimates!"
+  title: "Bathroom Remodeling Matthews NC | Tubs, Tile & Vanity ⭐5.0 | iFIXX"
+  description: "Bathroom remodeling — tubs, tile, vanities, plumbing in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Matthews Bathroom Remodeling You Can Trust

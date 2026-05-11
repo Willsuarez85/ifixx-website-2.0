@@ -35,8 +35,8 @@ localInfo:
   hoaConsiderations: "Interior drywall repairs don't typically require HOA approval. If you're repainting afterward, some South Charlotte HOAs have color restrictions for exterior-visible areas."
 
 seo:
-  title: "Drywall Repair Charlotte NC | Same-Day Service | Texture Matching | iFixx"
-  description: "Charlotte drywall repair experts. Holes, cracks, water damage, texture matching. 500+ repairs across Queen City. Same-day service available. Free estimates!"
+  title: "Drywall Repair Charlotte NC | Holes, Cracks & Texture ⭐5.0 | iFIXX"
+  description: "Drywall repair — holes, cracks, water damage, texture in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Charlotte's Drywall Repair Experts

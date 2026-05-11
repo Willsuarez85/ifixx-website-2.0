@@ -42,8 +42,8 @@ localInfo:
   hoaConsiderations: "Flooring is interior work and doesn't require HOA approval. Some condo associations may have requirements about underlayment for sound control."
 
 seo:
-  title: "Flooring Installation Waxhaw NC | LVP, Hardwood, Tile | iFixx"
-  description: "Waxhaw flooring installation. Hardwood, LVP, tile, carpet. Serving Marvin, Wesley Chapel, Weddington & Union County. Free estimates."
+  title: "Flooring Installation Waxhaw NC | Hardwood, LVP & Tile | iFIXX"
+  description: "Flooring installation — hardwood, LVP, tile, refinishing in Waxhaw, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Flooring Installation in Waxhaw

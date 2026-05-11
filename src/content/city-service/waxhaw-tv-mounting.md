@@ -42,8 +42,8 @@ localInfo:
   hoaConsiderations: "TV mounting is interior work and doesn't require HOA approval in Union County communities."
 
 seo:
-  title: "TV Mounting Waxhaw NC | Union County | iFixx"
-  description: "Professional TV mounting in Waxhaw. Hidden wires, fireplace mounts, all TV sizes. Serving Marvin, Wesley Chapel, Weddington & Union County. Free quotes."
+  title: "TV Mounting Waxhaw NC | Cable Concealment & Soundbars ⭐5.0 | iFIXX"
+  description: "TV mounting — wall mounts, cable concealment, soundbars in Waxhaw, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional TV Mounting in Waxhaw

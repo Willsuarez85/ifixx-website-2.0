@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Most Pineville HOAs don't require approval for interior bathroom remodels unless plumbing stacks are affected. We verify requirements for your specific community."
 
 seo:
-  title: "Bathroom Remodeling Pineville NC | Local Experts | iFixx"
-  description: "Pineville bathroom remodeling services. Master baths, guest baths, tub-to-shower conversions. Carolina Place, Park Road areas. Free estimates!"
+  title: "Bathroom Remodeling Pineville NC | Tubs, Tile & Vanity | iFIXX"
+  description: "Bathroom remodeling — tubs, tile, vanities, plumbing in Pineville, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Pineville Homeowners Trust iFixx for Bathroom Remodeling

@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Interior basement finishing typically doesn't require HOA approval. Egress window wells or exterior changes may need review in some Concord communities."
 
 seo:
-  title: "Basement Finishing Concord NC | Home Theater, Guest Suite | iFixx"
-  description: "Concord basement finishing: home theaters, guest suites, rec rooms. Complete service from framing to paint. Christenbury, Harrisburg. Call (980) 391-6833."
+  title: "Basement Finishing Concord NC | Custom Living Spaces ⭐5.0 | iFIXX"
+  description: "Basement finishing — egress, framing, drywall, flooring in Concord, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Basement Finishing for Concord Homes

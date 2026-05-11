@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Some Matthews and Stallings neighborhoods have HOAs that regulate exterior work. Interior carpentry typically doesn't require approval."
 
 seo:
-  title: "Carpentry Services Matthews NC | Custom Built-Ins & Trim | iFixx"
-  description: "Expert carpentry services in Matthews NC. Custom built-ins, crown molding, trim work in Matthews, Stallings, Indian Trail. Free estimates from local craftsmen."
+  title: "Carpentry Matthews NC | Custom Trim & Built-Ins ⭐5.0 | iFIXX"
+  description: "Carpentry — built-ins, trim, crown molding, shelving in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Expert Carpentry Services in Matthews, NC

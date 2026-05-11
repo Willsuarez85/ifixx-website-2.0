@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Some Charlotte condo buildings have rules about service provider hours and elevator usage. We coordinate with building management when needed."
 
 seo:
-  title: "Furniture Assembly Charlotte NC | IKEA, Wayfair & More | iFixx"
-  description: "Charlotte furniture assembly - same day available. IKEA, Wayfair, Amazon, gym equipment & more. Dilworth, Myers Park, Ballantyne, SouthPark. Fast, affordable, packaging removed."
+  title: "Furniture Assembly Charlotte NC | IKEA, Wayfair & More | iFIXX"
+  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Charlotte Homeowners Trust iFixx for Furniture Assembly

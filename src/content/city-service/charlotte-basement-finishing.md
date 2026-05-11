@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Most Charlotte HOAs don't restrict interior basement finishing. However, if your project involves exterior changes like egress windows, architectural review may be required in communities like Ballantyne and Providence Plantation."
 
 seo:
-  title: "Basement Finishing Charlotte NC | Local Experts | iFixx"
-  description: "Charlotte basement finishing by local experts. Transform your unfinished basement into living space. Ballantyne, Myers Park, South Charlotte & more. Free estimates, Mecklenburg permits handled."
+  title: "Basement Finishing Charlotte NC | Custom Living Spaces | iFIXX"
+  description: "Basement finishing — egress, framing, drywall, flooring in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Charlotte Homeowners Trust iFixx for Basement Finishing

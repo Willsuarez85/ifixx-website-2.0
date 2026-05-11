@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Some Matthews neighborhoods have HOAs, though they're generally less restrictive than South Charlotte communities. Interior kitchen work typically doesn't require HOA approval. We can advise if your specific community has requirements."
 
 seo:
-  title: "Kitchen Remodeling Matthews NC | 40+ Projects | iFixx"
-  description: "Matthews kitchen remodeling by local experts. Sardis Woods, Weddington, Indian Trail. Quality craftsmanship, fair pricing. Free estimates!"
+  title: "Kitchen Remodeling Matthews NC | Cabinets & Counters ⭐5.0 | iFIXX"
+  description: "Kitchen remodeling — cabinets, countertops, backsplash in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Matthews Kitchen Remodeling Experts

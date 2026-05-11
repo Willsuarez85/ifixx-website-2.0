@@ -39,8 +39,8 @@ localInfo:
   hoaConsiderations: "Many Tega Cay, Lake Wylie, and Fort Mill HOAs have exterior color restrictions. Check your HOA guidelines before selecting exterior colors. Interior painting doesn't require HOA approval."
 
 seo:
-  title: "House Painting Rock Hill SC | Interior & Exterior | iFixx"
-  description: "Professional house painting in Rock Hill SC. Interior, exterior, cabinets, decks. Serving Lake Wylie, Tega Cay, Fort Mill. Free estimates. Call (980) 391-6833."
+  title: "Painting Rock Hill SC | Interior, Exterior & Cabinets ⭐5.0 | iFIXX"
+  description: "Painting — interior, exterior, trim, cabinets, color consult in Rock Hill, SC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Painting Services in Rock Hill

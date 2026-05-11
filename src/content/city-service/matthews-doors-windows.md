@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Some Matthews HOAs have guidelines for storm doors and exterior door colors. Check your covenants first."
 
 seo:
-  title: "Door & Window Repair Matthews NC | Locks, Hardware | iFixx"
-  description: "Matthews door and window repair. Sticking doors, lock problems, storm door installation. Serving downtown Matthews, Weddington, Stallings. Free estimates!"
+  title: "Door & Window Repair Matthews NC | Frames, Locks & Glass | iFIXX"
+  description: "Door & window repair — frames, locks, glass, weatherproofing in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Door and Window Repair in Matthews

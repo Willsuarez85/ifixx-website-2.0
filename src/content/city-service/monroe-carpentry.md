@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Interior carpentry doesn't require HOA approval. Exterior changes like deck repairs or trim changes may need review in some Monroe subdivisions."
 
 seo:
-  title: "Carpentry Services Monroe NC | Trim, Built-Ins, Repairs | iFixx"
-  description: "Monroe carpentry services. Trim installation, custom built-ins, deck repair, rot repair. Serving Union County. Skilled craftsmanship, fair pricing!"
+  title: "Carpentry Monroe NC | Custom Trim & Built-Ins ⭐5.0 | iFIXX"
+  description: "Carpentry — built-ins, trim, crown molding, shelving in Monroe, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Monroe Carpentry Services

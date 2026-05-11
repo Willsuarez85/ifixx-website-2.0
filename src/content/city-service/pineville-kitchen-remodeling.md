@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Many Pineville HOAs require architectural review for certain renovations. Communities near Carolina Place and along Johnston Road often have specific guidelines. We help navigate HOA requirements as part of our service."
 
 seo:
-  title: "Kitchen Remodeling Pineville NC | Local Experts | iFixx"
-  description: "Pineville kitchen remodeling by local experts. Carolina Place, Park Road & South Charlotte. Free estimates, Mecklenburg County permits handled. Call today!"
+  title: "Kitchen Remodeling Pineville NC | Cabinets & Counters ⭐5.0 | iFIXX"
+  description: "Kitchen remodeling — cabinets, countertops, backsplash in Pineville, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Pineville Homeowners Trust iFixx for Kitchen Remodeling

@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Drywall repair and interior work typically don't require HOA approval in Pineville communities. Any associated exterior work may have different requirements."
 
 seo:
-  title: "Drywall Repair & Installation Pineville NC | iFixx"
-  description: "Pineville drywall repair and installation. Hole repair, water damage, texture matching, ceiling repair. Carolina Place & South Charlotte. Free estimates!"
+  title: "Drywall Repair Pineville NC | Holes, Cracks & Texture ⭐5.0 | iFIXX"
+  description: "Drywall repair — holes, cracks, water damage, texture in Pineville, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Pineville Homeowners Trust iFixx for Drywall Services

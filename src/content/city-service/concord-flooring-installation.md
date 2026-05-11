@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Some Concord condos and townhomes have flooring restrictions for noise control (requiring certain underlayment or prohibiting hard flooring above first floor). Check your HOA rules before selecting flooring."
 
 seo:
-  title: "Flooring Installation Concord NC | LVP, Tile, Hardwood | iFixx"
-  description: "Concord flooring installation: LVP, laminate, tile, hardwood. Professional installation in Christenbury, Harrisburg, Afton Village. Call (980) 391-6833."
+  title: "Flooring Installation Concord NC | Hardwood, LVP & Tile | iFIXX"
+  description: "Flooring installation — hardwood, LVP, tile, refinishing in Concord, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Flooring Installation for Concord Homes

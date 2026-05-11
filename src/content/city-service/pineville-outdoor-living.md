@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Most Pineville HOAs require architectural approval for outdoor structures like decks, pergolas, and screen porches. We assist with HOA submissions and work within community guidelines."
 
 seo:
-  title: "Outdoor Living Pineville NC | Decks, Pergolas, Screen Porches | iFixx"
-  description: "Pineville outdoor living construction. Decks, pergolas, screen porches, outdoor kitchens. Permits handled, HOA assistance. Free estimates. Call (980) 391-6833."
+  title: "Outdoor Living Pineville NC | Decks, Patios & Pergolas | iFIXX"
+  description: "Outdoor living — decks, patios, pergolas, fencing in Pineville, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Create Your Perfect Outdoor Living Space in Pineville

@@ -42,8 +42,8 @@ localInfo:
   hoaConsiderations: "Interior electrical fixture work typically doesn't require HOA approval. Exterior lighting changes in Union County communities may need review."
 
 seo:
-  title: "Electrical Fixture Installation Waxhaw NC | Union County | iFixx"
-  description: "Waxhaw electrical fixture installation. Ceiling fans, chandeliers, recessed lighting, outlets. Serving Union County. Fully insured, free estimates."
+  title: "Electrical Fixtures Waxhaw NC | Outlets, Switches & Lights | iFIXX"
+  description: "Electrical fixtures — outlets, switches, ceiling fans, lights in Waxhaw, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Quality Electrical Fixture Services in Waxhaw

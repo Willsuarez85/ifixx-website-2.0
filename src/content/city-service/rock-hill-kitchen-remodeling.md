@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Many Rock Hill HOAs (especially in Tega Cay, Fort Mill, and Lake Wylie communities) require architectural review for exterior changes and sometimes interior work that affects common systems. We help navigate HOA requirements as part of our service."
 
 seo:
-  title: "Kitchen Remodeling Rock Hill SC | Lake Wylie & York County | iFixx"
-  description: "Rock Hill kitchen remodeling by Charlotte's trusted team. Lake Wylie, Tega Cay, Fort Mill & York County. Free estimates, SC permits handled. Call today!"
+  title: "Kitchen Remodeling Rock Hill SC | Cabinets & Counters ⭐5.0 | iFIXX"
+  description: "Kitchen remodeling — cabinets, countertops, backsplash in Rock Hill, SC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Rock Hill Homeowners Trust iFixx for Kitchen Remodeling

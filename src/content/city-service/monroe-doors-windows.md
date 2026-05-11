@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Some Monroe subdivisions have requirements for exterior door and window styles. We recommend checking HOA guidelines before making changes."
 
 seo:
-  title: "Door & Window Services Monroe NC | Installation & Repair | iFixx"
-  description: "Monroe door and window services. Installation, repair, glass replacement, weatherstripping. Serving Union County. Quality work, fair pricing. Free estimates!"
+  title: "Door & Window Repair Monroe NC | Frames, Locks & Glass | iFIXX"
+  description: "Door & window repair — frames, locks, glass, weatherproofing in Monroe, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Monroe Door & Window Services

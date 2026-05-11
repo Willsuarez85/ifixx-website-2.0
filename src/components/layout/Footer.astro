@@ -33,7 +33,24 @@ const serviceAreas = [
   { name: 'Mint Hill, NC', href: '/service-areas/mint-hill' },
   { name: 'Pineville, NC', href: '/service-areas/pineville' },
   { name: 'Monroe, NC', href: '/service-areas/monroe' },
+  { name: 'Concord, NC', href: '/service-areas/concord' },
   { name: 'Rock Hill, SC', href: '/service-areas/rock-hill' }
+];
+
+// Pilar 7 — Popular Local Services (sitewide link equity to high-impression hyperlocal URLs)
+const popularLocalServices = [
+  { label: 'Outdoor Living Charlotte',      href: '/charlotte/outdoor-living' },
+  { label: 'Quick-Fix Handyman Charlotte',  href: '/charlotte/quick-fix' },
+  { label: 'Carpentry Charlotte',           href: '/charlotte/carpentry' },
+  { label: 'Carpentry Ballantyne',          href: '/ballantyne/carpentry' },
+  { label: 'Flooring Ballantyne',           href: '/ballantyne/flooring-installation' },
+  { label: 'Carpentry Matthews',            href: '/matthews/carpentry' },
+  { label: 'Plumbing Repair Monroe',        href: '/monroe/plumbing' },
+  { label: 'Carpentry Rock Hill',           href: '/rock-hill/carpentry' },
+  { label: 'Plumbing Repair Rock Hill',     href: '/rock-hill/plumbing' },
+  { label: 'Flooring Installation Pineville', href: '/pineville/flooring-installation' },
+  { label: 'Carpentry Mint Hill',           href: '/mint-hill/carpentry' },
+  { label: 'Outdoor Living Waxhaw',         href: '/waxhaw/outdoor-living' }
 ];
 
 const phoneNumber = '(980) 391-6833';
@@ -165,6 +182,23 @@ const socialLinks = [
           ))}
         </ul>
       </div>
+    </div>
+
+    <!-- Popular Local Services (Pilar 7 — sitewide internal linking) -->
+    <div class="mt-12 pt-8 border-t border-neutral-700">
+      <h4 class="text-white font-heading font-semibold text-base mb-4">Popular Local Services</h4>
+      <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-2">
+        {popularLocalServices.map((svc) => (
+          <li>
+            <a
+              href={svc.href}
+              class="text-neutral-400 hover:text-white transition-colors text-sm"
+            >
+              {svc.label}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   </div>
 

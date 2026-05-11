@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Interior TV mounting doesn't require HOA approval. Outdoor mounting on visible exterior walls might need architectural approval in some Ballantyne communities."
 
 seo:
-  title: "TV Mounting Ballantyne NC | Above Fireplace | Hidden Cables | iFixx"
-  description: "Professional TV mounting in Ballantyne. Stone fireplace specialists. Hidden cable options. 55\"-85\"+ TVs. Piper Glen, Providence Plantation. Free estimates!"
+  title: "TV Mounting Ballantyne NC | Cable Concealment & Soundbars | iFIXX"
+  description: "TV mounting — wall mounts, cable concealment, soundbars in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## TV Mounting in Ballantyne

@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Many Charlotte HOAs (especially in Ballantyne, Tega Cay, and South Charlotte communities) require architectural review for exterior changes and sometimes interior work that affects common systems. We help navigate HOA requirements as part of our service."
 
 seo:
-  title: "Kitchen Remodeling Charlotte NC | 150+ Projects | iFixx"
-  description: "Charlotte kitchen remodeling by local experts. 150+ Queen City projects completed. Myers Park, Dilworth, South Charlotte & more. Free estimates, Mecklenburg permits handled."
+  title: "Kitchen Remodeling Charlotte NC | Cabinets & Counters ⭐5.0 | iFIXX"
+  description: "Kitchen remodeling — cabinets, countertops, backsplash in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Charlotte Homeowners Trust iFixx for Kitchen Remodeling

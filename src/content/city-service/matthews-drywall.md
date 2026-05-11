@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Interior drywall repair doesn't require HOA approval."
 
 seo:
-  title: "Drywall Repair Matthews NC | Same-Day Service | Texture Match | iFixx"
-  description: "Matthews drywall repair. Holes, cracks, water damage. Serving downtown Matthews, Weddington, Stallings. Same-day service available. Free estimates!"
+  title: "Drywall Repair Matthews NC | Holes, Cracks & Texture ⭐5.0 | iFIXX"
+  description: "Drywall repair — holes, cracks, water damage, texture in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Matthews Drywall Repair Services

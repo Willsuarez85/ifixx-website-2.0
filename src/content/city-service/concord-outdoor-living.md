@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Most Concord HOAs in communities like Christenbury, Skybrook, and Weddington Trace have specific requirements for fences (material, color, style) and outdoor structures. Always check with your HOA before starting."
 
 seo:
-  title: "Outdoor Living Concord NC | Decks, Fences, Screen Porches | iFixx"
-  description: "Concord outdoor living: deck repair, fence installation, screen porches. Christenbury, Harrisburg, Afton Village. Call (980) 391-6833."
+  title: "Outdoor Living Concord NC | Decks, Patios & Pergolas ⭐5.0 | iFIXX"
+  description: "Outdoor living — decks, patios, pergolas, fencing in Concord, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Outdoor Living Services for Concord Homes

@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "TV mounting is interior work and doesn't require HOA approval."
 
 seo:
-  title: "TV Mounting Pineville NC | Wire Concealment | Same Day | iFixx"
-  description: "Pineville TV mounting services. All sizes, wire concealment, fireplace mounting. 120+ installs completed. Same-day service available. Call (980) 391-6833."
+  title: "TV Mounting Pineville NC | Cable Concealment & Soundbars | iFIXX"
+  description: "TV mounting — wall mounts, cable concealment, soundbars in Pineville, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional TV Mounting Services in Pineville

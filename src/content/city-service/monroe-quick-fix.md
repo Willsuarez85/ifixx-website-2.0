@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Interior quick fix repairs don't require HOA approval in Monroe subdivisions."
 
 seo:
-  title: "Quick Fix Handyman Monroe NC | Same-Day Service | iFixx"
-  description: "Monroe quick fix handyman services. Tackle your to-do list in one visit. Faucets, doors, caulking, small repairs. Same-day in Union County. Fair hourly rates!"
+  title: "Quick-Fix Handyman Monroe NC | Same-Day Small Repairs ⭐5.0 | iFIXX"
+  description: "Same-day handyman — small repairs, no minimum, fast response in Monroe, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Monroe Quick Fix Handyman Service

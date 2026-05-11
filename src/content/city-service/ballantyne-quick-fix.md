@@ -39,8 +39,8 @@ localInfo:
   hoaConsiderations: "Interior Quick Fix repairs don't require Ballantyne HOA approval. Minor exterior items like mailbox repair may have HOA specifications we can follow."
 
 seo:
-  title: "Quick Fix Handyman Ballantyne NC | Small Repairs | iFixx"
-  description: "Quick Fix handyman service in Ballantyne NC. Small repairs, fixtures, door fixes. Same-day service in Ballantyne Country Club, Ardrey Kell, Providence. Call today!"
+  title: "Quick-Fix Handyman Ballantyne NC | Same-Day Small Repairs | iFIXX"
+  description: "Same-day handyman — small repairs, no minimum, fast response in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Quick Fix Handyman Service in Ballantyne, NC

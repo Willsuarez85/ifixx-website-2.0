@@ -35,8 +35,8 @@ localInfo:
   hoaConsiderations: "Interior electrical fixture work doesn't require HOA approval. External lighting changes might need architectural approval in some South Charlotte communities."
 
 seo:
-  title: "Electrical Fixture Repair Charlotte NC | Outlets, Switches, Ceiling Fans | iFixx"
-  description: "Charlotte outlet and switch replacement. Ceiling fan installation. Light fixture upgrades. Same-day service. No panel work—fixture-level repairs only. Free estimates!"
+  title: "Electrical Fixtures Charlotte NC ⭐5.0 (87★) | iFIXX"
+  description: "Electrical fixtures — outlets, switches, ceiling fans, lights in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Charlotte Electrical Fixture Services

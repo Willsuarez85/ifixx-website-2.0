@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Most Matthews HOAs don't restrict basic fixture repairs."
 
 seo:
-  title: "Faucet Repair Matthews NC | Leaky Faucet Fix | Same-Day | iFIXX"
-  description: "Leaky faucet in Matthews? Running toilet? Same-day fixture repairs — no plumber needed. Serving Matthews, Stallings, Indian Trail. Call (980) 391-6833"
+  title: "Plumbing Repair Matthews NC | Faucets, Drains & Toilets | iFIXX"
+  description: "Plumbing repair — faucets, drains, toilets, disposals in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Faucet & Fixture Repair in Matthews

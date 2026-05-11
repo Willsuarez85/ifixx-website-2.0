@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Flooring choices in Monroe condos and townhomes may have HOA restrictions, particularly regarding noise and hard surfaces. We recommend checking requirements before selection."
 
 seo:
-  title: "Flooring Installation Monroe NC | LVP, Hardwood, Tile | iFixx"
-  description: "Monroe flooring installation by local experts. Luxury vinyl plank, laminate, hardwood, tile. Serving Union County. Quality installation, fair pricing!"
+  title: "Flooring Installation Monroe NC | Hardwood, LVP & Tile | iFIXX"
+  description: "Flooring installation — hardwood, LVP, tile, refinishing in Monroe, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Monroe Flooring Installation Services

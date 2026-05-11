@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Some Matthews and Stallings neighborhoods have HOAs with guidelines for outdoor construction. Requirements vary—we can help review your community's rules during design."
 
 seo:
-  title: "Outdoor Living Matthews NC | Decks, Firepits, Patios | iFixx"
-  description: "Custom outdoor living in Matthews NC. Decks, firepits, patios, pergolas. Downtown Matthews, Stallings, Indian Trail. Permits handled. Free estimates."
+  title: "Outdoor Living Matthews NC | Decks, Patios & Pergolas ⭐5.0 | iFIXX"
+  description: "Outdoor living — decks, patios, pergolas, fencing in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Custom Outdoor Living Spaces in Matthews, NC

@@ -35,8 +35,8 @@ localInfo:
   hoaConsiderations: "Basement finishing typically doesn't require HOA approval as it's interior work, but some HOAs want notification of major renovations."
 
 seo:
-  title: "Basement Finishing Mint Hill NC | Complete Buildouts | iFixx"
-  description: "Professional basement finishing in Mint Hill. Framing, drywall, bathrooms, flooring. Serving Olde Sycamore, Bain Creek & all Mint Hill. Free estimates!"
+  title: "Basement Finishing Mint Hill NC | Custom Living Spaces | iFIXX"
+  description: "Basement finishing — egress, framing, drywall, flooring in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Transform Your Mint Hill Basement

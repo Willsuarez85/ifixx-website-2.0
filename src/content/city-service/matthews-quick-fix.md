@@ -39,8 +39,8 @@ localInfo:
   hoaConsiderations: "Interior Quick Fix repairs don't require HOA approval. Minor exterior items may have community specifications we can follow."
 
 seo:
-  title: "Quick Fix Handyman Matthews NC | Small Repairs | iFixx"
-  description: "Quick Fix handyman service in Matthews NC. Small repairs, fixtures, door fixes. Same-day service in Downtown Matthews, Stallings, Indian Trail. Call today!"
+  title: "Quick-Fix Handyman Matthews NC | Same-Day Small Repairs | iFIXX"
+  description: "Same-day handyman — small repairs, no minimum, fast response in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Quick Fix Handyman Service in Matthews, NC

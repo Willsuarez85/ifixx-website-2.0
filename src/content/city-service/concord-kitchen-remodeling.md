@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Many Concord HOAs (especially in Christenbury, Skybrook, and Afton Village) require architectural review for exterior changes. We help navigate HOA requirements as part of our service."
 
 seo:
-  title: "Kitchen Remodeling Concord NC | Cabarrus County | iFixx"
-  description: "Concord kitchen remodeling by local experts. Serving Afton Village, Harrisburg, Kannapolis & Cabarrus County. Free estimates, honest pricing, quality craftsmanship."
+  title: "Kitchen Remodeling Concord NC | Cabinets & Counters ⭐5.0 | iFIXX"
+  description: "Kitchen remodeling — cabinets, countertops, backsplash in Concord, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Concord Homeowners Trust iFixx for Kitchen Remodeling

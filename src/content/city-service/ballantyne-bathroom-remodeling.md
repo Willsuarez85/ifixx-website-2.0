@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Interior bathroom remodels in Ballantyne communities typically don't require HOA approval. If your project involves exterior venting changes, we can help coordinate any needed approvals with your HOA."
 
 seo:
-  title: "Bathroom Remodeling Ballantyne NC | Spa-Like Designs | iFixx"
-  description: "Ballantyne bathroom remodeling with luxury materials and spa features. Ballantyne Country Club, Piper Glen, Blakeney. Premium quality, free estimates!"
+  title: "Bathroom Remodeling Ballantyne NC | Tubs, Tile & Vanity | iFIXX"
+  description: "Bathroom remodeling — tubs, tile, vanities, plumbing in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Ballantyne's Luxury Bathroom Remodeling Experts

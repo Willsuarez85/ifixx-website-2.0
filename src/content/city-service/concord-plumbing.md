@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Interior plumbing fixture work doesn't require HOA approval."
 
 seo:
-  title: "Plumbing Fixture Repair Concord NC | Faucets & Toilets | iFixx"
-  description: "Plumbing fixture repair in Concord NC. Faucets, toilets, garbage disposals. Serving Afton Village, Harrisburg, Kannapolis & Cabarrus County. Insured, free estimates!"
+  title: "Plumbing Repair Concord NC | Faucets, Drains & Toilets | iFIXX"
+  description: "Plumbing repair — faucets, drains, toilets, disposals in Concord, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Concord Homeowners Trust iFixx for Plumbing Fixtures

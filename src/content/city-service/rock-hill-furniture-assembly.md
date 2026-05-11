@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Interior furniture assembly doesn't require HOA approval."
 
 seo:
-  title: "Furniture Assembly Rock Hill SC | IKEA, Wayfair & More | iFixx"
-  description: "Furniture assembly in Rock Hill SC. IKEA, Wayfair, Amazon, exercise equipment. Fast, affordable, done right. Lake Wylie, Tega Cay. Call (980) 391-6833."
+  title: "Furniture Assembly Rock Hill SC | IKEA, Wayfair & More | iFIXX"
+  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Rock Hill, SC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Furniture Assembly in Rock Hill

@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Some Matthews neighborhoods have HOA guidelines for exterior colors. If your community has an HOA, check their requirements before selecting colors. We can help you work within HOA guidelines while achieving your vision."
 
 seo:
-  title: "Painting Services Matthews NC | Interior & Exterior | iFixx"
-  description: "Matthews painting experts. 60+ local projects. Interior & exterior. Premium paints, fair prices. Downtown Matthews, Weddington. Free estimates!"
+  title: "Painting Matthews NC | Interior, Exterior & Cabinets ⭐5.0 | iFIXX"
+  description: "Painting — interior, exterior, trim, cabinets, color consult in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Quality Painting for Matthews Homes

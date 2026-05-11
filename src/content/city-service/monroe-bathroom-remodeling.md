@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Some Monroe subdivisions and Lake Park communities have HOA requirements. We help navigate these when they apply to your project."
 
 seo:
-  title: "Bathroom Remodeling Monroe NC | Union County | iFixx"
-  description: "Monroe bathroom remodeling by local experts. Serving Downtown Monroe, Wingate, Lake Park & Union County. Walk-in showers, vanities, tile work. Free estimates!"
+  title: "Bathroom Remodeling Monroe NC | Tubs, Tile & Vanity ⭐5.0 | iFIXX"
+  description: "Bathroom remodeling — tubs, tile, vanities, plumbing in Monroe, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Monroe Homeowners Trust iFixx for Bathroom Remodeling

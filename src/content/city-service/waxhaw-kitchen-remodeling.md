@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Many Union County HOAs in Marvin, Weddington, and Wesley Chapel require architectural review for certain projects. Historic Downtown Waxhaw may have additional guidelines. We help navigate these requirements."
 
 seo:
-  title: "Kitchen Remodeling Waxhaw NC | Union County | iFixx"
-  description: "Waxhaw kitchen remodeling by local experts. Serving Marvin, Wesley Chapel, Weddington & Union County. Quality craftsmanship, free estimates."
+  title: "Kitchen Remodeling Waxhaw NC | Cabinets & Counters ⭐5.0 | iFIXX"
+  description: "Kitchen remodeling — cabinets, countertops, backsplash in Waxhaw, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Waxhaw Homeowners Trust iFixx for Kitchen Remodeling

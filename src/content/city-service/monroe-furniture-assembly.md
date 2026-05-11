@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Furniture assembly doesn't require HOA approval. Outdoor structures like sheds or playsets may need review in some Monroe subdivisions."
 
 seo:
-  title: "Furniture Assembly Monroe NC | IKEA, Office, Bedroom | iFixx"
-  description: "Professional furniture assembly in Monroe NC. IKEA, office furniture, beds, exercise equipment. Serving Union County. Fast service, fair pricing!"
+  title: "Furniture Assembly Monroe NC | IKEA, Wayfair & More ⭐5.0 | iFIXX"
+  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Monroe, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Monroe Furniture Assembly Services

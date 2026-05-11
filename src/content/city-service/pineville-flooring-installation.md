@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Flooring is interior work and typically doesn't require HOA approval. Some townhome HOAs have noise requirements that may influence material choices—we can advise."
 
 seo:
-  title: "Flooring Installation Pineville NC | LVP, Hardwood, Tile | iFixx"
-  description: "Pineville flooring installation. Luxury vinyl plank, hardwood, tile, carpet. 85+ projects completed. Free estimates, quality installation. Call (980) 391-6833."
+  title: "Flooring Installation Pineville NC | Hardwood, LVP & Tile | iFIXX"
+  description: "Flooring installation — hardwood, LVP, tile, refinishing in Pineville, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Flooring Installation in Pineville

@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Interior drywall work typically doesn't require HOA approval."
 
 seo:
-  title: "Drywall Repair Concord NC | Texture Matching | iFixx"
-  description: "Drywall repair and installation in Concord NC. Holes, water damage, texture matching, popcorn removal. Serving Afton Village, Harrisburg, Kannapolis. Free estimates!"
+  title: "Drywall Repair Concord NC | Holes, Cracks & Texture ⭐5.0 | iFIXX"
+  description: "Drywall repair — holes, cracks, water damage, texture in Concord, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Concord Homeowners Trust iFixx for Drywall

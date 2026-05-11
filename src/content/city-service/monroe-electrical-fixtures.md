@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Interior electrical fixture work rarely requires HOA approval. Exterior lighting changes may need review in some Monroe subdivisions."
 
 seo:
-  title: "Electrical Fixtures Monroe NC | Ceiling Fans & Lighting | iFixx"
-  description: "Monroe electrical fixture installation. Ceiling fans, light fixtures, outlets, switches. Serving Union County. Insured, fair pricing. Same-day service available!"
+  title: "Electrical Fixtures Monroe NC | Outlets, Switches & Lights | iFIXX"
+  description: "Electrical fixtures — outlets, switches, ceiling fans, lights in Monroe, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Monroe Electrical Fixture Services

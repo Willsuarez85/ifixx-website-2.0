@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Most Ballantyne HOAs (including Ballantyne Country Club, Piper Glen, and Providence Plantation) don't require approval for interior kitchen work. However, if your project involves exterior changes like window additions or range hood venting, you'll likely need HOA architectural approval. We can help coordinate this process."
 
 seo:
-  title: "Kitchen Remodeling Ballantyne NC | 50+ Projects | iFixx"
-  description: "Ballantyne kitchen remodeling with premium materials and craftsmanship. Piper Glen, Ballantyne Country Club, Blakeney. HOA experience. Free estimates!"
+  title: "Kitchen Remodeling Ballantyne NC | Cabinets & Counters | iFIXX"
+  description: "Kitchen remodeling — cabinets, countertops, backsplash in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Ballantyne's Premium Kitchen Remodeling Team

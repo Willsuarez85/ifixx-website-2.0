@@ -33,8 +33,8 @@ localInfo:
   hoaConsiderations: "Interior drywall repair doesn't require HOA approval. Our work trucks are clean and professional—we won't embarrass you with the neighbors."
 
 seo:
-  title: "Drywall Repair Ballantyne NC | Same-Day Service | Texture Match | iFixx"
-  description: "Ballantyne drywall repair experts. Holes, cracks, water damage, nail pops. Serving Piper Glen, Providence Plantation & all Ballantyne. Free estimates!"
+  title: "Drywall Repair Ballantyne NC | Holes, Cracks & Texture | iFIXX"
+  description: "Drywall repair — holes, cracks, water damage, texture in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Ballantyne Drywall Repair Services

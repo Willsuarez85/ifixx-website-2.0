@@ -42,8 +42,8 @@ localInfo:
   hoaConsiderations: "Furniture assembly is interior work and doesn't involve HOA requirements."
 
 seo:
-  title: "Furniture Assembly Waxhaw NC | IKEA & All Brands | iFixx"
-  description: "Waxhaw furniture assembly services. IKEA, Wayfair, Amazon & all brands. Fast, professional assembly. Serving Union County. Free quotes."
+  title: "Furniture Assembly Waxhaw NC | IKEA, Wayfair & More ⭐5.0 | iFIXX"
+  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Waxhaw, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Fast, Professional Furniture Assembly in Waxhaw

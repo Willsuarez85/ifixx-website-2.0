@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Interior quick fixes don't require HOA notification. Exterior items (like house numbers or mailbox posts) may have HOA specifications in some Concord communities."
 
 seo:
-  title: "Handyman Quick Fixes Concord NC | No Job Too Small | iFixx"
-  description: "Concord quick fixes: small repairs, picture hanging, honey-do lists. Same-day service, no job too small. Christenbury, Harrisburg. Call (980) 391-6833."
+  title: "Quick-Fix Handyman Concord NC | Same-Day Small Repairs | iFIXX"
+  description: "Same-day handyman — small repairs, no minimum, fast response in Concord, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Quick Fix Handyman Services for Concord Homes

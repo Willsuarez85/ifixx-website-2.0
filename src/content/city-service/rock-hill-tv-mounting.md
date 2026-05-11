@@ -39,8 +39,8 @@ localInfo:
   hoaConsiderations: "Interior TV mounting doesn't require HOA approval. Exterior mounting (covered patios) may require approval in some Tega Cay and Lake Wylie communities."
 
 seo:
-  title: "TV Mounting Rock Hill SC | Hide Wires & Same-Day Service | iFixx"
-  description: "Professional TV mounting in Rock Hill SC. Hidden wires, fireplace mounting, same-day service. Lake Wylie, Tega Cay, Fort Mill. Call (980) 391-6833."
+  title: "TV Mounting Rock Hill SC | Cable Concealment & Soundbars | iFIXX"
+  description: "TV mounting — wall mounts, cable concealment, soundbars in Rock Hill, SC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional TV Mounting in Rock Hill

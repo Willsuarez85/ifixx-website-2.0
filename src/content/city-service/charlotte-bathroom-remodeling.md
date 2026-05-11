@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Many Charlotte condos and HOAs require written approval before bathroom renovations, especially work involving plumbing or waterproofing. We help coordinate with your HOA or building management as part of our service."
 
 seo:
-  title: "Bathroom Remodeling Charlotte NC | From $5,000 | 200+ Projects | iFIXX"
-  description: "Bathroom remodeling in Charlotte from $5,000. Walk-in showers, vanities, tile, full renovations. 200+ bathrooms completed. Free estimates. (980) 391-6833"
+  title: "Bathroom Remodeling Charlotte NC | Tubs, Tile & Vanity | iFIXX"
+  description: "Bathroom remodeling — tubs, tile, vanities, plumbing in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Charlotte's Trusted Bathroom Remodeling Team

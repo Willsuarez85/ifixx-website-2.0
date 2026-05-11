@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Interior flooring changes don't require HOA approval. Some condo associations have noise requirements for flooring above ground-floor units—we can advise on appropriate underlayment."
 
 seo:
-  title: "Flooring Installation Rock Hill SC | LVP, Hardwood, Tile | iFixx"
-  description: "Professional flooring installation in Rock Hill SC. LVP, hardwood, tile, laminate. Lake Wylie, Tega Cay, Fort Mill. Free estimates. Call (980) 391-6833."
+  title: "Flooring Installation Rock Hill SC | Hardwood, LVP & Tile | iFIXX"
+  description: "Flooring installation — hardwood, LVP, tile, refinishing in Rock Hill, SC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Flooring Installation in Rock Hill

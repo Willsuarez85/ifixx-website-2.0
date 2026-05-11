@@ -39,8 +39,8 @@ localInfo:
   hoaConsiderations: "Exterior carpentry work (deck repairs, fence modifications) may require HOA approval in Tega Cay, Lake Wylie, and Fort Mill communities. Check before starting visible exterior projects."
 
 seo:
-  title: "Carpentry Services Rock Hill SC | Deck Repair & Trim Work | iFixx"
-  description: "Professional carpentry in Rock Hill SC. Deck repair, trim installation, custom built-ins, wood rot repair. Lake Wylie, Tega Cay, Fort Mill. Call (980) 391-6833."
+  title: "Carpentry Rock Hill SC | Custom Trim & Built-Ins ⭐5.0 | iFIXX"
+  description: "Carpentry — built-ins, trim, crown molding, shelving in Rock Hill, SC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Carpentry Services in Rock Hill

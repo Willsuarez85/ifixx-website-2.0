@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Plumbing repairs are interior work and typically don't require HOA approval in Union County communities."
 
 seo:
-  title: "Plumbing Fixture Repair Waxhaw NC | Union County | iFixx"
-  description: "Waxhaw plumbing fixture repair and installation. Faucets, toilets, garbage disposals, water heaters. Serving Union County. Fully insured, free estimates."
+  title: "Plumbing Repair Waxhaw NC | Faucets, Drains & Toilets ⭐5.0 | iFIXX"
+  description: "Plumbing repair — faucets, drains, toilets, disposals in Waxhaw, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Reliable Plumbing Fixture Services in Waxhaw

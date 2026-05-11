@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Basement finishing is interior work and typically doesn't require HOA approval. Some HOAs may have restrictions on basement apartments or rental use."
 
 seo:
-  title: "Basement Finishing Pineville NC | Full Conversions | iFixx"
-  description: "Pineville basement finishing. Transform unused space into living area. Bathrooms, home theaters, family rooms. Permits handled. Free consultation. Call (980) 391-6833."
+  title: "Basement Finishing Pineville NC | Custom Living Spaces | iFIXX"
+  description: "Basement finishing — egress, framing, drywall, flooring in Pineville, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Transform Your Pineville Basement into Living Space

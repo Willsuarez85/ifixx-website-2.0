@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Interior TV mounting doesn't require HOA approval. Outdoor TV installations may need review in some communities."
 
 seo:
-  title: "TV Mounting Concord NC | Same-Day Service | iFixx"
-  description: "Professional TV mounting in Concord. Cable hiding, fireplace mounts, all sizes. Same-day service in Christenbury, Harrisburg, Afton Village. Call (980) 391-6833."
+  title: "TV Mounting Concord NC | Cable Concealment & Soundbars | iFIXX"
+  description: "TV mounting — wall mounts, cable concealment, soundbars in Concord, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional TV Mounting for Concord Homes

@@ -1,41 +1,106 @@
 ---
+// Pilar 7 — Internal Linking Restructure
+// 9 city cards × 3 popular service links each = 27 hyperlocal links from homepage
 const areas = [
   {
-    name: "Charlotte",
-    neighborhoods: "Myers Park, Dilworth, South End, NoDa, Plaza Midwood, Eastover, Foxcroft, Cotswold",
-    zip: "28207, 28203, 28209, 28210, 28212",
-    icon: "🏙️"
+    name: "Charlotte, NC",
+    slug: "charlotte",
+    neighborhoods: "Myers Park, Dilworth, NoDa, Plaza Midwood, Eastover, SouthPark",
+    icon: "🏙️",
+    popular: [
+      { label: "Outdoor Living", slug: "outdoor-living" },
+      { label: "Quick-Fix Handyman", slug: "quick-fix" },
+      { label: "Carpentry", slug: "carpentry" },
+    ],
+  },
+  {
+    name: "Ballantyne, NC",
+    slug: "ballantyne",
+    neighborhoods: "Ballantyne Country Club, Ardrey Kell, Providence",
+    icon: "🌳",
+    popular: [
+      { label: "Carpentry", slug: "carpentry" },
+      { label: "Flooring Installation", slug: "flooring-installation" },
+      { label: "Basement Finishing", slug: "basement-finishing" },
+    ],
   },
   {
     name: "Matthews, NC",
-    neighborhoods: "Matthews Township, Fullwood, Stallings, Mint Hill",
-    zip: "28105, 28104",
-    icon: "🏘️"
+    slug: "matthews",
+    neighborhoods: "Matthews Township, Fullwood, Stallings",
+    icon: "🏘️",
+    popular: [
+      { label: "Plumbing", slug: "plumbing" },
+      { label: "Carpentry", slug: "carpentry" },
+      { label: "Door & Window Repair", slug: "doors-windows" },
+    ],
   },
   {
-    name: "South Charlotte",
-    neighborhoods: "Ballantyne, Pineville, Carmel, Rea Farms, Providence",
-    zip: "28277, 28226, 28134",
-    icon: "🌳"
+    name: "Mint Hill, NC",
+    slug: "mint-hill",
+    neighborhoods: "Olde Sycamore, Bain Creek, Cheval",
+    icon: "🏡",
+    popular: [
+      { label: "Carpentry", slug: "carpentry" },
+      { label: "Door & Window Repair", slug: "doors-windows" },
+      { label: "Plumbing", slug: "plumbing" },
+    ],
   },
   {
-    name: "Huntersville, NC",
-    neighborhoods: "Birkdale, Gilead, Northstone, Vermillion",
-    zip: "28078",
-    icon: "🏡"
+    name: "Pineville, NC",
+    slug: "pineville",
+    neighborhoods: "Carolina Place, Park Crossing",
+    icon: "🌿",
+    popular: [
+      { label: "Plumbing", slug: "plumbing" },
+      { label: "Flooring Installation", slug: "flooring-installation" },
+      { label: "Carpentry", slug: "carpentry" },
+    ],
+  },
+  {
+    name: "Monroe, NC",
+    slug: "monroe",
+    neighborhoods: "Union County, Wesley Chapel",
+    icon: "🔧",
+    popular: [
+      { label: "Plumbing Repair", slug: "plumbing" },
+      { label: "Flooring Installation", slug: "flooring-installation" },
+      { label: "Carpentry", slug: "carpentry" },
+    ],
+  },
+  {
+    name: "Waxhaw, NC",
+    slug: "waxhaw",
+    neighborhoods: "Downtown Waxhaw, Marvin, Weddington",
+    icon: "🏞️",
+    popular: [
+      { label: "Outdoor Living", slug: "outdoor-living" },
+      { label: "Carpentry", slug: "carpentry" },
+      { label: "Flooring Installation", slug: "flooring-installation" },
+    ],
+  },
+  {
+    name: "Rock Hill, SC",
+    slug: "rock-hill",
+    neighborhoods: "Lake Wylie, Tega Cay, Fort Mill",
+    icon: "🌅",
+    popular: [
+      { label: "Plumbing Repair", slug: "plumbing" },
+      { label: "Flooring Installation", slug: "flooring-installation" },
+      { label: "Carpentry", slug: "carpentry" },
+    ],
   },
   {
     name: "Concord, NC",
+    slug: "concord",
     neighborhoods: "Harrisburg, Kannapolis, Midland",
-    zip: "28025, 28027",
-    icon: "🔧"
+    icon: "🏗️",
+    popular: [
+      { label: "Plumbing", slug: "plumbing" },
+      { label: "Electrical Fixtures", slug: "electrical-fixtures" },
+      { label: "Carpentry", slug: "carpentry" },
+    ],
   },
-  {
-    name: "Indian Trail, NC",
-    neighborhoods: "Waxhaw, Monroe, Wesley Chapel",
-    zip: "28079, 28173",
-    icon: "🌿"
-  }
 ];
 ---
 
@@ -56,10 +121,28 @@ const areas = [
         <div class="bg-white rounded-xl border border-neutral-200 p-6 hover:border-primary-400 transition-colors">
           <div class="flex items-center gap-3 mb-3">
             <span class="text-2xl">{area.icon}</span>
-            <h3 class="text-lg font-heading font-bold text-neutral-900">{area.name}</h3>
+            <h3 class="text-lg font-heading font-bold text-neutral-900">
+              <a href={`/service-areas/${area.slug}`} class="hover:text-primary-600 transition-colors">
+                {area.name}
+              </a>
+            </h3>
           </div>
-          <p class="text-sm text-neutral-600 mb-2">{area.neighborhoods}</p>
-          <p class="text-xs text-neutral-400">Zip codes: {area.zip}</p>
+          <p class="text-sm text-neutral-600 mb-4">{area.neighborhoods}</p>
+          <ul class="space-y-1.5">
+            {area.popular.map((svc) => (
+              <li>
+                <a
+                  href={`/${area.slug}/${svc.slug}`}
+                  class="text-sm text-primary-600 hover:text-primary-700 hover:underline inline-flex items-center gap-1"
+                >
+                  <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                  </svg>
+                  {svc.label} in {area.name.split(",")[0]}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       ))}
     </div>
@@ -68,9 +151,9 @@ const areas = [
     <div class="max-w-3xl mx-auto text-center">
       <p class="text-neutral-600 leading-relaxed">
         As Charlotte's trusted handyman service, iFIXX covers the full metro area —
-        from <strong>Uptown Charlotte</strong> to <strong>Ballantyne</strong>, from <strong>Matthews</strong> to <strong>Huntersville</strong>.
+        from <strong>Uptown Charlotte</strong> to <strong>Ballantyne</strong>, from <strong>Matthews</strong> to <strong>Rock Hill</strong>.
         Whether you need same-day drywall repair in Dilworth, outlet replacement in Myers Park,
-        ceiling fan installation in Ballantyne, or a full bathroom remodel in Matthews —
+        ceiling fan installation in Ballantyne, or a full bathroom remodel in Pineville —
         we're your local handyman in Charlotte, NC.
         Call or text <a href="tel:+19803916833" class="text-primary-600 font-semibold hover:underline">(980) 391-6833</a> for a free estimate.
       </p>

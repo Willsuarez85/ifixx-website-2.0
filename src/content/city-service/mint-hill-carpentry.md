@@ -35,8 +35,8 @@ localInfo:
   hoaConsiderations: "Exterior carpentry like decks and fences in some Mint Hill HOAs may require approval. Interior work typically doesn't require notification."
 
 seo:
-  title: "Carpentry Services Mint Hill NC | Trim & Custom Work | iFixx"
-  description: "Quality carpentry in Mint Hill. Crown molding, built-ins, trim, decks. Serving Clear Creek, Olde Sycamore & all Mint Hill. Fully insured!"
+  title: "Carpentry Mint Hill NC | Custom Trim & Built-Ins ⭐5.0 | iFIXX"
+  description: "Carpentry — built-ins, trim, crown molding, shelving in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Skilled Carpentry for Mint Hill Homes

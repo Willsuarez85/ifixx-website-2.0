@@ -42,7 +42,7 @@ localInfo:
 
 seo:
   title: "Carpentry Charlotte NC | Custom Trim & Built-Ins ⭐5.0 | iFIXX"
-  description: "Charlotte carpenters: crown molding, custom built-ins, trim & deck work. Dilworth & Myers Park specialists. ⭐5.0 (87★) Free estimate ☎ (980) 391-6833."
+  description: "Carpentry — built-ins, trim, crown molding, shelving in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Charlotte Homeowners Trust iFixx for Carpentry

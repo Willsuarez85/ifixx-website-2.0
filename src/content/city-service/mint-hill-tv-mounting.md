@@ -35,8 +35,8 @@ localInfo:
   hoaConsiderations: "Interior TV mounting doesn't require HOA approval in Mint Hill communities."
 
 seo:
-  title: "TV Mounting Mint Hill NC | Professional Installation | iFixx"
-  description: "Professional TV mounting in Mint Hill. All sizes, hidden cables, fireplace mounting. Serving Kuykendall, Bain Creek & all Mint Hill. Same-day available!"
+  title: "TV Mounting Mint Hill NC | Cable Concealment & Soundbars | iFIXX"
+  description: "TV mounting — wall mounts, cable concealment, soundbars in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional TV Mounting for Mint Hill Homes
