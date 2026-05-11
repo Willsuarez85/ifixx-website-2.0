@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Interior quick fix repairs don't typically require HOA approval. Exterior work like door replacement or fixture changes may require review in some Charlotte communities."
 
 seo:
-  title: "Quick Fix Handyman Charlotte NC | Same-Day Service | iFixx"
-  description: "Charlotte quick fix handyman - same day available. Fixture repair, door fixes, drywall, ceiling fans & more. Dilworth, Myers Park, Ballantyne, SouthPark. Insured, fast, affordable."
+  title: "Quick-Fix Handyman Charlotte NC | ⭐5.0 Same-Day | iFIXX"
+  description: "Charlotte handyman same-day: drywall, fixtures, doors, ceiling fans, TV mounts. Dilworth, Myers Park, Ballantyne. ⭐5.0 (87★) ☎ (980) 391-6833."
 ---
 
 ## Why Charlotte Homeowners Trust iFixx for Quick Fixes

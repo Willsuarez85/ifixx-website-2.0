@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Ballantyne Country Club, Providence Plantation, Piper Glen, and other Ballantyne HOAs require architectural review for outdoor additions. Requirements typically address materials, colors, size, and location. We coordinate with HOA requirements during design."
 
 seo:
-  title: "Outdoor Living Ballantyne NC | Decks, Outdoor Kitchens | iFixx"
-  description: "Custom outdoor living in Ballantyne NC. Decks, outdoor kitchens, pergolas, screen porches. Ballantyne Country Club, Ardrey Kell, Providence. HOA coordination. Free estimates."
+  title: "Decks & Outdoor Living Ballantyne NC | HOA-Savvy ⭐5.0 | iFIXX"
+  description: "Custom decks, pergolas, screened porches & outdoor kitchens in Ballantyne. HOA-savvy. ⭐5.0 (87★). Free design consult ☎ (980) 391-6833."
 ---
 
 ## Custom Outdoor Living Spaces in Ballantyne, NC

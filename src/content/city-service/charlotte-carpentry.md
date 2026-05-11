@@ -41,8 +41,8 @@ localInfo:
   hoaConsiderations: "Interior carpentry rarely requires HOA approval. Exterior work like decks may require architectural review in Charlotte communities with active HOAs, especially in Ballantyne and SouthPark areas."
 
 seo:
-  title: "Carpentry Services Charlotte NC | Trim & Custom Built-Ins | iFixx"
-  description: "Charlotte carpentry by local craftsmen. Custom trim, crown molding, built-ins, and deck work. Historic home specialists in Dilworth & Myers Park. Free estimates."
+  title: "Carpentry Charlotte NC | Custom Trim & Built-Ins ⭐5.0 | iFIXX"
+  description: "Charlotte carpenters: crown molding, custom built-ins, trim & deck work. Dilworth & Myers Park specialists. ⭐5.0 (87★) Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Charlotte Homeowners Trust iFixx for Carpentry

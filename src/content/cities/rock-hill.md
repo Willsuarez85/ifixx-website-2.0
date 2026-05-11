@@ -35,8 +35,8 @@ servicesHighlighted:
   - "electrical"
   - "painting"
 seo:
-  title: "Handyman & Remodeling Rock Hill SC | Same-Day Service | iFIXX"
-  description: "Rock Hill handyman & remodeling from Charlotte's trusted team. Lake Wylie, Tega Cay, Fort Mill. Same-day repairs, kitchen & bath remodels. Call (980) 391-6833"
+  title: "Handyman Rock Hill SC | Same-Day Repairs ⭐5.0 (87★) | iFIXX"
+  description: "Rock Hill, Lake Wylie, Tega Cay & Fort Mill: handyman + kitchen/bath remodels. ⭐5.0 (87 reviews). Free quote ☎ (980) 391-6833."
 ---
 
 Rock Hill and York County residents trust iFixx for professional handyman and remodeling services. We bring the same quality and reliability that Charlotte homeowners love.
