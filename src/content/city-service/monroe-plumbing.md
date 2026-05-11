@@ -37,8 +37,8 @@ localInfo:
   hoaConsiderations: "Most interior plumbing work doesn't require HOA approval. Exterior work like hose bibs may need review in some Monroe subdivisions."
 
 seo:
-  title: "Plumbing Fixture Repair Monroe NC | Same-Day Service | iFixx"
-  description: "Monroe plumbing fixture repair and installation. Faucets, toilets, drains, garbage disposals. Same-day service in Union County. Insured, fair pricing. Call today!"
+  title: "Plumbing Repair Monroe NC | Same-Day Faucet & Drain Fix | iFIXX"
+  description: "Monroe NC plumbing repair: leaky faucets, drains, garbage disposals, toilets. Same-day in Union County. ⭐5.0 (87★) Free estimate ☎ (980) 391-6833."
 ---
 
 ## Monroe Plumbing Fixture Services You Can Count On

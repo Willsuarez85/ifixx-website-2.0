@@ -36,8 +36,8 @@ localInfo:
   hoaConsiderations: "Some Charlotte HOAs have rules about exterior door colors and styles. Check your covenants before choosing a new exterior door. Interior doors are your business."
 
 seo:
-  title: "Door & Window Repair Charlotte NC | Locks, Hinges, Frames | iFixx"
-  description: "Charlotte door and window repair. Sticky doors, broken locks, window hardware. Same-day emergency service for security issues. Free estimates!"
+  title: "Door & Window Repair Charlotte | Sticky Doors, Broken Locks | iFIXX"
+  description: "Charlotte door & window repair: sticky doors, broken locks, hinges, weatherstripping. Same-day emergency for security. ⭐5.0 (87★) ☎ (980) 391-6833."
 ---
 
 ## Door and Window Repair in Charlotte

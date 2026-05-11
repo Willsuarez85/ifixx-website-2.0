@@ -10,8 +10,8 @@ tags:
   - "cost guide"
   - "home improvement"
 seo:
-  title: "How Much Does a Bathroom Remodel Cost in Charlotte NC? (2026)"
-  description: "Bathroom remodel cost in Charlotte NC: $8,000-$35,000 on average. 2026 pricing for showers, vanities, tile & full renovations. Free estimates. Call (980) 391-6833."
+  title: "Bathroom Remodel Cost Charlotte NC: $8,000–$35,000 (2026 Guide)"
+  description: "Bathroom remodel cost in Charlotte: $8,000–$35k. 2026 pricing for showers, tile, vanities + 5 ways to save 20%. Free quote ☎ (980) 391-6833."
 ---
 
 Thinking about remodeling your bathroom in Charlotte? The question on everyone's mind: **How much is this going to cost?**

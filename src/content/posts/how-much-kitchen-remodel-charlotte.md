@@ -10,8 +10,8 @@ tags:
   - "cost guide"
   - "home improvement"
 seo:
-  title: "How Much Does a Kitchen Remodel Cost in Charlotte NC? (2026)"
-  description: "Kitchen remodel cost in Charlotte NC: $8,500-$65,000+. 2026 pricing for cabinets, countertops, islands & full renovations. Free estimates. Call (980) 391-6833."
+  title: "Kitchen Remodel Cost Charlotte NC: $8,500–$65,000 (2026 Guide)"
+  description: "Kitchen remodel cost in Charlotte: $8,500–$65k. Real 2026 pricing for cabinets, countertops, islands & full renovations. Save 30% with this checklist."
 ---
 
 Planning a kitchen remodel in Charlotte? The first question everyone asks is: **How much is this going to cost?**
