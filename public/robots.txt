@@ -12,60 +12,66 @@ Crawl-delay: 1
 Disallow: /api/
 
 # ============================================
-# AI Training Bot Restrictions
-# These bots scrape content for AI training
+# AI Assistants & Answer Engines — ALLOWED
+# Strategy: AEO (Answer Engine Optimization)
+# We WANT to show up in AI answers. llms.txt provides
+# structured business info for grounded responses.
+# Updated: 2026-05-11
 # ============================================
 
-# OpenAI
+# OpenAI (ChatGPT browse + training)
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
 
-# Anthropic
+# Anthropic (Claude)
 User-agent: Claude-Web
-Disallow: /
+Allow: /
 
 User-agent: anthropic-ai
-Disallow: /
+Allow: /
 
-# Google AI
+User-agent: ClaudeBot
+Allow: /
+
+# Google AI (Gemini, AI Overviews)
 User-agent: Google-Extended
-Disallow: /
-
-# Common Crawl (used for AI training datasets)
-User-agent: CCBot
-Disallow: /
+Allow: /
 
 # Perplexity AI
 User-agent: PerplexityBot
-Disallow: /
+Allow: /
 
-# Cohere
-User-agent: cohere-ai
-Disallow: /
+# Common Crawl
+User-agent: CCBot
+Allow: /
 
 # Meta AI
 User-agent: FacebookBot
-Disallow: /
+Allow: /
 
 User-agent: Meta-ExternalAgent
-Disallow: /
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
 
 # Bytedance/TikTok
 User-agent: Bytespider
-Disallow: /
+Allow: /
 
 # Other AI scrapers
 User-agent: omgili
-Disallow: /
+Allow: /
 
 User-agent: Diffbot
-Disallow: /
+Allow: /
 
 User-agent: PetalBot
-Disallow: /
+Allow: /
 
 # ============================================
 # Sitemap Location
