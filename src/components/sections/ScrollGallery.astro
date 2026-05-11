@@ -101,6 +101,16 @@ const galleryImages: Record<string, { src: string; alt: string; category: string
     { src: '/images/services/pressure-washing/pw-07-v2.webp', alt: 'Professional pressure washing crew Charlotte NC', category: 'pressure-washing' },
     { src: '/images/services/pressure-washing/pw-08-v4.webp', alt: 'iFIXX pressure washing brick house Charlotte', category: 'pressure-washing' },
   ],
+  'window-repair': [
+    { src: '/images/projects/window-screen-rescreen-frame-repair-hero.webp', alt: 'Window screen rescreen and frame repair — Charlotte', category: 'window-repair' },
+    { src: '/images/projects/window-screen-frame-bent-repair-aluminum.webp', alt: 'Bent aluminum window frame repair — Charlotte', category: 'window-repair' },
+    { src: '/images/projects/storm-window-aluminum-latch-repair-charlotte-home.webp', alt: 'Storm window aluminum latch repair Charlotte home', category: 'window-repair' },
+    { src: '/images/projects/window-pane-glass-replacement-broken-residential.webp', alt: 'Broken window pane glass replacement residential — Charlotte', category: 'window-repair' },
+    { src: '/images/projects/window-screen-rescreen-mesh-spline-roller.webp', alt: 'Window screen rescreen with mesh and spline roller', category: 'window-repair' },
+    { src: '/images/projects/screen-door-sliding-track-roller-repair.webp', alt: 'Sliding screen door track and roller repair', category: 'window-repair' },
+    { src: '/images/projects/screen-patch-small-tear-repair-quick-fix.webp', alt: 'Window screen small tear patch repair', category: 'window-repair' },
+    { src: '/images/projects/porch-screen-rescreen-enclosure-hero.webp', alt: 'Porch screen rescreen enclosure — Charlotte', category: 'window-repair' },
+  ],
 };
 
 // Default/fallback images for all services
@@ -173,57 +183,4 @@ const displayImages = [...images, ...images];
     }
   }
 
-  /* Parallax effect on scroll */
-  @supports (animation-timeline: scroll()) {
-    .scroll-gallery-track {
-      animation: parallax-scroll linear;
-      animation-timeline: view();
-      animation-range: entry 0% exit 100%;
-    }
-
-    @keyframes parallax-scroll {
-      0% {
-        transform: translateX(10%);
-      }
-      100% {
-        transform: translateX(-10%);
-      }
-    }
-  }
 </style>
-
-<script>
-  // Fallback parallax effect for browsers without scroll-driven animations
-  const gallery = document.getElementById('scroll-gallery');
-  const track = gallery?.querySelector('.scroll-gallery-track') as HTMLElement;
-
-  if (gallery && track && !CSS.supports('animation-timeline', 'scroll()')) {
-    let ticking = false;
-
-    const updateParallax = () => {
-      const rect = gallery.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // Calculate how far through the viewport the element is
-      const progress = 1 - (rect.top + rect.height) / (windowHeight + rect.height);
-
-      // Only apply effect when element is in view
-      if (progress >= 0 && progress <= 1) {
-        const translateX = (progress - 0.5) * 20; // -10% to 10%
-        track.style.transform = `translateX(${translateX}%)`;
-      }
-
-      ticking = false;
-    };
-
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    }, { passive: true });
-
-    // Initial call
-    updateParallax();
-  }
-</script>
