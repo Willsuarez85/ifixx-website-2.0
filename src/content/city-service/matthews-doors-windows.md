@@ -2,30 +2,35 @@
 citySlug: "matthews"
 serviceSlug: "doors-windows"
 
-localIntro: "Matthews homes—from historic downtown properties to new construction in surrounding subdivisions—develop door and window issues over time. Doors that stick from settling, locks that don't work right, windows that won't stay open. We fix all of it with same-day service available for urgent security issues."
-
+localIntro: "Door won't close, frame rotted at the bottom, window foggy, lock loose, draft you can feel — Matthews's humidity and seasonal swings beat up doors and windows fast. And every day you wait costs you: higher energy bills from drafts, a home that doesn't feel secure, and a problem that only gets worse. iFIXX handles both sides: we repair what can be fixed (alignment, hardware, weather strip, rotted sections, screens) and replace what can't with a brand-new unit. We measure, you approve the quote, we pick it up at Home Depot or Lowe's, we install — usually 3-5 days door-to-door. Free estimate, text us a photo."
 projectHighlight:
   title: "Storm Door Installation"
   neighborhood: "Weddington"
   description: "A Weddington homeowner wanted a storm door added to their front entry for better insulation and to let light in while keeping bugs out. We installed a full-view storm door with retractable screen in about two hours. Clean installation, proper weathersealing, working perfectly."
 
 localBullets:
-  - "Door repair and adjustment"
-  - "Lock and hardware replacement"
-  - "Window hardware repair"
-  - "Storm door installation"
-  - "Weather stripping"
-  - "Pet door installation"
+  - "Door not closing, latching, or locking properly"
+  - "Rotted, split, or damaged door frame replacement"
+  - "Foggy, cracked, or leaking window replacement"
+  - "Drafts, humidity, or cold air around frames (energy waste)"
+  - "Broken lock or loose hardware (security risk)"
+  - "Entry, interior, patio, sliding & french doors"
+  - "Pre-hung door installation (we buy + install)"
+  - "Storm door, screen door & pocket door repair"
+  - "Single-hung, double-hung & casement window installation"
+  - "Weather stripping & humidity sealing"
 
 localFaqs:
-  - q: "How much does door repair cost in Matthews?"
-    a: "Simple adjustments: $75-125. Lock replacement: $100-175. Interior door replacement: $175-300. Same pricing as the greater Charlotte area."
-  - q: "Can you install a storm door in Matthews?"
-    a: "Yes—storm doors are popular in Matthews. We install full-view, retractable screen, and traditional storm doors. Budget $200-400 for installation plus the cost of your door."
-  - q: "My Matthews home's doors stick in summer. Can you fix that?"
-    a: "Humidity swells wood doors—very common in Matthews. We can plane doors to fit better during humid months. For severe cases, we might recommend replacing with a fiberglass door that doesn't swell."
-  - q: "Do you offer emergency service for door lock issues?"
-    a: "Yes—if your door won't lock, that's a security issue. We offer same-day service for Matthews residents with lock emergencies."
+  - q: "My door won't close — can you fix it or do I need a new one?"
+    a: "Usually we can fix it ($75-$175). Most 'won't close' issues are alignment (foundation settling) or swelling from humidity — we plane, shim, or realign and the door works again. If the frame is rotted, split, or beyond repair, we replace the full pre-hung unit instead."
+  - q: "Do you replace whole windows or just repair them?"
+    a: "Both. If the seal is broken (foggy glass), the frame is rotted, or it's beyond a simple fix, we pick up a new window at Home Depot or Lowe's that matches your opening and install it. If it's a hardware/balance/lock issue, we repair it ($50-$150 per window)."
+  - q: "How much does a replacement door cost installed?"
+    a: "Interior pre-hung doors run $300-$500 installed including the door from Home Depot. Exterior entry doors run $600-$1,200 installed depending on the unit you pick. We give you a quote first — no surprises."
+  - q: "My door lock is broken or loose — hardware fix or new door?"
+    a: "Usually hardware. We replace deadbolts, knobs, strike plates, and reinforce loose hinges starting at $75. If the door itself is split around the lock area (kicked-in damage or rot), we replace the slab or full pre-hung unit."
+  - q: "Can you do it same week?"
+    a: "Yes for most jobs. We measure, you approve the quote, we pick up the unit at Home Depot, and we install — usually 3-5 days door-to-door. Hardware-only repairs are often same day."
 
 localInfo:
   permits: "Door repair and most door replacement doesn't require permits in Matthews."

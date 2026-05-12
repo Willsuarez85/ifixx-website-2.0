@@ -2,32 +2,35 @@
 citySlug: "mint-hill"
 serviceSlug: "doors-windows"
 
-localIntro: "Mint Hill homes need reliable door and window services—from replacing worn weatherstripping to installing new entry doors and windows. Our team handles door and window projects throughout this growing Charlotte suburb, from established homes near downtown to newer developments like Cheval and Olde Sycamore. Whether you need a new front door in Bain Creek or window replacements in Clear Creek, we deliver quality installation and improved energy efficiency."
-
+localIntro: "Door won't close, frame rotted at the bottom, window foggy, lock loose, draft you can feel — Mint Hill's humidity and seasonal swings beat up doors and windows fast. And every day you wait costs you: higher energy bills from drafts, a home that doesn't feel secure, and a problem that only gets worse. iFIXX handles both sides: we repair what can be fixed (alignment, hardware, weather strip, rotted sections, screens) and replace what can't with a brand-new unit. We measure, you approve the quote, we pick it up at Home Depot or Lowe's, we install — usually 3-5 days door-to-door. Free estimate, text us a photo."
 projectHighlight:
   title: "Bain Creek Entry Door Upgrade"
   neighborhood: "Bain Creek"
   description: "A Mint Hill family wanted to improve their home's curb appeal and security with a new entry door. We removed the old hollow-core door, installed a fiberglass entry door with decorative glass, added new weatherstripping and hardware, and ensured a perfect seal. We also installed a new smart lock for keyless entry. The result? A beautiful, secure entry that transformed the home's appearance."
 
 localBullets:
-  - "Door and window installation throughout Mint Hill"
-  - "Interior and exterior door replacement"
-  - "Window installation and replacement"
-  - "Weatherstripping and seal repairs"
-  - "Hardware upgrades including smart locks"
-  - "Fully insured with experienced installers"
+  - "Door not closing, latching, or locking properly"
+  - "Rotted, split, or damaged door frame replacement"
+  - "Foggy, cracked, or leaking window replacement"
+  - "Drafts, humidity, or cold air around frames (energy waste)"
+  - "Broken lock or loose hardware (security risk)"
+  - "Entry, interior, patio, sliding & french doors"
+  - "Pre-hung door installation (we buy + install)"
+  - "Storm door, screen door & pocket door repair"
+  - "Single-hung, double-hung & casement window installation"
+  - "Weather stripping & humidity sealing"
 
 localFaqs:
-  - q: "How much does door installation cost in Mint Hill?"
-    a: "Door installation costs in Mint Hill vary by type: interior doors typically cost $200-$400 installed, exterior doors run $400-$800+ installed, and premium entry doors with glass can cost $1,000-$2,500+. We provide free estimates including door and installation."
-  - q: "How much does window replacement cost in Mint Hill?"
-    a: "Window replacement in Mint Hill typically costs $300-$700 per window installed for standard double-hung vinyl windows. Larger windows, specialty shapes, and premium materials cost more. We can provide a whole-home estimate for multiple windows."
-  - q: "Can you fix a door that won't close properly?"
-    a: "Absolutely. Doors that stick, won't latch, or have gaps are common issues. We can adjust hinges, plane doors, replace weatherstripping, adjust strike plates, and address frame issues. Most door adjustments cost $100-$200."
-  - q: "Do you install storm doors in Mint Hill?"
-    a: "Yes, storm doors are a popular addition in Mint Hill for energy efficiency and protection. Installation typically costs $300-$500 including the door. We install all major brands and can help you choose the right style."
-  - q: "Can you replace just the glass in a window?"
-    a: "In many cases, yes. If the frame is in good condition, we can replace just the glass unit (IGU). This costs less than full window replacement. We'll assess your windows and recommend the most cost-effective solution."
+  - q: "My door won't close — can you fix it or do I need a new one?"
+    a: "Usually we can fix it ($75-$175). Most 'won't close' issues are alignment (foundation settling) or swelling from humidity — we plane, shim, or realign and the door works again. If the frame is rotted, split, or beyond repair, we replace the full pre-hung unit instead."
+  - q: "Do you replace whole windows or just repair them?"
+    a: "Both. If the seal is broken (foggy glass), the frame is rotted, or it's beyond a simple fix, we pick up a new window at Home Depot or Lowe's that matches your opening and install it. If it's a hardware/balance/lock issue, we repair it ($50-$150 per window)."
+  - q: "How much does a replacement door cost installed?"
+    a: "Interior pre-hung doors run $300-$500 installed including the door from Home Depot. Exterior entry doors run $600-$1,200 installed depending on the unit you pick. We give you a quote first — no surprises."
+  - q: "My door lock is broken or loose — hardware fix or new door?"
+    a: "Usually hardware. We replace deadbolts, knobs, strike plates, and reinforce loose hinges starting at $75. If the door itself is split around the lock area (kicked-in damage or rot), we replace the slab or full pre-hung unit."
+  - q: "Can you do it same week?"
+    a: "Yes for most jobs. We measure, you approve the quote, we pick up the unit at Home Depot, and we install — usually 3-5 days door-to-door. Hardware-only repairs are often same day."
 
 localInfo:
   permits: "Most door and window replacements in Mint Hill don't require permits if the opening size stays the same. New openings or structural changes require permits through Mecklenburg County."

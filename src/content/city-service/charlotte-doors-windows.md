@@ -2,33 +2,35 @@
 citySlug: "charlotte"
 serviceSlug: "doors-windows"
 
-localIntro: "Charlotte's humidity swells doors, settles foundations shift door frames, and old windows stick or won't lock properly. We fix doors and windows throughout the Queen City—from a sticky interior door that needs planing to a broken window lock to a complete exterior door replacement. Same-day service available for urgent issues like doors that won't lock or broken windows that need boarding."
-
+localIntro: "Door won't close, frame rotted at the bottom, window foggy, lock loose, draft you can feel — Charlotte's humidity and seasonal swings beat up doors and windows fast. And every day you wait costs you: higher energy bills from drafts, a home that doesn't feel secure, and a problem that only gets worse. iFIXX handles both sides: we repair what can be fixed (alignment, hardware, weather strip, rotted sections, screens) and replace what can't with a brand-new unit. We measure, you approve the quote, we pick it up at Home Depot or Lowe's, we install — usually 3-5 days door-to-door. Free estimate, text us a photo."
 projectHighlight:
   title: "Emergency Door Lock Repair"
   neighborhood: "Plaza Midwood"
   description: "This Plaza Midwood homeowner came home to find their deadbolt wouldn't turn—they were locked out of their own house. We arrived within an hour, diagnosed the problem (misaligned strike plate from foundation settling), realigned the strike plate, adjusted the door, and tested everything. Total time: 45 minutes. They could lock their door again that night."
 
 localBullets:
-  - "Interior and exterior door repair"
-  - "Door lock and hardware replacement"
-  - "Window repair and hardware fixes"
-  - "Door adjustment for sticking/rubbing"
-  - "Weather stripping installation"
-  - "Pet door installation"
-  - "Emergency service for security issues"
+  - "Door not closing, latching, or locking properly"
+  - "Rotted, split, or damaged door frame replacement"
+  - "Foggy, cracked, or leaking window replacement"
+  - "Drafts, humidity, or cold air around frames (energy waste)"
+  - "Broken lock or loose hardware (security risk)"
+  - "Entry, interior, patio, sliding & french doors"
+  - "Pre-hung door installation (we buy + install)"
+  - "Storm door, screen door & pocket door repair"
+  - "Single-hung, double-hung & casement window installation"
+  - "Weather stripping & humidity sealing"
 
 localFaqs:
-  - q: "Can you fix a door that won't close or latch properly?"
-    a: "This is one of our most common repairs in Charlotte. Usually it's a settling issue—the house has shifted slightly and the door no longer aligns with the strike plate. We can adjust the strike plate, shim the hinges, or plane the door to get it closing properly again. If the frame is severely out of square, you might need the frame replaced."
-  - q: "Do you replace exterior doors?"
-    a: "Yes, but with important caveats. We can replace an existing door in an existing frame (pre-hung door installation). If you need the frame modified, enlarged, or structural work done, that requires a licensed contractor. We're happy to assess your situation and advise honestly."
-  - q: "How much does door repair cost in Charlotte?"
-    a: "Simple adjustments (strike plate, hinge shimming): $75-125. Door lock replacement: $100-175 depending on the lock. Interior door replacement (pre-hung): $175-300 including door. Exterior door replacement: $300-600+ depending on the door. We quote upfront before any work."
-  - q: "My windows won't stay open. Can you fix that?"
-    a: "Usually yes. Older Charlotte homes have windows with balance systems (springs or weights) that wear out. We can replace window balances in most standard windows for $50-100 per window. If the sash is damaged or the frame is rotted, replacement might be more economical."
-  - q: "Can you board up a broken window?"
-    a: "Yes—same-day emergency service available. We'll secure the opening with plywood to protect your home until you can get the glass replaced. We don't do glass replacement ourselves, but we can recommend glaziers in Charlotte. Boarding typically costs $75-150 depending on window size."
+  - q: "My door won't close — can you fix it or do I need a new one?"
+    a: "Usually we can fix it ($75-$175). Most 'won't close' issues are alignment (foundation settling) or swelling from humidity — we plane, shim, or realign and the door works again. If the frame is rotted, split, or beyond repair, we replace the full pre-hung unit instead."
+  - q: "Do you replace whole windows or just repair them?"
+    a: "Both. If the seal is broken (foggy glass), the frame is rotted, or it's beyond a simple fix, we pick up a new window at Home Depot or Lowe's that matches your opening and install it. If it's a hardware/balance/lock issue, we repair it ($50-$150 per window)."
+  - q: "How much does a replacement door cost installed?"
+    a: "Interior pre-hung doors run $300-$500 installed including the door from Home Depot. Exterior entry doors run $600-$1,200 installed depending on the unit you pick. We give you a quote first — no surprises."
+  - q: "My door lock is broken or loose — hardware fix or new door?"
+    a: "Usually hardware. We replace deadbolts, knobs, strike plates, and reinforce loose hinges starting at $75. If the door itself is split around the lock area (kicked-in damage or rot), we replace the slab or full pre-hung unit."
+  - q: "Can you do it same week?"
+    a: "Yes for most jobs. We measure, you approve the quote, we pick up the unit at Home Depot, and we install — usually 3-5 days door-to-door. Hardware-only repairs are often same day."
 
 localInfo:
   permits: "Interior door work doesn't require permits. Exterior door replacement typically doesn't either, but check if you're in a Charlotte historic district—some have design guidelines."
@@ -40,77 +42,55 @@ seo:
   description: "Door & window repair — frames, locks, glass, weatherproofing in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
-## Door and Window Repair in Charlotte
+## Door and Window Repair (or Replacement) in Charlotte
 
-Doors that stick. Locks that don't work. Windows that won't stay up. Charlotte homes—old and new—develop door and window problems constantly. Humidity swells wood, foundations settle, and hardware wears out. We fix all of it.
+Doors that stick. Locks that catch. Frames rotted at the bottom. Windows foggy or letting in humidity. Charlotte homes — old and new — develop these problems constantly because of the humidity, the foundation movement, and the seasonal swings. We fix all of it. And when a unit is beyond fixing, we replace the whole thing — door or window — with a brand-new one from Home Depot or Lowe's.
 
 ### Common Door Problems We Fix
 
-**Sticking or Rubbing Doors**
-This is the #1 door problem we see in Charlotte. Humidity causes wood doors to swell, and settling causes frames to shift. We can:
-- Plane the door to fit (removing a thin layer of wood)
-- Shim hinges to adjust the door position
-- Adjust the strike plate so the latch catches
-- Replace weatherstripping to eliminate rub points
+**Door won't close, latch, or lock**
+The #1 problem we see in Charlotte. Humidity swells wood doors, and foundation settling shifts the frame. We can plane the door, shim hinges, realign the strike plate, or replace worn weatherstripping. Most fixes are $75-$175 and done the same day.
 
-**Locks and Hardware**
-- Deadbolts that won't turn (usually a strike plate alignment issue)
-- Door handles that fall off (loose screws or worn parts)
-- Locks that don't latch (worn or damaged mechanisms)
-- Complete hardware replacement (new handles, deadbolts, hinges)
+**Rotted or split door frame**
+Water damage at the bottom of an entry door frame is extremely common in Charlotte. If the rot is local we patch it; if it's structural we replace the full pre-hung unit. We pick the new door up at Home Depot or Lowe's and install it for you.
 
-**Door Frame Damage**
-- Split door frames from forced entry
-- Rot on exterior door frames
-- Strike plate holes that are too worn to hold screws
-- Frames that have shifted out of square
+**Broken or loose locks and hardware**
+Deadbolts that won't turn, handles that fall off, latches that don't catch — almost always a hardware swap. Loose hinges from settling get reinforced or replaced. New smart locks installed and configured.
+
+**Door frame damage from forced entry**
+Split frames around the lock area, broken strike plates, kicked-in doors. We repair or replace the unit and reinforce the strike with a security plate.
 
 ### Common Window Problems We Fix
 
-**Windows That Won't Stay Open**
-Older Charlotte homes have double-hung windows with balance systems—either springs or weights and pulleys. When these fail, windows slide shut on their own or won't open at all. We can replace balance systems in most standard windows.
+**Foggy, cracked, or leaking windows**
+A foggy window means the seal is broken — that pane can't be saved. We pick up a matching unit at Home Depot or Lowe's, remove the old one, and install the new one. If it's only a hardware issue (won't lock, won't stay open, broken crank), we repair it for $50-$150 per window.
 
-**Windows That Won't Lock**
-Window locks wear out over time. We replace lock hardware to restore security. This is especially common on sliding windows and older casement windows.
+**Drafty or humid window frames**
+You can feel cold air or hear wind around a window? Almost always the weather strip or seal. We replace it and the room gets noticeably more comfortable — and your energy bill drops.
 
-**Stuck or Painted-Shut Windows**
-Previous painters sometimes paint windows shut. We can free them without damaging the frame or sash, then clean up the paint so they operate smoothly.
+**Windows that won't stay open or won't lock**
+Older Charlotte homes have balance systems (springs/weights) that wear out. We replace them. Window locks get swapped for new ones to restore security.
 
-**Broken Window Cranks**
-Casement windows use crank operators that wear out or break. We can replace the crank mechanism to get your window opening and closing again.
+**Painted-shut windows**
+Previous painters seal them up. We free them without damaging the frame.
 
-### Emergency Door Service
+### Door Types We Install
 
-**Can't lock your door?** We offer same-day emergency service for security issues. A door that won't lock is a safety problem—call us and we'll prioritize getting you secure.
+Entry doors, interior doors, patio doors, sliding glass doors, french doors, storm doors, screen doors, pocket doors, pet doors. Pre-hung units from Home Depot or Lowe's that match your existing opening.
 
-**Broken window?** We'll board it up same-day to protect your home until you can get the glass replaced.
+### Window Types We Install
 
-### Pet Door Installation
-
-Want a pet door in your existing door? We can install pet doors in interior doors, exterior doors (wood or steel), and sliding glass doors. We'll cut the opening, install the door, and ensure it seals properly.
-
-### Door Replacement (Pre-Hung Doors)
-
-For interior doors, we can replace the entire door and frame as a unit (pre-hung door). This is often easier than trying to fit a slab door to an old, out-of-square frame. We:
-
-- Remove the old door and frame
-- Install the new pre-hung unit
-- Shim and level for proper operation
-- Install hardware (hinges, knob, strike plate)
-- Fill nail holes and touch up paint
-
-For exterior doors, we can do the same with pre-hung exterior doors—but only if the rough opening doesn't need modification. Resizing openings requires structural work by a licensed contractor.
+Single-hung, double-hung, casement, sliding, and storm windows. We measure your opening, pick up a matching unit at Home Depot or Lowe's, and install it — usually 3-5 days door-to-door.
 
 ### Charlotte Neighborhoods We Serve
 
-We repair doors and windows throughout Charlotte: South Charlotte, Ballantyne, Myers Park, Dilworth, Plaza Midwood, NoDa, Elizabeth, Cotswold, SouthPark, and University area.
+We repair and install doors and windows throughout Charlotte: South Charlotte, Ballantyne, Myers Park, Dilworth, Plaza Midwood, NoDa, Elizabeth, Cotswold, SouthPark, and University area.
 
-### What We Don't Do
+### How It Works
 
-**Glass replacement** — We fix window hardware and frames, but we don't replace broken glass. We can board up broken windows and recommend glaziers.
+1. **Text us a photo** of the door or window. We'll quote in about 5 minutes — no service call fee.
+2. **We measure** if it's a replacement, and confirm pricing on the new unit.
+3. **You approve the quote.** We pick up the new door or window at Home Depot or Lowe's.
+4. **We install.** Most full-unit replacements take 3-5 days door-to-door. Hardware-only repairs are often same day.
 
-**Window installation** — New window installation (replacement windows) is specialized work. We focus on repairing existing windows.
-
-**Structural frame modifications** — If you need to enlarge a doorway or window opening, that's contractor territory.
-
-Ready to get your doors and windows working properly? Contact us for a free estimate—or call for same-day service if it's a security issue.
+Ready to get your doors and windows working properly? Text us a photo or call (980) 391-6833 for a free estimate.

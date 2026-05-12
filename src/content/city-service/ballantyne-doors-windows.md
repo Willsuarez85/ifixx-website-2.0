@@ -2,30 +2,35 @@
 citySlug: "ballantyne"
 serviceSlug: "doors-windows"
 
-localIntro: "Ballantyne homes—built during Charlotte's biggest building boom—are now reaching the age where doors stick, locks wear out, and windows need attention. Foundation settling is common in this area's clay soil, and it shows up first in doors that won't close right. We fix doors and windows throughout Ballantyne, from simple hardware replacements to complete door swaps."
-
+localIntro: "Door won't close, frame rotted at the bottom, window foggy, lock loose, draft you can feel — Ballantyne's humidity and seasonal swings beat up doors and windows fast. And every day you wait costs you: higher energy bills from drafts, a home that doesn't feel secure, and a problem that only gets worse. iFIXX handles both sides: we repair what can be fixed (alignment, hardware, weather strip, rotted sections, screens) and replace what can't with a brand-new unit. We measure, you approve the quote, we pick it up at Home Depot or Lowe's, we install — usually 3-5 days door-to-door. Free estimate, text us a photo."
 projectHighlight:
   title: "Front Entry Door Replacement"
   neighborhood: "Ballantyne Country Club"
   description: "This homeowner's 20-year-old front door had seen better days—the seal was shot, the lock was temperamental, and it didn't match their recently updated exterior. We installed a new pre-hung fiberglass entry door with modern hardware, maintaining the existing opening size. Better security, better insulation, better curb appeal."
 
 localBullets:
-  - "Door repair and adjustment"
-  - "Lock and hardware replacement"
-  - "Interior door replacement"
-  - "Window hardware repairs"
-  - "Weather stripping installation"
-  - "Pet door installation"
+  - "Door not closing, latching, or locking properly"
+  - "Rotted, split, or damaged door frame replacement"
+  - "Foggy, cracked, or leaking window replacement"
+  - "Drafts, humidity, or cold air around frames (energy waste)"
+  - "Broken lock or loose hardware (security risk)"
+  - "Entry, interior, patio, sliding & french doors"
+  - "Pre-hung door installation (we buy + install)"
+  - "Storm door, screen door & pocket door repair"
+  - "Single-hung, double-hung & casement window installation"
+  - "Weather stripping & humidity sealing"
 
 localFaqs:
-  - q: "Why do doors in Ballantyne homes stick so much?"
-    a: "Ballantyne sits on clay soil that expands and contracts with moisture. This causes foundation settling that throws door frames out of square. We can adjust strike plates, shim hinges, or plane doors to compensate. If settling is severe, you might need foundation work first."
-  - q: "How much does door repair cost in Ballantyne?"
-    a: "Simple adjustments: $75-125. Lock replacement: $100-175. Interior door replacement (pre-hung): $175-300. Front door replacement: $400-800+ depending on the door. We quote everything upfront."
-  - q: "Can you replace my builder-grade interior doors?"
-    a: "Yes—this is a popular Ballantyne upgrade. Those flat, hollow-core builder doors can be replaced with solid-core or panel doors. We install pre-hung units for the cleanest result. Budget $200-400 per door depending on your selection."
-  - q: "My windows are hard to open. Can you fix that?"
-    a: "Usually yes. Ballantyne homes from the 90s-2000s have vinyl windows with balance systems that wear out. We can replace window balances in most standard windows for $50-100 per window."
+  - q: "My door won't close — can you fix it or do I need a new one?"
+    a: "Usually we can fix it ($75-$175). Most 'won't close' issues are alignment (foundation settling) or swelling from humidity — we plane, shim, or realign and the door works again. If the frame is rotted, split, or beyond repair, we replace the full pre-hung unit instead."
+  - q: "Do you replace whole windows or just repair them?"
+    a: "Both. If the seal is broken (foggy glass), the frame is rotted, or it's beyond a simple fix, we pick up a new window at Home Depot or Lowe's that matches your opening and install it. If it's a hardware/balance/lock issue, we repair it ($50-$150 per window)."
+  - q: "How much does a replacement door cost installed?"
+    a: "Interior pre-hung doors run $300-$500 installed including the door from Home Depot. Exterior entry doors run $600-$1,200 installed depending on the unit you pick. We give you a quote first — no surprises."
+  - q: "My door lock is broken or loose — hardware fix or new door?"
+    a: "Usually hardware. We replace deadbolts, knobs, strike plates, and reinforce loose hinges starting at $75. If the door itself is split around the lock area (kicked-in damage or rot), we replace the slab or full pre-hung unit."
+  - q: "Can you do it same week?"
+    a: "Yes for most jobs. We measure, you approve the quote, we pick up the unit at Home Depot, and we install — usually 3-5 days door-to-door. Hardware-only repairs are often same day."
 
 localInfo:
   permits: "Door repair and interior door replacement don't require permits. Exterior door replacement typically doesn't either in Ballantyne."
