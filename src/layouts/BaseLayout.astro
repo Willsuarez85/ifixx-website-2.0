@@ -46,6 +46,18 @@ const fullCanonical = rawCanonical.replace('https://ifixxnc.com', 'https://www.i
     gtag('config', 'G-XV0NEL86VN');  // GA4 Measurement ID
     gtag('config', 'AW-17542077404'); // Google Ads Conversion Tag
   </script>
+
+  <!-- Capture UTM params + gclid (for attribution on city-service, pillar, homepage) -->
+  <script is:inline>
+    (function(){
+      var params = new URLSearchParams(window.location.search);
+      ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid'].forEach(function(p){
+        var v = params.get(p);
+        if(v) sessionStorage.setItem(p, v);
+      });
+    })();
+  </script>
+
   <!-- Click-to-Call Tracking -->
   <script is:inline>
     document.addEventListener('DOMContentLoaded', function() {
