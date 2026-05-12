@@ -3,6 +3,8 @@ citySlug: "mint-hill"
 serviceSlug: "doors-windows"
 
 localIntro: "Door won't close, frame rotted at the bottom, window foggy, lock loose, draft you can feel — Mint Hill's humidity and seasonal swings beat up doors and windows fast. And every day you wait costs you: higher energy bills from drafts, a home that doesn't feel secure, and a problem that only gets worse. iFIXX handles both sides: we repair what can be fixed (alignment, hardware, weather strip, rotted sections, screens) and replace what can't with a brand-new unit. We measure, you approve the quote, we pick it up at Home Depot or Lowe's, we install — usually 3-5 days door-to-door. Free estimate, text us a photo."
+heroH1: "Window & Door Repair in Mint Hill, NC"
+heroIntro: "Door won't close? Window foggy or drafty? Mint Hill's handyman repairs what can be saved and replaces what can't — unit from Home Depot, installed same week. Free quote in 5 minutes — text us a photo."
 projectHighlight:
   title: "Bain Creek Entry Door Upgrade"
   neighborhood: "Bain Creek"

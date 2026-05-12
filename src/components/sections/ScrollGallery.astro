@@ -173,57 +173,5 @@ const displayImages = [...images, ...images];
     }
   }
 
-  /* Parallax effect on scroll */
-  @supports (animation-timeline: scroll()) {
-    .scroll-gallery-track {
-      animation: parallax-scroll linear;
-      animation-timeline: view();
-      animation-range: entry 0% exit 100%;
-    }
-
-    @keyframes parallax-scroll {
-      0% {
-        transform: translateX(10%);
-      }
-      100% {
-        transform: translateX(-10%);
-      }
-    }
-  }
 </style>
 
-<script>
-  // Fallback parallax effect for browsers without scroll-driven animations
-  const gallery = document.getElementById('scroll-gallery');
-  const track = gallery?.querySelector('.scroll-gallery-track') as HTMLElement;
-
-  if (gallery && track && !CSS.supports('animation-timeline', 'scroll()')) {
-    let ticking = false;
-
-    const updateParallax = () => {
-      const rect = gallery.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // Calculate how far through the viewport the element is
-      const progress = 1 - (rect.top + rect.height) / (windowHeight + rect.height);
-
-      // Only apply effect when element is in view
-      if (progress >= 0 && progress <= 1) {
-        const translateX = (progress - 0.5) * 20; // -10% to 10%
-        track.style.transform = `translateX(${translateX}%)`;
-      }
-
-      ticking = false;
-    };
-
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    }, { passive: true });
-
-    // Initial call
-    updateParallax();
-  }
-</script>

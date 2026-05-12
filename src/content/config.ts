@@ -82,6 +82,10 @@ const cityServiceCollection = defineCollection({
     // Unique local content (all optional - add as you create content)
     localIntro: z.string().optional(), // 150-200 words intro specific to this city+service
 
+    // Hero overrides (optional — used for paid-campaign landing pages)
+    heroH1: z.string().optional(),     // Overrides default H1 for ad message-match (use {city} placeholder)
+    heroIntro: z.string().optional(),  // Short, punchy hero copy. Falls back to localIntro.
+
     // Project highlight/case study
     projectHighlight: z.object({
       title: z.string(),

@@ -78,6 +78,9 @@ const servicePreselectMap: Record<string, string> = {
 const formPreselect = servicePreselectMap[service.slug] || '';
 
 const pageTitle = `${serviceData.title} in ${cityData.name}, ${cityData.state}`;
+const h1Title = localContent?.heroH1
+  ? localContent.heroH1.replace(/\{city\}/g, cityData.name).replace(/\{state\}/g, cityData.state)
+  : pageTitle;
 const currentPillar = serviceData.pillar || 'repairs';
 const pillarUrl = `/${currentPillar}/${service.slug}`;
 
@@ -92,6 +95,7 @@ const seoTitle = localContent?.seo?.title || `${serviceData.title} in ${cityData
 const seoDescription = localContent?.seo?.description || `Professional ${serviceData.title.toLowerCase()} services in ${cityData.name}, ${cityData.state}. Serving ${cityData.neighborhoods?.slice(0, 3).join(', ')} & more. Fully insured, free estimates!`;
 
 const introText = localContent?.localIntro || cityData.localizedIntro;
+const heroIntroText = localContent?.heroIntro || introText;
 const displayBullets = localContent?.localBullets || serviceData.bullets;
 const displayFaqs = localContent?.localFaqs || serviceData.faqs;
 
@@ -247,11 +251,11 @@ const mapEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qb
             </span>
 
             <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">
-              {pageTitle}
+              {h1Title}
             </h1>
 
             <p class="text-lg text-neutral-200 mb-6 max-w-xl">
-              {introText}
+              {heroIntroText}
             </p>
 
             <div class="grid grid-cols-2 gap-4 mb-6">
@@ -291,7 +295,7 @@ const mapEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qb
               </div>
             </a>
           </div>
-          <div class="order-2 lg:order-2">
+          <div class="order-2 lg:order-2" id="estimate-form">
             <LandingForm
               formId={`city-service-${city.slug}-${service.slug}-hero`}
               formName={`${serviceData.title} - ${cityData.name}`}
@@ -435,7 +439,7 @@ const mapEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qb
               </svg>
               Call (980) 391-6833
             </a>
-            <a href="/contact" class="flex items-center justify-center gap-2 w-full btn btn-secondary">
+            <a href="#estimate-form" class="flex items-center justify-center gap-2 w-full btn btn-secondary">
               Request Estimate
             </a>
           </div>
@@ -481,6 +485,7 @@ const mapEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qb
     headline="Need This Done Today?"
     subheadline="We offer same-day service for most repairs in the Charlotte area."
     buttonText="Request Urgent Estimate"
+    buttonHref="#estimate-form"
     variant="emergency"
   />
 
@@ -666,5 +671,6 @@ const mapEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qb
   <CTASection
     headline={`Ready for ${serviceData.title} in ${cityData.name}?`}
     subtext={`Get a free estimate from ${cityData.name}'s trusted handyman team. We respond fast.`}
+    buttonHref="#estimate-form"
   />
 </BaseLayout>
