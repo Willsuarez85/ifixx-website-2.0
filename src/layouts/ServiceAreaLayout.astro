@@ -26,7 +26,7 @@ const geoPlacename = location.name;
 // LocalBusiness schema for the location
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
+  "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
   "@id": `https://www.ifixxnc.com/service-areas/${location.slug}#business`,
   "name": "iFixx Remodeling & Handyman Services",
   "description": location.seo.description,
