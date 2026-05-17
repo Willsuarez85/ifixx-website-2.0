@@ -18,7 +18,7 @@ const seoDescription = "Charlotte's top-rated handyman ⭐5.0 (87 reviews). Same
 // LocalBusiness Schema - Enhanced for Emergency & Handyman Services
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
+  "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
   "@id": "https://www.ifixxnc.com/#business",
   "name": "iFixx Remodeling & Handyman Services",
   "description": seoDescription,
@@ -177,7 +177,6 @@ const localBusinessSchema = {
     "bestRating": "5",
     "worstRating": "1",
     "reviewCount": "87",
-    "ratingCount": "87"
   },
 
   // Real customer reviews for rich snippets
