@@ -172,11 +172,6 @@
       "permanent": true
     },
     {
-      "source": "/services/tv-mounting",
-      "destination": "/repairs/tv-mounting",
-      "permanent": true
-    },
-    {
       "source": "/ballantyne/kitchen-remodeling",
       "destination": "/remodeling/kitchen-remodeling",
       "permanent": true
