@@ -237,10 +237,9 @@ const {
         });
 
         const result = await response.json();
-        if (!result.success) throw new Error(result.error || 'Unknown error');
-
-        successMsg?.classList.remove('hidden');
-        form.reset();
+        if (!response.ok || !result.success || !result.contactId) {
+          throw new Error(result.error || 'Lead was not confirmed by CRM');
+        }
 
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
@@ -250,11 +249,33 @@ const {
           form_location: window.location.pathname,
           lead_type: leadType,
           campaign_test: 'ifixx_south_charlotte_service_test_2026_07',
-          issue_type: issueType
+          issue_type: issueType,
+          contact_id: result.contactId
         });
+
+        if (typeof window.gtag === 'function') {
+          window.gtag('set', 'user_data', {
+            email: data.email,
+            phone_number: data.phone,
+            address: { first_name: data.firstName }
+          });
+          window.gtag('event', 'generate_lead', {
+            form_id: formId,
+            form_name: formName,
+            form_location: window.location.pathname,
+            lead_type: leadType,
+            campaign_test: 'ifixx_south_charlotte_service_test_2026_07'
+          });
+        }
+
+        successMsg?.classList.remove('hidden');
+        form.reset();
+
+        setTimeout(() => {
+          window.location.href = '/lp/thank-you';
+        }, 500);
       } catch (error) {
         errorMsg?.classList.remove('hidden');
-      } finally {
         btnText?.classList.remove('hidden');
         btnSpinner?.classList.add('hidden');
       }

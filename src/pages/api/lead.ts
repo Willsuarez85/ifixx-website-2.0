@@ -224,7 +224,12 @@ export const POST: APIRoute = async ({ request }) => {
         }
 
         const contactResult = await contactResponse.json();
-        const contactId = contactResult.contact?.id;
+        const contactId = contactResult.contact?.id || contactResult.id;
+
+        if (!contactId) {
+            console.error('GHL Upsert Missing Contact ID:', JSON.stringify(contactResult));
+            throw new Error('GHL did not return a contact ID');
+        }
 
         console.log(`Lead created: ${contactId} | Tags: ${allTags.join(', ')}`);
 
