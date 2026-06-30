@@ -2,13 +2,14 @@
 import PillarLayout from '../../layouts/PillarLayout.astro';
 import { getCollection } from 'astro:content';
 import TrustBar from '../../components/sections/TrustBar.astro';
+import { isRetiredCity, isRetiredService } from '../../lib/seo-retired';
 
-// Get all services with category 'handyman' (repairs)
+// Get all services with category 'handyman' (repairs) — exclude retired services
 const allServices = await getCollection('services');
-const repairServices = allServices.filter(s => s.data.category === 'handyman');
+const repairServices = allServices.filter(s => s.data.category === 'handyman' && !isRetiredService(s.slug));
 
-// Get all locations for internal linking
-const locations = await getCollection('cities');
+// Get all locations for internal linking — exclude retired cities
+const locations = (await getCollection('cities')).filter(c => !isRetiredCity(c.slug));
 
 const pillar = {
   title: "Home Repair Services",

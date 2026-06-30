@@ -4,8 +4,9 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import QuickEstimateCompact from '../../components/forms/QuickEstimateCompact.astro';
 import { getCollection } from 'astro:content';
+import { isRetiredCity } from '../../lib/seo-retired';
 
-const locations = await getCollection('cities');
+const locations = (await getCollection('cities')).filter(c => !isRetiredCity(c.slug));
 
 const seo = {
   title: "Emergency Fixture Repair Charlotte NC | Faucets & Toilets | iFIXX",

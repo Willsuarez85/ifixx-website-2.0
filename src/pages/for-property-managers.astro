@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { isRetiredCity } from '../lib/seo-retired';
 import TrustBar from '../components/sections/TrustBar.astro';
 import Testimonials from '../components/sections/Testimonials.astro';
 import PropertyManagerForm from '../components/forms/PropertyManagerForm.astro';
 
 // Get locations for service area links
-const locations = await getCollection('cities');
+const locations = (await getCollection('cities')).filter(c => !isRetiredCity(c.slug));
 
 const seo = {
   title: "Property Maintenance Services in Charlotte, NC | iFixx",
