@@ -5,22 +5,22 @@ import GoogleReviews from '../components/sections/GoogleReviews.astro';
 import CTASection from '../components/sections/CTASection.astro';
 import LandingEstimateForm from '../components/forms/LandingEstimateForm.astro';
 
-const title = 'Deck Repair in South Charlotte | Boards, Railings, Steps | iFIXX';
-const description = 'Deck repair in South Charlotte, Ballantyne, Pineville, and Matthews. Rotten boards, loose railings, broken steps, soft spots, staining, and repair-before-replace guidance from local iFIXX.';
+const title = 'Deck Repair & Rebuilds in South Charlotte | Boards, Railings, Steps | iFIXX';
+const description = 'Deck repair and rebuilds in South Charlotte, Ballantyne, Waxhaw, Indian Land, and Fort Mill. Rotten boards, loose railings, broken steps, soft spots, wood rot — repair first, with rebuild options when the deck needs more than a small fix. Insured local crew from iFIXX.';
 const canonical = '/deck-repair-south-charlotte/';
 const heroImage = '/images/projects/deck-wood-exterior-patio.webp';
 const supportImage = '/images/projects/outdoor-living-raised-deck-railing-construction.webp';
 const leadType = 'deck_repair';
 
-const serviceAreas = ['South Charlotte', 'Ballantyne', 'Pineville', 'Matthews', 'Weddington', 'Waxhaw', 'SouthPark', 'Steele Creek'];
+const serviceAreas = ['South Charlotte', 'Ballantyne', 'Waxhaw', 'Indian Land', 'Fort Mill', 'Pineville', 'Matthews', 'Weddington'];
 
 const repairItems = [
   'Rotten, soft, cracked, or damaged deck boards',
   'Loose railings, shaky posts, and handrail repairs',
   'Broken steps, stair treads, and landing repairs',
-  'Small framing or joist concerns that need review',
-  'Staining, sealing, and finish conversations after repair',
-  'Repair-before-replace guidance when a full rebuild may not be needed',
+  'Wood rot and framing or joist concerns that need review',
+  'Staining, sealing, and finish work after the repair',
+  'Repair first when it makes sense — full rebuild when the deck is past saving',
   'Punch-list deck repairs before selling, renting, or entertaining'
 ];
 
@@ -42,19 +42,19 @@ const processSteps = [
 ];
 
 const faqs = [
-  { q: 'Can a damaged deck be repaired instead of replaced?', a: 'Often, yes. A few bad boards, loose rails, or broken steps do not always mean the entire deck needs to be rebuilt. The key is reviewing the issue early before rot, movement, or water damage spreads.' },
+  { q: 'Can a damaged deck be repaired, or does it need a rebuild?', a: 'Often it can be repaired. A few bad boards, loose rails, or broken steps do not always mean the whole deck needs to be rebuilt — the key is reviewing it early before rot, movement, or water damage spreads. When the framing or posts are genuinely past saving, we will tell you straight and scope a rebuild instead of patching something unsafe.' },
   { q: 'Can you estimate deck repair online?', a: 'Many deck repairs can start with an online estimate request. Clear photos of the boards, rails, steps, underside, and access area help us understand whether the next step can be scoped remotely or needs an in-person visit.' },
   { q: 'Do you repair deck boards, rails, and steps?', a: 'Yes. iFIXX helps South Charlotte homeowners with boards, railings, steps, small wood repairs, staining/sealing conversations, and repair-first guidance.' },
-  { q: 'Are you local to South Charlotte?', a: 'Yes. iFIXX is a local Charlotte-area team, not a national franchise. We regularly serve South Charlotte, Ballantyne, Pineville, Matthews, Waxhaw, Weddington, and nearby neighborhoods.' },
+  { q: 'Are you local to South Charlotte?', a: 'Yes. iFIXX is an insured, local Charlotte-area team, not a national franchise. We regularly serve South Charlotte, Ballantyne, Waxhaw, Indian Land, Fort Mill, Pineville, Matthews, Weddington, and nearby neighborhoods.' },
   { q: 'When should I stop using my deck?', a: 'If the deck shifts, railings move, steps are loose, posts look rotten, or boards feel soft underfoot, stop using that area until it is reviewed. Safety concerns may need an in-person inspection before final pricing.' }
 ];
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Deck Repair in South Charlotte',
+  name: 'Deck Repair & Rebuilds in South Charlotte',
   description,
-  serviceType: 'Deck repair',
+  serviceType: 'Deck repair and rebuilds',
   url: `https://ifixxnc.com${canonical}`,
   image: `https://ifixxnc.com${heroImage}`,
   provider: { '@id': 'https://ifixxnc.com/#business' },
@@ -85,21 +85,21 @@ const faqSchema = {
     <div class="container relative z-10"><div class="py-10 lg:py-16"><nav class="mb-6"><ol class="flex items-center gap-2 text-sm text-neutral-300"><li><a href="/" class="hover:text-primary-500 transition-colors">Home</a></li><li class="text-neutral-500">/</li><li class="text-white font-medium">Deck Repair South Charlotte</li></ol></nav>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
         <div class="order-1 lg:order-1">
-          <span class="inline-block px-4 py-2 bg-primary-500 text-neutral-900 text-sm font-bold rounded-full mb-4">Local South Charlotte deck repair • Not a franchise</span>
-          <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">Deck Repair in South Charlotte</h1>
-          <p class="text-lg text-neutral-200 mb-4 max-w-xl">If your deck has soft boards, loose rails, broken steps, wood rot, or a finish that is starting to fail, it may not need a full replacement. Catching the problem early can often turn a major investment into a focused repair.</p>
-          <p class="text-neutral-300 mb-6 max-w-xl">iFIXX helps South Charlotte homeowners understand the repair path first — boards, rails, steps, staining, sealing, or a deeper review if the deck may be unsafe. The owners, Jaime &amp; Hamed, review every request personally, give you an upfront price, and move fast on urgent repairs.</p>
+          <span class="inline-block px-4 py-2 bg-primary-500 text-neutral-900 text-sm font-bold rounded-full mb-4">Repair-first • Rebuild when it's worth it • Not a franchise</span>
+          <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">Deck Repair &amp; Rebuilds in South Charlotte</h1>
+          <p class="text-lg text-neutral-200 mb-4 max-w-xl">Soft boards, loose rails, broken steps, or wood rot? Caught early, most of it is a focused repair — not a full replacement. And when a deck really is past saving, we'll tell you straight and scope a rebuild.</p>
+          <p class="text-neutral-300 mb-6 max-w-xl">iFIXX helps South Charlotte homeowners figure out the repair-or-rebuild path — boards, rails, steps, staining, sealing, or a deeper review if the deck may be unsafe. The owners, Jaime &amp; Hamed, review every request personally, give you an upfront price, and move fast on urgent repairs.</p>
           <div class="flex flex-col sm:flex-row gap-3 mb-8"><a href="#estimate-form" class="btn btn-primary landing-primary-cta" data-lead-type={leadType}>Request a Free Online Estimate</a><a href="tel:+19803916833" class="btn btn-outline-light landing-phone-cta" data-lead-type={leadType}>Call (980) 391-6833</a></div>
-          <div class="grid grid-cols-2 gap-4">{['Repair-first approach', 'Boards, rails, steps', 'South Charlotte focus', 'Insured local team'].map((chip) => (<div class="flex items-center gap-3 text-white"><span class="w-9 h-9 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">✓</span><span class="text-sm font-medium">{chip}</span></div>))}</div>
+          <div class="grid grid-cols-2 gap-4">{['Repair or rebuild', 'Boards, rails, steps', 'Wood rot & soft spots', 'Insured local crew'].map((chip) => (<div class="flex items-center gap-3 text-white"><span class="w-9 h-9 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">✓</span><span class="text-sm font-medium">{chip}</span></div>))}</div>
         </div>
-        <div id="estimate-form" class="order-2 lg:order-2 scroll-mt-24 min-w-0"><LandingEstimateForm serviceSlug="deck-repair" serviceTitle="Deck Repair" formId="deck-south-charlotte-estimate" leadType="deck_repair" formName="South Charlotte Deck Repair Landing Form" issueOptions={['rotten/soft boards', 'loose railing', 'broken steps', 'wood rot', 'staining/sealing', 'repair before replacement', 'other']} descriptionPlaceholder="Briefly describe what is wrong with the deck and where you are located." photoLabel="Upload photos if you have them" submitLabel="Request a Free Online Estimate" /></div>
+        <div id="estimate-form" class="order-2 lg:order-2 scroll-mt-24 min-w-0"><LandingEstimateForm serviceSlug="deck-repair" serviceTitle="Deck Repair & Rebuilds" formId="deck-south-charlotte-estimate" leadType="deck_repair" formName="South Charlotte Deck Repair Landing Form" issueOptions={['rotten/soft boards', 'loose railing', 'broken steps', 'wood rot', 'staining/sealing', 'repair vs rebuild advice', 'full deck rebuild', 'other']} descriptionPlaceholder="Briefly describe what is wrong with the deck and where you are located (photos help)." photoLabel="Upload photos if you have them" submitLabel="Request a Free Online Estimate" /></div>
       </div>
     </div></div>
   </section>
 
   <TrustBar variant="light" />
 
-  <section class="section"><div class="container"><div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"><div><span class="badge mb-4">The pain: the deck keeps getting worse</span><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-6">A small deck problem can become a bigger project if it sits too long</h2><p class="text-neutral-600 mb-5">Most homeowners wait because they are afraid every deck issue means “replace the whole thing.” Sometimes that is true. But often, the first smart move is a focused repair: replace boards, tighten or rebuild a rail section, fix steps, or deal with rot before it spreads.</p><p class="text-neutral-600 mb-8">Our positioning is repair-first. We help you understand what can reasonably be repaired, what should be watched, and what may need a larger scope.</p><ul class="space-y-4">{repairItems.map((item) => (<li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 mt-0.5 text-neutral-900 text-sm font-bold">✓</span><span class="text-neutral-700">{item}</span></li>))}</ul></div><div class="rounded-2xl overflow-hidden shadow-2xl"><img src={supportImage} alt="Raised deck railing and wood repair project" class="w-full aspect-[4/3] object-cover" width="700" height="525" loading="lazy" decoding="async" /></div></div></div></section>
+  <section class="section"><div class="container"><div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"><div><span class="badge mb-4">The pain: the deck keeps getting worse</span><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-6">A small deck problem can become a bigger project if it sits too long</h2><p class="text-neutral-600 mb-5">Most homeowners wait because they are afraid every deck issue means “replace the whole thing.” Sometimes that is true. But often, the first smart move is a focused repair: replace boards, tighten or rebuild a rail section, fix steps, or deal with rot before it spreads.</p><p class="text-neutral-600 mb-8">We are repair-first: we tell you what can reasonably be fixed, what should be watched, and what is genuinely past repair. If the framing or posts are too far gone, we will say so and scope a rebuild instead of patching something unsafe — your call, with an honest price either way.</p><ul class="space-y-4">{repairItems.map((item) => (<li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 mt-0.5 text-neutral-900 text-sm font-bold">✓</span><span class="text-neutral-700">{item}</span></li>))}</ul></div><div class="rounded-2xl overflow-hidden shadow-2xl"><img src={supportImage} alt="Raised deck railing and wood repair project" class="w-full aspect-[4/3] object-cover" width="700" height="525" loading="lazy" decoding="async" /></div></div></div></section>
 
   <section class="section section-alt"><div class="container"><div class="max-w-3xl mx-auto text-center mb-12"><span class="badge mb-4">Recent deck repair examples</span><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Boards, railings, steps, and wood-rot repairs</h2><p class="text-neutral-600">Use the gallery as a guide for the kinds of deck repairs we can discuss from photos: stair and step fixes, board replacement, railing and post work, finish refresh, and cutting out wood rot before it spreads.</p></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">{galleryImages.map((image) => (<figure class="group overflow-hidden rounded-2xl bg-white shadow-sm border border-neutral-200"><img src={image.src} alt={image.alt} class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-300" width="520" height="390" loading="lazy" decoding="async" /></figure>))}</div></div></section>
 
@@ -110,7 +110,7 @@ const faqSchema = {
   <section class="section"><div class="container"><div class="max-w-3xl mx-auto"><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-8 text-center">Deck Repair FAQs</h2><div class="space-y-4">{faqs.map((faq, index) => (<details class="group bg-white rounded-xl shadow-sm" open={index === 0}><summary class="flex items-center justify-between cursor-pointer list-none p-6"><span class="font-semibold text-neutral-900 pr-4">{faq.q}</span><span class="text-primary-600 group-open:rotate-180 transition-transform">⌄</span></summary><div class="px-6 pb-6"><p class="text-neutral-600 leading-relaxed">{faq.a}</p></div></details>))}</div></div></div></section>
 
   <GoogleReviews title="What Charlotte Homeowners Say" />
-  <CTASection headline="Ready to repair your deck before it becomes a bigger project?" subtext="Request a free online estimate for deck boards, railings, steps, soft spots, staining, sealing, or repair-first guidance in South Charlotte." />
+  <CTASection headline="Repair it now, or rebuild it right — let's figure out which." subtext="Request a free online estimate for deck boards, railings, steps, soft spots, wood rot, staining, or a full rebuild across South Charlotte, Ballantyne, Waxhaw, Indian Land, and Fort Mill." />
 
   <script is:inline>
     document.addEventListener('click', (event) => {

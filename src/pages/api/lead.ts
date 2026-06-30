@@ -16,6 +16,7 @@ const SERVICE_TAGS: Record<string, string[]> = {
     // South Charlotte service test landings → Pipeline: Handyman
     'drywall-repair': ['service-drywall-repair', 'service-painting', 'handyman', 'south-charlotte-test'],
     'deck-repair': ['service-deck-repair', 'service-carpentry', 'handyman', 'south-charlotte-test'],
+    'interior-painting': ['service-painting', 'service-drywall-repair', 'handyman', 'south-charlotte-test'],
 
     // Emergency/Urgent Services → Pipeline: Handyman (with urgent flag)
     'emergency-plumbing': ['emergency-plumbing', 'handyman', 'urgent'],
