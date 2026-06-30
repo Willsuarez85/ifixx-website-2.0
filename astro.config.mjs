@@ -16,6 +16,11 @@ export default defineConfig({
       lastmod: new Date(),
       // Exclude redirect pages from sitemap
       filter: (page) => {
+        // SEO cleanup (2026-06): retired cities + services iFIXX doesn't offer.
+        // These pages are no longer generated; this guard keeps them out of the
+        // sitemap even if a stray route is reintroduced. 301s live in vercel.json.
+        if (page.match(/\/(huntersville|concord|monroe|waxhaw|rock-hill)(\/|$)/)) return false;
+        if (page.match(/\/(plumbing|electrical-fixtures)\/?$/)) return false;
         // Exclude /services/[slug] pages (these redirect to /repairs/ or /remodeling/)
         if (page.match(/\/services\/[a-z-]+\/?$/)) return false;
         // Exclude privacy and terms (low value for SEO)

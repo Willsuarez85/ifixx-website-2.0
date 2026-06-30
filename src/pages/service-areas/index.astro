@@ -2,11 +2,13 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const seoTitle = "Service Areas | iFixx Remodeling & Handyman Services";
-const seoDescription = "iFixx serves Charlotte, NC and surrounding areas including Ballantyne, Matthews, Waxhaw, Rock Hill, Pineville, Mint Hill, and Monroe. Professional home repair and remodeling services.";
+import { isRetiredCity } from '../../lib/seo-retired';
 
-// Get all cities from content collection
-const cities = await getCollection('cities');
+const seoTitle = "Service Areas | iFixx Remodeling & Handyman Services";
+const seoDescription = "iFixx serves Charlotte and South Charlotte, NC including Ballantyne, Matthews, Pineville, and Mint Hill. Professional home repair and remodeling services.";
+
+// Get all cities from content collection — exclude retired (out-of-focus) cities
+const cities = (await getCollection('cities')).filter(c => !isRetiredCity(c.slug));
 
 // Sort: Charlotte first, then alphabetically
 const sortedCities = cities.sort((a, b) => {
