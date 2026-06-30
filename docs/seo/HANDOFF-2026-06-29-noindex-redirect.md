@@ -22,15 +22,12 @@ Stack real: **Astro 5 + `@astrojs/sitemap` + `vercel.json`** (no Next.js, como a
 - Sitemap regenerado: **~173 → 106 URLs**. Guard defensivo en `astro.config.mjs`.
 - Conservados intactos: charlotte, south-charlotte, ballantyne, pineville, matthews + **mint-hill**, con sus servicios reales y `electrical-fixtures` en barrios.
 
-## Decisiones pendientes (StarLord / Jaime) — NO aplicadas
+## Decisiones — RESUELTAS (2026-06-30)
 
-1. **mint-hill** — conservada por defecto. Si el foco es estrictamente South Charlotte, hay que retirarla:
-   añadir `'mint-hill'` a `RETIRED_CITIES` en `src/lib/seo-retired.ts` y generar sus 12 redirects (11 servicios → `/charlotte/{servicio}` salvo plumbing/electrical → `/services`; `/service-areas/mint-hill` → `/service-areas`).
-2. **electrical-fixtures en barrios conservados** — intacta. Falta confirmar:
-   - **Si es handyman** (luminarias, ventiladores, outlets): conservar, quizás re-sluggear/renombrar como handyman.
-   - **Si es eléctrico de oficio:** eliminar → añadir `'electrical-fixtures'` a `RETIRED_SERVICES` (se va de todos lados automáticamente) + generar redirects `/{ciudad-conservada}/electrical-fixtures` → `/services`, `/repairs/electrical-fixtures` → `/services`, `/emergency-services/electrical-fixtures` → `/services`.
+1. **mint-hill** — ✅ **se conserva** (decisión final). Sigue viva con sus servicios reales (9, sin plumbing/electrical) + `/service-areas/mint-hill`. Sin cambios.
+2. **electrical-fixtures** — ✅ **se retira** (tratado como eléctrico de oficio, no handyman). Aplicado: añadido a `RETIRED_SERVICES`; eliminada la página `src/pages/emergency-services/electrical-fixtures.astro`; 301 a `/services` desde `/{ciudad}/electrical-fixtures`, `/repairs/electrical-fixtures`, `/emergency-services/electrical-fixtures`; fuera del sitemap.
 
-   > Nota: el slug `plumbing` resultó ser *"Faucet & Fixture Repair — fixes que no requieren plomero"* y `electrical-fixtures` *"fixes que no requieren electricista"*. Ambos son técnicamente handyman mal-sluggeado; plomería se retiró igual por instrucción.
+   > Nota: el slug `plumbing` resultó ser *"Faucet & Fixture Repair — fixes que no requieren plomero"* y `electrical-fixtures` *"fixes que no requieren electricista"*. Pese al matiz, ambos se retiraron por decisión.
 
 ## Follow-up: pasada de COPY (fuera de scope de este PR)
 

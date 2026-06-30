@@ -17,14 +17,13 @@ export const RETIRED_CITIES = [
   'rock-hill',
 ] as const;
 
-// Services removed in every city. iFIXX does not offer plumbing as a trade.
-//
-// NOTE: 'electrical-fixtures' is intentionally NOT listed here. Whether it stays
-// (handyman fixture work — fans, outlets, light fixtures) or is removed (electrical
-// trade) is an open decision for StarLord/Jaime. It is only dropped where its city
-// is retired (collateral of removing the whole folder), never on its own in a kept
-// city. See the PR's "pending decisions" note.
-export const RETIRED_SERVICES = ['plumbing'] as const;
+// Services removed in every city — iFIXX does not offer these as a trade.
+//   plumbing            — never offered.
+//   electrical-fixtures — retired per StarLord/Jaime decision (2026-06-30): treated
+//                         as electrical trade, not handyman. Removed from the matrix,
+//                         the /repairs and /emergency-services pages, and the sitemap;
+//                         301'd to /services (see vercel.json).
+export const RETIRED_SERVICES = ['plumbing', 'electrical-fixtures'] as const;
 
 const retiredCities: readonly string[] = RETIRED_CITIES;
 const retiredServices: readonly string[] = RETIRED_SERVICES;

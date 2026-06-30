@@ -33,22 +33,22 @@
     },
     {
       "source": "/services/electrical",
-      "destination": "/repairs/electrical-fixtures",
+      "destination": "/services",
       "permanent": true
     },
     {
       "source": "/services/electrical/",
-      "destination": "/repairs/electrical-fixtures",
+      "destination": "/services",
       "permanent": true
     },
     {
       "source": "/services/electrical-fixtures",
-      "destination": "/repairs/electrical-fixtures",
+      "destination": "/services",
       "permanent": true
     },
     {
       "source": "/services/electrical-fixtures/",
-      "destination": "/repairs/electrical-fixtures",
+      "destination": "/services",
       "permanent": true
     },
     {
@@ -533,12 +533,12 @@
     },
     {
       "source": "/rock-hill/electrical",
-      "destination": "/repairs/electrical-fixtures",
+      "destination": "/services",
       "permanent": true
     },
     {
       "source": "/rock-hill/electrical/",
-      "destination": "/repairs/electrical-fixtures",
+      "destination": "/services",
       "permanent": true
     },
     {
@@ -898,6 +898,46 @@
     },
     {
       "source": "/repairs/plumbing",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/electrical-fixtures",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/electrical-fixtures",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/electrical-fixtures",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/electrical-fixtures",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/electrical-fixtures",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/mint-hill/electrical-fixtures",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/repairs/electrical-fixtures",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/emergency-services/electrical-fixtures",
       "destination": "/services",
       "permanent": true
     }
