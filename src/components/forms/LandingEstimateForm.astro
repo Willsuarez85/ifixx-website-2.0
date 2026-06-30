@@ -1,0 +1,263 @@
+---
+interface Props {
+  serviceSlug: 'drywall-repair' | 'deck-repair';
+  serviceTitle: string;
+  formId: string;
+  leadType: 'drywall_repair' | 'deck_repair';
+  formName: string;
+  issueOptions: string[];
+  descriptionPlaceholder: string;
+  photoLabel: string;
+  includeSafetyConcern?: boolean;
+}
+
+const {
+  serviceSlug,
+  serviceTitle,
+  formId,
+  leadType,
+  formName,
+  issueOptions,
+  descriptionPlaceholder,
+  photoLabel,
+  includeSafetyConcern = false
+} = Astro.props;
+---
+
+<div class="landing-estimate-card bg-white rounded-2xl shadow-xl p-6 lg:p-8 border border-neutral-200 w-full max-w-[calc(100vw-2rem)] lg:max-w-full mx-auto min-w-0 overflow-hidden">
+  <div class="text-center mb-6">
+    <span class="inline-flex items-center rounded-full bg-primary-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-primary-800 mb-3">
+      Online estimate request
+    </span>
+    <h3 class="text-xl lg:text-2xl font-heading font-bold text-neutral-900 mb-2">
+      Request a Photo Estimate
+    </h3>
+    <p class="text-sm text-neutral-600">
+      Upload photos and describe the issue. We’ll review and follow up with the next step.
+    </p>
+  </div>
+
+  <form id={formId} class="space-y-4" data-landing-form>
+    <input type="hidden" name="service" value={serviceSlug} />
+
+    <div>
+      <label for={`${formId}-firstName`} class="sr-only">First name</label>
+      <input
+        type="text"
+        id={`${formId}-firstName`}
+        name="firstName"
+        required
+        autocomplete="given-name"
+        class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900 placeholder-neutral-500"
+        placeholder="First name *"
+      />
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for={`${formId}-phone`} class="sr-only">Phone number</label>
+        <input
+          type="tel"
+          id={`${formId}-phone`}
+          name="phone"
+          required
+          autocomplete="tel"
+          class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900 placeholder-neutral-500"
+          placeholder="Phone number *"
+        />
+      </div>
+      <div>
+        <label for={`${formId}-email`} class="sr-only">Email address</label>
+        <input
+          type="email"
+          id={`${formId}-email`}
+          name="email"
+          required
+          autocomplete="email"
+          class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900 placeholder-neutral-500"
+          placeholder="Email address *"
+        />
+      </div>
+    </div>
+
+    <div>
+      <label for={`${formId}-issueType`} class="block text-sm font-semibold text-neutral-800 mb-2">
+        What needs repair? *
+      </label>
+      <select
+        id={`${formId}-issueType`}
+        name="issueType"
+        required
+        class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900 bg-white"
+      >
+        <option value="">Select the main issue...</option>
+        {issueOptions.map((option) => <option value={option}>{option}</option>)}
+      </select>
+    </div>
+
+    {includeSafetyConcern && (
+      <div>
+        <label for={`${formId}-safetyConcern`} class="block text-sm font-semibold text-neutral-800 mb-2">
+          Is the deck currently unsafe?
+        </label>
+        <select
+          id={`${formId}-safetyConcern`}
+          name="safetyConcern"
+          class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900 bg-white"
+        >
+          <option value="">Select one...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+          <option value="not sure">Not sure</option>
+        </select>
+      </div>
+    )}
+
+    <div>
+      <label for={`${formId}-message`} class="sr-only">Project description</label>
+      <textarea
+        id={`${formId}-message`}
+        name="message"
+        rows="3"
+        class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900 placeholder-neutral-500 resize-none"
+        placeholder={descriptionPlaceholder}
+      ></textarea>
+    </div>
+
+    <div>
+      <label for={`${formId}-photos`} class="block text-sm font-semibold text-neutral-800 mb-2">
+        {photoLabel}
+      </label>
+      <input
+        type="file"
+        id={`${formId}-photos`}
+        name="photos"
+        accept="image/*"
+        multiple
+        class="w-full rounded-lg border border-dashed border-neutral-300 bg-neutral-50 px-4 py-4 text-sm text-neutral-700 file:mr-4 file:rounded-md file:border-0 file:bg-primary-500 file:px-4 file:py-2 file:font-heading file:font-bold file:text-neutral-900 hover:file:bg-primary-600"
+      />
+      <p class="mt-2 text-xs text-neutral-500">
+        Photos help us review faster. If they do not attach, text them to (980) 391-6833 after submitting.
+      </p>
+    </div>
+
+    <button type="submit" class="w-full min-w-0 btn btn-primary text-base lg:text-lg py-4 justify-center font-bold whitespace-normal text-center leading-snug">
+      <span class="btn-text min-w-0">Submit {serviceTitle} Request</span>
+      <svg class="btn-spinner hidden w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    </button>
+
+    <p class="text-xs text-center text-neutral-500">
+      We’ll review the request and follow up clearly. Photos help speed up the first conversation.
+    </p>
+  </form>
+
+  <div class="form-success hidden mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+    <div class="flex items-start gap-3">
+      <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+      <div>
+        <p class="font-semibold text-green-800 text-sm">Thanks — we received your request.</p>
+        <p class="text-green-700 text-xs">If your photos did not attach, please text them to (980) 391-6833 so we can review the repair faster.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-error hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+    <div class="flex items-center gap-3">
+      <svg class="w-5 h-5 text-red-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+      <p class="font-semibold text-red-800 text-sm">Something went wrong. Please try again or call (980) 391-6833.</p>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ formId, serviceSlug, leadType, formName }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    const btnText = form.querySelector('.btn-text');
+    const btnSpinner = form.querySelector('.btn-spinner');
+    const successMsg = form.parentElement?.querySelector('.form-success');
+    const errorMsg = form.parentElement?.querySelector('.form-error');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      successMsg?.classList.add('hidden');
+      errorMsg?.classList.add('hidden');
+      btnText?.classList.add('hidden');
+      btnSpinner?.classList.remove('hidden');
+
+      const formData = new FormData(form);
+      const photoFiles = formData.getAll('photos').filter((file) => file && file instanceof File && file.size > 0);
+      const photoCount = photoFiles.length;
+      const issueType = formData.get('issueType') || '';
+      const safetyConcern = formData.get('safetyConcern') || '';
+      const rawMessage = formData.get('message') || '';
+      const photoUploadStatus = photoCount > 0 ? 'photos-selected-browser-only' : 'no-photos-selected';
+      const composedMessage = [
+        `Issue type: ${issueType}`,
+        safetyConcern ? `Safety concern: ${safetyConcern}` : '',
+        `Landing page: ${window.location.pathname}`,
+        'Campaign test: ifixx_south_charlotte_service_test_2026_07',
+        `Photo status: ${photoUploadStatus} (${photoCount} selected)`,
+        photoCount > 0 ? `Customer selected ${photoCount} photo(s); follow up by SMS for photos if files are not attached.` : 'No photos selected in browser; ask customer to text photos if needed.',
+        '',
+        'Customer description:',
+        rawMessage
+      ].filter(Boolean).join('\n');
+
+      const data = {
+        firstName: formData.get('firstName'),
+        lastName: '',
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        service: serviceSlug,
+        issueType,
+        safetyConcern,
+        message: composedMessage,
+        source: formName,
+        landingPage: window.location.pathname,
+        campaignTest: 'ifixx_south_charlotte_service_test_2026_07',
+        photoUploadStatus,
+        photoCount
+      };
+
+      try {
+        const response = await fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        if (!result.success) throw new Error(result.error || 'Unknown error');
+
+        successMsg?.classList.remove('hidden');
+        form.reset();
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'form_submit',
+          form_id: formId,
+          form_name: formName,
+          form_location: window.location.pathname,
+          lead_type: leadType,
+          campaign_test: 'ifixx_south_charlotte_service_test_2026_07',
+          issue_type: issueType
+        });
+      } catch (error) {
+        errorMsg?.classList.remove('hidden');
+      } finally {
+        btnText?.classList.remove('hidden');
+        btnSpinner?.classList.add('hidden');
+      }
+    });
+  });
+</script>

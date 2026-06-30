@@ -1,5 +1,42 @@
 @import "tailwindcss";
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.landing-estimate-card {
+  width: 100%;
+  max-width: calc(100vw - 2rem);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.landing-estimate-card input,
+.landing-estimate-card select,
+.landing-estimate-card textarea,
+.landing-estimate-card button {
+  max-width: 100%;
+}
+
+@media (max-width: 639px) {
+  .landing-estimate-card {
+    max-width: 358px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .landing-estimate-card {
+    max-width: 100%;
+  }
+}
+
 /* Self-hosted fonts for better performance */
 @font-face {
   font-family: 'Inter';

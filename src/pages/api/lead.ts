@@ -13,6 +13,10 @@ const SERVICE_TAGS: Record<string, string[]> = {
     'doors-windows': ['service-doors-windows', 'handyman'],
     'general-repairs': ['service-general-repairs', 'handyman'],
 
+    // South Charlotte service test landings → Pipeline: Handyman
+    'drywall-repair': ['service-drywall-repair', 'service-painting', 'handyman', 'south-charlotte-test'],
+    'deck-repair': ['service-deck-repair', 'service-carpentry', 'handyman', 'south-charlotte-test'],
+
     // Emergency/Urgent Services → Pipeline: Handyman (with urgent flag)
     'emergency-plumbing': ['emergency-plumbing', 'handyman', 'urgent'],
     'emergency-electrical': ['emergency-electrical', 'handyman', 'urgent'],
@@ -30,6 +34,46 @@ const SERVICE_TAGS: Record<string, string[]> = {
     'other': ['general-inquiry', 'handyman']
 };
 
+function buildLeadMessage(data: {
+    message?: string;
+    issueType?: string;
+    safetyConcern?: string;
+    landingPage?: string;
+    campaignTest?: string;
+    photoUploadStatus?: string;
+    photoCount?: number | string;
+}) {
+    const {
+        message,
+        issueType,
+        safetyConcern,
+        landingPage,
+        campaignTest,
+        photoUploadStatus,
+        photoCount
+    } = data;
+
+    const hasLandingContext = issueType || safetyConcern || landingPage || campaignTest || photoUploadStatus || photoCount !== undefined;
+
+    if (!hasLandingContext || message?.includes('Issue type:')) {
+        return message || '';
+    }
+
+    return [
+        `Issue type: ${issueType || 'Not provided'}`,
+        `Safety concern: ${safetyConcern || 'Not provided'}`,
+        `Landing page: ${landingPage || 'Not provided'}`,
+        `Campaign test: ${campaignTest || 'Not provided'}`,
+        `Photo status: ${photoUploadStatus || 'Not provided'} (${photoCount ?? 0} selected)`,
+        photoUploadStatus === 'photos-selected-browser-only'
+            ? 'Customer selected photos in the browser, but files are not uploaded to GHL by this v1 form. Ask customer to text photos to (980) 391-6833 if they did not come through.'
+            : 'No photos selected in the browser. Ask customer to text photos to (980) 391-6833 if photos would help review the repair.',
+        '',
+        'Customer description:',
+        message || 'Not provided'
+    ].join('\n');
+}
+
 export const POST: APIRoute = async ({ request }) => {
     try {
         const data = await request.json();
@@ -42,6 +86,13 @@ export const POST: APIRoute = async ({ request }) => {
             message,
             source,
             city,
+            // South Charlotte landing page fields
+            issueType,
+            safetyConcern,
+            landingPage,
+            campaignTest,
+            photoUploadStatus,
+            photoCount,
             // Property Manager specific fields
             segment,
             companyName,
@@ -83,11 +134,22 @@ export const POST: APIRoute = async ({ request }) => {
         const allTags = [
             'website-lead',
             ...serviceTags,
+            ...(campaignTest ? [`campaign-${String(campaignTest).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`] : []),
             ...(city ? [`city-${city.toLowerCase().replace(/\s+/g, '-')}`] : []),
             // Add segment-specific tags
             ...(segment === 'property-manager' ? ['segment-property-manager', 'b2b-lead'] : []),
             ...(segment === 'homeowner' ? ['segment-homeowner'] : [])
         ];
+
+        const enrichedMessage = buildLeadMessage({
+            message,
+            issueType,
+            safetyConcern,
+            landingPage,
+            campaignTest,
+            photoUploadStatus,
+            photoCount
+        });
 
         // 3. Build custom fields for additional context
         // GHL Custom Field IDs (from iFIXX location KoSPUTpwwHX6t12vY7TO):
@@ -98,8 +160,8 @@ export const POST: APIRoute = async ({ request }) => {
         // - pZTERD3dvBvPEiq0RARf = Lead Source
         // - vwPsQ0pHJcnap7ZtULld = Urgency
         const customFields: { id: string; value: string }[] = [];
-        if (message) {
-            customFields.push({ id: 'HhBO7YQAST3aZR770LJO', value: message }); // Project Notes
+        if (enrichedMessage) {
+            customFields.push({ id: 'HhBO7YQAST3aZR770LJO', value: enrichedMessage }); // Project Notes
         }
         if (service) {
             customFields.push({ id: '6PzFTQhylccNWI2VtAn7', value: service }); // Service Needed
