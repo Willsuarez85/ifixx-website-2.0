@@ -104,6 +104,7 @@ export const POST: APIRoute = async ({ request }) => {
             utm_medium,
             utm_campaign,
             utm_term,
+            utm_content,
             gclid
         } = data;
 
@@ -192,12 +193,13 @@ export const POST: APIRoute = async ({ request }) => {
         };
 
         // Add UTM parameters and GCLID for attribution & offline conversion tracking
-        if (utm_source || utm_medium || utm_campaign || gclid) {
+        if (utm_source || utm_medium || utm_campaign || utm_term || utm_content || gclid) {
             upsertBody.attributionSource = {
                 ...(utm_source && { utmSource: utm_source }),
                 ...(utm_medium && { utmMedium: utm_medium }),
                 ...(utm_campaign && { utmCampaign: utm_campaign }),
                 ...(utm_term && { utmTerm: utm_term }),
+                ...(utm_content && { utmContent: utm_content }),
                 ...(gclid && { gclid })
             };
         }

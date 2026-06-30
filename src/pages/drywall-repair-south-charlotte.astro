@@ -5,8 +5,8 @@ import GoogleReviews from '../components/sections/GoogleReviews.astro';
 import CTASection from '../components/sections/CTASection.astro';
 import LandingEstimateForm from '../components/forms/LandingEstimateForm.astro';
 
-const title = 'Drywall Repair + Paint Matching in South Charlotte | iFIXX';
-const description = 'Drywall repair, ceiling patching, texture matching, and paint blending in South Charlotte, Ballantyne, Pineville, and Matthews. Request a free online estimate from local iFIXX.';
+const title = 'Drywall Repair in South Charlotte | Holes, Cracks, Ceilings & Water Damage | iFIXX';
+const description = 'Drywall repair in South Charlotte, Ballantyne, Pineville, and Matthews — holes, cracks, nail pops, ceiling patches, water-damage drywall, and texture matching. Insured local handyman team. Request a free online estimate from iFIXX.';
 const canonical = '/drywall-repair-south-charlotte/';
 const heroImage = '/images/services/drywall/dr-01-hole-patching-closeup.webp';
 const supportImage = '/images/projects/painting-drywall-dining-room-wainscoting-chandelier.webp';
@@ -15,13 +15,13 @@ const leadType = 'drywall_repair';
 const serviceAreas = ['South Charlotte', 'Ballantyne', 'Pineville', 'Matthews', 'Weddington', 'Waxhaw', 'SouthPark', 'Steele Creek'];
 
 const repairItems = [
-  'Holes from doors, furniture, accidents, or old fixtures',
+  'Holes from doors, furniture, accidents, or removed fixtures',
   'Cracks, nail pops, seams, and settling damage',
-  'Ceiling patches and water-stain drywall after the leak is solved',
+  'Ceiling patches and water-damaged drywall once the leak is solved',
+  'Sagging, soft, or crumbling drywall that needs to be cut out and replaced',
   'Texture matching: orange peel, knockdown, smooth, and popcorn',
-  'Drywall repair before repainting or listing a home',
-  'Paint touch-up, repaint, and finish blending after patching',
-  'Small punch-list drywall work for homeowners and property managers'
+  'Punch-list drywall and small home repairs before selling or listing',
+  'Finish blending and paint touch-up to support the patch (not the main job)'
 ];
 
 const galleryImages = [
@@ -36,25 +36,26 @@ const galleryImages = [
 ];
 
 const processSteps = [
-  { title: 'Tell us what happened', text: 'Send the basics: hole, crack, ceiling patch, water stain, texture issue, or paint mismatch. Photos help us understand the surface faster.' },
-  { title: 'We scope the finish', text: 'The repair is only half the job. We look at patch size, texture, wall age, paint blending, and whether a visit is needed.' },
-  { title: 'Repair + blend', text: 'When approved, our local team patches, sands, textures, and helps blend the finish so the repair does not scream “cheap patch.”' }
+  { title: 'Tell us what happened', text: 'Send the basics: hole, crack, ceiling patch, water-damaged drywall, soft spot, or texture issue. Photos help us understand the surface faster.' },
+  { title: 'We scope the repair', text: 'We look at patch size, texture, wall age, and whether the damage is surface-level or needs drywall cut out and replaced — and whether a visit is needed.' },
+  { title: 'Repair, texture, and blend', text: 'When approved, our local team patches, sands, and matches the texture — then blends the finish so the repair does not leave an obvious square on your wall.' }
 ];
 
 const faqs = [
-  { q: 'Can you estimate drywall repair online?', a: 'Yes, many drywall repairs can start with an online estimate request. Clear photos and a short description help us understand the size, texture, location, and paint needs before we recommend the next step.' },
-  { q: 'Do you paint after the drywall patch?', a: 'Yes. For most homeowners, the real problem is not just the hole — it is the visible square left behind. We can discuss paint touch-up or repainting as part of the repair scope.' },
-  { q: 'Can you match my wall or ceiling texture?', a: 'We handle common textures like orange peel, knockdown, smooth finishes, and popcorn ceiling texture. Exact matching depends on the age and condition of the surrounding surface.' },
-  { q: 'Do you repair water-damaged drywall?', a: 'Yes, once the source of the leak or moisture has been handled. If the leak is active or there is a mold concern, that needs to be addressed before closing the wall or ceiling.' },
-  { q: 'Are you a local company or a franchise?', a: 'iFIXX is a local Charlotte-area team, not a national franchise call center. We work across South Charlotte, Ballantyne, Pineville, Matthews, and nearby neighborhoods.' }
+  { q: 'Can you estimate drywall repair online?', a: 'Yes, many drywall repairs can start with an online estimate request. Clear photos and a short description help us understand the size, location, and texture before we recommend the next step.' },
+  { q: 'What kind of drywall damage do you repair?', a: 'Holes, cracks, nail pops, seams, ceiling patches, water-damaged drywall once the leak is solved, and soft or crumbling sections that need to be cut out and replaced. We also handle small punch-list repairs around the house.' },
+  { q: 'Can you match my wall or ceiling texture?', a: 'We handle common textures like orange peel, knockdown, smooth finishes, and popcorn ceiling texture. Exact matching depends on the age and condition of the surrounding surface, and we will tell you honestly what to expect.' },
+  { q: 'Do you repair water-damaged drywall?', a: 'Yes, once the source of the leak or moisture has been handled. If the leak is active or there is a mold concern, that needs to be addressed before we close the wall or ceiling.' },
+  { q: 'Do you also paint or touch up after the patch?', a: 'We can blend and touch up the finish so the repair does not leave an obvious square — but drywall repair is the main job here, not full repainting. On older or sun-faded walls, a perfect paint match is not always possible, so we are upfront about it before we start.' },
+  { q: 'Are you a local company or a franchise?', a: 'iFIXX is an insured, local Charlotte-area team, not a national franchise call center. We work across South Charlotte, Ballantyne, Pineville, Matthews, and nearby neighborhoods.' }
 ];
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Drywall Repair + Paint Matching in South Charlotte',
+  name: 'Drywall Repair in South Charlotte',
   description,
-  serviceType: 'Drywall repair and paint matching',
+  serviceType: 'Drywall repair',
   url: `https://ifixxnc.com${canonical}`,
   image: `https://ifixxnc.com${heroImage}`,
   provider: { '@id': 'https://ifixxnc.com/#business' },
@@ -95,21 +96,21 @@ const faqSchema = {
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           <div class="order-1 lg:order-1">
             <span class="inline-block px-4 py-2 bg-primary-500 text-neutral-900 text-sm font-bold rounded-full mb-4">Local South Charlotte team • Not a franchise</span>
-            <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">Drywall Repair + Paint Matching in South Charlotte</h1>
-            <p class="text-lg text-neutral-200 mb-4 max-w-xl">A drywall patch should not leave a visible scar on your wall. If you have a hole, ceiling stain, crack, texture mismatch, or paint-blending issue, iFIXX helps you repair the damage and think through the finish — not just cover the spot.</p>
-            <p class="text-neutral-300 mb-6 max-w-xl">Request a free online estimate and our local team will review the basics, ask for photos if helpful, and recommend the right next step for homes in South Charlotte, Ballantyne, Pineville, Matthews, and nearby neighborhoods.</p>
+            <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">Drywall Repair in South Charlotte</h1>
+            <p class="text-lg text-neutral-200 mb-4 max-w-xl">Holes, cracks, nail pops, ceiling patches, water-damaged drywall, soft spots — if a piece of your home needs fixing, iFIXX repairs the damage and leaves the wall looking right again. Honest, insured, local handyman work.</p>
+            <p class="text-neutral-300 mb-6 max-w-xl">Request a free online estimate and our local team will review the basics, ask for photos if helpful, and recommend the right next step. The owners, Jaime &amp; Hamed, review every request personally and give you an upfront price — serving South Charlotte, Ballantyne, Pineville, Matthews, and nearby neighborhoods.</p>
             <div class="flex flex-col sm:flex-row gap-3 mb-8">
               <a href="#estimate-form" class="btn btn-primary landing-primary-cta" data-lead-type={leadType}>Request a Free Online Estimate</a>
               <a href="tel:+19803916833" class="btn btn-outline-light landing-phone-cta" data-lead-type={leadType}>Call (980) 391-6833</a>
             </div>
             <div class="grid grid-cols-2 gap-4">
-              {['Repair + finish mindset', 'Texture and paint blending', 'South Charlotte focus', 'Insured local team'].map((chip) => (
+              {['Holes, cracks & ceilings', 'Water-damage drywall repair', 'South Charlotte focus', 'Insured local team'].map((chip) => (
                 <div class="flex items-center gap-3 text-white"><span class="w-9 h-9 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">✓</span><span class="text-sm font-medium">{chip}</span></div>
               ))}
             </div>
           </div>
           <div id="estimate-form" class="order-2 lg:order-2 scroll-mt-24 min-w-0">
-            <LandingEstimateForm serviceSlug="drywall-repair" serviceTitle="Drywall Repair + Paint Matching" formId="drywall-south-charlotte-estimate" leadType="drywall_repair" formName="South Charlotte Drywall Repair Landing Form" issueOptions={['hole', 'crack', 'ceiling damage', 'water stain/damage', 'texture matching', 'paint matching', 'nail pops', 'other']} descriptionPlaceholder="Briefly describe the drywall issue, where it is, and whether paint/texture matching is needed." photoLabel="Upload photos if you have them" submitLabel="Request a Free Online Estimate" />
+            <LandingEstimateForm serviceSlug="drywall-repair" serviceTitle="Drywall Repair" formId="drywall-south-charlotte-estimate" leadType="drywall_repair" formName="South Charlotte Drywall Repair Landing Form" issueOptions={['hole', 'crack', 'nail pops', 'ceiling damage', 'water-damaged drywall', 'soft/sagging drywall', 'texture matching', 'finish/paint touch-up', 'other']} descriptionPlaceholder="Briefly describe the drywall damage and where it is in the home (photos help)." photoLabel="Upload photos if you have them" submitLabel="Request a Free Online Estimate" />
           </div>
         </div>
       </div>
@@ -122,10 +123,10 @@ const faqSchema = {
     <div class="container">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
-          <span class="badge mb-4">The pain: the patch still shows</span>
-          <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-6">Drywall repair is not finished until the wall looks right again</h2>
-          <p class="text-neutral-600 mb-5">Most homeowners do not just want the hole filled. They want the room to feel finished again — no obvious square, no rough texture, no mismatched paint calling attention to the repair.</p>
-          <p class="text-neutral-600 mb-8">That is why this page is built around drywall repair plus finish blending. We help you understand whether the job needs patching only, texture work, paint touch-up, or a broader repaint.</p>
+          <span class="badge mb-4">The pain: damaged drywall you keep walking past</span>
+          <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-6">From a hole in the wall to a water-stained ceiling — we fix the piece of your home that is bugging you</h2>
+          <p class="text-neutral-600 mb-5">A doorknob hole, a settling crack, popped nails, a ceiling stain after a leak, or a soft section that needs cutting out — these are the small repairs that sit on the to-do list for months and make a room feel unfinished.</p>
+          <p class="text-neutral-600 mb-8">We repair the damage first, match the texture, and then blend the finish so the patch does not leave an obvious square. Drywall repair is the job; the finish is what makes it disappear.</p>
           <ul class="space-y-4">{repairItems.map((item) => (<li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 mt-0.5 text-neutral-900 text-sm font-bold">✓</span><span class="text-neutral-700">{item}</span></li>))}</ul>
         </div>
         <div class="rounded-2xl overflow-hidden shadow-2xl"><img src={supportImage} alt="Finished drywall and paint blending project" class="w-full aspect-[4/3] object-cover" width="700" height="525" loading="lazy" decoding="async" /></div>
@@ -167,7 +168,7 @@ const faqSchema = {
   </section>
 
   <GoogleReviews title="What Charlotte Homeowners Say" />
-  <CTASection headline="Ready to repair the wall and blend the finish?" subtext="Request a free online estimate for drywall patching, ceiling repair, texture matching, and paint touch-ups in South Charlotte." />
+  <CTASection headline="Ready to get that drywall fixed for good?" subtext="Request a free online estimate for holes, cracks, nail pops, ceiling patches, water-damaged drywall, and texture matching in South Charlotte." />
 
   <script is:inline>
     document.addEventListener('click', (event) => {
