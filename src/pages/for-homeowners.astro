@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { isRetiredCity } from '../lib/seo-retired';
 import TrustBar from '../components/sections/TrustBar.astro';
 import Testimonials from '../components/sections/Testimonials.astro';
 import QuickEstimateCompact from '../components/forms/QuickEstimateCompact.astro';
 
 // Get locations for service area links
-const locations = await getCollection('cities');
+const locations = (await getCollection('cities')).filter(c => !isRetiredCity(c.slug));
 
 const seo = {
   title: "Home Repair Services for Charlotte Homeowners | iFixx",
@@ -18,7 +19,7 @@ const pillars = [
   {
     title: 'Home Repairs',
     href: '/repairs',
-    description: 'Plumbing, electrical, carpentry, painting, and everyday fixes done right.',
+    description: 'Carpentry, painting, drywall, doors, and everyday fixes done right.',
     icon: 'wrench',
     image: '/images/projects/Ifixx-portfolio15.webp'
   },
@@ -32,7 +33,7 @@ const pillars = [
   {
     title: 'Emergency Services',
     href: '/emergency-services',
-    description: 'Same-day service for burst pipes, electrical issues, and urgent repairs.',
+    description: 'Same-day service for water leaks, damaged doors, and urgent repairs.',
     icon: 'bolt',
     image: '/images/projects/Ifixx-portfolio22.webp'
   }

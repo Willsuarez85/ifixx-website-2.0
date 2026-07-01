@@ -7,6 +7,7 @@ import CTASection from '../../components/sections/CTASection.astro';
 import QuickEstimateCompact from '../../components/forms/QuickEstimateCompact.astro';
 import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
+import { isRetiredCity, isRetiredService } from '../../lib/seo-retired';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -30,11 +31,11 @@ const { title, category, pillar, summary, heroImage, bullets, signs, processStep
 // Get all services for related services lookup
 const allServices = await getCollection('services');
 const relatedServicesList = relatedServices
-  ? allServices.filter(s => relatedServices.includes(s.slug) && s.slug !== service.slug)
+  ? allServices.filter(s => relatedServices.includes(s.slug) && s.slug !== service.slug && !isRetiredService(s.slug))
   : [];
 
-// Get all cities for service areas section
-const allCities = await getCollection('cities');
+// Get all cities for service areas section — exclude retired cities
+const allCities = (await getCollection('cities')).filter(c => !isRetiredCity(c.slug));
 const serviceAreas = allCities.sort((a, b) => {
   // Sort: Charlotte first, then alphabetically
   if (a.slug === 'charlotte') return -1;

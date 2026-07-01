@@ -13,42 +13,12 @@
     },
     {
       "source": "/kitchen-remodeling-charlotte",
-      "destination": "/charlotte/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling",
       "permanent": true
     },
     {
       "source": "/bathroom-renovation-charlotte",
-      "destination": "/charlotte/bathroom-remodeling",
-      "permanent": true
-    },
-    {
-      "source": "/services/plumbing",
-      "destination": "/repairs/plumbing",
-      "permanent": true
-    },
-    {
-      "source": "/services/plumbing/",
-      "destination": "/repairs/plumbing",
-      "permanent": true
-    },
-    {
-      "source": "/services/electrical",
-      "destination": "/repairs/electrical-fixtures",
-      "permanent": true
-    },
-    {
-      "source": "/services/electrical/",
-      "destination": "/repairs/electrical-fixtures",
-      "permanent": true
-    },
-    {
-      "source": "/services/electrical-fixtures",
-      "destination": "/repairs/electrical-fixtures",
-      "permanent": true
-    },
-    {
-      "source": "/services/electrical-fixtures/",
-      "destination": "/repairs/electrical-fixtures",
+      "destination": "/remodeling/bathroom-remodeling",
       "permanent": true
     },
     {
@@ -532,16 +502,6 @@
       "permanent": true
     },
     {
-      "source": "/rock-hill/electrical",
-      "destination": "/repairs/electrical-fixtures",
-      "permanent": true
-    },
-    {
-      "source": "/rock-hill/electrical/",
-      "destination": "/repairs/electrical-fixtures",
-      "permanent": true
-    },
-    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true
@@ -575,6 +535,380 @@
       "source": "/pineville/basement-finishing/",
       "destination": "/remodeling/basement-finishing",
       "permanent": true
+    },
+    {
+      "source": "/huntersville/basement-finishing",
+      "destination": "/charlotte/basement-finishing",
+      "permanent": true
+    },
+    {
+      "source": "/huntersville/carpentry",
+      "destination": "/charlotte/carpentry",
+      "permanent": true
+    },
+    {
+      "source": "/huntersville/doors-windows",
+      "destination": "/charlotte/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/huntersville/flooring-installation",
+      "destination": "/charlotte/flooring-installation",
+      "permanent": true
+    },
+    {
+      "source": "/huntersville/furniture-assembly",
+      "destination": "/charlotte/furniture-assembly",
+      "permanent": true
+    },
+    {
+      "source": "/huntersville/outdoor-living",
+      "destination": "/charlotte/outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/huntersville/pressure-washing",
+      "destination": "/charlotte/pressure-washing",
+      "permanent": true
+    },
+    {
+      "source": "/huntersville/quick-fix",
+      "destination": "/charlotte/quick-fix",
+      "permanent": true
+    },
+    {
+      "source": "/huntersville/tv-mounting",
+      "destination": "/charlotte/tv-mounting",
+      "permanent": true
+    },
+    {
+      "source": "/concord/basement-finishing",
+      "destination": "/charlotte/basement-finishing",
+      "permanent": true
+    },
+    {
+      "source": "/concord/carpentry",
+      "destination": "/charlotte/carpentry",
+      "permanent": true
+    },
+    {
+      "source": "/concord/doors-windows",
+      "destination": "/charlotte/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/concord/flooring-installation",
+      "destination": "/charlotte/flooring-installation",
+      "permanent": true
+    },
+    {
+      "source": "/concord/furniture-assembly",
+      "destination": "/charlotte/furniture-assembly",
+      "permanent": true
+    },
+    {
+      "source": "/concord/outdoor-living",
+      "destination": "/charlotte/outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/concord/pressure-washing",
+      "destination": "/charlotte/pressure-washing",
+      "permanent": true
+    },
+    {
+      "source": "/concord/quick-fix",
+      "destination": "/charlotte/quick-fix",
+      "permanent": true
+    },
+    {
+      "source": "/concord/tv-mounting",
+      "destination": "/charlotte/tv-mounting",
+      "permanent": true
+    },
+    {
+      "source": "/monroe/basement-finishing",
+      "destination": "/charlotte/basement-finishing",
+      "permanent": true
+    },
+    {
+      "source": "/monroe/carpentry",
+      "destination": "/charlotte/carpentry",
+      "permanent": true
+    },
+    {
+      "source": "/monroe/doors-windows",
+      "destination": "/charlotte/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/monroe/flooring-installation",
+      "destination": "/charlotte/flooring-installation",
+      "permanent": true
+    },
+    {
+      "source": "/monroe/furniture-assembly",
+      "destination": "/charlotte/furniture-assembly",
+      "permanent": true
+    },
+    {
+      "source": "/monroe/outdoor-living",
+      "destination": "/charlotte/outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/monroe/pressure-washing",
+      "destination": "/charlotte/pressure-washing",
+      "permanent": true
+    },
+    {
+      "source": "/monroe/quick-fix",
+      "destination": "/charlotte/quick-fix",
+      "permanent": true
+    },
+    {
+      "source": "/monroe/tv-mounting",
+      "destination": "/charlotte/tv-mounting",
+      "permanent": true
+    },
+    {
+      "source": "/waxhaw/basement-finishing",
+      "destination": "/charlotte/basement-finishing",
+      "permanent": true
+    },
+    {
+      "source": "/waxhaw/carpentry",
+      "destination": "/charlotte/carpentry",
+      "permanent": true
+    },
+    {
+      "source": "/waxhaw/doors-windows",
+      "destination": "/charlotte/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/waxhaw/flooring-installation",
+      "destination": "/charlotte/flooring-installation",
+      "permanent": true
+    },
+    {
+      "source": "/waxhaw/furniture-assembly",
+      "destination": "/charlotte/furniture-assembly",
+      "permanent": true
+    },
+    {
+      "source": "/waxhaw/outdoor-living",
+      "destination": "/charlotte/outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/waxhaw/pressure-washing",
+      "destination": "/charlotte/pressure-washing",
+      "permanent": true
+    },
+    {
+      "source": "/waxhaw/quick-fix",
+      "destination": "/charlotte/quick-fix",
+      "permanent": true
+    },
+    {
+      "source": "/waxhaw/tv-mounting",
+      "destination": "/charlotte/tv-mounting",
+      "permanent": true
+    },
+    {
+      "source": "/rock-hill/basement-finishing",
+      "destination": "/charlotte/basement-finishing",
+      "permanent": true
+    },
+    {
+      "source": "/rock-hill/carpentry",
+      "destination": "/charlotte/carpentry",
+      "permanent": true
+    },
+    {
+      "source": "/rock-hill/doors-windows",
+      "destination": "/charlotte/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/rock-hill/flooring-installation",
+      "destination": "/charlotte/flooring-installation",
+      "permanent": true
+    },
+    {
+      "source": "/rock-hill/furniture-assembly",
+      "destination": "/charlotte/furniture-assembly",
+      "permanent": true
+    },
+    {
+      "source": "/rock-hill/pressure-washing",
+      "destination": "/charlotte/pressure-washing",
+      "permanent": true
+    },
+    {
+      "source": "/rock-hill/tv-mounting",
+      "destination": "/charlotte/tv-mounting",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/huntersville",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/concord",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/monroe",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/waxhaw",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/rock-hill",
+      "destination": "/service-areas",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/services/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/services/plumbing/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/services/electrical",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/services/electrical/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/services/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/services/electrical-fixtures/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/rock-hill/electrical",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/rock-hill/electrical/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/huntersville/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/huntersville/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/concord/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/concord/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/monroe/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/monroe/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/waxhaw/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/waxhaw/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/rock-hill/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/rock-hill/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/charlotte/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/south-charlotte/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/ballantyne/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/pineville/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/matthews/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/mint-hill/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/repairs/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/charlotte/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/south-charlotte/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/ballantyne/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/pineville/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/matthews/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/mint-hill/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/repairs/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/emergency-services/electrical-fixtures",
+      "destination": "/api/gone"
     }
   ]
 }

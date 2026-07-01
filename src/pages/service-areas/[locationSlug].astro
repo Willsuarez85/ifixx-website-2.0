@@ -5,24 +5,28 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import WhyChooseUs from '../../components/sections/WhyChooseUs.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import QuickEstimateCompact from '../../components/forms/QuickEstimateCompact.astro';
+import { isRetiredCity, isRetiredService } from '../../lib/seo-retired';
 
 export async function getStaticPaths() {
   const cities = await getCollection('cities');
-  return cities.map((city) => ({
-    params: { locationSlug: city.slug },
-    props: { city }
-  }));
+  // SEO cleanup (2026-06): only build hubs for in-focus cities (retired ones 301 to /service-areas)
+  return cities
+    .filter((city) => !isRetiredCity(city.slug))
+    .map((city) => ({
+      params: { locationSlug: city.slug },
+      props: { city }
+    }));
 }
 
 const { city } = Astro.props;
 const { Content } = await city.render();
 
-// Get all services to link from this location
-const services = await getCollection('services');
+// Get all services to link from this location — exclude retired services
+const services = (await getCollection('services')).filter(s => !isRetiredService(s.slug));
 
-// Get all cities for cross-linking
+// Get all cities for cross-linking — exclude retired cities
 const allCities = await getCollection('cities');
-const nearbyCities = allCities.filter(c => c.slug !== city.slug).sort((a, b) => {
+const nearbyCities = allCities.filter(c => c.slug !== city.slug && !isRetiredCity(c.slug)).sort((a, b) => {
   // Sort: Charlotte first, then by state (NC before SC), then alphabetically
   if (a.slug === 'charlotte') return -1;
   if (b.slug === 'charlotte') return 1;

@@ -7,6 +7,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 import LandingForm from '../../components/forms/LandingForm.astro';
+import { isRetiredCity, isRetiredService } from '../../lib/seo-retired';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -19,9 +20,17 @@ export async function getStaticPaths() {
   const paths = [];
 
   for (const city of cities) {
+    // SEO cleanup (2026-06): skip cities outside the Charlotte focus (301'd in vercel.json)
+    if (isRetiredCity(city.slug)) {
+      continue;
+    }
     for (const service of services) {
       // Skip generating city+service pages for consolidated services
       if (consolidatedServices.includes(service.slug)) {
+        continue;
+      }
+      // SEO cleanup (2026-06): skip services iFIXX does not offer (301'd in vercel.json)
+      if (isRetiredService(service.slug)) {
         continue;
       }
 
@@ -99,14 +108,14 @@ const heroIntroText = localContent?.heroIntro || introText;
 const displayBullets = localContent?.localBullets || serviceData.bullets;
 const displayFaqs = localContent?.localFaqs || serviceData.faqs;
 
-// Related services (same pillar, different service)
+// Related services (same pillar, different service) — exclude retired services
 const relatedServices = allServices
-  .filter(s => s.slug !== service.slug && s.data.pillar === currentPillar)
+  .filter(s => s.slug !== service.slug && s.data.pillar === currentPillar && !isRetiredService(s.slug))
   .slice(0, 4);
 
-// Same service in other cities
+// Same service in other cities — exclude retired cities
 const otherCities = allCities
-  .filter(c => c.slug !== city.slug)
+  .filter(c => c.slug !== city.slug && !isRetiredCity(c.slug))
   .slice(0, 6);
 
 // Hero image mapping (same as service pages)

@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { isRetiredCity } from '../lib/seo-retired';
 import TrustBar from '../components/sections/TrustBar.astro';
 import Testimonials from '../components/sections/Testimonials.astro';
 import PropertyManagerForm from '../components/forms/PropertyManagerForm.astro';
 
 // Get locations for service area links
-const locations = await getCollection('cities');
+const locations = (await getCollection('cities')).filter(c => !isRetiredCity(c.slug));
 
 const seo = {
   title: "Property Maintenance Services in Charlotte, NC | iFixx",
@@ -17,7 +18,7 @@ const seo = {
 const faqs = [
   {
     question: "What services do you offer property managers?",
-    answer: "We provide comprehensive property maintenance including plumbing, electrical, HVAC, carpentry, painting, drywall repairs, appliance installation, lock changes, and tenant turnover preparation. We handle both routine maintenance and emergency repairs across all property types."
+    answer: "We provide comprehensive property maintenance including carpentry, painting, drywall repairs, doors and windows, appliance installation, lock changes, and tenant turnover preparation. We handle both routine maintenance and urgent repairs across all property types."
   },
   {
     question: "Do you offer volume discounts for multiple properties?",
@@ -25,7 +26,7 @@ const faqs = [
   },
   {
     question: "How quickly can you respond to tenant maintenance requests?",
-    answer: "For routine maintenance, we typically schedule within 24-48 hours. For urgent issues like water leaks, electrical problems, or HVAC failures, we offer same-day emergency response to minimize tenant inconvenience and property damage."
+    answer: "For routine maintenance, we typically schedule within 24-48 hours. For urgent issues like water leaks, damaged doors, or fixture failures, we offer same-day emergency response to minimize tenant inconvenience and property damage."
   },
   {
     question: "Do you provide maintenance reporting?",
@@ -98,14 +99,14 @@ const benefits = [
 // Services relevant to property managers
 const services = [
   {
-    name: "Plumbing Repairs",
-    description: "Leak repairs, fixture replacements, drain cleaning, water heater service.",
-    href: "/repairs/plumbing"
+    name: "Doors & Windows",
+    description: "Door and window repair, adjustment, weatherproofing, and turnover fixes.",
+    href: "/repairs/doors-windows"
   },
   {
-    name: "Electrical Services",
-    description: "Outlet repairs, fixture installation, panel upgrades, safety inspections.",
-    href: "/repairs/electrical"
+    name: "Carpentry & Assembly",
+    description: "Trim, framing repairs, furniture assembly, and general carpentry.",
+    href: "/repairs/carpentry"
   },
   {
     name: "Painting & Drywall",
