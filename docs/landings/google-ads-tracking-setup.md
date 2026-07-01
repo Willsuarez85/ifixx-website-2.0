@@ -11,12 +11,15 @@ Esto agrega `?gclid=...` a cada clic automáticamente. Sirve para dos cosas:
 2. El form de la landing lee ese `gclid` y lo guarda en el lead.
 No necesitas poner `gclid={gclid}` manualmente si auto-tagging está ON.
 
-## 1) Final URLs por ad group (con trailing slash = canonical)
+## 1) Final URLs por ad group (SIN barra final = canonical)
+> El sitio usa `trailingSlash: 'never'` y la canónica es sin barra. Usa las URLs sin `/` final para que el anuncio caiga directo en la canónica y no haya un salto de redirect (que puede perder params).
+
 | Ad group | Final URL del anuncio |
 |---|---|
-| Drywall Repair + Paint | `https://www.ifixxnc.com/drywall-repair-south-charlotte/` |
-| Deck Repair & Rebuilds | `https://www.ifixxnc.com/deck-repair-south-charlotte/` |
-| Interior Painting | `https://www.ifixxnc.com/interior-painting-south-charlotte/` |
+| Drywall Repair + Paint | `https://www.ifixxnc.com/drywall-repair-south-charlotte` |
+| Deck Repair & Rebuilds | `https://www.ifixxnc.com/deck-repair-south-charlotte` |
+| Interior Painting | `https://www.ifixxnc.com/interior-painting-south-charlotte` |
+| Deck Builder / New Deck (cuando lo lances) | `https://www.ifixxnc.com/deck-builder-south-charlotte` |
 
 ## 2) Final URL suffix (método recomendado por Google)
 Se configura por **ad group** (`Ad group → Settings → Final URL suffix`). Sobrevive redirects y no rompe la URL. Pega esto según el ad group:
@@ -49,7 +52,7 @@ El form manda `utm_source/medium/campaign/term/content` + `gclid` a `/api/lead`,
 
 ## 5) Verificación (hacer 1 vez por landing tras publicar anuncios)
 1. Abre la Final URL con params de prueba a mano, ej:
-   `https://www.ifixxnc.com/deck-repair-south-charlotte/?utm_source=google&utm_medium=cpc&utm_campaign=test&gclid=TEST123`
+   `https://www.ifixxnc.com/deck-repair-south-charlotte?utm_source=google&utm_medium=cpc&utm_campaign=test&gclid=TEST123`
 2. Envía el form con datos de prueba.
 3. En GHL, abre el contacto → confirma que en Attribution aparecen utm_* y el gclid `TEST123`.
 4. Si NO aparecen → revisar que las env vars `GHL_API_KEY` + `GHL_LOCATION_ID` existan en Vercel prod (si faltan, el lead ni entra: `/api/lead` devuelve 500).
