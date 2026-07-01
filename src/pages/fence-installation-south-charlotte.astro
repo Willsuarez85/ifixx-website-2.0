@@ -34,6 +34,16 @@ const galleryImages = [
   { src: '/images/projects/fence-aluminum-TEMP.webp', alt: 'Aluminum fence' }
 ];
 
+const whoBullets = [
+  'A local, family-owned company serving the Charlotte area.',
+  'Our own insured, professional crew installs and repairs fences. No subcontractors.',
+  'Wood, vinyl, and aluminum, for privacy fences, replacements, and repairs.',
+  'An honest, itemized quote up front, with a free online estimate to start.',
+  'Clear prices and a fast process. We show up and we finish the job.',
+  'We build and we repair, from a full new fence to a leaning post or a sagging gate.',
+  '85 five-star reviews from Charlotte-area homeowners.'
+];
+
 const processSteps = [
   { title: 'Free fence estimate', text: 'Tell us what you need and where you are, and send photos if you have them. A real person from our team gets back to you. No call center and no runaround.' },
   { title: 'Clear, honest price', text: 'We look at the run, the materials, the gates, and any slope or property-line work, then give you a clear, itemized price up front. Honest from the start, with no surprise change orders.' },
@@ -97,14 +107,14 @@ const faqSchema = {
           <div class="order-1 lg:order-1">
             <span class="inline-block px-4 py-2 bg-primary-500 text-neutral-900 text-sm font-bold rounded-full mb-4">Privacy and protection • Local, insured crew</span>
             <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">Fence Installation and Repair in South Charlotte</h1>
-            <p class="text-lg text-neutral-200 mb-4 max-w-xl">A fence is about privacy and protection: a backyard the kids and dogs can use, a line between you and the neighbors, and a home that feels like yours. iFIXX installs and repairs wood, vinyl, and aluminum fences with our own insured local crew.</p>
-            <p class="text-neutral-300 mb-6 max-w-xl">We answer the phone, we show up, and we give you a clear, honest price before any work begins. You pay by milestones as the job gets done, not a big deposit up front. The owners, Jaime and Hamed, stay involved, serving South Charlotte, Ballantyne, Waxhaw, Indian Land, Fort Mill, and nearby areas.</p>
+            <p class="text-lg text-neutral-200 mb-4 max-w-xl">iFIXX is a local, family-owned company. Our own insured, professional crew installs and repairs wood, vinyl, and aluminum fences across the Charlotte area, for the privacy and protection your yard needs.</p>
+            <p class="text-neutral-300 mb-6 max-w-xl">We install and we repair, we keep the price clear, and we move fast. Start with a free online estimate. Serving South Charlotte, Ballantyne, Waxhaw, Indian Land, Fort Mill, and nearby.</p>
             <div class="flex flex-col sm:flex-row gap-3 mb-8">
               <a href="#estimate-form" class="btn btn-primary landing-primary-cta" data-lead-type={leadType}>Request a Free Fence Estimate</a>
               <a href="tel:+19803916833" class="btn btn-outline-light landing-phone-cta" data-lead-type={leadType}>Call (980) 391-6833</a>
             </div>
             <div class="grid grid-cols-2 gap-4">
-              {['A real person answers', 'Wood, vinyl, aluminum', 'Milestone payments', 'Insured local crew'].map((chip) => (
+              {['Family owned and local', 'Wood, vinyl, aluminum', 'Clear prices, fast', 'Insured crew'].map((chip) => (
                 <div class="flex items-center gap-3 text-white"><span class="w-9 h-9 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">✓</span><span class="text-sm font-medium">{chip}</span></div>
               ))}
             </div>
@@ -157,7 +167,7 @@ const faqSchema = {
   <section class="section section-alt">
     <div class="container">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-200"><h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">Who is iFIXX?</h2><p class="text-neutral-600 mb-4">iFIXX Remodeling and Handyman Services is a Charlotte-area local team installing and repairing fences and outdoor projects for homeowners who want clear communication and quality work.</p><p class="text-neutral-600">We are not a national franchise routing your request through a call center. The owners stay involved from the first call to the final walk-through, and the price we give you is the price we stand behind.</p></div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-200"><h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">Who is iFIXX?</h2><ul class="space-y-3">{whoBullets.map((item) => (<li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 mt-0.5 text-neutral-900 text-sm font-bold">✓</span><span class="text-neutral-700">{item}</span></li>))}</ul></div>
         <div class="bg-neutral-900 rounded-2xl p-8 text-white shadow-xl"><h2 class="text-2xl font-heading font-bold mb-4">South Charlotte service areas</h2><div class="flex flex-wrap gap-2">{serviceAreas.map((area) => (<span class="px-3 py-2 rounded-full bg-white/10 text-sm">{area}</span>))}</div><p class="text-neutral-300 mt-5">If you are nearby but not listed, send the request anyway and we will confirm availability.</p></div>
       </div>
     </div>

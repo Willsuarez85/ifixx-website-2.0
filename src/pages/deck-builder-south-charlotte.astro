@@ -28,16 +28,28 @@ const buildItems = [
 const galleryImages = [
   { src: '/images/projects/deck-covered-porch-south-charlotte.webp', alt: 'Covered porch addition built by iFIXX in South Charlotte' },
   { src: '/images/projects/deck-covered-porch-side-south-charlotte.webp', alt: 'Finished covered porch and outdoor living space in South Charlotte' },
+  { src: '/images/projects/deck-porch-framing-south-charlotte.webp', alt: 'Covered porch framing built by iFIXX in South Charlotte' },
+  { src: '/images/projects/deck-porch-framing-crew-south-charlotte.webp', alt: 'iFIXX crew framing a covered porch in South Charlotte' },
   { src: '/images/projects/deck-porch-install-crew-south-charlotte.webp', alt: 'iFIXX crew building a covered porch in South Charlotte' },
   { src: '/images/projects/deck-wood-railing-south-charlotte.webp', alt: 'Wood deck with railing built by iFIXX in South Charlotte' },
   { src: '/images/projects/deck-wood-exterior-patio.webp', alt: 'Finished wood deck and exterior patio' },
   { src: '/images/projects/outdoor-living-deck-construction-screened-porch.webp', alt: 'New deck build with screened porch' }
 ];
 
+const whoBullets = [
+  'A local, family-owned company. Building decks and porches is what we do.',
+  'Over ten years of hands-on experience with decks, rebuilds, and screened porches.',
+  'We build and we repair, from a full new deck to a few bad boards or a loose railing.',
+  'An honest, itemized quote up front, with a free online estimate to start.',
+  'We help you pick the material that lasts and adds value, not the one that pays us most.',
+  'Clear prices and a fast process. We show up and we finish the job.',
+  'Insured, professional, and local to the Charlotte area. 85 five-star reviews.'
+];
+
 const processSteps = [
   { title: 'Free deck estimate', text: 'Tell us the space, how you want to use it, and any photos of the yard. We look at what actually fits your home and budget, with no pressure and no hard sell.' },
   { title: 'Plan, materials, and a clear price', text: 'We help you choose the layout, wood vs composite, railings, and stairs, then give you a clear, itemized price up front. Honest from the start, with no surprise change orders.' },
-  { title: 'We build it, you pay by milestones', text: 'Our insured local crew builds the deck, keeps the site clean, and keeps you updated. You pay by milestones as the work gets done, not a big deposit up front. The owners, Jaime and Hamed, stay involved from first call to final walk-through.' }
+  { title: 'We build it, you pay by milestones', text: 'Our insured local crew builds the deck, keeps the site clean, and keeps you updated. You pay by milestones as the work gets done, not a big deposit up front. We stay involved from the first call to the final walk-through.' }
 ];
 
 const faqs = [
@@ -96,15 +108,15 @@ const faqSchema = {
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           <div class="order-1 lg:order-1">
             <span class="inline-block px-4 py-2 bg-primary-500 text-neutral-900 text-sm font-bold rounded-full mb-4">New decks & outdoor living • Local, insured crew</span>
-            <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">Custom Decks and Rebuilds in South Charlotte</h1>
-            <p class="text-lg text-neutral-200 mb-4 max-w-xl">No deck yet, or ready to replace an old one? iFIXX builds custom decks, additions, and screened porches in wood or composite, built to fit your home and how your family actually uses the yard. A deck that adds real living space and value to your home.</p>
-            <p class="text-neutral-300 mb-6 max-w-xl">Start with a free deck estimate. We help you choose the layout, materials, and features, then give you a clear, honest price before any work begins. You pay by milestones as the work gets done, not a big deposit up front. The owners, Jaime and Hamed, stay involved from the first call, serving South Charlotte, Ballantyne, Waxhaw, Indian Land, Fort Mill, and nearby areas.</p>
+            <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">Local Deck Builders in South Charlotte</h1>
+            <p class="text-lg text-neutral-200 mb-4 max-w-xl">iFIXX is a local, family-owned company with over ten years building decks, porches, and rebuilds across the Charlotte area. Wood or composite, a brand new deck or a full tear-down and rebuild.</p>
+            <p class="text-neutral-300 mb-6 max-w-xl">We build and we repair, we keep the price clear, and we move fast. Start with a free online estimate. Serving South Charlotte, Ballantyne, Waxhaw, Indian Land, Fort Mill, and nearby.</p>
             <div class="flex flex-col sm:flex-row gap-3 mb-8">
               <a href="#estimate-form" class="btn btn-primary landing-primary-cta" data-lead-type={leadType}>Request a Free Deck Estimate</a>
               <a href="tel:+19803916833" class="btn btn-outline-light landing-phone-cta" data-lead-type={leadType}>Call (980) 391-6833</a>
             </div>
             <div class="grid grid-cols-2 gap-4">
-              {['Custom for your home', 'Wood or composite', 'Milestone payments', 'Insured local crew'].map((chip) => (
+              {['Family owned, 10+ years', 'Build or repair', 'Clear prices, fast', 'Insured local crew'].map((chip) => (
                 <div class="flex items-center gap-3 text-white"><span class="w-9 h-9 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">✓</span><span class="text-sm font-medium">{chip}</span></div>
               ))}
             </div>
@@ -123,10 +135,10 @@ const faqSchema = {
     <div class="container">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
-          <span class="badge mb-4">More than a backyard upgrade</span>
-          <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-6">A new deck is where the summer actually happens</h2>
-          <p class="text-neutral-600 mb-5">The right deck turns an unused yard into the best room in the house, with space to grill, host, and relax, and it adds real living space and value to your home when you sell. The hard part is knowing what fits your home, your budget, and the way you want to use it.</p>
-          <p class="text-neutral-600 mb-8">That is what the free estimate is for. We help you make the calls on size, wood vs composite, railings, stairs, and lighting, and price it honestly before you commit to anything.</p>
+          <span class="badge mb-4">Local crew, honest quote</span>
+          <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-6">An honest quote and the right deck for your home</h2>
+          <p class="text-neutral-600 mb-5">Getting a deck built should be simple. We give you an honest, itemized quote up front, then help you pick the right material, wood or composite, that holds up in the Carolina weather and adds real value to your home.</p>
+          <p class="text-neutral-600 mb-8">We are a local crew that builds decks and porches every week. We show up, we finish the job, and we do not disappear halfway through. Read the reviews below and see for yourself.</p>
           <ul class="space-y-4">{buildItems.map((item) => (<li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 mt-0.5 text-neutral-900 text-sm font-bold">✓</span><span class="text-neutral-700">{item}</span></li>))}</ul>
         </div>
         <div class="rounded-2xl overflow-hidden shadow-2xl"><img src={supportImage} alt="Wood deck with railing built by iFIXX in South Charlotte" class="w-full aspect-[4/3] object-cover" width="700" height="525" loading="lazy" decoding="async" /></div>
@@ -157,7 +169,7 @@ const faqSchema = {
   <section class="section section-alt">
     <div class="container">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-200"><h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">Who is iFIXX?</h2><p class="text-neutral-600 mb-4">iFIXX Remodeling & Handyman Services is a Charlotte-area local team building decks, outdoor living spaces, and home improvements for homeowners who want clear communication and quality work.</p><p class="text-neutral-600">We are not a national franchise routing your request through a call center. The owners stay involved from the first design conversation to the final walk-through, and the price we give you is the price we stand behind.</p></div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-200"><h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">Who is iFIXX?</h2><ul class="space-y-3">{whoBullets.map((item) => (<li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 mt-0.5 text-neutral-900 text-sm font-bold">✓</span><span class="text-neutral-700">{item}</span></li>))}</ul></div>
         <div class="bg-neutral-900 rounded-2xl p-8 text-white shadow-xl"><h2 class="text-2xl font-heading font-bold mb-4">South Charlotte service areas</h2><div class="flex flex-wrap gap-2">{serviceAreas.map((area) => (<span class="px-3 py-2 rounded-full bg-white/10 text-sm">{area}</span>))}</div><p class="text-neutral-300 mt-5">If you are nearby but not listed, send the request anyway and we will confirm availability.</p></div>
       </div>
     </div>
