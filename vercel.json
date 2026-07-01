@@ -13,12 +13,12 @@
     },
     {
       "source": "/kitchen-remodeling-charlotte",
-      "destination": "/charlotte/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling",
       "permanent": true
     },
     {
       "source": "/bathroom-renovation-charlotte",
-      "destination": "/charlotte/bathroom-remodeling",
+      "destination": "/remodeling/bathroom-remodeling",
       "permanent": true
     },
     {
