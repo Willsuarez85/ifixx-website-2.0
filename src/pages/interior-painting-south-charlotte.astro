@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustBar from '../components/sections/TrustBar.astro';
+import GoogleReviews from '../components/sections/GoogleReviews.astro';
+import CTASection from '../components/sections/CTASection.astro';
+import LandingEstimateForm from '../components/forms/LandingEstimateForm.astro';
+
+const title = 'Interior Painting in South Charlotte | Rooms, Walls & Trim | iFIXX';
+const description = 'Interior painting in South Charlotte, Ballantyne, Pineville, and Matthews — rooms, walls, ceilings, and trim with full prep and drywall touch-ups. Insured local crew, clean finish work. Request a free online estimate from iFIXX.';
+const canonical = '/interior-painting-south-charlotte';
+const heroImage = '/images/projects/painting-drywall-dining-room-wainscoting-chandelier.webp';
+const supportImage = '/images/projects/living-room-fireplace-white-brick.webp';
+const leadType = 'interior_painting';
+
+const serviceAreas = ['South Charlotte', 'Ballantyne', 'Pineville', 'Matthews', 'Weddington', 'Waxhaw', 'SouthPark', 'Steele Creek'];
+
+const paintItems = [
+  'Interior rooms, accent walls, and whole-home repaints',
+  'Ceilings, trim, baseboards, doors, and crown molding',
+  'Full prep: patching, caulking, sanding, and priming before paint',
+  'Drywall touch-ups and small repairs handled before we paint',
+  'Color changes and clean cut-in lines without the mess',
+  'Repaint before selling, listing, or moving into a new home',
+  'One crew for the drywall repair and the paint — not two separate calls'
+];
+
+const galleryImages = [
+  { src: '/images/projects/painting-drywall-dining-room-wainscoting-chandelier.webp', alt: 'Freshly painted dining room with wainscoting and trim' },
+  { src: '/images/projects/living-room-fireplace-white-brick.webp', alt: 'Painted living room with white brick fireplace' },
+  { src: '/images/projects/dining-room-elegant-blue-crystal-chandelier.webp', alt: 'Elegant painted dining room with clean walls' },
+  { src: '/images/projects/bedroom-bed-wood-dressers.webp', alt: 'Painted bedroom with crisp trim lines' },
+  { src: '/images/projects/painting-bedroom-mural-custom-wall-art.webp', alt: 'Custom bedroom wall painting and accent work' },
+  { src: '/images/projects/drywall-repair-patching-hole-spackling.webp', alt: 'Drywall patching and prep before painting' },
+  { src: '/images/projects/carpentry-baseboard-trim-installation-repair.webp', alt: 'Trim and baseboard prep before paint' },
+  { src: '/images/projects/flooring-installation-modern-living-room-interior.webp', alt: 'Interior room ready for clean paint work' }
+];
+
+const processSteps = [
+  { title: 'Tell us the rooms', text: 'Send the basics: which rooms, walls, ceilings, or trim, the colors you have in mind, and any drywall damage. Photos help us scope it faster.' },
+  { title: 'Prep and repair first', text: 'A clean finish is mostly prep. We patch, caulk, sand, and prime — and fix any drywall damage — before a drop of paint goes on the wall.' },
+  { title: 'Paint and clean up', text: 'When approved, our local crew paints with clean cut-in lines, protects your floors and furniture, and leaves the space tidy when we are done.' }
+];
+
+const faqs = [
+  { q: 'Can you estimate interior painting online?', a: 'Yes, many interior painting projects can start with an online estimate request. Photos of the rooms, walls, ceilings, or trim and a short description help us understand the scope before we recommend the next step.' },
+  { q: 'Do you repair drywall before painting?', a: 'Yes — and it is one of the best reasons to use us. We patch holes, cracks, nail pops, and texture before we paint, so you do not have to hire a separate drywall crew and a separate painter. One team scopes the repair and the paint together.' },
+  { q: 'What interior painting do you handle?', a: 'Rooms, accent walls, ceilings, trim, baseboards, doors, and whole-home repaints. We handle prep, color changes, and clean finish work for South Charlotte homeowners.' },
+  { q: 'How do you protect my floors and furniture?', a: 'We cover and protect floors and furniture, use clean cut-in lines, and clean up when the job is done. The goal is a finished room you can use again — not a mess to deal with afterward.' },
+  { q: 'Are you a local company or a franchise?', a: 'iFIXX is an insured, local Charlotte-area team, not a national franchise call center. We work across South Charlotte, Ballantyne, Pineville, Matthews, and nearby neighborhoods.' }
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Interior Painting in South Charlotte',
+  description,
+  serviceType: 'Interior painting',
+  url: `https://ifixxnc.com${canonical}`,
+  image: `https://ifixxnc.com${heroImage}`,
+  provider: { '@id': 'https://ifixxnc.com/#business' },
+  areaServed: serviceAreas,
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ifixxnc.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Interior Painting South Charlotte', item: `https://ifixxnc.com${canonical}` }
+  ]
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({ '@type': 'Question', name: faq.q, acceptedAnswer: { '@type': 'Answer', text: faq.a } }))
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogImage={heroImage}>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="relative bg-neutral-900 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src={heroImage} alt="Interior painting and trim work in South Charlotte by iFIXX" class="w-full h-full object-cover" width="1920" height="1080" fetchpriority="high" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-r from-neutral-900/95 via-neutral-900/85 to-neutral-900/55"></div>
+    </div>
+    <div class="container relative z-10">
+      <div class="py-10 lg:py-16">
+        <nav class="mb-6"><ol class="flex items-center gap-2 text-sm text-neutral-300"><li><a href="/" class="hover:text-primary-500 transition-colors">Home</a></li><li class="text-neutral-500">/</li><li class="text-white font-medium">Interior Painting South Charlotte</li></ol></nav>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div class="order-1 lg:order-1">
+            <span class="inline-block px-4 py-2 bg-primary-500 text-neutral-900 text-sm font-bold rounded-full mb-4">Local South Charlotte paint crew • Not a franchise</span>
+            <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">Interior Painting in South Charlotte</h1>
+            <p class="text-lg text-neutral-200 mb-4 max-w-xl">Rooms, walls, ceilings, and trim — painted clean, with full prep and any drywall touch-ups handled first. One insured local crew for the repair and the paint, so you don't have to hire two.</p>
+            <p class="text-neutral-300 mb-6 max-w-xl">Request a free online estimate and our local team will review the rooms, ask for photos if helpful, and give you a clear next step. The owners, Jaime &amp; Hamed, review every request personally and give you an upfront price — serving South Charlotte, Ballantyne, Pineville, Matthews, and nearby neighborhoods.</p>
+            <div class="flex flex-col sm:flex-row gap-3 mb-8">
+              <a href="#estimate-form" class="btn btn-primary landing-primary-cta" data-lead-type={leadType}>Request a Free Online Estimate</a>
+              <a href="tel:+19803916833" class="btn btn-outline-light landing-phone-cta" data-lead-type={leadType}>Call (980) 391-6833</a>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              {['Rooms, walls & trim', 'Prep, repair & paint', 'South Charlotte focus', 'Insured local crew'].map((chip) => (
+                <div class="flex items-center gap-3 text-white"><span class="w-9 h-9 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">✓</span><span class="text-sm font-medium">{chip}</span></div>
+              ))}
+            </div>
+          </div>
+          <div id="estimate-form" class="order-2 lg:order-2 scroll-mt-24 min-w-0">
+            <LandingEstimateForm serviceSlug="interior-painting" serviceTitle="Interior Painting" formId="interior-painting-south-charlotte-estimate" leadType="interior_painting" formName="South Charlotte Interior Painting Landing Form" issueOptions={['single room', 'multiple rooms', 'whole home', 'walls only', 'ceilings', 'trim/baseboards/doors', 'drywall repair before paint', 'other']} descriptionPlaceholder="Briefly describe the rooms, colors, and any drywall damage (photos help)." photoLabel="Upload photos if you have them" submitLabel="Request a Free Online Estimate" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar variant="light" />
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="badge mb-4">The pain: a "quick paint job" that never happens</span>
+          <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-6">Clean interior painting — with the prep and repairs done right first</h2>
+          <p class="text-neutral-600 mb-5">A good paint job is mostly what you don't see: patching, caulking, sanding, priming, and fixing the drywall damage hiding under the old color. Skip the prep and the finish shows it within weeks.</p>
+          <p class="text-neutral-600 mb-8">That is why we handle the repair and the paint together. You get one insured local crew, clean cut-in lines, protected floors, and a room that actually looks finished when we leave.</p>
+          <ul class="space-y-4">{paintItems.map((item) => (<li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 mt-0.5 text-neutral-900 text-sm font-bold">✓</span><span class="text-neutral-700">{item}</span></li>))}</ul>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-2xl"><img src={supportImage} alt="Finished interior painting project in a Charlotte home" class="w-full aspect-[4/3] object-cover" width="700" height="525" loading="lazy" decoding="async" /></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <span class="badge mb-4">Recent interior painting work</span>
+        <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Rooms, walls, trim, and finish work</h2>
+        <p class="text-neutral-600">Use the gallery as a guide for the kind of interior painting we can discuss from photos: rooms and accent walls, trim and baseboards, drywall prep before paint, and clean finished spaces.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {galleryImages.map((image) => (<figure class="group overflow-hidden rounded-2xl bg-white shadow-sm border border-neutral-200"><img src={image.src} alt={image.alt} class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-300" width="520" height="390" loading="lazy" decoding="async" /></figure>))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center mb-12"><span class="badge mb-4">Simple local process</span><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">A clean finish, without the runaround</h2><p class="text-neutral-600">You should not have to hire a drywall crew and a painter separately. Start with the online estimate and we will scope the prep, repairs, and paint together.</p></div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">{processSteps.map((step, index) => (<div class="card p-6 text-center"><div class="w-14 h-14 mx-auto mb-4 rounded-full bg-primary-500 flex items-center justify-center font-heading font-bold text-neutral-900 text-xl">{index + 1}</div><h3 class="font-heading font-bold text-neutral-900 mb-2">{step.title}</h3><p class="text-sm text-neutral-600">{step.text}</p></div>))}</div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-200"><h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">Who is iFIXX?</h2><p class="text-neutral-600 mb-4">iFIXX Remodeling & Handyman Services is a Charlotte-area local team serving homeowners who want clear communication, clean work, and a finish that lasts.</p><p class="text-neutral-600">We are not a national franchise routing your request through a call center. We work locally across South Charlotte and nearby areas, and because we also repair drywall, we can fix what is under the paint — not just cover it.</p></div>
+        <div class="bg-neutral-900 rounded-2xl p-8 text-white shadow-xl"><h2 class="text-2xl font-heading font-bold mb-4">South Charlotte service areas</h2><div class="flex flex-wrap gap-2">{serviceAreas.map((area) => (<span class="px-3 py-2 rounded-full bg-white/10 text-sm">{area}</span>))}</div><p class="text-neutral-300 mt-5">If you are nearby but not listed, send the request anyway and we will confirm availability.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container"><div class="max-w-3xl mx-auto"><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-8 text-center">Interior Painting FAQs</h2><div class="space-y-4">{faqs.map((faq, index) => (<details class="group bg-white rounded-xl shadow-sm" open={index === 0}><summary class="flex items-center justify-between cursor-pointer list-none p-6"><span class="font-semibold text-neutral-900 pr-4">{faq.q}</span><span class="text-primary-600 group-open:rotate-180 transition-transform">⌄</span></summary><div class="px-6 pb-6"><p class="text-neutral-600 leading-relaxed">{faq.a}</p></div></details>))}</div></div></div>
+  </section>
+
+  <GoogleReviews title="What Charlotte Homeowners Say" />
+  <CTASection headline="Ready for a clean, finished room?" subtext="Request a free online estimate for interior painting — rooms, walls, ceilings, trim, and drywall touch-ups — in South Charlotte." />
+
+  <script is:inline>
+    document.addEventListener('click', (event) => {
+      const cta = event.target.closest('.landing-primary-cta');
+      const phone = event.target.closest('.landing-phone-cta');
+      if (!cta && !phone) return;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: cta ? 'landing_cta_click' : 'phone_click', lead_type: 'interior_painting', campaign_test: 'ifixx_south_charlotte_service_test_2026_07', form_location: window.location.pathname });
+    });
+  </script>
+</BaseLayout>

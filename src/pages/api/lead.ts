@@ -13,9 +13,19 @@ const SERVICE_TAGS: Record<string, string[]> = {
     'doors-windows': ['service-doors-windows', 'handyman'],
     'general-repairs': ['service-general-repairs', 'handyman'],
 
-    // South Charlotte service test landings → Pipeline: Handyman
+    // South Charlotte service test landings.
+    // Pipeline routing (handled by GHL workflows on these tags):
+    //   drywall + interior painting  → 'handyman'     → Handyman pipeline
+    //   deck repair / rebuild / build → 'deck-outdoor' → Deck & Outdoor Living pipeline
+    // Deck leads carry 'deck-outdoor' as the single, unambiguous routing tag. They keep
+    // 'handyman' too for backwards-compat notifications; the Handyman routing workflow
+    // must exclude contacts tagged 'deck-outdoor' so they don't double-route.
     'drywall-repair': ['service-drywall-repair', 'service-painting', 'handyman', 'south-charlotte-test'],
-    'deck-repair': ['service-deck-repair', 'service-carpentry', 'handyman', 'south-charlotte-test'],
+    'interior-painting': ['service-painting', 'service-drywall-repair', 'handyman', 'south-charlotte-test'],
+    'deck-repair': ['service-deck-repair', 'service-carpentry', 'deck-outdoor', 'handyman', 'south-charlotte-test'],
+    // New deck construction — higher-ticket, longer sales cycle. 'project-deck-build'
+    // flags it for a heavier follow-up within the Deck & Outdoor Living pipeline.
+    'deck-build': ['service-deck-build', 'project-deck-build', 'service-carpentry', 'deck-outdoor', 'handyman', 'south-charlotte-test'],
 
     // Emergency/Urgent Services → Pipeline: Handyman (with urgent flag)
     'emergency-plumbing': ['emergency-plumbing', 'handyman', 'urgent'],
@@ -104,6 +114,7 @@ export const POST: APIRoute = async ({ request }) => {
             utm_medium,
             utm_campaign,
             utm_term,
+            utm_content,
             gclid
         } = data;
 
@@ -192,12 +203,13 @@ export const POST: APIRoute = async ({ request }) => {
         };
 
         // Add UTM parameters and GCLID for attribution & offline conversion tracking
-        if (utm_source || utm_medium || utm_campaign || gclid) {
+        if (utm_source || utm_medium || utm_campaign || utm_term || utm_content || gclid) {
             upsertBody.attributionSource = {
                 ...(utm_source && { utmSource: utm_source }),
                 ...(utm_medium && { utmMedium: utm_medium }),
                 ...(utm_campaign && { utmCampaign: utm_campaign }),
                 ...(utm_term && { utmTerm: utm_term }),
+                ...(utm_content && { utmContent: utm_content }),
                 ...(gclid && { gclid })
             };
         }

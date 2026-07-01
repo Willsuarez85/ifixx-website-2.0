@@ -1,9 +1,9 @@
 ---
 interface Props {
-  serviceSlug: 'drywall-repair' | 'deck-repair';
+  serviceSlug: 'drywall-repair' | 'deck-repair' | 'interior-painting' | 'deck-build';
   serviceTitle: string;
   formId: string;
-  leadType: 'drywall_repair' | 'deck_repair';
+  leadType: 'drywall_repair' | 'deck_repair' | 'interior_painting' | 'deck_build';
   formName: string;
   issueOptions: string[];
   descriptionPlaceholder: string;
@@ -215,6 +215,21 @@ const {
         rawMessage
       ].filter(Boolean).join('\n');
 
+      // Google Ads attribution: read utm_* / gclid captured by the layout into
+      // sessionStorage, falling back to the current URL (covers the first page view
+      // before sessionStorage is populated). Without this the /api/lead attribution
+      // payload is always empty and offline conversions never tie back to the click.
+      const urlParams = new URLSearchParams(window.location.search);
+      const getAttr = (key) => urlParams.get(key) || sessionStorage.getItem(key) || '';
+      const attribution = {
+        utm_source: getAttr('utm_source'),
+        utm_medium: getAttr('utm_medium'),
+        utm_campaign: getAttr('utm_campaign'),
+        utm_term: getAttr('utm_term'),
+        utm_content: getAttr('utm_content'),
+        gclid: getAttr('gclid')
+      };
+
       const data = {
         firstName: formData.get('firstName'),
         lastName: '',
@@ -228,7 +243,8 @@ const {
         landingPage: window.location.pathname,
         campaignTest: 'ifixx_south_charlotte_service_test_2026_07',
         photoUploadStatus,
-        photoCount
+        photoCount,
+        ...attribution
       };
 
       try {
