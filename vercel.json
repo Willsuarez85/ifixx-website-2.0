@@ -13,42 +13,12 @@
     },
     {
       "source": "/kitchen-remodeling-charlotte",
-      "destination": "/charlotte/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling",
       "permanent": true
     },
     {
       "source": "/bathroom-renovation-charlotte",
-      "destination": "/charlotte/bathroom-remodeling",
-      "permanent": true
-    },
-    {
-      "source": "/services/plumbing",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
-      "source": "/services/plumbing/",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
-      "source": "/services/electrical",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
-      "source": "/services/electrical/",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
-      "source": "/services/electrical-fixtures",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
-      "source": "/services/electrical-fixtures/",
-      "destination": "/services",
+      "destination": "/remodeling/bathroom-remodeling",
       "permanent": true
     },
     {
@@ -532,16 +502,6 @@
       "permanent": true
     },
     {
-      "source": "/rock-hill/electrical",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
-      "source": "/rock-hill/electrical/",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true
@@ -622,16 +582,6 @@
       "permanent": true
     },
     {
-      "source": "/huntersville/plumbing",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
-      "source": "/huntersville/electrical-fixtures",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
       "source": "/concord/basement-finishing",
       "destination": "/charlotte/basement-finishing",
       "permanent": true
@@ -674,16 +624,6 @@
     {
       "source": "/concord/tv-mounting",
       "destination": "/charlotte/tv-mounting",
-      "permanent": true
-    },
-    {
-      "source": "/concord/plumbing",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
-      "source": "/concord/electrical-fixtures",
-      "destination": "/services",
       "permanent": true
     },
     {
@@ -732,16 +672,6 @@
       "permanent": true
     },
     {
-      "source": "/monroe/plumbing",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
-      "source": "/monroe/electrical-fixtures",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
       "source": "/waxhaw/basement-finishing",
       "destination": "/charlotte/basement-finishing",
       "permanent": true
@@ -787,16 +717,6 @@
       "permanent": true
     },
     {
-      "source": "/waxhaw/plumbing",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
-      "source": "/waxhaw/electrical-fixtures",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
       "source": "/rock-hill/basement-finishing",
       "destination": "/charlotte/basement-finishing",
       "permanent": true
@@ -832,16 +752,6 @@
       "permanent": true
     },
     {
-      "source": "/rock-hill/plumbing",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
-      "source": "/rock-hill/electrical-fixtures",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
       "source": "/service-areas/huntersville",
       "destination": "/service-areas",
       "permanent": true
@@ -865,81 +775,140 @@
       "source": "/service-areas/rock-hill",
       "destination": "/service-areas",
       "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/services/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/services/plumbing/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/services/electrical",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/services/electrical/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/services/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/services/electrical-fixtures/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/rock-hill/electrical",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/rock-hill/electrical/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/huntersville/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/huntersville/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/concord/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/concord/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/monroe/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/monroe/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/waxhaw/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/waxhaw/electrical-fixtures",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/rock-hill/plumbing",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/rock-hill/electrical-fixtures",
+      "destination": "/api/gone"
     },
     {
       "source": "/charlotte/plumbing",
-      "destination": "/services",
-      "permanent": true
+      "destination": "/api/gone"
     },
     {
       "source": "/south-charlotte/plumbing",
-      "destination": "/services",
-      "permanent": true
+      "destination": "/api/gone"
     },
     {
       "source": "/ballantyne/plumbing",
-      "destination": "/services",
-      "permanent": true
+      "destination": "/api/gone"
     },
     {
       "source": "/pineville/plumbing",
-      "destination": "/services",
-      "permanent": true
+      "destination": "/api/gone"
     },
     {
       "source": "/matthews/plumbing",
-      "destination": "/services",
-      "permanent": true
+      "destination": "/api/gone"
     },
     {
       "source": "/mint-hill/plumbing",
-      "destination": "/services",
-      "permanent": true
+      "destination": "/api/gone"
     },
     {
       "source": "/repairs/plumbing",
-      "destination": "/services",
-      "permanent": true
+      "destination": "/api/gone"
     },
     {
       "source": "/charlotte/electrical-fixtures",
-      "destination": "/services",
-      "permanent": true
+      "destination": "/api/gone"
     },
     {
       "source": "/south-charlotte/electrical-fixtures",
-      "destination": "/services",
-      "permanent": true
+      "destination": "/api/gone"
     },
     {
       "source": "/ballantyne/electrical-fixtures",
-      "destination": "/services",
-      "permanent": true
+      "destination": "/api/gone"
     },
     {
       "source": "/pineville/electrical-fixtures",
-      "destination": "/services",
-      "permanent": true
+      "destination": "/api/gone"
     },
     {
       "source": "/matthews/electrical-fixtures",
-      "destination": "/services",
-      "permanent": true
+      "destination": "/api/gone"
     },
     {
       "source": "/mint-hill/electrical-fixtures",
-      "destination": "/services",
-      "permanent": true
+      "destination": "/api/gone"
     },
     {
       "source": "/repairs/electrical-fixtures",
-      "destination": "/services",
-      "permanent": true
+      "destination": "/api/gone"
     },
     {
       "source": "/emergency-services/electrical-fixtures",
-      "destination": "/services",
-      "permanent": true
+      "destination": "/api/gone"
     }
   ]
 }

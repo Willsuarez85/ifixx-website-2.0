@@ -9,7 +9,7 @@ import { isRetiredService } from '../../lib/seo-retired';
 const services = (await getCollection('services')).filter(s => !isRetiredService(s.slug));
 
 const seoTitle = "Handyman & Remodeling Services Charlotte NC ⭐5.0 | iFIXX";
-const seoDescription = "Charlotte handyman & remodeling: plumbing, electrical, carpentry, drywall, painting, kitchen & bath. Same-day available. ⭐5.0 (87★) ☎ (980) 391-6833.";
+const seoDescription = "Charlotte handyman & remodeling: carpentry, drywall, painting, doors & windows, kitchen & bath. Same-day available. ⭐5.0 (87★) ☎ (980) 391-6833.";
 
 // Map service slugs to images (using descriptive project images)
 const serviceImages: Record<string, string> = {
@@ -61,7 +61,7 @@ const servicesSchema = {
 <BaseLayout
   title={seoTitle}
   description={seoDescription}
-  canonical="/services/"
+  canonical="/services"
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify(servicesSchema)} />
