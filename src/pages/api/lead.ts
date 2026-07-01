@@ -17,6 +17,10 @@ const SERVICE_TAGS: Record<string, string[]> = {
     'drywall-repair': ['service-drywall-repair', 'service-painting', 'handyman', 'south-charlotte-test'],
     'deck-repair': ['service-deck-repair', 'service-carpentry', 'handyman', 'south-charlotte-test'],
     'interior-painting': ['service-painting', 'service-drywall-repair', 'handyman', 'south-charlotte-test'],
+    // New deck construction — higher-ticket, longer sales cycle. Kept in the test bucket
+    // so no lead is lost; 'project-deck-build' flags it for a heavier follow-up / possible
+    // move to the Remodeling pipeline once a workflow exists for it.
+    'deck-build': ['service-deck-build', 'project-deck-build', 'service-carpentry', 'handyman', 'south-charlotte-test'],
 
     // Emergency/Urgent Services → Pipeline: Handyman (with urgent flag)
     'emergency-plumbing': ['emergency-plumbing', 'handyman', 'urgent'],
