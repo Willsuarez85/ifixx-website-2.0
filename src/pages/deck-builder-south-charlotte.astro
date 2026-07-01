@@ -37,19 +37,19 @@ const galleryImages = [
 ];
 
 const whoBullets = [
-  'A local crew that builds decks and porches. This is what we do, every week.',
-  'Years of hands-on experience with decks, rebuilds, and screened porches.',
-  'An honest, itemized quote up front. The price we give you is the price we stand behind.',
+  'A local, family-owned company. Building decks and porches is what we do.',
+  'Over ten years of hands-on experience with decks, rebuilds, and screened porches.',
+  'We build and we repair, from a full new deck to a few bad boards or a loose railing.',
+  'An honest, itemized quote up front, with a free online estimate to start.',
   'We help you pick the material that lasts and adds value, not the one that pays us most.',
-  'We finish the job. We do not disappear halfway through.',
-  'Jaime and Hamed, the owners, answer the phone themselves.',
-  '85 five-star reviews from Charlotte-area homeowners.'
+  'Clear prices and a fast process. We show up and we finish the job.',
+  'Insured, professional, and local to the Charlotte area. 85 five-star reviews.'
 ];
 
 const processSteps = [
   { title: 'Free deck estimate', text: 'Tell us the space, how you want to use it, and any photos of the yard. We look at what actually fits your home and budget, with no pressure and no hard sell.' },
   { title: 'Plan, materials, and a clear price', text: 'We help you choose the layout, wood vs composite, railings, and stairs, then give you a clear, itemized price up front. Honest from the start, with no surprise change orders.' },
-  { title: 'We build it, you pay by milestones', text: 'Our insured local crew builds the deck, keeps the site clean, and keeps you updated. You pay by milestones as the work gets done, not a big deposit up front. The owners, Jaime and Hamed, stay involved from first call to final walk-through.' }
+  { title: 'We build it, you pay by milestones', text: 'Our insured local crew builds the deck, keeps the site clean, and keeps you updated. You pay by milestones as the work gets done, not a big deposit up front. We stay involved from the first call to the final walk-through.' }
 ];
 
 const faqs = [
@@ -109,14 +109,14 @@ const faqSchema = {
           <div class="order-1 lg:order-1">
             <span class="inline-block px-4 py-2 bg-primary-500 text-neutral-900 text-sm font-bold rounded-full mb-4">New decks & outdoor living • Local, insured crew</span>
             <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">Local Deck Builders in South Charlotte</h1>
-            <p class="text-lg text-neutral-200 mb-4 max-w-xl">We are a local crew that has built decks, porches, and rebuilds around South Charlotte for years. Wood or composite, a brand new deck or a full tear-down and rebuild.</p>
-            <p class="text-neutral-300 mb-6 max-w-xl">Solid work, a fair price, and we move fast. No sales pitch and no big deposit up front. Jaime and Hamed, the owners, answer the phone themselves.</p>
+            <p class="text-lg text-neutral-200 mb-4 max-w-xl">iFIXX is a local, family-owned company with over ten years building decks, porches, and rebuilds across the Charlotte area. Wood or composite, a brand new deck or a full tear-down and rebuild.</p>
+            <p class="text-neutral-300 mb-6 max-w-xl">We build and we repair, we keep the price clear, and we move fast. Start with a free online estimate. Serving South Charlotte, Ballantyne, Waxhaw, Indian Land, Fort Mill, and nearby.</p>
             <div class="flex flex-col sm:flex-row gap-3 mb-8">
               <a href="#estimate-form" class="btn btn-primary landing-primary-cta" data-lead-type={leadType}>Request a Free Deck Estimate</a>
               <a href="tel:+19803916833" class="btn btn-outline-light landing-phone-cta" data-lead-type={leadType}>Call (980) 391-6833</a>
             </div>
             <div class="grid grid-cols-2 gap-4">
-              {['Years building decks', 'Wood or composite', 'Fair, clear price', 'Insured local crew'].map((chip) => (
+              {['Family owned, 10+ years', 'Build or repair', 'Clear prices, fast', 'Insured local crew'].map((chip) => (
                 <div class="flex items-center gap-3 text-white"><span class="w-9 h-9 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">✓</span><span class="text-sm font-medium">{chip}</span></div>
               ))}
             </div>
