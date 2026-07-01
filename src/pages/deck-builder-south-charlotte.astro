@@ -6,10 +6,11 @@ import CTASection from '../components/sections/CTASection.astro';
 import LandingEstimateForm from '../components/forms/LandingEstimateForm.astro';
 
 const title = 'Deck Builder in South Charlotte | New Decks & Outdoor Living | iFIXX';
-const description = 'Build a new deck in South Charlotte, Ballantyne, Waxhaw, Indian Land, and Fort Mill. New decks, additions, and outdoor living spaces in wood or composite — design, materials, and build from an insured local crew. Request a free design consultation from iFIXX.';
+const description = 'Custom decks, rebuilds, and screened porches in South Charlotte, Ballantyne, Waxhaw, Indian Land, and Fort Mill. Wood or composite, built to fit your home and how you use it by an insured local crew. Clear, honest pricing from the start and milestone payments. Request a free deck estimate from iFIXX.';
 const canonical = '/deck-builder-south-charlotte';
-const heroImage = '/images/projects/outdoor-living-covered-porch-deck-wood-ceiling.webp';
-const supportImage = '/images/projects/outdoor-living-raised-deck-railing-construction.webp';
+// Real iFIXX project photos (enhanced): a deck-to-covered-porch build in the Charlotte area.
+const heroImage = '/images/projects/deck-covered-porch-south-charlotte.webp';
+const supportImage = '/images/projects/deck-wood-railing-south-charlotte.webp';
 const leadType = 'deck_build';
 
 const serviceAreas = ['South Charlotte', 'Ballantyne', 'Waxhaw', 'Indian Land', 'Fort Mill', 'Pineville', 'Matthews', 'Weddington'];
@@ -21,33 +22,32 @@ const buildItems = [
   'Wood (pressure-treated) or low-maintenance composite boards',
   'Railings, stairs, built-in benches, and lighting',
   'Screened porches and covered outdoor living spaces',
-  'Design help, material choices, and an upfront price before you commit'
+  'Clear, itemized pricing and milestone payments, not a big deposit up front'
 ];
 
 const galleryImages = [
-  { src: '/images/projects/outdoor-living-covered-porch-deck-wood-ceiling.webp', alt: 'Covered deck and outdoor living space with wood ceiling' },
-  { src: '/images/projects/outdoor-living-raised-deck-railing-construction.webp', alt: 'Raised deck with railing under construction' },
-  { src: '/images/projects/outdoor-living-deck-construction-screened-porch.webp', alt: 'New deck build with screened porch' },
+  { src: '/images/projects/deck-covered-porch-south-charlotte.webp', alt: 'Covered porch addition built by iFIXX in South Charlotte' },
+  { src: '/images/projects/deck-covered-porch-side-south-charlotte.webp', alt: 'Finished covered porch and outdoor living space in South Charlotte' },
+  { src: '/images/projects/deck-porch-install-crew-south-charlotte.webp', alt: 'iFIXX crew building a covered porch in South Charlotte' },
+  { src: '/images/projects/deck-wood-railing-south-charlotte.webp', alt: 'Wood deck with railing built by iFIXX in South Charlotte' },
   { src: '/images/projects/deck-wood-exterior-patio.webp', alt: 'Finished wood deck and exterior patio' },
-  { src: '/images/projects/remodeling-modern-home-exterior-curb-appeal.webp', alt: 'Home exterior with new deck and outdoor living' },
-  { src: '/images/projects/construction-wood-framing-window.webp', alt: 'Wood framing during a deck and exterior build' },
-  { src: '/images/projects/carpentry-stair-repair-technician-drilling-wood.webp', alt: 'Building deck stairs and framing' },
-  { src: '/images/projects/Ifixx-portfolio25.webp', alt: 'Screened porch and deck project by iFIXX' }
+  { src: '/images/projects/outdoor-living-deck-construction-screened-porch.webp', alt: 'New deck build with screened porch' }
 ];
 
 const processSteps = [
-  { title: 'Free design consultation', text: 'Tell us the space, how you want to use it, and your budget range. We look at the yard, the house, and what actually fits — no pressure, no hard sell.' },
-  { title: 'Design, materials & price', text: 'We help you choose the layout, wood vs composite, railings, and stairs, then give you a clear, upfront price before any work starts.' },
-  { title: 'We build it', text: 'Our insured local crew builds the deck, keeps the site clean, and keeps you updated. The owners, Jaime & Hamed, stay involved from first call to final walk-through.' }
+  { title: 'Free deck estimate', text: 'Tell us the space, how you want to use it, and any photos of the yard. We look at what actually fits your home and budget, with no pressure and no hard sell.' },
+  { title: 'Plan, materials, and a clear price', text: 'We help you choose the layout, wood vs composite, railings, and stairs, then give you a clear, itemized price up front. Honest from the start, with no surprise change orders.' },
+  { title: 'We build it, you pay by milestones', text: 'Our insured local crew builds the deck, keeps the site clean, and keeps you updated. You pay by milestones as the work gets done, not a big deposit up front. The owners, Jaime and Hamed, stay involved from first call to final walk-through.' }
 ];
 
 const faqs = [
-  { q: 'How much does it cost to build a new deck?', a: 'It depends on size, height, material, and features like railings, stairs, and lighting. Wood (pressure-treated) is the most budget-friendly; composite costs more up front but needs far less maintenance. Tell us the space and your budget and we will give you an honest, upfront price range before you commit.' },
-  { q: 'Wood or composite — which should I choose?', a: 'Wood costs less to build and looks great, but needs regular staining and sealing. Composite costs more up front but resists rot, fading, and splinters and needs almost no upkeep. We will walk you through the trade-offs for your budget and how long you plan to stay in the home.' },
+  { q: 'How much does it cost to build a new deck?', a: 'It depends on size, height, material, and features like railings, stairs, and lighting. Wood (pressure-treated) is the most budget-friendly and composite costs more up front but needs far less maintenance. Once we see the space we give you a clear, itemized price up front, honest from the start, with no surprise change orders.' },
+  { q: 'Wood or composite, which should I choose?', a: 'Wood costs less to build and looks great but needs regular staining and sealing. Composite costs more up front but resists rot, fading, and splinters and needs almost no upkeep. We walk you through the trade-offs for your budget and how long you plan to stay in the home.' },
+  { q: 'How do you handle payment?', a: 'You pay by milestones as the work gets done, not a big deposit up front. We give you a clear, itemized price before any work starts, and our workmanship is guaranteed.' },
   { q: 'Do you handle permits?', a: 'New decks in the Charlotte area often require a permit and an inspection. We will tell you honestly what your project needs and help you plan around it so the build is safe and done right.' },
-  { q: 'How long does a new deck take to build?', a: 'A straightforward deck is often a matter of days once materials are in and any permit is handled; larger or multi-level builds and screened porches take longer. We give you a realistic timeline with your quote.' },
-  { q: 'Is the deck built safely and to code?', a: 'Yes. iFIXX is an insured, local Charlotte-area team — not a national franchise. For larger structural builds we are upfront about the permits and inspections your project needs and make sure the deck is built safely and to code.' },
-  { q: 'I actually just need a repair — can you help?', a: 'Yes. If your current deck mostly needs boards, railings, or steps fixed rather than a full build, start on our deck repair page instead so we can scope it as a repair.' }
+  { q: 'How long does a new deck take to build?', a: 'A straightforward deck is often a matter of days once materials are in and any permit is squared away. Larger or multi-level builds and screened porches take longer. We give you a realistic timeline with your quote.' },
+  { q: 'Is the deck built safely and to code?', a: 'Yes. iFIXX is an insured local Charlotte-area team, not a national franchise. For larger structural builds we are upfront about the permits and inspections your project needs and make sure the deck is built safely and to code.' },
+  { q: 'I actually just need a repair, can you help?', a: 'Yes. If your current deck mostly needs boards, railings, or steps fixed rather than a full build, start on our deck repair page instead so we can scope it as a repair.' }
 ];
 
 const serviceSchema = {
@@ -96,21 +96,21 @@ const faqSchema = {
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           <div class="order-1 lg:order-1">
             <span class="inline-block px-4 py-2 bg-primary-500 text-neutral-900 text-sm font-bold rounded-full mb-4">New decks & outdoor living • Local, insured crew</span>
-            <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">Build a New Deck in South Charlotte</h1>
-            <p class="text-lg text-neutral-200 mb-4 max-w-xl">No deck yet, or ready to replace an old one? iFIXX builds new decks, additions, and outdoor living spaces — wood or composite — designed around how your family actually uses the yard.</p>
-            <p class="text-neutral-300 mb-6 max-w-xl">Start with a free design consultation. We help you choose the layout, materials, and features, then give you an upfront price before any work begins. The owners, Jaime &amp; Hamed, stay involved from the first call — serving South Charlotte, Ballantyne, Waxhaw, Indian Land, Fort Mill, and nearby areas.</p>
+            <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">Custom Decks and Rebuilds in South Charlotte</h1>
+            <p class="text-lg text-neutral-200 mb-4 max-w-xl">No deck yet, or ready to replace an old one? iFIXX builds custom decks, additions, and screened porches in wood or composite, built to fit your home and how your family actually uses the yard. A deck that adds real living space and value to your home.</p>
+            <p class="text-neutral-300 mb-6 max-w-xl">Start with a free deck estimate. We help you choose the layout, materials, and features, then give you a clear, honest price before any work begins. You pay by milestones as the work gets done, not a big deposit up front. The owners, Jaime and Hamed, stay involved from the first call, serving South Charlotte, Ballantyne, Waxhaw, Indian Land, Fort Mill, and nearby areas.</p>
             <div class="flex flex-col sm:flex-row gap-3 mb-8">
-              <a href="#estimate-form" class="btn btn-primary landing-primary-cta" data-lead-type={leadType}>Request a Free Design Consultation</a>
+              <a href="#estimate-form" class="btn btn-primary landing-primary-cta" data-lead-type={leadType}>Request a Free Deck Estimate</a>
               <a href="tel:+19803916833" class="btn btn-outline-light landing-phone-cta" data-lead-type={leadType}>Call (980) 391-6833</a>
             </div>
             <div class="grid grid-cols-2 gap-4">
-              {['New decks & additions', 'Wood or composite', 'Design + upfront price', 'Insured local crew'].map((chip) => (
+              {['Custom for your home', 'Wood or composite', 'Milestone payments', 'Insured local crew'].map((chip) => (
                 <div class="flex items-center gap-3 text-white"><span class="w-9 h-9 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">✓</span><span class="text-sm font-medium">{chip}</span></div>
               ))}
             </div>
           </div>
           <div id="estimate-form" class="order-2 lg:order-2 scroll-mt-24 min-w-0">
-            <LandingEstimateForm serviceSlug="deck-build" serviceTitle="New Deck Build" formId="deck-builder-south-charlotte-estimate" leadType="deck_build" formName="South Charlotte Deck Builder Landing Form" issueOptions={['build a new deck', 'replace an old deck', 'add a screened porch', 'covered / outdoor living space', 'not sure yet — need ideas', 'other']} descriptionPlaceholder="Tell us about the space, how you want to use it, and any budget range or timeline (photos of the yard help)." photoLabel="Upload photos of the space if you have them" submitLabel="Request a Free Design Consultation" />
+            <LandingEstimateForm serviceSlug="deck-build" serviceTitle="New Deck Build" formId="deck-builder-south-charlotte-estimate" leadType="deck_build" formName="South Charlotte Deck Builder Landing Form" issueLabel="What are you looking to build?" issueOptions={['build a new deck', 'replace an old deck', 'add a screened porch', 'covered or outdoor living space', 'not sure yet, need ideas', 'other']} descriptionPlaceholder="Tell us about the space, how you want to use it, and any budget range or timeline (photos of the yard help)." photoLabel="Upload photos of the space if you have them" submitLabel="Request a Free Deck Estimate" />
           </div>
         </div>
       </div>
@@ -125,11 +125,11 @@ const faqSchema = {
         <div>
           <span class="badge mb-4">More than a backyard upgrade</span>
           <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-6">A new deck is where the summer actually happens</h2>
-          <p class="text-neutral-600 mb-5">The right deck turns an unused yard into the best room in the house — space to grill, host, and relax — and it adds real value when you sell. The hard part is knowing what fits your home, your budget, and the way you want to use it.</p>
-          <p class="text-neutral-600 mb-8">That is what the design consultation is for. We help you make the calls — size, wood vs composite, railings, stairs, lighting — and price it honestly before you commit to anything.</p>
+          <p class="text-neutral-600 mb-5">The right deck turns an unused yard into the best room in the house, with space to grill, host, and relax, and it adds real living space and value to your home when you sell. The hard part is knowing what fits your home, your budget, and the way you want to use it.</p>
+          <p class="text-neutral-600 mb-8">That is what the free estimate is for. We help you make the calls on size, wood vs composite, railings, stairs, and lighting, and price it honestly before you commit to anything.</p>
           <ul class="space-y-4">{buildItems.map((item) => (<li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 mt-0.5 text-neutral-900 text-sm font-bold">✓</span><span class="text-neutral-700">{item}</span></li>))}</ul>
         </div>
-        <div class="rounded-2xl overflow-hidden shadow-2xl"><img src={supportImage} alt="Raised deck build with railing in progress" class="w-full aspect-[4/3] object-cover" width="700" height="525" loading="lazy" decoding="async" /></div>
+        <div class="rounded-2xl overflow-hidden shadow-2xl"><img src={supportImage} alt="Wood deck with railing built by iFIXX in South Charlotte" class="w-full aspect-[4/3] object-cover" width="700" height="525" loading="lazy" decoding="async" /></div>
       </div>
     </div>
   </section>
@@ -149,7 +149,7 @@ const faqSchema = {
 
   <section class="section">
     <div class="container">
-      <div class="max-w-3xl mx-auto text-center mb-12"><span class="badge mb-4">Simple, honest process</span><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">From idea to finished deck</h2><p class="text-neutral-600">No pressure and no mystery pricing. Start with a free design consultation and we will help you plan a deck that fits your home and budget.</p></div>
+      <div class="max-w-3xl mx-auto text-center mb-12"><span class="badge mb-4">Simple, honest process</span><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">From idea to finished deck</h2><p class="text-neutral-600">No pressure and no mystery pricing. Start with a free deck estimate and we will help you plan a deck that fits your home and budget.</p></div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">{processSteps.map((step, index) => (<div class="card p-6 text-center"><div class="w-14 h-14 mx-auto mb-4 rounded-full bg-primary-500 flex items-center justify-center font-heading font-bold text-neutral-900 text-xl">{index + 1}</div><h3 class="font-heading font-bold text-neutral-900 mb-2">{step.title}</h3><p class="text-sm text-neutral-600">{step.text}</p></div>))}</div>
     </div>
   </section>
@@ -168,7 +168,7 @@ const faqSchema = {
   </section>
 
   <GoogleReviews title="What Charlotte Homeowners Say" />
-  <CTASection headline="Ready to design your new deck?" subtext="Request a free design consultation for a new deck, addition, screened porch, or outdoor living space in South Charlotte." />
+  <CTASection headline="Ready to plan your new deck?" subtext="Request a free deck estimate for a new deck, rebuild, addition, screened porch, or outdoor living space in South Charlotte." />
 
   <script is:inline>
     document.addEventListener('click', (event) => {

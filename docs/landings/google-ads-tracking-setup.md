@@ -20,6 +20,10 @@ No necesitas poner `gclid={gclid}` manualmente si auto-tagging está ON.
 | Deck Repair & Rebuilds | `https://www.ifixxnc.com/deck-repair-south-charlotte` |
 | Interior Painting | `https://www.ifixxnc.com/interior-painting-south-charlotte` |
 | Deck Builder / New Deck (cuando lo lances) | `https://www.ifixxnc.com/deck-builder-south-charlotte` |
+| Fence Core (install / company) | `https://www.ifixxnc.com/fence-installation-south-charlotte` |
+| Fence Repair | `https://www.ifixxnc.com/fence-installation-south-charlotte` |
+
+> **Arranque $50/día (decisión 2026-07-01):** Fence Core + Fence Repair + Deck Repair. Deck Build NO al inicio (CPC ~$36). Ambos ad groups de fence apuntan a la misma landing `/fence-installation-south-charlotte` (el `utm_content` los distingue).
 
 ## 2) Final URL suffix (método recomendado por Google)
 Se configura por **ad group** (`Ad group → Settings → Final URL suffix`). Sobrevive redirects y no rompe la URL. Pega esto según el ad group:
@@ -35,6 +39,14 @@ utm_source=google&utm_medium=cpc&utm_campaign=south_charlotte_service_test_2026_
 **Interior Painting**
 ```
 utm_source=google&utm_medium=cpc&utm_campaign=south_charlotte_service_test_2026_07&utm_content=interior_painting&utm_term={keyword}
+```
+**Fence Core**
+```
+utm_source=google&utm_medium=cpc&utm_campaign=south_charlotte_service_test_2026_07&utm_content=fence_core&utm_term={keyword}
+```
+**Fence Repair**
+```
+utm_source=google&utm_medium=cpc&utm_campaign=south_charlotte_service_test_2026_07&utm_content=fence_repair&utm_term={keyword}
 ```
 
 > `{keyword}` es un ValueTrack que inserta el keyword que disparó el anuncio → cae en `utm_term` y llega a GHL como `attributionSource.utmTerm`. Útil para ver qué términos convierten.

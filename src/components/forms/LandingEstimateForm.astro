@@ -1,11 +1,12 @@
 ---
 interface Props {
-  serviceSlug: 'drywall-repair' | 'deck-repair' | 'interior-painting' | 'deck-build';
+  serviceSlug: 'drywall-repair' | 'deck-repair' | 'interior-painting' | 'deck-build' | 'fence-install' | 'fence-repair';
   serviceTitle: string;
   formId: string;
-  leadType: 'drywall_repair' | 'deck_repair' | 'interior_painting' | 'deck_build';
+  leadType: 'drywall_repair' | 'deck_repair' | 'interior_painting' | 'deck_build' | 'fence_install' | 'fence_repair';
   formName: string;
   issueOptions: string[];
+  issueLabel?: string;
   descriptionPlaceholder: string;
   photoLabel: string;
   includeSafetyConcern?: boolean;
@@ -19,6 +20,7 @@ const {
   leadType,
   formName,
   issueOptions,
+  issueLabel = 'What needs repair?',
   descriptionPlaceholder,
   photoLabel,
   includeSafetyConcern = false,
@@ -84,7 +86,7 @@ const {
 
     <div>
       <label for={`${formId}-issueType`} class="block text-sm font-semibold text-neutral-800 mb-2">
-        What needs repair? *
+        {issueLabel} *
       </label>
       <select
         id={`${formId}-issueType`}

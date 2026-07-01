@@ -26,6 +26,12 @@ const SERVICE_TAGS: Record<string, string[]> = {
     // New deck construction — higher-ticket, longer sales cycle. 'project-deck-build'
     // flags it for a heavier follow-up within the Deck & Outdoor Living pipeline.
     'deck-build': ['service-deck-build', 'project-deck-build', 'service-carpentry', 'deck-outdoor', 'handyman', 'south-charlotte-test'],
+    // Fence line (new 2026-07). Routing tag 'fence-outdoor' for the Fence and Outdoor
+    // pipeline (create in GHL). Same double-route caveat as deck: the Handyman routing
+    // workflow must exclude contacts tagged 'fence-outdoor'. 'project-fence-install'
+    // flags the higher-ticket installs for a heavier follow-up vs. repairs.
+    'fence-install': ['service-fence-install', 'project-fence-install', 'fence-outdoor', 'handyman', 'south-charlotte-test'],
+    'fence-repair': ['service-fence-repair', 'fence-outdoor', 'handyman', 'south-charlotte-test'],
 
     // Emergency/Urgent Services → Pipeline: Handyman (with urgent flag)
     'emergency-plumbing': ['emergency-plumbing', 'handyman', 'urgent'],
