@@ -1,0 +1,52 @@
+---
+// Full-bleed auto-scrolling strip of real project photos. Mobile-only (lg:hidden):
+// on desktop the standard gallery grid covers this. CSS-only infinite loop (the
+// track is rendered twice and translated -50%), pauses while pressed, and falls
+// back to a swipeable static row when the user prefers reduced motion.
+interface Props {
+  images: { src: string; alt: string }[];
+  title: string;
+  subtitle?: string;
+}
+
+const { images, title, subtitle = 'Summer 2026' } = Astro.props;
+---
+
+<div class="project-marquee lg:hidden relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden mt-3 mb-8">
+  <div class="px-6 pt-4 mb-6 text-center">
+    <p class="text-sm font-bold uppercase tracking-[0.3em] text-primary-400 mb-3">{subtitle}</p>
+    <p class="text-2xl font-heading font-bold text-white leading-snug max-w-sm mx-auto">{title}</p>
+  </div>
+  <div class="marquee-track flex w-max">
+    {[...images, ...images].map((image, index) => (
+      <img
+        src={image.src}
+        alt={index < images.length ? image.alt : ''}
+        aria-hidden={index >= images.length ? 'true' : undefined}
+        class="h-[48vh] max-h-[460px] w-[80vw] max-w-[420px] object-cover flex-shrink-0"
+        loading="lazy"
+        decoding="async"
+      />
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee-track {
+    animation: marquee-scroll 55s linear infinite;
+  }
+  .project-marquee:active .marquee-track {
+    animation-play-state: paused;
+  }
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+      overflow-x: auto;
+      width: 100%;
+    }
+  }
+</style>

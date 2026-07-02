@@ -25,6 +25,7 @@ const reviewPlatforms = [
   {
     name: 'Google',
     rating: '5.0',
+    reviewCount: '85 reviews',
     hasStars: true,
     hasLink: true,
     url: 'https://share.google/etUzpmu9VuUzDVDZJ',
@@ -58,7 +59,7 @@ const reviewPlatforms = [
     <div class="flex flex-col items-center gap-5">
       <!-- Heading -->
       <p class={`text-sm font-medium ${subtextClass}`}>
-        Find Us & Read Our Reviews
+        Rated 5.0 by Charlotte homeowners — find us and read the reviews
       </p>
 
       <!-- Platform Reviews -->
@@ -114,7 +115,7 @@ const reviewPlatforms = [
                         </svg>
                       ))}
                     </div>
-                    <span class={`text-xs font-medium ${subtextClass}`}>{platform.rating}</span>
+                    <span class={`text-xs font-medium ${subtextClass}`}>{platform.rating}{platform.reviewCount ? ` · ${platform.reviewCount}` : ''}</span>
                   </div>
                 )}
               </div>

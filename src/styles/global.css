@@ -18,6 +18,16 @@ body {
   overflow: hidden;
 }
 
+/* Mobile: full-bleed form card, edge to edge */
+@media (max-width: 639px) {
+  .landing-estimate-card {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+}
+
 .landing-estimate-card input,
 .landing-estimate-card select,
 .landing-estimate-card textarea,
@@ -25,11 +35,6 @@ body {
   max-width: 100%;
 }
 
-@media (max-width: 639px) {
-  .landing-estimate-card {
-    max-width: 358px;
-  }
-}
 
 @media (min-width: 1024px) {
   .landing-estimate-card {
