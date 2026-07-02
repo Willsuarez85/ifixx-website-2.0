@@ -13,9 +13,9 @@ const { images, title, subtitle = 'Summer 2026' } = Astro.props;
 ---
 
 <div class="project-marquee lg:hidden relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden mt-3 mb-8">
-  <div class="px-4 mb-3">
-    <p class="text-xs font-bold uppercase tracking-widest text-primary-400 mb-1">{subtitle}</p>
-    <p class="text-xl font-heading font-bold text-white leading-snug">{title}</p>
+  <div class="px-6 pt-4 mb-6 text-center">
+    <p class="text-sm font-bold uppercase tracking-[0.3em] text-primary-400 mb-3">{subtitle}</p>
+    <p class="text-2xl font-heading font-bold text-white leading-snug max-w-sm mx-auto">{title}</p>
   </div>
   <div class="marquee-track flex w-max">
     {[...images, ...images].map((image, index) => (
