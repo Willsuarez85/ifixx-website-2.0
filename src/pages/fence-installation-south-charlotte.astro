@@ -7,6 +7,7 @@ import TrustBar from '../components/sections/TrustBar.astro';
 import GoogleReviews from '../components/sections/GoogleReviews.astro';
 import CTASection from '../components/sections/CTASection.astro';
 import LandingEstimateForm from '../components/forms/LandingEstimateForm.astro';
+import ProjectMarquee from '../components/sections/ProjectMarquee.astro';
 
 const title = 'Fence Installation and Repair in South Charlotte | Wood, Vinyl, Aluminum | iFIXX';
 const description = 'Privacy fences, replacements, and repairs in South Charlotte, Ballantyne, Waxhaw, Indian Land, and Fort Mill. Wood, vinyl, and aluminum fencing installed by an insured local crew that answers the phone and shows up. Clear, honest pricing from the start. Request a free fence estimate from iFIXX.';
@@ -113,6 +114,7 @@ const faqSchema = {
               <a href="#estimate-form" class="btn btn-primary landing-primary-cta" data-lead-type={leadType}>Request a Free Fence Estimate</a>
               <a href="tel:+19803916833" class="btn btn-outline-light landing-phone-cta" data-lead-type={leadType}>Call (980) 391-6833</a>
             </div>
+            <ProjectMarquee images={galleryImages} label="Real fence projects" />
             <div class="grid grid-cols-2 gap-4">
               {['Family owned and local', 'Wood, vinyl, aluminum', 'Clear prices, fast', 'Insured crew'].map((chip) => (
                 <div class="flex items-center gap-3 text-white"><span class="w-9 h-9 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">✓</span><span class="text-sm font-medium">{chip}</span></div>

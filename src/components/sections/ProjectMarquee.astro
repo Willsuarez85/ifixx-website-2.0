@@ -1,0 +1,49 @@
+---
+// Full-bleed auto-scrolling strip of real project photos. Mobile-only (lg:hidden):
+// on desktop the standard gallery grid covers this. CSS-only infinite loop (the
+// track is rendered twice and translated -50%), pauses while pressed, and falls
+// back to a static row when the user prefers reduced motion.
+interface Props {
+  images: { src: string; alt: string }[];
+  label?: string;
+}
+
+const { images, label = 'Real projects by our crew' } = Astro.props;
+---
+
+<div class="project-marquee lg:hidden relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden py-1 mt-2 mb-6" aria-label={label}>
+  <p class="text-xs font-bold uppercase tracking-wide text-primary-400 mb-2 px-4">{label}</p>
+  <div class="marquee-track flex gap-2 w-max">
+    {[...images, ...images].map((image, index) => (
+      <img
+        src={image.src}
+        alt={index < images.length ? image.alt : ''}
+        aria-hidden={index >= images.length ? 'true' : undefined}
+        class="h-36 w-auto rounded-lg object-cover flex-shrink-0"
+        height="144"
+        loading="lazy"
+        decoding="async"
+      />
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee-track {
+    animation: marquee-scroll 40s linear infinite;
+  }
+  .project-marquee:active .marquee-track {
+    animation-play-state: paused;
+  }
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+      overflow-x: auto;
+      width: 100%;
+    }
+  }
+</style>

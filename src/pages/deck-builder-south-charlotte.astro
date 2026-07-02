@@ -4,6 +4,7 @@ import TrustBar from '../components/sections/TrustBar.astro';
 import GoogleReviews from '../components/sections/GoogleReviews.astro';
 import CTASection from '../components/sections/CTASection.astro';
 import LandingEstimateForm from '../components/forms/LandingEstimateForm.astro';
+import ProjectMarquee from '../components/sections/ProjectMarquee.astro';
 
 const title = 'Deck Builder in South Charlotte | New Decks & Outdoor Living | iFIXX';
 const description = 'Custom decks, rebuilds, and screened porches in South Charlotte, Ballantyne, Waxhaw, Indian Land, and Fort Mill. Wood or composite, built to fit your home and how you use it by an insured local crew. Clear, honest pricing from the start and milestone payments. Request a free deck estimate from iFIXX.';
@@ -116,6 +117,7 @@ const faqSchema = {
               <a href="tel:+19803916833" class="btn btn-outline-light landing-phone-cta" data-lead-type={leadType}>Call (980) 391-6833</a>
             </div>
             <p class="text-sm text-neutral-300 mb-8">Just need boards, railings, or steps fixed? <a href="/deck-repair-south-charlotte" class="text-primary-400 underline underline-offset-2 hover:text-primary-300">Start on our deck repair page</a></p>
+            <ProjectMarquee images={galleryImages} label="Real decks and porches we've built" />
             <div class="grid grid-cols-2 gap-4">
               {['Family owned, 10+ years', 'Build or repair', 'Clear prices, fast', 'Insured local crew'].map((chip) => (
                 <div class="flex items-center gap-3 text-white"><span class="w-9 h-9 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">✓</span><span class="text-sm font-medium">{chip}</span></div>
