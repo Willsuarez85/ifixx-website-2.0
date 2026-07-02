@@ -111,10 +111,11 @@ const faqSchema = {
             <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">Local Deck Builders in South Charlotte</h1>
             <p class="text-lg text-neutral-200 mb-4 max-w-xl">iFIXX is a local, family-owned company with over ten years building decks, porches, and rebuilds across the Charlotte area. Wood or composite, a brand new deck or a full tear-down and rebuild.</p>
             <p class="text-neutral-300 mb-6 max-w-xl">We build and we repair, we keep the price clear, and we move fast. Start with a free online estimate. Serving South Charlotte, Ballantyne, Waxhaw, Indian Land, Fort Mill, and nearby.</p>
-            <div class="flex flex-col sm:flex-row gap-3 mb-8">
+            <div class="flex flex-col sm:flex-row gap-3 mb-3">
               <a href="#estimate-form" class="btn btn-primary landing-primary-cta" data-lead-type={leadType}>Request a Free Deck Estimate</a>
               <a href="tel:+19803916833" class="btn btn-outline-light landing-phone-cta" data-lead-type={leadType}>Call (980) 391-6833</a>
             </div>
+            <p class="text-sm text-neutral-300 mb-8">Just need boards, railings, or steps fixed? <a href="/deck-repair-south-charlotte" class="text-primary-400 underline underline-offset-2 hover:text-primary-300">Start on our deck repair page</a></p>
             <div class="grid grid-cols-2 gap-4">
               {['Family owned, 10+ years', 'Build or repair', 'Clear prices, fast', 'Insured local crew'].map((chip) => (
                 <div class="flex items-center gap-3 text-white"><span class="w-9 h-9 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">✓</span><span class="text-sm font-medium">{chip}</span></div>
@@ -169,7 +170,7 @@ const faqSchema = {
   <section class="section section-alt">
     <div class="container">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-200"><h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">Who is iFIXX?</h2><ul class="space-y-3">{whoBullets.map((item) => (<li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 mt-0.5 text-neutral-900 text-sm font-bold">✓</span><span class="text-neutral-700">{item}</span></li>))}</ul></div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-200"><h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">Who is iFIXX?</h2><img src="/images/ui/team.webp" alt="The owners of iFIXX, a local Charlotte family company" class="w-full aspect-[16/9] object-cover rounded-xl mb-4" width="640" height="360" loading="lazy" decoding="async" /><p class="text-neutral-600 mb-4">These are the owners. Not a franchise, not a call center: a local Charlotte family company where the people who answer your call are the same people responsible for your project.</p><ul class="space-y-3">{whoBullets.map((item) => (<li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 mt-0.5 text-neutral-900 text-sm font-bold">✓</span><span class="text-neutral-700">{item}</span></li>))}</ul></div>
         <div class="bg-neutral-900 rounded-2xl p-8 text-white shadow-xl"><h2 class="text-2xl font-heading font-bold mb-4">South Charlotte service areas</h2><div class="flex flex-wrap gap-2">{serviceAreas.map((area) => (<span class="px-3 py-2 rounded-full bg-white/10 text-sm">{area}</span>))}</div><p class="text-neutral-300 mt-5">If you are nearby but not listed, send the request anyway and we will confirm availability.</p></div>
       </div>
     </div>

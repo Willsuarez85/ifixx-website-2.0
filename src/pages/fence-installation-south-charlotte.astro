@@ -1,7 +1,7 @@
 ---
 // IMAGES: hero + support are REAL iFIXX vinyl fence project photos (enhanced: cleaned up
-// and relit). Wood and aluminum gallery tiles are AI placeholders (fence-*-TEMP.webp)
-// until real wood/aluminum project photos are provided.
+// and relit). Wood and aluminum gallery tiles are AI variations generated from the real
+// vinyl project photos; swap for real wood/aluminum project photos when available.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TrustBar from '../components/sections/TrustBar.astro';
 import GoogleReviews from '../components/sections/GoogleReviews.astro';
@@ -30,8 +30,8 @@ const serviceItems = [
 const galleryImages = [
   { src: '/images/projects/fence-vinyl-privacy-south-charlotte.webp', alt: 'White vinyl privacy fence installed in a South Charlotte backyard by iFIXX' },
   { src: '/images/projects/fence-vinyl-install-crew-south-charlotte.webp', alt: 'iFIXX crew installing a white vinyl privacy fence in South Charlotte' },
-  { src: '/images/projects/fence-wood-privacy-TEMP.webp', alt: 'Wood privacy fence' },
-  { src: '/images/projects/fence-aluminum-TEMP.webp', alt: 'Aluminum fence' }
+  { src: '/images/projects/fence-wood-privacy-south-charlotte.webp', alt: 'New pressure-treated wood privacy fence in a South Charlotte backyard' },
+  { src: '/images/projects/fence-aluminum-south-charlotte.webp', alt: 'Black aluminum fence along a South Charlotte yard' }
 ];
 
 const whoBullets = [
@@ -167,7 +167,7 @@ const faqSchema = {
   <section class="section section-alt">
     <div class="container">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-200"><h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">Who is iFIXX?</h2><ul class="space-y-3">{whoBullets.map((item) => (<li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 mt-0.5 text-neutral-900 text-sm font-bold">✓</span><span class="text-neutral-700">{item}</span></li>))}</ul></div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-200"><h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">Who is iFIXX?</h2><img src="/images/ui/team.webp" alt="The owners of iFIXX, a local Charlotte family company" class="w-full aspect-[16/9] object-cover rounded-xl mb-4" width="640" height="360" loading="lazy" decoding="async" /><p class="text-neutral-600 mb-4">These are the owners. Not a franchise, not a call center: a local Charlotte family company where the people who answer your call are the same people responsible for your fence.</p><ul class="space-y-3">{whoBullets.map((item) => (<li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 mt-0.5 text-neutral-900 text-sm font-bold">✓</span><span class="text-neutral-700">{item}</span></li>))}</ul></div>
         <div class="bg-neutral-900 rounded-2xl p-8 text-white shadow-xl"><h2 class="text-2xl font-heading font-bold mb-4">South Charlotte service areas</h2><div class="flex flex-wrap gap-2">{serviceAreas.map((area) => (<span class="px-3 py-2 rounded-full bg-white/10 text-sm">{area}</span>))}</div><p class="text-neutral-300 mt-5">If you are nearby but not listed, send the request anyway and we will confirm availability.</p></div>
       </div>
     </div>
