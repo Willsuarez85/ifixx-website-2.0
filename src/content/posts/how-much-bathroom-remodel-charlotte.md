@@ -213,7 +213,7 @@ We've completed [200+ bathroom projects across Charlotte](/charlotte/bathroom-re
 
 ---
 
-*iFixx serves Charlotte, Matthews, Ballantyne, Huntersville, Concord, and surrounding areas. Licensed, insured, and locally owned.*
+*iFixx serves Charlotte, Matthews, Ballantyne, and surrounding South Charlotte areas. Insured and locally owned.*
 
 ## Frequently Asked Questions — Bathroom Remodel Cost Charlotte NC
 

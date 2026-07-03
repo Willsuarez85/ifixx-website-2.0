@@ -198,7 +198,7 @@ We've completed [150+ kitchen projects across Charlotte](/charlotte/kitchen-remo
 
 ---
 
-*iFixx serves Charlotte, Matthews, Ballantyne, Huntersville, Concord, and surrounding areas. Licensed, insured, and locally owned.*
+*iFixx serves Charlotte, Matthews, Ballantyne, and surrounding South Charlotte areas. Insured and locally owned.*
 
 ## Frequently Asked Questions — Kitchen Remodel Cost Charlotte NC
 
