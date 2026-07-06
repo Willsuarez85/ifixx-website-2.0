@@ -909,6 +909,22 @@
     {
       "source": "/emergency-services/electrical-fixtures",
       "destination": "/api/gone"
+    },
+    {
+      "source": "/blog/5-signs-you-need-plumbing-help",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/blog/5-signs-you-need-plumbing-help/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/blog/warning-signs-plumbing-problems",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/blog/warning-signs-plumbing-problems/",
+      "destination": "/api/gone"
     }
   ]
 }
