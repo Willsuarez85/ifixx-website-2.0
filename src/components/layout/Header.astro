@@ -2,7 +2,14 @@
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
-  { href: '/fence-installation-south-charlotte', label: 'Fences' },
+  {
+    href: '/fence-installation-south-charlotte',
+    label: 'Fences',
+    dropdown: [
+      { href: '/fence-installation-south-charlotte', label: 'Fence Installation', description: 'Wood, vinyl & aluminum fences' },
+      { href: '/fence-repair-south-charlotte', label: 'Fence Repair', description: 'Leaning posts, panels & gates' }
+    ]
+  },
   {
     href: '/deck',
     label: 'Decks',
