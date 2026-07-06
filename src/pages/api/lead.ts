@@ -2,6 +2,10 @@ import type { APIRoute } from 'astro';
 
 export const prerender = false;
 
+const OUTDOOR_PIPELINE_ID = 'QlQ4FGiqHYUgMAUwxjb1';
+const OUTDOOR_NEW_LEAD_STAGE_ID = '2f5e3e61-cbe2-4350-8010-dd8c3335d419';
+const HANDYMAN_PIPELINE_ID = 'ohDTFoWOfNfAYQ89MWEo';
+
 // Tag mapping by service type - GHL workflows will use these to route leads
 // Pipeline routing: handyman (includes urgent) OR remodeling
 const SERVICE_TAGS: Record<string, string[]> = {
@@ -90,8 +94,204 @@ function buildLeadMessage(data: {
     ].join('\n');
 }
 
+function wait(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function isRecentOpportunity(opp: any, startedAt: Date) {
+    const createdAt = opp.createdAt || opp.dateAdded || opp.created_at;
+
+    if (!createdAt) {
+        return true;
+    }
+
+    const createdTime = new Date(createdAt).getTime();
+    return Number.isFinite(createdTime) && createdTime >= startedAt.getTime() - 30000;
+}
+
+async function ghlRequest(
+    path: string,
+    apiKey: string,
+    init: RequestInit = {}
+) {
+    return fetch(`https://services.leadconnectorhq.com${path}`, {
+        ...init,
+        headers: {
+            'Authorization': `Bearer ${apiKey}`,
+            'Content-Type': 'application/json',
+            'Version': '2021-07-28',
+            ...(init.headers || {})
+        }
+    });
+}
+
+async function searchContactOpportunities(apiKey: string, locationId: string, contactId: string) {
+    const params = new URLSearchParams({
+        location_id: locationId,
+        contact_id: contactId,
+        limit: '20'
+    });
+
+    const response = await ghlRequest(`/opportunities/search?${params.toString()}`, apiKey, {
+        method: 'GET'
+    });
+
+    if (!response.ok) {
+        const err = await response.text();
+        throw new Error(`Failed to search GHL opportunities: ${err}`);
+    }
+
+    const result = await response.json();
+    return Array.isArray(result.opportunities) ? result.opportunities : [];
+}
+
+async function deleteOpportunity(apiKey: string, opportunityId: string) {
+    const response = await ghlRequest(`/opportunities/${opportunityId}`, apiKey, {
+        method: 'DELETE'
+    });
+
+    if (!response.ok) {
+        const err = await response.text();
+        throw new Error(`Failed to delete duplicate Handyman opportunity: ${err}`);
+    }
+}
+
+async function cleanupRecentHandymanDuplicates(options: {
+    apiKey: string;
+    locationId: string;
+    contactId: string;
+    startedAt: Date;
+}) {
+    const { apiKey, locationId, contactId, startedAt } = options;
+    const opportunities = await searchContactOpportunities(apiKey, locationId, contactId);
+    const hasOutdoor = opportunities.some((opp: any) =>
+        opp.pipelineId === OUTDOOR_PIPELINE_ID && opp.status !== 'lost' && opp.status !== 'abandoned'
+    );
+
+    if (!hasOutdoor) {
+        return [];
+    }
+
+    const duplicates = opportunities.filter((opp: any) =>
+        opp.pipelineId === HANDYMAN_PIPELINE_ID &&
+        opp.status !== 'lost' &&
+        opp.status !== 'abandoned' &&
+        isRecentOpportunity(opp, startedAt)
+    );
+
+    for (const duplicate of duplicates) {
+        await deleteOpportunity(apiKey, duplicate.id);
+    }
+
+    return duplicates.map((opp: any) => opp.id);
+}
+
+async function routeOutdoorOpportunity(options: {
+    apiKey: string;
+    locationId: string;
+    contactId: string;
+    firstName: string;
+    lastName?: string;
+    service?: string;
+    source?: string;
+    startedAt: Date;
+}) {
+    const { apiKey, locationId, contactId, firstName, lastName, service, source, startedAt } = options;
+    const contactName = [firstName, lastName].filter(Boolean).join(' ').trim() || 'Website Lead';
+    const opportunityName = `${contactName} - Outdoor Estimate`;
+
+    for (let attempt = 0; attempt < 8; attempt++) {
+        if (attempt > 0) {
+            await wait(800);
+        }
+
+        const opportunities = await searchContactOpportunities(apiKey, locationId, contactId);
+        const openOutdoor = opportunities.find((opp: any) =>
+            opp.pipelineId === OUTDOOR_PIPELINE_ID && opp.status !== 'lost' && opp.status !== 'abandoned'
+        );
+
+        if (openOutdoor) {
+            const deletedHandymanDuplicates = await cleanupRecentHandymanDuplicates({
+                apiKey,
+                locationId,
+                contactId,
+                startedAt
+            });
+
+            return { action: 'already-routed', opportunityId: openOutdoor.id, deletedHandymanDuplicates };
+        }
+
+        const openHandyman = opportunities.find((opp: any) =>
+            opp.pipelineId === HANDYMAN_PIPELINE_ID &&
+            opp.status !== 'lost' &&
+            opp.status !== 'abandoned' &&
+            isRecentOpportunity(opp, startedAt)
+        );
+
+        if (openHandyman) {
+            const response = await ghlRequest(`/opportunities/${openHandyman.id}`, apiKey, {
+                method: 'PUT',
+                body: JSON.stringify({
+                    pipelineId: OUTDOOR_PIPELINE_ID,
+                    pipelineStageId: OUTDOOR_NEW_LEAD_STAGE_ID,
+                    name: opportunityName,
+                    status: 'open',
+                    source: source || 'Website Form'
+                })
+            });
+
+            if (!response.ok) {
+                const err = await response.text();
+                throw new Error(`Failed to move opportunity to Outdoor pipeline: ${err}`);
+            }
+
+            return { action: 'moved-from-handyman', opportunityId: openHandyman.id, deletedHandymanDuplicates: [] };
+        }
+    }
+
+    const response = await ghlRequest('/opportunities/', apiKey, {
+        method: 'POST',
+        body: JSON.stringify({
+            locationId,
+            pipelineId: OUTDOOR_PIPELINE_ID,
+            pipelineStageId: OUTDOOR_NEW_LEAD_STAGE_ID,
+            contactId,
+            name: opportunityName,
+            status: 'open',
+            source: source || 'Website Form',
+            monetaryValue: 0
+        })
+    });
+
+    if (!response.ok) {
+        const err = await response.text();
+        throw new Error(`Failed to create Outdoor opportunity: ${err}`);
+    }
+
+    const result = await response.json();
+    const opportunityId = result.opportunity?.id || result.id;
+
+    let deletedHandymanDuplicates: string[] = [];
+    for (let attempt = 0; attempt < 4; attempt++) {
+        await wait(1000);
+        deletedHandymanDuplicates = await cleanupRecentHandymanDuplicates({
+            apiKey,
+            locationId,
+            contactId,
+            startedAt
+        });
+
+        if (deletedHandymanDuplicates.length > 0) {
+            break;
+        }
+    }
+
+    return { action: 'created-outdoor', opportunityId, deletedHandymanDuplicates };
+}
+
 export const POST: APIRoute = async ({ request }) => {
     try {
+        const requestStartedAt = new Date();
         const data = await request.json();
         const {
             firstName,
@@ -249,13 +449,30 @@ export const POST: APIRoute = async ({ request }) => {
             throw new Error('GHL did not return a contact ID');
         }
 
-        console.log(`Lead created: ${contactId} | Tags: ${allTags.join(', ')}`);
+        const isOutdoorLead = allTags.includes('deck-outdoor') || allTags.includes('fence-outdoor');
+        let outdoorRouting: Awaited<ReturnType<typeof routeOutdoorOpportunity>> | undefined;
+
+        if (isOutdoorLead) {
+            outdoorRouting = await routeOutdoorOpportunity({
+                apiKey: GHL_API_KEY,
+                locationId: GHL_LOCATION_ID,
+                contactId,
+                firstName,
+                lastName,
+                service,
+                source: source || 'Website Form',
+                startedAt: requestStartedAt
+            });
+        }
+
+        console.log(`Lead created: ${contactId} | Tags: ${allTags.join(', ')}${outdoorRouting ? ` | Outdoor routing: ${outdoorRouting.action}` : ''}`);
 
         return new Response(
             JSON.stringify({
                 success: true,
                 message: 'Lead received successfully',
-                contactId
+                contactId,
+                ...(outdoorRouting && { outdoorRouting })
             }),
             { status: 200 }
         );
