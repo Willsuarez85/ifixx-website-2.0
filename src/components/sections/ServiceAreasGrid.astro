@@ -1,12 +1,25 @@
 ---
 // Pilar 7 — Internal Linking Restructure
-// 9 city cards × 3 popular service links each = 27 hyperlocal links from homepage
+// 6 city cards × 3 popular service links each = 18 hyperlocal links from homepage.
+// Cities and services match the current focus (see src/lib/seo-retired.ts):
+// no retired cities, no consolidated services (kitchen/bath remodeling, painting, drywall).
 const areas = [
   {
     name: "Charlotte, NC",
     slug: "charlotte",
     neighborhoods: "Myers Park, Dilworth, NoDa, Plaza Midwood, Eastover, SouthPark",
     icon: "🏙️",
+    popular: [
+      { label: "Outdoor Living", slug: "outdoor-living" },
+      { label: "Quick-Fix Handyman", slug: "quick-fix" },
+      { label: "Carpentry", slug: "carpentry" },
+    ],
+  },
+  {
+    name: "South Charlotte, NC",
+    slug: "south-charlotte",
+    neighborhoods: "Blakeney, Stonecrest, Piper Glen, Rea Farms, Carmel",
+    icon: "🌆",
     popular: [
       { label: "Outdoor Living", slug: "outdoor-living" },
       { label: "Quick-Fix Handyman", slug: "quick-fix" },
@@ -30,7 +43,7 @@ const areas = [
     neighborhoods: "Matthews Township, Fullwood, Stallings",
     icon: "🏘️",
     popular: [
-      { label: "Plumbing", slug: "plumbing" },
+      { label: "Outdoor Living", slug: "outdoor-living" },
       { label: "Carpentry", slug: "carpentry" },
       { label: "Door & Window Repair", slug: "doors-windows" },
     ],
@@ -43,7 +56,7 @@ const areas = [
     popular: [
       { label: "Carpentry", slug: "carpentry" },
       { label: "Door & Window Repair", slug: "doors-windows" },
-      { label: "Plumbing", slug: "plumbing" },
+      { label: "Quick-Fix Handyman", slug: "quick-fix" },
     ],
   },
   {
@@ -52,52 +65,8 @@ const areas = [
     neighborhoods: "Carolina Place, Park Crossing",
     icon: "🌿",
     popular: [
-      { label: "Plumbing", slug: "plumbing" },
-      { label: "Flooring Installation", slug: "flooring-installation" },
-      { label: "Carpentry", slug: "carpentry" },
-    ],
-  },
-  {
-    name: "Monroe, NC",
-    slug: "monroe",
-    neighborhoods: "Union County, Wesley Chapel",
-    icon: "🔧",
-    popular: [
-      { label: "Plumbing Repair", slug: "plumbing" },
-      { label: "Flooring Installation", slug: "flooring-installation" },
-      { label: "Carpentry", slug: "carpentry" },
-    ],
-  },
-  {
-    name: "Waxhaw, NC",
-    slug: "waxhaw",
-    neighborhoods: "Downtown Waxhaw, Marvin, Weddington",
-    icon: "🏞️",
-    popular: [
       { label: "Outdoor Living", slug: "outdoor-living" },
-      { label: "Carpentry", slug: "carpentry" },
       { label: "Flooring Installation", slug: "flooring-installation" },
-    ],
-  },
-  {
-    name: "Rock Hill, SC",
-    slug: "rock-hill",
-    neighborhoods: "Lake Wylie, Tega Cay, Fort Mill",
-    icon: "🌅",
-    popular: [
-      { label: "Plumbing Repair", slug: "plumbing" },
-      { label: "Flooring Installation", slug: "flooring-installation" },
-      { label: "Carpentry", slug: "carpentry" },
-    ],
-  },
-  {
-    name: "Concord, NC",
-    slug: "concord",
-    neighborhoods: "Harrisburg, Kannapolis, Midland",
-    icon: "🏗️",
-    popular: [
-      { label: "Plumbing", slug: "plumbing" },
-      { label: "Electrical Fixtures", slug: "electrical-fixtures" },
       { label: "Carpentry", slug: "carpentry" },
     ],
   },
@@ -151,9 +120,11 @@ const areas = [
     <div class="max-w-3xl mx-auto text-center">
       <p class="text-neutral-600 leading-relaxed">
         As Charlotte's trusted handyman service, iFIXX covers the full metro area —
-        from <strong>Uptown Charlotte</strong> to <strong>Ballantyne</strong>, from <strong>Matthews</strong> to <strong>Rock Hill</strong>.
-        Whether you need same-day drywall repair in Dilworth, outlet replacement in Myers Park,
-        ceiling fan installation in Ballantyne, or a full bathroom remodel in Pineville —
+        from <strong>Uptown Charlotte</strong> to <strong>Ballantyne</strong>, from <strong>Matthews</strong> to <strong>Pineville</strong>.
+        Whether you need same-day drywall repair in Dilworth,
+        a new <a href="/fence-installation-south-charlotte" class="text-primary-600 hover:underline">fence</a> or
+        <a href="/deck-builder-south-charlotte" class="text-primary-600 hover:underline">deck</a> in South Charlotte,
+        or a full <a href="/remodeling/bathroom-remodeling" class="text-primary-600 hover:underline">bathroom remodel</a> in Pineville —
         we're your local handyman in Charlotte, NC.
         Call or text <a href="tel:+19803916833" class="text-primary-600 font-semibold hover:underline">(980) 391-6833</a> for a free estimate.
       </p>
