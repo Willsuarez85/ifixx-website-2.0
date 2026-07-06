@@ -6,8 +6,41 @@ interface Props {
 
 const { serviceSlug = '', title = 'Our Work' } = Astro.props;
 
+// Real project photos for kitchen & bathroom (sourced from the /gallery portfolio
+// pool, 2026-07). Fix: the remodeling pages pass slugs like 'kitchen-remodeling'
+// which never matched the old 'kitchen-remodel' keys — pages silently fell back
+// to the mixed default pool (stairs/porch/faucet photos on the kitchen page).
+const kitchenImages = [
+  { src: '/images/projects/kitchen-remodeling-before-after-transformation.webp', alt: 'Kitchen remodel before and after transformation — Charlotte NC', category: 'kitchen' },
+  { src: '/images/projects/kitchen-remodeling-complete-modern-white-cabinets-island.webp', alt: 'Complete kitchen remodel with modern white cabinets and island', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio63.webp', alt: 'White luxury kitchen with marble waterfall island', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio22.webp', alt: 'Navy blue open concept kitchen with marble island', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio17.webp', alt: 'Luxury gray kitchen with marble and skylights', category: 'kitchen' },
+  { src: '/images/projects/kitchen-white-gray-island-black-pendants.webp', alt: 'White kitchen with gray island and black pendants', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio16.webp', alt: 'Two-tone kitchen with green and wood cabinets', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio11.webp', alt: 'White kitchen with subway tile backsplash', category: 'kitchen' },
+  { src: '/images/projects/kitchen-island-gold-pendants-stools.webp', alt: 'Kitchen island with gold pendants and stools', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio60.webp', alt: 'Navy luxury kitchen with gold accents', category: 'kitchen' },
+  { src: '/images/projects/Ifixx-portfolio9.webp', alt: 'Kitchen with blue island and wood shelving', category: 'kitchen' },
+  { src: '/images/projects/kitchen-remodeling-luxury-white-cabinets-island-pendant-lights.webp', alt: 'Luxury kitchen with white cabinets and pendant lights', category: 'kitchen' },
+];
+
+const bathroomImages = [
+  { src: '/images/projects/Ifixx-portfolio32.webp', alt: 'Luxury bathroom with freestanding tub', category: 'bathroom' },
+  { src: '/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp', alt: 'Modern bathroom with glass shower and vanity', category: 'bathroom' },
+  { src: '/images/projects/Ifixx-portfolio28.webp', alt: 'Modern bathroom with glass shower and beige tile', category: 'bathroom' },
+  { src: '/images/projects/Ifixx-portfolio50.webp', alt: 'Modern bathroom with sliding glass shower', category: 'bathroom' },
+  { src: '/images/projects/bathroom-glass-shower.webp', alt: 'Modern glass shower installation', category: 'bathroom' },
+  { src: '/images/projects/bathroom-1.webp', alt: 'Complete bathroom remodel', category: 'bathroom' },
+  { src: '/images/projects/bathroom-remodeling-dual-vanity-installation-progress.webp', alt: 'Dual vanity installation in progress', category: 'bathroom' },
+  { src: '/images/projects/bathroom-team-work.webp', alt: 'Bathroom renovation in progress', category: 'bathroom' },
+];
+
 // Gallery images organized by service category
 const galleryImages: Record<string, { src: string; alt: string; category: string }[]> = {
+  // Remodeling pillar page slugs (the actual slugs the pages pass)
+  'kitchen-remodeling': kitchenImages,
+  'bathroom-remodeling': bathroomImages,
   'fixture-repair': [
     { src: '/images/projects/plumbing-bathroom-faucet-installation-repair.webp', alt: 'Bathroom faucet installation and repair', category: 'fixture-repair' },
     { src: '/images/projects/plumbing-water-heater-valve-repair-wrench.webp', alt: 'Water heater valve repair', category: 'fixture-repair' },
@@ -15,21 +48,9 @@ const galleryImages: Record<string, { src: string; alt: string; category: string
     { src: '/images/projects/bathroom-glass-shower.webp', alt: 'Modern glass shower installation', category: 'fixture-repair' },
     { src: '/images/projects/bathroom-team-work.webp', alt: 'Professional bathroom work', category: 'fixture-repair' },
   ],
-  'bathroom-remodel': [
-    { src: '/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp', alt: 'Modern bathroom with glass shower and vanity', category: 'bathroom' },
-    { src: '/images/projects/bathroom-remodeling-dual-vanity-installation-progress.webp', alt: 'Dual vanity installation in progress', category: 'bathroom' },
-    { src: '/images/projects/bathroom-glass-shower.webp', alt: 'Modern glass shower installation', category: 'bathroom' },
-    { src: '/images/projects/bathroom-team-work.webp', alt: 'Professional bathroom work', category: 'bathroom' },
-    { src: '/images/projects/bathroom-1.webp', alt: 'Bathroom project', category: 'bathroom' },
-  ],
-  'kitchen-remodel': [
-    { src: '/images/projects/kitchen-remodeling-complete-modern-white-cabinets-island.webp', alt: 'Complete kitchen remodel with modern white cabinets', category: 'kitchen' },
-    { src: '/images/projects/kitchen-white-gray-island-black-pendants.webp', alt: 'White kitchen with gray island and black pendants', category: 'kitchen' },
-    { src: '/images/projects/kitchen-remodeling-luxury-white-cabinets-island-pendant-lights.webp', alt: 'Luxury kitchen with white cabinets and pendant lights', category: 'kitchen' },
-    { src: '/images/projects/kitchen-dark-modern.webp', alt: 'Dark modern kitchen', category: 'kitchen' },
-    { src: '/images/projects/gallery-kitchen-gray-marble.webp', alt: 'Gray marble kitchen', category: 'kitchen' },
-    { src: '/images/projects/kitchen-two-tone.webp', alt: 'Two-tone kitchen design', category: 'kitchen' },
-  ],
+  // Legacy keys kept for older landing pages — now point to the full pools
+  'bathroom-remodel': bathroomImages,
+  'kitchen-remodel': kitchenImages,
   'carpentry': [
     { src: '/images/projects/carpentry-stair-repair-technician-drilling-wood.webp', alt: 'Stair repair - technician drilling wood', category: 'carpentry' },
     { src: '/images/projects/carpentry-baseboard-trim-installation-repair.webp', alt: 'Baseboard and trim installation', category: 'carpentry' },

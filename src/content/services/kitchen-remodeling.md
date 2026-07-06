@@ -42,8 +42,6 @@ faqs:
 relatedServices:
   - "bathroom-remodeling"
   - "flooring-installation"
-  - "electrical"
-  - "plumbing"
 seo:
   title: "Kitchen Remodeling Charlotte NC | From $8,500 | 150+ Projects | iFIXX"
   description: "Kitchen remodeling in Charlotte starting at $8,500. Cabinets, countertops, flooring, full renovations. 150+ kitchens completed. Free estimates. (980) 391-6833"
@@ -128,7 +126,7 @@ Good lighting transforms how your kitchen looks and functions. We install:
 - Dimmer switches for mood control
 - Additional outlets for appliances
 
-All electrical work is performed by licensed professionals and inspected to code.
+When your remodel calls for new circuits or outlets, we coordinate trusted licensed trade specialists — and every detail is inspected to code.
 
 ### Plumbing Fixtures & Appliances
 
@@ -181,7 +179,7 @@ Once you approve the plan, we start by carefully removing old cabinets, countert
 
 **5. Rough-In Work (Week 3-4)**
 
-Our licensed electricians and plumbers run new lines as needed. This is when we relocate outlets, install new lighting circuits, and update plumbing for your new layout.
+We coordinate licensed electricians and plumbers to run new lines as needed. This is when outlets get relocated, new lighting circuits go in, and plumbing gets updated for your new layout.
 
 **6. Installation (Week 4-7)**
 
@@ -266,13 +264,13 @@ We're not a national franchise—we're a Charlotte family who lives and works in
 We've transformed kitchens across every Charlotte neighborhood. From historic bungalows to modern new builds, we've seen it all.
 
 **Quality Craftsmanship**
-Our team includes experienced carpenters, tile setters, electricians, and plumbers. We don't cut corners, and we don't call it done until it's perfect.
+Our team includes experienced carpenters, tile setters, and finish specialists — and we coordinate licensed trade pros for electrical and plumbing. We don't cut corners, and we don't call it done until it's perfect.
 
 **Transparent Communication**
 You'll always know what's happening, what's next, and what it costs. No surprises, no hidden fees.
 
-**Licensed & Insured**
-We're fully licensed and insured for your protection. All electrical and plumbing work is done to code and inspected.
+**Fully Insured**
+We're fully insured for your protection. All trade work is done to code and inspected.
 
 ## Ready to Transform Your Kitchen?
 
@@ -284,6 +282,6 @@ Your dream kitchen is closer than you think. Whether you're planning a complete 
 3. **Receive your detailed estimate:** Clear pricing with no hidden fees
 4. **Watch your new kitchen come to life:** Professional installation from start to finish
 
-**Free estimates • Licensed & insured • Financing available • 100% satisfaction guaranteed**
+**Free estimates • Fully insured • Financing available • 100% satisfaction guaranteed**
 
 Let's create the kitchen you've been dreaming about. Contact iFIXX today to get started.

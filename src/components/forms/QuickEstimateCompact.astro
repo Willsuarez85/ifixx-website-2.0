@@ -7,20 +7,37 @@ interface Props {
 
 const { serviceSlug = '', serviceTitle = '', formId = 'quick-estimate-form' } = Astro.props;
 
+// H2-aligned service options (2026-07): fences/decks added (Ads focus),
+// retired/off-focus services removed (electrical, tv-mounting, furniture-assembly,
+// pressure-washing — client rule: never offer electrical/plumbing; quick-fix covers
+// small mixed jobs). Values map to SERVICE_TAGS in /api/lead.ts.
 const services = [
+  { value: 'fence', label: 'Fence Installation & Repair' },
+  { value: 'deck', label: 'Deck Building & Repair' },
+  { value: 'kitchen-remodel', label: 'Kitchen Remodel' },
+  { value: 'bathroom-remodel', label: 'Bathroom Remodel' },
+  { value: 'flooring', label: 'Flooring Installation' },
   { value: 'drywall', label: 'Drywall Repair' },
   { value: 'painting', label: 'Painting' },
   { value: 'doors-windows', label: 'Doors & Windows' },
-  { value: 'electrical', label: 'Electrical Fixtures' },
   { value: 'carpentry', label: 'Carpentry' },
-  { value: 'tv-mounting', label: 'TV Mounting' },
-  { value: 'furniture-assembly', label: 'Furniture Assembly' },
-  { value: 'pressure-washing', label: 'Pressure Washing' },
   { value: 'quick-fix', label: 'Quick Fix / Multiple Repairs' },
-  { value: 'bathroom-remodel', label: 'Bathroom Remodel' },
-  { value: 'kitchen-remodel', label: 'Kitchen Remodel' },
   { value: 'other', label: 'Other' }
 ];
+
+// Page slugs don't always match form values (e.g. the kitchen page slug is
+// 'kitchen-remodeling' but the form value is 'kitchen-remodel'), which silently
+// broke pre-selection on every remodeling page. Map slugs → form values.
+const slugToFormValue: Record<string, string> = {
+  'kitchen-remodeling': 'kitchen-remodel',
+  'bathroom-remodeling': 'bathroom-remodel',
+  'flooring-installation': 'flooring',
+  'basement-finishing': 'other',
+  'outdoor-living': 'deck',
+  'fixture-repair': 'quick-fix',
+  'general-repairs': 'quick-fix',
+};
+const selectedValue = slugToFormValue[serviceSlug] || serviceSlug;
 ---
 
 <div class="bg-white rounded-2xl shadow-xl p-6 lg:p-8" data-form-wrapper>
@@ -92,7 +109,7 @@ const services = [
       >
         <option value="">Select a service... *</option>
         {services.map((s) => (
-          <option value={s.value} selected={serviceSlug === s.value}>{s.label}</option>
+          <option value={s.value} selected={selectedValue === s.value}>{s.label}</option>
         ))}
       </select>
     </div>
