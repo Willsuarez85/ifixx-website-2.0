@@ -2,55 +2,47 @@
 const currentYear = new Date().getFullYear();
 
 const serviceLinks = [
-  // Emergency Services (Priority)
-  { href: '/emergency-services', label: '🚨 Emergency Services' },
-  // Remodeling Services
+  // H2 anchors first — the order is the strategy
+  { href: '/fence-installation-south-charlotte', label: 'Fence Installation' },
+  { href: '/deck-builder-south-charlotte', label: 'Deck Builder' },
+  { href: '/deck-repair-south-charlotte', label: 'Deck Repair' },
   { href: '/remodeling/kitchen-remodeling', label: 'Kitchen Remodeling' },
   { href: '/remodeling/bathroom-remodeling', label: 'Bathroom Remodeling' },
-  // Repair Services
-  { href: '/repairs/plumbing', label: 'Plumbing' },
-  { href: '/repairs/electrical', label: 'Electrical' },
-  { href: '/repairs/painting', label: 'Painting & Drywall' },
-  { href: '/repairs/carpentry', label: 'Carpentry' },
-  { href: '/repairs/doors-windows', label: 'Doors & Windows' },
-  { href: '/repairs/quick-fix', label: 'Quick Fixes' }
+  // Cash bridge
+  { href: '/repairs', label: 'Same-Day Handyman' },
+  { href: '/emergency-services', label: '🚨 Emergency Services' }
 ];
 
 const companyLinks = [
   { href: '/about', label: 'About Us' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/blog', label: 'Blog' },
   { href: '/for-homeowners', label: 'For Homeowners' },
   { href: '/for-property-managers', label: 'For Property Managers' },
-  { href: '/service-areas', label: 'Service Areas' },
-  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' }
 ];
 
 const serviceAreas = [
   { name: 'Charlotte, NC', href: '/service-areas/charlotte' },
+  { name: 'South Charlotte, NC', href: '/service-areas/south-charlotte' },
   { name: 'Ballantyne, NC', href: '/service-areas/ballantyne' },
   { name: 'Matthews, NC', href: '/service-areas/matthews' },
-  { name: 'Waxhaw, NC', href: '/service-areas/waxhaw' },
-  { name: 'Mint Hill, NC', href: '/service-areas/mint-hill' },
   { name: 'Pineville, NC', href: '/service-areas/pineville' },
-  { name: 'Monroe, NC', href: '/service-areas/monroe' },
-  { name: 'Concord, NC', href: '/service-areas/concord' },
-  { name: 'Rock Hill, SC', href: '/service-areas/rock-hill' }
+  { name: 'Mint Hill, NC', href: '/service-areas/mint-hill' }
 ];
 
-// Pilar 7 — Popular Local Services (sitewide link equity to high-impression hyperlocal URLs)
+// Pilar 7 — Popular Local Services (sitewide link equity to live, citable assets:
+// cost guides + city × outdoor-living combos; kitchen/bath combos are consolidated
+// to their canonical /remodeling pages, so only outdoor-living generates per city)
 const popularLocalServices = [
-  { label: 'Outdoor Living Charlotte',      href: '/charlotte/outdoor-living' },
-  { label: 'Quick-Fix Handyman Charlotte',  href: '/charlotte/quick-fix' },
-  { label: 'Carpentry Charlotte',           href: '/charlotte/carpentry' },
-  { label: 'Carpentry Ballantyne',          href: '/ballantyne/carpentry' },
-  { label: 'Flooring Ballantyne',           href: '/ballantyne/flooring-installation' },
-  { label: 'Carpentry Matthews',            href: '/matthews/carpentry' },
-  { label: 'Plumbing Repair Monroe',        href: '/monroe/plumbing' },
-  { label: 'Carpentry Rock Hill',           href: '/rock-hill/carpentry' },
-  { label: 'Plumbing Repair Rock Hill',     href: '/rock-hill/plumbing' },
-  { label: 'Flooring Installation Pineville', href: '/pineville/flooring-installation' },
-  { label: 'Carpentry Mint Hill',           href: '/mint-hill/carpentry' },
-  { label: 'Outdoor Living Waxhaw',         href: '/waxhaw/outdoor-living' }
+  { label: 'Kitchen Remodel Cost Charlotte',   href: '/blog/how-much-kitchen-remodel-charlotte' },
+  { label: 'Bathroom Remodel Cost Charlotte',  href: '/blog/how-much-bathroom-remodel-charlotte' },
+  { label: 'Outdoor Living Charlotte',         href: '/charlotte/outdoor-living' },
+  { label: 'Outdoor Living South Charlotte',   href: '/south-charlotte/outdoor-living' },
+  { label: 'Outdoor Living Ballantyne',        href: '/ballantyne/outdoor-living' },
+  { label: 'Outdoor Living Matthews',          href: '/matthews/outdoor-living' },
+  { label: 'Outdoor Living Pineville',         href: '/pineville/outdoor-living' },
+  { label: 'Outdoor Living Mint Hill',         href: '/mint-hill/outdoor-living' }
 ];
 
 const phoneNumber = '(980) 391-6833';
