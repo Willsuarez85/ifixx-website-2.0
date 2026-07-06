@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import { isRetiredService } from '../../lib/seo-retired';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -47,7 +48,8 @@ const getServiceUrl = (serviceSlug: string, pillar?: string) => {
 };
 
 // Get highlighted services (mix from each pillar)
-const repairServices = allServices.filter(s => s.data.pillar === 'repairs').slice(0, 3);
+// SEO cleanup (2026-06): never link services iFIXX does not offer (301'd in vercel.json)
+const repairServices = allServices.filter(s => s.data.pillar === 'repairs' && !isRetiredService(s.slug)).slice(0, 3);
 const remodelingServices = allServices.filter(s => s.data.pillar === 'remodeling').slice(0, 2);
 const featuredServices = [...repairServices, ...remodelingServices];
 
