@@ -258,31 +258,32 @@ We don't consider the job done until you're completely satisfied. We check for p
 
 ## Bathroom Remodeling Costs & Investment
 
-Costs vary based on bathroom size, materials, and scope. Here's what to expect:
+We keep pricing simple with three clear packages. Smaller bathroom updates (vanity swap, fixtures, paint) start at $5,000 — and every project is measured at your home and quoted free.
 
-**Small Bathroom Update: $5,000 - $10,000**
-- New vanity and countertop
-- Toilet replacement
-- Updated fixtures and lighting
-- Tile backsplash or accent wall
-- Fresh paint
+**Silver Bath — Fresh Update: starting at $12,000** (standard 5'x10')
+- New wall paint
+- Vanity + up to 2 new lights
+- Basic faucet & hardware
+- Decorative tile above the tub (no tub-to-shower conversion)
+- Flooring: luxury vinyl (LVP) or 12"x24" ceramic tile
+- *Excludes: shower glass, plumbing relocation, permits*
 
-**Medium Bathroom Remodel: $10,000 - $20,000**
-- Tub-to-shower conversion
-- Full tile shower with glass enclosure
-- New vanity with premium countertop
-- Tile flooring throughout
-- All new fixtures and lighting
-- Ventilation upgrade
+**Gold Bath — Complete Renovation: $20,000 – $30,000** (standard 5'x10')
+- Tub-to-shower conversion with tile up to the ceiling
+- Custom shower niche and/or bench
+- Shower pan tile
+- Upgraded vanity, sink, faucet, and lighting
+- Flooring: premium ceramic tile or LVP
+- Frameless shower glass
+- Full plumbing upgrades (coordinated & to code) + new ventilation
+- *Excludes: major layout changes, wall relocations, luxury/custom finishes*
 
-**Full Bathroom Renovation: $20,000 - $40,000+**
-- Complete gut and rebuild
-- Custom tile work (floor-to-ceiling)
-- Luxury fixtures (freestanding tub, rain shower, body sprays)
-- Custom vanity with high-end countertop
-- Heated flooring
-- Structural changes (moving walls, relocating plumbing)
-- High-end finishes throughout
+**Platinum Bath — Spa Experience: starting at $30,000** (custom size/layout)
+- Everything in Gold, plus:
+- Quartz or large-format porcelain surfaces
+- Designer fixtures and lighting features
+- Double vanity / spa shower options
+- Fully customized layout and finishes
 
 **Cost factors we consider:**
 - Bathroom size
@@ -346,6 +347,6 @@ Your dream bathroom is within reach. Whether you're planning a complete renovati
 3. **Receive your detailed estimate:** Clear pricing with no surprises
 4. **Enjoy your beautiful new bathroom:** Professional installation from start to finish
 
-**Free estimates • Fully insured • Financing available • 100% satisfaction guaranteed**
+**Free estimates • Fully insured • 100% satisfaction guaranteed**
 
 Let's create the bathroom you've been dreaming about. Contact iFIXX today to get started.

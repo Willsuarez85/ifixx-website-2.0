@@ -67,30 +67,77 @@ const serviceProjectImages: Record<string, string> = {
 const heroImageSrc = heroImage || serviceHeroImages[service.slug] || '/images/ui/hero-bg.jpg';
 const projectImageSrc = serviceProjectImages[service.slug] || '/images/projects/Ifixx-portfolio3.webp';
 
-// CRO 2026-07: answer the #1 buyer question ("how much?") above the fold.
-// Tiers mirror the ranges already published in the markdown content and cost guides.
-interface PriceTier { name: string; range: string; includes: string[] }
-const servicePricing: Record<string, { tiers: PriceTier[]; guideUrl: string; guideLabel: string }> = {
+// CRO 2026-07: productized Silver/Gold/Platinum packages (iFIXX's real offer,
+// provided by William/Jaime 2026-07-06). Entry-level pricing stays at
+// $5,000 (bath) / $8,000 (kitchen) — the packages sell the full renovations;
+// the entryLine bridges smaller refreshes to a free quote.
+interface RemodelPackage {
+  name: string; tagline: string; price: string; size: string; blurb: string;
+  includesLabel: string; includes: string[]; exclusions?: string; bestFor: string; value: string;
+}
+const servicePackages: Record<string, { packages: RemodelPackage[]; entryLine: string; guideUrl: string; guideLabel: string }> = {
   'kitchen-remodeling': {
-    tiers: [
-      { name: 'Small Kitchen Remodel', range: '$8,000 – $15,000', includes: ['Cabinet refacing or painting', 'New countertops', 'Updated backsplash & fixtures'] },
-      { name: 'Medium Kitchen Remodel', range: '$15,000 – $30,000', includes: ['Semi-custom cabinets', 'Quartz/granite countertops', 'New flooring & lighting'] },
-      { name: 'Full Kitchen Renovation', range: '$30,000 – $60,000+', includes: ['Custom cabinetry', 'Layout changes & islands', 'Premium appliances & finishes'] },
-    ],
+    entryLine: 'Planning a smaller update? Kitchen refreshes start at $8,000 — every project is measured and quoted free.',
     guideUrl: '/blog/how-much-kitchen-remodel-charlotte',
     guideLabel: 'Read our full Charlotte kitchen remodel cost guide',
+    packages: [
+      {
+        name: 'Silver Kitchen', tagline: 'Functional Refresh', price: 'Starting at $20K', size: "Standard size: 10'x10'", value: 'silver',
+        blurb: 'A practical kitchen remodel with essential upgrades.',
+        includesLabel: 'Includes',
+        includes: ['Fresh wall paint', "Up to 12 basic cabinets (Home Depot/Lowe's, no soft-close)", 'Standard granite countertops', 'Subway tile backsplash', 'Stainless steel sink + faucet', 'Basic knobs and hardware'],
+        exclusions: 'Exclusions: appliances, plumbing relocation, permits.',
+        bestFor: 'Best for homeowners who want a simple, functional update at an affordable price.',
+      },
+      {
+        name: 'Gold Kitchen', tagline: 'Complete Renovation', price: 'Starting at $30K', size: "Standard size: 10'x10'", value: 'gold',
+        blurb: 'A quality remodel with better cabinets, counters, and finishes.',
+        includesLabel: 'Includes',
+        includes: ['Up to 20 NKBC wood cabinets (100% wood, soft-close)', 'Quartz or premium granite countertops (#1 grade)', 'Custom backsplash', 'Farmhouse sink + garbage disposal', 'Premium hardware', 'Plumbing upgrades (coordinated & to code)'],
+        exclusions: 'Exclusions: major layout changes, high-end custom finishes, appliances.',
+        bestFor: 'Best for families ready to invest in a durable, stylish kitchen that adds value.',
+      },
+      {
+        name: 'Platinum Kitchen', tagline: 'Luxury Custom', price: 'Starting at $35K', size: 'Custom size/layout', value: 'platinum',
+        blurb: 'High-end kitchen with luxury finishes and fully customized design.',
+        includesLabel: 'Everything in Gold PLUS',
+        includes: ['Designer quartz or imported stone countertops', 'Large island with special features', 'Decorative or integrated lighting', 'Optional high-end appliances and accessories', 'Fully custom layout and finishes'],
+        bestFor: 'Best for homeowners who want a luxury, one-of-a-kind kitchen tailored to their lifestyle.',
+      },
+    ],
   },
   'bathroom-remodeling': {
-    tiers: [
-      { name: 'Small Bathroom Update', range: '$5,000 – $10,000', includes: ['New vanity & countertop', 'Updated fixtures & lighting', 'Tile accent & fresh paint'] },
-      { name: 'Medium Bathroom Remodel', range: '$10,000 – $20,000', includes: ['Tub-to-shower conversion', 'Full tile shower + glass', 'New flooring & fixtures'] },
-      { name: 'Full Bathroom Renovation', range: '$20,000 – $40,000+', includes: ['Complete gut & rebuild', 'Custom floor-to-ceiling tile', 'Luxury fixtures & heated floors'] },
-    ],
+    entryLine: 'Planning a smaller refresh? Bathroom updates start at $5,000 — every project is measured and quoted free.',
     guideUrl: '/blog/how-much-bathroom-remodel-charlotte',
     guideLabel: 'Read our full Charlotte bathroom remodel cost guide',
+    packages: [
+      {
+        name: 'Silver Bath', tagline: 'Fresh Update', price: 'Starting at $12K', size: "Standard size: 5'x10'", value: 'silver',
+        blurb: 'Give your bathroom a fresh, modern look without structural changes.',
+        includesLabel: 'Includes',
+        includes: ['New wall paint', 'Vanity + up to 2 new lights', 'Basic faucet & hardware', 'Decorative tile above the tub (no tub-to-shower conversion)', 'Flooring: luxury vinyl (LVP) or 12"x24" ceramic tile'],
+        exclusions: 'Exclusions: shower glass, plumbing relocation, permits.',
+        bestFor: 'Best for homeowners who want a clean, budget-friendly update.',
+      },
+      {
+        name: 'Gold Bath', tagline: 'Complete Renovation', price: '$20K – $30K', size: "Standard size: 5'x10'", value: 'gold',
+        blurb: 'A full bathroom transformation with upgraded materials and finishes.',
+        includesLabel: 'Includes',
+        includes: ['Tub-to-shower conversion with tile up to the ceiling', 'Custom shower niche and/or bench', 'Shower pan tile', 'Upgraded vanity, sink, faucet, and lighting', 'Flooring: premium ceramic tile or LVP', 'Frameless shower glass', 'Full plumbing upgrades (coordinated & to code) + new ventilation'],
+        exclusions: 'Exclusions: major layout changes, wall relocations, luxury/custom finishes.',
+        bestFor: 'Best for homeowners who want the full transformation — done once, done right.',
+      },
+      {
+        name: 'Platinum Bath', tagline: 'Spa Experience', price: 'Starting at $30K', size: 'Custom size/layout', value: 'platinum',
+        blurb: 'Luxury finishes and custom design for a true spa-like retreat.',
+        includesLabel: 'Everything in Gold PLUS',
+        includes: ['Quartz or large-format porcelain surfaces', 'Designer fixtures and lighting features', 'Double vanity / spa shower options', 'Fully customized layout and finishes'],
+        bestFor: 'Best for homeowners who want a one-of-a-kind, spa-inspired bathroom.',
+      },
+    ],
   },
 };
-const pricing = servicePricing[service.slug] || null;
+const packageData = servicePackages[service.slug] || null;
 
 // kitchen/bathroom (and painting/drywall) are consolidated services: they do NOT
 // generate city×service pages, so Service Areas must link to the city hub pages
@@ -386,53 +433,105 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
     title={`Real ${title} Projects in Charlotte`}
   />
 
-  {pricing && (
-    <!-- Cost tiers — answers the #1 buyer question early, feeds the estimate CTA -->
-    <section class="section">
+  {packageData && (
+    <!-- Silver/Gold/Platinum packages — iFIXX's productized offer. Answers the
+         #1 buyer question with real packages; per-package CTA pre-selects the
+         package into the estimate form (GHL tag package-{value}) -->
+    <section class="section" id="packages">
       <div class="container">
         <div class="max-w-3xl mx-auto text-center mb-10">
           <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-3">
-            How Much Does {title} Cost in Charlotte?
+            Choose Your {title} Package
           </h2>
           <p class="text-neutral-600">
-            Every project is different, but these are the real ranges we quote. Your free estimate gives you an exact number — no surprises.
+            Real packages, clear pricing, no guesswork. Every quote is measured at your home and itemized — free.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
-          {pricing.tiers.map((tier, i) => (
-            <div class={`rounded-2xl p-6 border ${i === 1 ? 'border-primary-500 bg-primary-50 shadow-lg relative' : 'border-neutral-200 bg-white shadow-sm'}`}>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-6 items-start">
+          {packageData.packages.map((pkg, i) => (
+            <div class={`rounded-2xl border overflow-hidden ${i === 1 ? 'border-primary-500 shadow-xl relative md:-mt-2' : 'border-neutral-200 bg-white shadow-sm'}`}>
               {i === 1 && (
-                <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary-500 text-neutral-900 text-xs font-bold px-3 py-1 rounded-full">
+                <span class="absolute top-3 right-3 bg-white/90 text-neutral-900 text-xs font-bold px-3 py-1 rounded-full z-10">
                   Most Popular
                 </span>
               )}
-              <h3 class="font-heading font-semibold text-neutral-900 mb-1">{tier.name}</h3>
-              <p class="text-2xl font-heading font-bold text-neutral-900 mb-4">{tier.range}</p>
-              <ul class="space-y-2">
-                {tier.includes.map((item) => (
-                  <li class="flex items-start gap-2 text-sm text-neutral-600">
-                    <svg class="w-4 h-4 text-primary-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <div class={`px-6 py-5 text-center ${i === 1 ? 'bg-primary-500' : 'bg-neutral-900'}`}>
+                <h3 class={`font-heading font-bold text-2xl ${i === 1 ? 'text-neutral-900' : 'text-white'}`}>{pkg.name}</h3>
+                <p class={`text-sm font-medium ${i === 1 ? 'text-neutral-800' : 'text-neutral-300'}`}>{pkg.tagline}</p>
+              </div>
+              <div class="p-6">
+                <p class="text-2xl font-heading font-bold text-neutral-900 text-center">{pkg.price}</p>
+                <p class="text-sm text-neutral-500 text-center mb-3">{pkg.size}</p>
+                <p class="text-sm text-neutral-600 text-center border-b border-neutral-200 pb-4 mb-4">{pkg.blurb}</p>
+                <p class="font-semibold text-neutral-900 text-sm mb-3">{pkg.includesLabel}:</p>
+                <ul class="space-y-2 mb-4">
+                  {pkg.includes.map((item) => (
+                    <li class="flex items-start gap-2 text-sm text-neutral-700">
+                      <svg class="w-4 h-4 text-primary-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                {pkg.exclusions && (
+                  <p class="text-xs text-neutral-500 mb-4">{pkg.exclusions}</p>
+                )}
+                <p class="text-xs font-medium text-neutral-600 bg-neutral-50 rounded-lg px-3 py-2 mb-4">👉 {pkg.bestFor}</p>
+                <button
+                  type="button"
+                  class="package-cta w-full btn btn-primary justify-center font-bold"
+                  data-package={pkg.value}
+                  data-package-name={pkg.name}
+                >
+                  Get My {pkg.name} Quote
+                </button>
+              </div>
             </div>
           ))}
         </div>
 
+        <p class="text-center text-neutral-600 text-sm mb-6 max-w-2xl mx-auto">
+          {packageData.entryLine}
+        </p>
+
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="tel:+19803916833" class="inline-flex items-center gap-2 bg-primary-500 text-neutral-900 font-bold px-6 py-3 rounded-lg hover:bg-primary-400 transition-colors">
-            Get Your Exact Quote — Free
+          <a href="tel:+19803916833" class="inline-flex items-center gap-2 bg-neutral-900 text-white font-bold px-6 py-3 rounded-lg hover:bg-neutral-800 transition-colors">
+            Not sure which fits? Call (980) 391-6833
           </a>
-          <a href={pricing.guideUrl} class="text-primary-600 hover:text-primary-700 font-medium text-sm underline underline-offset-4">
-            {pricing.guideLabel} →
+          <a href={packageData.guideUrl} class="text-primary-600 hover:text-primary-700 font-medium text-sm underline underline-offset-4">
+            {packageData.guideLabel} →
           </a>
         </div>
       </div>
     </section>
+
+    <script is:inline>
+      // Package CTA → pre-select package in the estimate forms + scroll to hero form
+      (function () {
+        document.querySelectorAll('.package-cta').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var pkg = btn.getAttribute('data-package');
+            var pkgName = btn.getAttribute('data-package-name');
+            document.querySelectorAll('input[name="package"]').forEach(function (input) {
+              input.value = pkg;
+            });
+            document.querySelectorAll('textarea[name="message"]').forEach(function (ta) {
+              if (!ta.value.trim()) ta.value = "I'm interested in the " + pkgName + ' package.';
+            });
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'select_package', {
+                'package': pkg,
+                'page_location_path': window.location.pathname
+              });
+            }
+            var heroForm = document.querySelector('[data-form-wrapper]');
+            if (heroForm) heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          });
+        });
+      })();
+    </script>
   )}
 
   <!-- Content + Sticky Sidebar -->

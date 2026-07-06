@@ -306,6 +306,7 @@ export const POST: APIRoute = async ({ request }) => {
             email,
             phone,
             service,
+            package: selectedPackage, // Silver/Gold/Platinum from remodeling package CTAs
             message,
             source,
             city,
@@ -358,6 +359,8 @@ export const POST: APIRoute = async ({ request }) => {
         const allTags = [
             'website-lead',
             ...serviceTags,
+            // Remodeling package chosen on the page (silver|gold|platinum)
+            ...(selectedPackage && ['silver', 'gold', 'platinum'].includes(String(selectedPackage)) ? [`package-${selectedPackage}`] : []),
             ...(campaignTest ? [`campaign-${String(campaignTest).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`] : []),
             ...(city ? [`city-${city.toLowerCase().replace(/\s+/g, '-')}`] : []),
             // Add segment-specific tags

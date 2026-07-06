@@ -43,8 +43,8 @@ relatedServices:
   - "bathroom-remodeling"
   - "flooring-installation"
 seo:
-  title: "Kitchen Remodeling Charlotte NC | From $8,500 | 150+ Projects | iFIXX"
-  description: "Kitchen remodeling in Charlotte starting at $8,500. Cabinets, countertops, flooring, full renovations. 150+ kitchens completed. Free estimates. (980) 391-6833"
+  title: "Kitchen Remodeling Charlotte NC | From $8,000 | 150+ Projects | iFIXX"
+  description: "Kitchen remodeling in Charlotte starting at $8,000. Cabinets, countertops, flooring, full renovations. 150+ kitchens completed. Free estimates. (980) 391-6833"
 ---
 
 Your kitchen is the heart of your home. Whether you're looking for a complete kitchen transformation or targeted upgrades, iFixx delivers custom kitchen designs that enhance your daily life and add value to your Charlotte home.
@@ -201,30 +201,33 @@ We don't consider the job complete until you're completely satisfied. We address
 
 ## Kitchen Remodeling Costs & Investment
 
-Every kitchen is unique, so costs vary based on size, materials, and scope. Here's what to expect:
+We keep pricing simple with three clear packages. Smaller kitchen updates (paint, hardware, backsplash or counter refresh) start at $8,000 — and every project is measured at your home and quoted free.
 
-**Small Kitchen Remodel: $8,000 - $15,000**
-- Cabinet refacing or painting
-- New countertops
-- Updated backsplash
-- New fixtures and hardware
-- Basic flooring
+**Silver Kitchen — Functional Refresh: starting at $20,000** (standard 10'x10')
+- Fresh wall paint
+- Up to 12 basic cabinets (Home Depot/Lowe's, no soft-close)
+- Standard granite countertops
+- Subway tile backsplash
+- Stainless steel sink + faucet
+- Basic knobs and hardware
+- *Excludes: appliances, plumbing relocation, permits*
 
-**Medium Kitchen Remodel: $15,000 - $30,000**
-- New semi-custom cabinets
-- Premium countertops (quartz/granite)
-- Full tile backsplash
-- New flooring throughout
-- Lighting upgrades
-- New appliances
+**Gold Kitchen — Complete Renovation: starting at $30,000** (standard 10'x10')
+- Up to 20 NKBC wood cabinets (100% wood, soft-close)
+- Quartz or premium granite countertops (#1 grade)
+- Custom backsplash
+- Farmhouse sink + garbage disposal
+- Premium hardware
+- Plumbing upgrades (coordinated & to code)
+- *Excludes: major layout changes, high-end custom finishes, appliances*
 
-**Full Kitchen Renovation: $30,000 - $60,000+**
-- Custom cabinetry
-- High-end countertops and backsplash
-- Structural changes (removing walls, adding islands)
-- Premium appliances
-- Complete electrical and plumbing updates
-- Premium flooring (hardwood, large-format tile)
+**Platinum Kitchen — Luxury Custom: starting at $35,000** (custom size/layout)
+- Everything in Gold, plus:
+- Designer quartz or imported stone countertops
+- Large island with special features
+- Decorative or integrated lighting
+- Optional high-end appliances and accessories
+- Fully custom layout and finishes
 
 **Cost factors we consider:**
 - Kitchen size (square footage)
@@ -282,6 +285,6 @@ Your dream kitchen is closer than you think. Whether you're planning a complete 
 3. **Receive your detailed estimate:** Clear pricing with no hidden fees
 4. **Watch your new kitchen come to life:** Professional installation from start to finish
 
-**Free estimates • Fully insured • Financing available • 100% satisfaction guaranteed**
+**Free estimates • Fully insured • 100% satisfaction guaranteed**
 
 Let's create the kitchen you've been dreaming about. Contact iFIXX today to get started.
