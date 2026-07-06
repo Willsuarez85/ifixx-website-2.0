@@ -71,7 +71,7 @@ const postsCollection = defineCollection({
 });
 
 // City-Service Content Collection (for unique local content)
-// File naming: {citySlug}-{serviceSlug}.md (e.g., charlotte-plumbing.md)
+// File naming: {citySlug}-{serviceSlug}.md (e.g., charlotte-drywall.md)
 const cityServiceCollection = defineCollection({
   type: 'content',
   schema: z.object({
