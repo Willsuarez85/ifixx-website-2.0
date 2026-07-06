@@ -114,6 +114,9 @@ const selectedValue = slugToFormValue[serviceSlug] || serviceSlug;
       </select>
     </div>
 
+    <!-- Selected package (set by package-card CTAs on remodeling pages) -->
+    <input type="hidden" name="package" value="" />
+
     <!-- Project Description -->
     <div>
       <label for={`${formId}-message`} class="sr-only">Project Description</label>
@@ -196,6 +199,7 @@ const selectedValue = slugToFormValue[serviceSlug] || serviceSlug;
         email: formData.get('email'),
         phone: formData.get('phone'),
         service: formData.get('service'),
+        package: formData.get('package') || '',
         message: formData.get('message') || '',
         source: 'Quick Estimate Form'
       };

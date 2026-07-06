@@ -346,6 +346,6 @@ Your dream bathroom is within reach. Whether you're planning a complete renovati
 3. **Receive your detailed estimate:** Clear pricing with no surprises
 4. **Enjoy your beautiful new bathroom:** Professional installation from start to finish
 
-**Free estimates • Fully insured • Financing available • 100% satisfaction guaranteed**
+**Free estimates • Fully insured • 100% satisfaction guaranteed**
 
 Let's create the bathroom you've been dreaming about. Contact iFIXX today to get started.
