@@ -34,7 +34,7 @@ faqs:
   - q: "Can you convert my tub to a walk-in shower?"
     a: "Yes! Tub-to-shower conversions are one of our most popular services. We can also install walk-in tubs."
   - q: "Do you handle plumbing and electrical?"
-    a: "Yes, our team includes licensed professionals who handle all plumbing and electrical work to code."
+    a: "Yes — all plumbing and electrical work in your remodel is handled by licensed trade specialists we coordinate, with permits and inspections so everything is done to code."
   - q: "Can you make my bathroom more accessible?"
     a: "Absolutely. We install grab bars, walk-in tubs, curbless showers, and other accessibility features."
   - q: "Can I stay in my home during the remodel?"
@@ -42,7 +42,6 @@ faqs:
 relatedServices:
   - "kitchen-remodeling"
   - "flooring-installation"
-  - "plumbing"
 seo:
   title: "Bathroom Remodeling Charlotte NC | From $5,000 | 200+ Projects | iFIXX"
   description: "Bathroom remodeling in Charlotte from $5,000. Walk-in showers, vanities, tile, full renovations. 200+ bathrooms completed. Free estimates. (980) 391-6833"
@@ -237,7 +236,7 @@ We carefully remove old fixtures, tile, and flooring. We protect your home with 
 
 **5. Rough-In & Waterproofing (Week 2-3)**
 
-Our licensed plumbers and electricians install new lines, relocate fixtures, and update electrical. We install proper waterproofing membranes in wet areas—critical for long-term durability.
+We coordinate licensed plumbers and electricians to install new lines, relocate fixtures, and update wiring. We install proper waterproofing membranes in wet areas—critical for long-term durability.
 
 **6. Installation (Week 3-4)**
 
@@ -325,8 +324,8 @@ We've transformed bathrooms in every type of Charlotte home. From tiny powder ro
 **Expert Tile Work**
 Tile makes or breaks a bathroom remodel. Our tile setters have decades of combined experience and take pride in perfectly straight lines and consistent grout joints.
 
-**Licensed Plumbers & Electricians**
-All plumbing and electrical work is performed by licensed professionals. We pull permits and schedule inspections to ensure everything is done to code.
+**Code-Compliant Trade Work**
+All plumbing and electrical work is performed by licensed trade specialists we coordinate. We pull permits and schedule inspections to ensure everything is done to code.
 
 **Transparent Pricing**
 You'll receive a detailed written estimate before we start. No hidden fees, no surprises. If something unexpected comes up during demolition, we discuss it before moving forward.
@@ -347,6 +346,6 @@ Your dream bathroom is within reach. Whether you're planning a complete renovati
 3. **Receive your detailed estimate:** Clear pricing with no surprises
 4. **Enjoy your beautiful new bathroom:** Professional installation from start to finish
 
-**Free estimates • Licensed & insured • Financing available • 100% satisfaction guaranteed**
+**Free estimates • Fully insured • Financing available • 100% satisfaction guaranteed**
 
 Let's create the bathroom you've been dreaming about. Contact iFIXX today to get started.

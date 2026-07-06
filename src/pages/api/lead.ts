@@ -45,10 +45,17 @@ const SERVICE_TAGS: Record<string, string[]> = {
     // Remodeling Services → Pipeline: Remodeling
     'kitchen-remodel': ['project-kitchen', 'remodeling'],
     'bathroom-remodel': ['project-bathroom', 'remodeling'],
+    'flooring': ['service-flooring', 'remodeling'],
+
+    // Fences & Decks (generic site-wide form options, 2026-07) → same routing
+    // tags as the test-landing values but WITHOUT 'south-charlotte-test'
+    'fence': ['service-fence', 'fence-outdoor', 'handyman'],
+    'deck': ['service-deck', 'deck-outdoor', 'handyman'],
 
     // Specialty Services → Pipeline: Handyman
     'pressure-washing': ['service-pressure-washing', 'handyman'],
     'drywall': ['service-drywall', 'handyman'],
+    'quick-fix': ['service-quick-fix', 'handyman'],
 
     // Default → Pipeline: Handyman
     'other': ['general-inquiry', 'handyman']
