@@ -34,7 +34,7 @@ faqs:
   - q: "Can you convert my tub to a walk-in shower?"
     a: "Yes! Tub-to-shower conversions are one of our most popular services. We can also install walk-in tubs."
   - q: "Do you handle plumbing and electrical?"
-    a: "Yes — all plumbing and electrical work in your remodel is handled by licensed trade specialists we coordinate, with permits and inspections so everything is done to code."
+    a: "Yes, all plumbing and electrical work in your remodel is handled by licensed trade specialists we coordinate, with permits and inspections so everything is done to code."
   - q: "Can you make my bathroom more accessible?"
     a: "Absolutely. We install grab bars, walk-in tubs, curbless showers, and other accessibility features."
   - q: "Can I stay in my home during the remodel?"
@@ -57,7 +57,7 @@ Our bathroom design process starts with understanding how you use your space. Wh
 
 ## Why Remodel Your Bathroom?
 
-A bathroom remodel offers tremendous value—both in daily comfort and in home equity. Modern bathrooms with updated fixtures, efficient layouts, and quality materials make your morning routine more enjoyable and add significant appeal when it's time to sell.
+A bathroom remodel offers tremendous value, both in daily comfort and in home equity. Modern bathrooms with updated fixtures, efficient layouts, and quality materials make your morning routine more enjoyable and add significant appeal when it's time to sell.
 
 **Benefits of bathroom remodeling:**
 
@@ -236,7 +236,7 @@ We carefully remove old fixtures, tile, and flooring. We protect your home with 
 
 **5. Rough-In & Waterproofing (Week 2-3)**
 
-We coordinate licensed plumbers and electricians to install new lines, relocate fixtures, and update wiring. We install proper waterproofing membranes in wet areas—critical for long-term durability.
+We coordinate licensed plumbers and electricians to install new lines, relocate fixtures, and update wiring. We install proper waterproofing membranes in wet areas, critical for long-term durability.
 
 **6. Installation (Week 3-4)**
 
@@ -258,9 +258,9 @@ We don't consider the job done until you're completely satisfied. We check for p
 
 ## Bathroom Remodeling Costs & Investment
 
-We keep pricing simple with three clear packages. Smaller bathroom updates (vanity swap, fixtures, paint) start at $5,000 — and every project is measured at your home and quoted free.
+We keep pricing simple with three clear levels of transformation. Smaller bathroom updates (vanity swap, fixtures, paint) start at $5,000, and every project is measured at your home and quoted free.
 
-**Silver Bath — Fresh Update: starting at $12,000** (standard 5'x10')
+**Refreshing Update: starting at $10,000** (standard 5'x10')
 - New wall paint
 - Vanity + up to 2 new lights
 - Basic faucet & hardware
@@ -268,7 +268,7 @@ We keep pricing simple with three clear packages. Smaller bathroom updates (vani
 - Flooring: luxury vinyl (LVP) or 12"x24" ceramic tile
 - *Excludes: shower glass, plumbing relocation, permits*
 
-**Gold Bath — Complete Renovation: $20,000 – $30,000** (standard 5'x10')
+**Complete Renovation: starting at $20,000** (standard 5'x10')
 - Tub-to-shower conversion with tile up to the ceiling
 - Custom shower niche and/or bench
 - Shower pan tile
@@ -278,8 +278,8 @@ We keep pricing simple with three clear packages. Smaller bathroom updates (vani
 - Full plumbing upgrades (coordinated & to code) + new ventilation
 - *Excludes: major layout changes, wall relocations, luxury/custom finishes*
 
-**Platinum Bath — Spa Experience: starting at $30,000** (custom size/layout)
-- Everything in Gold, plus:
+**Spa Experience: starting at $30,000** (custom size/layout)
+- Everything in the Complete Renovation, plus:
 - Quartz or large-format porcelain surfaces
 - Designer fixtures and lighting features
 - Double vanity / spa shower options
@@ -312,7 +312,7 @@ iFIXX provides professional bathroom remodeling services throughout the Charlott
 - **Rock Hill, SC:** We proudly serve our South Carolina neighbors just across the state line
 - **Waxhaw:** Historic home bathroom remodeling that respects original character while adding modern function
 
-**No matter where you are in the Charlotte area, iFIXX brings the same quality, attention to detail, and customer service to every bathroom remodeling project.** We understand Charlotte-area homes—from historic bungalows to new construction—and we tailor our approach to fit your home's unique needs.
+**No matter where you are in the Charlotte area, iFIXX brings the same quality, attention to detail, and customer service to every bathroom remodeling project.** We understand Charlotte-area homes, from historic bungalows to new construction, and we tailor our approach to fit your home's unique needs.
 
 ## Why Charlotte Homeowners Choose iFIXX for Bathroom Remodeling
 
