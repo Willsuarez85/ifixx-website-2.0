@@ -51,13 +51,13 @@ Your kitchen is the heart of your home. Whether you're looking for a complete ki
 
 ## Kitchen Remodeling in Charlotte NC
 
-As a leading remodeling company in Charlotte NC, we specialize in kitchen renovations that combine style, function, and lasting quality. Our design build approach means you work with one team from start to finish—no middlemen, no miscommunication.
+As a leading remodeling company in Charlotte NC, we specialize in kitchen renovations that combine style, function, and lasting quality. Our design build approach means you work with one team from start to finish: no middlemen, no miscommunication.
 
 From the greater Charlotte area to surrounding areas like Matthews, Ballantyne, and Mint Hill, homeowners trust iFixx for their home remodeling projects. We understand what Charlotte homes need, and we bring that local expertise to every kitchen remodel.
 
 ## Why Kitchen Remodeling Offers the Highest ROI
 
-A well-planned kitchen remodel consistently ranks as one of the highest-return investments you can make in your home. According to industry data, kitchen renovations can return 60-80% of their cost in added home value. But the real value goes beyond resale—a modern, functional kitchen improves your daily quality of life.
+A well-planned kitchen remodel consistently ranks as one of the highest-return investments you can make in your home. According to industry data, kitchen renovations can return 60-80% of their cost in added home value. But the real value goes beyond resale. A modern, functional kitchen improves your daily quality of life.
 
 Here's why kitchen remodeling is worth the investment:
 
@@ -75,7 +75,7 @@ At iFixx, we handle every aspect of your kitchen transformation. Our experienced
 
 Cabinets set the tone for your entire kitchen. We offer three tiers to fit any budget:
 
-- **Stock cabinets:** Quality pre-manufactured options in standard sizes—perfect for budget-conscious homeowners
+- **Stock cabinets:** Quality pre-manufactured options in standard sizes, perfect for budget-conscious homeowners
 - **Semi-custom cabinets:** More style and size options with upgraded features like soft-close drawers
 - **Custom cabinets:** Built to your exact specifications, maximizing every inch of space
 
@@ -85,9 +85,9 @@ Our design team helps you choose the right cabinet style, finish, and hardware t
 
 Your countertops need to be both beautiful and durable. We install all the premium materials Charlotte homeowners love:
 
-- **Granite:** Natural stone with unique patterns—heat resistant and timeless
-- **Quartz:** Engineered for consistency and low maintenance—no sealing required
-- **Marble:** Elegant veining for a luxurious look—perfect for baking enthusiasts
+- **Granite:** Natural stone with unique patterns, heat resistant and timeless
+- **Quartz:** Engineered for consistency and low maintenance, no sealing required
+- **Marble:** Elegant veining for a luxurious look, perfect for baking enthusiasts
 - **Butcher block:** Warm wood tones that add character
 - **Solid surface:** Seamless appearance with easy repairs
 
@@ -126,7 +126,7 @@ Good lighting transforms how your kitchen looks and functions. We install:
 - Dimmer switches for mood control
 - Additional outlets for appliances
 
-When your remodel calls for new circuits or outlets, we coordinate trusted licensed trade specialists — and every detail is inspected to code.
+When your remodel calls for new circuits or outlets, we coordinate trusted licensed trade specialists, and every detail is inspected to code.
 
 ### Plumbing Fixtures & Appliances
 
@@ -175,7 +175,7 @@ You'll receive a comprehensive written estimate breaking down all costs. We'll a
 
 **4. Demolition & Preparation (Week 3)**
 
-Once you approve the plan, we start by carefully removing old cabinets, countertops, and fixtures. We protect your floors and other areas of your home. All debris is hauled away daily—no mess left behind.
+Once you approve the plan, we start by carefully removing old cabinets, countertops, and fixtures. We protect your floors and other areas of your home. All debris is hauled away daily, no mess left behind.
 
 **5. Rough-In Work (Week 3-4)**
 
@@ -201,9 +201,9 @@ We don't consider the job complete until you're completely satisfied. We address
 
 ## Kitchen Remodeling Costs & Investment
 
-We keep pricing simple with three clear packages. Smaller kitchen updates (paint, hardware, backsplash or counter refresh) start at $8,000 — and every project is measured at your home and quoted free.
+We keep pricing simple with three clear levels of transformation. Smaller kitchen updates (paint, hardware, backsplash or counter refresh) start at $8,000, and every project is measured at your home and quoted free.
 
-**Silver Kitchen — Functional Refresh: starting at $20,000** (standard 10'x10')
+**Functional Refresh: starting at $10,000** (standard 10'x10')
 - Fresh wall paint
 - Up to 12 basic cabinets (Home Depot/Lowe's, no soft-close)
 - Standard granite countertops
@@ -212,7 +212,7 @@ We keep pricing simple with three clear packages. Smaller kitchen updates (paint
 - Basic knobs and hardware
 - *Excludes: appliances, plumbing relocation, permits*
 
-**Gold Kitchen — Complete Renovation: starting at $30,000** (standard 10'x10')
+**Complete Renovation: starting at $20,000** (standard 10'x10')
 - Up to 20 NKBC wood cabinets (100% wood, soft-close)
 - Quartz or premium granite countertops (#1 grade)
 - Custom backsplash
@@ -221,8 +221,8 @@ We keep pricing simple with three clear packages. Smaller kitchen updates (paint
 - Plumbing upgrades (coordinated & to code)
 - *Excludes: major layout changes, high-end custom finishes, appliances*
 
-**Platinum Kitchen — Luxury Custom: starting at $35,000** (custom size/layout)
-- Everything in Gold, plus:
+**Luxury Custom Kitchen: starting at $35,000** (custom size/layout)
+- Everything in the Complete Renovation, plus:
 - Designer quartz or imported stone countertops
 - Large island with special features
 - Decorative or integrated lighting
@@ -261,13 +261,13 @@ iFIXX provides professional kitchen remodeling services throughout the Charlotte
 ## Why Charlotte Homeowners Choose iFIXX
 
 **Local Family Business**
-We're not a national franchise—we're a Charlotte family who lives and works in the community we serve. When you call, you talk to us, not a call center.
+We're not a national franchise. We're a Charlotte family who lives and works in the community we serve. When you call, you talk to us, not a call center.
 
 **150+ Successful Kitchen Projects**
 We've transformed kitchens across every Charlotte neighborhood. From historic bungalows to modern new builds, we've seen it all.
 
 **Quality Craftsmanship**
-Our team includes experienced carpenters, tile setters, and finish specialists — and we coordinate licensed trade pros for electrical and plumbing. We don't cut corners, and we don't call it done until it's perfect.
+Our team includes experienced carpenters, tile setters, and finish specialists, and we coordinate licensed trade pros for electrical and plumbing. We don't cut corners, and we don't call it done until it's perfect.
 
 **Transparent Communication**
 You'll always know what's happening, what's next, and what it costs. No surprises, no hidden fees.

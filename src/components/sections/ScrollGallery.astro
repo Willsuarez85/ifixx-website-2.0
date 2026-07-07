@@ -11,7 +11,7 @@ const { serviceSlug = '', title = 'Our Work' } = Astro.props;
 // which never matched the old 'kitchen-remodel' keys — pages silently fell back
 // to the mixed default pool (stairs/porch/faucet photos on the kitchen page).
 const kitchenImages = [
-  { src: '/images/projects/kitchen-remodeling-before-after-transformation.webp', alt: 'Kitchen remodel before and after transformation — Charlotte NC', category: 'kitchen' },
+  { src: '/images/projects/kitchen-remodeling-before-after-transformation.webp', alt: 'Kitchen remodel before and after transformation in Charlotte NC', category: 'kitchen' },
   { src: '/images/projects/kitchen-remodeling-complete-modern-white-cabinets-island.webp', alt: 'Complete kitchen remodel with modern white cabinets and island', category: 'kitchen' },
   { src: '/images/projects/Ifixx-portfolio63.webp', alt: 'White luxury kitchen with marble waterfall island', category: 'kitchen' },
   { src: '/images/projects/Ifixx-portfolio22.webp', alt: 'Navy blue open concept kitchen with marble island', category: 'kitchen' },
@@ -25,15 +25,19 @@ const kitchenImages = [
   { src: '/images/projects/kitchen-remodeling-luxury-white-cabinets-island-pendant-lights.webp', alt: 'Luxury kitchen with white cabinets and pendant lights', category: 'kitchen' },
 ];
 
+// Deduped 2026-07-07: portfolio32 = bathroom-1 and portfolio50 = bathroom-glass-shower
+// were the same files under different names (and 28/50 were the same bathroom).
+// The three bathroom-remodel-* shots are AI variations generated from our real
+// portfolio photos (nano banana, William 2026-07-07) until Jaime sends new ones.
 const bathroomImages = [
-  { src: '/images/projects/Ifixx-portfolio32.webp', alt: 'Luxury bathroom with freestanding tub', category: 'bathroom' },
+  { src: '/images/projects/bathroom-1.webp', alt: 'Spa bathroom remodel with freestanding tub and double vanity', category: 'bathroom' },
   { src: '/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp', alt: 'Modern bathroom with glass shower and vanity', category: 'bathroom' },
   { src: '/images/projects/Ifixx-portfolio28.webp', alt: 'Modern bathroom with glass shower and beige tile', category: 'bathroom' },
-  { src: '/images/projects/Ifixx-portfolio50.webp', alt: 'Modern bathroom with sliding glass shower', category: 'bathroom' },
-  { src: '/images/projects/bathroom-glass-shower.webp', alt: 'Modern glass shower installation', category: 'bathroom' },
-  { src: '/images/projects/bathroom-1.webp', alt: 'Complete bathroom remodel', category: 'bathroom' },
+  { src: '/images/projects/bathroom-remodel-sage-green-vanity-glass-shower.webp', alt: 'Remodeled bathroom with sage green vanity and glass shower', category: 'bathroom' },
+  { src: '/images/projects/bathroom-remodel-spa-freestanding-tub-white-double-vanity.webp', alt: 'Spa bathroom with freestanding tub and white double vanity', category: 'bathroom' },
+  { src: '/images/projects/bathroom-remodel-walnut-vanity-subway-tile-shower.webp', alt: 'Remodeled bathroom with walnut vanity and subway tile shower', category: 'bathroom' },
+  { src: '/images/projects/Ifixx-portfolio57.webp', alt: 'iFixx team finishing a bathroom remodel', category: 'bathroom' },
   { src: '/images/projects/bathroom-remodeling-dual-vanity-installation-progress.webp', alt: 'Dual vanity installation in progress', category: 'bathroom' },
-  { src: '/images/projects/bathroom-team-work.webp', alt: 'Bathroom renovation in progress', category: 'bathroom' },
 ];
 
 // Gallery images organized by service category
@@ -96,8 +100,8 @@ const galleryImages: Record<string, { src: string; alt: string; category: string
     { src: '/images/projects/carpentry-baseboard-trim-installation-repair.webp', alt: 'Furniture trim work', category: 'furniture' },
   ],
   'drywall': [
-    { src: '/images/services/drywall/dr-01-hole-patching-closeup.webp', alt: 'Drywall hole patching closeup — Charlotte', category: 'drywall' },
-    { src: '/images/services/drywall/dr-02-before-after-split.webp', alt: 'Drywall repair before and after — Charlotte', category: 'drywall' },
+    { src: '/images/services/drywall/dr-01-hole-patching-closeup.webp', alt: 'Drywall hole patching closeup in Charlotte', category: 'drywall' },
+    { src: '/images/services/drywall/dr-02-before-after-split.webp', alt: 'Drywall repair before and after in Charlotte', category: 'drywall' },
     { src: '/images/services/drywall/dr-03-sanding-drywall.webp', alt: 'Professional sanding drywall repair', category: 'drywall' },
     { src: '/images/services/drywall/dr-04-joint-compound.webp', alt: 'Applying joint compound drywall repair', category: 'drywall' },
     { src: '/images/services/drywall/dr-05-water-damage-beforeafter.webp', alt: 'Water damage drywall repair before and after', category: 'drywall' },
@@ -106,7 +110,7 @@ const galleryImages: Record<string, { src: string; alt: string; category: string
     { src: '/images/services/drywall/dr-09-sanding-smooth.webp', alt: 'Smooth drywall sanding finish Charlotte', category: 'drywall' },
   ],
   'pressure-washing': [
-    { src: '/images/services/pressure-washing/pw-01-v3.webp', alt: 'Driveway pressure washing before and after — Charlotte', category: 'pressure-washing' },
+    { src: '/images/services/pressure-washing/pw-01-v3.webp', alt: 'Driveway pressure washing before and after in Charlotte', category: 'pressure-washing' },
     { src: '/images/services/pressure-washing/pw-02-v4.webp', alt: 'House siding pollen removal pressure washing Charlotte', category: 'pressure-washing' },
     { src: '/images/services/pressure-washing/pw-03-house-clean-result.webp', alt: 'House exterior pressure washing clean result Charlotte', category: 'pressure-washing' },
     { src: '/images/services/pressure-washing/pw-04-v4.webp', alt: 'Window and siding pressure washing Charlotte NC', category: 'pressure-washing' },
