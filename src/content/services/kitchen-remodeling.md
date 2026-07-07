@@ -53,7 +53,7 @@ Your kitchen is the heart of your home. Whether you're looking for a complete ki
 
 As a leading remodeling company in Charlotte NC, we specialize in kitchen renovations that combine style, function, and lasting quality. Our design build approach means you work with one team from start to finish: no middlemen, no miscommunication.
 
-From the greater Charlotte area to surrounding areas like Matthews, Ballantyne, and Mint Hill, homeowners trust iFixx for their home remodeling projects. We understand what Charlotte homes need, and we bring that local expertise to every kitchen remodel.
+From the greater Charlotte area to surrounding areas like Matthews, Ballantyne, and Pineville, homeowners trust iFixx for their home remodeling projects. We understand what Charlotte homes need, and we bring that local expertise to every kitchen remodel.
 
 ## Why Kitchen Remodeling Offers the Highest ROI
 
@@ -249,7 +249,7 @@ iFIXX provides professional kitchen remodeling services throughout the Charlotte
 - **Charlotte:** We serve all Charlotte neighborhoods including Myers Park, Dilworth, South End, NoDa, Plaza Midwood, and surrounding areas
 - **Ballantyne:** Specializing in luxury kitchen remodels with high-end finishes and custom features
 - **Matthews:** Family-friendly kitchen designs that balance style and durability for busy households
-- **Mint Hill:** Custom cabinetry specialists serving this growing community
+- **Pineville:** Custom cabinetry and full kitchen remodels near the SouthPark area
 - **Concord:** Complete kitchen transformations for homes throughout Concord and Kannapolis
 - **Monroe:** Modern kitchen updates and full renovations in Union County
 - **Pineville:** Kitchen remodeling services for Pineville and the surrounding Southpark area

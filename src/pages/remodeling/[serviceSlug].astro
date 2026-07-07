@@ -11,8 +11,9 @@ import { isRetiredCity, isRetiredService } from '../../lib/seo-retired';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
-  // Only generate pages for services in the remodeling pillar
-  const remodelingServices = services.filter(s => s.data.pillar === 'remodeling');
+  // Only generate pages for services in the remodeling pillar, excluding retired
+  // services (e.g. basement-finishing, retired 2026-07-07).
+  const remodelingServices = services.filter(s => s.data.pillar === 'remodeling' && !isRetiredService(s.slug));
   return remodelingServices.map((service) => ({
     params: { serviceSlug: service.slug },
     props: { service },
@@ -222,47 +223,7 @@ const serviceSchema = {
     },
     {
       "@type": "City",
-      "name": "Mint Hill",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "North Carolina"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "Concord",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "North Carolina"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "Monroe",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "North Carolina"
-      }
-    },
-    {
-      "@type": "City",
       "name": "Pineville",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "North Carolina"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "Rock Hill",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "South Carolina"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "Waxhaw",
       "containedInPlace": {
         "@type": "State",
         "name": "North Carolina"
