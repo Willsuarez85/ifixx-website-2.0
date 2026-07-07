@@ -74,9 +74,13 @@ const projectImageSrc = serviceProjectImages[service.slug] || '/images/projects/
 // 2026-07-06). includes/exclusions stay here as the canonical spec record and
 // render on-page via the markdown "Costs & Investment" mirror — if prices or
 // specs change, update BOTH this data and the markdown.
+// level 1–3 frames the tiers as escalating levels of transformation of the
+// same space (not just metal names); image = real portfolio photo matching
+// each level's finish.
 interface RemodelPackage {
   name: string; tagline: string; price: string; size: string; blurb: string;
   includesLabel: string; includes: string[]; exclusions?: string; bestFor: string; value: string;
+  level: 1 | 2 | 3; levelLabel: string; image: string; imageAlt: string;
 }
 const servicePackages: Record<string, { packages: RemodelPackage[]; entryLine: string; guideUrl: string; guideLabel: string }> = {
   'kitchen-remodeling': {
@@ -86,7 +90,10 @@ const servicePackages: Record<string, { packages: RemodelPackage[]; entryLine: s
     packages: [
       {
         name: 'Silver Kitchen', tagline: 'Functional Refresh', price: 'Starting at $20K', size: "Standard size: 10'x10'", value: 'silver',
-        blurb: 'A practical kitchen remodel with essential upgrades.',
+        level: 1, levelLabel: 'Refresh',
+        image: '/images/projects/Ifixx-portfolio11.webp',
+        imageAlt: 'Silver kitchen remodel — white cabinets with subway tile backsplash, Charlotte NC',
+        blurb: 'Refreshes the kitchen you have — new surfaces, new hardware, same layout.',
         includesLabel: 'Includes',
         includes: ['Fresh wall paint', "Up to 12 basic cabinets (Home Depot/Lowe's, no soft-close)", 'Standard granite countertops', 'Subway tile backsplash', 'Stainless steel sink + faucet', 'Basic knobs and hardware'],
         exclusions: 'Exclusions: appliances, plumbing relocation, permits.',
@@ -94,7 +101,10 @@ const servicePackages: Record<string, { packages: RemodelPackage[]; entryLine: s
       },
       {
         name: 'Gold Kitchen', tagline: 'Complete Renovation', price: 'Starting at $30K', size: "Standard size: 10'x10'", value: 'gold',
-        blurb: 'A quality remodel with better cabinets, counters, and finishes.',
+        level: 2, levelLabel: 'Full Renovation',
+        image: '/images/projects/kitchen-remodeling-complete-modern-white-cabinets-island.webp',
+        imageAlt: 'Gold kitchen remodel — complete renovation with new cabinets, counters and island, Charlotte NC',
+        blurb: 'Renovates the whole kitchen — solid wood cabinets, quartz counters, better everything.',
         includesLabel: 'Includes',
         includes: ['Up to 20 NKBC wood cabinets (100% wood, soft-close)', 'Quartz or premium granite countertops (#1 grade)', 'Custom backsplash', 'Farmhouse sink + garbage disposal', 'Premium hardware', 'Plumbing upgrades (coordinated & to code)'],
         exclusions: 'Exclusions: major layout changes, high-end custom finishes, appliances.',
@@ -102,7 +112,10 @@ const servicePackages: Record<string, { packages: RemodelPackage[]; entryLine: s
       },
       {
         name: 'Platinum Kitchen', tagline: 'Luxury Custom', price: 'Starting at $35K', size: 'Custom size/layout', value: 'platinum',
-        blurb: 'High-end kitchen with luxury finishes and fully customized design.',
+        level: 3, levelLabel: 'Total Transformation',
+        image: '/images/projects/Ifixx-portfolio63.webp',
+        imageAlt: 'Platinum kitchen remodel — custom luxury kitchen with marble waterfall island, Charlotte NC',
+        blurb: 'Rebuilds the kitchen around you — custom layout, luxury finishes, one of a kind.',
         includesLabel: 'Everything in Gold PLUS',
         includes: ['Designer quartz or imported stone countertops', 'Large island with special features', 'Decorative or integrated lighting', 'Optional high-end appliances and accessories', 'Fully custom layout and finishes'],
         bestFor: 'Best for homeowners who want a luxury, one-of-a-kind kitchen tailored to their lifestyle.',
@@ -116,7 +129,10 @@ const servicePackages: Record<string, { packages: RemodelPackage[]; entryLine: s
     packages: [
       {
         name: 'Silver Bath', tagline: 'Fresh Update', price: 'Starting at $12K', size: "Standard size: 5'x10'", value: 'silver',
-        blurb: 'Give your bathroom a fresh, modern look without structural changes.',
+        level: 1, levelLabel: 'Refresh',
+        image: '/images/projects/Ifixx-portfolio28.webp',
+        imageAlt: 'Silver bathroom remodel — refreshed vanity, fixtures and finishes, Charlotte NC',
+        blurb: 'Refreshes the bathroom you have — modern look, same layout, no structural changes.',
         includesLabel: 'Includes',
         includes: ['New wall paint', 'Vanity + up to 2 new lights', 'Basic faucet & hardware', 'Decorative tile above the tub (no tub-to-shower conversion)', 'Flooring: luxury vinyl (LVP) or 12"x24" ceramic tile'],
         exclusions: 'Exclusions: shower glass, plumbing relocation, permits.',
@@ -124,7 +140,10 @@ const servicePackages: Record<string, { packages: RemodelPackage[]; entryLine: s
       },
       {
         name: 'Gold Bath', tagline: 'Complete Renovation', price: '$20K – $30K', size: "Standard size: 5'x10'", value: 'gold',
-        blurb: 'A full bathroom transformation with upgraded materials and finishes.',
+        level: 2, levelLabel: 'Full Renovation',
+        image: '/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp',
+        imageAlt: 'Gold bathroom remodel — tub-to-shower conversion with tile to the ceiling and glass, Charlotte NC',
+        blurb: 'Renovates the full bathroom — tub-to-shower conversion, tile to the ceiling, new everything.',
         includesLabel: 'Includes',
         includes: ['Tub-to-shower conversion with tile up to the ceiling', 'Custom shower niche and/or bench', 'Shower pan tile', 'Upgraded vanity, sink, faucet, and lighting', 'Flooring: premium ceramic tile or LVP', 'Frameless shower glass', 'Full plumbing upgrades (coordinated & to code) + new ventilation'],
         exclusions: 'Exclusions: major layout changes, wall relocations, luxury/custom finishes.',
@@ -132,7 +151,10 @@ const servicePackages: Record<string, { packages: RemodelPackage[]; entryLine: s
       },
       {
         name: 'Platinum Bath', tagline: 'Spa Experience', price: 'Starting at $30K', size: 'Custom size/layout', value: 'platinum',
-        blurb: 'Luxury finishes and custom design for a true spa-like retreat.',
+        level: 3, levelLabel: 'Total Transformation',
+        image: '/images/projects/bathroom-1.webp',
+        imageAlt: 'Platinum bathroom remodel — spa bathroom with freestanding tub and double vanity, Charlotte NC',
+        blurb: 'Rebuilds it as your private spa — custom layout, designer finishes, one of a kind.',
         includesLabel: 'Everything in Gold PLUS',
         includes: ['Quartz or large-format porcelain surfaces', 'Designer fixtures and lighting features', 'Double vanity / spa shower options', 'Fully customized layout and finishes'],
         bestFor: 'Best for homeowners who want a one-of-a-kind, spa-inspired bathroom.',
@@ -447,8 +469,11 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
           <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-3">
             Choose Your {title} Package
           </h2>
+          <p class="text-neutral-600 mb-2">
+            Silver, Gold and Platinum are more than names — they're <strong class="text-neutral-900">three levels of transformation</strong> for the same space. Level 1 refreshes what you have. Level 2 renovates it completely. Level 3 rebuilds it custom, around you.
+          </p>
           <p class="text-neutral-600">
-            Real packages, clear pricing, no guesswork. Every quote is measured at your home and itemized — free.
+            Real prices, no guesswork. Every quote is measured at your home and itemized — free.
           </p>
         </div>
 
@@ -458,7 +483,22 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-6">
           {packageData.packages.map((pkg, i) => (
             <div class={`rounded-2xl border overflow-hidden flex flex-col bg-white ${i === 1 ? 'border-primary-500 shadow-xl' : 'border-neutral-200 shadow-sm'}`}>
-              <div class={`px-6 py-5 text-center ${i === 1 ? 'bg-primary-500' : 'bg-neutral-900'}`}>
+              <!-- Real project photo matching the level's finish -->
+              <div class="relative">
+                <img
+                  src={pkg.image}
+                  alt={pkg.imageAlt}
+                  class="w-full h-44 object-cover"
+                  width="600"
+                  height="338"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="absolute top-3 left-3 bg-neutral-900/85 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">
+                  Level {pkg.level} · {pkg.levelLabel}
+                </span>
+              </div>
+              <div class={`px-6 py-4 text-center ${i === 1 ? 'bg-primary-500' : 'bg-neutral-900'}`}>
                 {i === 1 && (
                   <span class="inline-block bg-neutral-900 text-white text-xs font-bold px-3 py-1 rounded-full mb-2">
                     Most Popular
@@ -470,6 +510,13 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
               <div class="p-6 flex flex-col flex-1 text-center">
                 <p class="text-3xl font-heading font-bold text-neutral-900">{pkg.price}</p>
                 <p class="text-sm text-neutral-500 mb-4">{pkg.size}</p>
+                <!-- Transformation meter: how far this level takes the space -->
+                <div class="flex items-center justify-center gap-1.5 mb-1" aria-hidden="true">
+                  {[1, 2, 3].map((n) => (
+                    <span class={`h-1.5 w-8 rounded-full ${n <= pkg.level ? 'bg-primary-500' : 'bg-neutral-200'}`}></span>
+                  ))}
+                </div>
+                <p class="text-xs uppercase tracking-wide text-neutral-500 mb-4">Transformation level {pkg.level} of 3</p>
                 <p class="text-sm text-neutral-600 mb-3">{pkg.blurb}</p>
                 <p class="text-sm text-neutral-600 mb-6">{pkg.bestFor}</p>
                 <button
