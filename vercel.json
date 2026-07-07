@@ -103,12 +103,37 @@
     },
     {
       "source": "/services/basement-finishing",
-      "destination": "/remodeling/basement-finishing",
+      "destination": "/remodeling",
       "permanent": true
     },
     {
       "source": "/services/basement-finishing/",
-      "destination": "/remodeling/basement-finishing",
+      "destination": "/remodeling",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling/basement-finishing",
+      "destination": "/remodeling",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling/basement-finishing/",
+      "destination": "/remodeling",
+      "permanent": true
+    },
+    {
+      "source": "/mint-hill",
+      "destination": "/south-charlotte",
+      "permanent": true
+    },
+    {
+      "source": "/mint-hill/:rest*",
+      "destination": "/south-charlotte",
+      "permanent": true
+    },
+    {
+      "source": "/service-areas/mint-hill",
+      "destination": "/service-areas",
       "permanent": true
     },
     {

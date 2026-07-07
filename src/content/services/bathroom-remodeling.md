@@ -305,7 +305,7 @@ iFIXX provides professional bathroom remodeling services throughout the Charlott
 - **Charlotte:** We serve all Charlotte neighborhoods including Myers Park, Dilworth, South End, NoDa, Plaza Midwood, and surrounding areas
 - **Ballantyne:** Specializing in luxury master bathroom remodels with spa-like features and premium finishes
 - **Matthews:** Family-friendly bathroom designs that balance style and practicality
-- **Mint Hill:** Complete bathroom transformations for this growing community
+- **Pineville:** Complete bathroom transformations near the SouthPark area
 - **Concord:** Full bathroom renovations and updates throughout Concord and Kannapolis
 - **Monroe:** Modern bathroom remodeling services in Union County
 - **Pineville:** Bathroom renovations for Pineville and the surrounding Southpark area

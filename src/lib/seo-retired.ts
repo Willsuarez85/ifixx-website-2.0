@@ -7,14 +7,16 @@
 // vercel.json so the retired URLs consolidate authority instead of 404-ing.
 //
 // Cities removed entirely (matrix + /service-areas hub):
-//   huntersville (north), concord (Cabarrus), monroe + waxhaw (Union), rock-hill (SC).
-// Kept: charlotte, south-charlotte, ballantyne, pineville, matthews, mint-hill.
+//   huntersville (north), concord (Cabarrus), monroe + waxhaw (Union), rock-hill (SC),
+//   mint-hill (retired per Jaime/William 2026-07-07 — focus tightened to South Charlotte).
+// Kept: charlotte, south-charlotte, ballantyne, pineville, matthews.
 export const RETIRED_CITIES = [
   'huntersville',
   'concord',
   'monroe',
   'waxhaw',
   'rock-hill',
+  'mint-hill',
 ] as const;
 
 // Services removed in every city — iFIXX does not offer these as a trade.
@@ -23,7 +25,10 @@ export const RETIRED_CITIES = [
 //                         as electrical trade, not handyman. Removed from the matrix,
 //                         the /repairs and /emergency-services pages, and the sitemap;
 //                         301'd to /services (see vercel.json).
-export const RETIRED_SERVICES = ['plumbing', 'electrical-fixtures'] as const;
+//   basement-finishing  — retired per Jaime/William 2026-07-07: iFIXX no longer offers
+//                         basement finishing. Removed from the remodeling pillar + sitemap;
+//                         301'd to /remodeling (see vercel.json).
+export const RETIRED_SERVICES = ['plumbing', 'electrical-fixtures', 'basement-finishing'] as const;
 
 const retiredCities: readonly string[] = RETIRED_CITIES;
 const retiredServices: readonly string[] = RETIRED_SERVICES;
