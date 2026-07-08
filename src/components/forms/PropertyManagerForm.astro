@@ -105,6 +105,21 @@ const contactTimeOptions = [
       />
     </div>
 
+    <!-- Zip Code -->
+    <div>
+      <label for={`${formId}-zipCode`} class="sr-only">Zip Code</label>
+      <input
+        type="text"
+        id={`${formId}-zipCode`}
+        name="zipCode"
+        required
+        inputmode="numeric"
+        autocomplete="postal-code"
+        class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900 placeholder-neutral-500"
+        placeholder="Zip Code *"
+      />
+    </div>
+
     <!-- Number of Properties -->
     <div>
       <label for={`${formId}-propertyCount`} class="sr-only">Number of Properties</label>
@@ -231,6 +246,7 @@ const contactTimeOptions = [
         lastName: formData.get('lastName'),
         email: formData.get('email'),
         phone: formData.get('phone'),
+        zipCode: formData.get('zipCode'),
         companyName: formData.get('companyName'),
         numberOfProperties: formData.get('numberOfProperties'),
         propertyTypes: formData.get('propertyTypes'),

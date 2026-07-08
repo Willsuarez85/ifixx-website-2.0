@@ -313,6 +313,7 @@ export const POST: APIRoute = async ({ request }) => {
             message,
             source,
             city,
+            zipCode, // Contact postal code (required on lead forms)
             // South Charlotte landing page fields
             issueType,
             safetyConcern,
@@ -420,6 +421,11 @@ export const POST: APIRoute = async ({ request }) => {
             source: source || 'Website Form',
             tags: allTags
         };
+
+        // Map zip code to the contact's postal code (never reject a lead if missing)
+        if (zipCode) {
+            upsertBody.postalCode = zipCode;
+        }
 
         // Add UTM parameters and GCLID for attribution & offline conversion tracking
         if (utm_source || utm_medium || utm_campaign || utm_term || utm_content || gclid) {
