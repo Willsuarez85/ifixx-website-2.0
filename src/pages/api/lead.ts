@@ -2,6 +2,9 @@ import type { APIRoute } from 'astro';
 
 export const prerender = false;
 
+// Ifixx 2026 pipeline (renamed from "iFIXX Outdoor Leads"; same ID, so this keeps
+// working). Every website lead is now routed here to the New Lead stage; GHL then
+// handles team notification + AI intake off "opportunity created in Ifixx 2026".
 const OUTDOOR_PIPELINE_ID = 'QlQ4FGiqHYUgMAUwxjb1';
 const OUTDOOR_NEW_LEAD_STAGE_ID = '2f5e3e61-cbe2-4350-8010-dd8c3335d419';
 const HANDYMAN_PIPELINE_ID = 'ohDTFoWOfNfAYQ89MWEo';
@@ -193,7 +196,7 @@ async function cleanupRecentHandymanDuplicates(options: {
     return duplicates.map((opp: any) => opp.id);
 }
 
-async function routeOutdoorOpportunity(options: {
+async function routeWebsiteOpportunity(options: {
     apiKey: string;
     locationId: string;
     contactId: string;
@@ -205,7 +208,7 @@ async function routeOutdoorOpportunity(options: {
 }) {
     const { apiKey, locationId, contactId, firstName, lastName, service, source, startedAt } = options;
     const contactName = [firstName, lastName].filter(Boolean).join(' ').trim() || 'Website Lead';
-    const opportunityName = `${contactName} - Outdoor Estimate`;
+    const opportunityName = `${contactName} - Website Lead`;
 
     for (let attempt = 0; attempt < 8; attempt++) {
         if (attempt > 0) {
@@ -249,7 +252,7 @@ async function routeOutdoorOpportunity(options: {
 
             if (!response.ok) {
                 const err = await response.text();
-                throw new Error(`Failed to move opportunity to Outdoor pipeline: ${err}`);
+                throw new Error(`Failed to move opportunity to Ifixx 2026 pipeline: ${err}`);
             }
 
             return { action: 'moved-from-handyman', opportunityId: openHandyman.id, deletedHandymanDuplicates: [] };
@@ -272,7 +275,7 @@ async function routeOutdoorOpportunity(options: {
 
     if (!response.ok) {
         const err = await response.text();
-        throw new Error(`Failed to create Outdoor opportunity: ${err}`);
+        throw new Error(`Failed to create Ifixx 2026 opportunity: ${err}`);
     }
 
     const result = await response.json();
@@ -459,30 +462,28 @@ export const POST: APIRoute = async ({ request }) => {
             throw new Error('GHL did not return a contact ID');
         }
 
-        const isOutdoorLead = allTags.includes('deck-outdoor') || allTags.includes('fence-outdoor');
-        let outdoorRouting: Awaited<ReturnType<typeof routeOutdoorOpportunity>> | undefined;
+        // Route EVERY website lead into the Ifixx 2026 pipeline (New Lead stage),
+        // not just deck/fence. This makes the website the single entry point; GHL then
+        // reacts to "opportunity created in Ifixx 2026" for notification + AI intake.
+        const routing = await routeWebsiteOpportunity({
+            apiKey: GHL_API_KEY,
+            locationId: GHL_LOCATION_ID,
+            contactId,
+            firstName,
+            lastName,
+            service,
+            source: source || 'Website Form',
+            startedAt: requestStartedAt
+        });
 
-        if (isOutdoorLead) {
-            outdoorRouting = await routeOutdoorOpportunity({
-                apiKey: GHL_API_KEY,
-                locationId: GHL_LOCATION_ID,
-                contactId,
-                firstName,
-                lastName,
-                service,
-                source: source || 'Website Form',
-                startedAt: requestStartedAt
-            });
-        }
-
-        console.log(`Lead created: ${contactId} | Tags: ${allTags.join(', ')}${outdoorRouting ? ` | Outdoor routing: ${outdoorRouting.action}` : ''}`);
+        console.log(`Lead created: ${contactId} | Tags: ${allTags.join(', ')} | Ifixx 2026 routing: ${routing.action}`);
 
         return new Response(
             JSON.stringify({
                 success: true,
                 message: 'Lead received successfully',
                 contactId,
-                ...(outdoorRouting && { outdoorRouting })
+                routing
             }),
             { status: 200 }
         );
