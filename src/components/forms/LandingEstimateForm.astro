@@ -85,6 +85,20 @@ const {
     </div>
 
     <div>
+      <label for={`${formId}-zipCode`} class="sr-only">Zip code</label>
+      <input
+        type="text"
+        id={`${formId}-zipCode`}
+        name="zipCode"
+        required
+        inputmode="numeric"
+        autocomplete="postal-code"
+        class="w-full px-4 py-4 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-neutral-900 placeholder-neutral-500"
+        placeholder="Zip code *"
+      />
+    </div>
+
+    <div>
       <label for={`${formId}-issueType`} class="block text-sm font-semibold text-neutral-800 mb-2">
         {issueLabel} *
       </label>
@@ -237,6 +251,7 @@ const {
         lastName: '',
         email: formData.get('email'),
         phone: formData.get('phone'),
+        zipCode: formData.get('zipCode'),
         service: serviceSlug,
         issueType,
         safetyConcern,
