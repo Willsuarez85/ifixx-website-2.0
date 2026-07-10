@@ -29,7 +29,7 @@ The internet is full of DIY tutorials that make every home improvement project l
 
 **Plumbing behind walls** - A dripping faucet is one thing, but anything involving pipes in walls needs professional skills and tools.
 
-**Structural changes** - Never remove walls or make structural modifications without a professional assessment.
+**Structural changes** - Never remove walls or make structural modifications without a professional assessment. Opening up a floor plan is [remodeling](/remodeling) work, not a weekend job.
 
 **Anything with permits** - If the job requires permits, you typically need a qualified contractor.
 

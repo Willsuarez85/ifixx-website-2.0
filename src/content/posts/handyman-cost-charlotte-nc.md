@@ -70,6 +70,8 @@ Prices below reflect typical ranges for residential work in the Charlotte, NC me
 
 *Note: Materials are additional unless otherwise quoted. iFIXX provides transparent line-item pricing before starting work.*
 
+Bigger projects are quoted as projects, not by the hour. A full [kitchen remodel](/remodeling/kitchen-remodeling) or [bathroom remodel](/remodeling/bathroom-remodeling) is scoped and priced on its own—see those pages for what shapes the cost.
+
 ---
 
 ## What Affects the Price of Handyman Work
@@ -126,7 +128,7 @@ Here's what sets us apart:
 - **Wide service range** — drywall, carpentry, TV mounting, doors, ceiling fans, faucets, and more
 - **No franchise markup** — you're working with the people doing the work, not a call center routing you to a sub
 
-We serve all of Charlotte and surrounding communities including Ballantyne, Matthews, Huntersville, Concord, Mooresville, and more.
+We serve South Charlotte and the surrounding communities including Ballantyne, Matthews, Waxhaw, Indian Trail, Weddington, Fort Mill, and Marvin.
 
 ---
 
