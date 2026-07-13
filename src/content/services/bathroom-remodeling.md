@@ -305,12 +305,12 @@ iFIXX provides professional bathroom remodeling services throughout the Charlott
 - **Charlotte:** We serve all Charlotte neighborhoods including Myers Park, Dilworth, South End, NoDa, Plaza Midwood, and surrounding areas
 - **Ballantyne:** Specializing in luxury master bathroom remodels with spa-like features and premium finishes
 - **Matthews:** Family-friendly bathroom designs that balance style and practicality
+- **South Charlotte:** Complete bathroom transformations for SouthPark, Quail Hollow, and the surrounding south corridor
 - **Pineville:** Complete bathroom transformations near the SouthPark area
-- **Concord:** Full bathroom renovations and updates throughout Concord and Kannapolis
-- **Monroe:** Modern bathroom remodeling services in Union County
-- **Pineville:** Bathroom renovations for Pineville and the surrounding Southpark area
-- **Rock Hill, SC:** We proudly serve our South Carolina neighbors just across the state line
-- **Waxhaw:** Historic home bathroom remodeling that respects original character while adding modern function
+- **Waxhaw:** Bathroom remodeling for historic and new-construction homes throughout Union County
+- **Indian Trail:** Modern bathroom remodeling services for growing Union County neighborhoods
+- **Fort Mill, SC:** Bathroom renovations for our South Carolina neighbors just across the state line
+- **Weddington:** Spa-inspired master bathrooms for Weddington and Marvin estates
 
 **No matter where you are in the Charlotte area, iFIXX brings the same quality, attention to detail, and customer service to every bathroom remodeling project.** We understand Charlotte-area homes, from historic bungalows to new construction, and we tailor our approach to fit your home's unique needs.
 

@@ -296,14 +296,14 @@ iFIXX provides professional painting services throughout the Charlotte metro are
 - **Charlotte:** All neighborhoods—Myers Park, Dilworth, Plaza Midwood, NoDa, Elizabeth, South End, and more
 - **Ballantyne:** Luxury homes, high-end finishes, custom color matching for upscale properties
 - **Matthews:** Family homes needing interior and exterior updates, cabinet painting popular
-- **Mint Hill:** Custom color matching, interior transformations, exterior painting and staining
-- **Concord:** Complete paint transformations, inside and out
-- **Monroe:** Modern color updates, cabinet painting, full interior refreshes
+- **South Charlotte:** SouthPark and Quail Hollow homes, high-end finishes, custom color matching
 - **Pineville:** Residential painting specialists, interior and exterior
-- **Rock Hill, SC:** Cross-border service, we work frequently in South Carolina
-- **Waxhaw:** Historic home painting specialists, detailed trim work, period-appropriate colors
+- **Waxhaw:** Historic and new-construction home painting, detailed trim work, period-appropriate colors
+- **Indian Trail:** Interior and exterior painting for growing Union County neighborhoods
+- **Fort Mill, SC:** Cross-border painting service for our South Carolina neighbors
+- **Weddington:** Custom color matching and full interior refreshes for Weddington and Marvin estates
 
-**Additional areas:** Huntersville, Cornelius, Davidson, Pineville, Indian Trail, Fort Mill SC
+**Additional areas:** Marvin, Wesley Chapel, Stallings, Indian Land SC
 
 **Not sure if we cover your area?** Call (980) 391-6833 and ask. We likely do.
 
@@ -388,7 +388,7 @@ Fresh paint transforms your home. Whether you're updating one room or painting t
 
 ### Serving Charlotte Metro & Surrounding Areas
 
-**Main Service Areas:** Charlotte, Ballantyne, Matthews, Mint Hill, Huntersville, Cornelius, Davidson, Pineville, Indian Trail, Monroe, Concord, Rock Hill SC, Fort Mill SC, Waxhaw
+**Main Service Areas:** Charlotte, South Charlotte, Ballantyne, Matthews, Pineville, Waxhaw, Indian Trail, Fort Mill SC, Weddington
 
 **Painting Services:** Interior painting, exterior painting, cabinet painting, trim painting, ceiling painting, deck staining, fence staining, popcorn ceiling removal, color consultation, wallpaper removal, accent walls.
 

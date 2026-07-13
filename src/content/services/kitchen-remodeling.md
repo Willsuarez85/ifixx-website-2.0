@@ -249,12 +249,12 @@ iFIXX provides professional kitchen remodeling services throughout the Charlotte
 - **Charlotte:** We serve all Charlotte neighborhoods including Myers Park, Dilworth, South End, NoDa, Plaza Midwood, and surrounding areas
 - **Ballantyne:** Specializing in luxury kitchen remodels with high-end finishes and custom features
 - **Matthews:** Family-friendly kitchen designs that balance style and durability for busy households
+- **South Charlotte:** Full kitchen remodels for SouthPark, Quail Hollow, and the surrounding south corridor
 - **Pineville:** Custom cabinetry and full kitchen remodels near the SouthPark area
-- **Concord:** Complete kitchen transformations for homes throughout Concord and Kannapolis
-- **Monroe:** Modern kitchen updates and full renovations in Union County
-- **Pineville:** Kitchen remodeling services for Pineville and the surrounding Southpark area
-- **Rock Hill, SC:** We proudly serve our South Carolina neighbors just across the state line
-- **Waxhaw:** Historic home kitchen remodeling with respect for original character
+- **Waxhaw:** Kitchen remodeling for historic and new-construction homes throughout Union County
+- **Indian Trail:** Modern kitchen updates and full renovations for growing Union County neighborhoods
+- **Fort Mill, SC:** Kitchen transformations for our South Carolina neighbors just across the state line
+- **Weddington:** High-end custom kitchens for Weddington and Marvin estates
 
 **No matter where you are in the Charlotte area, iFIXX brings the same quality, attention to detail, and customer service to every kitchen remodeling project.** We're local homeowners ourselves, and we treat your home with the same care we'd want for our own.
 
