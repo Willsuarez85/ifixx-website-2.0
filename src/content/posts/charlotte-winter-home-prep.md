@@ -164,16 +164,19 @@ Power outages happen during winter storms. Be ready.
 
 ## When to Get Help
 
-Most of this checklist is stuff you can handle on a Saturday afternoon. But some things are worth having a professional check:
+Most of this checklist is stuff you can handle on a Saturday afternoon. A few items are best left to a specialist in that trade—heating and furnace tune-ups, or anything involving your roof. When those come up, call a company that does that specific work.
 
-- Heating system tune-ups (especially if your system is over 10 years old)
-- Insulating crawl spaces with plumbing
-- Sealing and insulating attics properly
-- Anything involving your roof
+Where iFIXX fits is the handyman side of winter prep—the tasks that pile up and never quite get done:
 
-If you're not sure whether your home is ready for winter—or if you've got an older Charlotte home with a crawl space and exposed pipes—we're happy to take a look and let you know what actually needs attention.
+- Sealing drafts and air leaks (weatherstripping, window gaps, outlet gaskets on exterior walls)
+- Insulating attic access doors and pull-down stairs
+- Cleaning gutters and repairing sagging or damaged sections before ice season
+- Checking your deck for loose boards, popped nails, and freeze damage
+- General exterior prep—trimming branches away from the house, securing what could blow around
 
-**[Schedule a winter prep assessment →](/contact)**
+If you'd rather knock the whole list out at once—or you've got an older Charlotte home and want a second set of eyes on the handyman items—we can walk the property with you and handle the ones in our wheelhouse. iFIXX is insured, and everything gets done right the first time.
+
+**[Schedule a winter prep visit →](/contact)**
 
 ## Frequently Asked Questions
 
