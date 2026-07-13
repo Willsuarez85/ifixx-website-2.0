@@ -10,8 +10,8 @@ bullets:
   - "Kitchen flooring installation"
   - "Backsplash & tile work"
   - "Appliance installation"
-  - "Lighting & electrical upgrades"
-  - "Plumbing fixture updates"
+  - "Lighting upgrades"
+  - "Faucet & fixture updates"
   - "Kitchen island construction"
 signs:
   - "Outdated cabinets or countertops"
@@ -34,7 +34,7 @@ faqs:
   - q: "Can I use my kitchen during the renovation?"
     a: "We minimize disruption, but there will be periods without a functional kitchen. We can help you plan around this."
   - q: "Do you handle permits?"
-    a: "Yes, we handle all necessary permits for electrical, plumbing, and structural work."
+    a: "Yes. We handle all necessary permits, and any specialty trade work your remodel requires is coordinated with inspected professionals and completed to code."
   - q: "Can you work with my budget?"
     a: "Absolutely. We offer solutions at various price points and can prioritize upgrades that give you the best value."
   - q: "Do you work with my designer or architect?"
@@ -116,9 +116,9 @@ Kitchen floors endure heavy traffic, spills, and temperature changes. We install
 
 Our installation team ensures level subfloors and professional finishing at every transition.
 
-### Lighting & Electrical Upgrades
+### Lighting Upgrades
 
-Good lighting transforms how your kitchen looks and functions. We install:
+Good lighting transforms how your kitchen looks and functions. As part of your remodel we install:
 
 - Recessed LED lights for even ambient lighting
 - Under-cabinet task lighting for prep areas
@@ -126,11 +126,11 @@ Good lighting transforms how your kitchen looks and functions. We install:
 - Dimmer switches for mood control
 - Additional outlets for appliances
 
-When your remodel calls for new circuits or outlets, we coordinate trusted licensed trade specialists, and every detail is inspected to code.
+When your remodel calls for new circuits or outlets, we coordinate trusted, inspected trade specialists, and every detail is completed to code.
 
-### Plumbing Fixtures & Appliances
+### Sinks, Faucets & Appliances
 
-We handle all plumbing updates and appliance installations:
+As part of your remodel we handle sink, faucet, and appliance installations:
 
 - New sinks (undermount, farmhouse, double-bowl)
 - Modern faucets with pull-down sprayers
@@ -149,7 +149,7 @@ A well-designed island adds workspace, storage, and seating. We custom-build isl
 - Storage with cabinets and drawers
 - Seating for casual dining
 - Integrated appliances (wine fridge, microwave drawer)
-- Electrical outlets and USB ports
+- Built-in outlets and USB ports
 
 ## The iFIXX Kitchen Remodeling Process
 
@@ -179,7 +179,7 @@ Once you approve the plan, we start by carefully removing old cabinets, countert
 
 **5. Rough-In Work (Week 3-4)**
 
-We coordinate licensed electricians and plumbers to run new lines as needed. This is when outlets get relocated, new lighting circuits go in, and plumbing gets updated for your new layout.
+We prepare the space for your new layout. Any permitted trade work your remodel requires — relocating outlets, adding lighting circuits, or updating connections for your new layout — is coordinated with inspected specialists and scheduled for inspection.
 
 **6. Installation (Week 4-7)**
 
@@ -210,7 +210,7 @@ We keep pricing simple with three clear levels of transformation. Smaller kitche
 - Subway tile backsplash
 - Stainless steel sink + faucet
 - Basic knobs and hardware
-- *Excludes: appliances, plumbing relocation, permits*
+- *Excludes: appliances, fixture relocation, permits*
 
 **Complete Renovation: starting at $20,000** (standard 10'x10')
 - Up to 20 NKBC wood cabinets (100% wood, soft-close)
@@ -218,7 +218,7 @@ We keep pricing simple with three clear levels of transformation. Smaller kitche
 - Custom backsplash
 - Farmhouse sink + garbage disposal
 - Premium hardware
-- Plumbing upgrades (coordinated & to code)
+- Fixture & connection upgrades (coordinated & to code)
 - *Excludes: major layout changes, high-end custom finishes, appliances*
 
 **Luxury Custom Kitchen: starting at $35,000** (custom size/layout)
@@ -238,7 +238,7 @@ We keep pricing simple with three clear levels of transformation. Smaller kitche
 - Flooring type
 - Lighting complexity
 
-We offer free, detailed estimates so you know exactly what to expect. We can also work with you to prioritize upgrades that fit your budget while delivering maximum impact.
+We offer free, detailed estimates so you know exactly what to expect. We can also work with you to prioritize upgrades that fit your budget while delivering maximum impact. For a line-by-line breakdown of what drives kitchen remodel pricing in Charlotte, see our [kitchen remodel cost guide](/blog/how-much-kitchen-remodel-charlotte).
 
 ## Service Areas Throughout the Charlotte Metro
 
@@ -267,7 +267,7 @@ We're not a national franchise. We're a Charlotte family who lives and works in 
 We've transformed kitchens across every Charlotte neighborhood. From historic bungalows to modern new builds, we've seen it all.
 
 **Quality Craftsmanship**
-Our team includes experienced carpenters, tile setters, and finish specialists, and we coordinate licensed trade pros for electrical and plumbing. We don't cut corners, and we don't call it done until it's perfect.
+Our team includes experienced carpenters, tile setters, and finish specialists, and we coordinate inspected trade pros for any specialty work your remodel requires. We don't cut corners, and we don't call it done until it's perfect.
 
 **Transparent Communication**
 You'll always know what's happening, what's next, and what it costs. No surprises, no hidden fees.

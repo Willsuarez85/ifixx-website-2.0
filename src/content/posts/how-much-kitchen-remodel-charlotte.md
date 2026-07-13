@@ -162,7 +162,7 @@ Most Charlotte homeowners use one of these options:
 
 ## Questions to Ask Your Charlotte Kitchen Contractor
 
-1. Are you licensed and insured in North Carolina?
+1. Are you insured and bonded in North Carolina?
 2. Do you pull permits for kitchen remodels?
 3. What's included in your quote vs. what's extra?
 4. How do you handle unexpected issues (rotted subfloor, outdated wiring)?
@@ -178,7 +178,7 @@ Charlotte's hot real estate market means homes with updated kitchens sell faster
 
 ## Ready to Start Your Charlotte Kitchen Remodel?
 
-We've completed [150+ kitchen projects across Charlotte](/charlotte/kitchen-remodeling/) — from historic Dilworth bungalows to modern Ballantyne homes. Our local team knows Charlotte neighborhoods, permit requirements, and trusted suppliers.
+We've completed [150+ kitchen projects across Charlotte](/remodeling/kitchen-remodeling) — from historic Dilworth bungalows to modern Ballantyne homes. Our local team knows Charlotte neighborhoods, permit requirements, and trusted suppliers.
 
 **Why Charlotte homeowners choose iFixx:**
 
@@ -198,7 +198,7 @@ We've completed [150+ kitchen projects across Charlotte](/charlotte/kitchen-remo
 
 ---
 
-*iFixx serves Charlotte, Matthews, Ballantyne, Huntersville, Concord, and surrounding areas. Licensed, insured, and locally owned.*
+*iFixx serves Charlotte, South Charlotte, Ballantyne, Matthews, Waxhaw, and surrounding areas. Insured and locally owned.*
 
 ## Frequently Asked Questions — Kitchen Remodel Cost Charlotte NC
 
@@ -212,7 +212,7 @@ The average kitchen remodel in Charlotte is $25,000-$35,000 for a mid-range reno
 A minor kitchen update takes 1-2 weeks. A full kitchen remodel in Charlotte takes 4-8 weeks — including demo, rough work, cabinet installation, countertops, and finishing. iFIXX provides a detailed project schedule before starting.
 
 **Does iFIXX do kitchen remodels near me in Charlotte?**
-Yes. iFIXX serves Charlotte, Matthews, Huntersville, Ballantyne, South Charlotte, Concord, and surrounding areas. Call (980) 391-6833 for a free in-home estimate.
+Yes. iFIXX serves Charlotte, South Charlotte, Ballantyne, Matthews, Pineville, and Waxhaw. Call (980) 391-6833 for a free in-home estimate.
 
 **How much does a kitchen island cost to add in Charlotte?**
 Adding a kitchen island in Charlotte costs $3,000-$12,000 depending on size, materials, and whether plumbing or electrical is involved. A simple stationary island with countertop runs $3,000-$5,000. A large island with seating and plumbing for a sink can reach $8,000-$12,000.
