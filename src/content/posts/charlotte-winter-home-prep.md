@@ -109,6 +109,8 @@ Charlotte doesn't get heavy snow often, but ice storms can create similar proble
 - Clear leaves and debris that trap moisture against the wood
 - If you haven't sealed your deck recently, water can get into cracks and cause freeze damage
 
+If a freeze has already taken its toll—split boards, popped nails, or soft spots underfoot—our [deck repair team in South Charlotte](/deck-repair-south-charlotte) can assess the damage and restore it before spring.
+
 ## Emergency Prep
 
 Power outages happen during winter storms. Be ready.
