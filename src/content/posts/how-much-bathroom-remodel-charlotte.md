@@ -184,7 +184,7 @@ Most Charlotte homeowners use one of these options:
 
 ## Questions to Ask Your Charlotte Bathroom Contractor
 
-1. Are you licensed and insured in North Carolina?
+1. Are you insured and bonded in North Carolina?
 2. Do you pull permits for bathroom remodels?
 3. How do you handle waterproofing?
 4. What's included in your quote vs. what's extra?
@@ -200,7 +200,7 @@ More importantly: you use your bathroom multiple times a day. An updated bathroo
 
 ## Ready to Start Your Charlotte Bathroom Remodel?
 
-We've completed [200+ bathroom projects across Charlotte](/charlotte/bathroom-remodeling/) — from historic Dilworth bungalows to modern Ballantyne homes.
+We've completed [200+ bathroom projects across Charlotte](/remodeling/bathroom-remodeling) — from historic Dilworth bungalows to modern Ballantyne homes.
 
 **Why Charlotte homeowners choose iFixx:**
 
@@ -213,7 +213,7 @@ We've completed [200+ bathroom projects across Charlotte](/charlotte/bathroom-re
 
 ---
 
-*iFixx serves Charlotte, Matthews, Ballantyne, Huntersville, Concord, and surrounding areas. Licensed, insured, and locally owned.*
+*iFixx serves Charlotte, South Charlotte, Ballantyne, Matthews, Waxhaw, and surrounding areas. Insured and locally owned.*
 
 ## Frequently Asked Questions — Bathroom Remodel Cost Charlotte NC
 
@@ -226,8 +226,8 @@ A small bathroom (powder room or guest bath) remodel in Charlotte costs $5,000-$
 **How long does a bathroom remodel take in Charlotte?**
 Most bathroom remodels in Charlotte take 1-3 weeks. A powder room refresh takes 3-5 days. A full master bath renovation with custom tile and a new shower takes 2-4 weeks. iFIXX provides a project timeline upfront before starting.
 
-**Does iFIXX do bathroom remodels in Matthews and Huntersville?**
-Yes. iFIXX serves the entire Charlotte metro including Matthews, Huntersville, Ballantyne, South Charlotte, Concord, and Mint Hill. Same team, same pricing, same quality everywhere we work.
+**Does iFIXX do bathroom remodels in Matthews and Waxhaw?**
+Yes. iFIXX serves the greater Charlotte metro including Matthews, Ballantyne, South Charlotte, Pineville, and Waxhaw. Same team, same pricing, same quality everywhere we work.
 
 **Is it cheaper to remodel a bathroom yourself or hire a contractor in Charlotte?**
 DIY can save 30-40% on labor but adds risk — especially for tile, plumbing, and waterproofing. A botched waterproofing job can cause mold damage that costs more to fix than the original remodel. For most Charlotte homeowners, hiring a professional handyman or contractor for bathroom remodels is the safer, faster choice.

@@ -11,7 +11,7 @@ bullets:
   - "Toilet installation"
   - "Flooring installation"
   - "Lighting & ventilation upgrades"
-  - "Plumbing fixture updates"
+  - "Faucet & fixture updates"
   - "Accessibility modifications"
 signs:
   - "Outdated fixtures or tile"
@@ -25,7 +25,7 @@ processSteps:
   - title: "Material Selection"
     description: "Choose tile, fixtures, vanities, and finishes from our curated selection."
   - title: "Expert Installation"
-    description: "Our team handles demolition, plumbing, electrical, tile, and finishing work."
+    description: "Our team handles demolition, tile, vanities, fixtures, and finishing work, coordinating any permitted trade work to code."
   - title: "Quality Inspection"
     description: "We ensure everything is watertight, functional, and beautiful before completion."
 faqs:
@@ -33,8 +33,8 @@ faqs:
     a: "Most bathroom remodels take 2-4 weeks. We'll provide a specific timeline based on your project scope."
   - q: "Can you convert my tub to a walk-in shower?"
     a: "Yes! Tub-to-shower conversions are one of our most popular services. We can also install walk-in tubs."
-  - q: "Do you handle plumbing and electrical?"
-    a: "Yes, all plumbing and electrical work in your remodel is handled by licensed trade specialists we coordinate, with permits and inspections so everything is done to code."
+  - q: "Do you handle the whole remodel, including the trade work?"
+    a: "Yes. We manage your bathroom remodel end to end, from demolition and waterproofing to tile, vanities, and fixture installation. Any permitted specialty trade work is coordinated with inspected professionals so every part of the job is completed to code."
   - q: "Can you make my bathroom more accessible?"
     a: "Absolutely. We install grab bars, walk-in tubs, curbless showers, and other accessibility features."
   - q: "Can I stay in my home during the remodel?"
@@ -146,7 +146,7 @@ The right vanity provides essential storage while setting your bathroom's style:
 - Drawer organizers
 - Pull-out storage solutions
 
-### Plumbing Fixtures & Accessories
+### Fixtures & Accessories
 
 Modern fixtures improve both function and style:
 
@@ -236,7 +236,7 @@ We carefully remove old fixtures, tile, and flooring. We protect your home with 
 
 **5. Rough-In & Waterproofing (Week 2-3)**
 
-We coordinate licensed plumbers and electricians to install new lines, relocate fixtures, and update wiring. We install proper waterproofing membranes in wet areas, critical for long-term durability.
+We prepare the space for your new layout and install proper waterproofing membranes in wet areas, critical for long-term durability. Any permitted trade work your remodel requires is coordinated with inspected specialists and scheduled for inspection.
 
 **6. Installation (Week 3-4)**
 
@@ -266,7 +266,7 @@ We keep pricing simple with three clear levels of transformation. Smaller bathro
 - Basic faucet & hardware
 - Decorative tile above the tub (no tub-to-shower conversion)
 - Flooring: luxury vinyl (LVP) or 12"x24" ceramic tile
-- *Excludes: shower glass, plumbing relocation, permits*
+- *Excludes: shower glass, fixture relocation, permits*
 
 **Complete Renovation: starting at $20,000** (standard 5'x10')
 - Tub-to-shower conversion with tile up to the ceiling
@@ -275,7 +275,7 @@ We keep pricing simple with three clear levels of transformation. Smaller bathro
 - Upgraded vanity, sink, faucet, and lighting
 - Flooring: premium ceramic tile or LVP
 - Frameless shower glass
-- Full plumbing upgrades (coordinated & to code) + new ventilation
+- Full fixture upgrades (coordinated & to code) + new ventilation
 - *Excludes: major layout changes, wall relocations, luxury/custom finishes*
 
 **Spa Experience: starting at $30,000** (custom size/layout)
@@ -290,11 +290,11 @@ We keep pricing simple with three clear levels of transformation. Smaller bathro
 - Fixture quality
 - Tile selection
 - Vanity customization
-- Plumbing relocations
-- Electrical upgrades
+- Fixture relocations
+- Lighting upgrades
 - Accessibility features
 
-We offer free, detailed estimates so you know exactly what to expect. We can also help you prioritize elements that deliver the most impact within your budget.
+We offer free, detailed estimates so you know exactly what to expect. We can also help you prioritize elements that deliver the most impact within your budget. For a room-by-room breakdown of what drives bathroom remodel pricing in Charlotte, see our [bathroom remodel cost guide](/blog/how-much-bathroom-remodel-charlotte).
 
 ## Service Areas Throughout the Charlotte Metro
 
@@ -326,7 +326,7 @@ We've transformed bathrooms in every type of Charlotte home. From tiny powder ro
 Tile makes or breaks a bathroom remodel. Our tile setters have decades of combined experience and take pride in perfectly straight lines and consistent grout joints.
 
 **Code-Compliant Trade Work**
-All plumbing and electrical work is performed by licensed trade specialists we coordinate. We pull permits and schedule inspections to ensure everything is done to code.
+Any specialty trade work your remodel requires is coordinated with inspected professionals. We pull permits and schedule inspections so everything is done to code.
 
 **Transparent Pricing**
 You'll receive a detailed written estimate before we start. No hidden fees, no surprises. If something unexpected comes up during demolition, we discuss it before moving forward.
