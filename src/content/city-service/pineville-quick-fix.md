@@ -2,12 +2,12 @@
 citySlug: "pineville"
 serviceSlug: "quick-fix"
 
-localIntro: "Small jobs matter too—and Pineville homeowners know they can call iFixx for the quick repairs that other companies won't bother with. Our team has completed 500+ quick-fix projects across this South Charlotte community, from squeaky doors in Carolina Place townhomes to leaky faucets in McMullen Creek. No job is too small, and we bring the same professionalism to a 30-minute repair as we do to a major renovation."
+localIntro: "Small jobs matter too—and Pineville homeowners know they can call iFixx for the quick repairs that other companies won't bother with. Our team has completed 500+ quick-fix projects across this South Charlotte community, from squeaky doors in Carolina Place townhomes to light fixtures waiting to be swapped in McMullen Creek. No job is too small, and we bring the same professionalism to a 30-minute repair as we do to a major renovation."
 
 projectHighlight:
   title: "Move-In Ready Punch List in Carmel Commons"
   neighborhood: "Carmel Commons"
-  description: "A Pineville family closing on their new home had a punch list of small issues to address before move-in: three doors that didn't latch, a bathroom exhaust fan that wasn't working, two loose towel bars, a dripping kitchen faucet, and several wall repairs from previous picture hangings. We knocked out the entire list in one 3-hour visit, so they could move in with everything working perfectly."
+  description: "A Pineville family closing on their new home had a punch list of small issues to address before move-in: three doors that didn't latch, a bathroom exhaust fan that needed replacing, two loose towel bars, a kitchen faucet to swap out, and several wall repairs from previous picture hangings. We knocked out the entire list in one 3-hour visit, so they could move in with everything working perfectly."
 
 localBullets:
   - "500+ quick-fix projects completed across Pineville"
@@ -19,7 +19,7 @@ localBullets:
 
 localFaqs:
   - q: "What counts as a quick fix?"
-    a: "Quick fixes are small repairs that typically take under 2 hours: fixing doors that stick or don't latch, repairing leaky faucets, patching holes in drywall, replacing outlets and switches, fixing running toilets, adjusting cabinet doors, caulking tubs and showers, replacing light fixtures, and more. If it's been on your to-do list, we can probably help."
+    a: "Quick fixes are small repairs that typically take under 2 hours: fixing doors that stick or don't latch, replacing faucets and shower heads, patching holes in drywall, replacing outlets and switches, mounting TVs, adjusting cabinet doors, caulking tubs and showers, replacing light fixtures and ceiling fans, and more. If it's been on your to-do list, we can probably help."
   - q: "How much does a quick fix cost in Pineville?"
     a: "Most quick fixes run $85-$175 depending on the repair. We have a minimum service charge of $85, which covers the trip and up to 30 minutes of work. Beyond that, work is priced based on complexity. We provide upfront pricing before starting."
   - q: "Can you handle multiple small repairs in one visit?"
@@ -32,7 +32,7 @@ localFaqs:
     a: "Yes, we offer Saturday appointments for Pineville homeowners who can't take time off during the week. Same rates as weekdays for most services."
 
 localInfo:
-  permits: "Most quick-fix repairs don't require permits. If we discover work that does require permits (like certain electrical or fixture work), we'll advise you on next steps."
+  permits: "Most quick-fix installs and repairs don't require permits. If a job needs a licensed specialist—like pipes, drains, or new circuits and panels—we'll refer you to one. iFixx is fully insured for the handyman work we do."
   regulations: "All repairs meet applicable codes and safety standards."
   hoaConsiderations: "Quick fixes are typically interior work that doesn't require HOA notification."
 
@@ -43,7 +43,7 @@ seo:
 
 ## Professional Quick-Fix Services in Pineville
 
-That dripping faucet. The door that won't close. The hole in the wall you've been ignoring. Pineville homeowners call iFixx because we actually show up for small jobs—and we do them right. After 500+ quick fixes across this South Charlotte community, we're the trusted choice for repairs that other companies won't touch.
+That faucet that needs swapping. The door that won't close. The hole in the wall you've been ignoring. Pineville homeowners call iFixx because we actually show up for small jobs—and we do them right. After 500+ quick fixes across this South Charlotte community, we're the trusted choice for repairs that other companies won't touch.
 
 ### Common Quick Fixes We Handle
 
@@ -55,12 +55,12 @@ That dripping faucet. The door that won't close. The hole in the wall you've bee
 - Deadbolt installation
 - Weather stripping replacement
 
-**Fixtures & Faucets**
-- Dripping faucets
-- Running toilets
-- Loose faucet handles
-- Showerhead replacement
-- Garbage disposal fixes
+**Fixture Installs & Swaps**
+- Faucet replacement
+- Shower head replacement
+- Towel bar and grab bar installation
+- Bathroom exhaust fan replacement
+- TV mounting
 
 **Drywall & Walls**
 - Small hole patching
@@ -69,12 +69,12 @@ That dripping faucet. The door that won't close. The hole in the wall you've bee
 - Towel bar and grab bar installation
 - Shelf installation
 
-**Electrical Fixtures**
+**Lights, Fans & Fixtures**
 - Light fixture replacement
 - Outlet and switch replacement
-- Ceiling fan issues
+- Ceiling fan installation
 - Dimmer installation
-- Doorbell repair
+- Doorbell replacement
 
 **Cabinet & Closet**
 - Cabinet door adjustments
@@ -127,8 +127,8 @@ No hourly billing that runs up the clock. Most quick fixes have flat-rate pricin
 |--------|--------------|
 | Fix sticking door | $85 - $125 |
 | Repair door that won't latch | $85 - $125 |
-| Fix dripping faucet | $85 - $150 |
-| Fix running toilet | $95 - $150 |
+| Replace faucet | $85 - $150 |
+| Install ceiling fan | $95 - $150 |
 | Patch small drywall hole | $75 - $125 |
 | Replace outlet or switch | $85 - $125 |
 | Replace light fixture | $95 - $150 |

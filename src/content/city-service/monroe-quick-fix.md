@@ -2,12 +2,12 @@
 citySlug: "monroe"
 serviceSlug: "quick-fix"
 
-localIntro: "Not every home repair needs a major project—sometimes you just need that leaky faucet fixed, a door adjusted, or a few pictures hung. Monroe homeowners trust iFixx for quick, professional handling of those small but annoying tasks. Our Quick Fix service tackles your to-do list so you can spend your time on things you actually enjoy."
+localIntro: "Not every home task needs a major project—sometimes you just need a faucet swapped out, a wobbly ceiling fan sorted, or a few pictures hung. Monroe homeowners trust iFixx for quick, professional handling of those small but annoying tasks. Our Quick Fix service tackles your to-do list so you can spend your time on things you actually enjoy."
 
 projectHighlight:
   title: "Downtown Monroe Honey-Do List"
   neighborhood: "Downtown Monroe"
-  description: "A Downtown Monroe homeowner had accumulated a list of small tasks—squeaky door hinges, loose cabinet handles, a running toilet, caulking in the bathroom, and a ceiling fan that wobbled. In a single 3-hour visit, we knocked out every item on the list. The homeowner was thrilled to finally cross these off after months of meaning to get to them."
+  description: "A Downtown Monroe homeowner had accumulated a list of small tasks—squeaky door hinges, loose cabinet handles, a light fixture that needed swapping, caulking in the bathroom, and a ceiling fan that wobbled. In a single 3-hour visit, we knocked out every item on the list. The homeowner was thrilled to finally cross these off after months of meaning to get to them."
 
 localBullets:
   - "Same-day service for urgent small repairs"
@@ -19,7 +19,7 @@ localBullets:
 
 localFaqs:
   - q: "What counts as a 'quick fix'?"
-    a: "Quick fixes are small tasks that typically take under an hour each—dripping faucets, running toilets, squeaky doors, loose handles, picture hanging, caulking, small drywall patches, and similar items. If you've got a to-do list of small stuff, Quick Fix service is for you."
+    a: "Quick fixes are small tasks that typically take under an hour each—swapping out faucets and fixtures, ceiling fans, light fixtures, squeaky doors, loose handles, picture hanging, caulking, small drywall patches, and similar items. If you've got a to-do list of small stuff, Quick Fix service is for you."
   - q: "How much does Quick Fix service cost in Monroe?"
     a: "Quick Fix service in Monroe runs $75-$125 per hour depending on the tasks involved. There's a 1-hour minimum. Most customers book 2-3 hours to tackle multiple items and get the best value from our visit."
   - q: "Can you fix multiple things in one visit?"
@@ -29,7 +29,7 @@ localFaqs:
   - q: "What if the repair turns out to be bigger than expected?"
     a: "We'll let you know before proceeding with anything beyond the quick fix scope. If a 'quick fix' turns into a bigger issue, we'll explain what's needed and provide a quote for the additional work. No surprises."
   - q: "Do you bring parts and supplies?"
-    a: "We carry common parts like faucet washers, toilet flappers, caulk, touch-up paint supplies, and basic hardware. For specific items (like a particular faucet or fixture), you'll need to provide the part or we can pick it up and add the cost to your bill."
+    a: "We carry common supplies like caulk, touch-up paint supplies, and basic hardware. For specific items (like a particular faucet, ceiling fan, or light fixture), you'll need to provide the part or we can pick it up and add the cost to your bill."
 
 localInfo:
   permits: "Quick fix repairs typically don't require permits in Monroe."
@@ -47,12 +47,10 @@ Every homeowner has a list—those small repairs and tasks that aren't urgent bu
 
 ### What We Fix
 
-**Plumbing Quick Fixes**
-- Dripping faucets
-- Running toilets
-- Slow drains
-- Loose faucet handles
+**Fixture Installs & Swaps**
+- Faucet replacement
 - Showerhead replacement
+- Cabinet handle and knob swaps
 - Caulking around tubs and sinks
 
 **Door & Window Quick Fixes**
@@ -71,12 +69,12 @@ Every homeowner has a list—those small repairs and tasks that aren't urgent bu
 - Picture and mirror hanging
 - Shelf installation
 
-**Electrical Quick Fixes**
-- Light switch and outlet covers
+**Lights, Fans & Fixtures**
+- Light fixture install and replacement
+- Ceiling fan install and replacement
+- Outlet and switch swaps (where wiring and box exist)
 - Smoke detector installation
 - Light bulb replacement (high ceilings)
-- Ceiling fan balancing
-- Doorbell repair
 
 **Exterior Quick Fixes**
 - Mailbox repair
@@ -119,13 +117,13 @@ Small problems shouldn't require a long wait. We offer same-day Quick Fix appoin
 | Tasks | Typical Time | Estimated Cost |
 |-------|--------------|----------------|
 | 3-4 simple items (hinges, caulking, handles) | 1 hour | $75 - $100 |
-| Medium list (toilet, door, patches, hanging) | 2 hours | $150 - $200 |
+| Medium list (faucet swap, door, patches, hanging) | 2 hours | $150 - $200 |
 | Full to-do list (8-12 items) | 3 hours | $225 - $300 |
 
 ### What's Included
 
 - Labor for all repairs
-- Basic supplies (caulk, washers, touch-up materials)
+- Basic supplies (caulk, touch-up materials, basic hardware)
 - Problem assessment
 - Professional execution
 - Cleanup
