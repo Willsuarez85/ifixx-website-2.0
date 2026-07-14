@@ -2,30 +2,30 @@
 citySlug: "ballantyne"
 serviceSlug: "quick-fix"
 
-localIntro: "Between work, kids' activities, and everything else on your plate, those small repairs keep getting pushed to 'next weekend.' The leaky faucet, the door that won't latch, the wobbly ceiling fan—Ballantyne homeowners know the list never stops growing. Our Quick Fix service handles the little things so you can focus on what matters. One call, one visit, multiple items checked off your list. We serve Ballantyne Country Club, Ardrey Kell, Providence Plantation, and surrounding neighborhoods."
+localIntro: "Between work, kids' activities, and everything else on your plate, those small repairs keep getting pushed to 'next weekend.' The wobbly ceiling fan, the light fixture waiting to be swapped, the door that won't latch—Ballantyne homeowners know the list never stops growing. Our Quick Fix service handles the little things so you can focus on what matters. One call, one visit, multiple items checked off your list. We serve Ballantyne Country Club, Ardrey Kell, Providence Plantation, and surrounding neighborhoods."
 
 projectHighlight:
   title: "New Homeowner Fix-It Day in Ardrey Kell"
   neighborhood: "Ardrey Kell"
-  description: "The Garcias just moved into their Ardrey Kell home and had a list of things the previous owners left undone: toilet running constantly, three doors sticking, missing door stops throughout, loose towel bars in both bathrooms, garage door weather stripping hanging loose, smoke detectors chirping, and several outlet covers missing. Our handyman handled all seven items in a single morning visit, getting their new home in proper working order."
+  description: "The Garcias just moved into their Ardrey Kell home and had a list of things the previous owners left undone: an old bathroom faucet to swap out, three doors sticking, missing door stops throughout, loose towel bars in both bathrooms, garage door weather stripping hanging loose, smoke detectors chirping, and several outlet covers missing. Our handyman handled all seven items in a single morning visit, getting their new home in proper working order."
 
 localBullets:
   - "Small repairs and quick fixes throughout Ballantyne"
   - "One visit handles multiple items—no job too small"
   - "Same-day and next-day service available"
-  - "Fixture repairs, door adjustments, mounting and installation"
+  - "Fixture installs and swaps, door adjustments, mounting and installation"
   - "Flat rate or hourly options"
   - "Trusted by Ballantyne families for 5+ years"
 
 localFaqs:
   - q: "What repairs does Quick Fix cover?"
-    a: "Quick Fix handles small repairs and installations: running toilets, leaky faucets, door adjustments, drywall patches, picture hanging, shelf mounting, light fixture replacement, ceiling fan installation, caulking, weather stripping, smoke detector installation, and more. Basically anything that takes under 2 hours per item."
+    a: "Quick Fix handles small repairs and installations: faucet replacement, shower head swaps, door adjustments, drywall patches, picture hanging, shelf mounting, light fixture replacement, ceiling fan installation, outlet and switch swaps, TV mounting, caulking, weather stripping, smoke detector installation, and more. Basically anything that takes under 2 hours per item."
   - q: "How much does Quick Fix service cost in Ballantyne?"
     a: "We offer hourly rates ($75-$95/hour with a 1-hour minimum) or flat rates for specific tasks. Multiple small items in one visit often make the hourly rate most economical. We'll discuss pricing options when you describe your list."
   - q: "Is there a minimum charge?"
     a: "Yes, there's a 1-hour minimum for Quick Fix visits. That's why we encourage making a list—combine multiple small repairs to get the most value from your service call."
-  - q: "Can you fix plumbing fixtures?"
-    a: "We handle fixture repairs—running toilets, leaky faucets, dripping showerheads, garbage disposal issues, and similar items. We repair and replace fixtures. For actual pipe work or drain issues, you'd need a specialized professional."
+  - q: "Do you install or replace fixtures?"
+    a: "Yes—we install and replace fixtures like faucets, shower heads, and light fixtures where the connections already exist. Swapping an old faucet for a new one, upgrading a shower head, or putting in a new fixture is exactly the kind of handyman work we do. For actual pipe work, drains, or repairs inside the wall, we'll point you to a licensed specialist—iFIXX is insured for the handyman work we do."
   - q: "Do you install ceiling fans and light fixtures?"
     a: "Yes, we install ceiling fans and light fixtures where a junction box already exists. This includes assembly, mounting, wiring to the existing circuit, and programming remotes. We don't run new electrical circuits—that would be a larger project."
   - q: "How quickly can you come to Ballantyne?"
@@ -45,13 +45,13 @@ seo:
 
 ## Quick Fix Handyman Service in Ballantyne, NC
 
-Every Ballantyne homeowner has The List—that running tally of small repairs that need doing but never seem urgent enough to prioritize. The faucet that drips. The door that sticks. The shelf you've been meaning to hang for six months. 
+Every Ballantyne homeowner has The List—that running tally of small repairs that need doing but never seem urgent enough to prioritize. The faucet you've been meaning to replace. The door that sticks. The shelf you've been meaning to hang for six months. 
 
 Quick Fix is how The List finally gets done.
 
 ### How Quick Fix Works
 
-**Make Your List**: Write down everything that's been bugging you. The dripping faucet. The squeaky door. The smoke detector that beeps at 3am.
+**Make Your List**: Write down everything that's been bugging you. The faucet that needs swapping. The squeaky door. The smoke detector that beeps at 3am.
 
 **Schedule a Visit**: Call or text us. We often have same-day or next-day availability in Ballantyne.
 
@@ -61,11 +61,11 @@ Quick Fix is how The List finally gets done.
 
 ## Common Quick Fix Repairs in Ballantyne
 
-### Fixture Repairs
-- Running toilets (flapper, fill valve)
-- Leaky faucets (cartridge replacement)
-- Dripping showerheads
-- Garbage disposal issues
+### Fixture Installs & Swaps
+- Faucet replacement (install new faucet)
+- Shower head replacement
+- Light fixture installation
+- Ceiling fan installation (existing box)
 - Loose toilet seats
 
 ### Doors & Hardware
@@ -82,12 +82,12 @@ Quick Fix is how The List finally gets done.
 - TV mounting
 - Towel bar and toilet paper holder installation
 
-### Electrical (Basic)
-- Ceiling fan installation (existing box)
-- Light fixture replacement
+### Lights, Fans & Fixtures
+- Outlet and switch swaps (device replacement)
 - Outlet cover replacement
 - Smoke detector installation
-- Doorbell repair
+- Light fixture replacement
+- Ceiling fan replacement (existing box)
 
 ### General Maintenance
 - Caulking (tubs, sinks, windows)
@@ -108,7 +108,7 @@ Quick Fix is how The List finally gets done.
 ### Sample Visit
 
 **The Garcia Family's New Home Repairs (Ardrey Kell)**:
-- ✓ Fix running toilet
+- ✓ Replace bathroom faucet
 - ✓ Adjust three sticking doors  
 - ✓ Install door stops (8)
 - ✓ Remount loose towel bars (3)
@@ -122,7 +122,7 @@ Quick Fix is how The List finally gets done.
 
 ### Time is Valuable
 
-Between careers, kids, and everything Ballantyne life involves, you don't have time to diagnose a running toilet or figure out why a door won't close. We do.
+Between careers, kids, and everything Ballantyne life involves, you don't have time to swap out a worn faucet or figure out why a door won't close. We do.
 
 ### No Job Too Small
 
