@@ -687,11 +687,6 @@
       "permanent": true
     },
     {
-      "source": "/monroe/quick-fix",
-      "destination": "/charlotte/quick-fix",
-      "permanent": true
-    },
-    {
       "source": "/monroe/tv-mounting",
       "destination": "/charlotte/tv-mounting",
       "permanent": true
@@ -803,6 +798,14 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/monroe/quick-fix",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/monroe/quick-fix/",
+      "destination": "/api/gone"
+    },
     {
       "source": "/services/plumbing",
       "destination": "/api/gone"
