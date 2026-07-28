@@ -42,13 +42,32 @@ export const SERVICE_AREA_ONLY_CITIES = ['mint-hill'] as const;
 //                         301'd to /remodeling (see vercel.json).
 export const RETIRED_SERVICES = ['plumbing', 'electrical-fixtures', 'basement-finishing'] as const;
 
+// Services consolidated into a single canonical page: they are still offered, but they
+// have NO /{city}/{service} page — the matrix skips them, and vercel.json 301s the old
+// city URLs to the silo. Anything that links to a city x service URL must route these
+// to the silo (or to the zone hub) instead, or it links to a hard 404.
+// Single source of truth: the matrix generator and every page that links into it read
+// this list. It used to be duplicated inline in two files and drifted into 404s.
+export const CONSOLIDATED_SERVICES = [
+  'kitchen-remodeling',
+  'bathroom-remodeling',
+  'painting',
+  'drywall',
+] as const;
+
 const retiredCities: readonly string[] = RETIRED_CITIES;
 const retiredServices: readonly string[] = RETIRED_SERVICES;
 const serviceAreaOnlyCities: readonly string[] = SERVICE_AREA_ONLY_CITIES;
+const consolidatedServices: readonly string[] = CONSOLIDATED_SERVICES;
 
 export const isRetiredCity = (slug: string): boolean => retiredCities.includes(slug);
 export const isRetiredService = (slug: string): boolean => retiredServices.includes(slug);
 export const isServiceAreaOnlyCity = (slug: string): boolean => serviceAreaOnlyCities.includes(slug);
+export const isConsolidatedService = (slug: string): boolean => consolidatedServices.includes(slug);
+
+/** True when the /{city}/{service} page actually exists. Use before linking to one. */
+export const hasCityServicePage = (citySlug: string, serviceSlug: string): boolean =>
+  !isRetiredCity(citySlug) && !isRetiredService(serviceSlug) && !isConsolidatedService(serviceSlug);
 
 /** True when /service-areas/{slug} should exist: an in-focus city, or a service-area-only one. */
 export const hasServiceAreaHub = (slug: string): boolean =>

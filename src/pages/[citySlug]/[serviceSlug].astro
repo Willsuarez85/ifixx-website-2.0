@@ -7,15 +7,12 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 import LandingForm from '../../components/forms/LandingForm.astro';
-import { isRetiredCity, isRetiredService } from '../../lib/seo-retired';
+import { isRetiredCity, isRetiredService, isConsolidatedService, hasCityServicePage } from '../../lib/seo-retired';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
   const cities = await getCollection('cities');
   const cityServiceContent = await getCollection('city-service');
-
-  // Services consolidated to canonical pages (exclude from city-level generation)
-  const consolidatedServices = ['kitchen-remodeling', 'bathroom-remodeling', 'painting', 'drywall'];
 
   const paths = [];
 
@@ -26,7 +23,7 @@ export async function getStaticPaths() {
     }
     for (const service of services) {
       // Skip generating city+service pages for consolidated services
-      if (consolidatedServices.includes(service.slug)) {
+      if (isConsolidatedService(service.slug)) {
         continue;
       }
       // SEO cleanup (2026-06): skip services iFIXX does not offer (301'd in vercel.json)
@@ -614,7 +611,7 @@ const mapEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qb
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {relatedServices.map(s => (
-                <a href={`/${city.slug}/${s.slug}`} class="flex items-center gap-3 p-4 bg-white rounded-lg border border-neutral-200 hover:border-primary-400 hover:shadow-md transition-all">
+                <a href={hasCityServicePage(city.slug, s.slug) ? `/${city.slug}/${s.slug}` : `/${s.data.pillar}/${s.slug}`} class="flex items-center gap-3 p-4 bg-white rounded-lg border border-neutral-200 hover:border-primary-400 hover:shadow-md transition-all">
                   <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                   </svg>
