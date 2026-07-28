@@ -10,89 +10,6 @@ const phoneNumber = "(980) 391-6833";
 const phoneHref = "tel:+19803916833";
 const email = "ifixx.hs@gmail.com";
 
-// LocalBusiness + ContactPoint Schema for Contact Page
-const contactPageSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://www.ifixxnc.com/#business",
-  "name": "iFixx Remodeling & Handyman Services",
-  "description": "Professional handyman and remodeling services in Charlotte, NC. Fully insured and 5-star rated.",
-  "url": "https://www.ifixxnc.com",
-  "telephone": "+1-980-391-6833",
-  "email": "ifixx.hs@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Charlotte",
-    "addressRegion": "NC",
-    "postalCode": "28226",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "35.2271",
-    "longitude": "-80.8431"
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Charlotte", "containedInPlace": { "@type": "State", "name": "North Carolina" } },
-    { "@type": "City", "name": "Matthews", "containedInPlace": { "@type": "State", "name": "North Carolina" } },
-    { "@type": "City", "name": "Waxhaw", "containedInPlace": { "@type": "State", "name": "North Carolina" } },
-    { "@type": "City", "name": "Pineville", "containedInPlace": { "@type": "State", "name": "North Carolina" } },
-    { "@type": "City", "name": "Monroe", "containedInPlace": { "@type": "State", "name": "North Carolina" } },
-    { "@type": "City", "name": "Rock Hill", "containedInPlace": { "@type": "State", "name": "South Carolina" } }
-  ],
-  "priceRange": "$$",
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "07:00",
-      "closes": "18:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "08:00",
-      "closes": "14:00"
-    }
-  ],
-  "contactPoint": [
-    {
-      "@type": "ContactPoint",
-      "telephone": "+1-980-391-6833",
-      "contactType": "customer service",
-      "contactOption": "TollFree",
-      "availableLanguage": ["English", "Spanish"],
-      "areaServed": "US",
-      "hoursAvailable": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "07:00",
-        "closes": "18:00"
-      }
-    },
-    {
-      "@type": "ContactPoint",
-      "email": "ifixx.hs@gmail.com",
-      "contactType": "sales",
-      "contactOption": "HearingImpairedSupported",
-      "availableLanguage": ["English", "Spanish"]
-    }
-  ],
-  "alternateName": ["iFIXX", "iFixx", "iFIXX NC", "iFIXX Charlotte", "I Fixx Remodeling Services", "iFixx Handyman"],
-    "sameAs": [
-      "https://www.google.com/maps?cid=13782573695421719060",
-      "https://www.bbb.org/us/nc/concord/profile/handyman/i-fixx-remodeling-services-0473-92036918",
-      "https://www.facebook.com/ifixxnc",
-      "https://www.instagram.com/ifixxnc",
-      "https://www.yelp.com/biz/i-fixx-handyman-services-concord",
-      "https://nextdoor.com/page/ifixx-remodeling-services-concord-nc",
-      "https://citysquares.com/b/ifixx-handyman-26640189",
-      "https://www.hotfrog.com/company/f5902215ad9fba2bc78abe3f4f5595f0/ifixx-handyman/concord/home-improvement",
-      "https://www.mapquest.com/us/north-carolina/ifixx-handyman-790561324",
-      "https://www.showmelocal.com/38969280-ifixx-handyman-concord"
-    ]
-};
-
 // Breadcrumb Schema
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -116,7 +33,6 @@ const breadcrumbSchema = {
 
 <BaseLayout title={seoTitle} description={seoDescription} canonical="/contact">
   <Fragment slot="schema">
-    <script type="application/ld+json" set:html={JSON.stringify(contactPageSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
   <!-- Hero Section -->
