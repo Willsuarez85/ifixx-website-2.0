@@ -5,13 +5,14 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import WhyChooseUs from '../../components/sections/WhyChooseUs.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import QuickEstimateCompact from '../../components/forms/QuickEstimateCompact.astro';
-import { isRetiredCity, isRetiredService } from '../../lib/seo-retired';
+import { isRetiredService, hasServiceAreaHub, isServiceAreaOnlyCity } from '../../lib/seo-retired';
 
 export async function getStaticPaths() {
   const cities = await getCollection('cities');
-  // SEO cleanup (2026-06): only build hubs for in-focus cities (retired ones 301 to /service-areas)
+  // SEO cleanup (2026-06): only build hubs for in-focus cities (retired ones 301 to
+  // /service-areas). Service-area-only cities keep their hub without their matrix.
   return cities
-    .filter((city) => !isRetiredCity(city.slug))
+    .filter((city) => hasServiceAreaHub(city.slug))
     .map((city) => ({
       params: { locationSlug: city.slug },
       props: { city }
@@ -26,7 +27,13 @@ const services = (await getCollection('services')).filter(s => !isRetiredService
 
 // Get all cities for cross-linking — exclude retired cities
 const allCities = await getCollection('cities');
-const nearbyCities = allCities.filter(c => c.slug !== city.slug && !isRetiredCity(c.slug)).sort((a, b) => {
+// Service-area-only cities have no city x service matrix, so their hub links
+// straight to the canonical service silo instead of a URL that 301s away.
+const serviceAreaOnly = isServiceAreaOnlyCity(city.slug);
+const serviceHref = (service: { slug: string; data: { pillar: string } }) =>
+  serviceAreaOnly ? `/${service.data.pillar}/${service.slug}` : `/${city.slug}/${service.slug}`;
+
+const nearbyCities = allCities.filter(c => c.slug !== city.slug && hasServiceAreaHub(c.slug)).sort((a, b) => {
   // Sort: Charlotte first, then by state (NC before SC), then alphabetically
   if (a.slug === 'charlotte') return -1;
   if (b.slug === 'charlotte') return 1;
@@ -236,7 +243,7 @@ const heroImage = cityHeroImages[city.slug] || '/images/projects/remodeling-mode
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
             <a
-              href={`/${city.slug}/${service.slug}`}
+              href={serviceHref(service)}
               class="card p-6 hover:border-primary-500 group"
             >
               <div class="flex items-start gap-4">

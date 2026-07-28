@@ -132,11 +132,6 @@
       "permanent": true
     },
     {
-      "source": "/service-areas/mint-hill",
-      "destination": "/service-areas",
-      "permanent": true
-    },
-    {
       "source": "/services/flooring-installation",
       "destination": "/remodeling/flooring-installation",
       "permanent": true

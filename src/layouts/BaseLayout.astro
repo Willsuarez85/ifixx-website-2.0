@@ -10,6 +10,7 @@ export interface Props {
   canonical?: string;
   geoRegion?: string;
   geoPlacename?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -18,7 +19,10 @@ const {
   ogImage = '/images/ui/hero-bg.jpg',
   canonical,
   geoRegion = 'US-NC',
-  geoPlacename = 'Charlotte'
+  geoPlacename = 'Charlotte',
+  // noindex renders "noindex, follow": a pruned page stops being indexed but keeps
+  // passing link equity to the canonical silo it points at.
+  noindex = false
 } = Astro.props;
 const siteUrl = 'https://www.ifixxnc.com';
 // Always force www canonical — prevents duplicate indexing between ifixxnc.com and www.ifixxnc.com
@@ -125,7 +129,7 @@ const fullCanonical = rawCanonical.replace('https://ifixxnc.com', 'https://www.i
   <link rel="canonical" href={fullCanonical} />
 
   <!-- Additional SEO Meta -->
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
   <meta name="author" content="iFixx Remodeling & Handyman Services" />
   <meta name="geo.region" content={geoRegion} />
   <meta name="geo.placename" content={geoPlacename} />

@@ -103,6 +103,13 @@ const pillarLabel = pillarLabels[currentPillar] || 'Services';
 const seoTitle = localContent?.seo?.title || `${serviceData.title} in ${cityData.name}, ${cityData.state} | iFixx`;
 const seoDescription = localContent?.seo?.description || `Professional ${serviceData.title.toLowerCase()} services in ${cityData.name}, ${cityData.state}. Serving ${cityData.neighborhoods?.slice(0, 3).join(', ')} & more. Fully insured, free estimates!`;
 
+// Programmatic matrix pruning (2026-07-28): the city x service pages duplicate the
+// service silos and the dedicated money pages without adding unique content, so they
+// are noindexed and canonicalised to their silo. They stay live on purpose — they
+// still serve UX, internal linking and paid landing. Reversible by design: if 4 weeks
+// of GSC do not show the consolidation, they become 301s.
+const siloCanonical = `/${serviceData.pillar}/${service.slug}`;
+
 const introText = localContent?.localIntro || cityData.localizedIntro;
 const heroIntroText = localContent?.heroIntro || introText;
 const displayBullets = localContent?.localBullets || serviceData.bullets;
@@ -205,9 +212,10 @@ const mapEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qb
 <BaseLayout
   title={seoTitle}
   description={seoDescription}
-  canonical={`/${city.slug}/${service.slug}`}
+  canonical={siloCanonical}
   geoRegion={`US-${cityData.state}`}
   geoPlacename={cityData.name}
+  noindex={true}
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
