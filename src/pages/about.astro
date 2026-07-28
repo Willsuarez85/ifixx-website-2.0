@@ -7,76 +7,6 @@ const seoDescription = "Family-owned and operated since 2019. iFIXX has complete
 const phoneNumber = "(980) 391-6833";
 const phoneHref = "tel:+19803916833";
 
-// Organization Schema for About Page (using consistent @id with other pages)
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
-  "@id": "https://www.ifixxnc.com/#business",
-  "name": "iFixx Remodeling & Handyman Services",
-  "alternateName": ["iFIXX", "iFixx", "iFIXX NC", "iFIXX Charlotte", "I Fixx Remodeling Services", "iFixx Handyman"],
-  "description": seoDescription,
-  "url": "https://www.ifixxnc.com",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://www.ifixxnc.com/images/logo.svg",
-    "width": 200,
-    "height": 60
-  },
-  "foundingDate": "2019",
-  "founder": {
-    "@type": "Person",
-    "name": "iFixx Team"
-  },
-  "telephone": "+1-980-391-6833",
-  "email": "ifixx.hs@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Charlotte",
-    "addressRegion": "NC",
-    "postalCode": "28226",
-    "addressCountry": "US"
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Charlotte" },
-    { "@type": "City", "name": "Matthews" },
-    { "@type": "City", "name": "Waxhaw" },
-    { "@type": "City", "name": "Pineville" },
-    { "@type": "City", "name": "Monroe" },
-    { "@type": "City", "name": "Rock Hill" }
-  ],
-  "knowsAbout": [
-    "Home Remodeling",
-    "Handyman Services",
-    "Kitchen Renovation",
-    "Bathroom Remodeling",
-    "Plumbing Repairs",
-    "Electrical Work",
-    "Carpentry",
-    "Painting"
-  ],
-  "slogan": "Charlotte's Trusted Handyman & Remodeling Services",
-  "priceRange": "$$",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": 5.0,
-    "reviewCount": 87,
-    "bestRating": 5,
-    "worstRating": 1
-  },
-  "sameAs": [
-    "https://www.google.com/maps?cid=13782573695421719060",
-    "https://www.bbb.org/us/nc/concord/profile/handyman/i-fixx-remodeling-services-0473-92036918",
-    "https://www.facebook.com/ifixxnc",
-    "https://www.instagram.com/ifixxnc",
-    "https://www.yelp.com/biz/i-fixx-handyman-services-concord",
-    "https://nextdoor.com/page/ifixx-remodeling-services-concord-nc",
-    "https://citysquares.com/b/ifixx-handyman-26640189",
-    "https://www.hotfrog.com/company/f5902215ad9fba2bc78abe3f4f5595f0/ifixx-handyman/concord/home-improvement",
-    "https://www.mapquest.com/us/north-carolina/ifixx-handyman-790561324",
-    "https://www.showmelocal.com/38969280-ifixx-handyman-concord"
-  ]
-};
-
 // Breadcrumb Schema
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -100,7 +30,6 @@ const breadcrumbSchema = {
 
 <BaseLayout title={seoTitle} description={seoDescription} canonical="/about">
   <Fragment slot="schema">
-    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
   <!-- Hero Section -->

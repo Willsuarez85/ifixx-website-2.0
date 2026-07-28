@@ -137,14 +137,28 @@ const fullCanonical = rawCanonical.replace('https://ifixxnc.com', 'https://www.i
   {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+    "@id": "https://www.ifixxnc.com/#business",
     "name": "iFIXX Remodeling & Handyman Services",
     "legalName": "iFIXX Remodeling LLC",
     "foundingDate": "2019",
     "telephone": "(980) 391-6833",
     "url": "https://www.ifixxnc.com",
-    "image": "https://www.ifixxnc.com/images/ifixx-logo.png",
+    "image": "https://www.ifixxnc.com/images/ui/hero-bg.jpg",
     "priceRange": "$$",
-    "openingHours": "Mo-Sa 08:30-17:30",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Charlotte",
@@ -163,13 +177,75 @@ const fullCanonical = rawCanonical.replace('https://ifixxnc.com', 'https://www.i
       {"@type": "City", "name": "Matthews"},
       {"@type": "City", "name": "Pineville"},
       {"@type": "City", "name": "Dilworth"},
-      {"@type": "City", "name": "Myers Park"}
+      {"@type": "City", "name": "Myers Park"},
+      {"@type": "City", "name": "Waxhaw"},
+      {"@type": "City", "name": "Fort Mill"},
+      {"@type": "City", "name": "Mint Hill"}
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": 5.0,
       "reviewCount": 87
     },
+    "review": [
+      {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": 5,
+          "bestRating": 5
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Zack A."
+        },
+        "datePublished": "2026-02-09",
+        "reviewBody": "I recently hired iFixx to install a fence and I couldn't be more impressed. The quality of the work is outstanding and the attention to detail is obvious. The crew was punctual every day and kept communication clear throughout the entire process. I highly recommend iFixx Remodeling for any home project - they're my go-to guys!"
+      },
+      {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": 5,
+          "bestRating": 5
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Jaime"
+        },
+        "datePublished": "2026-03-23",
+        "reviewBody": "Had an amazing experience! Very knowledgeable, punctual, hard-working crew. Great prices and outstanding work. The flooring install was done in a timely fashion and we were very pleased with the results. Will definitely use them again!"
+      }
+    ],
+    "potentialAction": [
+      {
+        "@type": "ReserveAction",
+        "name": "Request Free Estimate",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.ifixxnc.com/contact",
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform"
+          ]
+        },
+        "result": {
+          "@type": "Reservation",
+          "name": "Free Estimate Request"
+        }
+      },
+      {
+        "@type": "CommunicateAction",
+        "name": "Call Now",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "tel:+19803916833",
+          "actionPlatform": [
+            "http://schema.org/MobileWebPlatform"
+          ]
+        }
+      }
+    ],
     "alternateName": ["iFIXX", "iFixx", "iFIXX NC", "iFIXX Charlotte", "I Fixx Remodeling Services", "iFixx Handyman"],
     "sameAs": [
       "https://www.google.com/maps?cid=13782573695421719060",
