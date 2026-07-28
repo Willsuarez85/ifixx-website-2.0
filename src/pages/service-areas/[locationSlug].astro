@@ -5,7 +5,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import WhyChooseUs from '../../components/sections/WhyChooseUs.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import QuickEstimateCompact from '../../components/forms/QuickEstimateCompact.astro';
-import { isRetiredService, hasServiceAreaHub, isServiceAreaOnlyCity } from '../../lib/seo-retired';
+import { isRetiredService, hasServiceAreaHub, hasCityServicePage } from '../../lib/seo-retired';
 
 export async function getStaticPaths() {
   const cities = await getCollection('cities');
@@ -27,11 +27,14 @@ const services = (await getCollection('services')).filter(s => !isRetiredService
 
 // Get all cities for cross-linking — exclude retired cities
 const allCities = await getCollection('cities');
-// Service-area-only cities have no city x service matrix, so their hub links
-// straight to the canonical service silo instead of a URL that 301s away.
-const serviceAreaOnly = isServiceAreaOnlyCity(city.slug);
+// Link to the city x service page only when it actually exists. It does not for a
+// service-area-only city (no matrix at all) nor for a consolidated service (kitchen,
+// bathroom, painting, drywall live only as silos). In both cases go to the silo, which
+// is the canonical page anyway — linking to the matrix URL would hit a hard 404.
 const serviceHref = (service: { slug: string; data: { pillar: string } }) =>
-  serviceAreaOnly ? `/${service.data.pillar}/${service.slug}` : `/${city.slug}/${service.slug}`;
+  hasCityServicePage(city.slug, service.slug)
+    ? `/${city.slug}/${service.slug}`
+    : `/${service.data.pillar}/${service.slug}`;
 
 const nearbyCities = allCities.filter(c => c.slug !== city.slug && hasServiceAreaHub(c.slug)).sort((a, b) => {
   // Sort: Charlotte first, then by state (NC before SC), then alphabetically

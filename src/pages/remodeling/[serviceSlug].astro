@@ -7,7 +7,7 @@ import CTASection from '../../components/sections/CTASection.astro';
 import QuickEstimateCompact from '../../components/forms/QuickEstimateCompact.astro';
 import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
-import { isRetiredCity, isRetiredService } from '../../lib/seo-retired';
+import { isRetiredCity, isRetiredService, hasCityServicePage } from '../../lib/seo-retired';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -166,12 +166,6 @@ const servicePackages: Record<string, { packages: RemodelPackage[]; entryLine: s
   },
 };
 const packageData = servicePackages[service.slug] || null;
-
-// kitchen/bathroom (and painting/drywall) are consolidated services: they do NOT
-// generate city×service pages, so Service Areas must link to the city hub pages
-// instead of URLs that 308-redirect back here.
-const consolidatedServices = ['kitchen-remodeling', 'bathroom-remodeling', 'painting', 'drywall'];
-const isConsolidated = consolidatedServices.includes(service.slug);
 
 // Service schema with pillar URL structure
 const serviceSchema = {
@@ -885,7 +879,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
         {serviceAreas.map((city) => (
           <a
-            href={isConsolidated ? `/${city.slug}` : `/${city.slug}/${service.slug}`}
+            href={hasCityServicePage(city.slug, service.slug) ? `/${city.slug}/${service.slug}` : `/service-areas/${city.slug}`}
             class="group p-4 bg-white rounded-xl border border-neutral-200 hover:border-primary-300 hover:shadow-md transition-all text-center"
           >
             <div class="flex items-center justify-center gap-2">

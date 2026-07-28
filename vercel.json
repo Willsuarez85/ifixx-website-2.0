@@ -122,16 +122,6 @@
       "permanent": true
     },
     {
-      "source": "/mint-hill",
-      "destination": "/south-charlotte",
-      "permanent": true
-    },
-    {
-      "source": "/mint-hill/:rest*",
-      "destination": "/south-charlotte",
-      "permanent": true
-    },
-    {
       "source": "/services/flooring-installation",
       "destination": "/remodeling/flooring-installation",
       "permanent": true
@@ -482,6 +472,16 @@
       "permanent": true
     },
     {
+      "source": "/mint-hill",
+      "destination": "/service-areas/mint-hill",
+      "permanent": true
+    },
+    {
+      "source": "/mint-hill/:rest*",
+      "destination": "/service-areas/mint-hill",
+      "permanent": true
+    },
+    {
       "source": "/monroe/drywall",
       "destination": "/repairs/drywall",
       "permanent": true
@@ -548,17 +548,17 @@
     },
     {
       "source": "/pineville/basement-finishing",
-      "destination": "/remodeling/basement-finishing",
+      "destination": "/remodeling",
       "permanent": true
     },
     {
       "source": "/pineville/basement-finishing/",
-      "destination": "/remodeling/basement-finishing",
+      "destination": "/remodeling",
       "permanent": true
     },
     {
       "source": "/huntersville/basement-finishing",
-      "destination": "/charlotte/basement-finishing",
+      "destination": "/remodeling",
       "permanent": true
     },
     {
@@ -603,7 +603,7 @@
     },
     {
       "source": "/concord/basement-finishing",
-      "destination": "/charlotte/basement-finishing",
+      "destination": "/remodeling",
       "permanent": true
     },
     {
@@ -648,7 +648,7 @@
     },
     {
       "source": "/monroe/basement-finishing",
-      "destination": "/charlotte/basement-finishing",
+      "destination": "/remodeling",
       "permanent": true
     },
     {
@@ -688,7 +688,7 @@
     },
     {
       "source": "/waxhaw/basement-finishing",
-      "destination": "/charlotte/basement-finishing",
+      "destination": "/remodeling",
       "permanent": true
     },
     {
@@ -733,7 +733,7 @@
     },
     {
       "source": "/rock-hill/basement-finishing",
-      "destination": "/charlotte/basement-finishing",
+      "destination": "/remodeling",
       "permanent": true
     },
     {
