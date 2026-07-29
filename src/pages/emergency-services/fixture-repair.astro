@@ -14,7 +14,9 @@ const seo = {
 };
 
 const heroImage = "/images/projects/plumbing-bathroom-faucet-installation-repair.webp";
-const projectImage = "/images/projects/plumbing-water-heater-valve-repair-wrench.webp";
+// Fixture photo only: a water-heater/pipe shot here would show system repair, which is
+// outside iFIXX's scope and contradicts the page's own "no plumber needed" framing.
+const projectImage = "/images/projects/Ifixx-portfolio52.webp";
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -298,7 +300,7 @@ const faqs = [
           <div class="rounded-2xl overflow-hidden shadow-2xl">
             <img
               src={projectImage}
-              alt="Faucet repair by iFIXX in Charlotte"
+              alt="Technician installing a sink faucet in Charlotte"
               class="w-full h-auto object-cover aspect-[4/3]"
               width="600"
               height="450"

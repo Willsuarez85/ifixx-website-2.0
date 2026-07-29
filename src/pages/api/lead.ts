@@ -13,8 +13,10 @@ const HANDYMAN_PIPELINE_ID = 'ohDTFoWOfNfAYQ89MWEo';
 // Pipeline routing: handyman (includes urgent) OR remodeling
 const SERVICE_TAGS: Record<string, string[]> = {
     // Handyman Services → Pipeline: Handyman
-    'plumbing': ['service-plumbing', 'handyman'],
-    'electrical': ['service-electrical', 'handyman'],
+    // No 'plumbing' / 'electrical' keys: those trades are retired, no form posts them,
+    // and keeping them would let a stray payload tag a lead into work iFIXX cannot take.
+    // Fixture install/replace requests come in as 'fixtures'.
+    'fixtures': ['service-fixtures', 'handyman'],
     'carpentry': ['service-carpentry', 'handyman'],
     'painting': ['service-painting', 'handyman'],
     'doors-windows': ['service-doors-windows', 'handyman'],
@@ -41,8 +43,8 @@ const SERVICE_TAGS: Record<string, string[]> = {
     'fence-repair': ['service-fence-repair', 'fence-outdoor', 'handyman', 'south-charlotte-test'],
 
     // Emergency/Urgent Services → Pipeline: Handyman (with urgent flag)
-    'emergency-plumbing': ['emergency-plumbing', 'handyman', 'urgent'],
-    'emergency-electrical': ['emergency-electrical', 'handyman', 'urgent'],
+    // 'emergency-plumbing' and 'emergency-electrical' removed: no form posts them
+    // (verified against the build) and they tagged leads into retired trades.
     'roof-leak': ['emergency-roof-leak', 'handyman', 'urgent'],
 
     // Remodeling Services → Pipeline: Remodeling

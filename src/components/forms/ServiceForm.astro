@@ -6,16 +6,16 @@ interface Props {
 
 const { serviceSlug = '', serviceTitle = '' } = Astro.props;
 
+// Trades iFIXX does not offer (plumbing, electrical, emergency plumbing) are not
+// selectable: offering them in the lead form asks for work the crew cannot take.
+// Fixture install/replace requests belong under 'General Repairs'.
 const services = [
-  { value: 'plumbing', label: 'Plumbing' },
-  { value: 'electrical', label: 'Electrical' },
   { value: 'carpentry', label: 'Carpentry' },
   { value: 'painting', label: 'Painting' },
   { value: 'doors-windows', label: 'Doors & Windows' },
   { value: 'general-repairs', label: 'General Repairs' },
   { value: 'bathroom-remodel', label: 'Bathroom Remodel' },
   { value: 'kitchen-remodel', label: 'Kitchen Remodel' },
-  { value: 'emergency-plumbing', label: 'Emergency Plumbing' },
   { value: 'pressure-washing', label: 'Pressure Washing' },
   { value: 'drywall', label: 'Drywall Repair' },
   { value: 'other', label: 'Other' }
