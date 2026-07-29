@@ -51,8 +51,8 @@ South Charlotte homeowners trust iFIXX for fast, professional repairs and remode
 From quick repairs to full remodels, iFIXX handles it all:
 
 - **Drywall repair** — holes, cracks, water damage, texture matching in Ballantyne homes
-- **Outlet & electrical fixture** replacement — safe, same-day, no electrician markup
-- **Faucet & toilet repair** — leaks fixed fast, same day
+- **Light fixture & outlet cover** replacement — same-day, insured
+- **Faucet & toilet fixture** replacement — swapped out same day
 - **Ceiling fan installation** — new construction or replacement
 - **Bathroom remodeling** — full renovations in South Charlotte neighborhoods
 - **Painting** — interior painting with clean, professional results

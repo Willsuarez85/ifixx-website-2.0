@@ -81,7 +81,7 @@ Take your grilling to the next level:
 - Built-in grill stations
 - Countertops and storage
 - Outdoor sinks
-- Electrical and lighting
+- Light fixtures
 
 ## Built for Carolina Weather
 
