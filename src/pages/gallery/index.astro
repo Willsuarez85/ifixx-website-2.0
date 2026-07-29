@@ -80,20 +80,17 @@ const allImages = [
   { src: '/images/projects/construction-wood-framing-window.webp', alt: 'Construction Wood Framing with Window', category: 'outdoor' },
   { src: '/images/projects/remodeling-modern-home-exterior-curb-appeal.webp', alt: 'Modern Home Exterior with Great Curb Appeal', category: 'outdoor' },
 
-  // Plumbing (7 new images)
-  { src: '/images/projects/Ifixx-portfolio7.webp', alt: 'Team Doing Plumbing Work Under Sink', category: 'plumbing' },
-  { src: '/images/projects/Ifixx-portfolio21.webp', alt: 'Technician Plumbing Under Sink', category: 'plumbing' },
-  { src: '/images/projects/Ifixx-portfolio29.webp', alt: 'Team Installing Kitchen Faucet', category: 'plumbing' },
-  { src: '/images/projects/Ifixx-portfolio45.webp', alt: 'Technician Plumbing Under Blue Cabinet', category: 'plumbing' },
-  { src: '/images/projects/Ifixx-portfolio49.webp', alt: 'Technician Plumbing in White Kitchen', category: 'plumbing' },
-  { src: '/images/projects/Ifixx-portfolio52.webp', alt: 'Technician Installing Sink Faucet', category: 'plumbing' },
-  { src: '/images/projects/Ifixx-portfolio54.webp', alt: 'Technician Plumbing in Dark Kitchen', category: 'plumbing' },
-  // Keep existing plumbing image
-  { src: '/images/services/plumbing.webp', alt: 'Professional Plumbing Services', category: 'plumbing' },
-  // New plumbing photos
-  { src: '/images/projects/plumbing-bathroom-faucet-installation-repair.webp', alt: 'Bathroom Faucet Installation and Repair', category: 'plumbing' },
-  { src: '/images/projects/plumbing-emergency-copper-pipe-repair-leak-basement.webp', alt: 'Emergency Copper Pipe Repair in Basement', category: 'plumbing' },
-  { src: '/images/projects/plumbing-water-heater-valve-repair-wrench.webp', alt: 'Water Heater Valve Repair with Wrench', category: 'plumbing' },
+  // Fixtures — install and replace only. iFIXX does not repair plumbing systems
+  // (pipes, water heaters, in-wall lines), so no photo or alt text here may frame
+  // the work as plumbing service. Photos of pipe/water-heater repair were removed.
+  { src: '/images/projects/Ifixx-portfolio7.webp', alt: 'Team Working Under a Kitchen Sink', category: 'fixtures' },
+  { src: '/images/projects/Ifixx-portfolio21.webp', alt: 'Technician Working Under a Sink', category: 'fixtures' },
+  { src: '/images/projects/Ifixx-portfolio29.webp', alt: 'Team Installing a Kitchen Faucet', category: 'fixtures' },
+  { src: '/images/projects/Ifixx-portfolio45.webp', alt: 'Technician Working Under a Blue Cabinet', category: 'fixtures' },
+  { src: '/images/projects/Ifixx-portfolio49.webp', alt: 'Technician Working Under a Sink in a White Kitchen', category: 'fixtures' },
+  { src: '/images/projects/Ifixx-portfolio52.webp', alt: 'Technician Installing a Sink Faucet', category: 'fixtures' },
+  { src: '/images/projects/Ifixx-portfolio54.webp', alt: 'Technician Working Under a Sink in a Dark Kitchen', category: 'fixtures' },
+  { src: '/images/projects/plumbing-bathroom-faucet-installation-repair.webp', alt: 'Bathroom Faucet Installation and Replacement', category: 'fixtures' },
 
   // Carpentry (8 new images)
   { src: '/images/projects/Ifixx-portfolio5.webp', alt: 'Technician Repairing Cabinet', category: 'carpentry' },
@@ -120,12 +117,11 @@ const allImages = [
   { src: '/images/projects/painting-bedroom-mural-custom-wall-art.webp', alt: 'Bedroom Mural and Custom Wall Art', category: 'painting' },
   { src: '/images/projects/painting-drywall-dining-room-wainscoting-chandelier.webp', alt: 'Dining Room with Drywall, Wainscoting, and Chandelier', category: 'painting' },
 
-  // Keep existing electrical image
-  { src: '/images/services/electrical.webp', alt: 'Electrical Installation', category: 'electrical' },
-  // New electrical photos
-  { src: '/images/projects/electrical-pendant-light-fixture-installation-kitchen.webp', alt: 'Pendant Light Fixture Installation in Kitchen', category: 'electrical' },
-  { src: '/images/projects/electrical-range-hood-wiring-installation-kitchen.webp', alt: 'Range Hood Wiring Installation in Kitchen', category: 'electrical' },
-  { src: '/images/projects/electrical-under-cabinet-lighting-wiring-kitchen.webp', alt: 'Under Cabinet Lighting Wiring in Kitchen', category: 'electrical' },
+  // Light fixtures — install and replace only. Panels, circuits and in-wall wiring
+  // are outside iFIXX's scope, so nothing here may read as electrical service.
+  { src: '/images/projects/electrical-pendant-light-fixture-installation-kitchen.webp', alt: 'Pendant Light Fixture Installation in Kitchen', category: 'fixtures' },
+  { src: '/images/projects/electrical-range-hood-wiring-installation-kitchen.webp', alt: 'Range Hood Installation in Kitchen', category: 'fixtures' },
+  { src: '/images/projects/electrical-under-cabinet-lighting-wiring-kitchen.webp', alt: 'Under Cabinet Lighting Installation in Kitchen', category: 'fixtures' },
 
   // Doors and Windows
   { src: '/images/projects/door-installation-interior-hinge-leveling-brass.webp', alt: 'Interior Door Installation with Brass Hinges', category: 'doors' },
@@ -137,7 +133,6 @@ const allImages = [
   { src: '/images/projects/tv-mounting-wall-bracket-installation-drilling.webp', alt: 'TV Wall Mounting Bracket Installation', category: 'handyman' },
   { src: '/images/projects/drywall-repair-patching-hole-spackling.webp', alt: 'Drywall Repair and Hole Patching', category: 'handyman' },
   { src: '/images/projects/home-repair-tools-collection-workbench-hammer-screwdrivers.webp', alt: 'Home Repair Tools Collection on Workbench', category: 'handyman' },
-  { src: '/images/projects/emergency-plumbing-leaking-pipe-water-damage.webp', alt: 'Emergency Plumbing - Leaking Pipe Water Damage', category: 'plumbing' },
 ];
 
 const categories = [
@@ -148,8 +143,7 @@ const categories = [
   { value: 'outdoor', label: 'Outdoor Living' },
   { value: 'painting', label: 'Painting' },
   { value: 'carpentry', label: 'Carpentry' },
-  { value: 'electrical', label: 'Electrical' },
-  { value: 'plumbing', label: 'Plumbing' },
+  { value: 'fixtures', label: 'Fixtures & Lighting' },
   { value: 'doors', label: 'Doors & Windows' },
   { value: 'handyman', label: 'Handyman' },
 ];
