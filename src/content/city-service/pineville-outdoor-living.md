@@ -7,7 +7,7 @@ localIntro: "Pineville's climate makes outdoor living a year-round pleasure, and
 projectHighlight:
   title: "Complete Outdoor Living Space in Park Road Area"
   neighborhood: "Park Road Area"
-  description: "A Pineville family wanted to transform their plain backyard into an outdoor entertainment destination. We built a 16x20 pergola with electrical for fans and lighting, added a built-in grilling station with counter space and storage, constructed a fire pit seating area with stone surround, and installed outdoor-rated electrical for lighting throughout. The space now hosts everything from family dinners to football parties."
+  description: "A Pineville family wanted to transform their plain backyard into an outdoor entertainment destination. We built a 16x20 pergola, added a built-in grilling station with counter space and storage, constructed a fire pit seating area with stone surround, and mounted the fans and light fixtures throughout. The circuits feeding them were coordinated with inspected trade specialists and completed to code. The space now hosts everything from family dinners to football parties."
 
 localBullets:
   - "40+ outdoor living projects completed across Pineville"
@@ -21,15 +21,15 @@ localFaqs:
   - q: "How much does a deck cost in Pineville?"
     a: "Deck costs in Pineville vary by material: Pressure-treated wood decks run $25-$35 per sq ft. Composite decks run $40-$60 per sq ft. Premium composite (Trex Transcend, TimberTech) runs $50-$75 per sq ft. A typical 12x16 deck costs $5,000-$15,000 depending on materials and features."
   - q: "How much does a pergola cost?"
-    a: "Pergola costs depend on size and materials. A basic 10x10 wood pergola runs $3,000-$5,000. A 12x16 pergola with electrical runs $5,000-$10,000. Vinyl or aluminum pergolas cost more but require less maintenance."
+    a: "Pergola costs depend on size and materials. A basic 10x10 wood pergola runs $3,000-$5,000. A 12x16 pergola with fans and lighting runs $5,000-$10,000, with any specialty trade work quoted separately. Vinyl or aluminum pergolas cost more but require less maintenance."
   - q: "Do I need a permit for a deck or pergola in Pineville?"
     a: "In Mecklenburg County, decks over 30 inches high and most pergolas require permits. We handle all permitting as part of our service, ensuring your outdoor structure is code-compliant and properly documented for future home sales."
   - q: "Can you repair my existing deck?"
     a: "Absolutely. We repair rotted boards, replace damaged railings, fix loose steps, and restore weathered decks. Often, repair is more cost-effective than full replacement. We assess your deck and recommend the best approach."
   - q: "Do you build screen porches?"
     a: "Yes, screen porch construction is one of our specialties. We can convert an existing covered porch, build a new structure, or screen in an existing deck. Screen porches let you enjoy outdoor living without bugs—perfect for Pineville evenings."
-  - q: "What about outdoor electrical for lighting and fans?"
-    a: "We install outdoor-rated electrical for ceiling fans, lighting, outlets for grills and appliances, and landscape lighting. All outdoor electrical is properly weatherproofed and code-compliant."
+  - q: "Can you add fans and lighting to my pergola or porch?"
+    a: "Yes. We mount ceiling fans and light fixtures on the structures we build, plus landscape lighting around them. When the job needs new outdoor circuits or outlets — for a grill station or appliances — that work is coordinated with inspected trade specialists and scheduled for inspection, so the finished installation is weatherproofed and to code."
 
 localInfo:
   permits: "Decks, pergolas, and screen porches in Pineville typically require Mecklenburg County permits. Setback requirements and height restrictions apply. We handle all permitting and inspections."
@@ -51,11 +51,11 @@ Pineville's mild climate makes outdoor living a joy most of the year. After 40+ 
 
 **Deck Repair & Restoration**: Revive your existing deck with board replacement, railing repairs, cleaning, and refinishing.
 
-**Pergolas & Arbors**: Create defined outdoor spaces with beautiful pergola structures. Available in wood, vinyl, or aluminum with optional electrical.
+**Pergolas & Arbors**: Create defined outdoor spaces with beautiful pergola structures. Available in wood, vinyl, or aluminum, with optional fans and lighting.
 
 **Screen Porches**: Enjoy the outdoors without the bugs. New construction or conversion of existing covered spaces.
 
-**Outdoor Kitchens**: Built-in grilling stations, counter space, storage, and even outdoor sinks for the ultimate backyard setup.
+**Outdoor Kitchens**: Built-in grilling stations, counter space, and storage for the ultimate backyard setup. When your layout calls for a sink, the water and drain lines are coordinated with inspected trade specialists and completed to code.
 
 **Fire Pits & Seating**: Stone fire pit surrounds with built-in seating for cozy evening gatherings.
 
@@ -146,7 +146,7 @@ Create a defined outdoor living space:
 - 14x16 deck with pergola
 - Ceiling fan and lighting in pergola
 - Comfortable seating area
-- Outdoor-rated electrical
+- Weatherproof fixtures, wiring coordinated with inspected trade specialists
 
 **Typical Cost**: $15,000-$25,000
 

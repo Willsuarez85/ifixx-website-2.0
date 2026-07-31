@@ -25,9 +25,9 @@ localFaqs:
   - q: "Is there a minimum charge?"
     a: "Yes, there's a 1-hour minimum for Quick Fix visits. That's why we encourage you to make a list—combine multiple small repairs to get the most value from your service call."
   - q: "Can you fix toilet and faucet issues?"
-    a: "We handle fixture repairs—running toilets, dripping faucets, leaky showerheads, garbage disposal issues, and similar items. We repair and replace fixtures. For actual pipe work or sewer issues, you'd need a specialized professional."
+    a: "We handle fixture repairs—running toilets, dripping faucets, leaky showerheads, garbage disposal issues, and similar items. We repair and replace fixtures. For actual pipe work or sewer issues, we'll point you to a company that does that specific work—iFIXX is insured for the handyman work we do."
   - q: "Do you install ceiling fans and light fixtures?"
-    a: "Yes, we install ceiling fans and light fixtures where an electrical box already exists. This includes assembly, mounting, connecting to the existing circuit, and programming remotes. We don't run new circuits—that's a larger project."
+    a: "Yes, we install ceiling fans and light fixtures where a junction box already exists. This includes assembly, mounting, connecting to the existing circuit, and programming remotes. We don't run new circuits—that's a larger project."
   - q: "How quickly can you come to Matthews?"
     a: "We often have same-day or next-day availability in Matthews. For non-urgent repairs, we typically schedule within 2-3 days. Call or text for current availability."
   - q: "What if a repair turns out to be a bigger problem?"
@@ -82,8 +82,8 @@ Quick Fix is how that list finally gets done.
 - TV mounting
 - Towel bar and toilet paper holder installation
 
-### Electrical (Basic)
-- Ceiling fan installation (existing electrical box)
+### Fixtures & Lighting
+- Ceiling fan installation (existing junction box)
 - Light fixture replacement
 - Outlet cover replacement
 - Smoke detector installation

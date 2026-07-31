@@ -80,8 +80,10 @@ Enjoy the outdoors without the bugs:
 Take your grilling to the next level:
 - Built-in grill stations
 - Countertops and storage
-- Outdoor sinks
+- Sink stations
 - Light fixtures
+
+Water and drain lines for sink stations are coordinated with inspected trade specialists and completed to code.
 
 ## Built for Carolina Weather
 
