@@ -40,7 +40,6 @@ faqs:
 relatedServices:
   - "carpentry"
   - "painting"
-  - "electrical"
 seo:
   title: "Outdoor Living Charlotte NC | Decks, Patios, Pergolas | ⭐5.0 | iFIXX"
   description: "Transform your backyard. Custom decks, patios, pergolas, outdoor kitchens in Charlotte. 40+ outdoor projects completed. ⭐5.0 rated. Free design consultation! Call (980) 391-6833."
