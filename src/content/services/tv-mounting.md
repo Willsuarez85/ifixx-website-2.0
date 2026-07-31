@@ -39,7 +39,7 @@ faqs:
     a: "We can provide mounts or install one you've purchased. We'll recommend the right type for your TV and wall."
 relatedServices:
   - "furniture-assembly"
-  - "electrical"
+  - "drywall"
   - "quick-fix"
 seo:
   title: "TV Mounting Charlotte NC | From $99 | Same-Day Service | iFIXX"

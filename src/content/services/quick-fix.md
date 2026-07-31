@@ -31,8 +31,8 @@ faqs:
     a: "For quick fix services, we can often provide a project price or an hourly rate depending on the nature of the work."
 relatedServices:
   - "painting"
-  - "electrical"
-  - "plumbing"
+  - "drywall"
+  - "carpentry"
 seo:
   title: "Quick-Fix Handyman Charlotte | Same-Day, No Minimum | iFIXX"
   description: "Need a Charlotte handyman today? Same-day quick fixes: drywall, doors, fixtures, ceiling fans, TV mounts. ⭐5.0 (87★) Free quote ☎ (980) 391-6833."
