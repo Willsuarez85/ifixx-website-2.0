@@ -12,7 +12,7 @@
  * Fuente: Google Business Profile de iFIXX, leido el 2026-08-02.
  * Al actualizarlo, cambiar tambien la fecha de esta linea.
  */
-export const GOOGLE_REVIEW_COUNT = 16;
+export const GOOGLE_REVIEW_COUNT: number = 16;
 export const GOOGLE_RATING = 5.0;
 
 /** Texto listo para copy visible: "16 reviews" / "1 review". */

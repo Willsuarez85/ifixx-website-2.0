@@ -61,6 +61,6 @@ From quick repairs to full remodels, iFIXX handles it all:
 
 South Charlotte has newer homes with HOA requirements and high standards. We get it. We show up on time, work cleanly, and deliver results that meet those standards — or we make it right.
 
-**500+ projects completed** across Charlotte and South Charlotte. **87 five-star reviews.** Talk directly to Jaime or Hamed — not a call center.
+**500+ projects completed** across Charlotte and South Charlotte. **5.0 on Google.** Talk directly to Jaime or Hamed — not a call center.
 
 📞 **Call/text (980) 391-6833** for a free estimate. Same-day service available Mon-Fri.
