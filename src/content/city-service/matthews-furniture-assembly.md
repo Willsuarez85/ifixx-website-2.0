@@ -38,7 +38,7 @@ localInfo:
 
 seo:
   title: "Furniture Assembly Matthews NC | IKEA, Wayfair & More ⭐5.0 | iFIXX"
-  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Matthews, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Furniture Assembly in Matthews, NC

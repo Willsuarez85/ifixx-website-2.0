@@ -38,7 +38,7 @@ localInfo:
 
 seo:
   title: "Drywall Repair Rock Hill SC | Holes, Cracks & Texture ⭐5.0 | iFIXX"
-  description: "Drywall repair — holes, cracks, water damage, texture in Rock Hill, SC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Drywall repair — holes, cracks, water damage, texture in Rock Hill, SC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Drywall Repair Services in Rock Hill

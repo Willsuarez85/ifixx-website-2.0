@@ -38,7 +38,7 @@ localInfo:
 
 seo:
   title: "Outdoor Living Matthews NC | Decks, Patios & Pergolas ⭐5.0 | iFIXX"
-  description: "Outdoor living — decks, patios, pergolas, fencing in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Outdoor living — decks, patios, pergolas, fencing in Matthews, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Custom Outdoor Living Spaces in Matthews, NC

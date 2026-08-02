@@ -7,7 +7,7 @@ category: "DIY vs Pro"
 tags: ["DIY", "home repairs", "safety", "when to hire"]
 seo:
   title: "5 Home Repairs You Should Never DIY | Charlotte Homeowners | iFIXX"
-  description: "Electrical, plumbing, structural—some repairs are too risky to DIY. Charlotte homeowners, know when to call a pro. ⭐5.0 (87 reviews). Free estimates from iFIXX."
+  description: "Electrical, plumbing, structural—some repairs are too risky to DIY. Charlotte homeowners, know when to call a pro. ⭐5.0 on Google. Free estimates from iFIXX."
 ---
 
 There's real satisfaction in fixing something yourself. You save money, learn something new, and get that "I did this" feeling every time you walk by.

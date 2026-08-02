@@ -42,7 +42,7 @@ localInfo:
 
 seo:
   title: "Furniture Assembly Charlotte NC | IKEA, Wayfair & More | iFIXX"
-  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Charlotte, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Charlotte Homeowners Trust iFixx for Furniture Assembly

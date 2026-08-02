@@ -42,7 +42,7 @@ localInfo:
 
 seo:
   title: "Kitchen Remodeling Charlotte NC | Cabinets & Counters ⭐5.0 | iFIXX"
-  description: "Kitchen remodeling — cabinets, countertops, backsplash in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Kitchen remodeling — cabinets, countertops, backsplash in Charlotte, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Charlotte Homeowners Trust iFixx for Kitchen Remodeling

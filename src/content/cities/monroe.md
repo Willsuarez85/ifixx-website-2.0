@@ -35,7 +35,7 @@ servicesHighlighted:
   - "quick-fix"
 seo:
   title: "Monroe NC Handyman & Remodeling | Same-Day Service | ⭐5.0 | iFIXX"
-  description: "Monroe's trusted handyman & remodeling experts. Serving Downtown Monroe, Wingate, Unionville & Union County. ⭐5.0 (87 reviews). Free estimates! Call (980) 391-6833."
+  description: "Monroe's trusted handyman & remodeling experts. Serving Downtown Monroe, Wingate, Unionville & Union County. ⭐5.0 on Google. Free estimates! Call (980) 391-6833."
 ---
 
 Monroe homeowners deserve a handyman team that values quality and reliability. iFixx serves the Monroe community with the same professional standards we bring to the entire Charlotte region.

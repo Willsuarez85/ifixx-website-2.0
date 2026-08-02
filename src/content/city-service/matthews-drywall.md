@@ -34,7 +34,7 @@ localInfo:
 
 seo:
   title: "Drywall Repair Matthews NC | Holes, Cracks & Texture ⭐5.0 | iFIXX"
-  description: "Drywall repair — holes, cracks, water damage, texture in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Drywall repair — holes, cracks, water damage, texture in Matthews, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Matthews Drywall Repair Services

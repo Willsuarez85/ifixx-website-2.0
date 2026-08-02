@@ -45,7 +45,7 @@ relatedServices:
   - "general-repairs"
 seo:
   title: "Door & Window Repair Charlotte $75+ | Repair or Replace | ⭐5.0 | iFIXX"
-  description: "Door won't close? Window foggy? Frame rotted? We repair or replace doors & windows in Charlotte. Same-week install, insured handyman. ⭐5.0 (87★). Free estimate text (980) 391-6833."
+  description: "Door won't close? Window foggy? Frame rotted? We repair or replace doors & windows in Charlotte. Same-week install, insured handyman. ⭐5.0. Free estimate text (980) 391-6833."
 ---
 
 Your doors and windows take a beating in Charlotte — humidity swells the wood, foundations shift the frames, and seals break down over time. When they stop working right, you feel it every day: drafts you can't sweep away, locks that catch on the strike, foggy panes you can't see through, and bills that keep creeping up.

@@ -36,7 +36,7 @@ localInfo:
 
 seo:
   title: "Drywall Repair Mint Hill NC | Holes, Cracks & Texture ⭐5.0 | iFIXX"
-  description: "Drywall repair — holes, cracks, water damage, texture in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Drywall repair — holes, cracks, water damage, texture in Mint Hill, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Expert Drywall Services for Mint Hill Homes

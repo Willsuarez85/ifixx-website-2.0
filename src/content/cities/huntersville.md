@@ -19,7 +19,7 @@ highlights:
   - "Family-owned — not a franchise"
   - "Serving Huntersville, Cornelius & Davidson"
   - "500+ projects completed in Charlotte metro"
-  - "Fully insured, 5-star rated (87 reviews)"
+  - "Fully insured, 5-star rated on Google"
 zipCodes:
   - "28078"
   - "28031"

@@ -34,8 +34,8 @@ servicesHighlighted:
   - "carpentry"
   - "electrical"
 seo:
-  title: "Ballantyne Handyman & Remodeling | Same-Day Service | ⭐4.9 (127) | iFIXX"
-  description: "Ballantyne's #1 handyman & remodeling experts. Serving Piper Glen, Providence Plantation, Blakeney & all Ballantyne. 500+ projects. ⭐4.9 (127 reviews). Free estimates! Call (980) 391-6833."
+  title: "Ballantyne Handyman & Remodeling | Same-Day Service | ⭐5.0 | iFIXX"
+  description: "Ballantyne's #1 handyman & remodeling experts. Serving Piper Glen, Providence Plantation, Blakeney & all Ballantyne. 500+ projects. ⭐5.0 on Google. Free estimates! Call (980) 391-6833."
 ---
 
 Ballantyne residents expect excellence in everything, and home services are no exception. iFixx delivers the premium craftsmanship and professional service that matches the standards of this premier Charlotte community.

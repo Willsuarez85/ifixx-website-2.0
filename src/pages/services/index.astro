@@ -1,4 +1,5 @@
 ---
+import { googleReviewLabel } from '../../lib/business-facts';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
@@ -9,7 +10,7 @@ import { isRetiredService } from '../../lib/seo-retired';
 const services = (await getCollection('services')).filter(s => !isRetiredService(s.slug));
 
 const seoTitle = "Handyman & Remodeling Services Charlotte NC ⭐5.0 | iFIXX";
-const seoDescription = "Charlotte handyman & remodeling: carpentry, drywall, painting, doors & windows, kitchen & bath. Same-day available. ⭐5.0 (87★) ☎ (980) 391-6833.";
+const seoDescription = "Charlotte handyman & remodeling: carpentry, drywall, painting, doors & windows, kitchen & bath. Same-day available. ⭐5.0 ☎ (980) 391-6833.";
 
 // Map service slugs to images (using descriptive project images)
 const serviceImages: Record<string, string> = {
@@ -260,7 +261,7 @@ const servicesSchema = {
               </div>
               <div>
                 <p class="font-heading font-bold text-neutral-900">5.0 Rating</p>
-                <p class="text-xs text-neutral-600">87+ Reviews</p>
+                <p class="text-xs text-neutral-600">{googleReviewLabel()}</p>
               </div>
             </div>
           </div>

@@ -38,7 +38,7 @@ localInfo:
 
 seo:
   title: "Quick-Fix Handyman Monroe NC | Same-Day Small Repairs ⭐5.0 | iFIXX"
-  description: "Same-day handyman — small repairs, no minimum, fast response in Monroe, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Same-day handyman — small repairs, no minimum, fast response in Monroe, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Monroe Quick Fix Handyman Service

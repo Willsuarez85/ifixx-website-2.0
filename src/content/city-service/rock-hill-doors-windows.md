@@ -41,7 +41,7 @@ localInfo:
 
 seo:
   title: "Door & Window Repair Rock Hill SC | Frames, Locks & Glass | iFIXX"
-  description: "Door & window repair — frames, locks, glass, weatherproofing in Rock Hill, SC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Door & window repair — frames, locks, glass, weatherproofing in Rock Hill, SC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Door & Window Repair in Rock Hill

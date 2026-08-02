@@ -38,7 +38,7 @@ localInfo:
 
 seo:
   title: "Flooring Installation Ballantyne NC | Hardwood, LVP & Tile | iFIXX"
-  description: "Flooring installation — hardwood, LVP, tile, refinishing in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Flooring installation — hardwood, LVP, tile, refinishing in Ballantyne, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Flooring Installation in Ballantyne, NC

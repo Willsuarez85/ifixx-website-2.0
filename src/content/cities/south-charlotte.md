@@ -22,7 +22,7 @@ highlights:
   - "Family-owned — not a franchise call center"
   - "HOA-compliant work, professional presentation"
   - "500+ projects across Charlotte metro"
-  - "Fully insured, 5-star rated (87 reviews)"
+  - "Fully insured, 5-star rated on Google"
 zipCodes:
   - "28277"
   - "28226"

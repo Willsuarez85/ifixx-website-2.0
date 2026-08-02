@@ -42,7 +42,7 @@ localInfo:
 
 seo:
   title: "Outdoor Living Charlotte NC | Decks, Patios & Pergolas | iFIXX"
-  description: "Outdoor living — decks, patios, pergolas, fencing in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Outdoor living — decks, patios, pergolas, fencing in Charlotte, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Charlotte Homeowners Trust iFixx for Outdoor Living

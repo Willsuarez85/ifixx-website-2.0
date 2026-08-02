@@ -38,7 +38,7 @@ localInfo:
 
 seo:
   title: "Kitchen Remodeling Monroe NC | Cabinets & Counters ⭐5.0 | iFIXX"
-  description: "Kitchen remodeling — cabinets, countertops, backsplash in Monroe, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Kitchen remodeling — cabinets, countertops, backsplash in Monroe, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Monroe Homeowners Trust iFixx for Kitchen Remodeling

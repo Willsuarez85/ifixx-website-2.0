@@ -36,7 +36,7 @@ localInfo:
 
 seo:
   title: "Outdoor Living Mint Hill NC | Decks, Patios & Pergolas | iFIXX"
-  description: "Outdoor living — decks, patios, pergolas, fencing in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Outdoor living — decks, patios, pergolas, fencing in Mint Hill, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Create Your Perfect Outdoor Space in Mint Hill

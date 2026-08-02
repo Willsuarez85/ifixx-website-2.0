@@ -40,7 +40,7 @@ localInfo:
 
 seo:
   title: "Painting Rock Hill SC | Interior, Exterior & Cabinets ⭐5.0 | iFIXX"
-  description: "Painting — interior, exterior, trim, cabinets, color consult in Rock Hill, SC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Painting — interior, exterior, trim, cabinets, color consult in Rock Hill, SC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Painting Services in Rock Hill

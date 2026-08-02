@@ -38,7 +38,7 @@ localInfo:
 
 seo:
   title: "Basement Finishing Ballantyne NC | Custom Living Spaces | iFIXX"
-  description: "Basement finishing — egress, framing, drywall, flooring in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Basement finishing — egress, framing, drywall, flooring in Ballantyne, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Basement Finishing in Ballantyne, NC

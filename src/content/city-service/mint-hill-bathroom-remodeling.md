@@ -36,7 +36,7 @@ localInfo:
 
 seo:
   title: "Bathroom Remodeling Mint Hill NC | Tubs, Tile & Vanity | iFIXX"
-  description: "Bathroom remodeling — tubs, tile, vanities, plumbing in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Bathroom remodeling — tubs, tile, vanities, plumbing in Mint Hill, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Mint Hill Homeowners Trust iFixx for Bathroom Remodeling

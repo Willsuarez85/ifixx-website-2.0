@@ -34,7 +34,7 @@ localInfo:
 
 seo:
   title: "Kitchen Remodeling Ballantyne NC | Cabinets & Counters | iFIXX"
-  description: "Kitchen remodeling — cabinets, countertops, backsplash in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Kitchen remodeling — cabinets, countertops, backsplash in Ballantyne, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Ballantyne's Premium Kitchen Remodeling Team

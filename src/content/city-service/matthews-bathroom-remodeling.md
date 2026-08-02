@@ -34,7 +34,7 @@ localInfo:
 
 seo:
   title: "Bathroom Remodeling Matthews NC | Tubs, Tile & Vanity ⭐5.0 | iFIXX"
-  description: "Bathroom remodeling — tubs, tile, vanities, plumbing in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Bathroom remodeling — tubs, tile, vanities, plumbing in Matthews, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Matthews Bathroom Remodeling You Can Trust
