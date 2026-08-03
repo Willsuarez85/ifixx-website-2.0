@@ -19,9 +19,8 @@ neighborhoods:
   - "Waverly"
 highlights:
   - "Same-day handyman service in South Charlotte"
-  - "Family-owned — not a franchise call center"
+  - "Family-owned since 2019 — not a franchise call center"
   - "HOA-compliant work, professional presentation"
-  - "Family-owned and based in the Charlotte metro since 2019"
   - "Fully insured, 5-star rated on Google"
 zipCodes:
   - "28277"

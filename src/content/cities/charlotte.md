@@ -17,9 +17,8 @@ neighborhoods:
   - "Cotswold"
   - "SouthPark"
 highlights:
-  - "Family-owned Charlotte business—not a franchise"
+  - "Family-owned Charlotte business since 2019—not a franchise"
   - "5+ years serving Charlotte homeowners"
-  - "Family-owned and based in Charlotte since 2019"
   - "Same team shows up every time—no random subs"
   - "Fully insured for your peace of mind"
 zipCodes:

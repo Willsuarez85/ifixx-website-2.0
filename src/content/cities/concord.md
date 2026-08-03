@@ -50,5 +50,5 @@ Whether you're in Afton Village, Harrisburg, or anywhere in between, we're just 
 - **Owners You Can Trust**: Talk to Jaime or Hamed directly — no dispatchers, no middlemen
 - **Same-Day Available**: Emergency repairs handled fast
 - **Honest Pricing**: We quote before we start — no surprises at the end
-- **Quality Work**: a 5-star Google rating across every service we offer
+- **Quality Work**: a 5-star Google rating earned across everything we do
 - **Full Service**: Drywall, painting, doors, fixtures, carpentry, and more

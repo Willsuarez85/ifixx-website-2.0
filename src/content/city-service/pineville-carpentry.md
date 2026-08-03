@@ -2,7 +2,7 @@
 citySlug: "pineville"
 serviceSlug: "carpentry"
 
-localIntro: "Quality carpentry transforms Pineville homes—from custom built-ins that maximize storage to trim work that adds character. Our carpenters have completed 70+ projects across this South Charlotte community, bringing craftsmanship and attention to detail to every job. Whether you need crown molding in your McMullen Creek colonial or custom shelving in your Carolina Place townhome, we deliver results that elevate your home."
+localIntro: "Quality carpentry transforms Pineville homes—from custom built-ins that maximize storage to trim work that adds character. Our carpenters work across this South Charlotte community, bringing craftsmanship and attention to detail to every job. Whether you need crown molding in your McMullen Creek colonial or custom shelving in your Carolina Place townhome, we deliver results that elevate your home."
 
 projectHighlight:
   title: "Custom Built-In Entertainment Center in Park Road Area"
@@ -10,7 +10,7 @@ projectHighlight:
   description: "A Pineville family wanted a custom built-in to replace their mismatched furniture and hide electronics clutter. We designed and built a floor-to-ceiling unit with adjustable shelving, closed cabinets for storage, a niche for their 65-inch TV, and integrated lighting. The piece was built on-site, painted to match the room's trim, and transformed the living room into a showpiece."
 
 localBullets:
-  - "70+ carpentry projects completed across Pineville"
+  - "Carpentry projects across Pineville"
   - "Custom built-ins and shelving"
   - "Crown molding and trim installation"
   - "Door and window trim upgrades"
@@ -43,7 +43,7 @@ seo:
 
 ## Professional Carpentry Services in Pineville
 
-Quality carpentry adds value, character, and functionality to your home. After 70+ projects across Pineville, iFixx has earned a reputation for skilled craftsmanship and attention to detail that transforms spaces.
+Quality carpentry adds value, character, and functionality to your home. After years of projects across Pineville, iFixx has earned a reputation for skilled craftsmanship and attention to detail that transforms spaces.
 
 ### Our Pineville Carpentry Services
 
