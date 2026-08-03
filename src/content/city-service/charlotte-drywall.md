@@ -2,7 +2,7 @@
 citySlug: "charlotte"
 serviceSlug: "drywall"
 
-localIntro: "Charlotte homes take a beating—from the humidity that causes drywall tape to bubble, to the settling that cracks walls in older Dilworth homes, to the inevitable doorknob holes in South Charlotte rentals. After 500+ drywall repairs across the Queen City, we've seen every type of wall damage and know exactly how to fix it so you can't tell there was ever a problem. Most repairs take 2-3 hours. We show up, patch it, texture match it, prime it, and you're ready to paint."
+localIntro: "Charlotte homes take a beating—from the humidity that causes drywall tape to bubble, to the settling that cracks walls in older Dilworth homes, to the inevitable doorknob holes in South Charlotte rentals. After years of drywall repairs across the Queen City, we've seen every type of wall damage and know exactly how to fix it so you can't tell there was ever a problem. Most repairs take 2-3 hours. We show up, patch it, texture match it, prime it, and you're ready to paint."
 
 projectHighlight:
   title: "Water Damage Ceiling Repair"
@@ -10,7 +10,7 @@ projectHighlight:
   description: "An upstairs bathroom leak soaked through this family room ceiling, leaving a 4-foot water stain and sagging drywall. We cut out the damaged section, installed new drywall, taped and mudded the seams, matched the existing knockdown texture, and primed everything. The homeowner painted the next day and you'd never know there was damage. Total time: one afternoon."
 
 localBullets:
-  - "500+ drywall repairs completed across Charlotte"
+  - "Drywall repairs across every Charlotte neighborhood"
   - "Same-day service available for most repairs"
   - "Texture matching experts—orange peel, knockdown, smooth, popcorn"
   - "Water damage specialists (after leak is fixed)"
@@ -41,7 +41,7 @@ seo:
 
 ## Charlotte's Drywall Repair Experts
 
-Drywall damage is one of the most common repairs we do in Charlotte—and one of the most satisfying to fix. There's nothing like watching a fist-sized hole disappear into a seamless wall. After 500+ drywall repairs across the Queen City, our team can handle anything from a simple nail pop to a water-damaged ceiling.
+Drywall damage is one of the most common repairs we do in Charlotte—and one of the most satisfying to fix. There's nothing like watching a fist-sized hole disappear into a seamless wall. After years of drywall repairs across the Queen City, our team can handle anything from a simple nail pop to a water-damaged ceiling.
 
 ### Common Drywall Problems We Fix in Charlotte
 

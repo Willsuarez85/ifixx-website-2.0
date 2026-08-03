@@ -43,8 +43,8 @@ relatedServices:
   - "kitchen-remodeling"
   - "flooring-installation"
 seo:
-  title: "Bathroom Remodeling Charlotte NC | From $5,000 | 200+ Projects | iFIXX"
-  description: "Bathroom remodeling in Charlotte from $5,000. Walk-in showers, vanities, tile, full renovations. 200+ bathrooms completed. Free estimates. (980) 391-6833"
+  title: "Bathroom Remodeling Charlotte NC | From $5,000 | Family-Owned | iFIXX"
+  description: "Bathroom remodeling in Charlotte from $5,000. Walk-in showers, vanities, tile, full renovations. Family-owned and insured. Free estimates. (980) 391-6833"
 ---
 
 Transform your bathroom into a relaxing retreat. Whether you want a spa-like master bath or a functional family bathroom, iFixx delivers beautiful results with quality craftsmanship. As trusted remodeling contractors in Charlotte, we bring your vision to life.
@@ -211,7 +211,7 @@ We create safe, accessible bathrooms for aging in place or mobility challenges:
 
 ## The iFIXX Bathroom Remodeling Process
 
-We've refined our process through 200+ bathroom projects. Here's what to expect:
+We've refined our process over years of bathroom projects. Here's what to expect:
 
 **1. Design & Planning (Week 1)**
 
@@ -319,7 +319,7 @@ iFIXX provides professional bathroom remodeling services throughout the Charlott
 **Local Family Business**
 We're not a national franchise or lead-generation service. We're a Charlotte family who lives and works in the community. When you call, you talk directly to us.
 
-**200+ Successful Bathroom Projects**
+**Bathroom Projects Across Charlotte**
 We've transformed bathrooms in every type of Charlotte home. From tiny powder rooms to luxurious master suites, we've done it all.
 
 **Expert Tile Work**

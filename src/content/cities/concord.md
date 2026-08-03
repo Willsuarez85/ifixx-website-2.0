@@ -3,7 +3,7 @@ name: "Concord"
 state: "NC"
 region: "NC"
 type: "city"
-localizedIntro: "We're a local Charlotte-area family business that has completed 500+ projects across the metro—including homes throughout Concord and Cabarrus County. We bring the same quality and honest pricing that's earned us a 5-star reputation."
+localizedIntro: "We're a local Charlotte-area family business working across the metro—including homes throughout Concord and Cabarrus County. We bring the same quality and honest pricing that's earned us a 5-star reputation."
 description: "iFixx is a family-owned business serving Concord and the greater Charlotte area for 5+ years. Whether it's a quick repair or a bigger project, you'll talk directly to Jaime or Hamed—the owners. No call centers, no runaround. Just honest work at fair prices."
 neighborhoods:
   - "Downtown Concord"
@@ -15,7 +15,7 @@ neighborhoods:
   - "Kannapolis"
 highlights:
   - "Family-owned Charlotte-area business—not a franchise"
-  - "5+ years and 500+ projects in the region"
+  - "5+ years working in the region"
   - "Talk directly to the owners, every time"
   - "Same-day service available for emergencies"
   - "Honest, upfront pricing—no surprises"
@@ -50,5 +50,5 @@ Whether you're in Afton Village, Harrisburg, or anywhere in between, we're just 
 - **Owners You Can Trust**: Talk to Jaime or Hamed directly — no dispatchers, no middlemen
 - **Same-Day Available**: Emergency repairs handled fast
 - **Honest Pricing**: We quote before we start — no surprises at the end
-- **Quality Work**: 500+ projects completed with a 5-star Google rating
+- **Quality Work**: a 5-star Google rating across every service we offer
 - **Full Service**: Drywall, painting, doors, fixtures, carpentry, and more

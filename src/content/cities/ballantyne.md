@@ -4,7 +4,7 @@ state: "NC"
 region: "NC"
 type: "neighborhood"
 parentCity: "charlotte"
-localizedIntro: "We're a local Charlotte family who has completed 500+ projects across the metro—including dozens in Ballantyne. We understand that Ballantyne homeowners expect premium service, and that's exactly what we deliver."
+localizedIntro: "We're a local Charlotte family working across the metro—including Ballantyne. We understand that Ballantyne homeowners expect premium service, and that's exactly what we deliver."
 description: "iFixx is a family-owned Charlotte business that has been serving Ballantyne and South Charlotte for 5+ years. We know the high standards of this community, we work with HOA requirements, and we leave your home cleaner than we found it. When you call us, you talk to us directly—same team, every time."
 neighborhoods:
   - "Ballantyne Country Club"
@@ -16,7 +16,7 @@ neighborhoods:
   - "Providence Plantation"
 highlights:
   - "Family-owned Charlotte business—not a franchise"
-  - "5+ years and 500+ projects across Charlotte"
+  - "5+ years working across Charlotte"
   - "HOA-compliant work and professional presentation"
   - "Same team shows up every time"
   - "We leave your home cleaner than we found it"
@@ -35,7 +35,7 @@ servicesHighlighted:
   - "electrical"
 seo:
   title: "Ballantyne Handyman & Remodeling | Same-Day Service | ⭐5.0 | iFIXX"
-  description: "Ballantyne's #1 handyman & remodeling experts. Serving Piper Glen, Providence Plantation, Blakeney & all Ballantyne. 500+ projects. ⭐5.0 on Google. Free estimates! Call (980) 391-6833."
+  description: "Ballantyne's #1 handyman & remodeling experts. Serving Piper Glen, Providence Plantation, Blakeney & all Ballantyne. Family-owned. ⭐5.0 on Google. Free estimates! Call (980) 391-6833."
 ---
 
 Ballantyne residents expect excellence in everything, and home services are no exception. iFixx delivers the premium craftsmanship and professional service that matches the standards of this premier Charlotte community.

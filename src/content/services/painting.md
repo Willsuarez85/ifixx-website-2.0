@@ -67,7 +67,7 @@ Charlotte homeowners trust us for complete painting projects—interior, exterio
 
 **Professional painting service in Charlotte.** Talk directly to owners Jaime or Hamed. Free color consultation. Honest pricing. Quality work guaranteed.
 
-**Trusted by Charlotte homeowners:** 5.0 stars on Google ⭐⭐⭐⭐⭐ — Serving Charlotte since 2021.
+**Trusted by Charlotte homeowners:** 5.0 stars on Google ⭐⭐⭐⭐⭐ — Serving Charlotte since 2019.
 
 ---
 
@@ -380,7 +380,7 @@ Fresh paint transforms your home. Whether you're updating one room or painting t
 - ✅ Owner-operated (talk to the people doing the work)
 - ✅ Upfront pricing—no surprises
 - ✅ 5.0 stars on Google
-- ✅ Serving Charlotte since 2021
+- ✅ Serving Charlotte since 2019
 
 **Free estimate.** Text photos or schedule a visit. Let's transform your space.
 

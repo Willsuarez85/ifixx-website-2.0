@@ -1,4 +1,5 @@
 ---
+import { GOOGLE_REVIEW_COUNT } from '../../lib/business-facts';
 import PillarLayout from '../../layouts/PillarLayout.astro';
 import { getCollection } from 'astro:content';
 import TrustBar from '../../components/sections/TrustBar.astro';
@@ -14,10 +15,10 @@ const locations = (await getCollection('cities')).filter(c => hasServiceAreaHub(
 const pillar = {
   title: "Home Remodeling Services",
   slug: "remodeling",
-  description: "Charlotte's family-owned remodeling team. Kitchen renovations, bathroom remodels, flooring installation, and outdoor living. 500+ projects completed across South Charlotte, Ballantyne, Matthews, and beyond.",
+  description: "Charlotte's family-owned remodeling team. Kitchen renovations, bathroom remodels, flooring installation, and outdoor living. Family-owned, working across South Charlotte, Ballantyne, Matthews, and beyond.",
   seo: {
     title: "Home Remodeling Charlotte NC | Kitchen & Bath | ⭐5.0 | iFIXX",
-    description: "Charlotte's top-rated remodeling contractors. Kitchen, bathroom, flooring—500+ projects completed. ⭐5.0 on Google. Family-owned since 2019. Free consultation! Call (980) 391-6833."
+    description: "Charlotte's top-rated remodeling contractors. Kitchen, bathroom, flooring—all under one family-owned team. ⭐5.0 on Google. Family-owned since 2019. Free consultation! Call (980) 391-6833."
   }
 };
 
@@ -82,7 +83,7 @@ const services = remodelingServices.length > 0
         <p class="text-xl text-neutral-300 mb-8 leading-relaxed">
           We've spent 5 years helping Charlotte homeowners fall in love with their homes again.
           From outdated kitchens in Myers Park to cramped bathrooms in Ballantyne, we've completed
-          500+ projects across the Charlotte metro—and we treat every home like it's our own.
+          We work across the Charlotte metro—and we treat every home like it's our own.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4">
@@ -220,8 +221,8 @@ const services = remodelingServices.length > 0
             height="450"
           />
           <div class="absolute -bottom-6 -right-6 bg-primary-500 text-white p-6 rounded-xl shadow-xl">
-            <p class="text-4xl font-bold">500+</p>
-            <p class="text-sm">Charlotte Projects</p>
+            <p class="text-4xl font-bold">{GOOGLE_REVIEW_COUNT}</p>
+            <p class="text-sm">Google Reviews</p>
           </div>
         </div>
 
@@ -241,7 +242,7 @@ const services = remodelingServices.length > 0
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
               <div>
-                <h3 class="font-bold text-neutral-900">500+ Charlotte Projects</h3>
+                <h3 class="font-bold text-neutral-900">Charlotte Projects, Start to Finish</h3>
                 <p class="text-neutral-600 text-sm">We know Charlotte homes—from 1920s bungalows to new construction in Ballantyne.</p>
               </div>
             </li>

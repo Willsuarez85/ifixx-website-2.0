@@ -2,7 +2,7 @@
 citySlug: "pineville"
 serviceSlug: "furniture-assembly"
 
-localIntro: "That IKEA box isn't going to assemble itself—but we will. Our team has completed 200+ furniture assembly projects across Pineville, from quick nightstand builds in Carolina Place townhomes to elaborate home office setups in McMullen Creek. We bring the tools, patience, and expertise to assemble your furniture quickly and correctly, so you can enjoy it instead of wrestling with instructions."
+localIntro: "That IKEA box isn't going to assemble itself—but we will. Our team assembles furniture across Pineville, from quick nightstand builds in Carolina Place townhomes to elaborate home office setups in McMullen Creek. We bring the tools, patience, and expertise to assemble your furniture quickly and correctly, so you can enjoy it instead of wrestling with instructions."
 
 projectHighlight:
   title: "Complete Home Office Setup in Johnston Road Corridor"
@@ -10,7 +10,7 @@ projectHighlight:
   description: "A Pineville professional working from home ordered a complete home office from IKEA—two KALLAX shelving units, a BEKANT desk, a MARKUS chair, and a PAX wardrobe for office supply storage. We assembled everything in one afternoon, secured the shelving units to the wall for safety, organized cables behind the desk, and left the homeowner with a fully functional home office ready for Monday morning."
 
 localBullets:
-  - "200+ furniture assembly projects completed across Pineville"
+  - "Furniture assembly across Pineville"
   - "All brands: IKEA, Wayfair, Amazon, Costco, and more"
   - "Same-day service often available"
   - "Beds, dressers, desks, shelving, outdoor furniture"
@@ -43,7 +43,7 @@ seo:
 
 ## Fast, Professional Furniture Assembly in Pineville
 
-Skip the frustration and get your furniture assembled right. After 200+ assembly projects across Pineville, iFixx has become the go-to team for furniture assembly that's fast, professional, and stress-free.
+Skip the frustration and get your furniture assembled right. After years of assembly projects across Pineville, iFixx has become the go-to team for furniture assembly that's fast, professional, and stress-free.
 
 ### Our Pineville Furniture Assembly Services
 

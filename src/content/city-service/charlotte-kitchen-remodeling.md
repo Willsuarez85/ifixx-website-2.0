@@ -10,7 +10,7 @@ projectHighlight:
   description: "When the Hendersons bought their 1960s Myers Park colonial, they inherited a cramped galley kitchen that hadn't been updated in 30 years. We opened up the space by removing a non-load-bearing wall, installed custom shaker cabinets, added a large island with seating for four, and upgraded to quartz countertops. The project included new LED under-cabinet lighting and a tile backsplash that complements the home's traditional architecture. The result? A modern kitchen that still feels at home in this classic neighborhood."
 
 localBullets:
-  - "150+ kitchen projects completed across Charlotte neighborhoods"
+  - "Kitchen projects across Charlotte neighborhoods"
   - "Experience with historic homes in Dilworth, Plaza Midwood, and Myers Park"
   - "Familiar with Mecklenburg County permit requirements and inspection schedules"
   - "Network of trusted Charlotte suppliers for cabinets, countertops, and appliances"
@@ -47,7 +47,7 @@ seo:
 
 ## Why Charlotte Homeowners Trust iFixx for Kitchen Remodeling
 
-After 150+ kitchen projects across Charlotte, we've seen what works in Queen City homes—and what doesn't. From the original hardwood floors in Dilworth that need protecting during demolition, to the HOA requirements in Ballantyne that need navigating, we bring local knowledge to every project.
+After years of kitchen projects across Charlotte, we've seen what works in Queen City homes—and what doesn't. From the original hardwood floors in Dilworth that need protecting during demolition, to the HOA requirements in Ballantyne that need navigating, we bring local knowledge to every project.
 
 ### Charlotte Kitchen Expertise
 
@@ -59,7 +59,7 @@ After 150+ kitchen projects across Charlotte, we've seen what works in Queen Cit
 
 ## Kitchen Remodel Cost in Charlotte: What to Expect
 
-Charlotte homeowners often ask us: "How much will my kitchen remodel cost?" Here's a transparent breakdown based on our 150+ completed projects:
+Charlotte homeowners often ask us: "How much will my kitchen remodel cost?" Here's a transparent breakdown based on the kitchens we've completed:
 
 ### Kitchen Remodel Price Ranges (Charlotte, NC)
 

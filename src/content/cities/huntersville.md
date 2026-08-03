@@ -18,7 +18,7 @@ highlights:
   - "Same-day handyman service in Huntersville"
   - "Family-owned — not a franchise"
   - "Serving Huntersville, Cornelius & Davidson"
-  - "500+ projects completed in Charlotte metro"
+  - "Family-owned and based in the Charlotte metro since 2019"
   - "Fully insured, 5-star rated on Google"
 zipCodes:
   - "28078"

@@ -1,4 +1,5 @@
 ---
+import { GOOGLE_REVIEW_COUNT } from '../../lib/business-facts';
 import PillarLayout from '../../layouts/PillarLayout.astro';
 import { getCollection } from 'astro:content';
 import TrustBar from '../../components/sections/TrustBar.astro';
@@ -14,10 +15,10 @@ const locations = (await getCollection('cities')).filter(c => hasServiceAreaHub(
 const pillar = {
   title: "Home Repair Services",
   slug: "repairs",
-  description: "Charlotte's trusted home repair team. Carpentry, painting, drywall, doors and windows, and everyday fixes. Family-owned, fully insured, 500+ projects completed across South Charlotte, Matthews, Ballantyne, and surrounding areas.",
+  description: "Charlotte's trusted home repair team. Carpentry, painting, drywall, doors and windows, and everyday fixes. Family-owned, fully insured, working across South Charlotte, Matthews, Ballantyne, and surrounding areas.",
   seo: {
     title: "Home Repairs Charlotte NC | Same-Day Handyman | ⭐5.0 | iFIXX",
-    description: "Charlotte's trusted handyman for all home repairs. Carpentry, painting, drywall, doors & windows—same-day service. ⭐5.0 on Google. 500+ projects. Free estimates! Call (980) 391-6833."
+    description: "Charlotte's trusted handyman for all home repairs. Carpentry, painting, drywall, doors & windows—same-day service. ⭐5.0 on Google. Family-owned. Free estimates! Call (980) 391-6833."
   }
 };
 
@@ -67,7 +68,7 @@ const serviceImages: Record<string, string> = {
           Your Local Charlotte <span class="text-primary-500">Handyman Team</span>
         </h1>
         <p class="text-xl text-neutral-300 mb-8 leading-relaxed">
-          We've been fixing homes across Charlotte for over 5 years—500+ projects and counting.
+          We've been fixing homes across Charlotte for over 5 years.
           From a cracked wall in Myers Park to a sticking door in Matthews,
           we're the local team your neighbors call when they need it done right.
         </p>
@@ -95,7 +96,7 @@ const serviceImages: Record<string, string> = {
           Home Repairs We Handle Every Day
         </h2>
         <p class="text-lg text-neutral-600">
-          After 500+ projects across Charlotte, there's not much we haven't seen.
+          After years of projects across Charlotte, there's not much we haven't seen.
           From older homes in Plaza Midwood to newer builds in Waxhaw—we know what Charlotte homes need.
         </p>
       </div>
@@ -148,7 +149,7 @@ const serviceImages: Record<string, string> = {
           <p class="text-neutral-300 text-lg mb-8">
             We're a local Charlotte family—not a franchise, not a call center in another state.
             When you call us, you talk to us. When we show up, it's the same team every time.
-            That's how we've built our reputation over 5 years and 500+ projects.
+            That's how we've built our reputation over 5 years.
           </p>
 
           <ul class="space-y-4">
@@ -210,8 +211,8 @@ const serviceImages: Record<string, string> = {
             height="450"
           />
           <div class="absolute -bottom-6 -left-6 bg-primary-500 text-white p-6 rounded-xl shadow-xl">
-            <p class="text-4xl font-bold">500+</p>
-            <p class="text-sm">Projects Completed</p>
+            <p class="text-4xl font-bold">{GOOGLE_REVIEW_COUNT}</p>
+            <p class="text-sm">Google Reviews</p>
           </div>
         </div>
       </div>

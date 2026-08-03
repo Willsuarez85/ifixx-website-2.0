@@ -2,7 +2,7 @@
 citySlug: "charlotte"
 serviceSlug: "bathroom-remodeling"
 
-localIntro: "Charlotte bathrooms range from original 1920s tile work in Dilworth to spa-like retreats in new Ballantyne construction. After remodeling 200+ bathrooms across the Queen City, we've mastered everything from small powder room updates to full master bath transformations. Our team knows Charlotte homes inside and out—from the plumbing quirks of Plaza Midwood to the HOA requirements of South Charlotte communities."
+localIntro: "Charlotte bathrooms range from original 1920s tile work in Dilworth to spa-like retreats in new Ballantyne construction. After remodeling bathrooms across the Queen City, we've mastered everything from small powder room updates to full master bath transformations. Our team knows Charlotte homes inside and out—from the plumbing quirks of Plaza Midwood to the HOA requirements of South Charlotte communities."
 
 projectHighlight:
   title: "Dilworth Master Bath Renovation"
@@ -10,7 +10,7 @@ projectHighlight:
   description: "This 1928 Dilworth bungalow had its original bathroom—complete with a clawfoot tub and hexagonal floor tile. The homeowners wanted modern convenience while preserving the home's character. We kept the clawfoot tub (refinished), added a frameless glass walk-in shower, installed heated floors, and replaced the old pedestal sink with a custom vanity that matches the home's Craftsman style. The original hex tile was beyond saving, but we found a period-appropriate replacement that passes inspection by even the pickiest Dilworth neighbors."
 
 localBullets:
-  - "200+ bathroom renovations completed across Charlotte"
+  - "Bathroom renovations across every Charlotte neighborhood"
   - "Specialists in historic bathrooms in Dilworth, Myers Park, and Elizabeth"
   - "Experience with Charlotte's older plumbing systems (galvanized, cast iron)"
   - "Mecklenburg County permit handling included in our service"
@@ -47,7 +47,7 @@ seo:
 
 ## Charlotte's Trusted Bathroom Remodeling Team
 
-After 200+ bathroom projects across Charlotte, we've seen every type of Charlotte bathroom—from original 1920s masterpieces to cookie-cutter builder baths. We bring that experience to every project, whether you're doing a quick refresh or a complete transformation.
+After years of bathroom projects across Charlotte, we've seen every type of Charlotte bathroom—from original 1920s masterpieces to cookie-cutter builder baths. We bring that experience to every project, whether you're doing a quick refresh or a complete transformation.
 
 ### Our Charlotte Bathroom Expertise
 
@@ -66,7 +66,7 @@ After 200+ bathroom projects across Charlotte, we've seen every type of Charlott
 
 ## How Much Does Bathroom Remodeling Cost in Charlotte?
 
-Charlotte homeowners ask us this question every day. Here's a transparent breakdown based on our 200+ completed bathroom projects:
+Charlotte homeowners ask us this question every day. Here's a transparent breakdown based on the bathroom projects we've completed:
 
 ### Bathroom Remodel Price Ranges (Charlotte, NC)
 

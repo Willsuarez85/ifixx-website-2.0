@@ -21,7 +21,7 @@ highlights:
   - "Same-day handyman service in South Charlotte"
   - "Family-owned — not a franchise call center"
   - "HOA-compliant work, professional presentation"
-  - "500+ projects across Charlotte metro"
+  - "Family-owned and based in the Charlotte metro since 2019"
   - "Fully insured, 5-star rated on Google"
 zipCodes:
   - "28277"
@@ -61,6 +61,6 @@ From quick repairs to full remodels, iFIXX handles it all:
 
 South Charlotte has newer homes with HOA requirements and high standards. We get it. We show up on time, work cleanly, and deliver results that meet those standards — or we make it right.
 
-**500+ projects completed** across Charlotte and South Charlotte. **5.0 on Google.** Talk directly to Jaime or Hamed — not a call center.
+**Family-owned since 2019**, working across Charlotte and South Charlotte. **5.0 on Google.** Talk directly to Jaime or Hamed — not a call center.
 
 📞 **Call/text (980) 391-6833** for a free estimate. Same-day service available Mon-Fri.

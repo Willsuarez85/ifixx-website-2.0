@@ -39,7 +39,7 @@ faqs:
   - q: "My door lock is broken or loose — hardware fix or new door?"
     a: "Usually hardware. We replace deadbolts, knobs, strike plates, and reinforce loose hinges starting at $75. If the door itself is split around the lock area (kicked-in damage or rot), we replace the slab or full pre-hung unit."
   - q: "Are you insured?"
-    a: "Yes, fully insured. We're a family-owned Charlotte handyman business (Jaime & Hamed), 500+ projects, 5.0 stars on Google."
+    a: "Yes, fully insured. We're a family-owned Charlotte handyman business (Jaime & Hamed), 5.0 stars on Google."
 relatedServices:
   - "carpentry"
   - "general-repairs"

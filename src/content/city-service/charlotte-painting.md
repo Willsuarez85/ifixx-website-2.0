@@ -10,7 +10,7 @@ projectHighlight:
   description: "This 1940s Myers Park colonial hadn't been painted in 15 years. The wood siding had significant chalking and some areas of wood rot. We replaced rotted wood, scraped and sanded all surfaces, primed bare spots, and applied two coats of premium exterior paint. We matched the home's historic color scheme after researching original paint colors with the homeowners. The result: a paint job that respects the home's character while protecting it for the next decade."
 
 localBullets:
-  - "400+ painting projects completed across Charlotte"
+  - "Painting projects across every Charlotte neighborhood"
   - "Experience with historic homes in Dilworth, Myers Park, and Elizabeth"
   - "Premium paints selected for Charlotte's humidity and climate"
   - "Detailed prep work—we don't cut corners"
@@ -39,7 +39,7 @@ seo:
 
 ## Charlotte's Painting Professionals
 
-After 400+ painting projects across the Queen City, we know what it takes to deliver a paint job that looks great and lasts in Charlotte's climate. From the humidity that challenges exterior paint to the detailed trim work on historic homes—our team has the experience to handle any Charlotte painting project.
+After years of painting projects across the Queen City, we know what it takes to deliver a paint job that looks great and lasts in Charlotte's climate. From the humidity that challenges exterior paint to the detailed trim work on historic homes—our team has the experience to handle any Charlotte painting project.
 
 ### Why Charlotte Homeowners Choose Us
 
