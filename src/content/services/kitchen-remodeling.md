@@ -43,8 +43,8 @@ relatedServices:
   - "bathroom-remodeling"
   - "flooring-installation"
 seo:
-  title: "Kitchen Remodeling Charlotte NC | From $8,000 | 150+ Projects | iFIXX"
-  description: "Kitchen remodeling in Charlotte starting at $8,000. Cabinets, countertops, flooring, full renovations. 150+ kitchens completed. Free estimates. (980) 391-6833"
+  title: "Kitchen Remodeling Charlotte NC | From $8,000 | Family-Owned | iFIXX"
+  description: "Kitchen remodeling in Charlotte starting at $8,000. Cabinets, countertops, flooring, full renovations. Family-owned and insured. Free estimates. (980) 391-6833"
 ---
 
 Your kitchen is the heart of your home. Whether you're looking for a complete kitchen transformation or targeted upgrades, iFixx delivers custom kitchen designs that enhance your daily life and add value to your Charlotte home.
@@ -153,7 +153,7 @@ A well-designed island adds workspace, storage, and seating. We custom-build isl
 
 ## The iFIXX Kitchen Remodeling Process
 
-We've refined our process through 150+ kitchen projects. Here's what to expect:
+We've refined our process over years of kitchen projects. Here's what to expect:
 
 **1. Free Consultation & Design (Week 1)**
 
@@ -263,7 +263,7 @@ iFIXX provides professional kitchen remodeling services throughout the Charlotte
 **Local Family Business**
 We're not a national franchise. We're a Charlotte family who lives and works in the community we serve. When you call, you talk to us, not a call center.
 
-**150+ Successful Kitchen Projects**
+**Kitchen Projects Across Charlotte**
 We've transformed kitchens across every Charlotte neighborhood. From historic bungalows to modern new builds, we've seen it all.
 
 **Quality Craftsmanship**

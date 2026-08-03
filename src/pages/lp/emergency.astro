@@ -1,4 +1,5 @@
 ---
+import { GOOGLE_REVIEW_COUNT } from '../../lib/business-facts';
 import LandingLayout from '../../layouts/LandingLayout.astro';
 import LandingForm from '../../components/forms/LandingForm.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
@@ -148,7 +149,7 @@ const faqs = [
             When you call <strong>(980) 391-6833</strong>, the owners answer. No dispatchers, no "someone will call you back." We assess your situation, quote a fair price, and get to your home the same day.
           </p>
           <p class="text-neutral-600">
-            We've been doing this for 5+ years in Charlotte. 500+ projects. 5-star Google rating. We're not a franchise — we're your neighbors.
+            We've been doing this for 5+ years in Charlotte. 5-star Google rating. We're not a franchise — we're your neighbors.
           </p>
         </div>
       </div>
@@ -268,8 +269,8 @@ const faqs = [
                 <svg class="w-5 h-5 text-neutral-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
               </div>
               <div>
-                <p class="font-heading font-bold text-neutral-900 text-sm">500+ Projects</p>
-                <p class="text-xs text-neutral-600">Completed in Charlotte</p>
+                <p class="font-heading font-bold text-neutral-900 text-sm">Family-Owned</p>
+                <p class="text-xs text-neutral-600">Charlotte-based since 2019</p>
               </div>
             </div>
           </div>
@@ -280,15 +281,15 @@ const faqs = [
             We're not a franchise. We're not a call center in another state. We're a Charlotte family that's been doing this for over 5 years — and our reputation is everything to us.
           </p>
           <p class="text-neutral-600 mb-4">
-            When you call <strong>(980) 391-6833</strong>, you talk to us directly. When we show up, it's the same team every time. That's how we've completed 500+ projects and earned a 5-star Google rating.
+            When you call <strong>(980) 391-6833</strong>, you talk to us directly. When we show up, it's the same team every time. That's how we've earned a 5-star Google rating.
           </p>
           <p class="text-neutral-600 mb-6">
             We live here, we work here, we raise our kids here. When we say we care about Charlotte homes, we mean it.
           </p>
           <div class="flex items-center gap-6">
             <div class="text-center">
-              <p class="text-3xl font-heading font-bold text-primary-500">500+</p>
-              <p class="text-sm text-neutral-500">Projects</p>
+              <p class="text-3xl font-heading font-bold text-primary-500">{GOOGLE_REVIEW_COUNT}</p>
+              <p class="text-sm text-neutral-500">Google Reviews</p>
             </div>
             <div class="text-center">
               <p class="text-3xl font-heading font-bold text-primary-500">5.0</p>

@@ -2,7 +2,7 @@
 citySlug: "pineville"
 serviceSlug: "quick-fix"
 
-localIntro: "Small jobs matter too—and Pineville homeowners know they can call iFixx for the quick repairs that other companies won't bother with. Our team has completed 500+ quick-fix projects across this South Charlotte community, from squeaky doors in Carolina Place townhomes to light fixtures waiting to be swapped in McMullen Creek. No job is too small, and we bring the same professionalism to a 30-minute repair as we do to a major renovation."
+localIntro: "Small jobs matter too—and Pineville homeowners know they can call iFixx for the quick repairs that other companies won't bother with. Our team handles quick-fix projects across this South Charlotte community, from squeaky doors in Carolina Place townhomes to light fixtures waiting to be swapped in McMullen Creek. No job is too small, and we bring the same professionalism to a 30-minute repair as we do to a major renovation."
 
 projectHighlight:
   title: "Move-In Ready Punch List in Carmel Commons"
@@ -10,7 +10,7 @@ projectHighlight:
   description: "A Pineville family closing on their new home had a punch list of small issues to address before move-in: three doors that didn't latch, a bathroom exhaust fan that needed replacing, two loose towel bars, a kitchen faucet to swap out, and several wall repairs from previous picture hangings. We knocked out the entire list in one 3-hour visit, so they could move in with everything working perfectly."
 
 localBullets:
-  - "500+ quick-fix projects completed across Pineville"
+  - "Quick-fix projects across Pineville"
   - "Same-day service often available"
   - "No job too small—we mean it"
   - "Experienced with all common home repairs"
@@ -43,7 +43,7 @@ seo:
 
 ## Professional Quick-Fix Services in Pineville
 
-That faucet that needs swapping. The door that won't close. The hole in the wall you've been ignoring. Pineville homeowners call iFixx because we actually show up for small jobs—and we do them right. After 500+ quick fixes across this South Charlotte community, we're the trusted choice for repairs that other companies won't touch.
+That faucet that needs swapping. The door that won't close. The hole in the wall you've been ignoring. Pineville homeowners call iFixx because we actually show up for small jobs—and we do them right. After years of quick fixes across this South Charlotte community, we're the trusted choice for repairs that other companies won't touch.
 
 ### Common Quick Fixes We Handle
 

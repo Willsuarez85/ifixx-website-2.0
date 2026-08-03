@@ -2,7 +2,7 @@
 citySlug: "matthews"
 serviceSlug: "painting"
 
-localIntro: "Matthews homes deserve quality paint work that lasts—whether you're refreshing interior colors, updating your curb appeal, or preparing your home for sale. After completing 60+ painting projects in Matthews and Union County, our team delivers professional results with clean workmanship and fair pricing. We treat your Matthews home with the care it deserves."
+localIntro: "Matthews homes deserve quality paint work that lasts—whether you're refreshing interior colors, updating your curb appeal, or preparing your home for sale. After years of painting projects in Matthews and Union County, our team delivers professional results with clean workmanship and fair pricing. We treat your Matthews home with the care it deserves."
 
 projectHighlight:
   title: "Whole-House Exterior Repaint in Downtown Matthews"
@@ -10,7 +10,7 @@ projectHighlight:
   description: "This Downtown Matthews homeowner had a 1985 traditional that hadn't been painted in 15 years. The wood siding was chalking and several areas had peeling paint. We pressure washed all surfaces, scraped and sanded problem areas, replaced rotted trim boards, primed bare wood, and applied two coats of premium exterior paint. We also painted the shutters and front door in a complementary accent color. The home now looks fresh and well-maintained—the owners said neighbors have stopped to compliment the transformation."
 
 localBullets:
-  - "60+ painting projects in Matthews and Union County"
+  - "Painting projects in Matthews and Union County"
   - "Premium paints for lasting results in NC climate"
   - "Detailed prep work—we don't cut corners"
   - "Clean, professional crews"
@@ -39,7 +39,7 @@ seo:
 
 ## Quality Painting for Matthews Homes
 
-After 60+ painting projects in Matthews and surrounding areas, we've built our reputation on quality work and fair dealing. Matthews homeowners appreciate painters who do thorough prep work, use quality materials, and clean up properly—that's exactly what we deliver.
+After years of painting projects in Matthews and surrounding areas, we've built our reputation on quality work and fair dealing. Matthews homeowners appreciate painters who do thorough prep work, use quality materials, and clean up properly—that's exactly what we deliver.
 
 ### What Sets Us Apart in Matthews
 

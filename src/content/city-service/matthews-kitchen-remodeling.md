@@ -2,7 +2,7 @@
 citySlug: "matthews"
 serviceSlug: "kitchen-remodeling"
 
-localIntro: "Matthews kitchens reflect the community's blend of established neighborhoods and growing families. From the charming homes near Downtown Matthews to the newer developments in Weddington and Indian Trail, we've completed 40+ kitchen projects throughout this area. Our team understands what Matthews homeowners want: quality craftsmanship, fair pricing, and contractors who show up when they say they will."
+localIntro: "Matthews kitchens reflect the community's blend of established neighborhoods and growing families. From the charming homes near Downtown Matthews to the newer developments in Weddington and Indian Trail, we've taken on kitchen projects throughout this area. Our team understands what Matthews homeowners want: quality craftsmanship, fair pricing, and contractors who show up when they say they will."
 
 projectHighlight:
   title: "Sardis Woods Kitchen Transformation"
@@ -10,7 +10,7 @@ projectHighlight:
   description: "This Sardis Woods family had outgrown their 1990s kitchen—dated oak cabinets, limited counter space, and a layout that didn't work for their busy household. We removed a half-wall to open the kitchen to the family room, installed white shaker cabinets with a large island, added quartz countertops, and upgraded all appliances. The new layout includes a homework station for the kids and better flow for entertaining. The family now spends more time together in their favorite room."
 
 localBullets:
-  - "40+ kitchen projects completed in Matthews and Union County"
+  - "Kitchen projects in Matthews and Union County"
   - "Experience with Matthews home styles from 1980s to new construction"
   - "Mecklenburg and Union County permit experience"
   - "Family-owned business that understands family needs"
@@ -39,7 +39,7 @@ seo:
 
 ## Matthews Kitchen Remodeling Experts
 
-After 40+ kitchen projects in Matthews and surrounding areas, we've built our reputation on quality work and honest service. Matthews homeowners appreciate contractors who do what they say—and that's exactly what we deliver.
+After years of kitchen projects in Matthews and surrounding areas, we've built our reputation on quality work and honest service. Matthews homeowners appreciate contractors who do what they say—and that's exactly what we deliver.
 
 ### Why Matthews Families Choose Us
 

@@ -2,7 +2,7 @@
 citySlug: "pineville"
 serviceSlug: "outdoor-living"
 
-localIntro: "Pineville's climate makes outdoor living a year-round pleasure, and our team has completed 40+ outdoor projects across this South Charlotte community. From deck repairs in McMullen Creek to pergola installations in Johnston Road Corridor, we help Pineville homeowners extend their living space outdoors. Whether you want a simple pressure wash or a complete outdoor kitchen, we bring the expertise to make your backyard dreams reality."
+localIntro: "Pineville's climate makes outdoor living a year-round pleasure, and our team has taken on outdoor projects across this South Charlotte community. From deck repairs in McMullen Creek to pergola installations in Johnston Road Corridor, we help Pineville homeowners extend their living space outdoors. Whether you want a simple pressure wash or a complete outdoor kitchen, we bring the expertise to make your backyard dreams reality."
 
 projectHighlight:
   title: "Complete Outdoor Living Space in Park Road Area"
@@ -10,7 +10,7 @@ projectHighlight:
   description: "A Pineville family wanted to transform their plain backyard into an outdoor entertainment destination. We built a 16x20 pergola, added a built-in grilling station with counter space and storage, constructed a fire pit seating area with stone surround, and mounted the fans and light fixtures throughout. The circuits feeding them were coordinated with inspected trade specialists and completed to code. The space now hosts everything from family dinners to football parties."
 
 localBullets:
-  - "40+ outdoor living projects completed across Pineville"
+  - "Outdoor living projects across Pineville"
   - "Deck building, repair, and restoration"
   - "Pergola and arbor construction"
   - "Screen porch additions"
@@ -43,7 +43,7 @@ seo:
 
 ## Create Your Perfect Outdoor Living Space in Pineville
 
-Pineville's mild climate makes outdoor living a joy most of the year. After 40+ outdoor projects across this South Charlotte community, iFixx has the experience to create outdoor spaces that extend your home's living area and become your family's favorite gathering spots.
+Pineville's mild climate makes outdoor living a joy most of the year. After years of outdoor projects across this South Charlotte community, iFixx has the experience to create outdoor spaces that extend your home's living area and become your family's favorite gathering spots.
 
 ### Our Pineville Outdoor Living Services
 

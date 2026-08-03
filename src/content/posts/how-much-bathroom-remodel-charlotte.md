@@ -229,7 +229,7 @@ More importantly: you use your bathroom multiple times a day. An updated bathroo
 
 ## Ready to Start Your Charlotte Bathroom Remodel?
 
-We've completed [200+ bathroom projects across Charlotte](/remodeling/bathroom-remodeling) — from historic Dilworth bungalows to modern Ballantyne homes.
+We've completed [bathroom projects across Charlotte](/remodeling/bathroom-remodeling) — from historic Dilworth bungalows to modern Ballantyne homes.
 
 **Why Charlotte homeowners choose iFixx:**
 

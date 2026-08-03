@@ -2,7 +2,7 @@
 citySlug: "pineville"
 serviceSlug: "tv-mounting"
 
-localIntro: "Pineville homeowners want their TVs mounted securely, wires hidden, and installations that look professional. Our team has completed 120+ TV mounting projects across this South Charlotte community—from simple bedroom mounts in Carolina Place townhomes to elaborate media walls in McMullen Creek. We handle everything from finding studs to concealing cables for a clean, finished look."
+localIntro: "Pineville homeowners want their TVs mounted securely, wires hidden, and installations that look professional. Our team mounts TVs across this South Charlotte community—from simple bedroom mounts in Carolina Place townhomes to elaborate media walls in McMullen Creek. We handle everything from finding studs to concealing cables for a clean, finished look."
 
 projectHighlight:
   title: "Living Room Media Wall in Johnston Road Corridor"
@@ -10,7 +10,7 @@ projectHighlight:
   description: "A Pineville family upgraded to a 75-inch TV and wanted it mounted above their fireplace with all cables completely hidden. We installed a tilting mount rated for the TV's weight, ran power and HDMI cables through the wall to an outlet behind the TV, and installed an IR extender so remotes work from the cabinet below. The result? A sleek, cable-free look that transforms movie nights."
 
 localBullets:
-  - "120+ TV mounting projects completed across Pineville"
+  - "TV mounting projects across Pineville"
   - "All TV sizes from 32\" to 85\"+"
   - "Wire concealment for clean, professional look"
   - "Fireplace mounting specialists"
@@ -43,7 +43,7 @@ seo:
 
 ## Professional TV Mounting Services in Pineville
 
-Get your TV mounted securely and looking great. After 120+ installations across Pineville, iFixx has become the trusted choice for TV mounting that's done right—secure mounting, hidden cables, and professional results.
+Get your TV mounted securely and looking great. After years of installations across Pineville, iFixx has become the trusted choice for TV mounting that's done right—secure mounting, hidden cables, and professional results.
 
 ### Our Pineville TV Mounting Services
 

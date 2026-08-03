@@ -2,7 +2,7 @@
 citySlug: "pineville"
 serviceSlug: "flooring-installation"
 
-localIntro: "New flooring transforms Pineville homes from the ground up. Our team has completed 85+ flooring projects across this South Charlotte community—from luxury vinyl plank in Carolina Place townhomes to hardwood refinishing in McMullen Creek. We handle everything from material selection to final trim work, delivering beautiful floors that stand up to busy Pineville families."
+localIntro: "New flooring transforms Pineville homes from the ground up. Our team installs flooring across this South Charlotte community—from luxury vinyl plank in Carolina Place townhomes to hardwood refinishing in McMullen Creek. We handle everything from material selection to final trim work, delivering beautiful floors that stand up to busy Pineville families."
 
 projectHighlight:
   title: "Whole-Home LVP Installation in Carmel Commons"
@@ -10,7 +10,7 @@ projectHighlight:
   description: "A Pineville family with kids and pets wanted to replace their worn carpet and dated tile with durable, waterproof flooring. We installed luxury vinyl plank throughout the main level and upstairs hallway—over 1,500 square feet. The installation included removing old flooring, leveling subfloor where needed, installing new baseboards, and matching transitions throughout. The result? Beautiful, worry-free floors that look like hardwood."
 
 localBullets:
-  - "85+ flooring projects completed across Pineville"
+  - "Flooring projects across Pineville"
   - "Luxury vinyl plank (LVP) installation specialists"
   - "Hardwood installation and refinishing"
   - "Tile flooring for kitchens and bathrooms"
@@ -43,7 +43,7 @@ seo:
 
 ## Professional Flooring Installation in Pineville
 
-Beautiful floors transform your home. After 85+ projects across Pineville, iFixx has become the trusted choice for flooring installation that's done right—proper prep, quality materials, and meticulous installation.
+Beautiful floors transform your home. After years of projects across Pineville, iFixx has become the trusted choice for flooring installation that's done right—proper prep, quality materials, and meticulous installation.
 
 ### Our Pineville Flooring Services
 

@@ -1,4 +1,5 @@
 ---
+import { GOOGLE_REVIEW_COUNT } from '../../lib/business-facts';
 import LandingLayout from '../../layouts/LandingLayout.astro';
 import LandingForm from '../../components/forms/LandingForm.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
@@ -199,9 +200,9 @@ const faqs = [
           <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Why Trust iFIXX with Water Damage?</h2>
           <p class="text-neutral-600 mb-4">Water damage is stressful enough. The last thing you need is a contractor who overcharges, takes forever, or doesn't show up.</p>
           <p class="text-neutral-600 mb-4">We're the owners. When you call <strong>(980) 391-6833</strong>, we answer. We assess fast, quote honestly, and get to work immediately. No middlemen, no delays.</p>
-          <p class="text-neutral-600 mb-6">5+ years, 500+ projects, 5-star Google rating. We've handled dozens of water damage emergencies across Charlotte — we know exactly what to do.</p>
+          <p class="text-neutral-600 mb-6">5+ years in Charlotte, 5-star Google rating. We've handled dozens of water damage emergencies across Charlotte — we know exactly what to do.</p>
           <div class="flex items-center gap-6">
-            <div class="text-center"><p class="text-3xl font-heading font-bold text-primary-500">500+</p><p class="text-sm text-neutral-500">Projects</p></div>
+            <div class="text-center"><p class="text-3xl font-heading font-bold text-primary-500">{GOOGLE_REVIEW_COUNT}</p><p class="text-sm text-neutral-500">Google Reviews</p></div>
             <div class="text-center"><p class="text-3xl font-heading font-bold text-primary-500">5.0</p><p class="text-sm text-neutral-500">Google Rating</p></div>
             <div class="text-center"><p class="text-3xl font-heading font-bold text-primary-500">5+</p><p class="text-sm text-neutral-500">Years</p></div>
           </div>

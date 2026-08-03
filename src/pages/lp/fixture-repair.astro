@@ -1,4 +1,5 @@
 ---
+import { GOOGLE_REVIEW_COUNT } from '../../lib/business-facts';
 import LandingLayout from '../../layouts/LandingLayout.astro';
 import LandingForm from '../../components/forms/LandingForm.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
@@ -227,9 +228,9 @@ const faqs = [
           <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Your Local Fixture Repair Experts</h2>
           <p class="text-neutral-600 mb-4">We're a local Charlotte family that has been fixing homes for over five years. We started iFIXX because we believe you shouldn't have to pay specialist prices for common fixture installs.</p>
           <p class="text-neutral-600 mb-4">A new faucet doesn't need a $200 service call. Swapping a light fixture doesn't need a $150/hour specialist. It needs a skilled handyman who shows up, installs it right, and charges fairly.</p>
-          <p class="text-neutral-600 mb-6">That's us. 500+ projects, 5-star Google rating, and a phone that we actually answer.</p>
+          <p class="text-neutral-600 mb-6">That's us. A 5-star Google rating and a phone that we actually answer.</p>
           <div class="flex items-center gap-6">
-            <div class="text-center"><p class="text-3xl font-heading font-bold text-primary-500">500+</p><p class="text-sm text-neutral-500">Projects</p></div>
+            <div class="text-center"><p class="text-3xl font-heading font-bold text-primary-500">{GOOGLE_REVIEW_COUNT}</p><p class="text-sm text-neutral-500">Google Reviews</p></div>
             <div class="text-center"><p class="text-3xl font-heading font-bold text-primary-500">5.0</p><p class="text-sm text-neutral-500">Rating</p></div>
             <div class="text-center"><p class="text-3xl font-heading font-bold text-primary-500">5+</p><p class="text-sm text-neutral-500">Years</p></div>
           </div>

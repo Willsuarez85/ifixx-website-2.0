@@ -43,7 +43,7 @@ relatedServices:
   - "basement-finishing"
 seo:
   title: "Flooring Installation Charlotte NC | Hardwood, LVP, Tile | ⭐5.0 | iFIXX"
-  description: "New floors transform your home. Hardwood, LVP, tile, laminate installation in Charlotte. 100+ floors installed. Professional results. ⭐5.0 rated. Free estimates! Call (980) 391-6833."
+  description: "New floors transform your home. Hardwood, LVP, tile, laminate installation in Charlotte. Professional results. ⭐5.0 rated. Free estimates! Call (980) 391-6833."
 ---
 
 New flooring transforms any room. Whether you want the warmth of hardwood, the durability of tile, or the versatility of luxury vinyl, iFixx delivers expert installation that looks beautiful and lasts for years.

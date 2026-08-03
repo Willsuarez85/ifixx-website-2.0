@@ -2,7 +2,7 @@
 citySlug: "ballantyne"
 serviceSlug: "bathroom-remodeling"
 
-localIntro: "Ballantyne bathrooms should be personal retreats—spa-like spaces that match the elegance of your home. After completing 60+ bathroom renovations throughout Ballantyne and South Charlotte, our team specializes in transforming outdated builder-grade bathrooms into luxurious spaces with premium materials, quality craftsmanship, and attention to every detail."
+localIntro: "Ballantyne bathrooms should be personal retreats—spa-like spaces that match the elegance of your home. After years of bathroom renovations throughout Ballantyne and South Charlotte, our team specializes in transforming outdated builder-grade bathrooms into luxurious spaces with premium materials, quality craftsmanship, and attention to every detail."
 
 projectHighlight:
   title: "Ballantyne Country Club Master Bath"
@@ -10,7 +10,7 @@ projectHighlight:
   description: "This Ballantyne Country Club homeowner wanted to transform their dated 2000-era master bath into a spa-like retreat. We removed the old fiberglass shower and garden tub, installing a frameless glass walk-in shower with multiple showerheads and a freestanding soaking tub. We replaced the builder-grade vanity with a custom double vanity featuring quartz countertops and vessel sinks. Heated floors, a makeup vanity area, and designer lighting completed the transformation. The result: a master bathroom worthy of this prestigious community."
 
 localBullets:
-  - "60+ bathroom renovations in Ballantyne and South Charlotte"
+  - "Bathroom renovations in Ballantyne and South Charlotte"
   - "Spa-like designs with premium fixtures and materials"
   - "Experience with Ballantyne home layouts and styles"
   - "Mecklenburg County permits handled as part of service"
@@ -39,7 +39,7 @@ seo:
 
 ## Ballantyne's Luxury Bathroom Remodeling Experts
 
-After 60+ bathroom renovations throughout Ballantyne and South Charlotte, we've mastered the art of creating spa-like retreats that match the high standards of this community. From outdated builder baths to magazine-worthy transformations, our team delivers premium results.
+After years of bathroom renovations throughout Ballantyne and South Charlotte, we've mastered the art of creating spa-like retreats that match the high standards of this community. From outdated builder baths to magazine-worthy transformations, our team delivers premium results.
 
 ### What Ballantyne Homeowners Expect
 

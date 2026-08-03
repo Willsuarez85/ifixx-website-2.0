@@ -2,7 +2,7 @@
 citySlug: "monroe"
 serviceSlug: "bathroom-remodeling"
 
-localIntro: "Monroe bathrooms deserve more than a cookie-cutter approach. From the charming older homes near Downtown Monroe to the newer developments in Lake Park and Wingate, we've helped Union County homeowners transform outdated bathrooms into modern retreats. After 50+ bathroom projects in the greater Monroe area, we understand what works in this community—quality materials, fair pricing, and craftsmanship that lasts."
+localIntro: "Monroe bathrooms deserve more than a cookie-cutter approach. From the charming older homes near Downtown Monroe to the newer developments in Lake Park and Wingate, we've helped Union County homeowners transform outdated bathrooms into modern retreats. After years of bathroom projects in the greater Monroe area, we understand what works in this community—quality materials, fair pricing, and craftsmanship that lasts."
 
 projectHighlight:
   title: "Downtown Monroe Master Bath Update"
@@ -10,7 +10,7 @@ projectHighlight:
   description: "A homeowner in the historic district wanted to update their 1970s master bathroom while preserving the home's character. We replaced the worn vanity with a custom double-sink unit, installed a walk-in tile shower to replace the old tub-shower combo, added modern fixtures, and upgraded the lighting. The result is a bathroom that feels fresh and modern while complementing the home's traditional architecture."
 
 localBullets:
-  - "50+ bathroom remodels completed across Monroe and Union County"
+  - "Bathroom remodels across Monroe and Union County"
   - "Experience with older homes in Downtown Monroe and Unionville"
   - "Familiar with Union County permit requirements and inspections"
   - "Trusted local suppliers for tile, vanities, and fixtures"
@@ -43,7 +43,7 @@ seo:
 
 ## Why Monroe Homeowners Trust iFixx for Bathroom Remodeling
 
-After 50+ bathroom projects across Monroe and Union County, we know what works in local homes—and what doesn't. From the older homes near the courthouse to new construction in Lake Park, we bring the right approach to every project.
+After years of bathroom projects across Monroe and Union County, we know what works in local homes—and what doesn't. From the older homes near the courthouse to new construction in Lake Park, we bring the right approach to every project.
 
 ### Monroe Bathroom Expertise
 

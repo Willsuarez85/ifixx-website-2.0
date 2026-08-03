@@ -190,7 +190,7 @@ Charlotte's hot real estate market means homes with updated kitchens sell faster
 
 ## Ready to Start Your Charlotte Kitchen Remodel?
 
-We've completed [150+ kitchen projects across Charlotte](/remodeling/kitchen-remodeling) — from historic Dilworth bungalows to modern Ballantyne homes. Our local team knows Charlotte neighborhoods, permit requirements, and trusted suppliers.
+We've completed [kitchen projects across Charlotte](/remodeling/kitchen-remodeling) — from historic Dilworth bungalows to modern Ballantyne homes. Our local team knows Charlotte neighborhoods, permit requirements, and trusted suppliers.
 
 **Why Charlotte homeowners choose iFixx:**
 

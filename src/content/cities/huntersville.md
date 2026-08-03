@@ -16,9 +16,8 @@ neighborhoods:
   - "Bradfield Farms"
 highlights:
   - "Same-day handyman service in Huntersville"
-  - "Family-owned — not a franchise"
+  - "Family-owned since 2019 — not a franchise"
   - "Serving Huntersville, Cornelius & Davidson"
-  - "500+ projects completed in Charlotte metro"
   - "Fully insured, 5-star rated on Google"
 zipCodes:
   - "28078"

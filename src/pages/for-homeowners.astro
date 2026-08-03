@@ -1,4 +1,5 @@
 ---
+import { GOOGLE_REVIEW_COUNT } from '../lib/business-facts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { hasServiceAreaHub } from '../lib/seo-retired';
@@ -162,7 +163,7 @@ const benefits = [
           </h1>
           <p class="text-xl text-neutral-300 mb-8 leading-relaxed">
             We're a family-owned team that's been serving Charlotte homeowners for 5+ years.
-            From quick fixes to complete remodels, we've completed 500+ projects—and we treat
+            From quick fixes to complete remodels, we do the whole range—and we treat
             every home like it's our own.
           </p>
 
@@ -173,8 +174,8 @@ const benefits = [
               <p class="text-sm text-neutral-400">Years in Charlotte</p>
             </div>
             <div>
-              <p class="text-3xl font-bold text-primary-500">500+</p>
-              <p class="text-sm text-neutral-400">Projects Completed</p>
+              <p class="text-3xl font-bold text-primary-500">{GOOGLE_REVIEW_COUNT}</p>
+              <p class="text-sm text-neutral-400">Google Reviews</p>
             </div>
             <div>
               <p class="text-3xl font-bold text-primary-500">5.0</p>
