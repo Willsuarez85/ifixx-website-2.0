@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import { GOOGLE_REVIEW_COUNT, GOOGLE_RATING } from '../lib/business-facts';
 
 export interface Props {
   location: {
@@ -73,8 +74,8 @@ const localBusinessSchema = {
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": 5.0,
-    "reviewCount": 87,
+    "ratingValue": GOOGLE_RATING,
+    "reviewCount": GOOGLE_REVIEW_COUNT,
     "bestRating": 5,
     "worstRating": 1
   },

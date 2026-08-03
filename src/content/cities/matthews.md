@@ -34,7 +34,7 @@ servicesHighlighted:
   - "carpentry"
   - "plumbing"
 seo:
-  title: "Handyman Matthews NC | Same-Day Service | ⭐5.0 (87 Reviews) | iFIXX"
+  title: "Handyman Matthews NC | Same-Day Service | ⭐5.0 | iFIXX"
   description: "Handyman in Matthews NC — same-day repairs, remodeling, drywall, faucets, ceiling fans & more. Serving Downtown Matthews, Weddington, Indian Trail & Stallings. Call (980) 391-6833."
 ---
 

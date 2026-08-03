@@ -38,7 +38,7 @@ localInfo:
 
 seo:
   title: "Bathroom Remodeling Concord NC | Tubs, Tile & Vanity ⭐5.0 | iFIXX"
-  description: "Bathroom remodeling — tubs, tile, vanities, plumbing in Concord, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Bathroom remodeling — tubs, tile, vanities, plumbing in Concord, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Why Concord Homeowners Trust iFixx for Bathroom Remodeling

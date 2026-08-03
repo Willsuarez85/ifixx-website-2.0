@@ -42,7 +42,7 @@ localInfo:
 
 seo:
   title: "Bathroom Remodeling Charlotte NC | Tubs, Tile & Vanity | iFIXX"
-  description: "Bathroom remodeling — tubs, tile, vanities, plumbing in Charlotte, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Bathroom remodeling — tubs, tile, vanities, plumbing in Charlotte, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Charlotte's Trusted Bathroom Remodeling Team

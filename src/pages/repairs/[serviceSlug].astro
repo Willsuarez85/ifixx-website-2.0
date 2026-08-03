@@ -1,4 +1,5 @@
 ---
+import { googleReviewLabel } from '../../lib/business-facts';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
@@ -374,7 +375,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
                   </svg>
                 </div>
                 <div>
-                  <p class="font-bold text-neutral-900">5.0 · 87 Reviews</p>
+                  <p class="font-bold text-neutral-900">5.0 · {googleReviewLabel()}</p>
                   <p class="text-xs text-neutral-500">Google & Facebook</p>
                 </div>
               </div>

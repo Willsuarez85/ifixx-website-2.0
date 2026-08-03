@@ -54,7 +54,7 @@ relatedServices:
   - "carpentry"
 seo:
   title: "Drywall Repair Charlotte NC | Same-Day | Texture Matching | iFIXX ⭐5.0"
-  description: "Drywall repair in Charlotte NC — holes, cracks, water damage, texture matching. Same-day service. From $150. 87 five-star reviews. Free estimate: (980) 391-6833."
+  description: "Drywall repair in Charlotte NC — holes, cracks, water damage, texture matching. Same-day service. From $150. ⭐5.0 on Google. Free estimate: (980) 391-6833."
 ---
 
 **Hole in your wall? Crack getting worse? Water-damaged ceiling?** iFIXX repairs it right—matching your texture so the repair disappears completely. From small nail holes to full section water damage, we handle everything: drywall, texture, paint. One call. One crew. Problem solved.

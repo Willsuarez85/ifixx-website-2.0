@@ -11,7 +11,7 @@ tags:
   - "drywall repair"
 seo:
   title: "Water Damage at Home: Step-by-Step Guide | iFIXX Charlotte NC"
-  description: "Water damage in your Charlotte home? Follow this step-by-step guide for the first 24–48 hours. ⭐5.0 (87 reviews). Same-day repairs — call (980) 391-6833."
+  description: "Water damage in your Charlotte home? Follow this step-by-step guide for the first 24–48 hours. ⭐5.0 on Google. Same-day repairs — call (980) 391-6833."
 ---
 
 You walk into your kitchen and there's water dripping from the ceiling. Or you come home to find your bathroom flooded. Your heart sinks.

@@ -36,7 +36,7 @@ localInfo:
 
 seo:
   title: "Quick-Fix Handyman Mint Hill NC | Same-Day Small Repairs | iFIXX"
-  description: "Same-day handyman — small repairs, no minimum, fast response in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Same-day handyman — small repairs, no minimum, fast response in Mint Hill, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Fast, Reliable Handyman Service in Mint Hill

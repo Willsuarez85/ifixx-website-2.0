@@ -38,7 +38,7 @@ localInfo:
 
 seo:
   title: "Carpentry Monroe NC | Custom Trim & Built-Ins ⭐5.0 | iFIXX"
-  description: "Carpentry — built-ins, trim, crown molding, shelving in Monroe, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Carpentry — built-ins, trim, crown molding, shelving in Monroe, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Monroe Carpentry Services

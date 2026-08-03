@@ -1,4 +1,6 @@
 ---
+import { GOOGLE_REVIEW_COUNT, GOOGLE_RATING } from '../../lib/business-facts';
+
 interface Props {
   title?: string;
 }
@@ -36,8 +38,8 @@ const reviews = [
   }
 ];
 
-const averageRating = 5.0;
-const totalReviews = 85;
+const averageRating = GOOGLE_RATING;
+const totalReviews = GOOGLE_REVIEW_COUNT;
 ---
 
 <section class="section">

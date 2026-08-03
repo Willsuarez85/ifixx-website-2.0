@@ -38,7 +38,7 @@ localInfo:
 
 seo:
   title: "TV Mounting Pineville NC | Cable Concealment & Soundbars | iFIXX"
-  description: "TV mounting — wall mounts, cable concealment, soundbars in Pineville, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "TV mounting — wall mounts, cable concealment, soundbars in Pineville, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional TV Mounting Services in Pineville

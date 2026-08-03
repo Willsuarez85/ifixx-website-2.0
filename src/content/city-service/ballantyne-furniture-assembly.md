@@ -38,7 +38,7 @@ localInfo:
 
 seo:
   title: "Furniture Assembly Ballantyne NC | IKEA, Wayfair & More | iFIXX"
-  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Ballantyne, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional Furniture Assembly in Ballantyne, NC

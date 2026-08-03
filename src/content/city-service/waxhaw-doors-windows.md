@@ -41,7 +41,7 @@ localInfo:
 
 seo:
   title: "Door & Window Repair Waxhaw NC | Frames, Locks & Glass | iFIXX"
-  description: "Door & window repair — frames, locks, glass, weatherproofing in Waxhaw, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Door & window repair — frames, locks, glass, weatherproofing in Waxhaw, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Quality Door & Window Services in Waxhaw

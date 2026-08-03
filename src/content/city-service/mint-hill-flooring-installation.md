@@ -36,7 +36,7 @@ localInfo:
 
 seo:
   title: "Flooring Installation Mint Hill NC | Hardwood, LVP & Tile | iFIXX"
-  description: "Flooring installation — hardwood, LVP, tile, refinishing in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Flooring installation — hardwood, LVP, tile, refinishing in Mint Hill, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Expert Flooring Installation for Mint Hill Homes

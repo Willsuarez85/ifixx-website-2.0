@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { GOOGLE_REVIEW_COUNT, GOOGLE_RATING } from '../lib/business-facts';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 
@@ -28,6 +29,136 @@ const siteUrl = 'https://www.ifixxnc.com';
 // Always force www canonical — prevents duplicate indexing between ifixxnc.com and www.ifixxnc.com
 const rawCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
 const fullCanonical = rawCanonical.replace('https://ifixxnc.com', 'https://www.ifixxnc.com');
+
+// Entidad canonica del negocio (@id #business). Se emite con set:html porque
+// Astro no interpola expresiones dentro de un <script> crudo, y las cifras de
+// aggregateRating tienen que venir de business-facts.ts, no de literales.
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+  "@id": "https://www.ifixxnc.com/#business",
+  "name": "iFIXX Remodeling & Handyman Services",
+  "legalName": "iFIXX Remodeling LLC",
+  "foundingDate": "2019",
+  "telephone": "(980) 391-6833",
+  "url": "https://www.ifixxnc.com",
+  "image": "https://www.ifixxnc.com/images/ui/hero-bg.jpg",
+  "priceRange": "$$",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "07:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "14:00"
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Charlotte",
+    "addressRegion": "NC",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "35.2271",
+    "longitude": "-80.8431"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Charlotte"},
+    {"@type": "City", "name": "South Charlotte"},
+    {"@type": "City", "name": "Ballantyne"},
+    {"@type": "City", "name": "Matthews"},
+    {"@type": "City", "name": "Pineville"},
+    {"@type": "City", "name": "Dilworth"},
+    {"@type": "City", "name": "Myers Park"},
+    {"@type": "City", "name": "Waxhaw"},
+    {"@type": "City", "name": "Fort Mill"},
+    {"@type": "City", "name": "Mint Hill"}
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": GOOGLE_RATING,
+    "reviewCount": GOOGLE_REVIEW_COUNT
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Zack A."
+      },
+      "datePublished": "2026-02-09",
+      "reviewBody": "I recently hired iFixx to install a fence and I couldn't be more impressed. The quality of the work is outstanding and the attention to detail is obvious. The crew was punctual every day and kept communication clear throughout the entire process. I highly recommend iFixx Remodeling for any home project - they're my go-to guys!"
+    },
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Jaime"
+      },
+      "datePublished": "2026-03-23",
+      "reviewBody": "Had an amazing experience! Very knowledgeable, punctual, hard-working crew. Great prices and outstanding work. The flooring install was done in a timely fashion and we were very pleased with the results. Will definitely use them again!"
+    }
+  ],
+  "potentialAction": [
+    {
+      "@type": "ReserveAction",
+      "name": "Request Free Estimate",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.ifixxnc.com/contact",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform"
+        ]
+      },
+      "result": {
+        "@type": "Reservation",
+        "name": "Free Estimate Request"
+      }
+    },
+    {
+      "@type": "CommunicateAction",
+      "name": "Call Now",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "tel:+19803916833",
+        "actionPlatform": [
+          "http://schema.org/MobileWebPlatform"
+        ]
+      }
+    }
+  ],
+  "alternateName": ["iFIXX", "iFixx", "iFIXX NC", "iFIXX Charlotte", "I Fixx Remodeling Services", "iFixx Handyman"],
+  "sameAs": [
+    "https://www.google.com/maps?cid=13782573695421719060",
+    "https://www.bbb.org/us/nc/concord/profile/handyman/i-fixx-remodeling-services-0473-92036918",
+    "https://www.facebook.com/ifixxnc",
+    "https://www.instagram.com/ifixxnc",
+    "https://www.yelp.com/biz/i-fixx-handyman-services-concord",
+    "https://nextdoor.com/page/ifixx-remodeling-services-concord-nc",
+    "https://citysquares.com/b/ifixx-handyman-26640189",
+    "https://www.hotfrog.com/company/f5902215ad9fba2bc78abe3f4f5595f0/ifixx-handyman/concord/home-improvement",
+    "https://www.mapquest.com/us/north-carolina/ifixx-handyman-790561324",
+    "https://www.showmelocal.com/38969280-ifixx-handyman-concord"
+  ]
+};
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -137,134 +268,7 @@ const fullCanonical = rawCanonical.replace('https://ifixxnc.com', 'https://www.i
   <title>{title}</title>
 
   <!-- LocalBusiness Schema (Global) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
-    "@id": "https://www.ifixxnc.com/#business",
-    "name": "iFIXX Remodeling & Handyman Services",
-    "legalName": "iFIXX Remodeling LLC",
-    "foundingDate": "2019",
-    "telephone": "(980) 391-6833",
-    "url": "https://www.ifixxnc.com",
-    "image": "https://www.ifixxnc.com/images/ui/hero-bg.jpg",
-    "priceRange": "$$",
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "07:00",
-        "closes": "18:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "08:00",
-        "closes": "14:00"
-      }
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Charlotte",
-      "addressRegion": "NC",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "35.2271",
-      "longitude": "-80.8431"
-    },
-    "areaServed": [
-      {"@type": "City", "name": "Charlotte"},
-      {"@type": "City", "name": "South Charlotte"},
-      {"@type": "City", "name": "Ballantyne"},
-      {"@type": "City", "name": "Matthews"},
-      {"@type": "City", "name": "Pineville"},
-      {"@type": "City", "name": "Dilworth"},
-      {"@type": "City", "name": "Myers Park"},
-      {"@type": "City", "name": "Waxhaw"},
-      {"@type": "City", "name": "Fort Mill"},
-      {"@type": "City", "name": "Mint Hill"}
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": 5.0,
-      "reviewCount": 87
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": 5,
-          "bestRating": 5
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Zack A."
-        },
-        "datePublished": "2026-02-09",
-        "reviewBody": "I recently hired iFixx to install a fence and I couldn't be more impressed. The quality of the work is outstanding and the attention to detail is obvious. The crew was punctual every day and kept communication clear throughout the entire process. I highly recommend iFixx Remodeling for any home project - they're my go-to guys!"
-      },
-      {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": 5,
-          "bestRating": 5
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Jaime"
-        },
-        "datePublished": "2026-03-23",
-        "reviewBody": "Had an amazing experience! Very knowledgeable, punctual, hard-working crew. Great prices and outstanding work. The flooring install was done in a timely fashion and we were very pleased with the results. Will definitely use them again!"
-      }
-    ],
-    "potentialAction": [
-      {
-        "@type": "ReserveAction",
-        "name": "Request Free Estimate",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://www.ifixxnc.com/contact",
-          "actionPlatform": [
-            "http://schema.org/DesktopWebPlatform",
-            "http://schema.org/MobileWebPlatform"
-          ]
-        },
-        "result": {
-          "@type": "Reservation",
-          "name": "Free Estimate Request"
-        }
-      },
-      {
-        "@type": "CommunicateAction",
-        "name": "Call Now",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "tel:+19803916833",
-          "actionPlatform": [
-            "http://schema.org/MobileWebPlatform"
-          ]
-        }
-      }
-    ],
-    "alternateName": ["iFIXX", "iFixx", "iFIXX NC", "iFIXX Charlotte", "I Fixx Remodeling Services", "iFixx Handyman"],
-    "sameAs": [
-      "https://www.google.com/maps?cid=13782573695421719060",
-      "https://www.bbb.org/us/nc/concord/profile/handyman/i-fixx-remodeling-services-0473-92036918",
-      "https://www.facebook.com/ifixxnc",
-      "https://www.instagram.com/ifixxnc",
-      "https://www.yelp.com/biz/i-fixx-handyman-services-concord",
-      "https://nextdoor.com/page/ifixx-remodeling-services-concord-nc",
-      "https://citysquares.com/b/ifixx-handyman-26640189",
-      "https://www.hotfrog.com/company/f5902215ad9fba2bc78abe3f4f5595f0/ifixx-handyman/concord/home-improvement",
-      "https://www.mapquest.com/us/north-carolina/ifixx-handyman-790561324",
-      "https://www.showmelocal.com/38969280-ifixx-handyman-concord"
-    ]
-  }
-  </script>
+  <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
 
   <!-- JSON-LD Schema Slot -->
   <slot name="schema" />

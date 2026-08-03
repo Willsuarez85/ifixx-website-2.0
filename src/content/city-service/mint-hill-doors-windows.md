@@ -41,7 +41,7 @@ localInfo:
 
 seo:
   title: "Door & Window Repair Mint Hill NC | Frames, Locks & Glass | iFIXX"
-  description: "Door & window repair — frames, locks, glass, weatherproofing in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Door & window repair — frames, locks, glass, weatherproofing in Mint Hill, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Quality Door & Window Services for Mint Hill Homes

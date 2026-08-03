@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { GOOGLE_REVIEW_COUNT, GOOGLE_RATING, googleReviewLabel } from '../../lib/business-facts';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 
@@ -23,8 +24,8 @@ const pageSchema = {
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 5.0,
-      "reviewCount": 87,
+      "ratingValue": GOOGLE_RATING,
+      "reviewCount": GOOGLE_REVIEW_COUNT,
       "bestRating": 5,
       "worstRating": 1
     }
@@ -148,7 +149,7 @@ const faqSchema = {
         </p>
         <div class="flex items-center gap-2 text-primary-400">
           <span class="text-2xl">⭐⭐⭐⭐⭐</span>
-          <span class="text-white font-semibold">Trusted by Charlotte homeowners: 87 reviews, 5.0 stars</span>
+          <span class="text-white font-semibold">Trusted by Charlotte homeowners: {googleReviewLabel()}, 5.0 stars</span>
         </div>
       </div>
     </div>
@@ -802,7 +803,7 @@ const faqSchema = {
           </div>
           <div class="flex items-start gap-2">
             <span class="text-primary-600">✅</span>
-            <span>87 reviews, 5.0 stars</span>
+            <span>{googleReviewLabel()}, 5.0 stars</span>
           </div>
           <div class="flex items-start gap-2">
             <span class="text-primary-600">✅</span>

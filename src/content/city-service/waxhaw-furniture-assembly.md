@@ -43,7 +43,7 @@ localInfo:
 
 seo:
   title: "Furniture Assembly Waxhaw NC | IKEA, Wayfair & More ⭐5.0 | iFIXX"
-  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Waxhaw, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Furniture assembly — IKEA, Wayfair, beds, dressers, cribs in Waxhaw, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Fast, Professional Furniture Assembly in Waxhaw

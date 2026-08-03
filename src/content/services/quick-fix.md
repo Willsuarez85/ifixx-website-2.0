@@ -35,7 +35,7 @@ relatedServices:
   - "carpentry"
 seo:
   title: "Quick-Fix Handyman Charlotte | Same-Day, No Minimum | iFIXX"
-  description: "Need a Charlotte handyman today? Same-day quick fixes: drywall, doors, fixtures, ceiling fans, TV mounts. ⭐5.0 (87★) Free quote ☎ (980) 391-6833."
+  description: "Need a Charlotte handyman today? Same-day quick fixes: drywall, doors, fixtures, ceiling fans, TV mounts. ⭐5.0. Free quote ☎ (980) 391-6833."
 ---
 
 Don't let that "honey-do" list stress you out. iFixx is here to handle all the quick fixes and maintenance tasks that keep your home running smoothly.

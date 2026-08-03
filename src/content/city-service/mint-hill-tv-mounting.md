@@ -36,7 +36,7 @@ localInfo:
 
 seo:
   title: "TV Mounting Mint Hill NC | Cable Concealment & Soundbars | iFIXX"
-  description: "TV mounting — wall mounts, cable concealment, soundbars in Mint Hill, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "TV mounting — wall mounts, cable concealment, soundbars in Mint Hill, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Professional TV Mounting for Mint Hill Homes

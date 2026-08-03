@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { GOOGLE_REVIEW_COUNT, GOOGLE_RATING } from '../../lib/business-facts';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import QuickEstimateCompact from '../../components/forms/QuickEstimateCompact.astro';
@@ -34,8 +35,8 @@ const serviceSchema = {
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 5.0,
-      "reviewCount": 87,
+      "ratingValue": GOOGLE_RATING,
+      "reviewCount": GOOGLE_REVIEW_COUNT,
       "bestRating": 5,
       "worstRating": 1
     },

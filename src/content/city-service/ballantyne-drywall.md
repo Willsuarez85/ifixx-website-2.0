@@ -34,7 +34,7 @@ localInfo:
 
 seo:
   title: "Drywall Repair Ballantyne NC | Holes, Cracks & Texture | iFIXX"
-  description: "Drywall repair — holes, cracks, water damage, texture in Ballantyne, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Drywall repair — holes, cracks, water damage, texture in Ballantyne, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Ballantyne Drywall Repair Services

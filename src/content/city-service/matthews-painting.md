@@ -34,7 +34,7 @@ localInfo:
 
 seo:
   title: "Painting Matthews NC | Interior, Exterior & Cabinets ⭐5.0 | iFIXX"
-  description: "Painting — interior, exterior, trim, cabinets, color consult in Matthews, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Painting — interior, exterior, trim, cabinets, color consult in Matthews, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Quality Painting for Matthews Homes

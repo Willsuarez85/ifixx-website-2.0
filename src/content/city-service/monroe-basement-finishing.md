@@ -38,7 +38,7 @@ localInfo:
 
 seo:
   title: "Basement Finishing Monroe NC | Custom Living Spaces ⭐5.0 | iFIXX"
-  description: "Basement finishing — egress, framing, drywall, flooring in Monroe, NC. ⭐5.0 (87★) reviews. Same-day available. Free estimate ☎ (980) 391-6833."
+  description: "Basement finishing — egress, framing, drywall, flooring in Monroe, NC. ⭐5.0 on Google. Same-day available. Free estimate ☎ (980) 391-6833."
 ---
 
 ## Monroe Basement Finishing Services
