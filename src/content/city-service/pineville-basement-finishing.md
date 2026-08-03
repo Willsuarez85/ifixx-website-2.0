@@ -2,7 +2,7 @@
 citySlug: "pineville"
 serviceSlug: "basement-finishing"
 
-localIntro: "Turn your unfinished Pineville basement into valuable living space. Our team has completed 25+ basement finishing projects across this South Charlotte community, transforming cold concrete spaces into family rooms, home theaters, guest suites, and home offices. We handle everything from framing and insulation to final paint, creating spaces your family will use daily."
+localIntro: "Turn your unfinished Pineville basement into valuable living space. Our team has taken on basement finishing projects across this South Charlotte community, transforming cold concrete spaces into family rooms, home theaters, guest suites, and home offices. We handle everything from framing and insulation to final paint, creating spaces your family will use daily."
 
 projectHighlight:
   title: "Full Basement Conversion in McMullen Creek"
