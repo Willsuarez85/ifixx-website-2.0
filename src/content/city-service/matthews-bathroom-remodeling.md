@@ -2,7 +2,7 @@
 citySlug: "matthews"
 serviceSlug: "bathroom-remodeling"
 
-localIntro: "Matthews bathrooms range from compact builder-grade spaces to outdated 90s designs ready for an upgrade. After completing 50+ bathroom renovations in Matthews and Union County, our team specializes in transforming these spaces into functional, beautiful rooms that add value to your home. Whether you're updating a guest bath or creating a master retreat, we deliver quality results at fair prices."
+localIntro: "Matthews bathrooms range from compact builder-grade spaces to outdated 90s designs ready for an upgrade. After years of bathroom renovations in Matthews and Union County, our team specializes in transforming these spaces into functional, beautiful rooms that add value to your home. Whether you're updating a guest bath or creating a master retreat, we deliver quality results at fair prices."
 
 projectHighlight:
   title: "Master Bath Renovation in McKee Farms"
@@ -10,7 +10,7 @@ projectHighlight:
   description: "This McKee Farms couple wanted to update their 2005 master bathroom before their daughter's wedding—the house would be full of guests. We replaced the old fiberglass shower with a tiled walk-in shower, installed a new vanity with double sinks, added new lighting and mirrors, and replaced the flooring. We completed the project two weeks before the wedding, and the homeowners were thrilled with their updated space. The bathroom went from dated builder-grade to a comfortable retreat."
 
 localBullets:
-  - "50+ bathroom renovations in Matthews and Union County"
+  - "Bathroom renovations in Matthews and Union County"
   - "Experience with Matthews home styles and layouts"
   - "Quality materials at fair Matthews-area prices"
   - "Clean, respectful work in your home"
@@ -39,7 +39,7 @@ seo:
 
 ## Matthews Bathroom Remodeling You Can Trust
 
-After 50+ bathroom renovations in Matthews and surrounding areas, we've earned our reputation for quality work and reliable service. Matthews homeowners appreciate contractors who deliver what they promise—and that's what we do.
+After years of bathroom renovations in Matthews and surrounding areas, we've earned our reputation for quality work and reliable service. Matthews homeowners appreciate contractors who deliver what they promise—and that's what we do.
 
 ### What Matthews Homeowners Get
 

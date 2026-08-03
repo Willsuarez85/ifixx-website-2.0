@@ -2,7 +2,7 @@
 citySlug: "charlotte"
 serviceSlug: "painting"
 
-localIntro: "Charlotte homes face unique painting challenges—from the humidity that tests exterior paint in South Charlotte to the intricate trim work in Myers Park colonials. After 400+ painting projects across the Queen City, we've learned exactly which paints perform best in our climate and how to prep surfaces properly so your paint job lasts. Whether you need a single room refreshed or your entire home transformed, our team delivers quality results that stand up to Charlotte weather."
+localIntro: "Charlotte homes face unique painting challenges—from the humidity that tests exterior paint in South Charlotte to the intricate trim work in Myers Park colonials. After years of painting projects across the Queen City, we've learned exactly which paints perform best in our climate and how to prep surfaces properly so your paint job lasts. Whether you need a single room refreshed or your entire home transformed, our team delivers quality results that stand up to Charlotte weather."
 
 projectHighlight:
   title: "Historic Myers Park Colonial Exterior"

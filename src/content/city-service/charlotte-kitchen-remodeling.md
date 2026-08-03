@@ -2,7 +2,7 @@
 citySlug: "charlotte"
 serviceSlug: "kitchen-remodeling"
 
-localIntro: "Charlotte kitchens tell a story—from the original cabinetry in Dilworth's 1920s bungalows to the open-concept layouts of new construction in South End. After completing 150+ kitchen projects across the Queen City, we've learned that every Charlotte neighborhood has its own character. Whether you're updating a mid-century Myers Park kitchen or creating your dream culinary space in Ballantyne, our team brings local expertise and hands-on craftsmanship to every project."
+localIntro: "Charlotte kitchens tell a story—from the original cabinetry in Dilworth's 1920s bungalows to the open-concept layouts of new construction in South End. After years of kitchen projects across the Queen City, we've learned that every Charlotte neighborhood has its own character. Whether you're updating a mid-century Myers Park kitchen or creating your dream culinary space in Ballantyne, our team brings local expertise and hands-on craftsmanship to every project."
 
 projectHighlight:
   title: "Myers Park Kitchen Transformation"

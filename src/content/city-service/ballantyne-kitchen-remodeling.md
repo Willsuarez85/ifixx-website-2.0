@@ -2,7 +2,7 @@
 citySlug: "ballantyne"
 serviceSlug: "kitchen-remodeling"
 
-localIntro: "Ballantyne kitchens set a high standard—whether it's the custom chef's kitchens in Ballantyne Country Club estates or the elegant open-concept layouts in Piper Glen. After completing 50+ kitchen projects throughout Ballantyne and South Charlotte, our team understands that homeowners here expect premium materials, impeccable craftsmanship, and a professional experience from start to finish. We deliver all three."
+localIntro: "Ballantyne kitchens set a high standard—whether it's the custom chef's kitchens in Ballantyne Country Club estates or the elegant open-concept layouts in Piper Glen. After years of kitchen projects throughout Ballantyne and South Charlotte, our team understands that homeowners here expect premium materials, impeccable craftsmanship, and a professional experience from start to finish. We deliver all three."
 
 projectHighlight:
   title: "Piper Glen Kitchen Renovation"
@@ -10,7 +10,7 @@ projectHighlight:
   description: "This Piper Glen homeowner wanted to transform their 2005 builder-grade kitchen into a showpiece worthy of their home's value. We removed the dated raised-panel oak cabinets and replaced them with custom white shaker cabinets with soft-close hinges. We installed quartz countertops with a waterfall edge on the expanded island, added a designer tile backsplash, and upgraded to high-end stainless appliances. The result: a magazine-worthy kitchen that added significant value to the home and became the family's favorite room."
 
 localBullets:
-  - "50+ kitchen remodels completed in Ballantyne and South Charlotte"
+  - "Kitchen remodels in Ballantyne and South Charlotte"
   - "Premium materials that match Ballantyne home standards"
   - "HOA coordination and approval process handled"
   - "Professional crews who respect your home and community"
@@ -39,7 +39,7 @@ seo:
 
 ## Ballantyne's Premium Kitchen Remodeling Team
 
-After 50+ kitchen projects throughout Ballantyne and South Charlotte, we understand what homeowners in this community expect: premium materials, skilled craftsmanship, and a professional experience that respects your home and your time.
+After years of kitchen projects throughout Ballantyne and South Charlotte, we understand what homeowners in this community expect: premium materials, skilled craftsmanship, and a professional experience that respects your home and your time.
 
 ### Why Ballantyne Homeowners Choose Us
 

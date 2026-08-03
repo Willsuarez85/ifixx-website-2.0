@@ -10,7 +10,7 @@ projectHighlight:
   description: "A Pineville family wanted to transform their unused basement into a multi-purpose space. We framed and insulated the walls, installed recessed lighting, added a half bathroom, created a dedicated home theater area with a wet bar, and finished with luxury vinyl plank flooring throughout. The project included a separate home office space with built-in shelving. The finished basement added over 1,000 square feet of living space."
 
 localBullets:
-  - "25+ basement finishing projects completed across Pineville"
+  - "Basement finishing projects across Pineville"
   - "Full basement conversions and partial finishing"
   - "Basement bathroom additions"
   - "Home theater and media room creation"
@@ -43,7 +43,7 @@ seo:
 
 ## Transform Your Pineville Basement into Living Space
 
-Your basement is untapped potential. After 25+ finishing projects across Pineville, iFixx has the experience to transform your cold, concrete space into beautiful, functional living area your family will use every day.
+Your basement is untapped potential. After years of finishing projects across Pineville, iFixx has the experience to transform your cold, concrete space into beautiful, functional living area your family will use every day.
 
 ### Our Pineville Basement Finishing Services
 

@@ -2,7 +2,7 @@
 citySlug: "ballantyne"
 serviceSlug: "painting"
 
-localIntro: "Ballantyne homes make a statement—and your paint should too. After completing 80+ painting projects throughout Ballantyne and South Charlotte, our team understands that homeowners here expect premium results with professional service. From refreshing interior colors to maintaining your home's curb appeal, we deliver painting that meets Ballantyne standards."
+localIntro: "Ballantyne homes make a statement—and your paint should too. After years of painting projects throughout Ballantyne and South Charlotte, our team understands that homeowners here expect premium results with professional service. From refreshing interior colors to maintaining your home's curb appeal, we deliver painting that meets Ballantyne standards."
 
 projectHighlight:
   title: "Whole-House Interior Repaint in Providence Plantation"
@@ -10,7 +10,7 @@ projectHighlight:
   description: "This Providence Plantation homeowner wanted to update their home's dated interior colors before putting it on the market. We repainted the entire 4,200 sq ft home—walls, ceilings, trim, and doors—in a modern neutral palette that would appeal to buyers. We worked room by room to minimize disruption, protected all flooring and fixtures, and completed the project in 8 days. The home sold within two weeks of listing, and the agent credited the fresh paint as a key factor in the quick sale."
 
 localBullets:
-  - "80+ painting projects completed in Ballantyne and South Charlotte"
+  - "Painting projects in Ballantyne and South Charlotte"
   - "Premium paints selected for lasting results"
   - "Professional crews with attention to detail"
   - "Clean work areas—we protect your Ballantyne home"
@@ -39,7 +39,7 @@ seo:
 
 ## Ballantyne's Professional Painting Team
 
-After 80+ painting projects throughout Ballantyne and South Charlotte, we've earned our reputation for quality work and professional service. Whether you're refreshing your interior, updating your exterior, or preparing your home for sale, our team delivers results that meet Ballantyne standards.
+After years of painting projects throughout Ballantyne and South Charlotte, we've earned our reputation for quality work and professional service. Whether you're refreshing your interior, updating your exterior, or preparing your home for sale, our team delivers results that meet Ballantyne standards.
 
 ### Why Ballantyne Homeowners Choose Us
 
