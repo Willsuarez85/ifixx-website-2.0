@@ -55,19 +55,50 @@ export const CONSOLIDATED_SERVICES = [
   'drywall',
 ] as const;
 
+// Matrix pruning, phase 2 (2026-08-06, per William) — the last 8 services that still
+// had /{city}/{service} pages. Phase 1 (2026-07-28) left the 40 surviving combos live
+// with noindex + canonical to their silo, on the plan of measuring for four weeks before
+// deciding on a 301. William called the 301 early: these 8 services join the consolidated
+// ones, the matrix stops generating entirely, and vercel.json 301s all 40 URLs to their
+// service silo. The silo is where the canonical already pointed, so the target is unchanged.
+//
+// Consequence to know before reviving any of these: the /{city}/{service} URLs are gone as
+// paid-landing destinations. Ads pointed at none of them (verified 2026-07-14), but any
+// future campaign must land on the silo, the zone hub, or a dedicated money page.
+export const PRUNED_MATRIX_SERVICES = [
+  'carpentry',
+  'doors-windows',
+  'flooring-installation',
+  'furniture-assembly',
+  'outdoor-living',
+  'pressure-washing',
+  'quick-fix',
+  'tv-mounting',
+] as const;
+
 const retiredCities: readonly string[] = RETIRED_CITIES;
 const retiredServices: readonly string[] = RETIRED_SERVICES;
 const serviceAreaOnlyCities: readonly string[] = SERVICE_AREA_ONLY_CITIES;
 const consolidatedServices: readonly string[] = CONSOLIDATED_SERVICES;
+const prunedMatrixServices: readonly string[] = PRUNED_MATRIX_SERVICES;
 
 export const isRetiredCity = (slug: string): boolean => retiredCities.includes(slug);
 export const isRetiredService = (slug: string): boolean => retiredServices.includes(slug);
 export const isServiceAreaOnlyCity = (slug: string): boolean => serviceAreaOnlyCities.includes(slug);
 export const isConsolidatedService = (slug: string): boolean => consolidatedServices.includes(slug);
+export const isPrunedMatrixService = (slug: string): boolean => prunedMatrixServices.includes(slug);
 
-/** True when the /{city}/{service} page actually exists. Use before linking to one. */
+/**
+ * True when the /{city}/{service} page actually exists. Use before linking to one.
+ * Since the 2026-08-06 pruning this is false for every combination: the matrix is gone.
+ * The guard stays because every caller uses it to fall back to the silo or the zone hub,
+ * and because it is what keeps a reintroduced route from linking into 404s again.
+ */
 export const hasCityServicePage = (citySlug: string, serviceSlug: string): boolean =>
-  !isRetiredCity(citySlug) && !isRetiredService(serviceSlug) && !isConsolidatedService(serviceSlug);
+  !isRetiredCity(citySlug) &&
+  !isRetiredService(serviceSlug) &&
+  !isConsolidatedService(serviceSlug) &&
+  !isPrunedMatrixService(serviceSlug);
 
 /** True when /service-areas/{slug} should exist: an in-focus city, or a service-area-only one. */
 export const hasServiceAreaHub = (slug: string): boolean =>
