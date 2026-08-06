@@ -477,6 +477,446 @@
       "permanent": true
     },
     {
+      "source": "/ballantyne/carpentry",
+      "destination": "/repairs/carpentry",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/carpentry/",
+      "destination": "/repairs/carpentry",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/doors-windows",
+      "destination": "/repairs/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/doors-windows/",
+      "destination": "/repairs/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/flooring-installation",
+      "destination": "/remodeling/flooring-installation",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/flooring-installation/",
+      "destination": "/remodeling/flooring-installation",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/furniture-assembly",
+      "destination": "/repairs/furniture-assembly",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/furniture-assembly/",
+      "destination": "/repairs/furniture-assembly",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/outdoor-living",
+      "destination": "/remodeling/outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/outdoor-living/",
+      "destination": "/remodeling/outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/pressure-washing",
+      "destination": "/repairs/pressure-washing",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/pressure-washing/",
+      "destination": "/repairs/pressure-washing",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/quick-fix",
+      "destination": "/repairs/quick-fix",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/quick-fix/",
+      "destination": "/repairs/quick-fix",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/tv-mounting",
+      "destination": "/repairs/tv-mounting",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/tv-mounting/",
+      "destination": "/repairs/tv-mounting",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/carpentry",
+      "destination": "/repairs/carpentry",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/carpentry/",
+      "destination": "/repairs/carpentry",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/doors-windows",
+      "destination": "/repairs/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/doors-windows/",
+      "destination": "/repairs/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/flooring-installation",
+      "destination": "/remodeling/flooring-installation",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/flooring-installation/",
+      "destination": "/remodeling/flooring-installation",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/furniture-assembly",
+      "destination": "/repairs/furniture-assembly",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/furniture-assembly/",
+      "destination": "/repairs/furniture-assembly",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/outdoor-living",
+      "destination": "/remodeling/outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/outdoor-living/",
+      "destination": "/remodeling/outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/pressure-washing",
+      "destination": "/repairs/pressure-washing",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/pressure-washing/",
+      "destination": "/repairs/pressure-washing",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/quick-fix",
+      "destination": "/repairs/quick-fix",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/quick-fix/",
+      "destination": "/repairs/quick-fix",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/tv-mounting",
+      "destination": "/repairs/tv-mounting",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/tv-mounting/",
+      "destination": "/repairs/tv-mounting",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/carpentry",
+      "destination": "/repairs/carpentry",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/carpentry/",
+      "destination": "/repairs/carpentry",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/doors-windows",
+      "destination": "/repairs/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/doors-windows/",
+      "destination": "/repairs/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/flooring-installation",
+      "destination": "/remodeling/flooring-installation",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/flooring-installation/",
+      "destination": "/remodeling/flooring-installation",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/furniture-assembly",
+      "destination": "/repairs/furniture-assembly",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/furniture-assembly/",
+      "destination": "/repairs/furniture-assembly",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/outdoor-living",
+      "destination": "/remodeling/outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/outdoor-living/",
+      "destination": "/remodeling/outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/pressure-washing",
+      "destination": "/repairs/pressure-washing",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/pressure-washing/",
+      "destination": "/repairs/pressure-washing",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/quick-fix",
+      "destination": "/repairs/quick-fix",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/quick-fix/",
+      "destination": "/repairs/quick-fix",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/tv-mounting",
+      "destination": "/repairs/tv-mounting",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/tv-mounting/",
+      "destination": "/repairs/tv-mounting",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/carpentry",
+      "destination": "/repairs/carpentry",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/carpentry/",
+      "destination": "/repairs/carpentry",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/doors-windows",
+      "destination": "/repairs/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/doors-windows/",
+      "destination": "/repairs/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/flooring-installation",
+      "destination": "/remodeling/flooring-installation",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/flooring-installation/",
+      "destination": "/remodeling/flooring-installation",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/furniture-assembly",
+      "destination": "/repairs/furniture-assembly",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/furniture-assembly/",
+      "destination": "/repairs/furniture-assembly",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/outdoor-living",
+      "destination": "/remodeling/outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/outdoor-living/",
+      "destination": "/remodeling/outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/pressure-washing",
+      "destination": "/repairs/pressure-washing",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/pressure-washing/",
+      "destination": "/repairs/pressure-washing",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/quick-fix",
+      "destination": "/repairs/quick-fix",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/quick-fix/",
+      "destination": "/repairs/quick-fix",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/tv-mounting",
+      "destination": "/repairs/tv-mounting",
+      "permanent": true
+    },
+    {
+      "source": "/pineville/tv-mounting/",
+      "destination": "/repairs/tv-mounting",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/carpentry",
+      "destination": "/repairs/carpentry",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/carpentry/",
+      "destination": "/repairs/carpentry",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/doors-windows",
+      "destination": "/repairs/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/doors-windows/",
+      "destination": "/repairs/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/flooring-installation",
+      "destination": "/remodeling/flooring-installation",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/flooring-installation/",
+      "destination": "/remodeling/flooring-installation",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/furniture-assembly",
+      "destination": "/repairs/furniture-assembly",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/furniture-assembly/",
+      "destination": "/repairs/furniture-assembly",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/outdoor-living",
+      "destination": "/remodeling/outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/outdoor-living/",
+      "destination": "/remodeling/outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/pressure-washing",
+      "destination": "/repairs/pressure-washing",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/pressure-washing/",
+      "destination": "/repairs/pressure-washing",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/quick-fix",
+      "destination": "/repairs/quick-fix",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/quick-fix/",
+      "destination": "/repairs/quick-fix",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/tv-mounting",
+      "destination": "/repairs/tv-mounting",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/tv-mounting/",
+      "destination": "/repairs/tv-mounting",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/kitchen-remodeling",
+      "destination": "/remodeling/kitchen-remodeling",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/kitchen-remodeling/",
+      "destination": "/remodeling/kitchen-remodeling",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/bathroom-remodeling",
+      "destination": "/remodeling/bathroom-remodeling",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/bathroom-remodeling/",
+      "destination": "/remodeling/bathroom-remodeling",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/painting",
+      "destination": "/repairs/painting",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/painting/",
+      "destination": "/repairs/painting",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/drywall",
+      "destination": "/repairs/drywall",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/drywall/",
+      "destination": "/repairs/drywall",
+      "permanent": true
+    },
+    {
       "source": "/mint-hill/:rest*",
       "destination": "/service-areas/mint-hill",
       "permanent": true
@@ -563,42 +1003,42 @@
     },
     {
       "source": "/huntersville/carpentry",
-      "destination": "/charlotte/carpentry",
+      "destination": "/repairs/carpentry",
       "permanent": true
     },
     {
       "source": "/huntersville/doors-windows",
-      "destination": "/charlotte/doors-windows",
+      "destination": "/repairs/doors-windows",
       "permanent": true
     },
     {
       "source": "/huntersville/flooring-installation",
-      "destination": "/charlotte/flooring-installation",
+      "destination": "/remodeling/flooring-installation",
       "permanent": true
     },
     {
       "source": "/huntersville/furniture-assembly",
-      "destination": "/charlotte/furniture-assembly",
+      "destination": "/repairs/furniture-assembly",
       "permanent": true
     },
     {
       "source": "/huntersville/outdoor-living",
-      "destination": "/charlotte/outdoor-living",
+      "destination": "/remodeling/outdoor-living",
       "permanent": true
     },
     {
       "source": "/huntersville/pressure-washing",
-      "destination": "/charlotte/pressure-washing",
+      "destination": "/repairs/pressure-washing",
       "permanent": true
     },
     {
       "source": "/huntersville/quick-fix",
-      "destination": "/charlotte/quick-fix",
+      "destination": "/repairs/quick-fix",
       "permanent": true
     },
     {
       "source": "/huntersville/tv-mounting",
-      "destination": "/charlotte/tv-mounting",
+      "destination": "/repairs/tv-mounting",
       "permanent": true
     },
     {
@@ -608,42 +1048,42 @@
     },
     {
       "source": "/concord/carpentry",
-      "destination": "/charlotte/carpentry",
+      "destination": "/repairs/carpentry",
       "permanent": true
     },
     {
       "source": "/concord/doors-windows",
-      "destination": "/charlotte/doors-windows",
+      "destination": "/repairs/doors-windows",
       "permanent": true
     },
     {
       "source": "/concord/flooring-installation",
-      "destination": "/charlotte/flooring-installation",
+      "destination": "/remodeling/flooring-installation",
       "permanent": true
     },
     {
       "source": "/concord/furniture-assembly",
-      "destination": "/charlotte/furniture-assembly",
+      "destination": "/repairs/furniture-assembly",
       "permanent": true
     },
     {
       "source": "/concord/outdoor-living",
-      "destination": "/charlotte/outdoor-living",
+      "destination": "/remodeling/outdoor-living",
       "permanent": true
     },
     {
       "source": "/concord/pressure-washing",
-      "destination": "/charlotte/pressure-washing",
+      "destination": "/repairs/pressure-washing",
       "permanent": true
     },
     {
       "source": "/concord/quick-fix",
-      "destination": "/charlotte/quick-fix",
+      "destination": "/repairs/quick-fix",
       "permanent": true
     },
     {
       "source": "/concord/tv-mounting",
-      "destination": "/charlotte/tv-mounting",
+      "destination": "/repairs/tv-mounting",
       "permanent": true
     },
     {
@@ -653,37 +1093,37 @@
     },
     {
       "source": "/monroe/carpentry",
-      "destination": "/charlotte/carpentry",
+      "destination": "/repairs/carpentry",
       "permanent": true
     },
     {
       "source": "/monroe/doors-windows",
-      "destination": "/charlotte/doors-windows",
+      "destination": "/repairs/doors-windows",
       "permanent": true
     },
     {
       "source": "/monroe/flooring-installation",
-      "destination": "/charlotte/flooring-installation",
+      "destination": "/remodeling/flooring-installation",
       "permanent": true
     },
     {
       "source": "/monroe/furniture-assembly",
-      "destination": "/charlotte/furniture-assembly",
+      "destination": "/repairs/furniture-assembly",
       "permanent": true
     },
     {
       "source": "/monroe/outdoor-living",
-      "destination": "/charlotte/outdoor-living",
+      "destination": "/remodeling/outdoor-living",
       "permanent": true
     },
     {
       "source": "/monroe/pressure-washing",
-      "destination": "/charlotte/pressure-washing",
+      "destination": "/repairs/pressure-washing",
       "permanent": true
     },
     {
       "source": "/monroe/tv-mounting",
-      "destination": "/charlotte/tv-mounting",
+      "destination": "/repairs/tv-mounting",
       "permanent": true
     },
     {
@@ -693,42 +1133,42 @@
     },
     {
       "source": "/waxhaw/carpentry",
-      "destination": "/charlotte/carpentry",
+      "destination": "/repairs/carpentry",
       "permanent": true
     },
     {
       "source": "/waxhaw/doors-windows",
-      "destination": "/charlotte/doors-windows",
+      "destination": "/repairs/doors-windows",
       "permanent": true
     },
     {
       "source": "/waxhaw/flooring-installation",
-      "destination": "/charlotte/flooring-installation",
+      "destination": "/remodeling/flooring-installation",
       "permanent": true
     },
     {
       "source": "/waxhaw/furniture-assembly",
-      "destination": "/charlotte/furniture-assembly",
+      "destination": "/repairs/furniture-assembly",
       "permanent": true
     },
     {
       "source": "/waxhaw/outdoor-living",
-      "destination": "/charlotte/outdoor-living",
+      "destination": "/remodeling/outdoor-living",
       "permanent": true
     },
     {
       "source": "/waxhaw/pressure-washing",
-      "destination": "/charlotte/pressure-washing",
+      "destination": "/repairs/pressure-washing",
       "permanent": true
     },
     {
       "source": "/waxhaw/quick-fix",
-      "destination": "/charlotte/quick-fix",
+      "destination": "/repairs/quick-fix",
       "permanent": true
     },
     {
       "source": "/waxhaw/tv-mounting",
-      "destination": "/charlotte/tv-mounting",
+      "destination": "/repairs/tv-mounting",
       "permanent": true
     },
     {
@@ -738,32 +1178,32 @@
     },
     {
       "source": "/rock-hill/carpentry",
-      "destination": "/charlotte/carpentry",
+      "destination": "/repairs/carpentry",
       "permanent": true
     },
     {
       "source": "/rock-hill/doors-windows",
-      "destination": "/charlotte/doors-windows",
+      "destination": "/repairs/doors-windows",
       "permanent": true
     },
     {
       "source": "/rock-hill/flooring-installation",
-      "destination": "/charlotte/flooring-installation",
+      "destination": "/remodeling/flooring-installation",
       "permanent": true
     },
     {
       "source": "/rock-hill/furniture-assembly",
-      "destination": "/charlotte/furniture-assembly",
+      "destination": "/repairs/furniture-assembly",
       "permanent": true
     },
     {
       "source": "/rock-hill/pressure-washing",
-      "destination": "/charlotte/pressure-washing",
+      "destination": "/repairs/pressure-washing",
       "permanent": true
     },
     {
       "source": "/rock-hill/tv-mounting",
-      "destination": "/charlotte/tv-mounting",
+      "destination": "/repairs/tv-mounting",
       "permanent": true
     },
     {

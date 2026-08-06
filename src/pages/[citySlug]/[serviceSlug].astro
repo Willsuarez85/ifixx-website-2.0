@@ -7,13 +7,26 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 import LandingForm from '../../components/forms/LandingForm.astro';
-import { isRetiredCity, isRetiredService, isConsolidatedService, hasCityServicePage } from '../../lib/seo-retired';
+import { isRetiredCity, isRetiredService, isConsolidatedService, isPrunedMatrixService, hasCityServicePage } from '../../lib/seo-retired';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
   const cities = await getCollection('cities');
   const cityServiceContent = await getCollection('city-service');
 
+  // Matrix pruning phase 2 (2026-08-06): this route now returns ZERO paths on purpose.
+  // Every service is either retired, consolidated or pruned, so no /{city}/{service} page
+  // is generated and vercel.json 301s all of them to their silo.
+  //
+  // The file is kept rather than deleted because the rendering below is still the only
+  // description of what these pages were. Do NOT read that as "reviving a service is one
+  // line" — it is not. Bringing /{city}/{service} back takes four edits, and skipping any
+  // of them leaves the page live but invisible or unreachable:
+  //   1. remove the service from PRUNED_MATRIX_SERVICES (src/lib/seo-retired.ts)
+  //   2. remove noindex + the silo canonical below (this file, the BaseLayout props)
+  //   3. remove the matching guard from the sitemap filter (astro.config.mjs)
+  //   4. delete its 301 rules from vercel.json — redirects run before the filesystem,
+  //      so the rebuilt page stays unreachable behind its own redirect
   const paths = [];
 
   for (const city of cities) {
@@ -28,6 +41,10 @@ export async function getStaticPaths() {
       }
       // SEO cleanup (2026-06): skip services iFIXX does not offer (301'd in vercel.json)
       if (isRetiredService(service.slug)) {
+        continue;
+      }
+      // Matrix pruning phase 2 (2026-08-06): the last 8 services leave the matrix (301'd).
+      if (isPrunedMatrixService(service.slug)) {
         continue;
       }
 
@@ -100,11 +117,13 @@ const pillarLabel = pillarLabels[currentPillar] || 'Services';
 const seoTitle = localContent?.seo?.title || `${serviceData.title} in ${cityData.name}, ${cityData.state} | iFixx`;
 const seoDescription = localContent?.seo?.description || `Professional ${serviceData.title.toLowerCase()} services in ${cityData.name}, ${cityData.state}. Serving ${cityData.neighborhoods?.slice(0, 3).join(', ')} & more. Fully insured, free estimates!`;
 
-// Programmatic matrix pruning (2026-07-28): the city x service pages duplicate the
-// service silos and the dedicated money pages without adding unique content, so they
-// are noindexed and canonicalised to their silo. They stay live on purpose — they
-// still serve UX, internal linking and paid landing. Reversible by design: if 4 weeks
-// of GSC do not show the consolidation, they become 301s.
+// Programmatic matrix pruning: the city x service pages duplicated the service silos and
+// the dedicated money pages without adding unique content. Phase 1 (2026-07-28) noindexed
+// them and canonicalised them here; phase 2 (2026-08-06) 301s them to that same silo, so
+// getStaticPaths above returns nothing and everything below is unreachable. The noindex
+// and the canonical are phase-1 leftovers kept deliberately: if this route ever generates
+// again by accident, it generates something Google will not index. See the four-step note
+// in getStaticPaths before treating that as a rollback path.
 const siloCanonical = `/${serviceData.pillar}/${service.slug}`;
 
 const introText = localContent?.localIntro || cityData.localizedIntro;

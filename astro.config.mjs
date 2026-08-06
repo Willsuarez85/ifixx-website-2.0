@@ -21,10 +21,11 @@ export default defineConfig({
         // sitemap even if a stray route is reintroduced. 301s live in vercel.json.
         if (page.match(/\/(huntersville|concord|monroe|waxhaw|rock-hill)(\/|$)/)) return false;
         if (page.match(/\/(plumbing|electrical-fixtures)\/?$/)) return false;
-        // Matrix pruning (2026-07-28): the 40 city x service pages are noindexed and
-        // canonicalised to their service silo, so they leave the sitemap. They stay
-        // live for UX, internal links and paid landing. The /service-areas hubs and
-        // the dedicated money pages (single-segment URLs) are NOT affected.
+        // Matrix pruning (2026-07-28 noindex → 2026-08-06 301): the 40 city x service
+        // pages no longer exist; they 301 to their service silo from vercel.json. This
+        // rule is now a guard rather than an exclusion — it keeps them out of the sitemap
+        // if the route is ever reintroduced. The /service-areas hubs and the dedicated
+        // money pages (single-segment URLs) are NOT affected.
         if (page.match(/\/(ballantyne|charlotte|matthews|pineville|south-charlotte)\/(carpentry|doors-windows|flooring-installation|furniture-assembly|outdoor-living|pressure-washing|quick-fix|tv-mounting)\/?$/)) return false;
         // Mint Hill is a service area again, but its 9 thin matrix pages stay dead.
         // Its hub (/service-areas/mint-hill) is intentionally not matched here.

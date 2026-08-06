@@ -11,7 +11,6 @@ bullets:
   - "Wire concealment"
   - "In-wall wire routing"
   - "Soundbar installation"
-  - "Outlet relocation"
   - "Streaming device setup"
 signs:
   - "New TV sitting on the floor"
@@ -34,7 +33,7 @@ faqs:
   - q: "Can you mount a TV on any wall?"
     a: "Most walls can support a TV with proper mounting. We assess wall type and use appropriate anchors."
   - q: "How do you hide the wires?"
-    a: "We offer several options: cable covers, in-wall wire routing, or relocating outlets behind the TV."
+    a: "We offer two options: cable covers that blend with the wall, or in-wall routing so the cables are completely hidden."
   - q: "Do you provide the mount?"
     a: "We can provide mounts or install one you've purchased. We'll recommend the right type for your TV and wall."
 relatedServices:
@@ -58,7 +57,6 @@ Transform your living space with a professionally mounted TV. No more bulky furn
 ### Wire Concealment
 - **Cable Covers** - Simple, paintable covers that blend with your wall
 - **In-Wall Routing** - Wires run inside the wall for completely hidden cables
-- **Outlet Relocation** - We move outlets behind the TV for the cleanest look
 
 ### Additional Services
 - Soundbar mounting
