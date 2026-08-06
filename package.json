@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "postbuild": "npm run verify:links",
     "preview": "astro preview",
     "astro": "astro",
     "verify:links": "node scripts/verify-links.mjs"
