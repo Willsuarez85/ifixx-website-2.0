@@ -9,6 +9,11 @@
 // guard the zone hubs use: it points at the city x service page while one exists, and at
 // the canonical silo otherwise. Hardcoding is what turned this kind of block into 404s
 // and redirect hops before.
+//
+// The anchor text dropped the "in {city}" suffix in the same pass. While the matrix
+// existed, "Carpentry in Pineville" named the page it opened; now it would promise a
+// city page and deliver the generic silo. The card heading still carries the city, and
+// it is the link that actually goes somewhere city-specific (/service-areas/{city}).
 import { getCollection } from 'astro:content';
 import { hasCityServicePage } from '../../lib/seo-retired';
 
@@ -116,7 +121,7 @@ const areas = [
                   <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
                   </svg>
-                  {svc.label} in {area.name.split(",")[0]}
+                  {svc.label}
                 </a>
               </li>
             ))}

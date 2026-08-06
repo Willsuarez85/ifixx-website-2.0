@@ -16,9 +16,17 @@ export async function getStaticPaths() {
 
   // Matrix pruning phase 2 (2026-08-06): this route now returns ZERO paths on purpose.
   // Every service is either retired, consolidated or pruned, so no /{city}/{service} page
-  // is generated and vercel.json 301s all of them to their silo. The route file is kept
-  // (rather than deleted) so the decision is reversible: drop a service out of
-  // PRUNED_MATRIX_SERVICES and its pages come back, with the link guards already in place.
+  // is generated and vercel.json 301s all of them to their silo.
+  //
+  // The file is kept rather than deleted because the rendering below is still the only
+  // description of what these pages were. Do NOT read that as "reviving a service is one
+  // line" — it is not. Bringing /{city}/{service} back takes four edits, and skipping any
+  // of them leaves the page live but invisible or unreachable:
+  //   1. remove the service from PRUNED_MATRIX_SERVICES (src/lib/seo-retired.ts)
+  //   2. remove noindex + the silo canonical below (this file, the BaseLayout props)
+  //   3. remove the matching guard from the sitemap filter (astro.config.mjs)
+  //   4. delete its 301 rules from vercel.json — redirects run before the filesystem,
+  //      so the rebuilt page stays unreachable behind its own redirect
   const paths = [];
 
   for (const city of cities) {
@@ -112,8 +120,10 @@ const seoDescription = localContent?.seo?.description || `Professional ${service
 // Programmatic matrix pruning: the city x service pages duplicated the service silos and
 // the dedicated money pages without adding unique content. Phase 1 (2026-07-28) noindexed
 // them and canonicalised them here; phase 2 (2026-08-06) 301s them to that same silo, so
-// getStaticPaths above returns nothing and the rendering below is dormant. It is kept
-// intact — and correct — so that reviving a service is a one-line change, not a rewrite.
+// getStaticPaths above returns nothing and everything below is unreachable. The noindex
+// and the canonical are phase-1 leftovers kept deliberately: if this route ever generates
+// again by accident, it generates something Google will not index. See the four-step note
+// in getStaticPaths before treating that as a rollback path.
 const siloCanonical = `/${serviceData.pillar}/${service.slug}`;
 
 const introText = localContent?.localIntro || cityData.localizedIntro;
