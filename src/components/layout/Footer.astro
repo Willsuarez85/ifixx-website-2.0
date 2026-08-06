@@ -30,17 +30,14 @@ const serviceAreas = [
   { name: 'Pineville, NC', href: '/service-areas/pineville' }
 ];
 
-// Pilar 7 — Popular Local Services (sitewide link equity to live, citable assets:
-// cost guides + city × outdoor-living combos; kitchen/bath combos are consolidated
-// to their canonical /remodeling pages, so only outdoor-living generates per city)
+// Pilar 7 — Popular Local Services (sitewide link equity to live, citable assets).
+// The five city × outdoor-living entries were removed on 2026-08-06: the matrix pages
+// they pointed to are now 301s, and five sitewide links into a redirect spend the equity
+// on a hop. They collapse into the silo they redirected to, which is the canonical page.
 const popularLocalServices = [
   { label: 'Kitchen Remodel Cost Charlotte',   href: '/blog/how-much-kitchen-remodel-charlotte' },
   { label: 'Bathroom Remodel Cost Charlotte',  href: '/blog/how-much-bathroom-remodel-charlotte' },
-  { label: 'Outdoor Living Charlotte',         href: '/charlotte/outdoor-living' },
-  { label: 'Outdoor Living South Charlotte',   href: '/south-charlotte/outdoor-living' },
-  { label: 'Outdoor Living Ballantyne',        href: '/ballantyne/outdoor-living' },
-  { label: 'Outdoor Living Matthews',          href: '/matthews/outdoor-living' },
-  { label: 'Outdoor Living Pineville',         href: '/pineville/outdoor-living' }
+  { label: 'Outdoor Living Charlotte',         href: '/remodeling/outdoor-living' }
 ];
 
 const phoneNumber = '(980) 391-6833';

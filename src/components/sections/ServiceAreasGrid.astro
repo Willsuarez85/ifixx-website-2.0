@@ -1,8 +1,28 @@
 ---
 // Pilar 7 — Internal Linking Restructure
-// 6 city cards × 3 popular service links each = 18 hyperlocal links from homepage.
+// 5 city cards × 3 popular service links each = 15 links from the homepage.
 // Cities and services match the current focus (see src/lib/seo-retired.ts):
 // no retired cities, no consolidated services (kitchen/bath remodeling, painting, drywall).
+//
+// These links used to hardcode /{city}/{service}. Since the matrix was pruned
+// (2026-08-06) those URLs 301 to their silo, so the href is resolved through the same
+// guard the zone hubs use: it points at the city x service page while one exists, and at
+// the canonical silo otherwise. Hardcoding is what turned this kind of block into 404s
+// and redirect hops before.
+import { getCollection } from 'astro:content';
+import { hasCityServicePage } from '../../lib/seo-retired';
+
+const pillarBySlug = new Map(
+  (await getCollection('services')).map((s) => [s.slug, s.data.pillar as string])
+);
+
+const serviceHref = (citySlug: string, serviceSlug: string) => {
+  if (hasCityServicePage(citySlug, serviceSlug)) return `/${citySlug}/${serviceSlug}`;
+  const pillar = pillarBySlug.get(serviceSlug);
+  if (!pillar) throw new Error(`ServiceAreasGrid links to unknown service "${serviceSlug}"`);
+  return `/${pillar}/${serviceSlug}`;
+};
+
 const areas = [
   {
     name: "Charlotte, NC",
@@ -90,7 +110,7 @@ const areas = [
             {area.popular.map((svc) => (
               <li>
                 <a
-                  href={`/${area.slug}/${svc.slug}`}
+                  href={serviceHref(area.slug, svc.slug)}
                   class="text-sm text-primary-600 hover:text-primary-700 hover:underline inline-flex items-center gap-1"
                 >
                   <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
