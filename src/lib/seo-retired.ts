@@ -40,7 +40,13 @@ export const SERVICE_AREA_ONLY_CITIES = ['mint-hill'] as const;
 //   basement-finishing  — retired per Jaime/William 2026-07-07: iFIXX no longer offers
 //                         basement finishing. Removed from the remodeling pillar + sitemap;
 //                         301'd to /remodeling (see vercel.json).
-export const RETIRED_SERVICES = ['plumbing', 'electrical-fixtures', 'basement-finishing'] as const;
+//   pressure-washing    — retired per William 2026-08-07: iFIXX does not offer it as a
+//                         service. CONTEXT.md never listed it; the site had been selling it
+//                         since PR #2. Removed from the repairs pillar + sitemap; the silo
+//                         and the standalone /services/pressure-washing sales page are gone
+//                         and 301 to /repairs, and the 15 city redirects that used to land
+//                         on the silo were repointed there too (see vercel.json).
+export const RETIRED_SERVICES = ['plumbing', 'electrical-fixtures', 'basement-finishing', 'pressure-washing'] as const;
 
 // Services consolidated into a single canonical page: they are still offered, but they
 // have NO /{city}/{service} page — the matrix skips them, and vercel.json 301s the old

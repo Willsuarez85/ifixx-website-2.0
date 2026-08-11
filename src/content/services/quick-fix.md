@@ -9,12 +9,10 @@ bullets:
   - "TV mounting"
   - "Picture hanging"
   - "Gutter cleaning & repair"
-  - "Pressure washing"
   - "Minor home maintenance"
 signs:
   - "A growing to-do list"
   - "Loose cabinet hinges"
-  - "Dirty siding or driveways"
   - "New furniture in boxes"
   - "Hard-to-reach lightbulbs"
 processSteps:
