@@ -33,8 +33,8 @@ relatedServices:
   - "doors-windows"
   - "painting"
 seo:
-  title: "Carpentry Charlotte NC $99+ | Custom Built-Ins, Trim, Decks | ⭐5.0 | iFIXX"
-  description: "Need custom shelving or trim work? Expert carpentry in Charlotte. Built-ins, crown molding, deck repairs—$99+. Charlotte's ⭐5.0 carpentry pros. Free estimates! Call (980) 391-6833 or book online."
+  title: "Carpentry Services Charlotte NC | Trim, Built-Ins, Repairs"
+  description: "Carpentry in Charlotte NC: crown molding, baseboards, custom built-ins, door and window trim, rotten wood and deck repairs. Call (980) 391-6833."
 ---
 
 Quality carpentry adds character and value to your home. From functional storage solutions to decorative trim that elevates a room's style, our skilled carpenters bring your vision to life.
