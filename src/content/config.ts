@@ -20,6 +20,14 @@ const servicesCollection = defineCollection({
       a: z.string()
     })).optional(),
     relatedServices: z.array(z.string()).optional(),
+    // Only declare this when the page itself publishes both endpoints in its body.
+    // It is the single source of the AggregateOffer in the pillar templates: a page
+    // without priceRange emits no price to Google. See business-facts.ts for the
+    // same pattern on the review count.
+    priceRange: z.object({
+      low: z.string(),
+      high: z.string()
+    }).optional(),
     seo: z.object({
       title: z.string(),
       description: z.string()

@@ -42,6 +42,11 @@ faqs:
 relatedServices:
   - "bathroom-remodeling"
   - "flooring-installation"
+# Both endpoints are published in the pricing section below: updates start at
+# $8,000 and the Luxury Custom tier starts at $35,000.
+priceRange:
+  low: "8000"
+  high: "35000"
 seo:
   title: "Kitchen Remodeling Charlotte NC | From $8,000 | Family-Owned | iFIXX"
   description: "Kitchen remodeling in Charlotte starting at $8,000. Cabinets, countertops, flooring, full renovations. Family-owned and insured. Free estimates. (980) 391-6833"
