@@ -42,6 +42,11 @@ faqs:
 relatedServices:
   - "kitchen-remodeling"
   - "flooring-installation"
+# Both endpoints are published in the pricing section below: updates start at
+# $5,000 and the Spa Experience tier starts at $30,000.
+priceRange:
+  low: "5000"
+  high: "30000"
 seo:
   title: "Bathroom Remodeling Charlotte NC | From $5,000 | Family-Owned | iFIXX"
   description: "Bathroom remodeling in Charlotte from $5,000. Walk-in showers, vanities, tile, full renovations. Family-owned and insured. Free estimates. (980) 391-6833"

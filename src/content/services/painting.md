@@ -50,6 +50,11 @@ relatedServices:
   - "drywall"
   - "carpentry"
   - "quick-fix"
+# Both endpoints are published in "Painting Costs in Charlotte" below:
+# single room 12x12 starts at $300, full exterior two-story runs to $8,000+.
+priceRange:
+  low: "300"
+  high: "8000"
 seo:
   title: "Painting Services Charlotte NC | Interior & Exterior | Free Estimates | iFIXX"
   description: "Professional painting in Charlotte. Interior, exterior, cabinets, trim. Expert prep, quality materials, flawless finish. Free color consultation. Call (980) 391-6833."

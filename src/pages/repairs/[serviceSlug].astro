@@ -28,7 +28,7 @@ interface Props {
 const { service } = Astro.props;
 const { Content } = await service.render();
 
-const { title, category, pillar, summary, heroImage, bullets, signs, processSteps, faqs, relatedServices, seo } = service.data;
+const { title, category, pillar, summary, heroImage, bullets, signs, processSteps, faqs, relatedServices, priceRange, seo } = service.data;
 
 // Get all services for related services lookup
 const allServices = await getCollection('services');
@@ -107,13 +107,17 @@ const serviceSchema = {
     {"@type": "City", "name": "Fort Mill"},
     {"@type": "City", "name": "Weddington"}
   ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "availability": "https://schema.org/InStock",
-    "priceCurrency": "USD",
-    "lowPrice": service.slug === 'painting' ? "300" : service.slug === 'drywall' ? "150" : "150",
-    "highPrice": service.slug === 'painting' ? "8000" : service.slug === 'drywall' ? "1500" : "5000"
-  },
+  // Price only ships to Google when the page publishes it. No priceRange in the
+  // service frontmatter, no offers node.
+  ...(priceRange ? {
+    "offers": {
+      "@type": "AggregateOffer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "USD",
+      "lowPrice": priceRange.low,
+      "highPrice": priceRange.high
+    }
+  } : {}),
 
 };
 
