@@ -12,6 +12,18 @@ tags:
 seo:
   title: "Deck Cost Charlotte NC: $7,500–$21,000 Built (2026 Guide)"
   description: "New deck cost in Charlotte: pressure-treated wood $25–$45/sq ft, composite $45–$70/sq ft. Real 2026 pricing, cost factors, and deck repair prices."
+faqsTitle: 'Frequently Asked Questions — Deck Cost Charlotte NC'
+faqs:
+  - q: 'How much does it cost to build a deck in Charlotte NC?'
+    a: 'A typical 300-square-foot deck in Charlotte costs $7,500–$21,000 built in 2026. Pressure-treated wood runs $25–$45 per square foot, cedar $30–$50, and composite $45–$70. Screened or covered porches cost more because they include a roof structure.'
+  - q: 'How much does a composite deck cost per square foot in Charlotte?'
+    a: 'Composite decking (Trex / TimberTech style) costs $45–$70 per square foot built in the Charlotte area in 2026. It costs more upfront than wood but needs almost no maintenance — no annual staining or sealing.'
+  - q: 'Do I need a permit to build a deck in Charlotte or Waxhaw?'
+    a: 'Yes. Decks in Mecklenburg and Union County generally require a building permit, especially elevated decks or any deck attached to the house, so footings and the ledger connection can be inspected for safety. HOA approval is also often required in South Charlotte, Ballantyne, and Waxhaw neighborhoods.'
+  - q: 'Is it cheaper to repair or replace a deck?'
+    a: 'If the framing and footings are sound and only the surface boards or railing are worn, repair and re-staining is far cheaper ($30–$2,500 for most jobs). If the structure or ledger connection is failing, replacement is safer and usually costs less per year of deck life.'
+  - q: 'How long does it take to build a new deck?'
+    a: 'A straightforward ground-level deck is often a matter of days once materials arrive and the permit is squared away. Raised, multi-level, or screened builds take longer. We give you a realistic timeline with your quote.'
 ---
 
 Thinking about a new deck or a rebuild in Charlotte? The first question is always the same: **what is this actually going to cost?**
@@ -101,20 +113,3 @@ Online ranges get you in the ballpark; a walk-through gets you a real price. iFI
 ---
 
 *iFIXX serves South Charlotte, Ballantyne, Waxhaw, Weddington, Indian Land, Fort Mill, Pineville, and Matthews. Insured and locally owned.*
-
-## Frequently Asked Questions — Deck Cost Charlotte NC
-
-**How much does it cost to build a deck in Charlotte NC?**
-A typical 300-square-foot deck in Charlotte costs $7,500–$21,000 built in 2026. Pressure-treated wood runs $25–$45 per square foot, cedar $30–$50, and composite $45–$70. Screened or covered porches cost more because they include a roof structure.
-
-**How much does a composite deck cost per square foot in Charlotte?**
-Composite decking (Trex / TimberTech style) costs $45–$70 per square foot built in the Charlotte area in 2026. It costs more upfront than wood but needs almost no maintenance — no annual staining or sealing.
-
-**Do I need a permit to build a deck in Charlotte or Waxhaw?**
-Yes. Decks in Mecklenburg and Union County generally require a building permit, especially elevated decks or any deck attached to the house, so footings and the ledger connection can be inspected for safety. HOA approval is also often required in South Charlotte, Ballantyne, and Waxhaw neighborhoods.
-
-**Is it cheaper to repair or replace a deck?**
-If the framing and footings are sound and only the surface boards or railing are worn, repair and re-staining is far cheaper ($30–$2,500 for most jobs). If the structure or ledger connection is failing, replacement is safer and usually costs less per year of deck life.
-
-**How long does it take to build a new deck?**
-A straightforward ground-level deck is often a matter of days once materials arrive and the permit is squared away. Raised, multi-level, or screened builds take longer. We give you a realistic timeline with your quote.
