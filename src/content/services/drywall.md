@@ -2,7 +2,7 @@
 title: "Drywall Repair"
 category: "handyman"
 pillar: "repairs"
-summary: "Professional drywall repair in Charlotte. Holes, cracks, water damage, texture matching. Same-day service available. Free estimates. Expert texture matching that makes repairs invisible."
+summary: "Professional drywall and ceiling repair in Charlotte. Holes, cracks, water-stained ceilings, texture matching. Same-day service available. Free estimates. Expert texture matching that makes repairs invisible."
 heroImage: "/images/services/drywall/dr-02-before-after-split.webp"
 bullets:
   - "Hole repair (small, medium, and large)"
@@ -11,7 +11,8 @@ bullets:
   - "Expert texture matching (orange peel, knockdown, smooth)"
   - "Nail pop repair"
   - "Corner bead repair and replacement"
-  - "Ceiling drywall repair"
+  - "Ceiling drywall repair (stains, sagging, cracks)"
+  - "Popcorn and textured ceiling patching"
   - "Tape separation repair"
   - "Complete drywall installation"
   - "Priming and painting services"
@@ -46,6 +47,10 @@ faqs:
     a: "Repair (patching) works for small to medium holes (< 12 inches), isolated cracks, and surface damage with solid backing. Replacement (full section) is needed for water-damaged drywall (soft, warped, or mold present), large holes or extensive damage (> 12 inches), compromised structural integrity, or damage affecting multiple studs or ceiling joists. We'll assess for free and be honest about what you need."
   - q: "What affects the price of drywall repair?"
     a: "Price depends on size of damage, number of repairs (multiple small repairs in one room can often batch for slight discount), texture complexity (smooth finish or custom texture takes longer than standard orange peel), whether paint is included (spot painting vs. full wall), and accessibility (high ceilings, cathedral ceilings, or tight spaces require additional time and equipment)."
+  - q: "There's a water stain on my ceiling. Can you fix it?"
+    a: "Yes, once the water source has been fixed. We repair the ceiling, not the pipe or the roof that let the water through, so if the leak is still active it needs the trade that handles that system first. Patching over a live leak just puts the same stain back in a few weeks. Once the source is handled and the cavity is dry, we cut out the stained or soft section, replace it, tape and float it flat, match the texture, and prime and paint it."
+  - q: "Can you repair a sagging or cracked ceiling?"
+    a: "Yes. Sagging usually means the drywall has lost its grip on the joists (failed fasteners, old adhesive, or moisture that softened the board) and cracks along a ceiling line are often the house settling. We cut back to solid material, re-secure or replace the section, reinforce the seams, and re-texture. If the sag traces back to something structural rather than the drywall itself, we tell you that at the free estimate instead of hiding it behind a patch."
   - q: "Can you fix water-damaged drywall?"
     a: "Yes, but only AFTER the water source is fixed. We cut out the damaged section (water-damaged drywall is compromised and likely holds mold), dry the cavity completely, install fresh material, tape, texture, and prime. If there's visible mold or a musty smell, we remove the affected drywall completely. For major mold issues, you may need a remediation specialist first."
 relatedServices:
@@ -53,10 +58,25 @@ relatedServices:
   - "quick-fix"
   - "carpentry"
 seo:
-  title: "Drywall Repair Charlotte NC | Texture Matching | Same-Day"
-  description: "Drywall repair in Charlotte NC: holes, cracks, water damage, texture matching that hides the patch. ⭐5.0 on Google. Free estimate: (980) 391-6833"
+  title: "Drywall & Ceiling Repair Charlotte NC | Texture Matching"
+  description: "Drywall and ceiling repair in Charlotte NC: holes, cracks, water-stained ceilings, texture matching that hides the patch. ⭐5.0 on Google. (980) 391-6833"
 ---
 
 **Hole in your wall? Crack getting worse? Water-damaged ceiling?** iFIXX repairs it right—matching your texture so the repair disappears completely. From small nail holes to full section water damage, we handle everything: drywall, texture, paint. One call. One crew. Problem solved.
 
 **Text photos to [(980) 391-6833](tel:9803916833)** for a free estimate. We respond fast.
+
+## Ceiling Repair in Charlotte
+
+Ceilings fail differently than walls. A wall takes a doorknob; a ceiling takes a bathroom overflow from the floor above, a supply line that let go weeks ago, or the slow settling of an older Charlotte home. And a ceiling is harder to hide, because the light crosses it at an angle and a patch that would vanish on a wall reads as a shadow overhead.
+
+What ceiling repair looks like with us:
+
+- Cut the stained, soft, or sagging section back to solid material
+- Replace it, tape it, and float it flat across the joists
+- Match the ceiling texture: orange peel, knockdown, skip trowel, smooth, or popcorn
+- Prime and paint the repair, or the whole ceiling when the surrounding paint has aged past a spot match
+
+**One thing first on ceiling leaks.** We repair the ceiling, not the source of the water. If the leak is still running, it needs the trade that handles that system before any drywall goes back up, and we will tell you so at the estimate rather than sell you a patch. Once the source is fixed and the cavity is dry, we cut, replace, texture, and paint so the ceiling reads as one surface again.
+
+Drywall, sheetrock, wallboard: same material, same repair. Whatever you call it, we patch it, texture it, and paint it, so one crew closes the job instead of leaving you a bare patch and a second phone call.
