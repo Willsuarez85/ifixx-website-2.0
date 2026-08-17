@@ -19,7 +19,6 @@ const services = [
   { value: 'ceiling-fan', label: 'Ceiling Fan Installation' },
   { value: 'tv-mounting', label: 'TV Mounting' },
   { value: 'carpentry', label: 'Carpentry' },
-  { value: 'pressure-washing', label: 'Pressure Washing' },
   { value: 'other', label: 'Other' }
 ];
 ---
@@ -30,7 +29,7 @@ const services = [
     <p class="text-sm text-neutral-600">No obligation. We respond fast.</p>
   </div>
 
-  <form id={formId} class="space-y-3" toolname="RequestHandymanQuote" tooldescription="Request a free quote from iFIXX, a family-owned handyman in Charlotte NC. Provide name, phone, email, and what you need fixed (drywall repair, painting, doors, fixtures, TV mounting, carpentry, pressure washing). iFIXX is fully insured and responds same day.">
+  <form id={formId} class="space-y-3" toolname="RequestHandymanQuote" tooldescription="Request a free quote from iFIXX, a family-owned handyman in Charlotte NC. Provide name, phone, email, and what you need fixed (drywall repair, painting, doors, fixtures, TV mounting, carpentry). iFIXX is fully insured and responds same day.">
     <label for={`${formId}-name`} class="sr-only">Your Name</label>
     <input type="text" id={`${formId}-name`} name="firstName" required
       class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-neutral-900 placeholder-neutral-500"
