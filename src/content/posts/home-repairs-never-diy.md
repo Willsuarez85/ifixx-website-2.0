@@ -8,6 +8,14 @@ tags: ["DIY", "home repairs", "safety", "when to hire"]
 seo:
   title: "5 Home Repairs You Should Never DIY | Charlotte Homeowners | iFIXX"
   description: "Electrical, plumbing, structural—some repairs are too risky to DIY. Charlotte homeowners, know when to call a pro. ⭐5.0 on Google. Free estimates from iFIXX."
+faqsTitle: 'Frequently Asked Questions'
+faqs:
+  - q: 'How do I know if a wall is load-bearing?'
+    a: 'Load-bearing walls typically run perpendicular to floor joists and are often located in the center of the house. However, the only way to know for sure is to look at your home''s structure—either from the attic, basement, or with original building plans. When in doubt, assume it''s load-bearing until proven otherwise.'
+  - q: 'Do I need a permit for home repairs?'
+    a: 'In Charlotte and Mecklenburg County, permits are required for most electrical work, plumbing changes, structural modifications, and HVAC installations. Minor repairs and cosmetic work typically don''t need permits. If you''re not sure, check with the county or ask your contractor—doing unpermitted work can cause problems when you sell.'
+  - q: 'What''s the most common DIY mistake you see?'
+    a: 'Honestly? People underestimating water damage. A small leak that seems like no big deal can cause thousands in damage if it sits inside a wall for months. If you see water where it shouldn''t be, don''t assume it''ll dry out on its own.'
 ---
 
 There's real satisfaction in fixing something yourself. You save money, learn something new, and get that "I did this" feeling every time you walk by.
@@ -152,17 +160,3 @@ If it's something simple, we'll say so. If it's something that needs professiona
 That's the kind of relationship we try to build with homeowners in Charlotte—the kind where you trust us to give you a straight answer, not just the answer that makes us money.
 
 **[Have a repair question? Ask us →](/contact)**
-
-## Frequently Asked Questions
-
-### How do I know if a wall is load-bearing?
-
-Load-bearing walls typically run perpendicular to floor joists and are often located in the center of the house. However, the only way to know for sure is to look at your home's structure—either from the attic, basement, or with original building plans. When in doubt, assume it's load-bearing until proven otherwise.
-
-### Do I need a permit for home repairs?
-
-In Charlotte and Mecklenburg County, permits are required for most electrical work, plumbing changes, structural modifications, and HVAC installations. Minor repairs and cosmetic work typically don't need permits. If you're not sure, check with the county or ask your contractor—doing unpermitted work can cause problems when you sell.
-
-### What's the most common DIY mistake you see?
-
-Honestly? People underestimating water damage. A small leak that seems like no big deal can cause thousands in damage if it sits inside a wall for months. If you see water where it shouldn't be, don't assume it'll dry out on its own.

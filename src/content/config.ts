@@ -71,6 +71,16 @@ const postsCollection = defineCollection({
     coverImage: z.string().optional(),
     category: z.string(),
     tags: z.array(z.string()).optional(),
+    // FAQs live here, not in the body prose. The blog template renders this
+    // array on the page AND emits it as FAQPage: one array, so what Google is
+    // told and what the reader sees cannot drift apart. Google requires the
+    // answer to be visible on the page, so never add a question here that the
+    // template does not render. Same pattern as the services collection.
+    faqsTitle: z.string().optional(),
+    faqs: z.array(z.object({
+      q: z.string(),
+      a: z.string()
+    })).optional(),
     seo: z.object({
       title: z.string(),
       description: z.string()

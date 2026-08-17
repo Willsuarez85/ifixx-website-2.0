@@ -8,6 +8,14 @@ tags: ["winter prep", "Charlotte", "seasonal maintenance", "freeze protection"]
 seo:
   title: "Charlotte Winter Home Prep Checklist | Protect Your Home | iFIXX"
   description: "Charlotte winters can catch you off guard. Use this checklist to protect your pipes, roof & home before freezing temps hit. Call (980) 391-6833 — iFIXX."
+faqsTitle: 'Frequently Asked Questions'
+faqs:
+  - q: 'When should I start winter prep in Charlotte?'
+    a: 'Mid-November is ideal. That gives you time before the first freeze (usually late November or December) and before the holiday rush makes scheduling harder. But honestly, if it''s January and you haven''t done anything yet, it''s still worth doing—our coldest weather is usually in January and February.'
+  - q: 'Do I really need to drip my faucets during a freeze?'
+    a: 'If temperatures drop below 28°F for several hours and you have pipes in exterior walls or unheated spaces, yes. The trickle doesn''t need to be much—just enough to keep water moving. It''ll add a few dollars to your water bill, but that''s a lot cheaper than a burst pipe.'
+  - q: 'How cold does it have to get for pipes to freeze?'
+    a: 'Pipes are at risk when outside temperatures stay below 32°F for several hours, but the real danger zone is below 20°F. Pipes in unheated spaces or against exterior walls can freeze even when the rest of your house is warm. The key is how cold it gets where the pipes are, not just what the thermometer says outside.'
 ---
 
 Charlotte winters are unpredictable. One week it's 60 degrees and sunny. The next, there's an ice storm that knocks out power for three days.
@@ -177,17 +185,3 @@ Where iFIXX fits is the handyman side of winter prep—the tasks that pile up an
 If you'd rather knock the whole list out at once—or you've got an older Charlotte home and want a second set of eyes on the handyman items—we can walk the property with you and handle the ones in our wheelhouse. iFIXX is insured, and everything gets done right the first time.
 
 **[Schedule a winter prep visit →](/contact)**
-
-## Frequently Asked Questions
-
-### When should I start winter prep in Charlotte?
-
-Mid-November is ideal. That gives you time before the first freeze (usually late November or December) and before the holiday rush makes scheduling harder. But honestly, if it's January and you haven't done anything yet, it's still worth doing—our coldest weather is usually in January and February.
-
-### Do I really need to drip my faucets during a freeze?
-
-If temperatures drop below 28°F for several hours and you have pipes in exterior walls or unheated spaces, yes. The trickle doesn't need to be much—just enough to keep water moving. It'll add a few dollars to your water bill, but that's a lot cheaper than a burst pipe.
-
-### How cold does it have to get for pipes to freeze?
-
-Pipes are at risk when outside temperatures stay below 32°F for several hours, but the real danger zone is below 20°F. Pipes in unheated spaces or against exterior walls can freeze even when the rest of your house is warm. The key is how cold it gets where the pipes are, not just what the thermometer says outside.
