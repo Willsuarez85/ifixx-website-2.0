@@ -19,7 +19,7 @@ faqs:
   - q: 'What is the average kitchen remodel cost in Charlotte?'
     a: 'The average kitchen remodel in Charlotte is $25,000-$35,000 for a mid-range renovation. This includes semi-custom cabinets, quartz or granite countertops, new appliances, and updated fixtures. Charlotte labor rates run 10-15% lower than Raleigh or DC.'
   - q: 'How long does a kitchen remodel take in Charlotte?'
-    a: 'A minor kitchen update takes 1-2 weeks. A full kitchen remodel in Charlotte takes 4-8 weeks — including demo, rough work, cabinet installation, countertops, and finishing. iFIXX provides a detailed project schedule before starting.'
+    a: 'A minor kitchen update takes 1-2 weeks. A mid-range kitchen remodel in Charlotte takes 4-8 weeks — including demo, rough work, cabinet installation, countertops, and finishing. A major renovation that moves the layout runs 10-16 weeks. iFIXX provides a detailed project schedule before starting.'
   - q: 'Does iFIXX do kitchen remodels near me in Charlotte?'
     a: 'Yes. iFIXX serves Charlotte, South Charlotte, Ballantyne, Matthews, Pineville, and Waxhaw. Call (980) 391-6833 for a free in-home estimate.'
   - q: 'How much does a kitchen island cost to add in Charlotte?'
@@ -178,9 +178,9 @@ Ranges only get you so far. We'll walk your kitchen, price the scope you actuall
 | Scope | Timeline |
 |-------|----------|
 | Cosmetic update (paint, hardware, fixtures) | 3-5 days |
-| Minor remodel (no layout changes) | 2-4 weeks |
-| Mid-range remodel | 6-10 weeks |
-| Major renovation (layout changes) | 12-16 weeks |
+| Minor update (no layout changes) | 1-2 weeks |
+| Mid-range remodel | 4-8 weeks |
+| Major renovation (layout changes) | 10-16 weeks |
 
 **Charlotte-specific factor**: Permit approval typically takes 1-2 weeks in Mecklenburg County. Factor this into your timeline.
 
