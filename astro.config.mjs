@@ -32,6 +32,14 @@ export default defineConfig({
         if (page.match(/\/mint-hill\/[a-z-]+\/?$/)) return false;
         // Exclude /services/[slug] pages (these redirect to /repairs/ or /remodeling/)
         if (page.match(/\/services\/[a-z-]+\/?$/)) return false;
+        // Ads-only landings (2026-08-26): these two carry zero organic weight, while
+        // the silos that already own those intents are healthy (GSC 28d to 2026-08-26:
+        // /repairs/drywall 823 impressions, /repairs/painting 170). They leave the
+        // sitemap and go noindex so they stop competing with their own silos. They
+        // stay live and keep serving Google Ads traffic, which noindex does not affect.
+        // Anchored to the end of the path: /repairs/drywall and /repairs/painting
+        // cannot match here.
+        if (page.match(/\/(drywall-repair-south-charlotte|interior-painting-south-charlotte)\/?$/)) return false;
         // Exclude privacy and terms (low value for SEO)
         if (page.includes('/privacy') || page.includes('/terms')) return false;
         // Exclude /lp/* pages — noindexed landing pages, waste crawl budget
