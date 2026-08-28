@@ -59,7 +59,7 @@ We're not a franchise. We're not a national company with a call center in anothe
 
 After years of projects across the Queen City, we know what Charlotte homes need:
 
-- **Dilworth & Myers Park**: Historic homes with character (and quirks). Original woodwork, plaster walls, older plumbing—we've seen it all.
+- **Dilworth & Myers Park**: Historic homes with character (and quirks). Original woodwork and plaster walls—we've seen it all.
 - **South Charlotte & Ballantyne**: Newer construction with modern finishes. We know how to match your builder-grade materials or upgrade them.
 - **Plaza Midwood & NoDa**: Eclectic mix of old and new. Creative solutions for unique spaces.
 - **SouthPark & Cotswold**: Mid-century and 90s builds. We understand the common issues and how to fix them right.
@@ -68,6 +68,6 @@ After years of projects across the Queen City, we know what Charlotte homes need
 
 - **Same Team, Every Time**: You talk to us directly. No random subs, no rotating crews.
 - **5+ Years in Charlotte**: We're not going anywhere. Our reputation is built one project at a time.
-- **Full Range of Work**: From leaky faucets to full kitchen remodels—we've done it.
+- **Full Range of Work**: From a single drywall patch to full kitchen remodels—we've done it.
 - **Fully Insured**: Full liability coverage. Your home is protected.
 - **Upfront Pricing**: We tell you the price before we start. No surprises.
