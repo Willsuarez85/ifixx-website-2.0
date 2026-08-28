@@ -6,8 +6,8 @@ import CTASection from '../components/sections/CTASection.astro';
 import LandingEstimateForm from '../components/forms/LandingEstimateForm.astro';
 import ProjectMarquee from '../components/sections/ProjectMarquee.astro';
 
-const title = 'Deck Builder in South Charlotte, NC | New Decks & Porches | iFIXX';
-const description = 'Deck builder in South Charlotte, NC. Custom decks, rebuilds, and screened porches in wood or composite by an insured local crew. Free deck estimate.';
+const title = 'Deck & Porch Builder in South Charlotte, NC | iFIXX';
+const description = 'Deck and porch builder in South Charlotte, NC. Custom decks, rebuilds, covered and screened porches in wood or composite by an insured local crew. Free estimate.';
 const canonical = '/deck-builder-south-charlotte';
 // Real iFIXX project photos (enhanced): a deck-to-covered-porch build in the Charlotte area.
 const heroImage = '/images/projects/deck-covered-porch-south-charlotte.webp';
@@ -60,13 +60,15 @@ const faqs = [
   { q: 'Do you handle permits?', a: 'New decks in the Charlotte area often require a permit and an inspection. We will tell you honestly what your project needs and help you plan around it so the build is safe and done right.' },
   { q: 'How long does a new deck take to build?', a: 'A straightforward deck is often a matter of days once materials are in and any permit is squared away. Larger or multi-level builds and screened porches take longer. We give you a realistic timeline with your quote.' },
   { q: 'Is the deck built safely and to code?', a: 'Yes. iFIXX is an insured local Charlotte-area team, not a national franchise. For larger structural builds we are upfront about the permits and inspections your project needs and make sure the deck is built safely and to code.' },
+  { q: 'Do you build screened and covered porches, or only decks?', a: 'Both. Along with new decks and rebuilds, we build screened porches, covered porches, and covered outdoor living spaces across South Charlotte. Several of the projects in the gallery above are porch builds our own crew framed and finished. Tell us how you want to use the space and we will scope it as a porch build.' },
+  { q: 'Can you turn my existing deck into a covered or screened porch?', a: 'Often yes, and the answer depends on what is already there. A roof adds weight the original deck may not have been framed or footed to carry, so we look at the existing structure first and tell you honestly whether it can take a cover or needs reinforcing. Either way you get an itemized price before any work starts.' },
   { q: 'I actually just need a repair, can you help?', a: 'Yes. If your current deck mostly needs boards, railings, or steps fixed rather than a full build, start on our deck repair page instead so we can scope it as a repair.' }
 ];
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Deck Builder in South Charlotte, NC',
+  name: 'Deck & Porch Builder in South Charlotte, NC',
   description,
   serviceType: 'Deck building and outdoor living construction',
   url: `https://ifixxnc.com${canonical}`,
@@ -109,7 +111,7 @@ const faqSchema = {
         <div class="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-10 items-start">
           <div class="order-1 lg:order-1">
             <span class="inline-block px-4 py-2 bg-primary-500 text-neutral-900 text-sm font-bold rounded-full mb-4">New decks & outdoor living • Local, insured crew</span>
-            <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">Local Deck Builders in South Charlotte</h1>
+            <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">Local Deck & Porch Builders in South Charlotte</h1>
             <p class="text-lg text-neutral-200 mb-4 max-w-xl">iFIXX is a local, family-owned company building decks, porches, and rebuilds across the Charlotte area. Wood or composite, a brand new deck or a full tear-down and rebuild.</p>
             <p class="text-neutral-300 mb-6 max-w-xl">We build and we repair, we keep the price clear, and we move fast. Start with a free online estimate. Serving South Charlotte, Ballantyne, Waxhaw, Indian Land, Fort Mill, and nearby.</p>
             <div class="flex flex-col sm:flex-row gap-3 mb-3">
@@ -164,7 +166,7 @@ const faqSchema = {
 
   <section class="section">
     <div class="container">
-      <div class="max-w-3xl mx-auto text-center mb-12"><span class="badge mb-4">Simple, honest process</span><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">From idea to finished deck</h2><p class="text-neutral-600">No pressure and no mystery pricing. Start with a free deck estimate and we will help you plan a deck that fits your home and budget.</p></div>
+      <div class="max-w-3xl mx-auto text-center mb-12"><span class="badge mb-4">Simple, honest process</span><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">From idea to finished deck or porch</h2><p class="text-neutral-600">No pressure and no mystery pricing. Start with a free deck estimate and we will help you plan a deck that fits your home and budget.</p></div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">{processSteps.map((step, index) => (<div class="card p-6 text-center"><div class="w-14 h-14 mx-auto mb-4 rounded-full bg-primary-500 flex items-center justify-center font-heading font-bold text-neutral-900 text-xl">{index + 1}</div><h3 class="font-heading font-bold text-neutral-900 mb-2">{step.title}</h3><p class="text-sm text-neutral-600">{step.text}</p></div>))}</div>
     </div>
   </section>
@@ -179,7 +181,7 @@ const faqSchema = {
   </section>
 
   <section class="section">
-    <div class="container"><div class="max-w-3xl mx-auto"><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-8 text-center">New Deck FAQs</h2><div class="space-y-4">{faqs.map((faq, index) => (<details class="group bg-white rounded-xl shadow-sm" open={index === 0}><summary class="flex items-center justify-between cursor-pointer list-none p-6"><span class="font-semibold text-neutral-900 pr-4">{faq.q}</span><span class="text-primary-600 group-open:rotate-180 transition-transform">⌄</span></summary><div class="px-6 pb-6"><p class="text-neutral-600 leading-relaxed">{faq.a}</p></div></details>))}</div></div></div>
+    <div class="container"><div class="max-w-3xl mx-auto"><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-8 text-center">New Deck & Porch FAQs</h2><div class="space-y-4">{faqs.map((faq, index) => (<details class="group bg-white rounded-xl shadow-sm" open={index === 0}><summary class="flex items-center justify-between cursor-pointer list-none p-6"><span class="font-semibold text-neutral-900 pr-4">{faq.q}</span><span class="text-primary-600 group-open:rotate-180 transition-transform">⌄</span></summary><div class="px-6 pb-6"><p class="text-neutral-600 leading-relaxed">{faq.a}</p></div></details>))}</div></div></div>
   </section>
 
   <GoogleReviews title="What Charlotte Homeowners Say" />
