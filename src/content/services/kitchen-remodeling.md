@@ -11,7 +11,7 @@ bullets:
   - "Backsplash & tile work"
   - "Appliance installation"
   - "Lighting upgrades"
-  - "Faucet & fixture updates"
+  - "Cabinet hardware & finishes"
   - "Kitchen island construction"
 signs:
   - "Outdated cabinets or countertops"

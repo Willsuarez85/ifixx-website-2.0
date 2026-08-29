@@ -8,10 +8,10 @@ bullets:
   - "Shower & tub installation"
   - "Custom tile work"
   - "Vanity & countertop replacement"
-  - "Toilet installation"
+  - "Tub-to-shower conversions"
   - "Flooring installation"
   - "Lighting & ventilation upgrades"
-  - "Faucet & fixture updates"
+  - "Storage & built-in shelving"
   - "Accessibility modifications"
 signs:
   - "Outdated fixtures or tile"
