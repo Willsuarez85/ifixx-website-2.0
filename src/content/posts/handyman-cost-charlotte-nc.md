@@ -91,7 +91,7 @@ Second-floor work, tight crawl spaces, attic access, or working around existing 
 If you need it done today, expect to pay a bit more. True same-day service requires the company to shuffle their schedule. That's a real cost, and the best local handymen are transparent about it.
 
 **5. Minimum job fees**
-Some contractors won't take jobs under $150–$200. If you have one small task — replacing a single outlet, for example — ask upfront if there's a job minimum. At iFIXX, there's no hidden minimum. Small jobs are welcome.
+Some contractors won't take jobs under $150–$200, and others set theirs higher. Ask upfront whether there's a job minimum, so one small task doesn't turn into a surprise at the end. iFIXX has one, and we tell you the number before you book.
 
 ---
 

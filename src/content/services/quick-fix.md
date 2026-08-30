@@ -23,8 +23,8 @@ processSteps:
   - title: "Done Right"
     description: "We don't cut corners on small jobs. You get the same quality as our major projects."
 faqs:
-  - q: "Is there a job too small?"
-    a: "We tackle jobs of all sizes. Contact us to discuss your specific needs."
+  - q: "What should I have ready before booking?"
+    a: "Send us everything that needs attention. We'll confirm the scope and the estimate before any work starts."
   - q: "Do you charge by the hour or by the job?"
     a: "For quick fix services, we can often provide a project price or an hourly rate depending on the nature of the work."
 relatedServices:
@@ -32,7 +32,7 @@ relatedServices:
   - "drywall"
   - "carpentry"
 seo:
-  title: "Quick-Fix Handyman Charlotte | Same-Day, No Minimum | iFIXX"
+  title: "Quick-Fix Handyman Charlotte | Same-Day, One Visit | iFIXX"
   description: "Need a Charlotte handyman today? Same-day quick fixes: furniture assembly, TV mounting, picture hanging, gutter repair. ⭐5.0. Free quote ☎ (980) 391-6833."
 ---
 
