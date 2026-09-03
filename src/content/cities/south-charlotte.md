@@ -38,7 +38,7 @@ servicesHighlighted:
   - "bathroom-remodel"
 seo:
   title: "Handyman South Charlotte NC | Same-Day Service | ⭐5.0 | iFIXX"
-  description: "Handyman in South Charlotte NC — same-day repairs, drywall, outlets, faucets, ceiling fans & remodeling. Serving Ballantyne, Carmel, Pineville, Rea Farms. Call (980) 391-6833."
+  description: "Handyman in South Charlotte NC — same-day drywall, flooring, carpentry and painting. Serving Ballantyne, Carmel, Pineville, Rea Farms. Call (980) 391-6833."
 ---
 
 ## Handyman Service in South Charlotte, NC
@@ -50,9 +50,9 @@ South Charlotte homeowners trust iFIXX for fast, professional repairs and remode
 From quick repairs to full remodels, iFIXX handles it all:
 
 - **Drywall repair** — holes, cracks, water damage, texture matching in Ballantyne homes
-- **Light fixture & outlet cover** replacement — same-day, insured
-- **Faucet & toilet fixture** replacement — swapped out same day
-- **Ceiling fan installation** — new construction or replacement
+- **Flooring** — repairs and installation matched to what's already down
+- **Carpentry & trim** — baseboards, crown molding, built-ins, door and window casing
+- **Doors & windows** — sticking doors, damaged frames, hardware replacement
 - **Bathroom remodeling** — full renovations in South Charlotte neighborhoods
 - **Painting** — interior painting with clean, professional results
 
