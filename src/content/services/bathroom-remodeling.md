@@ -11,7 +11,6 @@ bullets:
   - "Toilet installation"
   - "Flooring installation"
   - "Lighting & ventilation upgrades"
-  - "Faucet & fixture updates"
   - "Accessibility modifications"
 signs:
   - "Outdated fixtures or tile"
@@ -56,7 +55,7 @@ Transform your bathroom into a relaxing retreat. Whether you want a spa-like mas
 
 ## Bathroom Remodeling in Charlotte NC
 
-Looking for a bathroom remodel in Charlotte NC? iFixx is the remodeling company Charlotte homes trust for bath remodel projects of all sizes. From Indian Trail to Ballantyne, we've transformed hundreds of bathrooms across the greater Charlotte area.
+Looking for a bathroom remodel in Charlotte NC? iFixx is the remodeling company Charlotte homes trust for bath remodel projects of all sizes. From Matthews to Ballantyne, we've transformed hundreds of bathrooms across South Charlotte.
 
 Our bathroom design process starts with understanding how you use your space. Whether you need more storage, better lighting, or a complete layout change, we create a bathroom that works for your lifestyle.
 
@@ -312,10 +311,7 @@ iFIXX provides professional bathroom remodeling services throughout the Charlott
 - **Matthews:** Family-friendly bathroom designs that balance style and practicality
 - **South Charlotte:** Complete bathroom transformations for SouthPark, Quail Hollow, and the surrounding south corridor
 - **Pineville:** Complete bathroom transformations near the SouthPark area
-- **Waxhaw:** Bathroom remodeling for historic and new-construction homes throughout Union County
-- **Indian Trail:** Modern bathroom remodeling services for growing Union County neighborhoods
-- **Fort Mill, SC:** Bathroom renovations for our South Carolina neighbors just across the state line
-- **Weddington:** Spa-inspired master bathrooms for Weddington and Marvin estates
+- **Mint Hill:** Complete bathroom remodels for established homes on the east side of the county
 
 **No matter where you are in the Charlotte area, iFIXX brings the same quality, attention to detail, and customer service to every bathroom remodeling project.** We understand Charlotte-area homes, from historic bungalows to new construction, and we tailor our approach to fit your home's unique needs.
 

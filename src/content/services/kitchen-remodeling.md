@@ -11,7 +11,6 @@ bullets:
   - "Backsplash & tile work"
   - "Appliance installation"
   - "Lighting upgrades"
-  - "Faucet & fixture updates"
   - "Kitchen island construction"
 signs:
   - "Outdated cabinets or countertops"
@@ -256,10 +255,7 @@ iFIXX provides professional kitchen remodeling services throughout the Charlotte
 - **Matthews:** Family-friendly kitchen designs that balance style and durability for busy households
 - **South Charlotte:** Full kitchen remodels for SouthPark, Quail Hollow, and the surrounding south corridor
 - **Pineville:** Custom cabinetry and full kitchen remodels near the SouthPark area
-- **Waxhaw:** Kitchen remodeling for historic and new-construction homes throughout Union County
-- **Indian Trail:** Modern kitchen updates and full renovations for growing Union County neighborhoods
-- **Fort Mill, SC:** Kitchen transformations for our South Carolina neighbors just across the state line
-- **Weddington:** High-end custom kitchens for Weddington and Marvin estates
+- **Mint Hill:** Full kitchen remodels for established homes on the east side of the county
 
 **No matter where you are in the Charlotte area, iFIXX brings the same quality, attention to detail, and customer service to every kitchen remodeling project.** We're local homeowners ourselves, and we treat your home with the same care we'd want for our own.
 

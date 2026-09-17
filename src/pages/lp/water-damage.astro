@@ -2,6 +2,7 @@
 import { GOOGLE_REVIEW_COUNT } from '../../lib/business-facts';
 import LandingLayout from '../../layouts/LandingLayout.astro';
 import LandingForm from '../../components/forms/LandingForm.astro';
+import { SERVICE_AREAS } from '../../lib/business-facts';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
@@ -17,11 +18,12 @@ const whatWeHandle = [
   { title: "Drywall Water Damage", desc: "Cut out damaged sections, replace, texture match and paint.", icon: "🔨" },
   { title: "Cleanup & Drying", desc: "Thorough cleanup and drying of all water-damaged areas.", icon: "🧹" },
   { title: "Full Restoration & Painting", desc: "Complete restoration — make it look like it never happened.", icon: "🎨" },
-  { title: "Fixture Leak Repair", desc: "Fix the source — faucets, toilets, shower heads, garbage disposals.", icon: "🔧" },
+  { title: "Trim, Cabinets & Carpentry", desc: "Warped baseboards, swollen trim, damaged vanity and cabinet work.", icon: "🪚" },
 ];
 
 const needsSpecialist = [
-  "Main pipes inside walls (needs a specialist)",
+  "The leak itself, wherever it is (needs a plumber)",
+  "Main pipes inside walls (needs a plumber)",
   "Sewer line issues (needs a specialist)",
   "Major structural damage (needs an engineer)",
   "Mold remediation (needs certified team)",
@@ -59,7 +61,7 @@ const faqs = [
   <!-- Hero -->
   <section class="relative bg-neutral-900 overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <img src="/images/projects/emergency-plumbing-leaking-pipe-water-damage.webp" alt="Water damage emergency" class="w-full h-full object-cover" width="1920" height="1080" />
+      <img src="/images/projects/drywall-repair-patching-hole-spackling.webp" alt="Water-damaged drywall being repaired in Charlotte" class="w-full h-full object-cover" width="1920" height="1080" />
       <div class="absolute inset-0 bg-gradient-to-r from-neutral-900/95 via-neutral-900/80 to-neutral-900/40"></div>
     </div>
     <div class="container relative z-10">
@@ -185,7 +187,7 @@ const faqs = [
   </section>
 
   <!-- Project Gallery — real work photos -->
-  <ScrollGallery title="Our Recent Projects" serviceSlug="fixture-repair" />
+  <ScrollGallery title="Our Recent Projects" serviceSlug="general-repairs" />
 
   <GoogleReviews title="What Charlotte Homeowners Say" />
 
@@ -231,9 +233,9 @@ const faqs = [
   <!-- Service Areas -->
   <section class="section section-alt">
     <div class="container">
-      <div class="text-center mb-10"><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-3">Areas We Serve</h2><p class="text-neutral-600">Same-day water damage response across the Charlotte metro.</p></div>
+      <div class="text-center mb-10"><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-3">Areas We Serve</h2><p class="text-neutral-600">Same-day water damage response across South Charlotte and the neighbouring towns.</p></div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-        {["Charlotte", "Ballantyne", "Matthews", "Concord", "Mint Hill", "Pineville", "Monroe", "Waxhaw"].map((city) => (
+        {SERVICE_AREAS.map((city) => (
           <div class="p-4 bg-white rounded-xl border border-neutral-200 text-center"><div class="flex items-center justify-center gap-2"><svg class="w-4 h-4 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg><span class="font-medium text-neutral-900">{city}</span></div></div>
         ))}
       </div>
