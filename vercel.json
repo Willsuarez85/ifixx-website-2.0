@@ -12,6 +12,11 @@
       "permanent": true
     },
     {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml",
+      "permanent": true
+    },
+    {
       "source": "/kitchen-remodeling-charlotte",
       "destination": "/remodeling/kitchen-remodeling",
       "permanent": true

@@ -76,7 +76,7 @@ Allow: /
 # ============================================
 # Sitemap Location
 # ============================================
-Sitemap: https://www.ifixxnc.com/sitemap-0.xml
+Sitemap: https://www.ifixxnc.com/sitemap-index.xml
 
 # ============================================
 # LLMs.txt - Information for AI Assistants
