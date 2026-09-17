@@ -34,6 +34,12 @@ const pages = new Set(
 );
 
 const norm = (u) => (u.length > 1 ? u.replace(/\/+$/, '') : u);
+
+// A redirect may legitimately land on a built FILE rather than a page directory —
+// /sitemap.xml -> /sitemap-index.xml is the case that matters. Treat a destination
+// that exists on disk as reachable instead of reporting it as a dead 301.
+const isBuiltTarget = (dest) =>
+  pages.has(dest) || (/\.[a-z0-9]{2,5}$/i.test(dest) && existsSync(join(ROOT, dest)));
 const redirects = new Map();
 const wildcards = [];
 for (const r of JSON.parse(readFileSync('vercel.json', 'utf8')).redirects) {
@@ -70,7 +76,7 @@ for (const file of files.filter((f) => f.endsWith('.html'))) {
     if (redirects.has(url)) {
       const dest = redirects.get(url);
       if (redirects.has(dest)) problems.push(['CHAIN', from, `${url} -> ${dest} -> ${redirects.get(dest)}`]);
-      else if (!pages.has(dest)) problems.push(['DEAD301', from, `${url} -> ${dest}`]);
+      else if (!isBuiltTarget(dest)) problems.push(['DEAD301', from, `${url} -> ${dest}`]);
       else problems.push(['HOP', from, `${url} -> ${dest}`]);
       continue;
     }
@@ -82,7 +88,7 @@ for (const file of files.filter((f) => f.endsWith('.html'))) {
 // Every redirect destination must be a real page, whether or not anything links to it.
 for (const [source, dest] of redirects) {
   if (redirects.has(dest)) problems.push(['CHAIN-TABLE', '(vercel.json)', `${source} -> ${dest}`]);
-  else if (!pages.has(dest)) problems.push(['DEAD301-TABLE', '(vercel.json)', `${source} -> ${dest}`]);
+  else if (!isBuiltTarget(dest)) problems.push(['DEAD301-TABLE', '(vercel.json)', `${source} -> ${dest}`]);
 }
 
 const byKind = new Map();
