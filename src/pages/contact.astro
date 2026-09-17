@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTASection from "../components/sections/CTASection.astro";
+import { SERVICE_AREAS, BUSINESS_HOURS_LABEL } from "../lib/business-facts";
 
 const seoTitle = "Contact iFIXX Charlotte | Free Estimates | Call (980) 391-6833";
 const seoDescription =
@@ -177,10 +178,10 @@ const breadcrumbSchema = {
                 <option value="">Select a service...</option>
                 <option value="handyman">Handyman Services</option>
                 <option value="painting">Painting & Drywall</option>
-                <option value="fixtures">Fixtures & Lighting</option>
                 <option value="carpentry">Carpentry</option>
-                <option value="bathroom">Bathroom Remodel</option>
-                <option value="kitchen">Kitchen Renovation</option>
+                <option value="doors-windows">Doors & Windows</option>
+                <option value="bathroom-remodel">Bathroom Remodel</option>
+                <option value="kitchen-remodel">Kitchen Renovation</option>
                 <option value="emergency">Emergency Repair</option>
                 <option value="other">Other</option>
               </select>
@@ -262,10 +263,7 @@ const breadcrumbSchema = {
                 >
                   {phoneNumber}
                 </p>
-                <p class="text-sm text-neutral-500">
-                  Monday - Friday: 7am - 6pm
-                </p>
-                <p class="text-sm text-neutral-500">Saturday: 8am - 2pm</p>
+                <p class="text-sm text-neutral-500">{BUSINESS_HOURS_LABEL}</p>
               </div>
             </a>
 
@@ -330,8 +328,7 @@ const breadcrumbSchema = {
               <div>
                 <p class="font-semibold text-neutral-900">Service Area</p>
                 <p class="text-sm text-neutral-600">
-                  Charlotte, Matthews, Waxhaw, Rock Hill, Pineville, Monroe, and
-                  surrounding areas
+                  {SERVICE_AREAS.join(", ")}
                 </p>
               </div>
             </div>
