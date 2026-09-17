@@ -104,7 +104,7 @@ We get calls at all hours for water emergencies. Here's what we typically handle
 - ✅ **Damaged material removal** — Wet drywall, ruined insulation, soaked carpet
 - ✅ **Structural drying coordination** — Working with restoration equipment
 - ✅ **Repairs after drying** — Drywall, painting, flooring, trim work
-- ✅ **Fixture replacement** — Faucets, toilets, and other items damaged by the incident
+- ✅ **Carpentry and finishes** — Trim, baseboards, cabinets and vanities the water ruined
 
 We're not a restoration company with franchise fees built into our pricing. We're two guys who know home repair inside and out, and we'll tell you honestly what you need — and what you don't.
 

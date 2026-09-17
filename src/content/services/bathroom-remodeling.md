@@ -150,9 +150,11 @@ The right vanity provides essential storage while setting your bathroom's style:
 - Drawer organizers
 - Pull-out storage solutions
 
-### Fixtures & Accessories
+### Choosing Fixtures & Accessories
 
-Modern fixtures improve both function and style:
+Part of our job is helping you choose well. Here is what we walk you through at
+the selection stage. Anything that connects to water or power is installed by
+the licensed trade we coordinate, on our schedule.
 
 **Faucets**
 - Single-handle or widespread designs
@@ -248,7 +250,7 @@ This is where your new bathroom takes shape:
 - Shower or tub installation
 - Tile work (floors, walls, shower)
 - Vanity and countertop installation
-- Toilet and fixture installation
+- Toilet and fixtures set by the trades we coordinate
 - Flooring installation
 - Painting and trim work
 

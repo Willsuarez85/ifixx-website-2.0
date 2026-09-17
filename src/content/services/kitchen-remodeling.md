@@ -132,18 +132,18 @@ Good lighting transforms how your kitchen looks and functions. As part of your r
 
 When your remodel calls for new circuits or outlets, we coordinate trusted, inspected trade specialists, and every detail is completed to code.
 
-### Sinks, Faucets & Appliances
+### Sinks and Appliance Openings
 
-As part of your remodel we handle sink, faucet, and appliance installations:
+We build and prepare everything your sink and appliances drop into:
 
-- New sinks (undermount, farmhouse, double-bowl)
-- Modern faucets with pull-down sprayers
-- Dishwasher installation
-- Refrigerator water line hookups
-- Gas line connections for ranges
-- Garbage disposal installation
+- Cabinet runs and appliance openings cut to the exact spec sheet
+- Countertop cutouts for undermount, farmhouse and double-bowl sinks
+- Cabinet and panel work around the dishwasher and refrigerator
+- Range and hood openings framed and finished
 
-Your new appliances will be properly connected, level, and ready to use.
+The plumbing, gas and electrical connections are done by licensed trades we
+coordinate and schedule, so the inspection passes and nobody is waiting on
+anybody.
 
 ### Kitchen Islands
 
@@ -192,7 +192,7 @@ This is where your new kitchen comes to life:
 - Countertop templating and installation
 - Backsplash tile work
 - Flooring installation
-- Fixture and appliance installation
+- Appliances set, and fixture connections made by the trades we coordinate
 - Painting and trim work
 
 **7. Finishing Touches (Week 7-8)**
