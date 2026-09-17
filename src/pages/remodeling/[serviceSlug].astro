@@ -72,9 +72,14 @@ const heroImageSrc = heroImage || serviceHeroImages[service.slug] || '/images/ui
 const projectImageSrc = serviceProjectImages[service.slug] || '/images/projects/Ifixx-portfolio3.webp';
 
 // CRO 2026-07: productized Silver/Gold/Platinum packages (iFIXX's real offer,
-// provided by William/Jaime 2026-07-06). Entry-level pricing stays at
-// $5,000 (bath) / $8,000 (kitchen) — the packages sell the full renovations;
-// the entryLine bridges smaller refreshes to a free quote.
+// provided by William/Jaime 2026-07-06). Package PRICES were re-confirmed by
+// William on 2026-09-11 against the approved Canva catalogue and updated here on
+// 2026-09-17: kitchen 20K/30K/35K, bath 12K / 20K-30K / 30K. They replace the
+// July figures (kitchen 10K/20K/35K, bath 10K/20K/30K).
+// Entry-level pricing stays at $5,000 (bath) / $8,000 (kitchen) — the packages
+// sell the full renovations; the entryLine bridges smaller refreshes to a free
+// quote. Those two entry numbers were NOT part of the September confirmation and
+// were deliberately left untouched.
 // Cards render only name/tagline/price/size/blurb/bestFor (generic, William
 // 2026-07-06). includes/exclusions stay here as the canonical spec record and
 // render on-page via the markdown "Costs & Investment" mirror — if prices or
@@ -96,7 +101,7 @@ const servicePackages: Record<string, { packages: RemodelPackage[]; entryLine: s
     guideLabel: 'Read our full Charlotte kitchen remodel cost guide',
     packages: [
       {
-        name: 'Functional Refresh', price: 'Starting at $10K', size: "Standard size: 10'x10'", value: 'silver',
+        name: 'Functional Refresh', price: 'Starting at $20K', size: "Standard size: 10'x10'", value: 'silver',
         level: 1, levelLabel: 'Refresh',
         image: '/images/projects/Ifixx-portfolio11.webp',
         imageAlt: 'Functional refresh kitchen remodel with white cabinets and subway tile backsplash, Charlotte NC',
@@ -107,7 +112,7 @@ const servicePackages: Record<string, { packages: RemodelPackage[]; entryLine: s
         bestFor: 'Best for homeowners who want a simple, functional update at an affordable price.',
       },
       {
-        name: 'Complete Renovation', price: 'Starting at $20K', size: "Standard size: 10'x10'", value: 'gold',
+        name: 'Complete Renovation', price: 'Starting at $30K', size: "Standard size: 10'x10'", value: 'gold',
         level: 2, levelLabel: 'Full Renovation',
         image: '/images/projects/kitchen-remodeling-complete-modern-white-cabinets-island.webp',
         imageAlt: 'Complete kitchen renovation with new cabinets, counters and island, Charlotte NC',
@@ -135,7 +140,7 @@ const servicePackages: Record<string, { packages: RemodelPackage[]; entryLine: s
     guideLabel: 'Read our full Charlotte bathroom remodel cost guide',
     packages: [
       {
-        name: 'Refreshing Update', price: 'Starting at $10K', size: "Standard size: 5'x10'", value: 'silver',
+        name: 'Refreshing Update', price: 'Starting at $12K', size: "Standard size: 5'x10'", value: 'silver',
         level: 1, levelLabel: 'Refresh',
         image: '/images/projects/Ifixx-portfolio28.webp',
         imageAlt: 'Refreshed bathroom with updated vanity, fixtures and finishes, Charlotte NC',
@@ -146,7 +151,7 @@ const servicePackages: Record<string, { packages: RemodelPackage[]; entryLine: s
         bestFor: 'Best for homeowners who want a clean, budget-friendly update.',
       },
       {
-        name: 'Complete Renovation', price: 'Starting at $20K', size: "Standard size: 5'x10'", value: 'gold',
+        name: 'Complete Renovation', price: '$20K to $30K', size: "Standard size: 5'x10'", value: 'gold',
         level: 2, levelLabel: 'Full Renovation',
         image: '/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp',
         imageAlt: 'Complete bathroom renovation with tub-to-shower conversion, tile to the ceiling and glass, Charlotte NC',

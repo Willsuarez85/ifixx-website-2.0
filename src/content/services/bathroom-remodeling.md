@@ -265,7 +265,7 @@ We don't consider the job done until you're completely satisfied. We check for p
 
 We keep pricing simple with three clear levels of transformation. Smaller bathroom updates (vanity swap, fixtures, paint) start at $5,000, and every project is measured at your home and quoted free.
 
-**Refreshing Update: starting at $10,000** (standard 5'x10')
+**Refreshing Update: starting at $12,000** (standard 5'x10')
 - New wall paint
 - Vanity + up to 2 new lights
 - Basic faucet & hardware
@@ -273,7 +273,7 @@ We keep pricing simple with three clear levels of transformation. Smaller bathro
 - Flooring: luxury vinyl (LVP) or 12"x24" ceramic tile
 - *Excludes: shower glass, fixture relocation, permits*
 
-**Complete Renovation: starting at $20,000** (standard 5'x10')
+**Complete Renovation: $20,000 to $30,000** (standard 5'x10')
 - Tub-to-shower conversion with tile up to the ceiling
 - Custom shower niche and/or bench
 - Shower pan tile
