@@ -21,7 +21,7 @@ faqs:
   - q: 'How long does a kitchen remodel take in Charlotte?'
     a: 'A minor kitchen update takes 1-2 weeks. A mid-range kitchen remodel in Charlotte takes 4-8 weeks — including demo, rough work, cabinet installation, countertops, and finishing. A major renovation that moves the layout runs 10-16 weeks. iFIXX provides a detailed project schedule before starting.'
   - q: 'Does iFIXX do kitchen remodels near me in Charlotte?'
-    a: 'Yes. iFIXX serves Charlotte, South Charlotte, Ballantyne, Matthews, Pineville, and Waxhaw. Call (980) 391-6833 for a free in-home estimate.'
+    a: "Yes. iFIXX serves South Charlotte, Charlotte, Ballantyne, Matthews, Mint Hill, and Pineville. Call (980) 391-6833 for a free in-home estimate."
   - q: 'How much does a kitchen island cost to add in Charlotte?'
     a: 'Adding a kitchen island in Charlotte costs $3,000-$12,000 depending on size, materials, and whether plumbing or electrical is involved. A simple stationary island with countertop runs $3,000-$5,000. A large island with seating and plumbing for a sink can reach $8,000-$12,000.'
 ---
@@ -222,4 +222,4 @@ We've completed [kitchen projects across Charlotte](/remodeling/kitchen-remodeli
 
 ---
 
-*iFixx serves Charlotte, South Charlotte, Ballantyne, Matthews, Waxhaw, and surrounding areas. Insured and locally owned.*
+*iFIXX serves South Charlotte, Charlotte, Ballantyne, Matthews, Mint Hill, and Pineville. Insured and locally owned.*

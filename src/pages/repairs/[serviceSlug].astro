@@ -1,5 +1,5 @@
 ---
-import { googleReviewLabel } from '../../lib/business-facts';
+import { googleReviewLabel, areaServedSchema } from '../../lib/business-facts';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
@@ -47,8 +47,6 @@ const serviceAreas = allCities.sort((a, b) => {
 
 // Map service slugs to hero images
 const serviceHeroImages: Record<string, string> = {
-  'plumbing': '/images/projects/plumbing-bathroom-faucet-installation-repair.webp',
-  'electrical': '/images/projects/electrical-pendant-light-fixture-installation-kitchen.webp',
   'carpentry': '/images/projects/carpentry-stair-repair-technician-drilling-wood.webp',
   'painting': '/images/projects/painting-drywall-dining-room-wainscoting-chandelier.webp',
   'doors-windows': '/images/projects/door-installation-interior-hinge-leveling-brass.webp',
@@ -61,8 +59,6 @@ const serviceHeroImages: Record<string, string> = {
 
 // Map service slugs to project images
 const serviceProjectImages: Record<string, string> = {
-  'plumbing': '/images/projects/plumbing-water-heater-valve-repair-wrench.webp',
-  'electrical': '/images/projects/electrical-range-hood-wiring-installation-kitchen.webp',
   'carpentry': '/images/projects/carpentry-baseboard-trim-installation-repair.webp',
   'painting': '/images/projects/painting-bedroom-mural-custom-wall-art.webp',
   'doors-windows': '/images/projects/door-window-blinds-installation-leveling.webp',
@@ -100,17 +96,7 @@ const serviceSchema = {
       "addressCountry": "US"
     }
   },
-  "areaServed": [
-    {"@type": "City", "name": "Charlotte"},
-    {"@type": "City", "name": "South Charlotte"},
-    {"@type": "City", "name": "Ballantyne"},
-    {"@type": "City", "name": "Matthews"},
-    {"@type": "City", "name": "Pineville"},
-    {"@type": "City", "name": "Waxhaw"},
-    {"@type": "City", "name": "Indian Trail"},
-    {"@type": "City", "name": "Fort Mill"},
-    {"@type": "City", "name": "Weddington"}
-  ],
+  "areaServed": areaServedSchema(),
   // Price only ships to Google when the page publishes it. No priceRange in the
   // service frontmatter, no offers node.
   ...(priceRange ? {

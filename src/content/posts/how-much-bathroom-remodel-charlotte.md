@@ -22,8 +22,8 @@ faqs:
     a: 'A powder room refresh in Charlotte costs $5,000-$8,000 and a small guest bath $8,000-$15,000. That includes new vanity, toilet, tile, and fixtures. General contractor labor in Charlotte runs $50-$85/hr, which is lower than Raleigh or DC.'
   - q: 'How long does a bathroom remodel take in Charlotte?'
     a: 'Anywhere from 1-2 days to 6 weeks depending on scope. A powder room refresh takes 3-5 days, a guest bath 1-2 weeks, a master bath 2-4 weeks, and a luxury renovation 4-6 weeks. Cosmetic updates like paint and fixture swaps finish in 1-2 days. iFIXX provides a project timeline upfront before starting.'
-  - q: 'Does iFIXX do bathroom remodels in Matthews and Waxhaw?'
-    a: 'Yes. iFIXX serves the greater Charlotte metro including Matthews, Ballantyne, South Charlotte, Pineville, and Waxhaw. Same team, same pricing, same quality everywhere we work.'
+  - q: "Does iFIXX do bathroom remodels in Matthews and Mint Hill?"
+    a: "Yes. iFIXX serves South Charlotte, Charlotte, Ballantyne, Matthews, Mint Hill, and Pineville. Same team, same pricing, same quality everywhere we work."
   - q: 'Is it cheaper to remodel a bathroom yourself or hire a contractor in Charlotte?'
     a: 'DIY can save 30-40% on labor but adds risk — especially for tile, plumbing, and waterproofing. A botched waterproofing job can cause mold damage that costs more to fix than the original remodel. For most Charlotte homeowners, hiring a professional handyman or contractor for bathroom remodels is the safer, faster choice.'
 ---
@@ -256,4 +256,4 @@ We've completed [bathroom projects across Charlotte](/remodeling/bathroom-remode
 
 ---
 
-*iFixx serves Charlotte, South Charlotte, Ballantyne, Matthews, Waxhaw, and surrounding areas. Insured and locally owned.*
+*iFIXX serves South Charlotte, Charlotte, Ballantyne, Matthews, Mint Hill, and Pineville. Insured and locally owned.*

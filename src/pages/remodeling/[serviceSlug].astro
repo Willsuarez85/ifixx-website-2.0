@@ -1,5 +1,5 @@
 ---
-import { googleReviewLabel } from '../../lib/business-facts';
+import { googleReviewLabel, areaServedSchema } from '../../lib/business-facts';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
@@ -198,40 +198,7 @@ const serviceSchema = {
       "addressCountry": "US"
     }
   },
-  "areaServed": [
-    {
-      "@type": "City",
-      "name": "Charlotte",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "North Carolina"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "Ballantyne",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "North Carolina"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "Matthews",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "North Carolina"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "Pineville",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "North Carolina"
-      }
-    }
-  ],
+  "areaServed": areaServedSchema(),
   // Price only ships to Google when the page publishes it. No priceRange in the
   // service frontmatter, no offers node.
   ...(priceRange ? {

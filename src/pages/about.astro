@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { SERVICE_AREAS } from '../lib/business-facts';
 
 const seoTitle = "About iFIXX Charlotte | Family-Owned Since 2019 | ⭐5.0";
 const seoDescription = "Family-owned and operated since 2019. iFIXX delivers quality home repairs and remodeling across Charlotte. ⭐5.0 on Google. Meet our team! Call (980) 391-6833.";
@@ -149,15 +150,10 @@ const breadcrumbSchema = {
           Serving Charlotte & Surrounding Areas
         </h2>
         <p class="text-lg text-neutral-600 mb-8">
-          We proudly serve homeowners throughout the greater Charlotte metropolitan area.
+          We proudly serve homeowners across South Charlotte and the neighbouring towns.
         </p>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-neutral-700">
-          <div class="bg-white p-4 rounded-lg">Charlotte, NC</div>
-          <div class="bg-white p-4 rounded-lg">Matthews, NC</div>
-          <div class="bg-white p-4 rounded-lg">Waxhaw, NC</div>
-          <div class="bg-white p-4 rounded-lg">Rock Hill, SC</div>
-          <div class="bg-white p-4 rounded-lg">Pineville, NC</div>
-          <div class="bg-white p-4 rounded-lg">Monroe, NC</div>
+          {SERVICE_AREAS.map((area) => <div class="bg-white p-4 rounded-lg">{area}, NC</div>)}
         </div>
       </div>
     </div>
