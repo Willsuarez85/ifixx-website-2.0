@@ -1,6 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import { GOOGLE_REVIEW_COUNT, GOOGLE_RATING } from '../lib/business-facts';
+import { GOOGLE_REVIEW_COUNT, GOOGLE_RATING, openingHoursSchema } from '../lib/business-facts';
 
 export interface Props {
   location: {
@@ -58,20 +58,7 @@ const localBusinessSchema = {
       "name": location.state === 'NC' ? 'North Carolina' : 'South Carolina'
     }
   },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "07:00",
-      "closes": "18:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "08:00",
-      "closes": "14:00"
-    }
-  ],
+  "openingHoursSpecification": openingHoursSchema(),
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": GOOGLE_RATING,

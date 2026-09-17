@@ -45,3 +45,49 @@ export const sinceFoundingLabel = (): string => `since ${FOUNDING_YEAR}`;
  * inventada. Si llega el dato, se anade aqui como PROJECT_COUNT y se vuelve a
  * cablear desde este archivo, no como literal repetido.
  */
+
+/**
+ * ZONAS DE SERVICIO: las seis que el sitio publica, y nada mas.
+ *
+ * Son exactamente las seis que tienen hub en /service-areas/. El schema decia
+ * once (incluia Fort Mill, SC y Waxhaw), /contact enumeraba Rock Hill y Monroe,
+ * y las paginas de emergency-services ofrecian Huntersville, Cornelius, Davidson,
+ * Indian Trail y Rock Hill. Ninguna de esas es zona de servicio de iFIXX.
+ *
+ * Los barrios de Charlotte (Dilworth, Myers Park, SouthPark) no son ciudades y
+ * no van en areaServed; viven en el contenido de cada hub.
+ */
+export const SERVICE_AREAS = [
+  'Charlotte',
+  'South Charlotte',
+  'Ballantyne',
+  'Matthews',
+  'Mint Hill',
+  'Pineville',
+] as const;
+
+/** areaServed listo para JSON-LD. */
+export const areaServedSchema = () =>
+  SERVICE_AREAS.map((name) => ({ '@type': 'City', name, addressRegion: 'NC' }));
+
+/**
+ * HORARIO: Lun a Sab, 8:30 AM a 5:30 PM (CONTEXT.md, confirmado por Jaime/William
+ * el 2026-07-07). El schema publicaba Lun-Vie 07:00-18:00 y Sab 08:00-14:00, que
+ * no coincidia con ningun horario real ni con el texto visible del sitio.
+ */
+export const OPENING_TIME = '08:30';
+export const CLOSING_TIME = '17:30';
+
+/** openingHoursSpecification listo para JSON-LD. */
+export const openingHoursSchema = () => [
+  {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    opens: OPENING_TIME,
+    closes: CLOSING_TIME,
+  },
+];
+
+/** Texto listo para copy visible. */
+export const BUSINESS_HOURS_LABEL = 'Monday - Saturday: 8:30am - 5:30pm';
+export const BUSINESS_HOURS_SHORT = 'Mon - Sat, 8:30am - 5:30pm';
