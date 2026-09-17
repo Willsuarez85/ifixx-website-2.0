@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { GOOGLE_REVIEW_COUNT, GOOGLE_RATING, googleReviewLabel } from '../../lib/business-facts';
+import { GOOGLE_REVIEW_COUNT, GOOGLE_RATING, googleReviewLabel, SERVICE_AREAS } from '../../lib/business-facts';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 
 const seo = {
   title: "Emergency Handyman Charlotte NC | Same-Day Repair | 5.0★ iFIXX",
-  description: "Need emergency home repair in Charlotte? iFIXX offers same-day handyman service. Water damage, broken locks, fixtures & more. Call owners direct: (980) 391-6833"
+  description: "Need emergency home repair in Charlotte? iFIXX offers same-day handyman service. Water-damaged drywall, broken locks, doors & windows. Call owners direct: (980) 391-6833"
 };
 
 const pageSchema = {
@@ -30,14 +30,7 @@ const pageSchema = {
       "worstRating": 1
     }
   },
-  "areaServed": [
-    "Charlotte",
-    "Ballantyne",
-    "Matthews",
-    "Mint Hill",
-    "Huntersville",
-    "Cornelius"
-  ],
+  "areaServed": [...SERVICE_AREAS],
   "availableChannel": {
     "@type": "ServiceChannel",
     "servicePhone": {
@@ -73,7 +66,7 @@ const faqSchema = {
       "name": "How much does an emergency service call cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Minor repairs run $150–$300. Mid-range jobs typically fall between $300–$700. More extensive damage can go higher, but you'll always know the number before we begin."
+        "text": "Mid-range jobs typically fall between $300–$700. More extensive damage can go higher, but you'll always know the number before we begin."
       }
     },
     {
@@ -121,7 +114,7 @@ const faqSchema = {
           Emergency Home Repair Services in Charlotte — Same-Day Response
         </h1>
         <p class="text-xl lg:text-2xl text-neutral-100 mb-8">
-          Something broke and it can't wait? A leak that won't stop. A door that won't lock. Water spreading across your ceiling. Don't wait until it gets worse.
+          Something broke and it can't wait? A ceiling coming down after a leak. A door that won't lock. A hole in the wall. Don't wait until it gets worse.
         </p>
 
         <!-- EMERGENCY CTA BOX - Prominent -->
@@ -196,7 +189,7 @@ const faqSchema = {
             </ul>
           </div>
           <p class="text-lg font-bold text-emergency-600">
-            What costs $200 to fix today will be $2,000 by Friday.
+            What is a single patch today will be a full room by Friday.
           </p>
         </div>
 
@@ -221,11 +214,11 @@ const faqSchema = {
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-neutral-700">
             <li class="flex items-start gap-2">
               <span class="text-emergency-600">•</span>
-              Running toilet = hundreds of gallons wasted every day
+              Soft drywall after a leak = mold behind the wall
             </li>
             <li class="flex items-start gap-2">
               <span class="text-emergency-600">•</span>
-              Dead outlet = potential fire hazard
+              Broken lock = your home is an open door
             </li>
             <li class="flex items-start gap-2">
               <span class="text-emergency-600">•</span>
@@ -287,13 +280,13 @@ const faqSchema = {
         <div class="card p-6">
           <div class="text-4xl mb-4">🏠</div>
           <h3 class="text-xl font-heading font-bold text-neutral-900 mb-3">
-            Older Homes = Outdated Fixtures
+            Older Homes = Worn Doors, Trim & Drywall
           </h3>
           <p class="text-neutral-700 mb-4">
-            Charlotte has beautiful brick ranches and historic homes built in the 1950s-1970s. But original fixtures don't last forever.
+            Charlotte has beautiful brick ranches and historic homes built in the 1950s-1970s. Settling shifts door frames, trim separates, and old drywall cracks.
           </p>
           <p class="text-sm text-neutral-600">
-            If your Charlotte home is 30+ years old with original fixtures, it's not IF they'll fail—it's WHEN.
+            If your Charlotte home is 30+ years old, doors that stick and cracks that keep coming back are not bad luck. They are the house telling you something moved.
           </p>
         </div>
       </div>
@@ -366,10 +359,10 @@ const faqSchema = {
             <div class="text-4xl">💧</div>
             <div>
               <h3 class="text-2xl font-heading font-bold text-neutral-900 mb-2">
-                Water Leaks & Plumbing Fixture Emergencies
+                Water Damage Repair After the Leak Is Stopped
               </h3>
               <p class="text-neutral-700">
-                Water damage is our most common emergency call. We stop the leak and repair the damage—same day.
+                Water damage is our most common emergency call. Once your plumber has stopped the source, we repair what the water ruined—same day.
               </p>
             </div>
           </div>
@@ -377,17 +370,17 @@ const faqSchema = {
             <div>
               <h4 class="font-heading font-bold text-neutral-900 mb-2">We handle:</h4>
               <ul class="space-y-1 text-neutral-700">
-                <li>• Leaking faucets and fixture replacements</li>
-                <li>• Toilet repairs (running, leaking, won't flush)</li>
-                <li>• Visible pipe leaks under sinks</li>
-                <li>• Water-damaged drywall repair</li>
-                <li>• Warped baseboards and trim</li>
+                <li>• Water-damaged drywall removal and replacement</li>
                 <li>• Ceiling stain repair from leaks</li>
+                <li>• Warped baseboards and trim</li>
+                <li>• Damaged cabinet and vanity carpentry</li>
+                <li>• Texture matching, prime and paint</li>
+                <li>• Damaged flooring and subfloor sections</li>
               </ul>
             </div>
             <div class="bg-neutral-100 p-4 rounded">
               <p class="text-sm text-neutral-700">
-                <strong>What we refer out:</strong> Leaks inside walls or major plumbing requiring pipe access. We'll connect you with a licensed plumber. But for visible fixture repairs, we fix it now.
+                <strong>What we do not do:</strong> we are not plumbers. We don't chase the leak, open supply lines, or work on your plumbing. Get your plumber to stop the water, then call us to put the house back together.
               </p>
             </div>
           </div>
@@ -474,37 +467,6 @@ const faqSchema = {
           </div>
         </div>
 
-        <!-- Electrical -->
-        <div class="card p-8" id="electrical">
-          <div class="flex items-start gap-4 mb-4">
-            <div class="text-4xl">⚡</div>
-            <div>
-              <h3 class="text-2xl font-heading font-bold text-neutral-900 mb-2">
-                Electrical Fixture & Outlet Issues
-              </h3>
-              <p class="text-neutral-700">
-                We're not licensed electricians, but we handle common fixture emergencies that don't involve your main panel or in-wall wiring.
-              </p>
-            </div>
-          </div>
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <h4 class="font-heading font-bold text-neutral-900 mb-2">We handle:</h4>
-              <ul class="space-y-1 text-neutral-700">
-                <li>• Dead outlet replacement</li>
-                <li>• Light switch repairs</li>
-                <li>• Ceiling fan installation/repair</li>
-                <li>• Light fixture replacement</li>
-                <li>• GFCI outlet installation</li>
-              </ul>
-            </div>
-            <div class="bg-neutral-100 p-4 rounded">
-              <p class="text-sm text-neutral-700">
-                <strong>What we refer out:</strong> Electrical panel work, circuit breakers, or in-wall wiring = licensed electrician required. We'll be honest about what's outside our scope.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- What We DON'T Handle -->
@@ -520,14 +482,14 @@ const faqSchema = {
             <div class="flex items-start gap-2">
               <span class="text-emergency-600 text-xl">❌</span>
               <div>
-                <strong>Major plumbing inside walls</strong><br />
+                <strong>Plumbing of any kind</strong><br />
                 <span class="text-sm text-neutral-600">Licensed plumber required</span>
               </div>
             </div>
             <div class="flex items-start gap-2">
               <span class="text-emergency-600 text-xl">❌</span>
               <div>
-                <strong>Electrical panel or circuit work</strong><br />
+                <strong>Electrical work of any kind</strong><br />
                 <span class="text-sm text-neutral-600">Licensed electrician required</span>
               </div>
             </div>
@@ -667,7 +629,7 @@ const faqSchema = {
             How fast can iFIXX respond to my emergency in Charlotte?
           </h3>
           <p class="text-neutral-700">
-            For same-day emergencies like water leaks or security issues, we aim to arrive within a few hours of your call—often same afternoon if you contact us before noon. We serve Charlotte and surrounding areas including Matthews, Ballantyne, Mint Hill, Huntersville, Cornelius, and Rock Hill.
+            For same-day emergencies like water damage or security issues, we aim to arrive within a few hours of your call—often same afternoon if you contact us before noon. We serve South Charlotte, Charlotte, Ballantyne, Matthews, Mint Hill, and Pineville.
           </p>
         </div>
 
@@ -697,17 +659,7 @@ const faqSchema = {
             iFIXX provides same-day emergency handyman service throughout Charlotte metro:
           </p>
           <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-neutral-700">
-            <div>• Charlotte (all neighborhoods)</div>
-            <div>• Ballantyne</div>
-            <div>• Matthews</div>
-            <div>• Mint Hill</div>
-            <div>• Huntersville</div>
-            <div>• Cornelius</div>
-            <div>• Davidson</div>
-            <div>• Pineville</div>
-            <div>• Indian Trail</div>
-            <div>• Rock Hill, SC</div>
-            <div>• Fort Mill, SC</div>
+            {SERVICE_AREAS.map((area) => <div>• {area}</div>)}
           </div>
         </div>
 
@@ -728,7 +680,7 @@ const faqSchema = {
             How much does an emergency service call cost?
           </h3>
           <p class="text-neutral-700">
-            It depends on the type and extent of the damage, but we're always upfront about pricing before we start any work. Minor repairs might run $150–$300. Mid-range jobs typically fall between $300–$700. More extensive damage can go higher, but you'll always know the number before we begin. No surprise invoices.
+            It depends on the type and extent of the damage, but we're always upfront about pricing before we start any work. Mid-range jobs typically fall between $300–$700. More extensive damage can go higher, but you'll always know the number before we begin. No surprise invoices.
           </p>
         </div>
 
@@ -837,10 +789,10 @@ const faqSchema = {
         Serving Charlotte Metro & Surrounding Areas
       </h2>
       <p class="text-neutral-700 max-w-3xl mx-auto">
-        <strong>Main Service Areas:</strong> Charlotte, Ballantyne, Matthews, Mint Hill, Huntersville, Cornelius, Davidson, Pineville, Indian Trail, Rock Hill SC, Fort Mill SC
+        <strong>Main Service Areas:</strong> {SERVICE_AREAS.join(', ')}
       </p>
       <p class="text-neutral-700 max-w-3xl mx-auto mt-4">
-        <strong>Emergency Services Available:</strong> Water damage repair, door & lock repair, window emergencies, drywall repair, fixture emergencies, and more.
+        <strong>Emergency Services Available:</strong> Water damage repair, door & lock repair, window emergencies, drywall repair, carpentry, and more.
       </p>
     </div>
   </section>
