@@ -437,7 +437,17 @@ const breadcrumbSchema = {
     `;
 
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+    // Attribution + page identity from the shared module (AttributionScript.astro):
+    // sessionStorage -> localStorage (90 days) -> _gcl_aw cookie. Until now this form
+    // sent no attribution at all and no source, so every contact lead landed in GHL as
+    // a generic "Website Form" with no campaign and no click id.
+    const attribution = (window as any).ifixxAttribution
+      ? (window as any).ifixxAttribution.payload("Contact Page Form")
+      : { source: "Contact Page Form", page_path: window.location.pathname };
+    const data = {
+      ...Object.fromEntries(formData.entries()),
+      ...attribution,
+    };
 
     try {
       const response = await fetch("/api/lead", {

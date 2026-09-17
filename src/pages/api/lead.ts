@@ -66,6 +66,33 @@ const SERVICE_TAGS: Record<string, string[]> = {
     'other': ['general-inquiry', 'handyman']
 };
 
+// Which landing converts? The contact's `source` names the form's page in words, and
+// these tags make the same thing filterable/segmentable inside GHL.
+function slugify(value: string, maxLength = 40): string {
+    return String(value || '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .slice(0, maxLength)
+        .replace(/-+$/g, '');
+}
+
+function pathSlug(path?: string): string {
+    if (!path) return '';
+    const clean = String(path).split('?')[0].split('#')[0];
+    if (!clean || clean === '/') return 'home';
+    return slugify(clean);
+}
+
+// page_path / landing_page come from the browser: accept a single-slash relative path
+// only, so nothing can be talked into building an off-site URL.
+function safePath(path?: string): string {
+    if (typeof path !== 'string') return '';
+    const clean = path.split('?')[0].split('#')[0].trim();
+    if (!/^\/[^/\\]/.test(clean) && clean !== '/') return '';
+    return clean.slice(0, 200);
+}
+
 function buildLeadMessage(data: {
     message?: string;
     issueType?: string;
@@ -134,6 +161,18 @@ async function ghlRequest(
             'Version': '2021-07-28',
             ...(init.headers || {})
         }
+    });
+}
+
+async function upsertContact(apiKey: string, body: Record<string, any>) {
+    return fetch('https://services.leadconnectorhq.com/contacts/upsert', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${apiKey}`,
+            'Content-Type': 'application/json',
+            'Version': '2021-07-28'
+        },
+        body: JSON.stringify(body)
     });
 }
 
@@ -335,7 +374,16 @@ export const POST: APIRoute = async ({ request }) => {
             utm_campaign,
             utm_term,
             utm_content,
-            gclid
+            gclid,
+            // Google Ads click ids for iOS/app and YouTube traffic, where gclid is absent
+            gbraid,
+            wbraid,
+            // Page identity (sent by every form since 2026-09):
+            // page_path   = pathname the form was submitted from
+            // landing_page = first page of the attributed visit (may be days earlier)
+            page_path,
+            landing_page,
+            referrer
         } = data;
 
         // 1. Validation
@@ -362,6 +410,19 @@ export const POST: APIRoute = async ({ request }) => {
 
         // 2. Build tags array
         const serviceTags = service ? (SERVICE_TAGS[service] || SERVICE_TAGS['other']) : [];
+
+        // Page-origin tags. `form:` is the page the form was submitted from; `landing:`
+        // is the first page of the attributed visit, added only when it differs (an ad
+        // click that landed elsewhere and converted later on another page).
+        const formPath = safePath(page_path);
+        const landingPath = safePath(landing_page);
+        const formPathSlug = pathSlug(formPath);
+        const landingPathSlug = pathSlug(landingPath);
+        const originTags = [
+            ...(formPathSlug ? [`form:${formPathSlug}`] : []),
+            ...(landingPathSlug && landingPathSlug !== formPathSlug ? [`landing:${landingPathSlug}`] : [])
+        ];
+
         const allTags = [
             'website-lead',
             ...serviceTags,
@@ -371,7 +432,8 @@ export const POST: APIRoute = async ({ request }) => {
             ...(city ? [`city-${city.toLowerCase().replace(/\s+/g, '-')}`] : []),
             // Add segment-specific tags
             ...(segment === 'property-manager' ? ['segment-property-manager', 'b2b-lead'] : []),
-            ...(segment === 'homeowner' ? ['segment-homeowner'] : [])
+            ...(segment === 'homeowner' ? ['segment-homeowner'] : []),
+            ...originTags
         ];
 
         const enrichedMessage = buildLeadMessage({
@@ -429,16 +491,34 @@ export const POST: APIRoute = async ({ request }) => {
             upsertBody.postalCode = zipCode;
         }
 
-        // Add UTM parameters and GCLID for attribution & offline conversion tracking
-        if (utm_source || utm_medium || utm_campaign || utm_term || utm_content || gclid) {
-            upsertBody.attributionSource = {
-                ...(utm_source && { utmSource: utm_source }),
-                ...(utm_medium && { utmMedium: utm_medium }),
-                ...(utm_campaign && { utmCampaign: utm_campaign }),
-                ...(utm_term && { utmTerm: utm_term }),
-                ...(utm_content && { utmContent: utm_content }),
-                ...(gclid && { gclid })
-            };
+        // Add UTM parameters and GCLID for attribution & offline conversion tracking.
+        // These fields are the ones already proven against this GHL location.
+        const coreAttribution: Record<string, string> = {
+            ...(utm_source && { utmSource: utm_source }),
+            ...(utm_medium && { utmMedium: utm_medium }),
+            ...(utm_campaign && { utmCampaign: utm_campaign }),
+            ...(utm_term && { utmTerm: utm_term }),
+            ...(utm_content && { utmContent: utm_content }),
+            ...(gclid && { gclid })
+        };
+
+        // Page origin + the click ids that replace gclid on iOS/YouTube traffic. Kept
+        // separate because they have never been sent to this location: if GHL rejects
+        // the payload, the request is retried with the core fields only rather than
+        // losing the lead (see upsertContact below).
+        const pageUrl = formPath ? `${new URL(request.url).origin}${formPath}` : '';
+        const extendedAttribution: Record<string, string> = {
+            ...(pageUrl && { url: pageUrl }),
+            ...(referrer && { referrer }),
+            ...(gbraid && { gbraid }),
+            ...(wbraid && { wbraid })
+        };
+
+        const hasCoreAttribution = Object.keys(coreAttribution).length > 0;
+        const hasExtendedAttribution = Object.keys(extendedAttribution).length > 0;
+
+        if (hasCoreAttribution || hasExtendedAttribution) {
+            upsertBody.attributionSource = { ...coreAttribution, ...extendedAttribution };
         }
 
         // Add custom fields if present
@@ -446,15 +526,23 @@ export const POST: APIRoute = async ({ request }) => {
             upsertBody.customFields = customFields;
         }
 
-        const contactResponse = await fetch('https://services.leadconnectorhq.com/contacts/upsert', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${GHL_API_KEY}`,
-                'Content-Type': 'application/json',
-                'Version': '2021-07-28'
-            },
-            body: JSON.stringify(upsertBody)
-        });
+        let contactResponse = await upsertContact(GHL_API_KEY, upsertBody);
+
+        // GHL answers 4xx when it dislikes a property in the body. Rather than dropping
+        // the lead, retry once with the attribution fields that are known to work.
+        if (!contactResponse.ok && contactResponse.status < 500 && hasExtendedAttribution) {
+            const err = await contactResponse.text();
+            console.warn('GHL rejected extended attributionSource, retrying with core fields:', err);
+
+            const fallbackBody = { ...upsertBody };
+            if (hasCoreAttribution) {
+                fallbackBody.attributionSource = coreAttribution;
+            } else {
+                delete fallbackBody.attributionSource;
+            }
+
+            contactResponse = await upsertContact(GHL_API_KEY, fallbackBody);
+        }
 
         if (!contactResponse.ok) {
             const err = await contactResponse.text();

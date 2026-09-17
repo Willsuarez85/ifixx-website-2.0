@@ -241,6 +241,11 @@ const contactTimeOptions = [
       btnSpinner?.classList.remove('hidden');
 
       const formData = new FormData(form);
+      // Attribution + page identity from the shared module (AttributionScript.astro):
+      // sessionStorage -> localStorage (90 days) -> _gcl_aw cookie.
+      const attribution = window.ifixxAttribution
+        ? window.ifixxAttribution.payload('Property Manager Form')
+        : { source: 'Property Manager Form', page_path: window.location.pathname };
       const data = {
         firstName: formData.get('firstName'),
         lastName: formData.get('lastName'),
@@ -252,8 +257,8 @@ const contactTimeOptions = [
         propertyTypes: formData.get('propertyTypes'),
         bestTimeToContact: formData.get('bestTimeToContact'),
         message: formData.get('message') || '',
-        source: 'Property Manager Form',
-        segment: 'property-manager'
+        segment: 'property-manager',
+        ...attribution
       };
 
       try {

@@ -222,6 +222,12 @@ const bestTimes = [
     btnSpinner?.classList.remove('hidden');
 
     const formData = new FormData(form);
+    // Attribution + page identity from the shared module (AttributionScript.astro):
+    // sessionStorage -> localStorage (90 days) -> _gcl_aw cookie. This script is
+    // bundled (no Astro props available), so the source name is derived from the path.
+    const attribution = (window as any).ifixxAttribution
+      ? (window as any).ifixxAttribution.payload()
+      : { source: 'Service Page Form', page_path: window.location.pathname };
     const data = {
       firstName: formData.get('firstName'),
       lastName: formData.get('lastName'),
@@ -229,7 +235,7 @@ const bestTimes = [
       phone: formData.get('phone'),
       service: formData.get('service'),
       message: formData.get('message'),
-      source: 'Service Page Form'
+      ...attribution
     };
 
     try {
