@@ -13,7 +13,7 @@ const {
   segment = 'all',
   title = 'What Our Customers Say',
   subtitle = "Don't just take our word for it — every review below is on our Google Business Profile.",
-  maxItems = 4
+  maxItems = 6
 } = Astro.props;
 
 // Este bloque publicaba 8 testimonios redactados: nombres, barrios, empresas de
@@ -25,11 +25,17 @@ const {
 // `segment` se conserva porque /for-homeowners y /for-property-managers lo pasan,
 // pero ya no filtra: no hay resenas verificadas segmentadas. Cuando el GBP tenga
 // una de un property manager, se anade al archivo con su etiqueta.
+//
+// GOOGLE_REVIEWS viene de la mas reciente a la mas antigua, asi que esto muestra
+// las N mas recientes del perfil.
 const testimonials = GOOGLE_REVIEWS.slice(0, maxItems);
 
 const displaySubtitle = segment === 'property-manager'
   ? 'Every review below is public on our Google Business Profile.'
   : subtitle;
+
+// El texto se guarda completo; si es largo se recorta solo visualmente.
+const LONG_REVIEW = 260;
 ---
 
 {testimonials.length > 0 && (
@@ -50,7 +56,7 @@ const displaySubtitle = segment === 'property-manager'
 
     <!-- Testimonials Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-      {testimonials.map((testimonial) => (
+      {testimonials.map((testimonial, index) => (
         <div class="card p-6 lg:p-8">
           <!-- Stars -->
           <div class="flex gap-1 mb-4">
@@ -61,14 +67,29 @@ const displaySubtitle = segment === 'property-manager'
             ))}
           </div>
 
-          <!-- Quote -->
-          <blockquote class="text-neutral-700 leading-relaxed mb-6">
-            "{testimonial.text}"
-          </blockquote>
+          <!-- Quote (verbatim; si es larga se recorta solo a la vista) -->
+          {testimonial.text.length > LONG_REVIEW ? (
+            <div class="mb-6">
+              <input type="checkbox" id={`tm-${index}-${testimonial.datePublished}`} class="peer sr-only" />
+              <blockquote class="text-neutral-700 leading-relaxed whitespace-pre-line line-clamp-5 peer-checked:line-clamp-none">
+                "{testimonial.text}"
+              </blockquote>
+              <label
+                for={`tm-${index}-${testimonial.datePublished}`}
+                class="mt-1 inline-block cursor-pointer text-sm font-semibold text-primary-600 hover:text-primary-700 peer-checked:hidden"
+              >
+                Read more
+              </label>
+            </div>
+          ) : (
+            <blockquote class="text-neutral-700 leading-relaxed whitespace-pre-line mb-6">
+              "{testimonial.text}"
+            </blockquote>
+          )}
 
           <!-- Author -->
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
+            <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center shrink-0">
               <span class="text-primary-600 font-semibold text-sm">
                 {testimonial.author.charAt(0)}
               </span>
@@ -76,7 +97,7 @@ const displaySubtitle = segment === 'property-manager'
             <div>
               <p class="font-semibold text-neutral-900">{testimonial.author}</p>
               <a
-                href={GOOGLE_PROFILE_URL}
+                href={testimonial.reviewUrl ?? GOOGLE_PROFILE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="text-sm text-neutral-500 hover:text-primary-600 transition-colors"

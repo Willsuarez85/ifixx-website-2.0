@@ -9,7 +9,8 @@
  * GOOGLE_REVIEW_COUNT y GOOGLE_RATING alimentan el aggregateRating del schema.
  * Google exige que ese numero coincida con las resenas reales del negocio.
  *
- * Fuente: Google Business Profile de iFIXX, leido el 2026-08-02.
+ * Fuente: Google Business Profile de iFIXX, leido el 2026-09-17 (16 resenas,
+ * promedio 5.0). Crudo en 01-clients/ifixx/resources/2026-09-17-gbp-reviews.json.
  * Al actualizarlo, cambiar tambien la fecha de esta linea.
  */
 export const GOOGLE_REVIEW_COUNT: number = 16;

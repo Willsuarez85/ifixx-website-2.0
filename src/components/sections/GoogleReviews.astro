@@ -1,17 +1,29 @@
 ---
 import { GOOGLE_REVIEW_COUNT, GOOGLE_RATING } from '../../lib/business-facts';
-import { GOOGLE_REVIEWS, GOOGLE_PROFILE_URL, reviewDateLabel } from '../../lib/google-reviews';
+import {
+  GOOGLE_REVIEWS,
+  GOOGLE_PROFILE_URL,
+  reviewDateLabel,
+  reviewsByAuthor,
+} from '../../lib/google-reviews';
 
 interface Props {
   title?: string;
+  /** Cuantas resenas se muestran. El resto vive en el perfil de Google. */
+  max?: number;
+  /** Seleccion explicita por autor (hubs). Si se pasa, manda sobre `max`. */
+  authors?: readonly string[];
 }
 
-const { title = 'What Our Customers Say' } = Astro.props;
+const { title = 'What Our Customers Say', max = 6, authors } = Astro.props;
 
 // Solo resenas verificadas en el Google Business Profile. Ver src/lib/google-reviews.ts.
-const reviews = GOOGLE_REVIEWS;
+const reviews = authors ? reviewsByAuthor(authors) : GOOGLE_REVIEWS.slice(0, max);
 const averageRating = GOOGLE_RATING;
 const totalReviews = GOOGLE_REVIEW_COUNT;
+
+// El texto se guarda completo; si es largo se recorta solo visualmente.
+const LONG_REVIEW = 260;
 ---
 
 <section class="section">
@@ -38,20 +50,20 @@ const totalReviews = GOOGLE_REVIEW_COUNT;
 
     <!-- Reviews Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-      {reviews.map((review) => (
+      {reviews.map((review, index) => (
         <div class="bg-white rounded-xl p-6 shadow-sm border border-neutral-100">
           <!-- Header -->
           <div class="flex items-start gap-4 mb-4">
-            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center shrink-0">
               <span class="text-primary-700 font-bold text-lg">{review.author.charAt(0)}</span>
             </div>
             <div class="flex-1">
-              <div class="flex items-center justify-between">
+              <div class="flex items-center justify-between gap-2">
                 <h4 class="font-semibold text-neutral-900">{review.author}</h4>
                 <img
                   src="https://www.google.com/favicon.ico"
                   alt="Google"
-                  class="w-5 h-5"
+                  class="w-5 h-5 shrink-0"
                   loading="lazy"
                 />
               </div>
@@ -68,14 +80,29 @@ const totalReviews = GOOGLE_REVIEW_COUNT;
             </div>
           </div>
 
-          <!-- Review Text -->
-          <p class="text-neutral-600 leading-relaxed mb-3">
-            "{review.text}"
-          </p>
+          <!-- Review Text (verbatim; si es larga se recorta solo a la vista) -->
+          {review.text.length > LONG_REVIEW ? (
+            <div class="mb-3">
+              <input type="checkbox" id={`gr-${index}-${review.datePublished}`} class="peer sr-only" />
+              <p class="text-neutral-600 leading-relaxed whitespace-pre-line line-clamp-5 peer-checked:line-clamp-none">
+                "{review.text}"
+              </p>
+              <label
+                for={`gr-${index}-${review.datePublished}`}
+                class="mt-1 inline-block cursor-pointer text-sm font-semibold text-primary-600 hover:text-primary-700 peer-checked:hidden"
+              >
+                Read more
+              </label>
+            </div>
+          ) : (
+            <p class="text-neutral-600 leading-relaxed whitespace-pre-line mb-3">
+              "{review.text}"
+            </p>
+          )}
 
           <!-- Source -->
           <a
-            href={GOOGLE_PROFILE_URL}
+            href={review.reviewUrl ?? GOOGLE_PROFILE_URL}
             target="_blank"
             rel="noopener noreferrer"
             class="text-xs font-semibold uppercase tracking-wide text-neutral-500 hover:text-primary-600 transition-colors"

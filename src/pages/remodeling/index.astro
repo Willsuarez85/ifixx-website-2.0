@@ -3,6 +3,8 @@ import { GOOGLE_REVIEW_COUNT } from '../../lib/business-facts';
 import PillarLayout from '../../layouts/PillarLayout.astro';
 import { getCollection } from 'astro:content';
 import TrustBar from '../../components/sections/TrustBar.astro';
+import GoogleReviews from '../../components/sections/GoogleReviews.astro';
+import { REMODELING_FEATURED_AUTHORS } from '../../lib/google-reviews';
 import { isRetiredService, hasServiceAreaHub } from '../../lib/seo-retired';
 
 // Get all services with category 'remodeling', excluding retired ones
@@ -294,6 +296,12 @@ if (ungrouped.length > 0) {
       </div>
     </div>
   </section>
+
+  <!-- Reviews: las tres del perfil de Google que hablan de remodel y acabados -->
+  <GoogleReviews
+    title="What South Charlotte Homeowners Say About Our Remodels"
+    authors={REMODELING_FEATURED_AUTHORS}
+  />
 
   <!-- Service Areas -->
   <section class="py-16 lg:py-24 bg-neutral-50">
