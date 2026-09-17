@@ -1255,6 +1255,96 @@
       "source": "/service-areas/rock-hill",
       "destination": "/service-areas",
       "permanent": true
+    },
+    {
+      "source": "/ballantyne/basement-finishing",
+      "destination": "/remodeling",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne/basement-finishing/",
+      "destination": "/remodeling",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/basement-finishing",
+      "destination": "/remodeling",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte/basement-finishing/",
+      "destination": "/remodeling",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/basement-finishing",
+      "destination": "/remodeling",
+      "permanent": true
+    },
+    {
+      "source": "/matthews/basement-finishing/",
+      "destination": "/remodeling",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/basement-finishing",
+      "destination": "/remodeling",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte/basement-finishing/",
+      "destination": "/remodeling",
+      "permanent": true
+    },
+    {
+      "source": "/charlotte",
+      "destination": "/service-areas/charlotte",
+      "permanent": true
+    },
+    {
+      "source": "/south-charlotte",
+      "destination": "/service-areas/south-charlotte",
+      "permanent": true
+    },
+    {
+      "source": "/ballantyne",
+      "destination": "/service-areas/ballantyne",
+      "permanent": true
+    },
+    {
+      "source": "/pineville",
+      "destination": "/service-areas/pineville",
+      "permanent": true
+    },
+    {
+      "source": "/matthews",
+      "destination": "/service-areas/matthews",
+      "permanent": true
+    },
+    {
+      "source": "/concord",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/huntersville",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/monroe",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/rock-hill",
+      "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/waxhaw",
+      "destination": "/service-areas",
+      "permanent": true
     }
   ]
 }
