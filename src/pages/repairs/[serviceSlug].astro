@@ -6,7 +6,6 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import CTAIntermediate from '../../components/sections/CTAIntermediate.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import QuickEstimateCompact from '../../components/forms/QuickEstimateCompact.astro';
-import { estimateFormSlug } from '../../lib/estimate-form';
 import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 import { isRetiredCity, isRetiredService, hasCityServicePage } from '../../lib/seo-retired';
@@ -289,7 +288,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
           <!-- Form Side -->
           <div class="order-1 lg:order-2">
             <QuickEstimateCompact
-              serviceSlug={estimateFormSlug(service.slug)}
+              serviceSlug={service.slug}
               serviceTitle={title}
               formId={`hero-estimate-${service.slug}`}
             />
@@ -370,7 +369,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
 
             <!-- Form -->
             <QuickEstimateCompact
-              serviceSlug={estimateFormSlug(service.slug)}
+              serviceSlug={service.slug}
               serviceTitle={title}
               formId={`sidebar-estimate-${service.slug}`}
             />
