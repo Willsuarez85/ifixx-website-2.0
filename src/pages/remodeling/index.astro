@@ -5,7 +5,8 @@ import { getCollection } from 'astro:content';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import { isRetiredService, hasServiceAreaHub } from '../../lib/seo-retired';
 
-// Get all services with category 'remodeling', excluding retired ones (basement-finishing)
+// Get all services with category 'remodeling', excluding retired ones
+// (basement-finishing, outdoor-living).
 const allServices = await getCollection('services');
 const remodelingServices = allServices.filter(s => s.data.category === 'remodeling' && !isRetiredService(s.slug));
 
@@ -15,44 +16,49 @@ const locations = (await getCollection('cities')).filter(c => hasServiceAreaHub(
 const pillar = {
   title: "Home Remodeling Services",
   slug: "remodeling",
-  description: "Charlotte's family-owned remodeling team. Kitchen renovations, bathroom remodels, flooring installation, and outdoor living. Family-owned, working across South Charlotte, Ballantyne, Matthews, and beyond.",
+  description: "South Charlotte remodeling by the crew that already fixes your house. Kitchen and bathroom renovations inside, decks and screened porches outside. Family-owned, fully insured, working across South Charlotte, Ballantyne, Pineville, and Matthews.",
   seo: {
-    title: "Home Remodeling Charlotte NC | Kitchen & Bath | ⭐5.0 | iFIXX",
-    description: "Charlotte's top-rated remodeling contractors. Kitchen, bathroom, flooring—all under one family-owned team. ⭐5.0 on Google. Family-owned since 2019. Free consultation! Call (980) 391-6833."
+    title: "Remodeling South Charlotte NC | Kitchens, Baths & Decks | iFIXX",
+    description: "Remodeling contractor in South Charlotte NC. Kitchen and bathroom renovations, deck building, and screened porches by an insured family-owned crew. Call (980) 391-6833."
   }
 };
 
-// Define services for schema (these will be created in Sprint 3)
-const plannedServices = [
-  {
-    name: "Kitchen Remodeling",
-    slug: "kitchen-remodeling",
-    description: "Complete kitchen renovations including cabinets, countertops, flooring, and appliance installation.",
-    image: "/images/projects/kitchen-white-gray-island-black-pendants.webp"
-  },
-  {
-    name: "Bathroom Remodeling",
-    slug: "bathroom-remodeling",
-    description: "Full bathroom renovations from tile and fixtures to vanities and lighting upgrades.",
-    image: "/images/projects/Ifixx-portfolio10.webp"
-  },
-  {
-    name: "Flooring Installation",
-    slug: "flooring-installation",
-    description: "Hardwood, laminate, tile, and vinyl flooring installation for any room in your home.",
-    image: "/images/projects/flooring-installation-modern-living-room-interior.webp"
-  }
-];
+const services = remodelingServices.map(s => ({
+  name: s.data.title,
+  slug: s.slug,
+  description: s.data.summary,
+  image: s.data.heroImage
+}));
 
-// Use actual services if they exist, otherwise use planned services
-const services = remodelingServices.length > 0
-  ? remodelingServices.map(s => ({
-      name: s.data.title,
-      slug: s.slug,
-      description: s.data.summary,
-      image: s.data.heroImage
-    }))
-  : plannedServices;
+// Interior / Exterior are how homeowners think about a remodel, so the hub shows
+// them as two sections. They are headings only, never URL segments: every silo
+// stays at /remodeling/{slug} (William, 2026-09-17).
+const INTERIOR_SLUGS = ['kitchen-remodeling', 'bathroom-remodeling', 'flooring-installation'];
+const EXTERIOR_SLUGS = ['decks', 'screened-porches'];
+const order = (slugs: string[]) => (a: { slug: string }, b: { slug: string }) =>
+  slugs.indexOf(a.slug) - slugs.indexOf(b.slug);
+
+const groups = [
+  {
+    key: 'interior',
+    title: 'Interior',
+    blurb: 'The rooms you use every day. Kitchens and bathrooms are where a remodel pays you back twice: while you live in it and when you sell.',
+    services: services.filter(s => INTERIOR_SLUGS.includes(s.slug)).sort(order(INTERIOR_SLUGS))
+  },
+  {
+    key: 'exterior',
+    title: 'Exterior',
+    blurb: 'Outdoor space is the cheapest square footage you can add in Charlotte, and you get to use it most of the year.',
+    services: services.filter(s => EXTERIOR_SLUGS.includes(s.slug)).sort(order(EXTERIOR_SLUGS))
+  }
+].filter(g => g.services.length > 0);
+
+// Anything new that is not yet assigned to a group still has to render somewhere.
+const grouped = new Set(groups.flatMap(g => g.services.map(s => s.slug)));
+const ungrouped = services.filter(s => !grouped.has(s.slug));
+if (ungrouped.length > 0) {
+  groups.push({ key: 'more', title: 'More Remodeling Services', blurb: '', services: ungrouped });
+}
 ---
 
 <PillarLayout pillar={pillar} services={services}>
@@ -78,12 +84,13 @@ const services = remodelingServices.length > 0
         </nav>
 
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-          Charlotte's <span class="text-primary-500">Family-Owned</span> Remodeling Team
+          Remodeling in <span class="text-primary-500">South Charlotte</span>
         </h1>
         <p class="text-xl text-neutral-300 mb-8 leading-relaxed">
-          We've spent 5 years helping Charlotte homeowners fall in love with their homes again.
-          From outdated kitchens in Myers Park to cramped bathrooms in Ballantyne, we work across
-          the Charlotte metro—and we treat every home like it's our own.
+          Kitchens and bathrooms inside, decks and screened porches outside. Same
+          family-owned crew that handles the repairs, fully insured, with the price in
+          writing before anything starts. Working South Charlotte, Ballantyne, Pineville,
+          and Matthews.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4">
@@ -101,55 +108,64 @@ const services = remodelingServices.length > 0
   <!-- Trust Bar -->
   <TrustBar />
 
-  <!-- Services Grid -->
+  <!-- Services Grid: Interior / Exterior -->
   <section class="py-16 lg:py-24 bg-white">
     <div class="container">
       <div class="text-center max-w-2xl mx-auto mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-          Remodeling Services for Charlotte Homes
+          What We Remodel
         </h2>
         <p class="text-lg text-neutral-600">
-          Whether you're updating a 1950s ranch in Dilworth or modernizing a newer home in Waxhaw,
-          we bring the same care and craftsmanship to every project.
+          Two kinds of project, one crew. Inside the house we rebuild the rooms you use
+          every day. Outside, we build the space you only get to use if somebody builds it.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8">
-        {services.map((service) => (
-          <div class="group relative bg-neutral-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-            <div class="grid md:grid-cols-2">
-              <div class="aspect-square md:aspect-auto overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={`${service.name} in Charlotte, NC`}
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                  decoding="async"
-                  width="400"
-                  height="400"
-                />
-              </div>
-              <div class="p-6 flex flex-col justify-center">
-                <h3 class="text-2xl font-bold text-neutral-900 mb-3">
-                  {service.name}
-                </h3>
-                <p class="text-neutral-600 mb-4">
-                  {service.description}
-                </p>
-                <a
-                  href="/contact"
-                  class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors"
-                >
-                  Get Quote
-                  <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
-            </div>
+      {groups.map((group) => (
+        <div class="mb-16 last:mb-0">
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-8 pb-4 border-b border-neutral-200">
+            <h3 class="text-2xl md:text-3xl font-bold text-neutral-900">{group.title}</h3>
+            {group.blurb && <p class="text-neutral-600 md:max-w-xl md:text-right">{group.blurb}</p>}
           </div>
-        ))}
-      </div>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            {group.services.map((service) => (
+              <a
+                href={`/remodeling/${service.slug}`}
+                class="group relative bg-neutral-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+              >
+                <div class="grid md:grid-cols-2">
+                  <div class="aspect-square md:aspect-auto overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={`${service.name} in South Charlotte, NC`}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                      width="400"
+                      height="400"
+                    />
+                  </div>
+                  <div class="p-6 flex flex-col justify-center">
+                    <h4 class="text-2xl font-bold text-neutral-900 mb-3 group-hover:text-primary-600 transition-colors">
+                      {service.name}
+                    </h4>
+                    <p class="text-neutral-600 mb-4">
+                      {service.description}
+                    </p>
+                    <span class="inline-flex items-center text-primary-600 font-semibold">
+                      See details &amp; pricing
+                      <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   </section>
 
@@ -228,12 +244,12 @@ const services = remodelingServices.length > 0
 
         <div class="order-1 lg:order-2">
           <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
-            Why Charlotte Homeowners Trust iFixx
+            Why South Charlotte Homeowners Trust iFixx
           </h2>
           <p class="text-neutral-600 text-lg mb-8">
             We're not a big box contractor or a national franchise. We're a local Charlotte family
-            who has been doing this for over 5 years. Our reputation in neighborhoods like South Charlotte,
-            Dilworth, and Plaza Midwood is everything to us—which means your project gets our full attention.
+            who has been doing this since 2019. Most of our remodels start as a repair call, which
+            means you already know how we work before you hand us the big job.
           </p>
 
           <ul class="space-y-4">
@@ -287,7 +303,8 @@ const services = remodelingServices.length > 0
           Remodeling Services Near You
         </h2>
         <p class="text-lg text-neutral-600">
-          We serve homeowners throughout the greater Charlotte area.
+          South Charlotte is home base. We also work Ballantyne, Pineville, Matthews, and the
+          surrounding Charlotte neighborhoods.
         </p>
       </div>
 
