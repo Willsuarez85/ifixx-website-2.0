@@ -19,7 +19,7 @@ signs:
   - "Steps flex, squeak, or a tread has pulled loose"
   - "Screws or nails backing out across the surface"
   - "Dark, damp wood near the house or at the base of a post"
-  - "A post that no longer sits plumb"
+  - "A post that has started to lean"
   - "Sections went down or shifted after a storm"
   - "The deck has not been sealed in several seasons"
 processSteps:
