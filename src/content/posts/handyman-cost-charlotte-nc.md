@@ -55,10 +55,6 @@ Prices below reflect typical ranges for residential work in the Charlotte, NC me
 |-----|--------------|
 | Drywall repair (small patch) | $100–$250 |
 | Drywall repair (large section) | $250–$400 |
-| Outlet or switch replacement | $75–$150 |
-| Ceiling fan installation | $75–$150 |
-| Faucet repair or replacement | $100–$250 |
-| Toilet repair (flapper, fill valve, etc.) | $75–$175 |
 | TV mounting (standard wall) | $75–$125 |
 | TV mounting (above fireplace or complex) | $125–$200 |
 | Minor carpentry (trim, doors, shelving) | $75–$200 |
