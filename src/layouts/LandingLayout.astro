@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import AttributionScript from '../components/common/AttributionScript.astro';
 
 export interface Props {
   title: string;
@@ -43,16 +44,7 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
     gtag('config', 'AW-17542077404'); // Google Ads Conversion Tag
   </script>
 
-  <!-- Capture UTM params -->
-  <script is:inline>
-    (function(){
-      var params = new URLSearchParams(window.location.search);
-      ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid'].forEach(function(p){
-        var v = params.get(p);
-        if(v) sessionStorage.setItem(p, v);
-      });
-    })();
-  </script>
+  <AttributionScript />
 
   <!-- Click-to-Call Tracking -->
   <script is:inline>

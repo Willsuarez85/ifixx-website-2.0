@@ -1,0 +1,10 @@
+---
+// Inlines src/scripts/attribution.js into the <head> so attribution is captured
+// before anything else runs, and window.ifixxAttribution is available to every form
+// script on the page (inline define:vars ones included, which cannot import).
+// The ?raw import keeps ONE copy of the implementation: edit the .js file only.
+import attributionScript from '../../scripts/attribution.js?raw';
+---
+
+<!-- Lead attribution: captures gclid/gbraid/wbraid/utm_* into sessionStorage + localStorage (90 days) -->
+<script is:inline set:html={attributionScript} />

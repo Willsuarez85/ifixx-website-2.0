@@ -231,20 +231,12 @@ const {
         rawMessage
       ].filter(Boolean).join('\n');
 
-      // Google Ads attribution: read utm_* / gclid captured by the layout into
-      // sessionStorage, falling back to the current URL (covers the first page view
-      // before sessionStorage is populated). Without this the /api/lead attribution
-      // payload is always empty and offline conversions never tie back to the click.
-      const urlParams = new URLSearchParams(window.location.search);
-      const getAttr = (key) => urlParams.get(key) || sessionStorage.getItem(key) || '';
-      const attribution = {
-        utm_source: getAttr('utm_source'),
-        utm_medium: getAttr('utm_medium'),
-        utm_campaign: getAttr('utm_campaign'),
-        utm_term: getAttr('utm_term'),
-        utm_content: getAttr('utm_content'),
-        gclid: getAttr('gclid')
-      };
+      // Google Ads attribution from the shared module (AttributionScript.astro):
+      // sessionStorage -> localStorage (90 days) -> _gcl_aw cookie, so a visitor who
+      // clicked the ad days ago still arrives in GHL with the gclid and the campaign.
+      const attribution = window.ifixxAttribution
+        ? window.ifixxAttribution.payload(formName)
+        : { source: formName, page_path: window.location.pathname };
 
       const data = {
         firstName: formData.get('firstName'),
@@ -256,7 +248,6 @@ const {
         issueType,
         safetyConcern,
         message: composedMessage,
-        source: formName,
         landingPage: window.location.pathname,
         campaignTest: 'ifixx_south_charlotte_service_test_2026_07',
         photoUploadStatus,

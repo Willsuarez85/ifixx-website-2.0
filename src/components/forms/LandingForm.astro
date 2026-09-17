@@ -106,6 +106,11 @@ const services = [
       btnSpinner?.classList.remove('hidden');
 
       const formData = new FormData(form);
+      // Attribution + page identity from the shared module (AttributionScript.astro):
+      // sessionStorage -> localStorage (90 days) -> _gcl_aw cookie.
+      const attribution = window.ifixxAttribution
+        ? window.ifixxAttribution.payload(formName)
+        : { source: formName, page_path: window.location.pathname };
       const data = {
         firstName: formData.get('firstName'),
         lastName: '',
@@ -113,12 +118,7 @@ const services = [
         phone: formData.get('phone'),
         service: formData.get('service'),
         message: formData.get('message') || '',
-        source: formName,
-        utm_source: sessionStorage.getItem('utm_source') || '',
-        utm_medium: sessionStorage.getItem('utm_medium') || '',
-        utm_campaign: sessionStorage.getItem('utm_campaign') || '',
-        utm_term: sessionStorage.getItem('utm_term') || '',
-        gclid: sessionStorage.getItem('gclid') || ''
+        ...attribution
       };
 
       try {
