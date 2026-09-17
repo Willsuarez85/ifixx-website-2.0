@@ -91,7 +91,7 @@ Mecklenburg and Union County both have rules on fence height and placement, and 
 
 Ranges only get you so far. We'll walk the line, price the material and gates you actually want, and put it in writing. Free, no obligation.
 
-[Get your free fence estimate](/fence-installation-south-charlotte) or call **(980) 391-6833**.
+[Get your free fence estimate](/contact) or call **(980) 391-6833**.
 
 ---
 
@@ -107,7 +107,7 @@ Not every tired fence needs to come down. Common Charlotte fence repairs:
 | Storm damage, a few sections down | $400 - $1,200 |
 | Replace rotted rails and pickets along a run | $8 - $20 per linear foot |
 
-The rule of thumb: if the posts are solid and the damage is limited to panels, rails, or a gate, repair wins on cost every time. Once posts are rotting at the ground line along most of the run, you're paying replacement labor to save recycled material, and a new fence is the better buy. We [repair fences as well as install them](/fence-repair-south-charlotte), so we have no reason to push you toward the expensive answer.
+The rule of thumb: if the posts are solid and the damage is limited to panels, rails, or a gate, repair wins on cost every time. Once posts are rotting at the ground line along most of the run, you're paying replacement labor to save recycled material, and a new fence is the better buy. We [repair fences as well as install them](/repairs/fence-repair), so we have no reason to push you toward the expensive answer.
 
 ## How to Budget Your Fence Project
 
@@ -119,13 +119,13 @@ The rule of thumb: if the posts are solid and the damage is limited to panels, r
 
 ## What About Waxhaw, Weddington, and Fort Mill?
 
-Pricing across the southern corridor runs in the same ranges as Charlotte proper, but the yards do not. Union County lots in Waxhaw, Weddington, and Marvin are frequently double the size of a South Charlotte backyard, so the same per-foot price produces a much larger total. On larger lots it is worth pricing a partial enclosure and a full one side by side before deciding. Fence work in [Waxhaw and Union County](/fence-installation-waxhaw) also runs into town and county rules on top of HOA requirements, which is one more reason to start approvals early.
+Pricing across the southern corridor runs in the same ranges as Charlotte proper, but the yards do not. Union County lots in Waxhaw, Weddington, and Marvin are frequently double the size of a South Charlotte backyard, so the same per-foot price produces a much larger total. On larger lots it is worth pricing a partial enclosure and a full one side by side before deciding. Fence work in Waxhaw and Union County also runs into town and county rules on top of HOA requirements, which is one more reason to start approvals early.
 
 Planning outdoor work beyond the fence line? Our [deck cost guide for Charlotte](/blog/how-much-deck-cost-charlotte) breaks down the same kind of pricing for decks and screened porches.
 
 ## Get a Real Price for Your Property Line
 
-Online ranges get you in the ballpark. A walk-through gets you a real price. iFIXX installs and repairs [wood, vinyl, and aluminum fences across South Charlotte](/fence-installation-south-charlotte) with our own insured crew, and we show you photos of our actual local work instead of stock images.
+Online ranges get you in the ballpark. A walk-through gets you a real price. iFIXX installs and repairs [wood, vinyl, and aluminum fences across South Charlotte](/contact) with our own insured crew, and we show you photos of our actual local work instead of stock images.
 
 **Why Charlotte homeowners choose iFIXX:**
 
@@ -135,7 +135,7 @@ Online ranges get you in the ballpark. A walk-through gets you a real price. iFI
 - Milestone payments as the work gets done, not a big deposit up front
 - Free on-site estimates
 
-[Get Your Free Fence Estimate](/fence-installation-south-charlotte) or call us at **(980) 391-6833**.
+[Get Your Free Fence Estimate](/contact) or call us at **(980) 391-6833**.
 
 ---
 
