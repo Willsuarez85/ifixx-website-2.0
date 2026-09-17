@@ -1,75 +1,101 @@
 ---
-const services = [
+// "Reparar primero, remodelar despues" (William, 2026-09-17). The home page leads
+// with repairs, which is what iFIXX gets called for, and carries remodeling as the
+// second block. Fences left this grid the same day: the category moves to a separate
+// brand in October, so it no longer takes a slot on the home page.
+const repairs = [
   {
-    title: 'Painting & Drywall',
-    description: 'Professional interior and exterior painting, drywall repair, and texture matching.',
+    title: 'Drywall & Ceiling Repair',
+    description: 'Holes, cracks, water-stained ceilings, and texture matching that hides the patch.',
+    image: '/images/projects/drywall-repair-patching-hole-spackling.webp',
+    href: '/repairs/drywall'
+  },
+  {
+    title: 'Painting',
+    description: 'Interior and exterior painting with the prep done right, so the finish lasts.',
     image: '/images/projects/painting-drywall-dining-room-wainscoting-chandelier.webp',
     href: '/repairs/painting'
   },
   {
-    title: 'Fence Installation',
-    description: 'Wood, vinyl, and aluminum fences — installation, replacement, and repair.',
+    title: 'Deck Repair',
+    description: 'Soft boards, wood rot, loose railings, and steps that flex. We look for the repair first.',
+    image: '/images/projects/deck-wood-railing-south-charlotte.webp',
+    href: '/repairs/deck-repair'
+  },
+  {
+    title: 'Fence Repair',
+    description: 'Leaning posts, sagging gates, and sections down after a storm.',
     image: '/images/projects/fence-wood-privacy-south-charlotte.webp',
-    href: '/fence-installation-south-charlotte'
+    href: '/repairs/fence-repair'
   },
   {
     title: 'Doors & Windows',
-    description: 'Installation, repair, and replacement of doors, windows, and hardware.',
+    description: 'Doors that stick, drafty frames, rotted posts, and hardware that gave up.',
     image: '/images/projects/door-installation-interior-hinge-leveling-brass.webp',
     href: '/repairs/doors-windows'
   },
   {
-    title: 'Carpentry',
-    description: 'Custom woodwork, trim installation, deck repairs, and structural fixes.',
-    image: '/images/projects/carpentry-stair-repair-technician-drilling-wood.webp',
-    href: '/repairs/carpentry'
-  },
-  {
-    title: 'Deck Building & Repair',
-    description: 'Custom deck builds, board and railing replacement, and full rebuilds.',
-    image: '/images/projects/deck-covered-porch-south-charlotte.webp',
-    href: '/deck-builder-south-charlotte'
-  },
-  {
     title: 'Quick Fixes',
-    description: 'From minor fixes to major renovations — we handle it all with expertise.',
+    description: 'The list on the fridge. Small jobs nobody else will drive out for.',
     image: '/images/services/general-repairs.webp',
     href: '/repairs/quick-fix'
+  }
+];
+
+const remodeling = [
+  {
+    title: 'Kitchen Remodeling',
+    description: 'From a functional refresh to a full custom kitchen, priced in writing before we start.',
+    image: '/images/projects/kitchen-remodeling-complete-modern-white-cabinets-island.webp',
+    href: '/remodeling/kitchen-remodeling'
+  },
+  {
+    title: 'Bathroom Remodeling',
+    description: 'Tub-to-shower conversions, tile to the ceiling, vanities, and spa-level rebuilds.',
+    image: '/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp',
+    href: '/remodeling/bathroom-remodeling'
+  },
+  {
+    title: 'Deck Building',
+    description: 'New decks and rebuilds in pressure-treated wood, cedar, or composite.',
+    image: '/images/projects/deck-covered-porch-south-charlotte.webp',
+    href: '/remodeling/decks'
+  },
+  {
+    title: 'Screened Porches',
+    description: 'Turn three usable months into nine. New builds and deck-to-porch conversions.',
+    image: '/images/projects/outdoor-living-deck-construction-screened-porch.webp',
+    href: '/remodeling/screened-porches'
   }
 ];
 ---
 
 <section class="section">
   <div class="container">
-    <!-- Section Header -->
+    <!-- Repairs -->
     <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
       <h2 class="text-3xl lg:text-4xl font-heading font-bold text-neutral-900 mb-4">
-        Complete Home Repair Services
+        Repairs We Handle Every Day
       </h2>
       <p class="text-lg text-neutral-600">
-        From quick fixes to full renovations, our skilled team handles every aspect of your home improvement needs.
+        The everyday stuff that never gets fixed because nobody will come out for it.
+        We will. Minimum for a repair visit is $300, and you get the price before we start.
       </p>
     </div>
 
-    <!-- Services Grid with Images -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-      {services.map((service) => (
+      {repairs.map((service) => (
         <a href={service.href} class="group relative block rounded-xl overflow-hidden aspect-[4/3] shadow-lg">
-          <!-- Background Image -->
           <img
             src={service.image}
-            alt={`${service.title} services in Charlotte NC - iFixx`}
+            alt={`${service.title} in South Charlotte NC - iFixx`}
             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             width="400"
             height="300"
             loading="lazy"
             decoding="async"
           />
-
-          <!-- Gradient Overlay -->
           <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-neutral-900/50 to-transparent"></div>
-
-          <!-- Content -->
           <div class="absolute inset-0 flex flex-col justify-end p-6">
             <h3 class="text-xl lg:text-2xl font-heading font-bold text-white mb-2 group-hover:text-primary-400 transition-colors">
               {service.title}
@@ -77,8 +103,6 @@ const services = [
             <p class="text-neutral-200 text-sm leading-relaxed mb-3 line-clamp-2">
               {service.description}
             </p>
-
-            <!-- Link -->
             <span class="inline-flex items-center text-primary-400 font-semibold text-sm group-hover:gap-2 transition-all">
               View Service
               <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -88,6 +112,60 @@ const services = [
           </div>
         </a>
       ))}
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="/repairs" class="text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+        See every repair we handle →
+      </a>
+    </div>
+
+    <!-- Remodeling -->
+    <div class="text-center max-w-2xl mx-auto mt-20 mb-12 lg:mb-16">
+      <h2 class="text-3xl lg:text-4xl font-heading font-bold text-neutral-900 mb-4">
+        And When You're Ready to Remodel
+      </h2>
+      <p class="text-lg text-neutral-600">
+        Most of our remodels start as a repair call. By the time you hand us the kitchen,
+        you already know how we work.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      {remodeling.map((service) => (
+        <a href={service.href} class="group relative block rounded-xl overflow-hidden aspect-[4/3] shadow-lg">
+          <img
+            src={service.image}
+            alt={`${service.title} in South Charlotte NC - iFixx`}
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            width="400"
+            height="300"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-neutral-900/50 to-transparent"></div>
+          <div class="absolute inset-0 flex flex-col justify-end p-6">
+            <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-primary-400 transition-colors">
+              {service.title}
+            </h3>
+            <p class="text-neutral-200 text-sm leading-relaxed mb-3 line-clamp-2">
+              {service.description}
+            </p>
+            <span class="inline-flex items-center text-primary-400 font-semibold text-sm group-hover:gap-2 transition-all">
+              View Service
+              <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="/remodeling" class="text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+        See remodeling packages and pricing →
+      </a>
     </div>
   </div>
 </section>
