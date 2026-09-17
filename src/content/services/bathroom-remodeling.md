@@ -3,7 +3,7 @@ title: "Bathroom Remodeling"
 category: "remodeling"
 pillar: "remodeling"
 summary: "Create your dream bathroom with custom tile, modern fixtures, vanities, and walk-in showers. Complete bathroom renovations in Charlotte, NC."
-heroImage: "/images/projects/Ifixx-portfolio10.webp"
+heroImage: "/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp"
 bullets:
   - "Shower & tub installation"
   - "Custom tile work"
