@@ -1,21 +1,22 @@
 ---
 const currentPath = Astro.url.pathname;
 
+// "Reparar primero, remodelar despues" (William, 2026-09-17). Repairs leads the nav,
+// remodeling follows. Fences left the nav the same day: the category moves to a
+// separate brand in October, and /fence-*-south-charlotte stay live for Google Ads
+// only, noindexed and unlinked.
 const navLinks = [
   {
-    href: '/fence-installation-south-charlotte',
-    label: 'Fences',
+    href: '/repairs',
+    label: 'Repairs',
     dropdown: [
-      { href: '/fence-installation-south-charlotte', label: 'Fence Installation', description: 'Wood, vinyl & aluminum fences' },
-      { href: '/fence-repair-south-charlotte', label: 'Fence Repair', description: 'Leaning posts, panels & gates' }
-    ]
-  },
-  {
-    href: '/deck',
-    label: 'Decks',
-    dropdown: [
-      { href: '/deck-builder-south-charlotte', label: 'Deck Builder', description: 'Custom decks built to last' },
-      { href: '/deck-repair-south-charlotte', label: 'Deck Repair', description: 'Rebuilds, boards & railings' }
+      { href: '/repairs', label: 'All Home Repairs', description: 'Drywall, painting, carpentry & more' },
+      { href: '/repairs/drywall', label: 'Drywall Repair', description: 'Holes, cracks & texture matching' },
+      { href: '/repairs/painting', label: 'Painting', description: 'Interior & exterior painting' },
+      { href: '/repairs/deck-repair', label: 'Deck Repair', description: 'Rot, boards, railings & steps' },
+      { href: '/repairs/fence-repair', label: 'Fence Repair', description: 'Leaning posts, gates & panels' },
+      { href: '/repairs/quick-fix', label: 'Quick Fixes', description: 'The list nobody else will take' },
+      { href: '/emergency-services', label: 'Emergency Services', description: 'Same-day urgent repairs', emergency: true }
     ]
   },
   {
@@ -23,19 +24,12 @@ const navLinks = [
     label: 'Remodeling',
     dropdown: [
       { href: '/remodeling/kitchen-remodeling', label: 'Kitchen Remodeling', description: 'Full kitchen renovations' },
-      { href: '/remodeling/bathroom-remodeling', label: 'Bathroom Remodeling', description: 'Bathroom updates & remodels' }
+      { href: '/remodeling/bathroom-remodeling', label: 'Bathroom Remodeling', description: 'Bathroom updates & remodels' },
+      { href: '/remodeling/decks', label: 'Deck Building', description: 'New decks, rebuilds & composite' },
+      { href: '/remodeling/screened-porches', label: 'Screened Porches', description: 'Screened in porches & conversions' }
     ]
   },
-  {
-    href: '/repairs',
-    label: 'Repairs',
-    dropdown: [
-      { href: '/repairs', label: 'Same-Day Repairs', description: 'Drywall, painting, carpentry & more' },
-      { href: '/emergency-services', label: 'Emergency Services', description: 'Same-day urgent repairs', emergency: true },
-      { href: '/repairs/drywall', label: 'Drywall Repair', description: 'Holes, cracks & texture matching' },
-      { href: '/repairs/painting', label: 'Painting', description: 'Interior & exterior painting' }
-    ]
-  },
+  { href: '/service-areas', label: 'Service Areas' },
   { href: '/gallery', label: 'Gallery' }
 ];
 

@@ -1,5 +1,6 @@
 ---
-import { googleReviewLabel } from '../../lib/business-facts';
+import { googleReviewLabel, GOOGLE_RATING } from '../../lib/business-facts';
+import { GOOGLE_PROFILE_URL } from '../../lib/google-reviews';
 interface Props {
   variant?: 'light' | 'dark';
 }
@@ -22,14 +23,18 @@ const borderClass = variant === 'dark'
   ? 'border-neutral-700'
   : 'border-neutral-200';
 
+// Solo Google publica una calificacion: es la unica con fuente comprobable
+// (GBP, ver business-facts.ts). Yelp mostraba un "5.0" sin perfil enlazado ni
+// respaldo; se retiro el 2026-09-17 y queda como badge de presencia, igual que
+// Facebook y Nextdoor.
 const reviewPlatforms = [
   {
     name: 'Google',
-    rating: '5.0',
+    rating: GOOGLE_RATING.toFixed(1),
     reviewCount: googleReviewLabel(),
     hasStars: true,
     hasLink: true,
-    url: 'https://share.google/etUzpmu9VuUzDVDZJ',
+    url: GOOGLE_PROFILE_URL,
   },
   {
     name: 'Facebook',
@@ -40,8 +45,8 @@ const reviewPlatforms = [
   },
   {
     name: 'Yelp',
-    rating: '5.0',
-    hasStars: true,
+    rating: null,
+    hasStars: false,
     hasLink: false,
     url: null,
   },
@@ -60,7 +65,7 @@ const reviewPlatforms = [
     <div class="flex flex-col items-center gap-5">
       <!-- Heading -->
       <p class={`text-sm font-medium ${subtextClass}`}>
-        Rated 5.0 by Charlotte homeowners. Find us and read the reviews
+        Rated {GOOGLE_RATING.toFixed(1)} on Google by Charlotte homeowners. Find us and read the reviews
       </p>
 
       <!-- Platform Reviews -->

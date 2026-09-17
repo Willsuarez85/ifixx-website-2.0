@@ -12,6 +12,11 @@
       "permanent": true
     },
     {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml",
+      "permanent": true
+    },
+    {
       "source": "/kitchen-remodeling-charlotte",
       "destination": "/remodeling/kitchen-remodeling",
       "permanent": true
@@ -133,12 +138,12 @@
     },
     {
       "source": "/services/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
       "source": "/services/outdoor-living/",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -518,12 +523,12 @@
     },
     {
       "source": "/ballantyne/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
       "source": "/ballantyne/outdoor-living/",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -598,12 +603,12 @@
     },
     {
       "source": "/charlotte/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
       "source": "/charlotte/outdoor-living/",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -678,12 +683,12 @@
     },
     {
       "source": "/matthews/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
       "source": "/matthews/outdoor-living/",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -758,12 +763,12 @@
     },
     {
       "source": "/pineville/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
       "source": "/pineville/outdoor-living/",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -838,12 +843,12 @@
     },
     {
       "source": "/south-charlotte/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
       "source": "/south-charlotte/outdoor-living/",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -968,12 +973,12 @@
     },
     {
       "source": "/rock-hill/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
       "source": "/rock-hill/outdoor-living/",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -1023,7 +1028,7 @@
     },
     {
       "source": "/huntersville/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -1068,7 +1073,7 @@
     },
     {
       "source": "/concord/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -1113,7 +1118,7 @@
     },
     {
       "source": "/monroe/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -1153,7 +1158,7 @@
     },
     {
       "source": "/waxhaw/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -1250,164 +1255,106 @@
       "source": "/service-areas/rock-hill",
       "destination": "/service-areas",
       "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/monroe/quick-fix",
-      "destination": "/api/gone"
     },
     {
-      "source": "/monroe/quick-fix/",
-      "destination": "/api/gone"
+      "source": "/ballantyne/basement-finishing",
+      "destination": "/remodeling",
+      "permanent": true
     },
     {
-      "source": "/services/plumbing",
-      "destination": "/api/gone"
+      "source": "/ballantyne/basement-finishing/",
+      "destination": "/remodeling",
+      "permanent": true
     },
     {
-      "source": "/services/plumbing/",
-      "destination": "/api/gone"
+      "source": "/charlotte/basement-finishing",
+      "destination": "/remodeling",
+      "permanent": true
     },
     {
-      "source": "/services/electrical",
-      "destination": "/api/gone"
+      "source": "/charlotte/basement-finishing/",
+      "destination": "/remodeling",
+      "permanent": true
     },
     {
-      "source": "/services/electrical/",
-      "destination": "/api/gone"
+      "source": "/matthews/basement-finishing",
+      "destination": "/remodeling",
+      "permanent": true
     },
     {
-      "source": "/services/electrical-fixtures",
-      "destination": "/api/gone"
+      "source": "/matthews/basement-finishing/",
+      "destination": "/remodeling",
+      "permanent": true
     },
     {
-      "source": "/services/electrical-fixtures/",
-      "destination": "/api/gone"
+      "source": "/south-charlotte/basement-finishing",
+      "destination": "/remodeling",
+      "permanent": true
     },
     {
-      "source": "/rock-hill/electrical",
-      "destination": "/api/gone"
+      "source": "/south-charlotte/basement-finishing/",
+      "destination": "/remodeling",
+      "permanent": true
     },
     {
-      "source": "/rock-hill/electrical/",
-      "destination": "/api/gone"
+      "source": "/charlotte",
+      "destination": "/service-areas/charlotte",
+      "permanent": true
     },
     {
-      "source": "/huntersville/plumbing",
-      "destination": "/api/gone"
+      "source": "/south-charlotte",
+      "destination": "/service-areas/south-charlotte",
+      "permanent": true
     },
     {
-      "source": "/huntersville/electrical-fixtures",
-      "destination": "/api/gone"
+      "source": "/ballantyne",
+      "destination": "/service-areas/ballantyne",
+      "permanent": true
     },
     {
-      "source": "/concord/plumbing",
-      "destination": "/api/gone"
+      "source": "/pineville",
+      "destination": "/service-areas/pineville",
+      "permanent": true
     },
     {
-      "source": "/concord/electrical-fixtures",
-      "destination": "/api/gone"
+      "source": "/matthews",
+      "destination": "/service-areas/matthews",
+      "permanent": true
     },
     {
-      "source": "/monroe/plumbing",
-      "destination": "/api/gone"
+      "source": "/concord",
+      "destination": "/service-areas",
+      "permanent": true
     },
     {
-      "source": "/monroe/electrical-fixtures",
-      "destination": "/api/gone"
+      "source": "/huntersville",
+      "destination": "/service-areas",
+      "permanent": true
     },
     {
-      "source": "/waxhaw/plumbing",
-      "destination": "/api/gone"
+      "source": "/monroe",
+      "destination": "/service-areas",
+      "permanent": true
     },
     {
-      "source": "/waxhaw/electrical-fixtures",
-      "destination": "/api/gone"
+      "source": "/rock-hill",
+      "destination": "/service-areas",
+      "permanent": true
     },
     {
-      "source": "/rock-hill/plumbing",
-      "destination": "/api/gone"
+      "source": "/waxhaw",
+      "destination": "/service-areas",
+      "permanent": true
     },
     {
-      "source": "/rock-hill/electrical-fixtures",
-      "destination": "/api/gone"
+      "source": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
+      "permanent": true
     },
     {
-      "source": "/charlotte/plumbing",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/south-charlotte/plumbing",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/ballantyne/plumbing",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/pineville/plumbing",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/matthews/plumbing",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/mint-hill/plumbing",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/repairs/plumbing",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/charlotte/electrical-fixtures",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/south-charlotte/electrical-fixtures",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/ballantyne/electrical-fixtures",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/pineville/electrical-fixtures",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/matthews/electrical-fixtures",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/mint-hill/electrical-fixtures",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/repairs/electrical-fixtures",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/emergency-services/electrical-fixtures",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/blog/5-signs-you-need-plumbing-help",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/blog/5-signs-you-need-plumbing-help/",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/blog/warning-signs-plumbing-problems",
-      "destination": "/api/gone"
-    },
-    {
-      "source": "/blog/warning-signs-plumbing-problems/",
-      "destination": "/api/gone"
+      "source": "/remodeling/outdoor-living/",
+      "destination": "/remodeling/decks",
+      "permanent": true
     }
   ]
 }

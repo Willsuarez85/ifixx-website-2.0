@@ -88,7 +88,7 @@ const faqSchema = {
 };
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} ogImage={heroImage}>
+<BaseLayout noindex={true} title={title} description={description} canonical={canonical} ogImage={heroImage}>
   <Fragment slot="schema"><script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} /><script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} /><script type="application/ld+json" set:html={JSON.stringify(faqSchema)} /></Fragment>
 
   <section class="relative bg-neutral-900 overflow-hidden">

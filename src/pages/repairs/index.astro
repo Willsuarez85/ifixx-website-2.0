@@ -3,11 +3,30 @@ import { GOOGLE_REVIEW_COUNT } from '../../lib/business-facts';
 import PillarLayout from '../../layouts/PillarLayout.astro';
 import { getCollection } from 'astro:content';
 import TrustBar from '../../components/sections/TrustBar.astro';
+import GoogleReviews from '../../components/sections/GoogleReviews.astro';
+import { REPAIRS_FEATURED_AUTHORS } from '../../lib/google-reviews';
 import { isRetiredService, hasServiceAreaHub } from '../../lib/seo-retired';
 
 // Get all services with category 'handyman' (repairs) — exclude retired services
 const allServices = await getCollection('services');
-const repairServices = allServices.filter(s => s.data.category === 'handyman' && !isRetiredService(s.slug));
+// Order is the strategy: the repairs that bring the most calls go first, then the
+// rest of the handyman list. Anything not named here still renders, at the end.
+const REPAIR_ORDER = [
+  'drywall',
+  'painting',
+  'deck-repair',
+  'fence-repair',
+  'quick-fix',
+  'carpentry',
+  'doors-windows',
+];
+const repairServices = allServices
+  .filter(s => s.data.category === 'handyman' && !isRetiredService(s.slug))
+  .sort((a, b) => {
+    const ia = REPAIR_ORDER.indexOf(a.slug);
+    const ib = REPAIR_ORDER.indexOf(b.slug);
+    return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+  });
 
 // Get all locations for internal linking — only those with a /service-areas hub
 const locations = (await getCollection('cities')).filter(c => hasServiceAreaHub(c.slug));
@@ -15,10 +34,10 @@ const locations = (await getCollection('cities')).filter(c => hasServiceAreaHub(
 const pillar = {
   title: "Home Repair Services",
   slug: "repairs",
-  description: "Charlotte's trusted home repair team. Carpentry, painting, drywall, doors and windows, and everyday fixes. Family-owned, fully insured, working across South Charlotte, Matthews, Ballantyne, and surrounding areas.",
+  description: "South Charlotte's handyman and repair crew. Drywall, painting, deck and fence repair, carpentry, doors and windows, and the list of small jobs nobody else will take. Family-owned, fully insured, same-day when we can.",
   seo: {
-    title: "Home Repairs Charlotte NC | Same-Day Handyman | ⭐5.0 | iFIXX",
-    description: "Charlotte's trusted handyman for all home repairs. Carpentry, painting, drywall, doors & windows—same-day service. ⭐5.0 on Google. Family-owned. Free estimates! Call (980) 391-6833."
+    title: "Handyman & Home Repairs South Charlotte NC | Same-Day | iFIXX",
+    description: "Handyman and home repairs in South Charlotte NC. Drywall, painting, deck and fence repair, carpentry, doors and windows. Insured, same-day when we can. Call (980) 391-6833."
   }
 };
 
@@ -31,8 +50,9 @@ const services = repairServices.map(s => ({
 
 // Service image mapping
 const serviceImages: Record<string, string> = {
-  'plumbing': '/images/projects/plumbing-water-heater-valve-repair-wrench.webp',
-  'electrical': '/images/projects/electrical-range-hood-wiring-installation-kitchen.webp',
+  'drywall': '/images/projects/drywall-repair-patching-hole-spackling.webp',
+  'deck-repair': '/images/projects/deck-wood-railing-south-charlotte.webp',
+  'fence-repair': '/images/projects/fence-wood-privacy-south-charlotte.webp',
   'carpentry': '/images/projects/carpentry-baseboard-trim-installation-repair.webp',
   'painting': '/images/projects/painting-drywall-dining-room-wainscoting-chandelier.webp',
   'doors-windows': '/images/projects/door-window-blinds-installation-leveling.webp',
@@ -65,12 +85,12 @@ const serviceImages: Record<string, string> = {
         </nav>
 
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-          Your Local Charlotte <span class="text-primary-500">Handyman Team</span>
+          Handyman &amp; Home Repairs in <span class="text-primary-500">South Charlotte</span>
         </h1>
         <p class="text-xl text-neutral-300 mb-8 leading-relaxed">
-          We've been fixing homes across Charlotte for over 5 years.
-          From a cracked wall in Myers Park to a sticking door in Matthews,
-          we're the local team your neighbors call when they need it done right.
+          Drywall, painting, decks, fences, doors, and the list of small jobs nobody
+          else will take. We've been fixing homes here since 2019, we're fully insured,
+          and the owners answer the phone. Minimum for a repair visit is $300.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4">
@@ -96,8 +116,9 @@ const serviceImages: Record<string, string> = {
           Home Repairs We Handle Every Day
         </h2>
         <p class="text-lg text-neutral-600">
-          After years of projects across Charlotte, there's not much we haven't seen.
-          From older homes in Plaza Midwood to newer builds in Waxhaw—we know what Charlotte homes need.
+          After years of projects across South Charlotte, Ballantyne, Pineville, and Matthews,
+          there's not much we haven't seen. Text photos to (980) 391-6833 and most of the time
+          we can price it before anyone drives out.
         </p>
       </div>
 
@@ -144,12 +165,12 @@ const serviceImages: Record<string, string> = {
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <h2 class="text-3xl md:text-4xl font-bold mb-6">
-            Why Charlotte Calls iFixx First
+            Why South Charlotte Calls iFixx First
           </h2>
           <p class="text-neutral-300 text-lg mb-8">
             We're a local Charlotte family—not a franchise, not a call center in another state.
             When you call us, you talk to us. When we show up, it's the same team every time.
-            That's how we've built our reputation over 5 years.
+            That's how we've built our reputation since 2019.
           </p>
 
           <ul class="space-y-4">
@@ -202,8 +223,8 @@ const serviceImages: Record<string, string> = {
 
         <div class="relative">
           <img
-            src="/images/projects/Ifixx-portfolio28.webp"
-            alt="iFixx handyman working on home repairs in Charlotte"
+            src="/images/projects/drywall-repair-patching-hole-spackling.webp"
+            alt="iFIXX patching drywall on a South Charlotte home repair"
             class="rounded-2xl shadow-2xl"
             loading="lazy"
             decoding="async"
@@ -219,6 +240,12 @@ const serviceImages: Record<string, string> = {
     </div>
   </section>
 
+  <!-- Reviews: las tres del perfil de Google que hablan de drywall y handyman -->
+  <GoogleReviews
+    title="What South Charlotte Homeowners Say About Our Repairs"
+    authors={REPAIRS_FEATURED_AUTHORS}
+  />
+
   <!-- Service Areas -->
   <section class="py-16 lg:py-24 bg-neutral-50">
     <div class="container">
@@ -227,7 +254,8 @@ const serviceImages: Record<string, string> = {
           Service Areas
         </h2>
         <p class="text-lg text-neutral-600">
-          We provide home repair services throughout the Charlotte metro area.
+          South Charlotte is home base. We also work Ballantyne, Pineville, Matthews, and the
+          surrounding Charlotte neighborhoods.
         </p>
       </div>
 

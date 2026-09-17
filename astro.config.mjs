@@ -40,6 +40,13 @@ export default defineConfig({
         // Anchored to the end of the path: /repairs/drywall and /repairs/painting
         // cannot match here.
         if (page.match(/\/(drywall-repair-south-charlotte|interior-painting-south-charlotte)\/?$/)) return false;
+        // Ads-only landings, phase 2 (2026-09-17, "reparar primero, remodelar despues"):
+        // fences leave the site because the category moves to a separate brand in
+        // October, and the two deck landings are superseded organically by
+        // /repairs/deck-repair and /remodeling/decks. All five stay LIVE and keep
+        // serving Google Ads (Fence Repair is still running), which noindex does not
+        // affect; they only stop competing in organic. Anchored to the end of the path.
+        if (page.match(/\/(fence-installation-south-charlotte|fence-repair-south-charlotte|fence-installation-waxhaw|deck-repair-south-charlotte|deck-builder-south-charlotte)\/?$/)) return false;
         // Exclude privacy and terms (low value for SEO)
         if (page.includes('/privacy') || page.includes('/terms')) return false;
         // Exclude /lp/* pages — noindexed landing pages, waste crawl budget

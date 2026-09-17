@@ -1,4 +1,7 @@
 ---
+import { GOOGLE_REVIEW_COUNT, GOOGLE_RATING } from '../../lib/business-facts';
+import { GOOGLE_REVIEWS, GOOGLE_PROFILE_URL, reviewDateLabel } from '../../lib/google-reviews';
+
 interface Props {
   segment?: 'homeowner' | 'property-manager' | 'all';
   title?: string;
@@ -9,87 +12,33 @@ interface Props {
 const {
   segment = 'all',
   title = 'What Our Customers Say',
-  subtitle = "Don't just take our word for it — hear from the Charlotte homeowners we've helped.",
-  maxItems = 4
+  subtitle = "Don't just take our word for it — every review below is on our Google Business Profile.",
+  maxItems = 6
 } = Astro.props;
 
-// All testimonials with segment tags
-const allTestimonials = [
-  // Homeowner testimonials
-  {
-    name: 'Sarah M.',
-    location: 'South Charlotte',
-    text: 'iFixx fixed our bathroom leak within hours of calling. Professional, clean, and fairly priced. They\'re now our go-to for any home repairs.',
-    rating: 5,
-    segment: 'homeowner'
-  },
-  {
-    name: 'David & Jennifer R.',
-    location: 'Ballantyne',
-    text: 'We used iFixx for our kitchen remodel and couldn\'t be happier. They communicated throughout the project and finished on schedule.',
-    rating: 5,
-    segment: 'homeowner'
-  },
-  {
-    name: 'Michael T.',
-    location: 'Matthews',
-    text: 'After a pipe burst at 2am, iFixx was there by 6am. Their emergency response saved us from major water damage.',
-    rating: 5,
-    segment: 'homeowner'
-  },
-  {
-    name: 'Linda K.',
-    location: 'Myers Park',
-    text: 'Finally found a handyman service I can trust. From drywall repairs to painting, they do quality work every time.',
-    rating: 5,
-    segment: 'homeowner'
-  },
-  // Property Manager testimonials
-  {
-    name: 'Robert Chen',
-    location: 'Parkview Property Management',
-    company: '47 units',
-    text: 'Managing multiple properties means constant maintenance requests. iFixx handles our repair and turnover punch lists, with same-day response when something is urgent. They\'ve cut our maintenance headaches in half.',
-    rating: 5,
-    segment: 'property-manager'
-  },
-  {
-    name: 'Amanda Foster',
-    location: 'Foster Realty Group',
-    company: '23 properties',
-    text: 'The volume pricing and priority scheduling have been game-changers for our portfolio. iFixx understands that vacant units cost money.',
-    rating: 5,
-    segment: 'property-manager'
-  },
-  {
-    name: 'Marcus Williams',
-    location: 'Carolina Investment Properties',
-    company: '65+ doors',
-    text: 'We switched to iFixx after our previous vendor became unreliable. Their reporting and communication keep our investors happy.',
-    rating: 5,
-    segment: 'property-manager'
-  },
-  {
-    name: 'Jennifer Martinez',
-    location: 'Sunrise Property Solutions',
-    company: '32 units',
-    text: 'Tenant turnover prep used to take 2 weeks. With iFixx\'s team approach, we\'re rental-ready in 3-5 days. That\'s real money saved.',
-    rating: 5,
-    segment: 'property-manager'
-  }
-];
+// Este bloque publicaba 8 testimonios redactados: nombres, barrios, empresas de
+// administracion de propiedades y numeros de unidades sin ningun respaldo, mas dos
+// que describian trabajo de plomeria (fuga de bano, tuberia rota a las 2am), que
+// iFIXX no ofrece. Se retiraron el 2026-09-17. El sitio solo muestra resenas que
+// existen en el Google Business Profile: src/lib/google-reviews.ts.
+//
+// `segment` se conserva porque /for-homeowners y /for-property-managers lo pasan,
+// pero ya no filtra: no hay resenas verificadas segmentadas. Cuando el GBP tenga
+// una de un property manager, se anade al archivo con su etiqueta.
+//
+// GOOGLE_REVIEWS viene de la mas reciente a la mas antigua, asi que esto muestra
+// las N mas recientes del perfil.
+const testimonials = GOOGLE_REVIEWS.slice(0, maxItems);
 
-// Filter testimonials based on segment
-const testimonials = segment === 'all'
-  ? allTestimonials.slice(0, maxItems)
-  : allTestimonials.filter(t => t.segment === segment).slice(0, maxItems);
-
-// Update subtitle based on segment
 const displaySubtitle = segment === 'property-manager'
-  ? 'See why property managers across Charlotte trust iFixx for their maintenance needs.'
+  ? 'Every review below is public on our Google Business Profile.'
   : subtitle;
+
+// El texto se guarda completo; si es largo se recorta solo visualmente.
+const LONG_REVIEW = 260;
 ---
 
+{testimonials.length > 0 && (
 <section class="section section-alt">
   <div class="container">
     <!-- Section Header -->
@@ -100,11 +49,14 @@ const displaySubtitle = segment === 'property-manager'
       <p class="text-lg text-neutral-600">
         {displaySubtitle}
       </p>
+      <p class="mt-4 text-neutral-700 font-semibold">
+        {GOOGLE_RATING} stars across {GOOGLE_REVIEW_COUNT} Google reviews
+      </p>
     </div>
 
     <!-- Testimonials Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-      {testimonials.map((testimonial) => (
+      {testimonials.map((testimonial, index) => (
         <div class="card p-6 lg:p-8">
           <!-- Stars -->
           <div class="flex gap-1 mb-4">
@@ -115,24 +67,43 @@ const displaySubtitle = segment === 'property-manager'
             ))}
           </div>
 
-          <!-- Quote -->
-          <blockquote class="text-neutral-700 leading-relaxed mb-6">
-            "{testimonial.text}"
-          </blockquote>
+          <!-- Quote (verbatim; si es larga se recorta solo a la vista) -->
+          {testimonial.text.length > LONG_REVIEW ? (
+            <div class="mb-6">
+              <input type="checkbox" id={`tm-${index}-${testimonial.datePublished}`} class="peer sr-only" />
+              <blockquote class="text-neutral-700 leading-relaxed whitespace-pre-line line-clamp-5 peer-checked:line-clamp-none">
+                "{testimonial.text}"
+              </blockquote>
+              <label
+                for={`tm-${index}-${testimonial.datePublished}`}
+                class="mt-1 inline-block cursor-pointer text-sm font-semibold text-primary-600 hover:text-primary-700 peer-checked:hidden"
+              >
+                Read more
+              </label>
+            </div>
+          ) : (
+            <blockquote class="text-neutral-700 leading-relaxed whitespace-pre-line mb-6">
+              "{testimonial.text}"
+            </blockquote>
+          )}
 
           <!-- Author -->
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
+            <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center shrink-0">
               <span class="text-primary-600 font-semibold text-sm">
-                {testimonial.name.charAt(0)}
+                {testimonial.author.charAt(0)}
               </span>
             </div>
             <div>
-              <p class="font-semibold text-neutral-900">{testimonial.name}</p>
-              <p class="text-sm text-neutral-500">
-                {testimonial.location}
-                {testimonial.company && <span class="text-primary-600"> ({testimonial.company})</span>}
-              </p>
+              <p class="font-semibold text-neutral-900">{testimonial.author}</p>
+              <a
+                href={testimonial.reviewUrl ?? GOOGLE_PROFILE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-sm text-neutral-500 hover:text-primary-600 transition-colors"
+              >
+                Review on Google · {reviewDateLabel(testimonial.datePublished)}
+              </a>
             </div>
           </div>
         </div>
@@ -142,7 +113,7 @@ const displaySubtitle = segment === 'property-manager'
     <!-- Google Reviews Link -->
     <div class="text-center mt-10">
       <a
-        href="https://g.page/ifixxnc"
+        href={GOOGLE_PROFILE_URL}
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 text-primary-600 font-medium hover:text-primary-700 transition-colors"
@@ -150,7 +121,7 @@ const displaySubtitle = segment === 'property-manager'
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
         </svg>
-        See all reviews on Google
+        Read all {GOOGLE_REVIEW_COUNT} reviews on Google
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
         </svg>
@@ -158,3 +129,4 @@ const displaySubtitle = segment === 'property-manager'
     </div>
   </div>
 </section>
+)}

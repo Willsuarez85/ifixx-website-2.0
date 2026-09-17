@@ -83,7 +83,7 @@ Not every tired deck needs a full rebuild. Common Charlotte deck repairs:
 | Reinforce framing or ledger connection | $400 – $1,500 |
 | Sand, re-stain, and seal (full deck) | $800 – $2,500 |
 
-If the framing and footings are sound and only the surface is worn, a repair and re-stain buys years for a fraction of a rebuild. If the structure or ledger is failing, replacement wins on both safety and cost per year of life. An honest contractor will tell you which side of that line you're on — [we do both new builds and repairs](/deck-repair-south-charlotte), so we have no reason to push you toward the expensive option.
+If the framing and footings are sound and only the surface is worn, a repair and re-stain buys years for a fraction of a rebuild. If the structure or ledger is failing, replacement wins on both safety and cost per year of life. An honest contractor will tell you which side of that line you're on — [we do both new builds and repairs](/repairs/deck-repair), so we have no reason to push you toward the expensive option.
 
 ## How to Budget Your Deck Project
 
@@ -98,7 +98,7 @@ Pricing across the South Charlotte corridor — Ballantyne, Waxhaw, Weddington, 
 
 ## Get a Real Number for Your Yard
 
-Online ranges get you in the ballpark; a walk-through gets you a real price. iFIXX builds and rebuilds [decks and screened porches across South Charlotte](/deck-builder-south-charlotte) in wood or composite — owner-led crews, insured, milestone payments instead of a big deposit up front, and we show you photos of our actual local work, not stock images.
+Online ranges get you in the ballpark; a walk-through gets you a real price. iFIXX builds and rebuilds [decks and screened porches across South Charlotte](/remodeling/decks) in wood or composite — owner-led crews, insured, milestone payments instead of a big deposit up front, and we show you photos of our actual local work, not stock images.
 
 **Why Charlotte homeowners choose iFIXX:**
 
@@ -108,7 +108,7 @@ Online ranges get you in the ballpark; a walk-through gets you a real price. iFI
 - Milestone payments as the work gets done
 - Free on-site estimates
 
-[Get Your Free Deck Estimate](/deck-builder-south-charlotte) or call us at **(980) 391-6833**.
+[Get Your Free Deck Estimate](/remodeling/decks) or call us at **(980) 391-6833**.
 
 ---
 

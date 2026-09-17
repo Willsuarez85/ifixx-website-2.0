@@ -40,13 +40,19 @@ export const SERVICE_AREA_ONLY_CITIES = ['mint-hill'] as const;
 //   basement-finishing  — retired per Jaime/William 2026-07-07: iFIXX no longer offers
 //                         basement finishing. Removed from the remodeling pillar + sitemap;
 //                         301'd to /remodeling (see vercel.json).
+//   outdoor-living      — consolidated into /remodeling/decks on 2026-09-17 ("reparar
+//                         primero, remodelar despues"). The page sold decks, patios and
+//                         pergolas under a label nobody searches for; decks is the keyword
+//                         and screened porches got their own silo. 301'd to /remodeling/decks,
+//                         and the ten city URLs that used to land here were repointed so no
+//                         redirect chains.
 //   pressure-washing    — retired per William 2026-08-07: iFIXX does not offer it as a
 //                         service. CONTEXT.md never listed it; the site had been selling it
 //                         since PR #2. Removed from the repairs pillar + sitemap; the silo
 //                         and the standalone /services/pressure-washing sales page are gone
 //                         and 301 to /repairs, and the 15 city redirects that used to land
 //                         on the silo were repointed there too (see vercel.json).
-export const RETIRED_SERVICES = ['plumbing', 'electrical-fixtures', 'basement-finishing', 'pressure-washing'] as const;
+export const RETIRED_SERVICES = ['plumbing', 'electrical-fixtures', 'basement-finishing', 'pressure-washing', 'outdoor-living'] as const;
 
 // Services consolidated into a single canonical page: they are still offered, but they
 // have NO /{city}/{service} page — the matrix skips them, and vercel.json 301s the old
@@ -95,12 +101,22 @@ export const isConsolidatedService = (slug: string): boolean => consolidatedServ
 export const isPrunedMatrixService = (slug: string): boolean => prunedMatrixServices.includes(slug);
 
 /**
+ * The city x service matrix was retired on 2026-08-06 and does not come back. This flag
+ * is what enforces it: the per-service lists above only document WHY each slug left, and
+ * a service added after that date (decks, screened-porches, deck-repair, fence-repair on
+ * 2026-09-17) is not on any of them. Composing the predicates alone silently rebuilt 20
+ * matrix pages the first time a new service landed.
+ */
+const MATRIX_RETIRED = true;
+
+/**
  * True when the /{city}/{service} page actually exists. Use before linking to one.
- * Since the 2026-08-06 pruning this is false for every combination: the matrix is gone.
- * The guard stays because every caller uses it to fall back to the silo or the zone hub,
- * and because it is what keeps a reintroduced route from linking into 404s again.
+ * It is false for every combination: the matrix is gone. The guard stays because every
+ * caller uses it to fall back to the silo or the zone hub, and because it is what keeps
+ * a reintroduced route from linking into 404s again.
  */
 export const hasCityServicePage = (citySlug: string, serviceSlug: string): boolean =>
+  !MATRIX_RETIRED &&
   !isRetiredCity(citySlug) &&
   !isRetiredService(serviceSlug) &&
   !isConsolidatedService(serviceSlug) &&

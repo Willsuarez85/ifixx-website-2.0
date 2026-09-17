@@ -1,16 +1,17 @@
 ---
 const currentYear = new Date().getFullYear();
 
+// Repairs first, remodeling second, no fences (William, 2026-09-17).
 const serviceLinks = [
-  // H2 anchors first — the order is the strategy
-  { href: '/fence-installation-south-charlotte', label: 'Fence Installation' },
-  { href: '/fence-repair-south-charlotte', label: 'Fence Repair' },
-  { href: '/deck-builder-south-charlotte', label: 'Deck Builder' },
-  { href: '/deck-repair-south-charlotte', label: 'Deck Repair' },
+  { href: '/repairs', label: 'Handyman & Home Repairs' },
+  { href: '/repairs/drywall', label: 'Drywall Repair' },
+  { href: '/repairs/painting', label: 'Painting' },
+  { href: '/repairs/deck-repair', label: 'Deck Repair' },
+  { href: '/repairs/fence-repair', label: 'Fence Repair' },
   { href: '/remodeling/kitchen-remodeling', label: 'Kitchen Remodeling' },
   { href: '/remodeling/bathroom-remodeling', label: 'Bathroom Remodeling' },
-  // Cash bridge
-  { href: '/repairs', label: 'Same-Day Handyman' },
+  { href: '/remodeling/decks', label: 'Deck Building' },
+  { href: '/remodeling/screened-porches', label: 'Screened Porches' },
   { href: '/emergency-services', label: '🚨 Emergency Services' }
 ];
 
@@ -38,7 +39,7 @@ const serviceAreas = [
 const popularLocalServices = [
   { label: 'Kitchen Remodel Cost Charlotte',   href: '/blog/how-much-kitchen-remodel-charlotte' },
   { label: 'Bathroom Remodel Cost Charlotte',  href: '/blog/how-much-bathroom-remodel-charlotte' },
-  { label: 'Outdoor Living',                   href: '/remodeling/outdoor-living' }
+  { label: 'Deck Building South Charlotte', href: '/remodeling/decks' }
 ];
 
 const phoneNumber = '(980) 391-6833';
@@ -74,7 +75,7 @@ const socialLinks = [
           <span class="text-3xl font-bold font-heading text-white">iFixx</span>
         </a>
         <p class="text-neutral-400 mb-6 text-sm leading-relaxed">
-          Family-owned contractors serving Charlotte, NC with expert craftsmanship and trusted service since 2019.
+          Family-owned handyman and remodeling crew serving South Charlotte, NC with honest pricing and trusted service since 2019.
         </p>
         <a
           href={phoneHref}

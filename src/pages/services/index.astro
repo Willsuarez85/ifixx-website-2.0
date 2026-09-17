@@ -9,8 +9,8 @@ import { isRetiredService } from '../../lib/seo-retired';
 // Exclude retired services (e.g. plumbing) — this page is the redirect target for them
 const services = (await getCollection('services')).filter(s => !isRetiredService(s.slug));
 
-const seoTitle = "Handyman & Remodeling Services Charlotte NC ⭐5.0 | iFIXX";
-const seoDescription = "Charlotte handyman & remodeling: carpentry, drywall, painting, doors & windows, kitchen & bath. Same-day available. ⭐5.0 ☎ (980) 391-6833.";
+const seoTitle = "Handyman & Remodeling Services South Charlotte NC | iFIXX";
+const seoDescription = "Every service iFIXX offers in South Charlotte NC: drywall, painting, deck and fence repair, carpentry, doors and windows, kitchen and bath remodeling, decks and screened porches. ☎ (980) 391-6833.";
 
 // Map service slugs to images (using descriptive project images)
 const serviceImages: Record<string, string> = {
@@ -25,7 +25,11 @@ const serviceImages: Record<string, string> = {
   'basement-finishing': '/images/projects/construction-wood-framing-window.webp',
   'flooring-installation': '/images/projects/flooring-installation-modern-living-room-interior.webp',
   'furniture-assembly': '/images/projects/furniture-assembly-wooden-shelf-unit-screwdriver.webp',
-  'outdoor-living': '/images/projects/outdoor-living-covered-porch-deck-wood-ceiling.webp',
+  'decks': '/images/projects/deck-covered-porch-south-charlotte.webp',
+  'screened-porches': '/images/projects/outdoor-living-deck-construction-screened-porch.webp',
+  'deck-repair': '/images/projects/deck-wood-railing-south-charlotte.webp',
+  'fence-repair': '/images/projects/fence-wood-privacy-south-charlotte.webp',
+  'drywall': '/images/projects/drywall-repair-patching-hole-spackling.webp',
   'tv-mounting': '/images/projects/tv-mounting-wall-bracket-installation-drilling.webp'
 };
 

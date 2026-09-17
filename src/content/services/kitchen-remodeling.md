@@ -208,7 +208,7 @@ We don't consider the job complete until you're completely satisfied. We address
 
 We keep pricing simple with three clear levels of transformation. Smaller kitchen updates (paint, hardware, backsplash or counter refresh) start at $8,000, and every project is measured at your home and quoted free.
 
-**Functional Refresh: starting at $10,000** (standard 10'x10')
+**Functional Refresh: starting at $20,000** (standard 10'x10')
 - Fresh wall paint
 - Up to 12 basic cabinets (Home Depot/Lowe's, no soft-close)
 - Standard granite countertops
@@ -217,7 +217,7 @@ We keep pricing simple with three clear levels of transformation. Smaller kitche
 - Basic knobs and hardware
 - *Excludes: appliances, fixture relocation, permits*
 
-**Complete Renovation: starting at $20,000** (standard 10'x10')
+**Complete Renovation: starting at $30,000** (standard 10'x10')
 - Up to 20 NKBC wood cabinets (100% wood, soft-close)
 - Quartz or premium granite countertops (#1 grade)
 - Custom backsplash

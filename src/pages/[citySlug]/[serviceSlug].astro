@@ -7,7 +7,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 import LandingForm from '../../components/forms/LandingForm.astro';
-import { isRetiredCity, isRetiredService, isConsolidatedService, isPrunedMatrixService, hasCityServicePage } from '../../lib/seo-retired';
+import { isRetiredCity, isRetiredService, hasCityServicePage } from '../../lib/seo-retired';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -35,16 +35,12 @@ export async function getStaticPaths() {
       continue;
     }
     for (const service of services) {
-      // Skip generating city+service pages for consolidated services
-      if (isConsolidatedService(service.slug)) {
-        continue;
-      }
-      // SEO cleanup (2026-06): skip services iFIXX does not offer (301'd in vercel.json)
-      if (isRetiredService(service.slug)) {
-        continue;
-      }
-      // Matrix pruning phase 2 (2026-08-06): the last 8 services leave the matrix (301'd).
-      if (isPrunedMatrixService(service.slug)) {
+      // Single guard, shared with every page that links into the matrix. It used to be
+      // three inline checks against the retired/consolidated/pruned lists, which meant a
+      // service added after the pruning (decks, screened-porches, deck-repair,
+      // fence-repair on 2026-09-17) was on none of the lists and quietly rebuilt 20
+      // matrix pages nobody asked for.
+      if (!hasCityServicePage(city.slug, service.slug)) {
         continue;
       }
 

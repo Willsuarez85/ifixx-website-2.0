@@ -6,6 +6,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import CTAIntermediate from '../../components/sections/CTAIntermediate.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import QuickEstimateCompact from '../../components/forms/QuickEstimateCompact.astro';
+import { estimateFormSlug } from '../../lib/estimate-form';
 import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 import { isRetiredCity, isRetiredService, hasCityServicePage } from '../../lib/seo-retired';
@@ -55,6 +56,8 @@ const serviceHeroImages: Record<string, string> = {
   'quick-fix': '/images/projects/drywall-repair-patching-hole-spackling.webp',
   'furniture-assembly': '/images/projects/furniture-assembly-wooden-shelf-unit-screwdriver.webp',
   'tv-mounting': '/images/projects/tv-mounting-wall-bracket-installation-drilling.webp',
+  'deck-repair': '/images/projects/deck-wood-railing-south-charlotte.webp',
+  'fence-repair': '/images/projects/fence-wood-privacy-south-charlotte.webp',
 };
 
 // Map service slugs to project images
@@ -68,6 +71,8 @@ const serviceProjectImages: Record<string, string> = {
   'furniture-assembly': '/images/projects/furniture-assembly-wooden-shelf-unit-screwdriver.webp',
   'tv-mounting': '/images/projects/tv-mounting-wall-bracket-installation-drilling.webp',
   'drywall': '/images/projects/drywall-repair-patching-hole-spackling.webp',
+  'deck-repair': '/images/projects/outdoor-living-raised-deck-railing-construction.webp',
+  'fence-repair': '/images/projects/fence-vinyl-privacy-south-charlotte.webp',
 };
 
 const heroImageSrc = heroImage || serviceHeroImages[service.slug] || '/images/ui/hero-bg.jpg';
@@ -223,7 +228,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
             </span>
 
             <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">
-              Professional {title} in Charlotte, NC
+              {title} in South Charlotte, NC
             </h1>
 
             <p class="text-lg text-neutral-200 mb-6 max-w-xl">
@@ -284,7 +289,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
           <!-- Form Side -->
           <div class="order-1 lg:order-2">
             <QuickEstimateCompact
-              serviceSlug={service.slug}
+              serviceSlug={estimateFormSlug(service.slug)}
               serviceTitle={title}
               formId={`hero-estimate-${service.slug}`}
             />
@@ -365,7 +370,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
 
             <!-- Form -->
             <QuickEstimateCompact
-              serviceSlug={service.slug}
+              serviceSlug={estimateFormSlug(service.slug)}
               serviceTitle={title}
               formId={`sidebar-estimate-${service.slug}`}
             />
