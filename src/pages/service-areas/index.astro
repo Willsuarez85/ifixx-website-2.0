@@ -4,16 +4,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 import { hasServiceAreaHub } from '../../lib/seo-retired';
 
-const seoTitle = "Service Areas | iFixx Remodeling & Handyman Services";
-const seoDescription = "iFixx serves Charlotte and South Charlotte, NC including Ballantyne, Matthews, Pineville, and Mint Hill. Professional home repair and remodeling services.";
+const seoTitle = "Handyman Service Areas | South Charlotte NC | iFIXX";
+const seoDescription = "iFIXX works out of South Charlotte, NC and serves Ballantyne, Pineville, Matthews, Mint Hill, and the rest of Charlotte. Home repairs and remodeling, insured, family-owned.";
 
 // Get all cities from content collection — only those with a zone hub
 const cities = (await getCollection('cities')).filter(c => hasServiceAreaHub(c.slug));
 
-// Sort: Charlotte first, then alphabetically
+// South Charlotte is the anchor location: it leads the list, then Charlotte, then
+// the rest alphabetically. No new zones were added (William, 2026-09-17) — the six
+// hubs are South Charlotte, Charlotte, Ballantyne, Matthews, Mint Hill, Pineville.
+const ZONE_ORDER = ['south-charlotte', 'charlotte'];
 const sortedCities = cities.sort((a, b) => {
-  if (a.slug === 'charlotte') return -1;
-  if (b.slug === 'charlotte') return 1;
+  const ia = ZONE_ORDER.indexOf(a.slug);
+  const ib = ZONE_ORDER.indexOf(b.slug);
+  if (ia !== -1 || ib !== -1) return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
   return a.data.name.localeCompare(b.data.name);
 });
 
@@ -80,10 +84,11 @@ const breadcrumbSchema = {
         </nav>
 
         <h1 class="text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
-          Areas We Serve
+          Handyman Service Areas Around <span class="text-primary-500">South Charlotte</span>
         </h1>
         <p class="text-lg lg:text-xl text-neutral-200 leading-relaxed">
-          Professional home repair and remodeling services throughout Charlotte, NC and surrounding communities. Click any location to see available services.
+          South Charlotte is home base. From there we cover Ballantyne, Pineville, Matthews,
+          Mint Hill, and the rest of the Charlotte metro. Pick your area to see what we handle there.
         </p>
       </div>
     </div>
