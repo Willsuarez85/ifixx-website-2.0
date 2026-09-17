@@ -138,12 +138,12 @@
     },
     {
       "source": "/services/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
       "source": "/services/outdoor-living/",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -523,12 +523,12 @@
     },
     {
       "source": "/ballantyne/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
       "source": "/ballantyne/outdoor-living/",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -603,12 +603,12 @@
     },
     {
       "source": "/charlotte/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
       "source": "/charlotte/outdoor-living/",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -683,12 +683,12 @@
     },
     {
       "source": "/matthews/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
       "source": "/matthews/outdoor-living/",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -763,12 +763,12 @@
     },
     {
       "source": "/pineville/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
       "source": "/pineville/outdoor-living/",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -843,12 +843,12 @@
     },
     {
       "source": "/south-charlotte/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
       "source": "/south-charlotte/outdoor-living/",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -973,12 +973,12 @@
     },
     {
       "source": "/rock-hill/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
       "source": "/rock-hill/outdoor-living/",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -1028,7 +1028,7 @@
     },
     {
       "source": "/huntersville/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -1073,7 +1073,7 @@
     },
     {
       "source": "/concord/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -1118,7 +1118,7 @@
     },
     {
       "source": "/monroe/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -1158,7 +1158,7 @@
     },
     {
       "source": "/waxhaw/outdoor-living",
-      "destination": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
       "permanent": true
     },
     {
@@ -1344,6 +1344,16 @@
     {
       "source": "/waxhaw",
       "destination": "/service-areas",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling/outdoor-living",
+      "destination": "/remodeling/decks",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling/outdoor-living/",
+      "destination": "/remodeling/decks",
       "permanent": true
     }
   ]

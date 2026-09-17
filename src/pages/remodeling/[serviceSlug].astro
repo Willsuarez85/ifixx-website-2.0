@@ -6,6 +6,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import CTAIntermediate from '../../components/sections/CTAIntermediate.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import QuickEstimateCompact from '../../components/forms/QuickEstimateCompact.astro';
+import { estimateFormSlug } from '../../lib/estimate-form';
 import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 import { isRetiredCity, isRetiredService, hasCityServicePage } from '../../lib/seo-retired';
@@ -51,7 +52,8 @@ const serviceHeroImages: Record<string, string> = {
   'bathroom-remodeling': '/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp',
   'basement-finishing': '/images/projects/living-room-fireplace-white-brick.webp',
   'flooring-installation': '/images/projects/flooring-installation-modern-living-room-interior.webp',
-  'outdoor-living': '/images/projects/outdoor-living-deck-construction-screened-porch.webp',
+  'decks': '/images/projects/deck-covered-porch-south-charlotte.webp',
+  'screened-porches': '/images/projects/outdoor-living-deck-construction-screened-porch.webp',
   'home-additions': '/images/projects/construction-wood-framing-window.webp',
 };
 
@@ -61,7 +63,8 @@ const serviceProjectImages: Record<string, string> = {
   'bathroom-remodeling': '/images/projects/bathroom-remodeling-dual-vanity-installation-progress.webp',
   'basement-finishing': '/images/projects/closet-built-in-white-organizer.webp',
   'flooring-installation': '/images/projects/bedroom-bed-wood-dressers.webp',
-  'outdoor-living': '/images/projects/outdoor-living-covered-porch-deck-wood-ceiling.webp',
+  'decks': '/images/projects/deck-wood-railing-south-charlotte.webp',
+  'screened-porches': '/images/projects/outdoor-living-covered-porch-deck-wood-ceiling.webp',
   'home-additions': '/images/projects/outdoor-living-raised-deck-railing-construction.webp',
 };
 
@@ -401,7 +404,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
           <!-- Form Side -->
           <div>
             <QuickEstimateCompact
-              serviceSlug={service.slug}
+              serviceSlug={estimateFormSlug(service.slug)}
               serviceTitle={title}
               formId={`hero-estimate-${service.slug}`}
             />
@@ -650,7 +653,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
 
             <!-- Form -->
             <QuickEstimateCompact
-              serviceSlug={service.slug}
+              serviceSlug={estimateFormSlug(service.slug)}
               serviceTitle={title}
               formId={`sidebar-estimate-${service.slug}`}
             />
