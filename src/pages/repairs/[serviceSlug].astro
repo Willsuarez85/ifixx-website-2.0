@@ -80,7 +80,7 @@ const serviceSchema = {
   "name": title,
   "description": seo.description,
   "serviceType": title,
-  "url": `https://www.ifixxnc.com/repairs/${service.slug}/`,
+  "url": `https://www.ifixxnc.com/repairs/${service.slug}`,
   "image": `https://www.ifixxnc.com${heroImageSrc}`,
   "provider": {
     "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
@@ -132,7 +132,7 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 3,
       "name": title,
-      "item": `https://www.ifixxnc.com/repairs/${service.slug}/`
+      "item": `https://www.ifixxnc.com/repairs/${service.slug}`
     }
   ]
 };
@@ -168,7 +168,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
 <BaseLayout
   title={seo.title}
   description={seo.description}
-  canonical={`/repairs/${service.slug}/`}
+  canonical={`/repairs/${service.slug}`}
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
