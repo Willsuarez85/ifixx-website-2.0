@@ -8,17 +8,21 @@ interface Props {
 
 const { formId, formName, servicePreselect = '', ctaText = 'Get Free Estimate Now' } = Astro.props;
 
+// Only work iFIXX actually sells. "Faucet & Fixture Repair", "Outlet & Light
+// Fixtures" and "Ceiling Fan Installation" were removed on 2026-09-17: those are
+// plumbing and electrical, which iFIXX does not market, and the crew cannot take
+// the job the lead came in asking for.
+// Every value here is a key in SERVICE_TAGS (/api/lead.ts). Before this pass, seven
+// of the eleven were not, so those leads were silently tagged 'general-inquiry'.
 const services = [
   { value: 'emergency-repair', label: 'Emergency Repair' },
-  { value: 'water-damage', label: 'Water Damage' },
-  { value: 'faucet-fixture', label: 'Faucet & Fixture Repair' },
-  { value: 'door-window', label: 'Door & Window Repair' },
+  { value: 'water-damage', label: 'Water Damage Repair' },
+  { value: 'doors-windows', label: 'Door & Window Repair' },
   { value: 'drywall', label: 'Drywall Repair' },
   { value: 'painting', label: 'Painting' },
-  { value: 'electrical-fixture', label: 'Outlet & Light Fixtures' },
-  { value: 'ceiling-fan', label: 'Ceiling Fan Installation' },
-  { value: 'tv-mounting', label: 'TV Mounting' },
   { value: 'carpentry', label: 'Carpentry' },
+  { value: 'tv-mounting', label: 'TV Mounting' },
+  { value: 'quick-fix', label: 'Quick Fix / Multiple Repairs' },
   { value: 'other', label: 'Other' }
 ];
 ---

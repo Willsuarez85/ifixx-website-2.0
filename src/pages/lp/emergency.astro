@@ -2,29 +2,30 @@
 import { GOOGLE_REVIEW_COUNT } from '../../lib/business-facts';
 import LandingLayout from '../../layouts/LandingLayout.astro';
 import LandingForm from '../../components/forms/LandingForm.astro';
+import { SERVICE_AREAS } from '../../lib/business-facts';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 
 const seo = {
   title: "Emergency Home Repair Charlotte NC | Same-Day Service | iFIXX",
-  description: "Same-day emergency home repairs in Charlotte NC. Water damage, faucets, doors, drywall. Talk to owners directly. Call (980) 391-6833."
+  description: "Same-day emergency home repairs in Charlotte NC. Water damage, doors, locks, windows, drywall. Talk to owners directly. Call (980) 391-6833."
 };
 
 const emergencyServices = [
   { icon: "💧", title: "Water Damage Cleanup", desc: "Ceiling leaks, flooded rooms, drywall repair — we clean up and restore same-day.", image: "/images/projects/drywall-repair-patching-hole-spackling.webp" },
-  { icon: "🚿", title: "Faucet & Fixture Replacement", desc: "Faucets, shower heads, and fixtures — swapped out same-day.", image: "/images/projects/plumbing-bathroom-faucet-installation-repair.webp" },
+  { icon: "🪚", title: "Carpentry & Trim Repair", desc: "Damaged trim, baseboards, stairs and shelving — repaired same-day.", image: "/images/projects/carpentry-baseboard-trim-installation-repair.webp" },
   { icon: "🚪", title: "Door & Lock Repair", desc: "Door won't lock? Hinges broken? We secure your home same-day.", image: "/images/projects/door-installation-interior-hinge-leveling-brass.webp" },
   { icon: "🪟", title: "Window Repair", desc: "Broken glass, stuck windows, drafts — repaired and sealed quickly.", image: "/images/projects/door-window-blinds-installation-leveling.webp" },
   { icon: "🔨", title: "Drywall Emergency Patches", desc: "Holes, cracks, water damage — patched, textured, and painted to match.", image: "/images/projects/drywall-repair-patching-hole-spackling.webp" },
-  { icon: "💡", title: "Outlet & Switch Replacement", desc: "Outdated or damaged outlets & switches — swapped same-day.", image: "/images/projects/electrical-pendant-light-fixture-installation-kitchen.webp" },
+  { icon: "🛠️", title: "Quick Fixes", desc: "Shelves, blinds, furniture and the small jobs you need done today.", image: "/images/projects/tv-mounting-wall-bracket-installation-drilling.webp" },
 ];
 
 const signs = [
   "Water stain on your ceiling that's getting bigger",
   "A door that won't lock properly — security risk",
-  "A worn-out faucet or fixture that needs replacing",
-  "An old or damaged outlet or switch that needs swapping",
+  "Trim or baseboards damaged after a leak",
+  "Stairs, railings or shelving that have come loose",
   "Window that's cracked or won't close fully",
   "Drywall hole or crack that's getting worse",
 ];
@@ -134,7 +135,7 @@ const faqs = [
             When Something Breaks, You Can't Wait a Week
           </h2>
           <p class="text-neutral-600 mb-4">
-            Most contractors are booked days or weeks out. You call, leave a message, and wait. Meanwhile, that water damage is getting worse, that broken door is a security risk, and that worn-out fixture still needs replacing.
+            Most contractors are booked days or weeks out. You call, leave a message, and wait. Meanwhile, that water damage is getting worse, that broken door is a security risk, and that hole in the wall is still there.
           </p>
           <p class="text-neutral-600">
             You need someone who answers the phone, gives you an honest price, and shows up <strong>today</strong>.
@@ -161,7 +162,7 @@ const faqs = [
     <div class="container">
       <div class="text-center mb-12">
         <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Emergency Services We Handle</h2>
-        <p class="text-neutral-600 max-w-2xl mx-auto">From water damage to broken fixtures — one call covers it all.</p>
+        <p class="text-neutral-600 max-w-2xl mx-auto">From water damage to a door that will not lock — one call covers it all.</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
         {emergencyServices.map((service) => (
@@ -332,10 +333,10 @@ const faqs = [
     <div class="container">
       <div class="text-center mb-10">
         <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-3">Areas We Serve</h2>
-        <p class="text-neutral-600">Same-day emergency repairs across the Charlotte metro area.</p>
+        <p class="text-neutral-600">Same-day emergency repairs across South Charlotte and the neighbouring towns.</p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-        {["Charlotte", "Ballantyne", "Matthews", "South Charlotte", "Indian Trail", "Pineville", "Weddington", "Waxhaw"].map((city) => (
+        {SERVICE_AREAS.map((city) => (
           <div class="p-4 bg-white rounded-xl border border-neutral-200 text-center">
             <div class="flex items-center justify-center gap-2">
               <svg class="w-4 h-4 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>

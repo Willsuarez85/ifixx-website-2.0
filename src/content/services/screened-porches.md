@@ -11,7 +11,7 @@ bullets:
   - "Screen systems, screen doors, and removable panels"
   - "Tongue-and-groove or beadboard porch ceilings"
   - "Composite or wood porch flooring"
-  - "Ceiling fan and light fixture rough-in coordinated with the build"
+  - "Blocking and boxes framed in for a ceiling fan and lights, wired by your electrician"
   - "Knee walls, railings, and stairs"
 signs:
   - "The deck goes unused from June to September because of mosquitoes"
@@ -41,7 +41,7 @@ faqs:
   - q: "What kind of screen holds up best?"
     a: "For most Charlotte homes fiberglass screen is the right call: it takes a hit and flexes instead of creasing. Pet-resistant screen is worth it on the lower panels if you have a dog that leans on things. We will show you the options at the estimate."
   - q: "Can I add a ceiling fan and lights?"
-    a: "Yes. We frame and rough in for the fan box and fixtures as part of the build and coordinate the final hookup with the right trade, so you are not cutting into a finished ceiling later."
+    a: "Yes, on the carpentry side. We frame the blocking and set the boxes as part of the build so you are not cutting into a finished ceiling later. The wiring and hookup are electrical work and go to your electrician, whose schedule we coordinate with."
   - q: "Do you work in South Charlotte and Ballantyne?"
     a: "Yes. South Charlotte, Ballantyne, Pineville, Matthews, and the surrounding Charlotte neighborhoods."
 relatedServices:

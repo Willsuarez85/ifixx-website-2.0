@@ -139,4 +139,4 @@ Online ranges get you in the ballpark. A walk-through gets you a real price. iFI
 
 ---
 
-*iFIXX serves South Charlotte, Ballantyne, Waxhaw, Weddington, Indian Land, Fort Mill, Pineville, and Matthews. Insured and locally owned.*
+*iFIXX serves South Charlotte, Charlotte, Ballantyne, Matthews, Mint Hill, and Pineville. Insured and locally owned.*

@@ -1,12 +1,11 @@
 ---
-import { googleReviewLabel } from '../../lib/business-facts';
+import { googleReviewLabel, areaServedSchema } from '../../lib/business-facts';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import CTAIntermediate from '../../components/sections/CTAIntermediate.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import QuickEstimateCompact from '../../components/forms/QuickEstimateCompact.astro';
-import { estimateFormSlug } from '../../lib/estimate-form';
 import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
 import { isRetiredCity, isRetiredService, hasCityServicePage } from '../../lib/seo-retired';
@@ -183,7 +182,7 @@ const serviceSchema = {
   "name": title,
   "description": seo.description,
   "serviceType": title,
-  "url": `https://www.ifixxnc.com/remodeling/${service.slug}/`,
+  "url": `https://www.ifixxnc.com/remodeling/${service.slug}`,
   "image": `https://www.ifixxnc.com${heroImageSrc}`,
   "provider": {
     "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
@@ -199,40 +198,7 @@ const serviceSchema = {
       "addressCountry": "US"
     }
   },
-  "areaServed": [
-    {
-      "@type": "City",
-      "name": "Charlotte",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "North Carolina"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "Ballantyne",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "North Carolina"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "Matthews",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "North Carolina"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "Pineville",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "North Carolina"
-      }
-    }
-  ],
+  "areaServed": areaServedSchema(),
   // Price only ships to Google when the page publishes it. No priceRange in the
   // service frontmatter, no offers node.
   ...(priceRange ? {
@@ -268,7 +234,7 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 3,
       "name": title,
-      "item": `https://www.ifixxnc.com/remodeling/${service.slug}/`
+      "item": `https://www.ifixxnc.com/remodeling/${service.slug}`
     }
   ]
 };
@@ -302,7 +268,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
 <BaseLayout
   title={seo.title}
   description={seo.description}
-  canonical={`/remodeling/${service.slug}/`}
+  canonical={`/remodeling/${service.slug}`}
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
@@ -409,7 +375,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
           <!-- Form Side -->
           <div>
             <QuickEstimateCompact
-              serviceSlug={estimateFormSlug(service.slug)}
+              serviceSlug={service.slug}
               serviceTitle={title}
               formId={`hero-estimate-${service.slug}`}
             />
@@ -658,7 +624,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
 
             <!-- Form -->
             <QuickEstimateCompact
-              serviceSlug={estimateFormSlug(service.slug)}
+              serviceSlug={service.slug}
               serviceTitle={title}
               formId={`sidebar-estimate-${service.slug}`}
             />

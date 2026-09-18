@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { GOOGLE_REVIEW_COUNT, GOOGLE_RATING, googleReviewLabel } from '../../lib/business-facts';
+import { GOOGLE_REVIEW_COUNT, GOOGLE_RATING, googleReviewLabel, SERVICE_AREAS } from '../../lib/business-facts';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 
 const seo = {
   title: "Emergency Water Damage Repair Charlotte NC | Same-Day | iFIXX",
-  description: "Water damage emergency in Charlotte? iFIXX stops leaks and repairs damage same-day. Ceiling leaks, floods, fixtures. Call (980) 391-6833 now."
+  description: "Water damage in Charlotte? Once the leak is stopped, iFIXX repairs the damage same-day. Drywall, ceilings, trim, floors. Call (980) 391-6833 now."
 };
 
 const serviceSchema = {
@@ -30,7 +30,7 @@ const serviceSchema = {
       "bestRating": 5,
       "worstRating": 1
     },
-    "priceRange": "$150-$800"
+    "priceRange": "$300-$800"
   },
   "areaServed": {
     "@type": "City",
@@ -41,11 +41,11 @@ const serviceSchema = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    "price": "150-800",
+    "price": "300-800",
     "priceSpecification": {
       "@type": "PriceSpecification",
       "priceCurrency": "USD",
-      "minPrice": "150",
+      "minPrice": "300",
       "maxPrice": "800"
     }
   }
@@ -68,7 +68,7 @@ const faqSchema = {
       "name": "What water damage repairs do you handle?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We handle drywall repair and replacement, subfloor and flooring repair, ceiling repairs, wall framing and structural repairs, and texture matching. For major plumbing repairs like burst pipes inside walls, you'll need a licensed plumber — but we handle everything structural after the water stops."
+        "text": "We handle drywall repair and replacement, subfloor and flooring repair, ceiling repairs, wall framing and structural repairs, and texture matching. Plumbing is not our trade: your plumber stops the water, and we handle everything structural and cosmetic after that."
       }
     },
     {
@@ -151,12 +151,12 @@ const faqSchema = {
             </div>
           </a>
           <p class="text-white text-lg">
-            <strong>Same-day water damage repair in Charlotte.</strong> We stop the leak, dry the area, and repair the damage today. Talk to our owners directly. Limited slots. Act now.
+            <strong>Same-day water damage repair in Charlotte.</strong> Once your plumber has stopped the water, we dry the area and repair the damage today. Talk to our owners directly. Limited slots. Act now.
           </p>
         </div>
 
         <p class="text-neutral-200 text-lg mb-6">
-          Water damage doesn't wait. Every hour the problem spreads—into drywall, insulation, subfloors. What costs $200 to fix today becomes $2,000 by Friday.
+          Water damage doesn't wait. Every hour the problem spreads—into drywall, insulation, subfloors. What is a single patch today becomes a full room by Friday.
         </p>
         <p class="text-primary-400 text-lg font-bold mb-6">
           Charlotte's high humidity makes it worse. Our 80%+ summer humidity accelerates mold growth. A leak that might take a week to cause problems in Arizona becomes a mold issue in 48 hours here.
@@ -271,7 +271,7 @@ const faqSchema = {
               <ol class="space-y-2 text-neutral-700 list-decimal list-inside">
                 <li>Turn the shut-off valve clockwise (under sink, behind toilet)</li>
                 <li>Can't find the valve? Turn off water at the main (usually basement, garage, or outside)</li>
-                <li>If valve is stuck or won't turn → Call us immediately: <a href="tel:+19803916833" class="text-emergency-600 font-bold hover:underline">(980) 391-6833</a></li>
+                <li>If the valve is stuck or won't turn, call a plumber. That part is their trade, not ours.</li>
               </ol>
             </div>
 
@@ -415,8 +415,8 @@ const faqSchema = {
               <div class="bg-primary-50 p-6 rounded-lg border-l-4 border-primary-600">
                 <h4 class="font-heading font-bold text-neutral-900 mb-3">For the actual leak repair:</h4>
                 <ul class="space-y-2 text-neutral-700 text-sm">
-                  <li>• Minor fixture leaks (faucet, toilet) → iFIXX handles it</li>
-                  <li>• Leaks inside walls or major plumbing → We'll connect you with a licensed plumber</li>
+                  <li>• We are not plumbers and we don't work on plumbing, so the leak itself goes to your plumber</li>
+                  <li>• Once the water is stopped, we take over the drywall, ceilings, trim, and finishes</li>
                 </ul>
               </div>
             </div>
@@ -424,7 +424,7 @@ const faqSchema = {
             <div class="bg-neutral-900 text-white p-6 rounded-lg">
               <h4 class="font-heading font-bold mb-3 text-primary-400">Why iFIXX for the repair work?</h4>
               <p class="text-neutral-100 mb-3">
-                We stop the leak (if it's a fixture), dry the area, replace damaged drywall, tape, mud, paint to match. <strong>All in one visit.</strong> No waiting for "the plumber, then the drywall guy, then the painter."
+                Once your plumber has stopped the water, we dry the area, replace damaged drywall, tape, mud, and paint to match. <strong>All in one visit.</strong> No waiting for the drywall guy, then the carpenter, then the painter.
               </p>
               <p class="text-sm">
                 <a href="/repairs/drywall" class="text-primary-400 hover:text-primary-300 font-medium underline">
@@ -522,9 +522,9 @@ const faqSchema = {
             <div>
               <h4 class="font-bold text-neutral-900">Older homes (1950s-1970s) in Myers Park, Dilworth, Plaza Midwood:</h4>
               <ul class="text-neutral-700 space-y-1 ml-4">
-                <li>• Original plumbing fixtures (50+ years old) fail without warning</li>
-                <li>• Galvanized pipes corrode from the inside</li>
-                <li>• Fixture shut-off valves seize up—can't be turned off in an emergency</li>
+                <li>• Original plumbing (50+ years old) fails without warning, and the damage lands on your walls and floors</li>
+                <li>• Plaster and older drywall soak up water fast and crack as they dry</li>
+                <li>• Wood floors and trim from that era cup and separate after a single soaking</li>
               </ul>
             </div>
 
@@ -594,9 +594,9 @@ const faqSchema = {
             </div>
 
             <div>
-              <h4 class="font-heading font-bold text-primary-600 text-lg mb-2">Step 2: Stop the Leak</h4>
+              <h4 class="font-heading font-bold text-primary-600 text-lg mb-2">Step 2: Your Plumber Stops the Water</h4>
               <p class="text-neutral-700">
-                If it's a fixture (faucet, toilet, sink), we fix it on the spot. Replace the fixture if needed. If it's a pipe inside the wall or major plumbing, we'll refer you to a trusted licensed plumber and coordinate the repair.
+                Plumbing is not our trade and we don't touch it. Your plumber stops the source. We coordinate around their schedule so the repair work starts the moment the area is dry.
               </p>
             </div>
 
@@ -664,7 +664,7 @@ const faqSchema = {
           <div class="card p-6">
             <div class="text-4xl mb-2">🔧</div>
             <h3 class="font-heading font-bold text-neutral-900 mb-2">Small Repairs</h3>
-            <div class="text-3xl font-bold text-primary-600 mb-2">$150–$300</div>
+            <div class="text-3xl font-bold text-primary-600 mb-2">From $300</div>
             <p class="text-neutral-700 text-sm">
               Single ceiling or wall stain, small section of drywall. Includes tape, mud, and paint-ready finish.
             </p>
@@ -794,22 +794,22 @@ const faqSchema = {
             <div class="bg-primary-50 p-4 rounded">
               <h4 class="font-bold text-neutral-900 mb-2">iFIXX handles:</h4>
               <ul class="text-sm text-neutral-700 space-y-1">
-                <li>• Leaking fixtures (faucets, toilets, sinks)</li>
-                <li>• Visible pipe leaks (under sinks, exposed areas)</li>
-                <li>• All drywall and damage repair</li>
+                <li>• Drywall, ceilings, and texture matching</li>
+                <li>• Trim, baseboards, and damaged carpentry</li>
+                <li>• Subfloor and flooring sections, prime and paint</li>
               </ul>
             </div>
             <div class="bg-neutral-100 p-4 rounded">
-              <h4 class="font-bold text-neutral-900 mb-2">Licensed plumber needed for:</h4>
+              <h4 class="font-bold text-neutral-900 mb-2">Your plumber handles:</h4>
               <ul class="text-sm text-neutral-700 space-y-1">
-                <li>• Leaks inside walls or under floors</li>
+                <li>• The leak itself, wherever it is</li>
                 <li>• Main water line issues</li>
                 <li>• Sewer or drain backups</li>
               </ul>
             </div>
           </div>
           <p class="text-neutral-700 mt-4">
-            <strong>If you're not sure, call us.</strong> We'll assess and refer you to a licensed plumber if needed. Then we'll handle all the repair work once the plumbing is fixed.
+            <strong>The short version:</strong> your plumber makes the water stop. We put the house back together afterward, and we don't do plumbing at all.
           </p>
         </div>
 
@@ -909,7 +909,7 @@ const faqSchema = {
         Serving Charlotte Metro & Surrounding Areas
       </h2>
       <p class="text-neutral-700 max-w-3xl mx-auto">
-        <strong>Main Service Areas:</strong> Charlotte, Ballantyne, Matthews, Mint Hill, Huntersville, Cornelius, Davidson, Pineville, Indian Trail, Rock Hill SC, Fort Mill SC
+        <strong>Main Service Areas:</strong> {SERVICE_AREAS.join(', ')}
       </p>
       <p class="text-neutral-700 max-w-3xl mx-auto mt-4">
         <strong>Water Damage Services:</strong> Emergency leak repair, ceiling water damage, drywall replacement, fixture repair, complete water damage restoration.

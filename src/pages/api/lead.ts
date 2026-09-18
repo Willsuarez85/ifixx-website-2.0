@@ -9,42 +9,61 @@ const OUTDOOR_PIPELINE_ID = 'QlQ4FGiqHYUgMAUwxjb1';
 const OUTDOOR_NEW_LEAD_STAGE_ID = '2f5e3e61-cbe2-4350-8010-dd8c3335d419';
 const HANDYMAN_PIPELINE_ID = 'ohDTFoWOfNfAYQ89MWEo';
 
+// campaignTest value that every South Charlotte service-test landing form posts
+// (see LandingEstimateForm.astro). It is what earns the 'south-charlotte-test' tag.
+const SOUTH_CHARLOTTE_TEST = 'ifixx_south_charlotte_service_test_2026_07';
+
 // Tag mapping by service type - GHL workflows will use these to route leads
 // Pipeline routing: handyman (includes urgent) OR remodeling
 const SERVICE_TAGS: Record<string, string[]> = {
     // Handyman Services → Pipeline: Handyman
-    // No 'plumbing' / 'electrical' keys: those trades are retired, no form posts them,
-    // and keeping them would let a stray payload tag a lead into work iFIXX cannot take.
-    // Fixture install/replace requests come in as 'fixtures'.
-    'fixtures': ['service-fixtures', 'handyman'],
+    // No 'plumbing' / 'electrical' / 'fixtures' keys: those trades are retired, no form
+    // posts them, and keeping them would let a stray payload tag a lead into work iFIXX
+    // cannot take. 'fixtures' left on 2026-09-17 with the "Fixtures & Lighting" option
+    // on /contact and the faucet, outlet and ceiling-fan options on the landing form.
+    'handyman': ['service-general-repairs', 'handyman'],
     'carpentry': ['service-carpentry', 'handyman'],
     'painting': ['service-painting', 'handyman'],
     'doors-windows': ['service-doors-windows', 'handyman'],
     'general-repairs': ['service-general-repairs', 'handyman'],
+    'tv-mounting': ['service-tv-mounting', 'handyman'],
 
-    // South Charlotte service test landings.
+    // Decks, porches and fences.
     // Pipeline routing (handled by GHL workflows on these tags):
     //   drywall + interior painting  → 'handyman'     → Handyman pipeline
     //   deck repair / rebuild / build → 'deck-outdoor' → Deck & Outdoor Living pipeline
     // Deck leads carry 'deck-outdoor' as the single, unambiguous routing tag. They keep
     // 'handyman' too for backwards-compat notifications; the Handyman routing workflow
     // must exclude contacts tagged 'deck-outdoor' so they don't double-route.
-    'drywall-repair': ['service-drywall-repair', 'service-painting', 'handyman', 'south-charlotte-test'],
-    'interior-painting': ['service-painting', 'service-drywall-repair', 'handyman', 'south-charlotte-test'],
-    'deck-repair': ['service-deck-repair', 'service-carpentry', 'deck-outdoor', 'handyman', 'south-charlotte-test'],
+    //
+    // 'south-charlotte-test' used to be baked into these six keys, which meant the
+    // site-wide forms could not reuse them without polluting the test. It now comes from
+    // the campaignTest field, which every South Charlotte landing form already sends, so
+    // the tags those landings produce are unchanged.
+    'drywall-repair': ['service-drywall-repair', 'service-painting', 'handyman'],
+    'interior-painting': ['service-painting', 'service-drywall-repair', 'handyman'],
+    'deck-repair': ['service-deck-repair', 'service-carpentry', 'deck-outdoor', 'handyman'],
     // New deck construction — higher-ticket, longer sales cycle. 'project-deck-build'
     // flags it for a heavier follow-up within the Deck & Outdoor Living pipeline.
-    'deck-build': ['service-deck-build', 'project-deck-build', 'service-carpentry', 'deck-outdoor', 'handyman', 'south-charlotte-test'],
+    'deck-build': ['service-deck-build', 'project-deck-build', 'service-carpentry', 'deck-outdoor', 'handyman'],
+    'screened-porch': ['service-screened-porch', 'project-deck-build', 'service-carpentry', 'deck-outdoor', 'handyman'],
     // Fence line (new 2026-07). Routing tag 'fence-outdoor' for the Fence and Outdoor
     // pipeline (create in GHL). Same double-route caveat as deck: the Handyman routing
     // workflow must exclude contacts tagged 'fence-outdoor'. 'project-fence-install'
     // flags the higher-ticket installs for a heavier follow-up vs. repairs.
-    'fence-install': ['service-fence-install', 'project-fence-install', 'fence-outdoor', 'handyman', 'south-charlotte-test'],
-    'fence-repair': ['service-fence-repair', 'fence-outdoor', 'handyman', 'south-charlotte-test'],
+    'fence-install': ['service-fence-install', 'project-fence-install', 'fence-outdoor', 'handyman'],
+    'fence-repair': ['service-fence-repair', 'fence-outdoor', 'handyman'],
 
     // Emergency/Urgent Services → Pipeline: Handyman (with urgent flag)
     // 'emergency-plumbing' and 'emergency-electrical' removed: no form posts them
     // (verified against the build) and they tagged leads into retired trades.
+    // 'emergency' (/contact) and 'emergency-repair' (landing forms) are the same intent
+    // under two names the forms already use; both are urgent handyman work.
+    'emergency': ['service-emergency', 'handyman', 'urgent'],
+    'emergency-repair': ['service-emergency', 'handyman', 'urgent'],
+    // Water damage means the repair after the water stops: drywall, ceilings, trim,
+    // finishes. iFIXX does not do the plumbing that caused it.
+    'water-damage': ['service-water-damage', 'service-drywall', 'handyman', 'urgent'],
     'roof-leak': ['emergency-roof-leak', 'handyman', 'urgent'],
 
     // Remodeling Services → Pipeline: Remodeling
@@ -52,8 +71,9 @@ const SERVICE_TAGS: Record<string, string[]> = {
     'bathroom-remodel': ['project-bathroom', 'remodeling'],
     'flooring': ['service-flooring', 'remodeling'],
 
-    // Fences & Decks (generic site-wide form options, 2026-07) → same routing
-    // tags as the test-landing values but WITHOUT 'south-charlotte-test'
+    // Legacy generic fence/deck values. No form offers them since 2026-09-17 (the
+    // site-wide form now posts fence-repair, deck-repair, deck-build or screened-porch),
+    // but a cached page can still submit them, so they stay mapped.
     'fence': ['service-fence', 'fence-outdoor', 'handyman'],
     'deck': ['service-deck', 'deck-outdoor', 'handyman'],
 
@@ -387,11 +407,14 @@ export const POST: APIRoute = async ({ request }) => {
         } = data;
 
         // 1. Validation
-        if (!firstName || !email || !phone) {
+        // Email is NOT required. /contact marks it optional and the endpoint rejected
+        // the submission anyway, so anyone who left it blank got a generic error and
+        // iFIXX never saw the lead. A name and a way to call back is a lead.
+        if (!firstName || !phone) {
             return new Response(
                 JSON.stringify({
                     success: false,
-                    error: 'Missing required fields: firstName, email, or phone',
+                    error: 'Missing required fields: firstName or phone',
                 }),
                 { status: 400 }
             );
@@ -429,6 +452,10 @@ export const POST: APIRoute = async ({ request }) => {
             // Remodeling package chosen on the page (silver|gold|platinum)
             ...(selectedPackage && ['silver', 'gold', 'platinum'].includes(String(selectedPackage)) ? [`package-${selectedPackage}`] : []),
             ...(campaignTest ? [`campaign-${String(campaignTest).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`] : []),
+            // 'south-charlotte-test' used to be hard-coded into six SERVICE_TAGS entries,
+            // which blocked the site-wide form from reusing those service values. It now
+            // follows the campaign that defines the test, which is what it always meant.
+            ...(campaignTest === SOUTH_CHARLOTTE_TEST ? ['south-charlotte-test'] : []),
             ...(city ? [`city-${city.toLowerCase().replace(/\s+/g, '-')}`] : []),
             // Add segment-specific tags
             ...(segment === 'property-manager' ? ['segment-property-manager', 'b2b-lead'] : []),
@@ -479,7 +506,7 @@ export const POST: APIRoute = async ({ request }) => {
         const upsertBody: Record<string, any> = {
             firstName,
             lastName: lastName || '',
-            email,
+            ...(email ? { email } : {}),
             phone,
             locationId: GHL_LOCATION_ID,
             source: source || 'Website Form',
@@ -506,10 +533,17 @@ export const POST: APIRoute = async ({ request }) => {
         // separate because they have never been sent to this location: if GHL rejects
         // the payload, the request is retried with the core fields only rather than
         // losing the lead (see upsertContact below).
+        //
+        // `campaign` is here for the same reason. Verified against this location on
+        // 2026-09-17: GHL stores utmSource, utmMedium, utmTerm, gclid and url, but drops
+        // utmCampaign, so every paid lead arrived without the campaign that produced it.
+        // `campaign` is the field GHL does persist. utmCampaign stays in coreAttribution
+        // untouched, so nothing that works today depends on this one being accepted.
         const pageUrl = formPath ? `${new URL(request.url).origin}${formPath}` : '';
         const extendedAttribution: Record<string, string> = {
             ...(pageUrl && { url: pageUrl }),
             ...(referrer && { referrer }),
+            ...(utm_campaign && { campaign: utm_campaign }),
             ...(gbraid && { gbraid }),
             ...(wbraid && { wbraid })
         };

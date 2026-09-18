@@ -17,9 +17,15 @@ const resolvedFormName = formName || (serviceTitle ? `${serviceTitle} Page Form`
 // retired/off-focus services removed (electrical, tv-mounting, furniture-assembly,
 // pressure-washing — client rule: never offer electrical/plumbing; quick-fix covers
 // small mixed jobs). Values map to SERVICE_TAGS in /api/lead.ts.
+// Fence installation left the list on 2026-09-17: the category moves to a separate
+// brand in October and the site only offers fence repair. Decks and porches are
+// split into their own values so a lead from /repairs/deck-repair and one from
+// /remodeling/decks stop arriving in GHL as the same thing.
 const services = [
-  { value: 'fence', label: 'Fence Installation & Repair' },
-  { value: 'deck', label: 'Deck Building & Repair' },
+  { value: 'fence-repair', label: 'Fence Repair' },
+  { value: 'deck-repair', label: 'Deck Repair' },
+  { value: 'deck-build', label: 'Deck Building' },
+  { value: 'screened-porch', label: 'Screened Porch' },
   { value: 'kitchen-remodel', label: 'Kitchen Remodel' },
   { value: 'bathroom-remodel', label: 'Bathroom Remodel' },
   { value: 'flooring', label: 'Flooring Installation' },
@@ -34,13 +40,20 @@ const services = [
 // Page slugs don't always match form values (e.g. the kitchen page slug is
 // 'kitchen-remodeling' but the form value is 'kitchen-remodel'), which silently
 // broke pre-selection on every remodeling page. Map slugs → form values.
+// The 2026-09 silos (decks, screened-porches, deck-repair, fence-repair) live here
+// too. They used to be translated by src/lib/estimate-form.ts, a second map that
+// collapsed all three deck pages onto 'deck'; that file is gone and this is the
+// only map.
 const slugToFormValue: Record<string, string> = {
   'kitchen-remodeling': 'kitchen-remodel',
   'bathroom-remodeling': 'bathroom-remodel',
   'flooring-installation': 'flooring',
   'basement-finishing': 'other',
-  'outdoor-living': 'deck',
-  'fixture-repair': 'quick-fix',
+  'outdoor-living': 'deck-build',
+  'decks': 'deck-build',
+  'screened-porches': 'screened-porch',
+  'deck-repair': 'deck-repair',
+  'fence-repair': 'fence-repair',
   'general-repairs': 'quick-fix',
 };
 const selectedValue = slugToFormValue[serviceSlug] || serviceSlug;

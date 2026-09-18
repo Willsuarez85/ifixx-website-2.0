@@ -303,14 +303,9 @@ iFIXX provides professional painting services throughout the Charlotte metro are
 - **Matthews:** Family homes needing interior and exterior updates, cabinet painting popular
 - **South Charlotte:** SouthPark and Quail Hollow homes, high-end finishes, custom color matching
 - **Pineville:** Residential painting specialists, interior and exterior
-- **Waxhaw:** Historic and new-construction home painting, detailed trim work, period-appropriate colors
-- **Indian Trail:** Interior and exterior painting for growing Union County neighborhoods
-- **Fort Mill, SC:** Cross-border painting service for our South Carolina neighbors
-- **Weddington:** Custom color matching and full interior refreshes for Weddington and Marvin estates
+- **Mint Hill:** Interior and exterior painting for established homes on the east side of the county
 
-**Additional areas:** Marvin, Wesley Chapel, Stallings, Indian Land SC
-
-**Not sure if we cover your area?** Call (980) 391-6833 and ask. We likely do.
+**Not sure if we cover your area?** Call (980) 391-6833 and ask. We will tell you honestly.
 
 ---
 
@@ -393,7 +388,7 @@ Fresh paint transforms your home. Whether you're updating one room or painting t
 
 ### Serving Charlotte Metro & Surrounding Areas
 
-**Main Service Areas:** Charlotte, South Charlotte, Ballantyne, Matthews, Pineville, Waxhaw, Indian Trail, Fort Mill SC, Weddington
+**Main Service Areas:** Charlotte, South Charlotte, Ballantyne, Matthews, Mint Hill, Pineville
 
 **Painting Services:** Interior painting, exterior painting, cabinet painting, trim painting, ceiling painting, deck staining, fence staining, popcorn ceiling removal, color consultation, wallpaper removal, accent walls.
 

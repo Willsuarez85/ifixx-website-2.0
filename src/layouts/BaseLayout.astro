@@ -1,6 +1,12 @@
 ---
 import '../styles/global.css';
-import { GOOGLE_REVIEW_COUNT, GOOGLE_RATING } from '../lib/business-facts';
+import {
+  GOOGLE_REVIEW_COUNT,
+  GOOGLE_RATING,
+  areaServedSchema,
+  openingHoursSchema
+} from '../lib/business-facts';
+import { GOOGLE_REVIEWS } from '../lib/google-reviews';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import AttributionScript from '../components/common/AttributionScript.astro';
@@ -34,6 +40,29 @@ const fullCanonical = rawCanonical.replace('https://ifixxnc.com', 'https://www.i
 // Entidad canonica del negocio (@id #business). Se emite con set:html porque
 // Astro no interpola expresiones dentro de un <script> crudo, y las cifras de
 // aggregateRating tienen que venir de business-facts.ts, no de literales.
+
+// Las resenas del schema salen de google-reviews.ts, que es la copia verbatim del
+// perfil de Google. Antes habia dos resenas escritas a mano ("Zack A." hablando de
+// una cerca, "Jaime" mezclando frases de dos autores) que no existen en el perfil:
+// una resena inventada en el markup es exactamente lo que Google penaliza. Se
+// publican las 6 mas recientes; el conteo y el promedio siguen viniendo de
+// business-facts.ts.
+const schemaReviews = GOOGLE_REVIEWS.slice(0, 6).map((r) => ({
+  "@type": "Review",
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": r.rating,
+    "bestRating": 5,
+    "worstRating": 1
+  },
+  "author": {
+    "@type": "Person",
+    "name": r.author
+  },
+  "datePublished": r.datePublished,
+  "reviewBody": r.text
+}));
+
 const businessSchema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
@@ -45,20 +74,7 @@ const businessSchema = {
   "url": "https://www.ifixxnc.com",
   "image": "https://www.ifixxnc.com/images/ui/hero-bg.jpg",
   "priceRange": "$$",
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "07:00",
-      "closes": "18:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "08:00",
-      "closes": "14:00"
-    }
-  ],
+  "openingHoursSpecification": openingHoursSchema(),
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Charlotte",
@@ -70,53 +86,13 @@ const businessSchema = {
     "latitude": "35.2271",
     "longitude": "-80.8431"
   },
-  "areaServed": [
-    {"@type": "City", "name": "Charlotte"},
-    {"@type": "City", "name": "South Charlotte"},
-    {"@type": "City", "name": "Ballantyne"},
-    {"@type": "City", "name": "Matthews"},
-    {"@type": "City", "name": "Pineville"},
-    {"@type": "City", "name": "Dilworth"},
-    {"@type": "City", "name": "Myers Park"},
-    {"@type": "City", "name": "Waxhaw"},
-    {"@type": "City", "name": "Fort Mill"},
-    {"@type": "City", "name": "Mint Hill"}
-  ],
+  "areaServed": areaServedSchema(),
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": GOOGLE_RATING,
     "reviewCount": GOOGLE_REVIEW_COUNT
   },
-  "review": [
-    {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": 5,
-        "bestRating": 5
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Zack A."
-      },
-      "datePublished": "2026-02-09",
-      "reviewBody": "I recently hired iFixx to install a fence and I couldn't be more impressed. The quality of the work is outstanding and the attention to detail is obvious. The crew was punctual every day and kept communication clear throughout the entire process. I highly recommend iFixx Remodeling for any home project - they're my go-to guys!"
-    },
-    {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": 5,
-        "bestRating": 5
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Jaime"
-      },
-      "datePublished": "2026-03-23",
-      "reviewBody": "Had an amazing experience! Very knowledgeable, punctual, hard-working crew. Great prices and outstanding work. The flooring install was done in a timely fashion and we were very pleased with the results. Will definitely use them again!"
-    }
-  ],
+  "review": schemaReviews,
   "potentialAction": [
     {
       "@type": "ReserveAction",
@@ -222,7 +198,7 @@ const businessSchema = {
     as="image"
     type="image/webp"
     href="/images/ui/hero-bg.webp"
-    imagesrcset="/images/ui/hero-bg-640.webp 640w, /images/ui/hero-bg-1024.webp 1024w, /images/ui/hero-bg.webp 1920w"
+    imagesrcset="/images/ui/hero-bg-640.webp 640w, /images/ui/hero-bg-1024.webp 1024w, /images/ui/hero-bg.webp 1600w"
     imagesizes="100vw"
     fetchpriority="high"
   />
