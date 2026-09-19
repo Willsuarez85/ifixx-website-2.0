@@ -73,4 +73,4 @@ A finished ceiling instead of exposed framing. A screen door that closes on its 
 
 ## Insured, local, one crew
 
-iFIXX is a family-owned crew working South Charlotte, Ballantyne, Pineville, and Matthews. We are fully insured, the owners answer the phone, and you get a written price before the work starts. Building a deck instead? Start at [deck building](/remodeling/decks).
+iFIXX is a family-owned crew working South Charlotte, Ballantyne, Pineville, and Matthews. We are fully insured, the owner answers the phone, and you get a written price before the work starts. Building a deck instead? Start at [deck building](/remodeling/decks).
