@@ -148,7 +148,7 @@ Charlotte labor rates for bathroom remodeling:
 
 ### Example 4: Luxury Renovation ($48,000)
 
-*Myers Park home*
+*SouthPark home*
 
 - Freestanding soaker tub ($3,500)
 - Custom tile shower with rain head ($12,000)
@@ -243,7 +243,7 @@ More importantly: you use your bathroom multiple times a day. An updated bathroo
 
 ## Ready to Start Your Charlotte Bathroom Remodel?
 
-We've completed [bathroom projects across Charlotte](/remodeling/bathroom-remodeling) — from historic Dilworth bungalows to modern Ballantyne homes.
+We've completed [bathroom projects across South Charlotte](/remodeling/bathroom-remodeling), from Ballantyne and SouthPark to Pineville and Matthews.
 
 **Why Charlotte homeowners choose iFixx:**
 

@@ -6,15 +6,17 @@ import TextPhotosCTA from '../../components/sections/TextPhotosCTA.astro';
 import { hasServiceAreaHub } from '../../lib/seo-retired';
 
 const seoTitle = "Handyman Service Areas | South Charlotte NC | iFIXX";
-const seoDescription = "iFIXX works out of South Charlotte, NC and serves Ballantyne, Pineville, Matthews, Mint Hill, and the rest of Charlotte. Home repairs and remodeling, insured, family-owned.";
+const seoDescription = "iFIXX works out of South Charlotte, NC and serves Ballantyne, Pineville, Matthews, Mint Hill, Waxhaw, Weddington, Fort Mill SC and Indian Land SC. Home repairs and remodeling, insured, family-owned.";
 
 // Get all cities from content collection — only those with a zone hub
 const cities = (await getCollection('cities')).filter(c => hasServiceAreaHub(c.slug));
 
 // South Charlotte is the anchor location: it leads the list, then Charlotte, then
-// the rest alphabetically. No new zones were added (William, 2026-09-17) — the six
-// hubs are South Charlotte, Charlotte, Ballantyne, Matthews, Mint Hill, Pineville.
-const ZONE_ORDER = ['south-charlotte', 'charlotte'];
+// the rest alphabetically. Ten hubs since 2026-09-19 (William): the original six
+// (South Charlotte, Charlotte, Ballantyne, Matthews, Mint Hill, Pineville) plus the
+// four zones Google Ads was already targeting without a page to land on, Waxhaw,
+// Weddington, Fort Mill SC and Indian Land SC.
+const ZONE_ORDER = ['south-charlotte'];
 const sortedCities = cities.sort((a, b) => {
   const ia = ZONE_ORDER.indexOf(a.slug);
   const ib = ZONE_ORDER.indexOf(b.slug);
@@ -89,7 +91,8 @@ const breadcrumbSchema = {
         </h1>
         <p class="text-lg lg:text-xl text-neutral-200 leading-relaxed">
           South Charlotte is home base. From there we cover Ballantyne, Pineville, Matthews,
-          Mint Hill, and the rest of the Charlotte metro. Pick your area to see what we handle there.
+          Mint Hill, Waxhaw and Weddington, plus Fort Mill and Indian Land across the South
+          Carolina line. Pick your area to see what we handle there.
         </p>
       </div>
     </div>
@@ -142,23 +145,11 @@ const breadcrumbSchema = {
     <div class="container">
       <div class="max-w-4xl mx-auto">
         <h2 class="text-3xl font-heading font-bold text-neutral-900 mb-8 text-center">
-          Charlotte Area Neighborhoods We Serve
+          South Charlotte Neighborhoods We Serve
         </h2>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <div class="bg-white p-4 rounded-lg text-center text-neutral-700 font-medium">
             South Charlotte
-          </div>
-          <div class="bg-white p-4 rounded-lg text-center text-neutral-700 font-medium">
-            Dilworth
-          </div>
-          <div class="bg-white p-4 rounded-lg text-center text-neutral-700 font-medium">
-            Myers Park
-          </div>
-          <div class="bg-white p-4 rounded-lg text-center text-neutral-700 font-medium">
-            Plaza Midwood
-          </div>
-          <div class="bg-white p-4 rounded-lg text-center text-neutral-700 font-medium">
-            NoDa
           </div>
           <div class="bg-white p-4 rounded-lg text-center text-neutral-700 font-medium">
             Ballantyne
@@ -167,7 +158,19 @@ const breadcrumbSchema = {
             SouthPark
           </div>
           <div class="bg-white p-4 rounded-lg text-center text-neutral-700 font-medium">
-            Uptown
+            Arboretum
+          </div>
+          <div class="bg-white p-4 rounded-lg text-center text-neutral-700 font-medium">
+            Piper Glen
+          </div>
+          <div class="bg-white p-4 rounded-lg text-center text-neutral-700 font-medium">
+            Blakeney
+          </div>
+          <div class="bg-white p-4 rounded-lg text-center text-neutral-700 font-medium">
+            Steele Creek
+          </div>
+          <div class="bg-white p-4 rounded-lg text-center text-neutral-700 font-medium">
+            Providence
           </div>
         </div>
       </div>

@@ -19,7 +19,11 @@ export default defineConfig({
         // SEO cleanup (2026-06): retired cities + services iFIXX doesn't offer.
         // These pages are no longer generated; this guard keeps them out of the
         // sitemap even if a stray route is reintroduced. 301s live in vercel.json.
-        if (page.match(/\/(huntersville|concord|monroe|waxhaw|rock-hill)(\/|$)/)) return false;
+        if (page.match(/\/(huntersville|concord|monroe|rock-hill)(\/|$)/)) return false;
+        // Waxhaw came back as a service area on 2026-09-19 (William), same treatment as
+        // Mint Hill: the hub is indexable, its thin matrix pages stay dead. The hub
+        // (/service-areas/waxhaw) is intentionally not matched here.
+        if (page.match(/\/waxhaw\/[a-z-]+\/?$/)) return false;
         if (page.match(/\/(plumbing|electrical-fixtures)\/?$/)) return false;
         // Matrix pruning (2026-07-28 noindex → 2026-08-06 301): the 40 city x service
         // pages no longer exist; they 301 to their service silo from vercel.json. This

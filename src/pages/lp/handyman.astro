@@ -2,7 +2,7 @@
 import { GOOGLE_REVIEW_COUNT } from '../../lib/business-facts';
 import LandingLayout from '../../layouts/LandingLayout.astro';
 import LandingForm from '../../components/forms/LandingForm.astro';
-import { SERVICE_AREAS } from '../../lib/business-facts';
+import { serviceAreaLabels } from '../../lib/business-facts';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
@@ -286,7 +286,7 @@ const faqs = [
         <p class="text-neutral-600">Proudly serving homeowners across South Charlotte and the neighbouring towns.</p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-        {SERVICE_AREAS.map((city) => (
+        {serviceAreaLabels().map((city) => (
           <div class="p-4 bg-white rounded-xl border border-neutral-200 text-center">
             <div class="flex items-center justify-center gap-2">
               <svg class="w-4 h-4 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>

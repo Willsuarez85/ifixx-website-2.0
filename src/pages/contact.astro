@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTASection from "../components/sections/CTASection.astro";
 import TextPhotosCTA from "../components/sections/TextPhotosCTA.astro";
-import { SERVICE_AREAS, BUSINESS_HOURS_LABEL } from "../lib/business-facts";
+import { serviceAreaLabels, BUSINESS_HOURS_LABEL } from "../lib/business-facts";
 
 const seoTitle = "Contact iFIXX Charlotte | Free Estimates | Call (980) 391-6833";
 const seoDescription =
@@ -338,7 +338,7 @@ const breadcrumbSchema = {
               <div>
                 <p class="font-semibold text-neutral-900">Service Area</p>
                 <p class="text-sm text-neutral-600">
-                  {SERVICE_AREAS.join(", ")}
+                  {serviceAreaLabels().join(" · ")}
                 </p>
               </div>
             </div>

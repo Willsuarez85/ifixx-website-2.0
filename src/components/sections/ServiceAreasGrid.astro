@@ -1,6 +1,6 @@
 ---
 // Pilar 7 — Internal Linking Restructure
-// 5 city cards × 3 popular service links each = 15 links from the homepage.
+// 9 city cards × 3 popular service links each = 27 links from the homepage.
 // Cities and services match the current focus (see src/lib/seo-retired.ts):
 // no retired cities, no consolidated services (kitchen/bath remodeling, painting, drywall).
 //
@@ -29,17 +29,6 @@ const serviceHref = (citySlug: string, serviceSlug: string) => {
 };
 
 const areas = [
-  {
-    name: "Charlotte, NC",
-    slug: "charlotte",
-    neighborhoods: "Myers Park, Dilworth, NoDa, Plaza Midwood, Eastover, SouthPark",
-    icon: "🏙️",
-    popular: [
-      { label: "Deck Building", slug: "decks" },
-      { label: "Quick-Fix Handyman", slug: "quick-fix" },
-      { label: "Carpentry", slug: "carpentry" },
-    ],
-  },
   {
     name: "South Charlotte, NC",
     slug: "south-charlotte",
@@ -82,6 +71,52 @@ const areas = [
       { label: "Deck Building", slug: "decks" },
       { label: "Flooring Installation", slug: "flooring-installation" },
       { label: "Carpentry", slug: "carpentry" },
+    ],
+  },
+  // Four zones added on 2026-09-19 (William): Google Ads was already buying these
+  // areas and none of them had a local page to land on.
+  {
+    name: "Waxhaw, NC",
+    slug: "waxhaw",
+    neighborhoods: "Downtown Waxhaw, Cureton, Millbridge, Lawson",
+    icon: "🌾",
+    popular: [
+      { label: "Deck Repair", slug: "deck-repair" },
+      { label: "Drywall Repair", slug: "drywall" },
+      { label: "Quick-Fix Handyman", slug: "quick-fix" },
+    ],
+  },
+  {
+    name: "Weddington, NC",
+    slug: "weddington",
+    neighborhoods: "Highgate, Skyecroft, Weddington Chase",
+    icon: "🌲",
+    popular: [
+      { label: "Deck Repair", slug: "deck-repair" },
+      { label: "Carpentry", slug: "carpentry" },
+      { label: "Drywall Repair", slug: "drywall" },
+    ],
+  },
+  {
+    name: "Fort Mill, SC",
+    slug: "fort-mill",
+    neighborhoods: "Baxter Village, Springfield, Massey, Waterside",
+    icon: "🏞️",
+    popular: [
+      { label: "Drywall Repair", slug: "drywall" },
+      { label: "Deck Repair", slug: "deck-repair" },
+      { label: "Quick-Fix Handyman", slug: "quick-fix" },
+    ],
+  },
+  {
+    name: "Indian Land, SC",
+    slug: "indian-land",
+    neighborhoods: "Sun City Carolina Lakes, BridgeMill, Walnut Creek",
+    icon: "🛣️",
+    popular: [
+      { label: "Quick-Fix Handyman", slug: "quick-fix" },
+      { label: "Drywall Repair", slug: "drywall" },
+      { label: "Deck Repair", slug: "deck-repair" },
     ],
   },
 ];
@@ -134,8 +169,9 @@ const areas = [
     <div class="max-w-3xl mx-auto text-center">
       <p class="text-neutral-600 leading-relaxed">
         iFIXX is the handyman crew for <strong>South Charlotte</strong> and the neighborhoods around it:
-        <strong>Ballantyne</strong>, <strong>Pineville</strong>, <strong>Matthews</strong>, and the rest of the Charlotte metro.
-        Whether it's a <a href="/repairs/drywall" class="text-primary-600 hover:underline">drywall repair</a> in Dilworth,
+        <strong>Ballantyne</strong>, <strong>Pineville</strong>, <strong>Matthews</strong>, <strong>Waxhaw</strong>,
+        <strong>Weddington</strong>, and across the state line in <strong>Fort Mill</strong> and <strong>Indian Land</strong>.
+        Whether it's a <a href="/repairs/drywall" class="text-primary-600 hover:underline">drywall repair</a> in Ballantyne,
         a <a href="/repairs/deck-repair" class="text-primary-600 hover:underline">deck repair</a> in South Charlotte,
         a new <a href="/remodeling/decks" class="text-primary-600 hover:underline">deck or screened porch</a>,
         or a full <a href="/remodeling/bathroom-remodeling" class="text-primary-600 hover:underline">bathroom remodel</a> in Pineville,

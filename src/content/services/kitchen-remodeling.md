@@ -250,7 +250,7 @@ iFIXX provides professional kitchen remodeling services throughout the Charlotte
 
 **Areas we proudly serve:**
 
-- **Charlotte:** We serve all Charlotte neighborhoods including Myers Park, Dilworth, South End, NoDa, Plaza Midwood, and surrounding areas
+- **South Charlotte:** Ballantyne, SouthPark, Arboretum, Piper Glen, Blakeney, Steele Creek, and the neighborhoods around them
 - **Ballantyne:** Specializing in luxury kitchen remodels with high-end finishes and custom features
 - **Matthews:** Family-friendly kitchen designs that balance style and durability for busy households
 - **South Charlotte:** Full kitchen remodels for SouthPark, Quail Hollow, and the surrounding south corridor

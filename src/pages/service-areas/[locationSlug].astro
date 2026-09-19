@@ -38,9 +38,9 @@ const serviceHref = (service: { slug: string; data: { pillar: string } }) =>
     : `/${service.data.pillar}/${service.slug}`;
 
 const nearbyCities = allCities.filter(c => c.slug !== city.slug && hasServiceAreaHub(c.slug)).sort((a, b) => {
-  // Sort: Charlotte first, then by state (NC before SC), then alphabetically
-  if (a.slug === 'charlotte') return -1;
-  if (b.slug === 'charlotte') return 1;
+  // Sort: South Charlotte first, then by state (NC before SC), then alphabetically
+  if (a.slug === 'south-charlotte') return -1;
+  if (b.slug === 'south-charlotte') return 1;
   if (a.data.region !== b.data.region) return a.data.region === 'NC' ? -1 : 1;
   return a.data.name.localeCompare(b.data.name);
 });
@@ -100,6 +100,9 @@ const cityHeroImages: Record<string, string> = {
   'matthews': '/images/projects/outdoor-living-covered-porch-deck-wood-ceiling.webp',
   'ballantyne': '/images/projects/kitchen-remodeling-luxury-white-cabinets-island-pendant-lights.webp',
   'waxhaw': '/images/projects/outdoor-living-raised-deck-railing-construction.webp',
+  'weddington': '/images/projects/deck-covered-porch-south-charlotte.webp',
+  'fort-mill': '/images/projects/outdoor-living-deck-construction-screened-porch.webp',
+  'indian-land': '/images/projects/flooring-installation-modern-living-room-interior.webp',
   'mint-hill': '/images/projects/kitchen-remodeling-complete-modern-white-cabinets-island.webp',
   'pineville': '/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp',
   'monroe': '/images/projects/flooring-installation-modern-living-room-interior.webp',
@@ -237,7 +240,7 @@ const heroImage = cityHeroImages[city.slug] || '/images/projects/remodeling-mode
           What We Do for {city.data.name} Homeowners
         </h2>
         <p class="text-lg text-neutral-600 mb-10 text-center max-w-2xl mx-auto">
-          We've been serving the Charlotte metro for 5+ years. We know {city.data.name} homes—
+          We've been serving the Charlotte metro for 5+ years. We know {city.data.name} homes,
           and we treat every one like our own.
         </p>
 
