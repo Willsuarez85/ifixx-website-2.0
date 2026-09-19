@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TrustBar from '../components/sections/TrustBar.astro';
 import GoogleReviews from '../components/sections/GoogleReviews.astro';
 import CTASection from '../components/sections/CTASection.astro';
+import TextPhotosCTA from '../components/sections/TextPhotosCTA.astro';
 import LandingEstimateForm from '../components/forms/LandingEstimateForm.astro';
 
 const title = 'Interior Painting in South Charlotte | Rooms, Walls & Trim | iFIXX';
@@ -164,6 +165,12 @@ const faqSchema = {
 
   <section class="section">
     <div class="container"><div class="max-w-3xl mx-auto"><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-8 text-center">Interior Painting FAQs</h2><div class="space-y-4">{faqs.map((faq, index) => (<details class="group bg-white rounded-xl shadow-sm" open={index === 0}><summary class="flex items-center justify-between cursor-pointer list-none p-6"><span class="font-semibold text-neutral-900 pr-4">{faq.q}</span><span class="text-primary-600 group-open:rotate-180 transition-transform">⌄</span></summary><div class="px-6 pb-6"><p class="text-neutral-600 leading-relaxed">{faq.a}</p></div></details>))}</div></div></div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+      <TextPhotosCTA />
+    </div>
   </section>
 
   <GoogleReviews title="What Charlotte Homeowners Say" />

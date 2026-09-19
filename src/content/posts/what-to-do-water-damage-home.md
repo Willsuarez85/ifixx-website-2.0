@@ -3,15 +3,15 @@ title: "What to Do When You Have Water Damage at Home: A Charlotte Homeowner's G
 date: 2026-01-30
 excerpt: "Water damage can escalate fast. Here's exactly what to do in the first 24-48 hours to minimize damage and cost — from a Charlotte handyman who's seen it all."
 coverImage: "/images/projects/drywall-repair-patching-hole-spackling.webp"
-category: "Home Emergency"
+category: "Water Damage"
 tags:
   - "water damage"
-  - "emergency repair"
+  - "drywall repair"
   - "home tips"
   - "drywall repair"
 seo:
   title: "Water Damage at Home: Step-by-Step Guide | iFIXX Charlotte NC"
-  description: "Water damage in your Charlotte home? Follow this step-by-step guide for the first 24–48 hours. ⭐5.0 on Google. Same-day repairs — call (980) 391-6833."
+  description: "Water damage in your Charlotte home? Follow this step-by-step guide for the first 24–48 hours, then get the repair priced. Text photos to (980) 391-6833 for a same-business-day estimate."
 ---
 
 You walk into your kitchen and there's water dripping from the ceiling. Or you come home to find your bathroom flooded. Your heart sinks.
@@ -231,6 +231,6 @@ Print this or screenshot it:
 
 ---
 
-**About the Authors:** Jaime and Hamed are the owners of iFIXX, a handyman service in Charlotte, NC. They've repaired water damage in hundreds of Charlotte homes and know exactly what it takes to make your walls look like new again.
+**About the Author:** the iFIXX crew is a family-owned handyman and remodeling team in South Charlotte, NC. They have repaired water damage in hundreds of Charlotte homes and know exactly what it takes to make your walls look like new again.
 
-**Need water damage repair in Charlotte?** Call or text (980) 391-6833 for a same-day estimate.
+**Need water damage repair in South Charlotte?** Text photos of the damage to (980) 391-6833 and a person calls you back with the estimate the same business day.

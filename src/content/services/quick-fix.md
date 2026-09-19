@@ -32,8 +32,8 @@ relatedServices:
   - "drywall"
   - "carpentry"
 seo:
-  title: "Quick-Fix Handyman Charlotte | Same-Day, No Minimum | iFIXX"
-  description: "Need a Charlotte handyman today? Same-day quick fixes: drywall, doors, shelves, blinds, TV mounts. ⭐5.0. Free quote ☎ (980) 391-6833."
+  title: "Quick-Fix Handyman South Charlotte | Photo Estimates | iFIXX"
+  description: "Small jobs handled by a South Charlotte handyman: drywall, doors, shelves, blinds, TV mounts. ⭐5.0. Text photos to (980) 391-6833 and get the estimate the same business day."
 ---
 
 Don't let that "honey-do" list stress you out. iFixx is here to handle all the quick fixes and maintenance tasks that keep your home running smoothly.

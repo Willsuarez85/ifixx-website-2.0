@@ -105,8 +105,7 @@ const pillarUrl = `/${currentPillar}/${service.slug}`;
 
 const pillarLabels: Record<string, string> = {
   'repairs': 'Repairs',
-  'remodeling': 'Remodeling',
-  'emergency-services': 'Emergency Services'
+  'remodeling': 'Remodeling'
 };
 const pillarLabel = pillarLabels[currentPillar] || 'Services';
 
@@ -212,7 +211,7 @@ const faqSchema = displayFaqs && displayFaqs.length > 0 ? {
 } : null;
 
 const categoryLabels: Record<string, string> = {
-  emergency: 'Emergency Service',
+  emergency: 'Damage Repair',
   handyman: 'Handyman Service',
   remodeling: 'Remodeling Service'
 };
@@ -290,7 +289,7 @@ const mapEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qb
                 <div class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center">
                   <svg class="w-5 h-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 </div>
-                <span class="text-sm text-white font-medium">Same-Day Service</span>
+                <span class="text-sm text-white font-medium">Same-Day Phone Estimate</span>
               </div>
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center">
@@ -450,9 +449,9 @@ const mapEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qb
 
           <!-- Quick Contact -->
           <div class="bg-primary-50 rounded-xl p-6 border border-primary-200">
-            <h3 class="font-heading font-bold text-neutral-900 mb-4">Need Help Today?</h3>
+            <h3 class="font-heading font-bold text-neutral-900 mb-4">Want a Price Fast?</h3>
             <p class="text-neutral-600 text-sm mb-4">
-              We offer same-day service for most repairs. Call now or request an estimate online.
+              Text us photos at (980) 391-6833 and a person calls you back with the estimate the same business day.
             </p>
             <a href="tel:+19803916833" class="flex items-center justify-center gap-2 w-full btn btn-primary mb-3" data-event="phone_click">
               <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -503,11 +502,11 @@ const mapEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qb
 
   <!-- Intermediate CTA -->
   <CTAIntermediate
-    headline="Need This Done Today?"
-    subheadline="We offer same-day service for most repairs in the Charlotte area."
-    buttonText="Request Urgent Estimate"
+    headline="Want a Price Without Waiting for a Visit?"
+    subheadline="Text us photos of the job and a person calls you back with the estimate the same business day."
+    buttonText="Request a Free Estimate"
     buttonHref="#estimate-form"
-    variant="emergency"
+    variant="primary"
   />
 
   <!-- How to Choose a Contractor -->

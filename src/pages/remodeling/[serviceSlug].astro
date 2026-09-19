@@ -257,8 +257,7 @@ const faqSchema = faqs && faqs.length > 0 ? {
 const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
   const pillars: Record<string, string> = {
     'repairs': '/repairs/',
-    'remodeling': '/remodeling/',
-    'emergency-services': '/emergency-services/'
+    'remodeling': '/remodeling/'
   };
   const basePath = servicePillar ? pillars[servicePillar] || '/services/' : '/services/';
   return `${basePath}${serviceSlug}`;

@@ -18,7 +18,7 @@ highlights:
   - "Convenient scheduling for busy families"
   - "Experience with Pineville's diverse housing styles"
   - "Trusted by homeowners throughout South Charlotte"
-  - "Same-day service available"
+  - "Same-business-day estimate from photos you text us"
 zipCodes:
   - "28134"
   - "28210"
@@ -32,7 +32,7 @@ servicesHighlighted:
   - "quick-fix"
   - "carpentry"
 seo:
-  title: "Pineville NC Handyman & Remodeling | Same-Day Service | ⭐5.0 | iFIXX"
+  title: "Pineville NC Handyman & Remodeling | Photo Estimates | ⭐5.0 | iFIXX"
   description: "Pineville's trusted handyman & remodeling experts. Serving Downtown Pineville, Carolina Place & South Charlotte. ⭐5.0 rated. Fast response. Free estimates! Call (980) 391-6833."
 ---
 

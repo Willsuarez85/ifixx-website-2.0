@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTASection from "../components/sections/CTASection.astro";
+import TextPhotosCTA from "../components/sections/TextPhotosCTA.astro";
 import { SERVICE_AREAS, BUSINESS_HOURS_LABEL } from "../lib/business-facts";
 
 const seoTitle = "Contact iFIXX Charlotte | Free Estimates | Call (980) 391-6833";
@@ -46,10 +47,19 @@ const breadcrumbSchema = {
           Get Your Free Estimate
         </h1>
         <p class="text-lg text-neutral-600">
-          Ready to start your project? Fill out the form below or give us a
-          call. We typically respond within a few hours.
+          Ready to start your project? Fill out the form below, call, or text us
+          photos. For small repairs we call you back with the estimate the same
+          business day. Kitchens, bathrooms, new decks and porches are estimated
+          in person, with a render included on projects over $5,000.
         </p>
       </div>
+    </div>
+  </section>
+
+  <!-- Photo estimate -->
+  <section class="section pb-0">
+    <div class="container">
+      <TextPhotosCTA />
     </div>
   </section>
 
@@ -182,7 +192,7 @@ const breadcrumbSchema = {
                 <option value="doors-windows">Doors & Windows</option>
                 <option value="bathroom-remodel">Bathroom Remodel</option>
                 <option value="kitchen-remodel">Kitchen Renovation</option>
-                <option value="emergency">Emergency Repair</option>
+                <option value="emergency">Storm or Break-In Damage</option>
                 <option value="other">Other</option>
               </select>
             </div>
@@ -296,7 +306,7 @@ const breadcrumbSchema = {
                   {email}
                 </p>
                 <p class="text-sm text-neutral-500">
-                  We'll respond within 24 hours
+                  We'll respond within one business day
                 </p>
               </div>
             </a>

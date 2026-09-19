@@ -2,7 +2,7 @@
 title: "Drywall Repair"
 category: "handyman"
 pillar: "repairs"
-summary: "Professional drywall and ceiling repair in Charlotte. Holes, cracks, water-stained ceilings, texture matching. Same-day service available. Free estimates. Expert texture matching that makes repairs invisible."
+summary: "Professional drywall and ceiling repair in Charlotte. Holes, cracks, water-stained ceilings, texture matching. Text photos and get your estimate the same business day. Expert texture matching that makes repairs invisible."
 heroImage: "/images/services/drywall/dr-02-before-after-split.webp"
 bullets:
   - "Hole repair (small, medium, and large)"
@@ -36,13 +36,13 @@ processSteps:
     description: "Prime all repairs for proper paint adhesion. We can paint just the repaired area or the entire wall/ceiling for uniform finish. Complete cleanup with debris removal."
 faqs:
   - q: "How long does drywall repair take?"
-    a: "Small repairs (< 6 inches) take 2-4 hours same-day. Medium repairs (6-24 inches) take 1-2 days for drying time between coats. Large repairs or full section replacement take 2-3 days including demo, installation, multiple coats, texture, and paint."
+    a: "Small repairs (< 6 inches) take 2-4 hours once we're on site. Medium repairs (6-24 inches) take 1-2 days for drying time between coats. Large repairs or full section replacement take 2-3 days including demo, installation, multiple coats, texture, and paint."
   - q: "Can you match my ceiling texture perfectly?"
     a: "Yes. Texture matching is our specialty. We've done hundreds of repairs across Charlotte—every texture type, every era of home. We bring samples, test on scrap material, and dial in the exact pattern before applying it to your ceiling. Common textures we match: orange peel (most common in Charlotte), knockdown, skip trowel, smooth finish, and popcorn (acoustic ceiling)."
   - q: "Do you paint after repair?"
     a: "Yes. Drywall repair without paint is an unfinished job. We always prime the repair (required for proper paint adhesion). Then we can spot paint just the repaired area if you have matching paint, paint the entire wall or ceiling for uniform color, or do full room painting if your paint is aged or faded. We'll recommend what looks best."
-  - q: "Is same-day service available?"
-    a: "For urgent repairs, yes. If you have water damage (active leak stopped but drywall soaked), a security issue (hole exposing exterior), or an emergency situation, call (980) 391-6833 before noon and we'll prioritize same-day service when possible. For non-emergency repairs, we typically schedule within 2-3 days."
+  - q: "How fast can I get a price?"
+    a: "The same business day. Text photos of the damage to (980) 391-6833 with a short description of where it is in the house, and a person calls you back with the estimate. That is a phone estimate, not a visit: iFIXX does not run an emergency or after-hours service, and the crew is scheduled for a date you approve before any work starts."
   - q: "How do I know if I need repair or full replacement?"
     a: "Repair (patching) works for small to medium holes (< 12 inches), isolated cracks, and surface damage with solid backing. Replacement (full section) is needed for water-damaged drywall (soft, warped, or mold present), large holes or extensive damage (> 12 inches), compromised structural integrity, or damage affecting multiple studs or ceiling joists. We'll assess for free and be honest about what you need."
   - q: "What affects the price of drywall repair?"
@@ -58,13 +58,16 @@ relatedServices:
   - "quick-fix"
   - "carpentry"
 seo:
-  title: "Drywall & Ceiling Repair Charlotte NC | Texture Matching"
-  description: "Drywall and ceiling repair in Charlotte NC: holes, cracks, water-stained ceilings, texture matching that hides the patch. ⭐5.0 on Google. (980) 391-6833"
+  # 637 impressions and zero clicks in 28 days (Search Console, 2026-09-19): the old
+  # title described the service without giving a reason to click. The hook is now the
+  # promise William can keep, the estimate back the same business day from photos.
+  title: "Drywall Repair South Charlotte NC | Same-Day Estimate | iFIXX"
+  description: "Holes, cracks, nail pops, water-stained ceilings, texture matching that hides the patch. Text photos to (980) 391-6833 for an estimate the same business day."
 ---
 
 **Hole in your wall? Crack getting worse? Water-damaged ceiling?** iFIXX repairs it right—matching your texture so the repair disappears completely. From small nail holes to full section water damage, we handle everything: drywall, texture, paint. One call. One crew. Problem solved.
 
-**Text photos to [(980) 391-6833](tel:9803916833)** for a free estimate. We respond fast.
+**Text photos to [(980) 391-6833](sms:+19803916833)** for a free estimate. A person calls you back the same business day.
 
 ## Ceiling Repair in Charlotte
 

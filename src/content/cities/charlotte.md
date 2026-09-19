@@ -45,7 +45,7 @@ servicesHighlighted:
   - "painting"
   - "carpentry"
 seo:
-  title: "Charlotte Handyman & Remodeling | Same-Day Service | ⭐5.0 | iFIXX"
+  title: "Charlotte Handyman & Remodeling | Photo Estimates | ⭐5.0 | iFIXX"
   description: "Charlotte's #1 handyman & remodeling experts. Serving Myers Park, Dilworth, SouthPark, Ballantyne & all neighborhoods. Family-owned. ⭐5.0 on Google. Free estimates! Call (980) 391-6833."
 ---
 

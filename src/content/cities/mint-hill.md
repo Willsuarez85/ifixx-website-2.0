@@ -16,7 +16,7 @@ highlights:
   - "Local team serving Mint Hill and surrounding areas"
   - "Familiar with Mint Hill's mix of historic and new construction"
   - "Trusted by homeowners throughout Mecklenburg County"
-  - "Same-day response for urgent repairs"
+  - "Same-business-day estimate from photos you text us"
   - "Fully insured and background-checked technicians"
 zipCodes:
   - "28227"
@@ -31,7 +31,7 @@ servicesHighlighted:
   - "carpentry"
   - "quick-fix"
 seo:
-  title: "Mint Hill NC Handyman & Remodeling | Same-Day Service | ⭐5.0 | iFIXX"
+  title: "Mint Hill NC Handyman & Remodeling | Photo Estimates | ⭐5.0 | iFIXX"
   description: "Mint Hill's trusted handyman & remodeling experts. Serving Downtown Mint Hill, Bain Creek, Clear Creek & surrounding areas. ⭐5.0 rated. Free estimates! Call (980) 391-6833."
 ---
 

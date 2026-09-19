@@ -4,6 +4,7 @@ import PillarLayout from '../../layouts/PillarLayout.astro';
 import { getCollection } from 'astro:content';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
+import TextPhotosCTA from '../../components/sections/TextPhotosCTA.astro';
 import { REPAIRS_FEATURED_AUTHORS } from '../../lib/google-reviews';
 import { isRetiredService, hasServiceAreaHub } from '../../lib/seo-retired';
 
@@ -34,10 +35,10 @@ const locations = (await getCollection('cities')).filter(c => hasServiceAreaHub(
 const pillar = {
   title: "Home Repair Services",
   slug: "repairs",
-  description: "South Charlotte's handyman and repair crew. Drywall, painting, deck and fence repair, carpentry, doors and windows, and the list of small jobs nobody else will take. Family-owned, fully insured, same-day when we can.",
+  description: "South Charlotte's handyman and repair crew. Drywall, painting, deck and fence repair, carpentry, doors and windows, and the list of small jobs nobody else will take. Family-owned, fully insured, and your estimate comes back the same business day.",
   seo: {
-    title: "Handyman & Home Repairs South Charlotte NC | Same-Day | iFIXX",
-    description: "Handyman and home repairs in South Charlotte NC. Drywall, painting, deck and fence repair, carpentry, doors and windows. Insured, same-day when we can. Call (980) 391-6833."
+    title: "Handyman & Home Repairs South Charlotte NC | iFIXX",
+    description: "Handyman and home repairs in South Charlotte NC: drywall, painting, deck and fence repair, carpentry, doors and windows. Text photos to (980) 391-6833 and get your estimate the same business day."
   }
 };
 
@@ -192,8 +193,8 @@ const serviceImages: Record<string, string> = {
                 </svg>
               </div>
               <div>
-                <h3 class="font-bold text-white mb-1">Same-Day Service Available</h3>
-                <p class="text-neutral-400 text-sm">Call in the morning, we can often be there by afternoon. Charlotte traffic? We know the shortcuts.</p>
+                <h3 class="font-bold text-white mb-1">Same-Day Phone Estimate</h3>
+                <p class="text-neutral-400 text-sm">Text us photos of the job at (980) 391-6833 and a person calls you back with the estimate the same business day.</p>
               </div>
             </li>
             <li class="flex items-start gap-4">
@@ -245,6 +246,13 @@ const serviceImages: Record<string, string> = {
     title="What South Charlotte Homeowners Say About Our Repairs"
     authors={REPAIRS_FEATURED_AUTHORS}
   />
+
+  <!-- Photo estimate -->
+  <section class="py-12 lg:py-16 bg-white">
+    <div class="container">
+      <TextPhotosCTA />
+    </div>
+  </section>
 
   <!-- Service Areas -->
   <section class="py-16 lg:py-24 bg-neutral-50">

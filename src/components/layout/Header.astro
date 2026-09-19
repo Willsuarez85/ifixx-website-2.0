@@ -5,6 +5,8 @@ const currentPath = Astro.url.pathname;
 // remodeling follows. Fences left the nav the same day: the category moves to a
 // separate brand in October, and /fence-*-south-charlotte stay live for Google Ads
 // only, noindexed and unlinked.
+// Emergency Services left the nav on 2026-09-19 (William): iFIXX cannot fulfil a
+// same-day or emergency promise, so the silo was retired and 301'd to /repairs.
 const navLinks = [
   {
     href: '/repairs',
@@ -16,7 +18,7 @@ const navLinks = [
       { href: '/repairs/deck-repair', label: 'Deck Repair', description: 'Rot, boards, railings & steps' },
       { href: '/repairs/fence-repair', label: 'Fence Repair', description: 'Leaning posts, gates & panels' },
       { href: '/repairs/quick-fix', label: 'Quick Fixes', description: 'The list nobody else will take' },
-      { href: '/emergency-services', label: 'Emergency Services', description: 'Same-day urgent repairs', emergency: true }
+      { href: '/repairs/doors-windows', label: 'Doors & Windows', description: 'Sticking doors, frames & hardware' }
     ]
   },
   {
@@ -76,18 +78,9 @@ const isActivePath = (href: string) => {
                   {link.dropdown.map((item) => (
                     <a
                       href={item.href}
-                      class:list={[
-                        "flex flex-col px-4 py-3 hover:bg-neutral-50 transition-colors",
-                        item.emergency && "bg-red-50 hover:bg-red-100"
-                      ]}
+                      class="flex flex-col px-4 py-3 hover:bg-neutral-50 transition-colors"
                     >
-                      <span class:list={[
-                        "font-bold text-sm",
-                        item.emergency ? "text-red-600" : "text-neutral-900"
-                      ]}>
-                        {item.emergency && (
-                          <span class="inline-block w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></span>
-                        )}
+                      <span class="font-bold text-sm text-neutral-900">
                         {item.label}
                       </span>
                       <span class="text-xs text-neutral-500">{item.description}</span>
@@ -157,14 +150,8 @@ const isActivePath = (href: string) => {
                 {link.dropdown.map((item) => (
                   <a
                     href={item.href}
-                    class:list={[
-                      "block py-2 text-sm",
-                      item.emergency ? "text-red-400 font-bold" : "text-neutral-300 hover:text-white"
-                    ]}
+                    class="block py-2 text-sm text-neutral-300 hover:text-white"
                   >
-                    {item.emergency && (
-                      <span class="inline-block w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></span>
-                    )}
                     {item.label}
                   </a>
                 ))}

@@ -4,7 +4,7 @@ state: "NC"
 region: "NC"
 type: "neighborhood"
 parentCity: "charlotte"
-localizedIntro: "Looking for a handyman in South Charlotte? iFIXX is a local Charlotte family business serving Ballantyne, Pineville, Carmel, Rea Farms, and all South Charlotte neighborhoods. Same-day service, honest pricing — you talk directly to Jaime or Hamed, not a call center."
+localizedIntro: "Looking for a handyman in South Charlotte? iFIXX is a local Charlotte family business serving Ballantyne, Pineville, Carmel, Rea Farms, and all South Charlotte neighborhoods. Text photos of the job and get the estimate the same business day, with honest pricing and an owner on the phone, not a call center."
 description: "iFIXX is a family-owned handyman and remodeling service based in the Charlotte metro. We've been serving South Charlotte homeowners for 5+ years — from quick repairs like outlet replacement and drywall patching to full kitchen and bathroom remodels. We know South Charlotte: the HOA requirements, the newer home construction, and the high standards homeowners here expect."
 neighborhoods:
   - "Ballantyne"
@@ -18,7 +18,7 @@ neighborhoods:
   - "Ardrey Kell"
   - "Waverly"
 highlights:
-  - "Same-day handyman service in South Charlotte"
+  - "Same-business-day estimate from photos you text us"
   - "Family-owned since 2019 — not a franchise call center"
   - "HOA-compliant work, professional presentation"
   - "Fully insured, 5-star rated on Google"
@@ -37,13 +37,13 @@ servicesHighlighted:
   - "painting"
   - "bathroom-remodel"
 seo:
-  title: "Handyman South Charlotte NC | Same-Day Service | ⭐5.0 | iFIXX"
-  description: "Handyman in South Charlotte NC — same-day drywall, flooring, carpentry and painting. Serving Ballantyne, Carmel, Pineville, Rea Farms. Call (980) 391-6833."
+  title: "Handyman South Charlotte NC | Photo Estimates | ⭐5.0 | iFIXX"
+  description: "Handyman in South Charlotte NC: drywall, flooring, carpentry and painting. Serving Ballantyne, Carmel, Pineville, Rea Farms. Text photos to (980) 391-6833 for a same-business-day estimate."
 ---
 
 ## Handyman Service in South Charlotte, NC
 
-South Charlotte homeowners trust iFIXX for fast, professional repairs and remodeling. Whether you're in **Ballantyne, Carmel, Pineville, or Rea Farms**, we're your local handyman — family-owned, fully insured, and available same-day.
+South Charlotte homeowners trust iFIXX for honest, professional repairs and remodeling. Whether you're in **Ballantyne, Carmel, Pineville, or Rea Farms**, we're your local handyman: family-owned, fully insured, and quick with a price. Text us photos of the job and a person calls you back with the estimate the same business day.
 
 ### What We Fix in South Charlotte
 
@@ -60,6 +60,6 @@ From quick repairs to full remodels, iFIXX handles it all:
 
 South Charlotte has newer homes with HOA requirements and high standards. We get it. We show up on time, work cleanly, and deliver results that meet those standards — or we make it right.
 
-**Family-owned since 2019**, working across Charlotte and South Charlotte. **5.0 on Google.** Talk directly to Jaime or Hamed — not a call center.
+**Family-owned since 2019**, working across Charlotte and South Charlotte. **5.0 on Google.** Talk directly to Jaime, not a call center.
 
-📞 **Call/text (980) 391-6833** for a free estimate. Same-day service available Mon-Fri.
+📞 **Text photos of the job to (980) 391-6833** and a person calls you back with the estimate the same business day.

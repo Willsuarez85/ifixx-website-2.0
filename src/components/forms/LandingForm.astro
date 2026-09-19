@@ -15,7 +15,9 @@ const { formId, formName, servicePreselect = '', ctaText = 'Get Free Estimate No
 // Every value here is a key in SERVICE_TAGS (/api/lead.ts). Before this pass, seven
 // of the eleven were not, so those leads were silently tagged 'general-inquiry'.
 const services = [
-  { value: 'emergency-repair', label: 'Emergency Repair' },
+  // The 'emergency-repair' value is kept because /api/lead.ts maps it to a CRM tag;
+  // the label no longer promises an emergency service iFIXX cannot run (2026-09-19).
+  { value: 'emergency-repair', label: 'Storm or Break-In Damage' },
   { value: 'water-damage', label: 'Water Damage Repair' },
   { value: 'doors-windows', label: 'Door & Window Repair' },
   { value: 'drywall', label: 'Drywall Repair' },
@@ -30,10 +32,10 @@ const services = [
 <div class="bg-white rounded-2xl shadow-2xl p-6 lg:p-8 border border-neutral-200" data-form-wrapper>
   <div class="text-center mb-5">
     <h3 class="text-xl font-heading font-bold text-neutral-900 mb-1">Get Your Free Estimate</h3>
-    <p class="text-sm text-neutral-600">No obligation. We respond fast.</p>
+    <p class="text-sm text-neutral-600">No obligation. We call you back the same business day.</p>
   </div>
 
-  <form id={formId} class="space-y-3" toolname="RequestHandymanQuote" tooldescription="Request a free quote from iFIXX, a family-owned handyman in Charlotte NC. Provide name, phone, email, and what you need fixed (drywall repair, painting, doors, fixtures, TV mounting, carpentry). iFIXX is fully insured and responds same day.">
+  <form id={formId} class="space-y-3" toolname="RequestHandymanQuote" tooldescription="Request a free quote from iFIXX, a family-owned handyman in South Charlotte NC. Provide name, phone, email, and what you need fixed (drywall repair, painting, doors, TV mounting, carpentry). iFIXX is fully insured and calls back with the estimate the same business day. iFIXX does not offer emergency, 24/7 or same-day repair service.">
     <label for={`${formId}-name`} class="sr-only">Your Name</label>
     <input type="text" id={`${formId}-name`} name="firstName" required
       class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-neutral-900 placeholder-neutral-500"

@@ -3,20 +3,22 @@ title: "Water Damage Emergency: What to Do in the First 24 Hours"
 date: 2026-02-10
 excerpt: "When water invades your home, every minute counts. Here's exactly what to do in the first 24 hours - and how iFIXX can help."
 coverImage: "/images/projects/drywall-repair-patching-hole-spackling.webp"
-category: "Emergency Services"
+category: "Water Damage"
 tags:
   - "water damage"
-  - "emergency repair"
+  - "drywall repair"
   - "Charlotte"
   - "home repair"
 seo:
   title: "Water Damage in Your Home? What to Do First | Charlotte NC | iFIXX"
-  description: "Water damage in your Charlotte home? Here's exactly what to do in the first 24 hours. Same-day emergency response from iFIXX. Call (980) 391-6833 now."
+  description: "Water damage in your Charlotte home? A step-by-step guide to the first 24 hours, and how iFIXX repairs the drywall, ceilings and finishes once the water is handled."
 ---
 
-Water damage doesn't wait for business hours. Whether it's 2 AM on a Sunday or during your kid's birthday party, when water starts pooling on your floor, you need to act fast.
+Water damage doesn't wait for business hours. When water starts pooling on your floor, the first hours decide how much of your home you get to keep.
 
-We're Jaime and Hamed, the owners of iFIXX. We've helped hundreds of Charlotte homeowners through water emergencies — burst pipes, overflowing washing machines, storm damage, you name it. This guide is everything we wish someone had told us the first time we faced a flooded basement.
+We're the team at iFIXX, a South Charlotte handyman and remodeling crew. We've helped hundreds of Charlotte homeowners put a house back together after water got into it: burst supply lines, overflowing washing machines, storm damage. This guide is everything we wish someone had told us the first time we walked into a flooded basement.
+
+**One thing to be clear about up front:** iFIXX is not a 24/7 emergency or restoration company. We do not do middle-of-the-night water extraction. What we do is the repair work after the water is stopped and the house is dry, during our normal hours, Monday to Saturday, 8:30 AM to 5:30 PM.
 
 **The bottom line:** The first 24 hours determine whether you're looking at a cleanup or a catastrophe. Let's make sure you handle it right.
 
@@ -97,16 +99,16 @@ You can rent some of this equipment, but knowing where to focus it — and how l
 
 ### What iFIXX handles in water damage situations
 
-We get calls at all hours for water emergencies. Here's what we typically handle:
+Once the water is stopped and the house is dry, this is the part we do:
 
-- ✅ **Same-day response** — We answer our phones directly, no call centers
-- ✅ **Water extraction** — Getting standing water out fast  
 - ✅ **Damaged material removal** — Wet drywall, ruined insulation, soaked carpet
-- ✅ **Structural drying coordination** — Working with restoration equipment
-- ✅ **Repairs after drying** — Drywall, painting, flooring, trim work
+- ✅ **Repairs after drying** — Drywall, ceilings, painting, flooring, trim work
+- ✅ **Texture and finish matching** — So the patch doesn't announce itself
 - ✅ **Carpentry and finishes** — Trim, baseboards, cabinets and vanities the water ruined
 
-We're not a restoration company with franchise fees built into our pricing. We're two guys who know home repair inside and out, and we'll tell you honestly what you need — and what you don't.
+What we don't do: emergency water extraction, overnight calls, and mold remediation. Those belong to a restoration company, and if that's what you need right now, call one first. We're the crew that makes the house look like nothing happened afterwards, and we'll tell you honestly what you need and what you don't.
+
+**Want the estimate moving while the fans are still running?** Text photos of the damage to **(980) 391-6833** with a short description. A person calls you back with the estimate the same business day.
 
 ## Hours 8-24: Assessment and Planning
 
@@ -221,15 +223,15 @@ Print this or save it to your phone:
 
 ## Don't Wait — Water Damage Gets Worse Every Hour
 
-The difference between a $1,500 repair and a $15,000 disaster often comes down to how fast you act. If you're dealing with water damage right now, stop reading and start calling.
+The difference between a $1,500 repair and a $15,000 disaster often comes down to how fast you act. Stop the water, document everything, get it dry. Then get the repair scheduled.
 
-**iFIXX — Same-Day Emergency Response in Charlotte**
+**iFIXX — Drywall, Ceiling and Finish Repair in South Charlotte**
 
-📞 (980) 391-6833
+📞 (980) 391-6833 — call, or text photos of the damage
 📧 ifixx.hs@gmail.com
 
-*Family-owned. Fully insured. We answer our phones.*
+*Family-owned. Fully insured. Monday to Saturday, 8:30 AM to 5:30 PM.*
 
 ---
 
-**Ready to get help with water damage?** [Contact us today](/contact) for a free estimate, or call (980) 391-6833.
+**Ready to get the repair priced?** Text photos of the damage to (980) 391-6833 and a person calls you back with the estimate the same business day, or [request a free estimate online](/contact).

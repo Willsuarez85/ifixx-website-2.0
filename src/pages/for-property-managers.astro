@@ -11,22 +11,22 @@ const locations = (await getCollection('cities')).filter(c => hasServiceAreaHub(
 
 const seo = {
   title: "Property Maintenance Services in Charlotte, NC | iFixx",
-  description: "Reliable property maintenance for Charlotte landlords and property managers. Volume discounts, priority scheduling, and fast turnaround. Request a consultation today."
+  description: "Reliable property maintenance for South Charlotte landlords and property managers. Volume pricing, priority scheduling, and a same-business-day estimate from photos. Request a consultation."
 };
 
 // FAQs for schema and display
 const faqs = [
   {
     question: "What services do you offer property managers?",
-    answer: "We provide comprehensive property maintenance including carpentry, painting, drywall repairs, doors and windows, appliance installation, lock changes, and tenant turnover preparation. We handle both routine maintenance and urgent repairs across all property types."
+    answer: "We provide comprehensive property maintenance including carpentry, painting, drywall repairs, doors and windows, appliance installation, lock changes, and tenant turnover preparation. We do not offer plumbing, electrical, or HVAC work."
   },
   {
     question: "Do you offer volume discounts for multiple properties?",
     answer: "Yes, we offer competitive volume pricing for property managers with multiple units. Our pricing is based on the size of your portfolio and the frequency of service. Contact us for a custom quote tailored to your portfolio."
   },
   {
-    question: "How quickly can you respond to tenant maintenance requests?",
-    answer: "For routine maintenance, we typically schedule within 24-48 hours. For urgent issues like water leaks, damaged doors, or fixture failures, we offer same-day emergency response to minimize tenant inconvenience and property damage."
+    question: "How quickly can you price and schedule a tenant maintenance request?",
+    answer: "Text or email us photos of the issue and a short description, and a person calls you back with the estimate the same business day. Scheduling the crew depends on the job and the week, and we tell you the date before you approve the work. We are not an emergency or after-hours service: our hours are Monday to Saturday, 8:30 AM to 5:30 PM."
   },
   {
     question: "Do you provide maintenance reporting?",
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     question: "How do I set up an account for my properties?",
-    answer: "Getting started is easy. Simply fill out our consultation form or call us directly. We'll schedule a brief meeting to understand your portfolio, maintenance needs, and preferences. We can have your account set up and ready for service requests within 24 hours."
+    answer: "Getting started is easy. Simply fill out our consultation form or call us directly. We'll schedule a brief meeting to understand your portfolio, maintenance needs, and preferences. We can have your account set up and ready for service requests within one business day."
   }
 ];
 
@@ -71,7 +71,7 @@ const benefits = [
   },
   {
     title: "Priority Scheduling",
-    description: "Your maintenance requests get priority attention. Same-day emergency response available.",
+    description: "Your requests go to the front of the line, and the estimate comes back the same business day.",
     icon: "clock"
   },
   {
@@ -540,7 +540,7 @@ const processSteps = [
       </h2>
       <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
         Schedule a consultation to discuss your portfolio and get a custom quote.
-        We'll have you set up and ready for service within 24 hours.
+        We'll have you set up and ready for service within one business day.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/contact" class="btn bg-white text-primary-600 hover:bg-neutral-100 text-lg px-8 py-4">

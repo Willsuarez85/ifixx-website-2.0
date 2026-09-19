@@ -76,7 +76,9 @@ export default defineConfig({
           item.changefreq = 'weekly';
         }
         // Pillar pages - very high priority (SEO hubs)
-        else if (url.match(/\/(repairs|remodeling|emergency-services)\/?$/)) {
+        // The emergency-services pillar was retired on 2026-09-19: iFIXX cannot
+        // fulfil an emergency or same-day promise, so the silo 301s to /repairs.
+        else if (url.match(/\/(repairs|remodeling)\/?$/)) {
           item.priority = 0.85;
           item.changefreq = 'weekly';
         }
