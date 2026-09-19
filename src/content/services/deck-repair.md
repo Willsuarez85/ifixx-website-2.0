@@ -51,8 +51,11 @@ relatedServices:
   - "painting"
   - "quick-fix"
 seo:
-  title: "Deck Repair South Charlotte NC | Rot, Boards & Railings | iFIXX"
-  description: "Deck repair in South Charlotte NC: soft boards, wood rot, loose railings, and broken steps fixed by an insured local crew. Free estimate. Call (980) 391-6833."
+  # 787 impressions and zero clicks in 28 days (Search Console, 2026-09-19): the old
+  # title listed parts, not a reason to click. The hook is now the promise William
+  # can keep, the estimate back the same business day from photos.
+  title: "Deck Repair South Charlotte NC | Same-Day Estimate | iFIXX"
+  description: "Soft boards, wood rot, loose rails, broken steps. Insured South Charlotte crew. Text photos to (980) 391-6833 and get your estimate the same business day."
 ---
 
 **A soft board, a railing that moves, steps that flex.** Decks in Charlotte take sun, humidity, and thunderstorms all year, and they fail in the same order every time: the finish goes, the boards drink water, then the framing follows. Caught early, that is a repair. Left alone, it becomes a rebuild.

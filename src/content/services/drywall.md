@@ -58,8 +58,11 @@ relatedServices:
   - "quick-fix"
   - "carpentry"
 seo:
-  title: "Drywall & Ceiling Repair Charlotte NC | Texture Matching"
-  description: "Drywall and ceiling repair in Charlotte NC: holes, cracks, water-stained ceilings, texture matching that hides the patch. ⭐5.0 on Google. (980) 391-6833"
+  # 637 impressions and zero clicks in 28 days (Search Console, 2026-09-19): the old
+  # title described the service without giving a reason to click. The hook is now the
+  # promise William can keep, the estimate back the same business day from photos.
+  title: "Drywall Repair South Charlotte NC | Same-Day Estimate | iFIXX"
+  description: "Holes, cracks, nail pops, water-stained ceilings, texture matching that hides the patch. Text photos to (980) 391-6833 for an estimate the same business day."
 ---
 
 **Hole in your wall? Crack getting worse? Water-damaged ceiling?** iFIXX repairs it right—matching your texture so the repair disappears completely. From small nail holes to full section water damage, we handle everything: drywall, texture, paint. One call. One crew. Problem solved.

@@ -8,8 +8,8 @@ import LandingEstimateForm from '../components/forms/LandingEstimateForm.astro';
 import ProjectMarquee from '../components/sections/ProjectMarquee.astro';
 import { GOOGLE_RATING } from '../lib/business-facts';
 
-const title = 'Deck Repair Charlotte NC | Wood Rot, Boards & Railings | iFIXX';
-const description = `Deck repair and restoration in Charlotte NC: wood rot, soft boards, loose railings, and broken steps fixed by an insured local crew. ⭐${GOOGLE_RATING.toFixed(1)} on Google.`;
+const title = 'Deck & Porch Repair Charlotte NC | Boards, Rails, Screens | iFIXX';
+const description = `Deck and porch repair in Charlotte NC: wood rot, soft boards, loose railings, broken steps, and torn porch screens fixed by an insured local crew. ⭐${GOOGLE_RATING.toFixed(1)} on Google. Text photos for a same-business-day estimate.`;
 const canonical = '/deck-repair-south-charlotte';
 const heroImage = '/images/projects/deck-wood-exterior-patio.webp';
 const supportImage = '/images/projects/outdoor-living-raised-deck-railing-construction.webp';
@@ -24,8 +24,10 @@ const repairItems = [
   'Wood rot repair: cutting out rotted boards, rails, posts, and trim before it spreads',
   'Framing or joist concerns that need a closer review',
   'Deck restoration: sanding, staining, sealing, and finish work that brings the wood back',
+  'Porch repair: floors, decking boards, railings, steps, posts, and ceiling boards',
+  'Porch screen repair: torn, sagging, or pet-damaged screens re-stretched or replaced',
   'Repair first when it makes sense, and a full rebuild when the deck is past saving',
-  'Punch-list deck repairs before selling, renting, or entertaining'
+  'Punch-list deck and porch repairs before selling, renting, or entertaining'
 ];
 
 const galleryImages = [
@@ -62,15 +64,18 @@ const faqs = [
   { q: 'Do you repair wood rot on a deck?', a: 'Yes. Wood rot repair is one of the most common jobs we do on Charlotte decks. Humid summers and afternoon storms keep boards, stair stringers, rail posts, and trim wet longer than they should be, and rot usually starts where water sits. We cut back to sound wood, replace what is gone, and treat and seal the area to keep water from sitting there again. If the rot has reached the framing or the posts that hold the deck up, we say so and scope that separately instead of covering it with a new board.' },
   { q: 'What does deck restoration include?', a: 'Restoration is for a deck that is structurally fine but looks tired: gray, splintering, or peeling. It usually means replacing the boards that are too far gone, sanding, and then staining or sealing so the color is even across the deck. We handle restoration on its own or right after a repair, which is the better order because fresh boards and old boards take stain differently.' },
   { q: 'When should I stop using my deck?', a: 'If the deck shifts, railings move, steps are loose, posts look rotten, or boards feel soft underfoot, stop using that area until it is reviewed. Safety concerns may need an in-person inspection before final pricing.' },
-  { q: 'Do you build new decks, or only repair?', a: 'Both. If your home does not have a deck yet, or you want to replace an old one with something bigger, we also build new decks and outdoor living spaces. Tell us "build a new deck" in the form and we will scope the design, materials, and price with you.' }
+  { q: 'Do you build new decks, or only repair?', a: 'Both. If your home does not have a deck yet, or you want to replace an old one with something bigger, we also build new decks and outdoor living spaces. Tell us "build a new deck" in the form and we will scope the design, materials, and price with you.' },
+  { q: 'Do you repair porches too, or only decks?', a: 'Porches as well. A porch is built the same way a deck is, so the same crew handles porch floors and decking boards, railings and balusters, steps and stringers, posts and beams, and the tongue-and-groove ceiling boards that sag or stain when water gets behind them. Screened porches, covered porches, and open front porches are all fair game.' },
+  { q: 'Can you repair the screens on a screened porch?', a: 'Yes. Torn screens, screens a dog pushed through, panels that sag away from the frame, and spline that has dried out and popped loose are all routine. We re-stretch or replace the screen panel by panel and replace the spline so the mesh stays tight, and we can move you to a heavier pet-resistant mesh on the panels that take the abuse. If the frame itself is rotted, we repair the wood first: new screen on soft wood does not hold.' },
+  { q: 'My porch floor feels soft near the edge. Is that a repair or a rebuild?', a: 'Usually a repair. Porch floors rot at the edges and at the base of the posts because that is where rain blows in and sits. We pull the soft boards, check the joists underneath, replace what is gone, and seal the new work. It becomes a rebuild only when the framing or the posts carrying the roof have gone, and we tell you that at the estimate rather than covering it with a new board.' }
 ];
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Deck Repair, Wood Rot Repair & Restoration in Charlotte, NC',
+  name: 'Deck, Porch & Screen Repair in Charlotte, NC',
   description,
-  serviceType: 'Deck repair, wood rot repair, and deck restoration',
+  serviceType: 'Deck repair, porch repair, porch screen repair, wood rot repair, and deck restoration',
   url: `https://ifixxnc.com${canonical}`,
   image: `https://ifixxnc.com${heroImage}`,
   provider: { '@id': 'https://ifixxnc.com/#business' },
@@ -102,13 +107,13 @@ const faqSchema = {
       <div class="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-10 items-start">
         <div class="order-1 lg:order-1">
           <span class="inline-block px-4 py-2 bg-primary-500 text-neutral-900 text-sm font-bold rounded-full mb-4">Repair-first • Rebuild when it's worth it • Not a franchise</span>
-          <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">Deck Repair &amp; Restoration in Charlotte, NC</h1>
-          <p class="text-lg text-neutral-200 mb-4 max-w-xl">Soft boards, loose rails, broken steps, or wood rot? Caught early, most of it is a focused repair, not a full replacement. And when a deck really is past saving, we'll tell you straight and scope a rebuild.</p>
-          <p class="text-neutral-300 mb-6 max-w-xl">iFIXX helps Charlotte and South Charlotte homeowners figure out the repair-or-rebuild path: wood rot repair, board replacement, rails, steps, deck restoration and refinishing, or a deeper review if the deck may be unsafe. Our local, family-owned team reviews every request personally and gives you an upfront price, with the estimate back the same business day when you send photos.</p>
+          <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4">Deck &amp; Porch Repair in Charlotte, NC</h1>
+          <p class="text-lg text-neutral-200 mb-4 max-w-xl">Soft boards, loose rails, broken steps, wood rot, or a porch screen the dog went through? Caught early, most of it is a focused repair, not a full replacement. And when a deck or porch really is past saving, we'll tell you straight and scope a rebuild.</p>
+          <p class="text-neutral-300 mb-6 max-w-xl">iFIXX helps Charlotte and South Charlotte homeowners figure out the repair-or-rebuild path on decks and porches alike: wood rot repair, board replacement, rails, steps, porch floors and ceilings, screen repair, restoration and refinishing, or a deeper review if the structure may be unsafe. Our local, family-owned team reviews every request personally and gives you an upfront price, with the estimate back the same business day when you send photos.</p>
           <div class="flex flex-col sm:flex-row gap-3 mb-3"><a href="#estimate-form" class="btn btn-primary landing-primary-cta" data-lead-type={leadType}>Request a Free Online Estimate</a><a href="tel:+19803916833" class="btn btn-outline-light landing-phone-cta" data-lead-type={leadType}>Call (980) 391-6833</a></div><p class="text-sm text-neutral-300 mb-8">Want a brand new deck instead? <a href="/deck-builder-south-charlotte" class="text-primary-400 underline underline-offset-2 hover:text-primary-300">See our new deck builds</a></p><ProjectMarquee images={galleryImages} title="Our Latest Deck Repairs & Rebuilds in Charlotte" />
-          <div class="grid grid-cols-2 gap-4">{['Repair or rebuild', 'Wood rot repair', 'Deck restoration', 'Insured local crew'].map((chip) => (<div class="flex items-center gap-3 text-white"><span class="w-9 h-9 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">✓</span><span class="text-sm font-medium">{chip}</span></div>))}</div>
+          <div class="grid grid-cols-2 gap-4">{['Repair or rebuild', 'Wood rot repair', 'Porch & screen repair', 'Insured local crew'].map((chip) => (<div class="flex items-center gap-3 text-white"><span class="w-9 h-9 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">✓</span><span class="text-sm font-medium">{chip}</span></div>))}</div>
         </div>
-        <div id="estimate-form" class="order-2 lg:order-2 scroll-mt-24 min-w-0"><LandingEstimateForm serviceSlug="deck-repair" serviceTitle="Deck Repair & Rebuilds" formId="deck-south-charlotte-estimate" leadType="deck_repair" formName="South Charlotte Deck Repair Landing Form" issueLabel="What needs repair?" includeSafetyConcern={true} issueOptions={['rotten/soft boards', 'loose railing', 'broken steps', 'wood rot', 'staining/sealing', 'repair vs rebuild advice', 'full deck rebuild', 'build a new deck', 'other']} descriptionPlaceholder="Briefly describe what is wrong with the deck and where you are located (photos help)." photoLabel="Upload photos if you have them" submitLabel="Request a Free Online Estimate" /></div>
+        <div id="estimate-form" class="order-2 lg:order-2 scroll-mt-24 min-w-0"><LandingEstimateForm serviceSlug="deck-repair" serviceTitle="Deck Repair & Rebuilds" formId="deck-south-charlotte-estimate" leadType="deck_repair" formName="South Charlotte Deck Repair Landing Form" issueLabel="What needs repair?" includeSafetyConcern={true} issueOptions={['rotten/soft boards', 'loose railing', 'broken steps', 'wood rot', 'porch floor or decking', 'porch railing, steps or posts', 'porch screen repair', 'staining/sealing', 'repair vs rebuild advice', 'full deck rebuild', 'build a new deck', 'other']} descriptionPlaceholder="Briefly describe what is wrong with the deck and where you are located (photos help)." photoLabel="Upload photos if you have them" submitLabel="Request a Free Online Estimate" /></div>
       </div>
     </div></div>
   </section>
@@ -121,13 +126,61 @@ const faqSchema = {
 
   <section class="section"><div class="container"><div class="max-w-4xl mx-auto"><div class="text-center mb-10"><span class="badge mb-4">Wood rot and restoration</span><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Wood rot repair and deck restoration in Charlotte</h2><p class="text-neutral-600">Two different problems that often show up on the same deck. One is about what the wood is doing structurally, the other is about how it looks.</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="card p-6"><h3 class="font-heading font-bold text-neutral-900 mb-3">Wood rot repair</h3><p class="text-neutral-600 mb-4">Charlotte summers keep decks damp, and rot starts where water sits: board ends, stair stringers, rail posts, and the trim against the house. We cut back to sound wood, replace what is gone, and seal the area to keep water from sitting there again.</p><p class="text-sm text-neutral-600">If the rot has reached the framing or the posts, that is a structural conversation and we scope it separately.</p></div><div class="card p-6"><h3 class="font-heading font-bold text-neutral-900 mb-3">Deck restoration</h3><p class="text-neutral-600 mb-4">For a deck that is sound but gray, splintering, or peeling: replacing the boards that are past saving, sanding, and staining or sealing so the finish is even across the whole surface.</p><p class="text-sm text-neutral-600">Restoration goes after the repair, not before. New boards and weathered boards take stain differently.</p></div></div></div></div></section>
 
+  <!-- Porch and screen repair. Six porch keywords already land on this page and it
+       had nothing to say to them (Search Console, 2026-09-19). Same crew, same
+       structure: a porch is a deck with a roof on it. -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-10">
+          <span class="badge mb-4">Porches too, not just decks</span>
+          <h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Porch repair and screen repair in Charlotte</h2>
+          <p class="text-neutral-600">A porch is a deck with a roof over it, built the same way and failing in the same places. The crew that repairs your deck boards repairs the porch floor, the rails, the steps, and the screens.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="card p-6">
+            <h3 class="font-heading font-bold text-neutral-900 mb-3">Porch structure and floors</h3>
+            <p class="text-neutral-600 mb-4">Porch floors rot at the edges and around the posts, because that is where rain blows in and stays. We pull the soft boards, check the joists underneath, replace what is gone, and seal the new work so it does not start again in the same spot.</p>
+            <ul class="space-y-2 text-sm text-neutral-700">
+              <li class="flex items-start gap-2"><span class="text-primary-600 font-bold">✓</span><span>Porch floor and decking board replacement</span></li>
+              <li class="flex items-start gap-2"><span class="text-primary-600 font-bold">✓</span><span>Railings, balusters, and handrails that move</span></li>
+              <li class="flex items-start gap-2"><span class="text-primary-600 font-bold">✓</span><span>Steps, stringers, and landings</span></li>
+              <li class="flex items-start gap-2"><span class="text-primary-600 font-bold">✓</span><span>Rotted posts, beams, and trim against the house</span></li>
+              <li class="flex items-start gap-2"><span class="text-primary-600 font-bold">✓</span><span>Sagging or water-stained porch ceiling boards</span></li>
+              <li class="flex items-start gap-2"><span class="text-primary-600 font-bold">✓</span><span>Sanding, staining, and sealing the finished porch</span></li>
+            </ul>
+          </div>
+
+          <div class="card p-6">
+            <h3 class="font-heading font-bold text-neutral-900 mb-3">Screen repair</h3>
+            <p class="text-neutral-600 mb-4">Screens tear, sag away from the frame, and lose their spline as it dries out in the Carolina sun. We re-stretch or replace the mesh panel by panel and replace the spline so it stays tight, and we can put heavier pet-resistant mesh on the panels that take the abuse.</p>
+            <ul class="space-y-2 text-sm text-neutral-700">
+              <li class="flex items-start gap-2"><span class="text-primary-600 font-bold">✓</span><span>Torn, punctured, or pet-damaged screen panels</span></li>
+              <li class="flex items-start gap-2"><span class="text-primary-600 font-bold">✓</span><span>Loose or sagging mesh and dried-out spline</span></li>
+              <li class="flex items-start gap-2"><span class="text-primary-600 font-bold">✓</span><span>Pet-resistant mesh on the doors and low panels</span></li>
+              <li class="flex items-start gap-2"><span class="text-primary-600 font-bold">✓</span><span>Screen door repair, hardware, and closers</span></li>
+              <li class="flex items-start gap-2"><span class="text-primary-600 font-bold">✓</span><span>Rotted screen frames repaired before the new mesh goes on</span></li>
+            </ul>
+            <p class="text-sm text-neutral-600 mt-4">New screen on soft wood does not hold, so we fix the frame first and tell you so before you pay for mesh twice.</p>
+          </div>
+        </div>
+
+        <p class="text-center text-neutral-600 mt-8">
+          Thinking about a screened porch you don't have yet?
+          <a href="/remodeling/screened-porches" class="text-primary-600 font-semibold hover:underline">See screened porch builds and conversions</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section class="section"><div class="container"><div class="max-w-3xl mx-auto text-center mb-12"><span class="badge mb-4">Simple local process</span><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-4">Repair before it becomes a larger investment</h2><p class="text-neutral-600">You do not need to diagnose the deck yourself. Tell us what you are seeing, send photos if you have them, and our local team will help identify the next practical step.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">{processSteps.map((step, index) => (<div class="card p-6 text-center"><div class="w-14 h-14 mx-auto mb-4 rounded-full bg-primary-500 flex items-center justify-center font-heading font-bold text-neutral-900 text-xl">{index + 1}</div><h3 class="font-heading font-bold text-neutral-900 mb-2">{step.title}</h3><p class="text-sm text-neutral-600">{step.text}</p></div>))}</div></div></section>
 
   <section class="section section-alt"><div class="container"><div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto"><div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-200"><h2 class="text-2xl font-heading font-bold text-neutral-900 mb-4">Who is iFIXX?</h2><img src="/images/ui/team.webp" alt="Jaime Aguilar, owner of iFIXX, with his team" class="w-full aspect-[16/9] object-cover rounded-xl mb-4" width="640" height="360" loading="lazy" decoding="async" /><p class="text-neutral-600 mb-4">Meet Jaime Aguilar, the owner. iFIXX is not a franchise or a call center: it is a local Charlotte family company, and the person responsible for your repair is the same person who answers your call.</p><ul class="space-y-3">{whoBullets.map((item) => (<li class="flex items-start gap-3"><span class="w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 mt-0.5 text-neutral-900 text-sm font-bold">✓</span><span class="text-neutral-700">{item}</span></li>))}</ul></div><div class="bg-neutral-900 rounded-2xl p-8 text-white shadow-xl"><h2 class="text-2xl font-heading font-bold mb-4">Charlotte service areas</h2><div class="flex flex-wrap gap-2">{serviceAreas.map((area) => (<span class="px-3 py-2 rounded-full bg-white/10 text-sm">{area}</span>))}</div><p class="text-neutral-300 mt-5">If you are nearby but not listed, send the request and we will confirm availability.</p></div></div></div></section>
 
   <section class="section"><div class="container"><div class="max-w-4xl mx-auto rounded-2xl bg-neutral-900 text-white p-8 lg:p-10 shadow-xl"><div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 items-center"><div><span class="inline-block px-3 py-1 rounded-full bg-primary-500/20 text-primary-400 text-xs font-bold uppercase tracking-wide mb-3">No deck yet?</span><h2 class="text-2xl lg:text-3xl font-heading font-bold mb-3">We build new decks too, not just repairs</h2><p class="text-neutral-300 max-w-xl">If your home doesn't have a deck, or you're ready to replace an old one with something bigger, we build new decks and outdoor living spaces across South Charlotte. Honest pricing, insured local crew, and the owners involved from the first design conversation.</p></div><a href="/deck-builder-south-charlotte" class="btn btn-primary whitespace-nowrap">See new deck builds →</a></div></div></div></section>
 
-  <section class="section"><div class="container"><div class="max-w-3xl mx-auto"><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-8 text-center">Deck Repair FAQs</h2><div class="space-y-4">{faqs.map((faq, index) => (<details class="group bg-white rounded-xl shadow-sm" open={index === 0}><summary class="flex items-center justify-between cursor-pointer list-none p-6"><span class="font-semibold text-neutral-900 pr-4">{faq.q}</span><span class="text-primary-600 group-open:rotate-180 transition-transform">⌄</span></summary><div class="px-6 pb-6"><p class="text-neutral-600 leading-relaxed">{faq.a}</p></div></details>))}</div></div></div></section>
+  <section class="section"><div class="container"><div class="max-w-3xl mx-auto"><h2 class="text-2xl lg:text-3xl font-heading font-bold text-neutral-900 mb-8 text-center">Deck and Porch Repair FAQs</h2><div class="space-y-4">{faqs.map((faq, index) => (<details class="group bg-white rounded-xl shadow-sm" open={index === 0}><summary class="flex items-center justify-between cursor-pointer list-none p-6"><span class="font-semibold text-neutral-900 pr-4">{faq.q}</span><span class="text-primary-600 group-open:rotate-180 transition-transform">⌄</span></summary><div class="px-6 pb-6"><p class="text-neutral-600 leading-relaxed">{faq.a}</p></div></details>))}</div></div></div></section>
 
   <section class="section pt-0">
     <div class="container">
