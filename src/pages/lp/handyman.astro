@@ -6,16 +6,20 @@ import { SERVICE_AREAS } from '../../lib/business-facts';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import ScrollGallery from '../../components/sections/ScrollGallery.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
+import TextPhotosCTA from '../../components/sections/TextPhotosCTA.astro';
 
+// Destination of the Core Handyman Near Me ad group. Same-day service left this
+// page on 2026-09-19 (William: iFIXX cannot fulfil it). The hook is now the
+// estimate itself, back the same business day from photos the customer texts in.
 const seo = {
-  title: "Handyman Charlotte NC | Same-Day Home Repairs | iFIXX",
-  description: "Handyman Charlotte NC — family-owned home repairs, drywall, painting, doors, windows, TV mounting, carpentry & more. Family-owned. Call (980) 391-6833."
+  title: "Handyman South Charlotte NC | Same-Day Estimate | iFIXX",
+  description: "Family-owned handyman in South Charlotte: drywall, painting, doors, TV mounting, carpentry. Text photos to (980) 391-6833 and get your estimate the same business day."
 };
 
 const services = [
   { icon: "🔨", title: "Drywall & Painting", desc: "Patches, texture matching, interior & exterior painting — clean work, fair prices.", image: "/images/projects/drywall-repair-patching-hole-spackling.webp" },
   { icon: "🚪", title: "Doors & Windows", desc: "Installation, repair, replacement, locks, hinges, weather stripping.", image: "/images/projects/door-installation-interior-hinge-leveling-brass.webp" },
-  { icon: "📺", title: "TV Mounting", desc: "Clean install, cables hidden, bracket included. Same-day available.", image: "/images/projects/tv-mounting-wall-bracket-installation-drilling.webp" },
+  { icon: "📺", title: "TV Mounting", desc: "Clean install, cables hidden in the wall, bracket included.", image: "/images/projects/tv-mounting-wall-bracket-installation-drilling.webp" },
   { icon: "🪚", title: "Carpentry", desc: "Trim, baseboards, shelves, cabinets, deck repairs, and custom woodwork.", image: "/images/projects/carpentry-baseboard-trim-installation-repair.webp" },
   { icon: "🛠️", title: "Quick Fixes", desc: "Shelves, blinds, furniture assembly, and the small jobs that pile up.", image: "/images/projects/carpentry-baseboard-trim-installation-repair.webp" },
 ];
@@ -23,7 +27,7 @@ const services = [
 const whyChooseUs = [
   { title: "Talk to the Owners", desc: "When you call, the owners answer. No dispatchers, no call centers, no runaround." },
   { title: "Upfront Pricing", desc: "We tell you the price before we start. No surprises, no awkward conversations at the end." },
-  { title: "Same-Day Available", desc: "Need it done today? We'll do our best to get there same-day for urgent jobs." },
+  { title: "Same-Day Phone Estimate", desc: "Text us photos of the job and a person calls you back with the estimate the same business day." },
   { title: "One Call Covers It All", desc: "Drywall, painting, doors, windows, TV mounting — no need to hire 5 different people." },
   { title: "We Make It Right", desc: "If something's not perfect, we fix it. That's not a policy — that's just how we work." },
   { title: "Fully Insured", desc: "Full liability coverage on every project. Your home is protected, and so are we." },
@@ -38,8 +42,9 @@ const processSteps = [
 const faqs = [
   { q: "How much does a handyman cost in Charlotte?", a: "Most common repairs range from $100-$400 depending on the job. We always provide a quote before starting, so you know exactly what to expect. No surprises." },
   { q: "Do you handle small jobs?", a: "Absolutely. No job is too small. Whether it's hanging a shelf or patching drywall, we're happy to help. Many clients combine several small jobs in one visit to save on time." },
-  { q: "What if I call after hours?", a: "You can leave a voicemail or chat with our virtual assistant anytime. We'll get back to you first thing in the morning and prioritize your request." },
-  { q: "How do I get a quote?", a: "Call us at (980) 391-6833, fill out the form on this page, or text us photos of what you need done. We'll respond with an honest estimate quickly." },
+  { q: "What if I call after hours?", a: "You can leave a voicemail, text us photos, or chat with our virtual assistant anytime. We'll get back to you first thing the next business morning. Our hours are Monday to Saturday, 8:30 AM to 5:30 PM, and we are not an emergency or after-hours service." },
+  { q: "How do I get a quote?", a: "The fastest way is to text photos of the job to (980) 391-6833 with a short description of what needs fixing. A person looks at them and calls you back with the estimate the same business day, no visit required for most small repairs. You can also call or fill out the form on this page." },
+  { q: "Can you come out the same day?", a: "No, and we would rather say so than promise it. iFIXX schedules the crew for a date you approve, so you know when we are coming and we show up. What we do turn around the same business day is the estimate: send photos and you get the price back that day." },
   { q: "Are you insured?", a: "Yes, fully insured. Your home is protected on every project. We can provide proof of insurance upon request." },
   { q: "Can you handle multiple jobs in one visit?", a: "That's actually one of the best reasons to hire a handyman! List everything you need and we'll knock it all out in one efficient visit." },
 ];
@@ -59,10 +64,10 @@ const faqs = [
           <div class="order-1 lg:order-1">
             <span class="inline-block px-4 py-2 bg-primary-500 text-neutral-900 text-sm font-bold rounded-full mb-4">Charlotte's Local Handyman</span>
             <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mb-4 leading-tight">
-              Handyman <span class="text-primary-500">Charlotte NC</span> — Same-Day Home Repairs
+              Handyman <span class="text-primary-500">South Charlotte</span> — Your Estimate the Same Business Day
             </h1>
             <p class="text-lg text-neutral-200 mb-6 max-w-xl">
-              Need a handyman Charlotte NC homeowners can trust? From quick fixes to full makeovers — one call covers it all. Family-owned, honest pricing, trusted across Charlotte, Ballantyne, Matthews & Waxhaw.
+              Text us photos of the job at (980) 391-6833 with a short description, and a person calls you back with the price the same business day. Family-owned, insured, honest pricing, trusted across South Charlotte, Ballantyne, Pineville and Matthews.
             </p>
 
             <!-- Stats -->
@@ -152,6 +157,13 @@ const faqs = [
           </div>
         ))}
       </div>
+    </div>
+  </section>
+
+  <!-- Photo estimate -->
+  <section class="section pt-0">
+    <div class="container">
+      <TextPhotosCTA />
     </div>
   </section>
 
