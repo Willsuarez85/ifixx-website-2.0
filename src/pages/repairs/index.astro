@@ -4,6 +4,7 @@ import PillarLayout from '../../layouts/PillarLayout.astro';
 import { getCollection } from 'astro:content';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import GoogleReviews from '../../components/sections/GoogleReviews.astro';
+import TextPhotosCTA from '../../components/sections/TextPhotosCTA.astro';
 import { REPAIRS_FEATURED_AUTHORS } from '../../lib/google-reviews';
 import { isRetiredService, hasServiceAreaHub } from '../../lib/seo-retired';
 
@@ -245,6 +246,13 @@ const serviceImages: Record<string, string> = {
     title="What South Charlotte Homeowners Say About Our Repairs"
     authors={REPAIRS_FEATURED_AUTHORS}
   />
+
+  <!-- Photo estimate -->
+  <section class="py-12 lg:py-16 bg-white">
+    <div class="container">
+      <TextPhotosCTA />
+    </div>
+  </section>
 
   <!-- Service Areas -->
   <section class="py-16 lg:py-24 bg-neutral-50">

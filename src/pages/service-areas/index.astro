@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TextPhotosCTA from '../../components/sections/TextPhotosCTA.astro';
 
 import { hasServiceAreaHub } from '../../lib/seo-retired';
 
@@ -245,6 +246,13 @@ const breadcrumbSchema = {
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Photo estimate -->
+  <section class="section pt-0">
+    <div class="container">
+      <TextPhotosCTA />
     </div>
   </section>
 

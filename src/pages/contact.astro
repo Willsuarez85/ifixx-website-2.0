@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTASection from "../components/sections/CTASection.astro";
+import TextPhotosCTA from "../components/sections/TextPhotosCTA.astro";
 import { SERVICE_AREAS, BUSINESS_HOURS_LABEL } from "../lib/business-facts";
 
 const seoTitle = "Contact iFIXX Charlotte | Free Estimates | Call (980) 391-6833";
@@ -50,6 +51,13 @@ const breadcrumbSchema = {
           call. We typically respond within a few hours.
         </p>
       </div>
+    </div>
+  </section>
+
+  <!-- Photo estimate -->
+  <section class="section pb-0">
+    <div class="container">
+      <TextPhotosCTA />
     </div>
   </section>
 

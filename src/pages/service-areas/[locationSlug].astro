@@ -4,6 +4,7 @@ import ServiceAreaLayout from '../../layouts/ServiceAreaLayout.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import WhyChooseUs from '../../components/sections/WhyChooseUs.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import TextPhotosCTA from '../../components/sections/TextPhotosCTA.astro';
 import QuickEstimateCompact from '../../components/forms/QuickEstimateCompact.astro';
 import { isRetiredService, hasServiceAreaHub, hasCityServicePage } from '../../lib/seo-retired';
 
@@ -384,6 +385,13 @@ const heroImage = cityHeroImages[city.slug] || '/images/projects/remodeling-mode
           </a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Photo estimate -->
+  <section class="section pt-0">
+    <div class="container">
+      <TextPhotosCTA />
     </div>
   </section>
 
