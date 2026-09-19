@@ -2,7 +2,7 @@
 title: "Painting Services"
 category: "handyman"
 pillar: "repairs"
-summary: "Professional interior and exterior painting in Charlotte, NC. Expert prep, quality materials, flawless finish. Free color consultation and estimates."
+summary: "Professional interior and exterior painting in South Charlotte. Expert prep, quality materials, flawless finish. Free color consultation and estimates."
 heroImage: "/images/projects/painting-drywall-dining-room-wainscoting-chandelier.webp"
 bullets:
   - "Interior painting (walls, ceilings, trim)"
@@ -298,7 +298,7 @@ iFIXX provides professional painting services throughout the Charlotte metro are
 
 **Areas We Serve:**
 
-- **South Charlotte:** Ballantyne, SouthPark, Arboretum, Piper Glen, Blakeney, Steele Creek, and the neighborhoods around them
+- **South Charlotte:** Ballantyne, SouthPark, Arboretum, Piper Glen, Blakeney, and the neighborhoods around them
 - **Ballantyne:** Luxury homes, high-end finishes, custom color matching for upscale properties
 - **Matthews:** Family homes needing interior and exterior updates, cabinet painting popular
 - **South Charlotte:** SouthPark and Quail Hollow homes, high-end finishes, custom color matching

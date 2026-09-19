@@ -2,7 +2,7 @@
 title: "Carpentry Services"
 category: "handyman"
 pillar: "repairs"
-summary: "Custom woodwork, trim installation, deck repairs, shelving, and structural repairs by skilled carpenters in Charlotte, NC."
+summary: "Custom woodwork, trim installation, deck repairs, shelving, and structural repairs by skilled carpenters in South Charlotte."
 heroImage: "/images/services/carpentry.webp"
 bullets:
   - "Custom shelving & built-ins"

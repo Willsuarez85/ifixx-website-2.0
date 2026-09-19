@@ -38,7 +38,7 @@ seo:
 
 ## Handyman and Remodeling in Weddington, NC
 
-Weddington is a low-density town in northern Union County, just past the Charlotte line off Providence Road. Lots are large, houses are custom, and there is usually a lot of exterior wood: decks, porches, railings, trim. That is the work we do most here. From **Highgate and Skyecroft** to the homes along **Twelve Mile Creek Road**, iFIXX is the local crew that shows up and quotes before it starts.
+Weddington is a low-density town in northern Union County, just past the Charlotte line off Providence Road. Lots are large, houses are custom, and there is usually a lot of exterior wood: decks, porches, railings, trim. That is the kind of work we handle. From **Highgate and Skyecroft** to the homes along **Twelve Mile Creek Road**, iFIXX is the local crew that shows up and quotes before it starts.
 
 ### What We Fix in Weddington
 

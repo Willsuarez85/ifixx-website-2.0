@@ -190,7 +190,7 @@ We offer **free virtual estimates** — just send us photos of the damage and we
 
 📞 **Call or text: (980) 391-6833**
 
-You'll talk to Jaime, the owner, directly. We're family-owned, fully insured, and we've been serving Charlotte homeowners for over 5 years.
+You'll talk to Jaime, the owner, directly. We're family-owned, fully insured, and we've been serving South Charlotte homeowners since 2019.
 
 ## Quick Reference: Water Damage Checklist
 

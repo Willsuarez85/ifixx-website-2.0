@@ -2,7 +2,7 @@
 title: "Bathroom Remodeling"
 category: "remodeling"
 pillar: "remodeling"
-summary: "Create your dream bathroom with custom tile, modern fixtures, vanities, and walk-in showers. Complete bathroom renovations in Charlotte, NC."
+summary: "Create your dream bathroom with custom tile, modern fixtures, vanities, and walk-in showers. Complete bathroom renovations in South Charlotte."
 heroImage: "/images/projects/bathroom-remodeling-modern-glass-shower-vanity.webp"
 bullets:
   - "Shower & tub installation"
@@ -308,7 +308,7 @@ iFIXX provides professional bathroom remodeling services throughout the Charlott
 
 **Areas we proudly serve:**
 
-- **South Charlotte:** Ballantyne, SouthPark, Arboretum, Piper Glen, Blakeney, Steele Creek, and the neighborhoods around them
+- **South Charlotte:** Ballantyne, SouthPark, Arboretum, Piper Glen, Blakeney, and the neighborhoods around them
 - **Ballantyne:** Specializing in luxury master bathroom remodels with spa-like features and premium finishes
 - **Matthews:** Family-friendly bathroom designs that balance style and practicality
 - **South Charlotte:** Complete bathroom transformations for SouthPark, Quail Hollow, and the surrounding south corridor

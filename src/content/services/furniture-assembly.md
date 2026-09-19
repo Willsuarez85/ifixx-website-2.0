@@ -2,7 +2,7 @@
 title: "Furniture Assembly"
 category: "handyman"
 pillar: "repairs"
-summary: "Professional furniture assembly services for IKEA, Wayfair, Amazon, and all major brands. Save time and frustration in Charlotte, NC."
+summary: "Professional furniture assembly services for IKEA, Wayfair, Amazon, and all major brands. Save time and frustration in South Charlotte."
 heroImage: "/images/projects/Ifixx-portfolio42.webp"
 bullets:
   - "IKEA furniture assembly"

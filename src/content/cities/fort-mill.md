@@ -4,7 +4,7 @@ state: "SC"
 region: "SC"
 type: "city"
 localizedIntro: "iFIXX is the handyman and remodeling crew for Fort Mill, SC, from Baxter Village and Springfield to Massey and Waterside. Text photos of the job to (980) 391-6833 and a person calls you back with the estimate the same business day."
-description: "iFIXX handles home repairs and remodeling in Fort Mill, South Carolina: drywall patches, deck and porch repairs, carpentry, doors and windows, and full kitchen and bathroom remodels. Fort Mill is in York County, just across the state line from South Charlotte, which is where our crew works every day. We quote before we start and the owner is on the phone."
+description: "iFIXX handles home repairs and remodeling in Fort Mill, South Carolina: drywall patches, deck and porch repairs, carpentry, doors and windows, and full kitchen and bathroom remodels. Fort Mill is in York County, just across the state line from South Charlotte, our home base. We quote before we start and the owner is on the phone."
 neighborhoods:
   - "Baxter Village"
   - "Springfield"
@@ -15,7 +15,7 @@ neighborhoods:
   - "Kingsley"
 highlights:
   - "Same-business-day estimate from photos you text us"
-  - "Minutes from Ballantyne, where our crew already works"
+  - "Minutes from Ballantyne and our South Charlotte home base"
   - "Family-owned since 2019, not a franchise call center"
   - "Fully insured, 5.0 on Google"
   - "Written scope and price before we start"
