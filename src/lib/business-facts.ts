@@ -47,28 +47,43 @@ export const sinceFoundingLabel = (): string => `since ${FOUNDING_YEAR}`;
  */
 
 /**
- * ZONAS DE SERVICIO: las seis que el sitio publica, y nada mas.
+ * ZONAS DE SERVICIO: las diez que el sitio publica, y nada mas.
  *
- * Son exactamente las seis que tienen hub en /service-areas/. El schema decia
- * once (incluia Fort Mill, SC y Waxhaw), /contact enumeraba Rock Hill y Monroe,
- * y las paginas de emergency-services ofrecian Huntersville, Cornelius, Davidson,
- * Indian Trail y Rock Hill. Ninguna de esas es zona de servicio de iFIXX.
+ * Son exactamente las diez que tienen hub en /service-areas/. La lista se mantiene
+ * pegada a esos hubs: si una ciudad no tiene pagina, no va aqui, y al reves.
+ *
+ * Historia: el schema llego a declarar once ciudades sin pagina, /contact enumeraba
+ * Rock Hill y Monroe, y las paginas de emergency-services ofrecian Huntersville,
+ * Cornelius, Davidson e Indian Trail. Se recorto a seis el 2026-09-17. El 2026-09-19
+ * William reabrio cuatro zonas con pagina propia (Waxhaw, Weddington, Fort Mill SC e
+ * Indian Land SC), que son las que Google Ads ya estaba comprando sin destino local.
+ *
+ * Cada entrada lleva su estado porque dos de ellas son de Carolina del Sur: el texto
+ * visible decia "{ciudad}, NC" cableado y habria publicado "Fort Mill, NC".
  *
  * Los barrios de Charlotte (Dilworth, Myers Park, SouthPark) no son ciudades y
  * no van en areaServed; viven en el contenido de cada hub.
  */
 export const SERVICE_AREAS = [
-  'Charlotte',
-  'South Charlotte',
-  'Ballantyne',
-  'Matthews',
-  'Mint Hill',
-  'Pineville',
+  { name: 'Charlotte', state: 'NC' },
+  { name: 'South Charlotte', state: 'NC' },
+  { name: 'Ballantyne', state: 'NC' },
+  { name: 'Matthews', state: 'NC' },
+  { name: 'Mint Hill', state: 'NC' },
+  { name: 'Pineville', state: 'NC' },
+  { name: 'Waxhaw', state: 'NC' },
+  { name: 'Weddington', state: 'NC' },
+  { name: 'Fort Mill', state: 'SC' },
+  { name: 'Indian Land', state: 'SC' },
 ] as const;
+
+/** Texto listo para copy visible: "Fort Mill, SC". */
+export const serviceAreaLabels = (): string[] =>
+  SERVICE_AREAS.map(({ name, state }) => `${name}, ${state}`);
 
 /** areaServed listo para JSON-LD. */
 export const areaServedSchema = () =>
-  SERVICE_AREAS.map((name) => ({ '@type': 'City', name, addressRegion: 'NC' }));
+  SERVICE_AREAS.map(({ name, state }) => ({ '@type': 'City', name, addressRegion: state }));
 
 /**
  * HORARIO: Lun a Sab, 8:30 AM a 5:30 PM (CONTEXT.md, confirmado por Jaime/William

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SERVICE_AREAS } from '../lib/business-facts';
+import { serviceAreaLabels } from '../lib/business-facts';
 
 const seoTitle = "About iFIXX Charlotte | Family-Owned Since 2019 | ⭐5.0";
 const seoDescription = "Family-owned and operated since 2019. iFIXX delivers quality home repairs and remodeling across Charlotte. ⭐5.0 on Google. Meet our team! Call (980) 391-6833.";
@@ -153,7 +153,7 @@ const breadcrumbSchema = {
           We proudly serve homeowners across South Charlotte and the neighbouring towns.
         </p>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-neutral-700">
-          {SERVICE_AREAS.map((area) => <div class="bg-white p-4 rounded-lg">{area}, NC</div>)}
+          {serviceAreaLabels().map((area) => <div class="bg-white p-4 rounded-lg">{area}</div>)}
         </div>
       </div>
     </div>

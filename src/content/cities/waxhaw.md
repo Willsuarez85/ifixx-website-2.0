@@ -3,49 +3,59 @@ name: "Waxhaw"
 state: "NC"
 region: "NC"
 type: "city"
-localizedIntro: "Waxhaw's blend of historic charm and modern luxury homes requires a handyman team that understands both. iFixx serves Waxhaw homeowners with the same quality craftsmanship we bring to all of the Charlotte region."
-description: "iFixx brings professional home repair and remodeling services to Waxhaw's unique mix of historic downtown charm and upscale new developments. Our team understands the high standards of Waxhaw homeowners and delivers quality craftsmanship that matches the character of this special Union County community."
+localizedIntro: "Looking for a handyman in Waxhaw? iFIXX is a family-owned repair and remodeling crew working across Union County, from Downtown Waxhaw to Cureton, Millbridge and Lawson. Text photos of the job to (980) 391-6833 and a person calls you back with the estimate the same business day."
+description: "iFIXX handles home repairs and remodeling for Waxhaw homeowners: drywall patches, deck and porch repairs, carpentry, doors and windows, and full kitchen and bathroom remodels. Waxhaw sits in southwestern Union County, where newer subdivisions come with HOA rules and large decks that take the full Carolina summer. We work clean, we quote before we start, and the owner is on the phone."
 neighborhoods:
   - "Downtown Waxhaw"
-  - "Marvin"
-  - "Wesley Chapel"
-  - "Weddington"
   - "Cureton"
-  - "Providence Crossing"
-  - "Waxhaw Village"
-  - "The Vineyards"
+  - "Millbridge"
+  - "Lawson"
+  - "Quellin"
+  - "Hunter Oaks"
+  - "Providence Downs South"
+  - "Skyecroft"
 highlights:
-  - "Experience with Waxhaw's historic and luxury homes"
-  - "Familiar with Union County HOA requirements"
-  - "Premium craftsmanship for discerning homeowners"
-  - "Serving Waxhaw and surrounding communities"
-  - "Fully insured for your protection"
+  - "Same-business-day estimate from photos you text us"
+  - "Family-owned since 2019, not a franchise call center"
+  - "HOA-compliant work and professional presentation"
+  - "Fully insured, 5.0 on Google"
+  - "Written scope and price before we start"
 zipCodes:
   - "28173"
 coordinates:
   lat: 34.9246
   lng: -80.7437
 servicesHighlighted:
-  - "kitchen-remodel"
-  - "bathroom-remodel"
-  - "carpentry"
-  - "painting"
-  - "doors-windows"
+  - "drywall"
+  - "deck-repair"
+  - "quick-fix"
+  - "kitchen-remodeling"
+  - "bathroom-remodeling"
 seo:
-  title: "Waxhaw NC Handyman & Remodeling | Same-Day Service | ⭐5.0 | iFIXX"
-  description: "Waxhaw's trusted handyman & remodeling experts. Serving Downtown Waxhaw, Marvin, Wesley Chapel & Union County. ⭐5.0 on Google. Free estimates! Call (980) 391-6833."
+  title: "Waxhaw NC Handyman & Remodeling | Photo Estimates | ⭐5.0 | iFIXX"
+  description: "Handyman and remodeling in Waxhaw NC: drywall, deck repair, carpentry, kitchens and baths. Serving Downtown Waxhaw, Cureton, Millbridge and Lawson. Text photos to (980) 391-6833."
 ---
 
-From the historic streets of Downtown Waxhaw to the elegant homes of Marvin, iFixx delivers professional handyman and remodeling services tailored to your needs.
+## Handyman and Remodeling in Waxhaw, NC
 
-## Quality Service for Waxhaw Homes
+Waxhaw sits in the southwestern corner of Union County, a few miles from the South Carolina line. Most of what we see here is newer construction on generous lots: big decks, covered porches, and the drywall cracks that come with a house settling. Whether you are in **Downtown Waxhaw, Cureton, Millbridge or Lawson**, iFIXX is the local crew that answers the phone.
 
-Waxhaw homeowners take pride in their properties, and so do we. Our team has experience working on everything from charming historic renovations to modern luxury home repairs throughout Union County.
+### What We Fix in Waxhaw
 
-## Why Waxhaw Homeowners Choose iFixx
+- [**Drywall repair**](/repairs/drywall): holes, cracks, ceiling patches and texture matching
+- [**Deck repair**](/repairs/deck-repair): rotten boards, loose railings, soft steps, popped fasteners
+- [**Quick fixes**](/repairs/quick-fix): the list of small jobs you have been putting off, handled in one visit
+- [**Carpentry and trim**](/repairs/carpentry): baseboards, crown molding, built-ins, door and window casing
+- [**Doors and windows**](/repairs/doors-windows): sticking doors, damaged frames, hardware replacement
 
-- **Historic Home Experience**: We understand the special needs of older homes
-- **Luxury Home Expertise**: Premium materials and finishes for upscale properties
-- **HOA Compliance**: We work within community guidelines
-- **Reliable Service**: On-time, professional, and respectful
-- **Quality Guaranteed**: Work you'll be proud to show off
+### Remodeling for Waxhaw Homes
+
+We also handle [**kitchen remodeling**](/remodeling/kitchen-remodeling), [**bathroom remodeling**](/remodeling/bathroom-remodeling), [**decks**](/remodeling/decks), [**screened porches**](/remodeling/screened-porches) and [**flooring**](/remodeling/flooring-installation). Remodeling estimates are done in person, on site, so the number you get is the number you pay.
+
+### Why Waxhaw Homeowners Choose iFIXX
+
+Union County summers are hot and humid, and the afternoon storms are hard on exterior wood. Decks and porches here need attention years before the rest of the house does. We repair and restore rather than push you into replacing what still has life in it.
+
+**Family-owned since 2019. Fully insured. 5.0 on Google.** You talk to Jaime, the owner, not a call center.
+
+📞 **Text photos of the job to (980) 391-6833** and a person calls you back with the estimate the same business day.

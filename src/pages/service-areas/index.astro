@@ -6,14 +6,16 @@ import TextPhotosCTA from '../../components/sections/TextPhotosCTA.astro';
 import { hasServiceAreaHub } from '../../lib/seo-retired';
 
 const seoTitle = "Handyman Service Areas | South Charlotte NC | iFIXX";
-const seoDescription = "iFIXX works out of South Charlotte, NC and serves Ballantyne, Pineville, Matthews, Mint Hill, and the rest of Charlotte. Home repairs and remodeling, insured, family-owned.";
+const seoDescription = "iFIXX works out of South Charlotte, NC and serves Ballantyne, Pineville, Matthews, Mint Hill, Waxhaw, Weddington, Fort Mill SC and Indian Land SC. Home repairs and remodeling, insured, family-owned.";
 
 // Get all cities from content collection — only those with a zone hub
 const cities = (await getCollection('cities')).filter(c => hasServiceAreaHub(c.slug));
 
 // South Charlotte is the anchor location: it leads the list, then Charlotte, then
-// the rest alphabetically. No new zones were added (William, 2026-09-17) — the six
-// hubs are South Charlotte, Charlotte, Ballantyne, Matthews, Mint Hill, Pineville.
+// the rest alphabetically. Ten hubs since 2026-09-19 (William): the original six
+// (South Charlotte, Charlotte, Ballantyne, Matthews, Mint Hill, Pineville) plus the
+// four zones Google Ads was already targeting without a page to land on, Waxhaw,
+// Weddington, Fort Mill SC and Indian Land SC.
 const ZONE_ORDER = ['south-charlotte', 'charlotte'];
 const sortedCities = cities.sort((a, b) => {
   const ia = ZONE_ORDER.indexOf(a.slug);
@@ -89,7 +91,8 @@ const breadcrumbSchema = {
         </h1>
         <p class="text-lg lg:text-xl text-neutral-200 leading-relaxed">
           South Charlotte is home base. From there we cover Ballantyne, Pineville, Matthews,
-          Mint Hill, and the rest of the Charlotte metro. Pick your area to see what we handle there.
+          Mint Hill, Waxhaw and Weddington, plus Fort Mill and Indian Land across the South
+          Carolina line. Pick your area to see what we handle there.
         </p>
       </div>
     </div>

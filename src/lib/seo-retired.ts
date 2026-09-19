@@ -26,10 +26,18 @@ export const RETIRED_CITIES = [
 // only the hub comes back.
 //   mint-hill — reinstated as a service area per William 2026-07-27 (active fence
 //               market) WITHOUT reviving its 9 thin matrix pages.
+//   waxhaw    — reinstated as a service area per William 2026-09-19, together with
+//               Weddington, Fort Mill SC and Indian Land SC. Google Ads already targets
+//               all four and none of them had a page to land on. Same treatment as
+//               Mint Hill: the hub comes back, the 13 thin matrix pages stay dead and
+//               keep 301-ing to their service silo.
 // Keeping these slugs inside RETIRED_CITIES is deliberate: every list that links
 // into the matrix keeps excluding them. Only the hub routes opt back in, via
 // hasServiceAreaHub().
-export const SERVICE_AREA_ONLY_CITIES = ['mint-hill'] as const;
+//
+// Weddington, Fort Mill and Indian Land are NOT here: they never had matrix pages, so
+// they are plain in-focus cities and hasServiceAreaHub() returns true for them already.
+export const SERVICE_AREA_ONLY_CITIES = ['mint-hill', 'waxhaw'] as const;
 
 // Services removed in every city — iFIXX does not offer these as a trade.
 //   plumbing            — never offered.

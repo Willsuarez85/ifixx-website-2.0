@@ -1247,11 +1247,6 @@
       "permanent": true
     },
     {
-      "source": "/service-areas/waxhaw",
-      "destination": "/service-areas",
-      "permanent": true
-    },
-    {
       "source": "/service-areas/rock-hill",
       "destination": "/service-areas",
       "permanent": true
@@ -1343,7 +1338,22 @@
     },
     {
       "source": "/waxhaw",
-      "destination": "/service-areas",
+      "destination": "/service-areas/waxhaw",
+      "permanent": true
+    },
+    {
+      "source": "/weddington",
+      "destination": "/service-areas/weddington",
+      "permanent": true
+    },
+    {
+      "source": "/fort-mill",
+      "destination": "/service-areas/fort-mill",
+      "permanent": true
+    },
+    {
+      "source": "/indian-land",
+      "destination": "/service-areas/indian-land",
       "permanent": true
     },
     {
@@ -1404,6 +1414,11 @@
     {
       "source": "/lp/emergency/",
       "destination": "/lp/handyman",
+      "permanent": true
+    },
+    {
+      "source": "/waxhaw/:rest*",
+      "destination": "/service-areas/waxhaw",
       "permanent": true
     }
   ]
