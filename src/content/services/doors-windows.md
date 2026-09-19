@@ -24,11 +24,11 @@ signs:
   - "Lock won't catch — anyone could push it open"
 processSteps:
   - title: "Free Estimate"
-    description: "Text us a photo of the door or window. We'll quote in 5 minutes — no service call fee."
+    description: "Text us a photo of the door or window at (980) 391-6833. We call you back with the price the same business day, no service call fee."
   - title: "Pick Up + Install"
     description: "We measure, you approve the quote, we pick up the new unit at Home Depot or Lowe's, we install."
-  - title: "Same-Week Done"
-    description: "Most repairs same day. Full unit replacement usually 3-5 days door-to-door."
+  - title: "Scheduled and Done"
+    description: "Most repairs are a single visit. Full unit replacement usually runs 3-5 days door-to-door."
 faqs:
   - q: "My door won't close — can you fix it or do I need a new one?"
     a: "Usually we can fix it ($75-$175). Most 'won't close' issues are alignment (foundation settling) or swelling from humidity — we plane, shim, or realign and the door works again. If the frame is rotted, split, or beyond repair, we replace the full pre-hung unit."

@@ -6,12 +6,12 @@ coverImage: "/images/projects/drywall-repair-patching-hole-spackling.webp"
 category: "Water Damage"
 tags:
   - "water damage"
-  - "emergency repair"
+  - "drywall repair"
   - "home tips"
   - "drywall repair"
 seo:
   title: "Water Damage at Home: Step-by-Step Guide | iFIXX Charlotte NC"
-  description: "Water damage in your Charlotte home? Follow this step-by-step guide for the first 24–48 hours. ⭐5.0 on Google. Same-day repairs — call (980) 391-6833."
+  description: "Water damage in your Charlotte home? Follow this step-by-step guide for the first 24–48 hours, then get the repair priced. Text photos to (980) 391-6833 for a same-business-day estimate."
 ---
 
 You walk into your kitchen and there's water dripping from the ceiling. Or you come home to find your bathroom flooded. Your heart sinks.

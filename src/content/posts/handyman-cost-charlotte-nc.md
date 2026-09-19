@@ -27,7 +27,7 @@ Here's why the spread is so wide:
 - **Solo operators** often charge on the lower end ($50–$65/hr) but may have limited availability, no insurance, or slower turnaround.
 - **Established local companies** typically charge $75–$100/hr and carry liability insurance — which matters if something goes wrong in your home.
 - **National franchise chains** (like Mr. Handyman) often run $100–$125/hr or higher, plus fees for dispatch and minimum job sizes.
-- **Emergency or same-day service** adds a premium anywhere from 15–30% on top of standard rates.
+- **Companies that will drop everything for you** charge a premium of 15–30% on top of standard rates for the privilege.
 
 Most handyman jobs in Charlotte run 1–3 hours. Larger projects (a half-day or full day) are sometimes billed at a flat day rate, which can be more cost-effective for multi-task visits.
 
@@ -43,7 +43,7 @@ That rate is transparent from the first call. No hidden dispatch fees, no surpri
 
 We're also a family-owned business — not a franchise. When you call or text **(980) 391-6833**, you're reaching the owners directly. That means faster response, no runaround, and someone who actually cares about the quality of the work.
 
-Same-day and emergency service is available — schedule and complexity permitting. We'll always tell you upfront if a job qualifies.
+You also get the price fast. Text photos of the job to (980) 391-6833 with a short description and a person calls you back with the estimate the same business day. We do not run an emergency or after-hours service: our hours are Monday to Saturday, 8:30 AM to 5:30 PM, and we tell you the crew's date before you approve anything.
 
 ---
 
@@ -81,8 +81,8 @@ Labor is one thing. If you need new trim, drywall sheets, or lumber, materials a
 **3. Access and job conditions**
 Second-floor work, tight crawl spaces, attic access, or working around existing furniture takes more time. That time costs money.
 
-**4. Same-day or emergency premium**
-If you need it done today, expect to pay a bit more. True same-day service requires the company to shuffle their schedule. That's a real cost, and the best local handymen are transparent about it.
+**4. Rush premium**
+If you need a crew to drop what they're doing and come now, expect to pay a bit more. Shuffling a schedule is a real cost, and the best local handymen are transparent about it. It is also worth asking whether the company actually does rush work: plenty advertise it and then can't deliver.
 
 **5. Minimum job fees**
 Most contractors have a job minimum, and it is the number that decides whether a one-hour task is worth anyone's trip. Ask for it on the first call, before you describe the job, so nobody wastes the visit. We tell you ours the moment you ask.
@@ -117,7 +117,7 @@ iFIXX is a local, family-owned handyman service built for Charlotte homeowners w
 Here's what sets us apart:
 
 - **Transparent $75/hr rate** — no surprise fees, no hidden charges
-- **Same-day availability** — we respond fast because the owners answer the phone
+- **Same-business-day estimate** — text us photos and a person calls you back with the price
 - **Insured** — your home is protected
 - **Wide service range** — drywall, painting, carpentry, TV mounting, doors and windows, decks, and more
 - **No franchise markup** — you're working with the people doing the work, not a call center routing you to a sub

@@ -41,7 +41,7 @@ relatedServices:
   - "carpentry"
 seo:
   title: "Furniture Assembly Charlotte NC | IKEA, Wayfair, Amazon"
-  description: "Furniture assembly in Charlotte for IKEA, Wayfair, Amazon and every other brand. Same-day service available. Skip the box of parts: (980) 391-6833"
+  description: "Furniture assembly in Charlotte for IKEA, Wayfair, Amazon and every other brand. Text a photo of the box and get the price the same business day. Skip the pile of parts: (980) 391-6833"
 ---
 
 Skip the frustration of furniture assembly. Those boxes of parts, confusing instructions, and missing tools add up to hours of your weekend. Let iFixx handle it while you enjoy your free time.
