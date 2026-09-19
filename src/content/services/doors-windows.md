@@ -2,7 +2,7 @@
 title: "Doors & Windows"
 category: "handyman"
 pillar: "repairs"
-summary: "Door won't close, foggy window, drafty frame, rotted door post — we repair what can be fixed and replace what can't with a brand-new unit from Home Depot. Insured Charlotte handyman, same-week install."
+summary: "Door won't close, foggy window, drafty frame, rotted door post: we repair what can be fixed and replace what can't with a brand-new unit from Home Depot. Insured South Charlotte handyman, same-week install."
 heroImage: "/images/projects/Ifixx-portfolio55.webp"
 bullets:
   - "Door won't close, latch, or lock properly"

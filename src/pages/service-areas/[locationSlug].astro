@@ -170,7 +170,7 @@ const heroImage = cityHeroImages[city.slug] || '/images/projects/remodeling-mode
               <svg class="w-5 h-5 text-secondary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span class="text-white/90">5+ Years in Charlotte</span>
+              <span class="text-white/90">In Business Since 2019</span>
             </div>
             <div class="flex items-center gap-2">
               <svg class="w-5 h-5 text-secondary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -240,8 +240,8 @@ const heroImage = cityHeroImages[city.slug] || '/images/projects/remodeling-mode
           What We Do for {city.data.name} Homeowners
         </h2>
         <p class="text-lg text-neutral-600 mb-10 text-center max-w-2xl mx-auto">
-          We've been serving the Charlotte metro for 5+ years. We know {city.data.name} homes,
-          and we treat every one like our own.
+          Family-owned and working out of South Charlotte since 2019. We treat every
+          {city.data.name} home like our own.
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -261,7 +261,7 @@ const heroImage = cityHeroImages[city.slug] || '/images/projects/remodeling-mode
                     {serviceDisplayNames[service.slug] || service.data.title}
                   </h3>
                   <p class="text-neutral-600 text-sm">
-                    {service.data.summary}
+                    {service.data.summary.replace(/South Charlotte/g, city.data.name)}
                   </p>
                 </div>
               </div>
@@ -352,11 +352,11 @@ const heroImage = cityHeroImages[city.slug] || '/images/projects/remodeling-mode
     <div class="container">
       <div class="max-w-5xl mx-auto">
         <h2 class="text-3xl font-heading font-bold text-neutral-900 mb-4 text-center">
-          Your Local Charlotte Metro Team
+          Your South Charlotte Area Team
         </h2>
         <p class="text-lg text-neutral-600 mb-10 text-center max-w-2xl mx-auto">
-          We're based in Charlotte and serve the entire metro area. If you're in {city.data.name} or nearby,
-          we're just a call away—and we know the shortcuts to get there fast.
+          We're based in South Charlotte and work in the towns around it. If you're in {city.data.name} or nearby,
+          call or text us photos and we will get you an estimate the same business day.
         </p>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">

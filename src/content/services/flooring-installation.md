@@ -2,7 +2,7 @@
 title: "Flooring Installation"
 category: "remodeling"
 pillar: "remodeling"
-summary: "Professional flooring installation including hardwood, laminate, tile, and luxury vinyl plank. Transform any room in your Charlotte home."
+summary: "Professional flooring installation including hardwood, laminate, tile, and luxury vinyl plank. Transform any room in your South Charlotte home."
 heroImage: "/images/projects/Ifixx-portfolio18.webp"
 bullets:
   - "Hardwood floor installation"

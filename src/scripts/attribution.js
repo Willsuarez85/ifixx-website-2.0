@@ -18,7 +18,8 @@
  * lead can never carry the campaign of one visit with the gclid of another. For the
  * same reason a new attributed URL replaces the whole stored set (keys it does not
  * carry are cleared), and the cookie fallback is skipped when the resolved visit
- * came from a non-Google source.
+ * came from a non-Google or non-paid source, or when the cookie is older than the
+ * visit (it would be the click of an earlier campaign).
  *
  * Inlined in the <head> by src/components/common/AttributionScript.astro, which is
  * included by BaseLayout and LandingLayout. It exposes window.ifixxAttribution so
@@ -40,6 +41,8 @@
   var MAX_AGE_MS = 90 * 24 * 60 * 60 * 1000; // 90 days
   var SESSION_LANDING_KEY = 'ifixx_landing_page';
   var SESSION_REFERRER_KEY = 'ifixx_referrer';
+  var SESSION_TIME_KEY = 'ifixx_attr_t';
+  var COOKIE_TOLERANCE_MS = 2 * 60 * 1000; // clock slack between our capture and the tag's cookie
   var SESSION_FIRST_PAGE_KEY = 'ifixx_first_page';
   var SESSION_FIRST_REFERRER_KEY = 'ifixx_first_referrer';
   var MAX_VALUE_LENGTH = 500;
@@ -105,12 +108,16 @@
    * The Google Ads tag stores the click id as `GCL.<timestamp>.<gclid>`.
    * The gclid itself never contains a dot, but slice+join is the safe read.
    */
-  function gclidFromCookie() {
+  function clickFromCookie() {
     var raw = readCookie('_gcl_aw');
-    if (!raw) return '';
+    if (!raw) return null;
     var parts = raw.split('.');
-    if (parts.length < 3 || parts[0] !== 'GCL') return '';
-    return parts.slice(2).join('.');
+    if (parts.length < 3 || parts[0] !== 'GCL') return null;
+    var stamp = Number(parts[1]);
+    if (!isFinite(stamp)) stamp = 0;
+    // The tag writes seconds; normalise to milliseconds.
+    if (stamp < 1e12) stamp = stamp * 1000;
+    return { gclid: parts.slice(2).join('.'), t: stamp };
   }
 
   function hasAnyParam(source) {
@@ -121,10 +128,25 @@
     return false;
   }
 
-  function cookieFallbackAllowed(resolved) {
-    if (resolved.gbraid || resolved.wbraid) return false;
+  /**
+   * The cookie click id is only trusted when it belongs to the visit being resolved.
+   *   - No stored set at all: the cookie is the only trace of the ad click, use it.
+   *   - A stored set without gclid: use the cookie only if the visit is a Google paid
+   *     one AND the cookie was written during that visit or later. An older cookie is
+   *     the click of a previous campaign (or the visit is a Business Profile link
+   *     tagged utm_source=google&utm_medium=organic) and must not be attached.
+   */
+  function cookieGclidFor(resolved, visitTime) {
+    var click = clickFromCookie();
+    if (!click) return '';
+    if (!hasAnyParam(resolved)) return click.gclid;
+    if (resolved.gbraid || resolved.wbraid) return '';
     var source = String(resolved.utm_source || '').toLowerCase();
-    return !source || source.indexOf('google') !== -1 || source === 'adwords';
+    if (source && source.indexOf('google') === -1 && source !== 'adwords') return '';
+    var medium = String(resolved.utm_medium || '').toLowerCase();
+    if (medium === 'organic' || medium === 'referral') return '';
+    if (!visitTime || !click.t) return '';
+    return click.t >= visitTime - COOKIE_TOLERANCE_MS ? click.gclid : '';
   }
 
   function readLocal() {
@@ -198,6 +220,7 @@
     sessionSet(SESSION_REFERRER_KEY, referrer);
 
     found.t = Date.now();
+    sessionSet(SESSION_TIME_KEY, String(found.t));
     found.landing_page = landingPage;
     found.referrer = referrer;
     localSetRaw(JSON.stringify(found));
@@ -212,6 +235,7 @@
       base = session;
       base.landing_page = sessionGet(SESSION_LANDING_KEY);
       base.referrer = sessionGet(SESSION_REFERRER_KEY);
+      base.t = Number(sessionGet(SESSION_TIME_KEY)) || 0;
     } else {
       local = readLocal();
       if (hasAnyParam(local)) base = local;
@@ -226,10 +250,10 @@
     // landing page. It outlives sessionStorage and is written even if this script
     // never saw the parameter (e.g. auto-tagging redirect handled by gtag).
     // Skipped when the resolved visit is attributed to something other than a Google
-    // click (another utm_source, or an iOS gbraid/wbraid click): the cookie would
-    // belong to an earlier visit.
-    if (!resolved.gclid && cookieFallbackAllowed(resolved)) {
-      resolved.gclid = gclidFromCookie();
+    // paid click, or when the cookie is older than the visit: it would belong to an
+    // earlier campaign.
+    if (!resolved.gclid) {
+      resolved.gclid = cookieGclidFor(resolved, base ? Number(base.t) || 0 : 0);
     }
 
     resolved.landing_page =

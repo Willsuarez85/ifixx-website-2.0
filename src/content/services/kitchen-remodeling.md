@@ -2,7 +2,7 @@
 title: "Kitchen Remodeling"
 category: "remodeling"
 pillar: "remodeling"
-summary: "Transform your kitchen with custom cabinetry, countertops, flooring, and modern appliances. Complete kitchen renovations in Charlotte, NC."
+summary: "Transform your kitchen with custom cabinetry, countertops, flooring, and modern appliances. Complete kitchen renovations in South Charlotte."
 heroImage: "/images/projects/Ifixx-portfolio3.webp"
 bullets:
   - "Custom cabinet design & installation"
@@ -250,7 +250,7 @@ iFIXX provides professional kitchen remodeling services throughout the Charlotte
 
 **Areas we proudly serve:**
 
-- **South Charlotte:** Ballantyne, SouthPark, Arboretum, Piper Glen, Blakeney, Steele Creek, and the neighborhoods around them
+- **South Charlotte:** Ballantyne, SouthPark, Arboretum, Piper Glen, Blakeney, and the neighborhoods around them
 - **Ballantyne:** Specializing in luxury kitchen remodels with high-end finishes and custom features
 - **Matthews:** Family-friendly kitchen designs that balance style and durability for busy households
 - **South Charlotte:** Full kitchen remodels for SouthPark, Quail Hollow, and the surrounding south corridor

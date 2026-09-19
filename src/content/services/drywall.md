@@ -2,7 +2,7 @@
 title: "Drywall Repair"
 category: "handyman"
 pillar: "repairs"
-summary: "Professional drywall and ceiling repair in Charlotte. Holes, cracks, water-stained ceilings, texture matching. Text photos and get your estimate the same business day. Expert texture matching that makes repairs invisible."
+summary: "Professional drywall and ceiling repair in South Charlotte. Holes, cracks, water-stained ceilings, texture matching. Text photos and get your estimate the same business day. Expert texture matching that makes repairs invisible."
 heroImage: "/images/services/drywall/dr-02-before-after-split.webp"
 bullets:
   - "Hole repair (small, medium, and large)"
