@@ -70,7 +70,7 @@ Charlotte homeowners trust us for complete painting projects—interior, exterio
 
 ### 🎨 **FREE ESTIMATE: CALL/TEXT [(980) 391-6833)](tel:9803916833)**
 
-**Professional painting service in Charlotte.** Talk directly to owners Jaime or Hamed. Free color consultation. Honest pricing. Quality work guaranteed.
+**Professional painting service in Charlotte.** Talk directly to Jaime, the owner. Free color consultation. Honest pricing. Quality work guaranteed.
 
 **Trusted by Charlotte homeowners:** 5.0 stars on Google ⭐⭐⭐⭐⭐ — Serving Charlotte since 2019.
 
@@ -202,7 +202,7 @@ Need drywall repair, trim work, or carpentry before painting? We handle it all. 
 
 > **Related service:** Painting pairs perfectly with [carpentry services](/repairs/carpentry/) for trim and molding updates.
 
-**Owner-operated (Jaime & Hamed do the work):**
+**Owner-operated:**
 When you call iFIXX, you're talking to the people who will paint your home. No middlemen. No "let me check with my supervisor." Direct communication and accountability.
 
 ---
@@ -369,7 +369,7 @@ Fresh paint transforms your home. Whether you're updating one room or painting t
 
 ### 🎨 **CALL OR TEXT: [(980) 391-6833)](tel:9803916833)**
 
-**Professional painting in Charlotte.** Talk directly to Jaime or Hamed. Free color consultation. Free estimates. Quality work guaranteed.
+**Professional painting in Charlotte.** Talk directly to Jaime, the owner. Free color consultation. Free estimates. Quality work guaranteed.
 
 **Why Charlotte homeowners choose iFIXX:**
 - ✅ Free color consultation (we help you choose)

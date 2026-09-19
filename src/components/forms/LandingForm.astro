@@ -17,7 +17,7 @@ const { formId, formName, servicePreselect = '', ctaText = 'Get Free Estimate No
 const services = [
   // The 'emergency-repair' value is kept because /api/lead.ts maps it to a CRM tag;
   // the label no longer promises an emergency service iFIXX cannot run (2026-09-19).
-  { value: 'emergency-repair', label: 'Storm or Break-In Damage' },
+  { value: 'emergency-repair', label: 'Storm or Break-In Damage Repair' },
   { value: 'water-damage', label: 'Water Damage Repair' },
   { value: 'doors-windows', label: 'Door & Window Repair' },
   { value: 'drywall', label: 'Drywall Repair' },
@@ -47,9 +47,9 @@ const services = [
       placeholder="Phone Number *" />
 
     <label for={`${formId}-email`} class="sr-only">Email Address</label>
-    <input type="email" id={`${formId}-email`} name="email" required
+    <input type="email" id={`${formId}-email`} name="email"
       class="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-neutral-900 placeholder-neutral-500"
-      placeholder="Email Address *" />
+      placeholder="Email (optional)" />
 
     <label for={`${formId}-service`} class="sr-only">What service do you need?</label>
     <select id={`${formId}-service`} name="service" required
