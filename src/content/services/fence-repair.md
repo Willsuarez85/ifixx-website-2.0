@@ -37,7 +37,7 @@ faqs:
   - q: "My gate drags and will not latch. Is that fixable?"
     a: "Almost always. A dragging gate is usually a sagging post, worn hinges, or a frame that has racked out of square. We reset the post, rehang with proper hardware, and realign the latch. A gate wheel helps on wide gates."
   - q: "How much does fence repair cost?"
-    a: "It depends on how many posts and sections are involved and what the fence is made of. Our minimum for any repair visit is $300, and you get the price before we start."
+    a: "It depends on how many posts and sections are involved and what the fence is made of. Our minimum for any repair visit is $200, and you get the price before we start."
   - q: "How fast can you come out?"
     a: "For a section down, a gate that will not close, or anything keeping a dog or a pool unsecured, call (980) 391-6833 and we will prioritize it. Standard repairs are usually scheduled within the same week."
   - q: "Do you repair vinyl and aluminum fences?"
@@ -75,4 +75,4 @@ None of those need a new fence. They need somebody to show up, and that is the p
 
 ## Insured, local, and we answer the phone
 
-iFIXX is a family-owned crew working South Charlotte and the neighborhoods around it. We are fully insured, the owners answer the calls, and you get the price before the work starts.
+iFIXX is a family-owned crew working South Charlotte and the neighborhoods around it. We are fully insured, the owner answers the calls, and you get the price before the work starts.

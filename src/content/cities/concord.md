@@ -16,7 +16,7 @@ neighborhoods:
 highlights:
   - "Family-owned Charlotte-area business—not a franchise"
   - "5+ years working in the region"
-  - "Talk directly to the owners, every time"
+  - "Talk directly to the owner, every time"
   - "Same-day service available for emergencies"
   - "Honest, upfront pricing—no surprises"
 zipCodes:
