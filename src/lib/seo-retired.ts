@@ -10,8 +10,12 @@
 // links into it:
 //   huntersville (north), concord (Cabarrus), monroe + waxhaw (Union), rock-hill (SC),
 //   mint-hill (retired per Jaime/William 2026-07-07 — focus tightened to South Charlotte).
-// Kept: charlotte, south-charlotte, ballantyne, pineville, matthews.
+//   charlotte (retired per William 2026-09-19: the city-wide hub sold Dilworth, NoDa,
+//   Plaza Midwood and Uptown while ads and strategy are South Charlotte only; it had
+//   zero Search Console impressions. 301 to /service-areas/south-charlotte).
+// Kept: south-charlotte, ballantyne, pineville, matthews.
 export const RETIRED_CITIES = [
+  'charlotte',
   'huntersville',
   'concord',
   'monroe',

@@ -1292,8 +1292,13 @@
       "permanent": true
     },
     {
+      "source": "/service-areas/charlotte",
+      "destination": "/service-areas/south-charlotte",
+      "permanent": true
+    },
+    {
       "source": "/charlotte",
-      "destination": "/service-areas/charlotte",
+      "destination": "/service-areas/south-charlotte",
       "permanent": true
     },
     {

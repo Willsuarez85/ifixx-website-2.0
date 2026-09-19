@@ -38,9 +38,9 @@ const serviceHref = (service: { slug: string; data: { pillar: string } }) =>
     : `/${service.data.pillar}/${service.slug}`;
 
 const nearbyCities = allCities.filter(c => c.slug !== city.slug && hasServiceAreaHub(c.slug)).sort((a, b) => {
-  // Sort: Charlotte first, then by state (NC before SC), then alphabetically
-  if (a.slug === 'charlotte') return -1;
-  if (b.slug === 'charlotte') return 1;
+  // Sort: South Charlotte first, then by state (NC before SC), then alphabetically
+  if (a.slug === 'south-charlotte') return -1;
+  if (b.slug === 'south-charlotte') return 1;
   if (a.data.region !== b.data.region) return a.data.region === 'NC' ? -1 : 1;
   return a.data.name.localeCompare(b.data.name);
 });

@@ -65,7 +65,6 @@ export const sinceFoundingLabel = (): string => `since ${FOUNDING_YEAR}`;
  * no van en areaServed; viven en el contenido de cada hub.
  */
 export const SERVICE_AREAS = [
-  { name: 'Charlotte', state: 'NC' },
   { name: 'South Charlotte', state: 'NC' },
   { name: 'Ballantyne', state: 'NC' },
   { name: 'Matthews', state: 'NC' },

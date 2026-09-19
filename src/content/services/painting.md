@@ -298,7 +298,7 @@ iFIXX provides professional painting services throughout the Charlotte metro are
 
 **Areas We Serve:**
 
-- **Charlotte:** All neighborhoods—Myers Park, Dilworth, Plaza Midwood, NoDa, Elizabeth, South End, and more
+- **South Charlotte:** Ballantyne, SouthPark, Arboretum, Piper Glen, Blakeney, Steele Creek, and the neighborhoods around them
 - **Ballantyne:** Luxury homes, high-end finishes, custom color matching for upscale properties
 - **Matthews:** Family homes needing interior and exterior updates, cabinet painting popular
 - **South Charlotte:** SouthPark and Quail Hollow homes, high-end finishes, custom color matching
@@ -319,7 +319,7 @@ iFIXX provides professional painting services throughout the Charlotte metro are
 Charlotte summers = high humidity + intense sun. Exterior paint takes a beating. We see fading, peeling, and mildew growth on north-facing walls. Quality exterior paint + proper prep = longer-lasting protection.
 
 **Older homes (1950s-70s) and dark wood trim:**
-Many Charlotte homes in Myers Park, Dilworth, and Plaza Midwood have dark stained wood trim. Painting it white or lighter colors modernizes the space dramatically. We prep wood trim properly for paint adhesion.
+Many older Charlotte homes have dark stained wood trim. Painting it white or lighter colors modernizes the space dramatically. We prep wood trim properly for paint adhesion.
 
 **Popcorn ceilings in 1980s-90s homes:**
 Popcorn texture was everywhere in the 80s and 90s. Removing it and going smooth (or knockdown texture) updates your home instantly. We see this request constantly in South Charlotte and Ballantyne.

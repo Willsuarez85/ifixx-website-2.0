@@ -123,7 +123,7 @@ Charlotte labor rates for kitchen remodeling:
 
 ### Example 3: Full Renovation ($68,000)
 
-*Myers Park home*
+*SouthPark home*
 
 - Custom cabinets ($22,000)
 - Marble countertops ($6,500)
@@ -198,11 +198,11 @@ Ranges only get you so far. We'll walk your kitchen, price the scope you actuall
 
 According to recent data, kitchen remodels in the Charlotte market recoup **60-80% of their cost** at resale. More importantly, you get to enjoy a functional, beautiful kitchen every day.
 
-Charlotte's hot real estate market means homes with updated kitchens sell faster and often above asking price—especially in neighborhoods like Ballantyne, SouthPark, and NoDa.
+Charlotte's hot real estate market means homes with updated kitchens sell faster and often above asking price—especially in neighborhoods like Ballantyne and SouthPark.
 
 ## Ready to Start Your Charlotte Kitchen Remodel?
 
-We've completed [kitchen projects across Charlotte](/remodeling/kitchen-remodeling) — from historic Dilworth bungalows to modern Ballantyne homes. Our local team knows Charlotte neighborhoods, permit requirements, and trusted suppliers.
+We've completed [kitchen projects across South Charlotte](/remodeling/kitchen-remodeling), from Ballantyne and SouthPark to Pineville and Matthews. Our local team knows Charlotte neighborhoods, permit requirements, and trusted suppliers.
 
 **Why Charlotte homeowners choose iFixx:**
 

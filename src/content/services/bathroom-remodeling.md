@@ -308,7 +308,7 @@ iFIXX provides professional bathroom remodeling services throughout the Charlott
 
 **Areas we proudly serve:**
 
-- **Charlotte:** We serve all Charlotte neighborhoods including Myers Park, Dilworth, South End, NoDa, Plaza Midwood, and surrounding areas
+- **South Charlotte:** Ballantyne, SouthPark, Arboretum, Piper Glen, Blakeney, Steele Creek, and the neighborhoods around them
 - **Ballantyne:** Specializing in luxury master bathroom remodels with spa-like features and premium finishes
 - **Matthews:** Family-friendly bathroom designs that balance style and practicality
 - **South Charlotte:** Complete bathroom transformations for SouthPark, Quail Hollow, and the surrounding south corridor
