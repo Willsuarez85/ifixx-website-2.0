@@ -1417,7 +1417,7 @@
       "permanent": true
     },
     {
-      "source": "/waxhaw/:rest*",
+      "source": "/waxhaw/:rest((?!plumbing$|electrical-fixtures$).*)",
       "destination": "/service-areas/waxhaw",
       "permanent": true
     }
