@@ -1355,6 +1355,56 @@
       "source": "/remodeling/outdoor-living/",
       "destination": "/remodeling/decks",
       "permanent": true
+    },
+    {
+      "source": "/emergency-services",
+      "destination": "/repairs",
+      "permanent": true
+    },
+    {
+      "source": "/emergency-services/",
+      "destination": "/repairs",
+      "permanent": true
+    },
+    {
+      "source": "/emergency-services/doors-windows",
+      "destination": "/repairs/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/emergency-services/doors-windows/",
+      "destination": "/repairs/doors-windows",
+      "permanent": true
+    },
+    {
+      "source": "/emergency-services/water-damage",
+      "destination": "/repairs/drywall",
+      "permanent": true
+    },
+    {
+      "source": "/emergency-services/water-damage/",
+      "destination": "/repairs/drywall",
+      "permanent": true
+    },
+    {
+      "source": "/lp/water-damage",
+      "destination": "/repairs/drywall",
+      "permanent": true
+    },
+    {
+      "source": "/lp/water-damage/",
+      "destination": "/repairs/drywall",
+      "permanent": true
+    },
+    {
+      "source": "/lp/emergency",
+      "destination": "/lp/handyman",
+      "permanent": true
+    },
+    {
+      "source": "/lp/emergency/",
+      "destination": "/lp/handyman",
+      "permanent": true
     }
   ]
 }

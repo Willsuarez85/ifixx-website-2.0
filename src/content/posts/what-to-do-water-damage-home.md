@@ -3,7 +3,7 @@ title: "What to Do When You Have Water Damage at Home: A Charlotte Homeowner's G
 date: 2026-01-30
 excerpt: "Water damage can escalate fast. Here's exactly what to do in the first 24-48 hours to minimize damage and cost — from a Charlotte handyman who's seen it all."
 coverImage: "/images/projects/drywall-repair-patching-hole-spackling.webp"
-category: "Home Emergency"
+category: "Water Damage"
 tags:
   - "water damage"
   - "emergency repair"
@@ -231,6 +231,6 @@ Print this or screenshot it:
 
 ---
 
-**About the Authors:** Jaime and Hamed are the owners of iFIXX, a handyman service in Charlotte, NC. They've repaired water damage in hundreds of Charlotte homes and know exactly what it takes to make your walls look like new again.
+**About the Author:** the iFIXX crew is a family-owned handyman and remodeling team in South Charlotte, NC. They have repaired water damage in hundreds of Charlotte homes and know exactly what it takes to make your walls look like new again.
 
-**Need water damage repair in Charlotte?** Call or text (980) 391-6833 for a same-day estimate.
+**Need water damage repair in South Charlotte?** Text photos of the damage to (980) 391-6833 and a person calls you back with the estimate the same business day.

@@ -42,8 +42,7 @@ const allServices = await getCollection('services');
 const getServiceUrl = (serviceSlug: string, pillar?: string) => {
   const pillars: Record<string, string> = {
     'repairs': '/repairs/',
-    'remodeling': '/remodeling/',
-    'emergency-services': '/emergency-services/'
+    'remodeling': '/remodeling/'
   };
   const basePath = pillar ? pillars[pillar] || '/services/' : '/services/';
   return `${basePath}${serviceSlug}`;
@@ -354,12 +353,6 @@ const breadcrumbSchema = {
             </a>
             <a href="/remodeling" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm">
               All Remodeling Services
-              <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-            <a href="/emergency-services" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm">
-              Emergency Services
               <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
