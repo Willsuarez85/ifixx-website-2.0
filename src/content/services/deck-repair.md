@@ -54,7 +54,7 @@ seo:
   # 787 impressions and zero clicks in 28 days (Search Console, 2026-09-19): the old
   # title listed parts, not a reason to click. The hook is now the promise William
   # can keep, the estimate back the same business day from photos.
-  title: "Deck Repair South Charlotte NC | Same-Day Estimate | iFIXX"
+  title: "Deck Repair South Charlotte NC | Phone Estimate | iFIXX"
   description: "Soft boards, wood rot, loose rails, broken steps. Insured South Charlotte crew. Text photos to (980) 391-6833 and get your estimate the same business day."
 ---
 

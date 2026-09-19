@@ -18,7 +18,7 @@ You walk into your kitchen and there's water dripping from the ceiling. Or you c
 
 Water damage is one of the most stressful things a homeowner can face. But what you do in the first 24-48 hours makes a huge difference in how much damage occurs — and how much the repair costs.
 
-We're Jaime and Hamed from iFIXX, and we repair water damage in Charlotte homes every week. Here's exactly what to do (and what NOT to do) when water damage happens to you.
+We're the iFIXX team, and we repair water damage in Charlotte homes every week. Here's exactly what to do (and what NOT to do) when water damage happens to you.
 
 ## Step 1: Stop the Water Source (If You Can)
 

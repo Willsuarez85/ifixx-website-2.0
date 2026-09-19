@@ -15,7 +15,10 @@
  * Resolution order at submit time: sessionStorage -> localStorage (if not expired)
  * -> the _gcl_aw cookie left by the Google Ads tag (gclid only).
  * The session and localStorage sets are taken whole, never merged key by key, so a
- * lead can never carry the campaign of one visit with the gclid of another.
+ * lead can never carry the campaign of one visit with the gclid of another. For the
+ * same reason a new attributed URL replaces the whole stored set (keys it does not
+ * carry are cleared), and the cookie fallback is skipped when the resolved visit
+ * came from a non-Google source.
  *
  * Inlined in the <head> by src/components/common/AttributionScript.astro, which is
  * included by BaseLayout and LandingLayout. It exposes window.ifixxAttribution so
@@ -54,6 +57,14 @@
   function sessionSet(key, value) {
     try {
       window.sessionStorage.setItem(key, value);
+    } catch (e) {
+      /* no-op */
+    }
+  }
+
+  function sessionRemove(key) {
+    try {
+      window.sessionStorage.removeItem(key);
     } catch (e) {
       /* no-op */
     }
@@ -108,6 +119,12 @@
       if (source[PARAM_KEYS[i]]) return true;
     }
     return false;
+  }
+
+  function cookieFallbackAllowed(resolved) {
+    if (resolved.gbraid || resolved.wbraid) return false;
+    var source = String(resolved.utm_source || '').toLowerCase();
+    return !source || source.indexOf('google') !== -1 || source === 'adwords';
   }
 
   function readLocal() {
@@ -170,9 +187,12 @@
     var landingPage = currentPath();
     var referrer = document.referrer || '';
 
+    // Replace the whole set: a key the new URL does not carry is cleared, otherwise
+    // a Facebook visit in the same tab would keep the gclid of an earlier Google click.
     for (var j = 0; j < PARAM_KEYS.length; j++) {
       var key = PARAM_KEYS[j];
       if (found[key]) sessionSet(key, found[key]);
+      else sessionRemove(key);
     }
     sessionSet(SESSION_LANDING_KEY, landingPage);
     sessionSet(SESSION_REFERRER_KEY, referrer);
@@ -205,7 +225,10 @@
     // Last resort for the click id: the cookie the Google Ads tag drops on the
     // landing page. It outlives sessionStorage and is written even if this script
     // never saw the parameter (e.g. auto-tagging redirect handled by gtag).
-    if (!resolved.gclid) {
+    // Skipped when the resolved visit is attributed to something other than a Google
+    // click (another utm_source, or an iOS gbraid/wbraid click): the cookie would
+    // belong to an earlier visit.
+    if (!resolved.gclid && cookieFallbackAllowed(resolved)) {
       resolved.gclid = gclidFromCookie();
     }
 

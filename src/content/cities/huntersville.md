@@ -4,7 +4,7 @@ state: "NC"
 region: "NC"
 type: "city"
 localizedIntro: "Need a handyman in Huntersville NC? iFIXX is a Charlotte-area family business serving Huntersville, Cornelius, and Davidson for 5+ years. Same-day repairs — outlets, drywall, faucets, ceiling fans, and more. You call, we come."
-description: "iFIXX is a family-owned handyman and remodeling service serving Huntersville and North Charlotte. We've completed projects in Birkdale, Gilead, Northstone, and throughout Huntersville. When you call us, you talk directly to the owners — Jaime and Hamed — not a call center. Fast, honest, fully insured."
+description: "iFIXX is a family-owned handyman and remodeling service serving Huntersville and North Charlotte. We've completed projects in Birkdale, Gilead, Northstone, and throughout Huntersville. When you call us, you talk directly to Jaime, the owner, not a call center. Fast, honest, fully insured."
 neighborhoods:
   - "Birkdale"
   - "Gilead Ridge"

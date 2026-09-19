@@ -61,7 +61,7 @@ seo:
   # 637 impressions and zero clicks in 28 days (Search Console, 2026-09-19): the old
   # title described the service without giving a reason to click. The hook is now the
   # promise William can keep, the estimate back the same business day from photos.
-  title: "Drywall Repair South Charlotte NC | Same-Day Estimate | iFIXX"
+  title: "Drywall Repair South Charlotte NC | Phone Estimate | iFIXX"
   description: "Holes, cracks, nail pops, water-stained ceilings, texture matching that hides the patch. Text photos to (980) 391-6833 for an estimate the same business day."
 ---
 
