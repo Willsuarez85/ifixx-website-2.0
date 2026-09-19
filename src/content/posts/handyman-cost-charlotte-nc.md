@@ -37,11 +37,11 @@ Most handyman jobs in Charlotte run 1–3 hours. Larger projects (a half-day or 
 
 ## What iFIXX Charges — No Surprises
 
-At iFIXX, we charge **$75/hour** for handyman services across Charlotte and the surrounding area.
+At iFIXX, we charge **$75/hour** for handyman services across Charlotte and the surrounding area, with a **$150 minimum per repair visit**.
 
 That rate is transparent from the first call. No hidden dispatch fees, no surprise markups on materials. When you ask for a quote, you get an honest estimate based on what the job actually requires.
 
-We're also a family-owned business — not a franchise. When you call or text **(980) 391-6833**, you're reaching the owners directly. That means faster response, no runaround, and someone who actually cares about the quality of the work.
+We're also a family-owned business — not a franchise. When you call or text **(980) 391-6833**, you're reaching the owner directly. That means faster response, no runaround, and someone who actually cares about the quality of the work.
 
 You also get the price fast. Text photos of the job to (980) 391-6833 with a short description and a person calls you back with the estimate the same business day. We do not run an emergency or after-hours service: our hours are Monday to Saturday, 8:30 AM to 5:30 PM, and we tell you the crew's date before you approve anything.
 
@@ -62,7 +62,7 @@ Prices below reflect typical ranges for residential work in the Charlotte, NC me
 | Caulking (bathroom, windows) | $75–$125 |
 | Gutter cleaning (single-story) | $100–$200 |
 
-*Note: Materials are additional unless otherwise quoted. iFIXX provides transparent line-item pricing before starting work.*
+*Note: iFIXX has a $150 minimum per repair visit, so the smaller tasks above make the most sense bundled into one visit. Materials are additional unless otherwise quoted. iFIXX provides transparent line-item pricing before starting work.*
 
 Bigger projects are quoted as projects, not by the hour. A full [kitchen remodel](/remodeling/kitchen-remodeling) or [bathroom remodel](/remodeling/bathroom-remodeling) is scoped and priced on its own—see those pages for what shapes the cost.
 
@@ -85,7 +85,7 @@ Second-floor work, tight crawl spaces, attic access, or working around existing 
 If you need a crew to drop what they're doing and come now, expect to pay a bit more. Shuffling a schedule is a real cost, and the best local handymen are transparent about it. It is also worth asking whether the company actually does rush work: plenty advertise it and then can't deliver.
 
 **5. Minimum job fees**
-Most contractors have a job minimum, and it is the number that decides whether a one-hour task is worth anyone's trip. Ask for it on the first call, before you describe the job, so nobody wastes the visit. We tell you ours the moment you ask.
+Most contractors have a job minimum, and it is the number that decides whether a one-hour task is worth anyone's trip. Ask for it on the first call, before you describe the job, so nobody wastes the visit. Ours is $150 for any repair visit.
 
 ---
 

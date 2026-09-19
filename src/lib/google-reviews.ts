@@ -39,7 +39,7 @@ export interface GoogleReview {
 export const GOOGLE_PROFILE_URL = 'https://www.google.com/maps?cid=13782573695421719060';
 
 /** Las 16 resenas del perfil, de la mas reciente a la mas antigua. */
-export const GOOGLE_REVIEWS: GoogleReview[] = [
+const ALL_GOOGLE_REVIEWS: GoogleReview[] = [
   {
     author: "Jen Jen",
     datePublished: "2026-06-30",
@@ -155,10 +155,21 @@ export const GOOGLE_REVIEWS: GoogleReview[] = [
 ];
 
 /**
+ * Lo que el sitio muestra y marca en el schema. Jaime Aguila es el unico dueno;
+ * las resenas que nombran a Hamed (ex trabajador, salio en agosto de 2026) no se
+ * publican en el sitio. No se editan ni se recortan: siguen completas en el perfil
+ * de Google y en ALL_GOOGLE_REVIEWS. El conteo y el promedio no cambian porque
+ * describen el perfil, no esta seleccion.
+ */
+export const GOOGLE_REVIEWS: GoogleReview[] = ALL_GOOGLE_REVIEWS.filter(
+  (review) => !/hamed/i.test(review.text)
+);
+
+/**
  * Seleccion del hub de reparaciones: drywall y handyman.
  * Se excluyen a proposito las resenas que nombran a Hamed (ex trabajador, salio
  * en agosto de 2026) y cualquiera que mencione plomeria o electrico, servicios
- * que iFIXX no ofrece. Siguen publicadas en la lista completa de arriba.
+ * que iFIXX no ofrece. Tampoco salen en la lista general (ver GOOGLE_REVIEWS).
  */
 export const REPAIRS_FEATURED_AUTHORS = ['Zack Aschliman', 'Matt Crisp', 'Kami Valdez'] as const;
 

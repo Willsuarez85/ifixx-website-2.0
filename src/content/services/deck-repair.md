@@ -39,7 +39,7 @@ faqs:
   - q: "When should I stop using the deck?"
     a: "If the deck shifts underfoot, railings move, steps are loose, posts look rotten, or boards feel soft, stay off that area until someone looks at it. Safety concerns may need an in-person visit before we can give a final price."
   - q: "What does deck repair cost?"
-    a: "It depends on how much of the deck is involved, whether the damage stopped at the boards or reached the framing, and what the deck is built from. Our minimum for any repair visit is $300, and you get the price before we start. No surprises at the end."
+    a: "It depends on how much of the deck is involved, whether the damage stopped at the boards or reached the framing, and what the deck is built from. Our minimum for any repair visit is $150, and you get the price before we start. No surprises at the end."
   - q: "Do you repair composite and Trex decks too?"
     a: "Yes. Composite boards do not rot, but the framing under them is still wood and still fails. We replace damaged composite boards, re-secure railings, and repair the wood structure underneath."
   - q: "Should I repair the deck or just refinish it?"
