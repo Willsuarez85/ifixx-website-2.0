@@ -243,8 +243,7 @@ We believe in upfront pricing. Here's what painting typically costs in Charlotte
 
 **Full exterior (single-story home):** $3,000-$6,000
 - Includes siding, trim, doors
-- Power washing
-- Caulking and prep
+- Surface cleaning, caulking, and prep
 - 2 coats quality exterior paint
 
 **Full exterior (two-story home):** $5,000-$8,000+
