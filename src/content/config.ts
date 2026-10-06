@@ -28,6 +28,23 @@ const servicesCollection = defineCollection({
       low: z.string(),
       high: z.string()
     }).optional(),
+    // Optional overrides for copy that the repairs template (src/pages/repairs/
+    // [serviceSlug].astro) writes on every page. A service that leaves a field out
+    // renders the template default, so setting one here changes no other page.
+    // First used by the deck pages (2026-10-06) to carry the Google Ads message that
+    // converts and to keep speed promises and dashes off them.
+    pageCopy: z.object({
+      // Hero paragraph under the H1. Defaults to `summary`, which also feeds the hub
+      // cards and the zone pages (where "South Charlotte" is swapped for the town), so
+      // a hero that names every service area cannot live there.
+      heroIntro: z.string().optional(),
+      // The four badges under the hero paragraph, in the template's icon order.
+      heroBadges: z.array(z.string()).length(4).optional(),
+      estimateCtaTitle: z.string().optional(),
+      galleryTitle: z.string().optional(),
+      ctaHeadline: z.string().optional(),
+      ctaSubheadline: z.string().optional()
+    }).optional(),
     seo: z.object({
       title: z.string(),
       description: z.string()
