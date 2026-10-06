@@ -28,7 +28,17 @@ interface Props {
 const { service } = Astro.props;
 const { Content } = await service.render();
 
-const { title, category, pillar, summary, heroImage, bullets, signs, processSteps, faqs, relatedServices, priceRange, seo } = service.data;
+const { title, category, pillar, summary, heroImage, bullets, signs, processSteps, faqs, relatedServices, priceRange, pageCopy, seo } = service.data;
+
+// Copy this template writes on every repairs page. A service can override any line from
+// its frontmatter (`pageCopy`, see src/content/config.ts); without it the page renders
+// exactly these defaults.
+const heroText = pageCopy?.heroIntro ?? summary;
+const heroBadges = pageCopy?.heroBadges ?? ['Quality Guaranteed', 'Fast Response', '100% Local', 'Fully Insured'];
+const estimateCtaTitle = pageCopy?.estimateCtaTitle ?? 'Free Estimate — No Obligation';
+const galleryTitle = pageCopy?.galleryTitle ?? `Our ${title} Projects`;
+const ctaHeadline = pageCopy?.ctaHeadline ?? `Ready to Fix What's Broken?`;
+const ctaSubheadline = pageCopy?.ctaSubheadline ?? 'Get a free estimate for your repair project. No obligation, fast response.';
 
 // Get all services for related services lookup
 const allServices = await getCollection('services');
@@ -67,6 +77,7 @@ const serviceProjectImages: Record<string, string> = {
   'tv-mounting': '/images/projects/tv-mounting-wall-bracket-installation-drilling.webp',
   'drywall': '/images/projects/drywall-repair-patching-hole-spackling.webp',
   'deck-repair': '/images/projects/outdoor-living-raised-deck-railing-construction.webp',
+  'deck-staining-sealing': '/images/projects/deck-covered-porch-south-charlotte.webp',
   'fence-repair': '/images/projects/fence-vinyl-privacy-south-charlotte.webp',
 };
 
@@ -216,7 +227,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
             </h1>
 
             <p class="text-lg text-neutral-200 mb-6 max-w-xl">
-              {summary}
+              {heroText}
             </p>
 
             <!-- Benefit Icons -->
@@ -227,7 +238,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span class="text-sm text-white font-medium">Quality Guaranteed</span>
+                <span class="text-sm text-white font-medium">{heroBadges[0]}</span>
               </div>
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center">
@@ -235,7 +246,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <span class="text-sm text-white font-medium">Fast Response</span>
+                <span class="text-sm text-white font-medium">{heroBadges[1]}</span>
               </div>
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center">
@@ -244,7 +255,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <span class="text-sm text-white font-medium">100% Local</span>
+                <span class="text-sm text-white font-medium">{heroBadges[2]}</span>
               </div>
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center">
@@ -252,7 +263,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
-                <span class="text-sm text-white font-medium">Fully Insured</span>
+                <span class="text-sm text-white font-medium">{heroBadges[3]}</span>
               </div>
             </div>
 
@@ -334,7 +345,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
 
           <!-- Inline CTA 2 (mid-content) -->
           <div class="my-10 p-6 bg-neutral-900 rounded-xl text-center">
-            <p class="text-white font-heading font-bold text-xl mb-2">Free Estimate — No Obligation</p>
+            <p class="text-white font-heading font-bold text-xl mb-2">{estimateCtaTitle}</p>
             <p class="text-neutral-400 text-sm mb-4">Talk directly to the owner. Honest pricing. Text us photos and the estimate comes back the same business day.</p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
               <a href="sms:+19803916833" class="inline-flex items-center justify-center gap-2 bg-primary-500 text-neutral-900 font-bold px-6 py-3 rounded-lg hover:bg-primary-400 transition-colors">
@@ -430,13 +441,13 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
   <!-- Project Gallery -->
   <ScrollGallery
     serviceSlug={service.slug}
-    title={`Our ${title} Projects`}
+    title={galleryTitle}
   />
 
   <!-- Intermediate CTA -->
   <CTAIntermediate
-    headline={`Ready to Fix What's Broken?`}
-    subheadline="Get a free estimate for your repair project. No obligation, fast response."
+    headline={ctaHeadline}
+    subheadline={ctaSubheadline}
     variant="primary"
     showPhone={true}
     buttonHref="#service-hero"

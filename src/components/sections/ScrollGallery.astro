@@ -40,8 +40,24 @@ const bathroomImages = [
   { src: '/images/projects/bathroom-remodeling-dual-vanity-installation-progress.webp', alt: 'Dual vanity installation in progress', category: 'bathroom' },
 ];
 
+// Deck and porch photos already published on the deck landing and the deck silos
+// (2026-10-06). Two images from the landing's gallery stay out on purpose: the
+// "pressure-washing-deck-before-after" file shows a man cleaning windows, and the stair
+// repair shot is an interior staircase, so neither is a deck. Before this the deck
+// pages fell back to the mixed default pool (kitchen and bathroom photos).
+const deckImages = [
+  { src: '/images/projects/deck-wood-railing-south-charlotte.webp', alt: 'Wood deck with rebuilt railing by iFIXX in South Charlotte', category: 'decks' },
+  { src: '/images/projects/deck-wood-exterior-patio.webp', alt: 'Raised wood deck with new boards, railing, and stairs', category: 'decks' },
+  { src: '/images/projects/deck-covered-porch-south-charlotte.webp', alt: 'Finished deck rebuild with covered porch by iFIXX in South Charlotte', category: 'decks' },
+  { src: '/images/projects/deck-porch-framing-south-charlotte.webp', alt: 'Structural deck and porch framing during a rebuild in South Charlotte', category: 'decks' },
+  { src: '/images/projects/deck-porch-framing-crew-south-charlotte.webp', alt: 'iFIXX crew rebuilding a deck and porch structure in South Charlotte', category: 'decks' },
+  { src: '/images/projects/outdoor-living-deck-construction-screened-porch.webp', alt: 'Wood deck and screened porch', category: 'decks' },
+];
+
 // Gallery images organized by service category
 const galleryImages: Record<string, { src: string; alt: string; category: string }[]> = {
+  'deck-repair': deckImages,
+  'deck-staining-sealing': deckImages,
   // Remodeling pillar page slugs (the actual slugs the pages pass)
   'kitchen-remodeling': kitchenImages,
   'bathroom-remodeling': bathroomImages,
