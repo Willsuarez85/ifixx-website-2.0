@@ -1,82 +1,114 @@
 ---
-title: "Deck Repair"
+title: "Deck & Porch Repair"
 category: "handyman"
 pillar: "repairs"
-summary: "Deck repair in South Charlotte: soft boards, wood rot, loose railings, wobbly steps, and posts that have started to move. We look for the repair path first and tell you straight when a rebuild is the honest answer."
-heroImage: "/images/projects/deck-wood-railing-south-charlotte.webp"
+summary: "Deck and porch repair in South Charlotte: rotten or soft boards, loose railings, broken steps, wood rot, porch floors, and torn screens. We repair first and tell you straight when a rebuild is the honest answer."
+heroImage: "/images/projects/deck-wood-exterior-patio.webp"
+# 2026-10-06 (William, option B): the Ads landing /deck-repair-south-charlotte stays for
+# Ads and is noindex; this page takes over its message before Google drops it. The badges
+# are the Deck Repair ad lines that convert ("Repair Or Replace Honestly", "Local Insured
+# Deck Crew", "A Real Person Answers", text us photos).
+pageCopy:
+  heroIntro: "iFIXX repairs rotten or soft deck boards, loose railings, broken steps, wood rot, porch floors, and porch screens in South Charlotte and nearby Ballantyne, Matthews, Mint Hill, Pineville, Waxhaw, Weddington, Fort Mill, and Indian Land. Text photos to (980) 391-6833 and a real person calls you back with an estimate the same business day; bigger jobs get an in-person visit first."
+  heroBadges:
+    - "Repair or Replace, Honestly"
+    - "Text Photos for an Estimate"
+    - "Local Insured Deck Crew"
+    - "A Real Person Answers"
+  estimateCtaTitle: "Free Estimate, No Obligation"
+  galleryTitle: "Our Deck and Porch Repairs and Rebuilds"
+  ctaSubheadline: "Get a free estimate for your deck or porch repair. No obligation, and a real person answers."
 bullets:
-  - "Board replacement (soft, cupped, cracked, or splintering)"
-  - "Wood rot repair on boards, joists, rim, and posts"
-  - "Railing repair: loose posts, wobbly sections, missing balusters"
-  - "Stair and stringer repair, loose or sagging treads"
-  - "Fastener replacement: popped screws, rusted nails, failed hangers"
-  - "Ledger and flashing repair where the deck meets the house"
-  - "Gate and railing hardware on deck stairs"
-  - "Sanding, sealing, and refinishing after the repair"
+  - "Rotten, soft, cracked, or splintering deck boards"
+  - "Loose railings, shaky posts, and missing balusters"
+  - "Broken steps, loose treads, and stair stringers"
+  - "Wood rot cut out of boards, rails, posts, and trim before it spreads"
+  - "Framing or joist concerns that need a closer look"
+  - "Popped screws, rusted nails, and failed joist hangers"
+  - "Ledger and flashing where the deck meets the house"
+  - "Composite boards replaced and the wood framing under them repaired"
+  - "Porch floors, railings, steps, and posts"
+  - "Porch screens re-stretched or replaced, panel by panel"
 signs:
   - "A board feels soft or spongy underfoot"
-  - "Railing moves when you lean on it"
+  - "The railing moves when you lean on it"
   - "Steps flex, squeak, or a tread has pulled loose"
   - "Screws or nails backing out across the surface"
   - "Dark, damp wood near the house or at the base of a post"
   - "A post that has started to lean"
-  - "Sections went down or shifted after a storm"
-  - "The deck has not been sealed in several seasons"
+  - "Soft spots on the porch floor near the edges"
+  - "Porch screens torn, sagging, or pushed out by a pet"
 processSteps:
-  - title: "Free estimate, photos first"
-    description: "Text photos to (980) 391-6833 or request an estimate online. Photos of the surface, the stairs, and where the deck meets the house usually tell us most of what we need before anyone drives out."
-  - title: "We look for the repair path"
-    description: "Most decks get caught early enough to repair. We check whether the problem is finish level, board level, or structural, and we say which one it is instead of quoting the biggest job in the room."
-  - title: "Repair and reinforce"
-    description: "Replace the failed boards and framing, re-secure railings and stairs, swap rusted fasteners and hangers, and address the rot source so the same board does not fail again next summer."
-  - title: "Finish and clean up"
-    description: "Sand the repaired areas, match the finish where we can, seal what needs sealing, and leave the site clean. We walk the deck with you before we go."
+  - title: "Text photos of the problem"
+    description: "Send photos to (980) 391-6833 with a line about what feels wrong. A wide shot of the deck, close-ups of the soft spots, the stairs, and where the deck meets the house tell us most of what we need."
+  - title: "A real person calls you back"
+    description: "Someone from our team looks at the photos and calls you with the estimate the same business day. Bigger jobs, and anything structural, get an in-person visit before the final price."
+  - title: "Repair or replace, honestly"
+    description: "We price the repair that fixes the problem. If the framing or the posts are too far gone, we say so and scope a rebuild instead of patching something unsafe."
+  - title: "Fix it and walk it with you"
+    description: "Failed boards and framing replaced, railings and steps re-secured, the water that caused the rot dealt with, and the deck walked with you before we leave."
 faqs:
-  - q: "Can my deck be repaired, or does it need a rebuild?"
-    a: "Usually it can be repaired. A few bad boards, a loose railing, or broken steps do not mean the whole deck is done. What matters is catching it before rot and movement spread into the framing. When the posts or joists are genuinely past saving, we tell you straight and scope a rebuild instead of patching something unsafe."
-  - q: "How fast can you get out here?"
-    a: "For a safety issue, a section down after a storm, or a railing that has come loose, call (980) 391-6833 and we will prioritize it. Standard deck repairs are usually scheduled within the same week."
-  - q: "When should I stop using the deck?"
-    a: "If the deck shifts underfoot, railings move, steps are loose, posts look rotten, or boards feel soft, stay off that area until someone looks at it. Safety concerns may need an in-person visit before we can give a final price."
-  - q: "What does deck repair cost?"
-    a: "It depends on how much of the deck is involved, whether the damage stopped at the boards or reached the framing, and what the deck is built from. Our minimum for any repair visit is $150, and you get the price before we start. No surprises at the end."
-  - q: "Do you repair composite and Trex decks too?"
-    a: "Yes. Composite boards do not rot, but the framing under them is still wood and still fails. We replace damaged composite boards, re-secure railings, and repair the wood structure underneath."
-  - q: "Should I repair the deck or just refinish it?"
-    a: "Sealing a deck with soft boards or loose framing buys you a better-looking problem. We repair the structure first, then sand and seal, so the finish is protecting something solid."
-  - q: "Do you handle decks in South Charlotte and Ballantyne?"
-    a: "Yes. South Charlotte, Ballantyne, Pineville, Matthews, and the surrounding Charlotte neighborhoods are where we work every week."
+  - q: "Do you do deck repair near me in Charlotte?"
+    a: "In South Charlotte and the towns around it, yes: Ballantyne, Matthews, Mint Hill, Pineville, Waxhaw, Weddington, Fort Mill, and Indian Land. Text photos to (980) 391-6833 and a real person calls you back with an estimate the same business day. If you are close by but not on that list, ask and we will tell you honestly."
+  - q: "Can you repair a loose deck railing?"
+    a: "Yes. A railing that moves usually comes down to a loose or rotted post, fasteners that have failed, or a post that was never anchored well. We find which one it is, re-secure or replace the post, and replace missing or broken balusters so the railing holds when someone leans on it."
+  - q: "Do you repair wood rot on decks?"
+    a: "Yes. Rot starts where water sits and the wood stays damp: board ends, stair stringers, the base of the posts, and the boards and trim against the house. We cut back to sound wood, replace what is gone, and seal the repair so water stops sitting there. If the rot has reached the joists or the posts that hold the deck up, we tell you and price that part separately instead of covering it with a new board."
+  - q: "Can you replace just a few deck boards?"
+    a: "Yes. Replacing a few soft, cracked, or splintering boards is a normal repair, on wood or composite decks. While the boards are up we check the joists underneath, because a soft board sometimes means the framing below needs attention too. New boards will look different from weathered ones until the deck is refinished, and we tell you that before we start."
+  - q: "Should I repair or replace my deck?"
+    a: "Usually repair. A few bad boards, a loose railing, or broken steps do not mean the whole deck is done. The structure decides it: if the posts, the joists, and the ledger where the deck meets the house are sound, a repair keeps the deck going. If they are past saving, we tell you straight and price a rebuild instead of patching something unsafe."
+  - q: "Can you repair torn porch screens?"
+    a: "Yes. Torn screens, panels a dog pushed through, mesh that sags away from the frame, and spline that has dried out and popped loose. We re-stretch or replace the screen panel by panel, put in new spline so the mesh stays tight, and can use a heavier pet-resistant screen on the panels that take the most abuse. If the frame itself is soft, we repair the wood first, because new screen on rotten wood does not hold."
+  - q: "How fast do I get a deck repair estimate?"
+    a: "Text photos to (980) 391-6833 with a line about what is wrong, and a real person calls you back with the estimate the same business day. Business hours are Monday to Saturday, 8:30am to 5:30pm. Bigger or structural jobs get an in-person visit before the final price. The estimate is free, and the minimum for a repair visit is $150."
 relatedServices:
-  - "carpentry"
-  - "painting"
-  - "quick-fix"
+  - "deck-staining-sealing"
+  - "decks"
+  - "screened-porches"
 seo:
-  # 787 impressions and zero clicks in 28 days (Search Console, 2026-09-19): the old
-  # title listed parts, not a reason to click. The hook is now the promise William
-  # can keep, the estimate back the same business day from photos.
-  title: "Deck Repair South Charlotte NC | Phone Estimate | iFIXX"
-  description: "Soft boards, wood rot, loose rails, broken steps. Insured South Charlotte crew. Text photos to (980) 391-6833 and get your estimate the same business day."
+  # Converting terms in Google Ads (90 days to 2026-10-06): "deck repair charlotte nc"
+  # and "deck repair near me". The title carries the ad's "Boards, Rails And Steps".
+  title: "Deck & Porch Repair Charlotte NC | Boards, Rails, Steps | iFIXX"
+  description: "Deck and porch repair in South Charlotte NC: soft boards, loose rails, broken steps, wood rot, screens. Local insured crew. Text photos to (980) 391-6833."
 ---
 
-**A soft board, a railing that moves, steps that flex.** Decks in Charlotte take sun, humidity, and thunderstorms all year, and they fail in the same order every time: the finish goes, the boards drink water, then the framing follows. Caught early, that is a repair. Left alone, it becomes a rebuild.
+**Soft boards, a railing that moves, steps that flex, a porch screen the dog went through.** Caught early, most of that is a focused repair, not a new deck. When a deck or porch really is past saving, we tell you straight and price the rebuild.
 
-**Text photos to [(980) 391-6833](tel:9803916833)** and we will tell you which one you are looking at.
+We work in [South Charlotte](/service-areas/south-charlotte), Ballantyne, Matthews, Mint Hill, Pineville, Waxhaw, Weddington, Fort Mill, and Indian Land.
 
-## We look for the repair first
+## Repair or replace, honestly
 
-Plenty of companies only want the rebuild. We would rather fix the deck you have, because most of the time that is what it actually needs, and because the homeowner who gets an honest answer this year is the one who calls us for the porch next year.
+Plenty of companies only want the rebuild. We would rather fix the deck you have, because most of the time that is what it needs, and because the homeowner who gets an honest answer this year is the one who calls us for the porch next year.
 
-What that looks like in practice: we check the surface, the stairs, the railings, and the point where the deck attaches to the house. Then we tell you whether you are dealing with a finish problem, a board problem, or a structural one, and we price only that.
+So we check the surface, the stairs, the railings, and the point where the deck attaches to the house. Then we tell you whether you are looking at a finish problem, a board problem, or a structural one, and we price only that. If the framing or the posts are too far gone, we say so and scope a rebuild instead of patching something unsafe.
 
-## Where Charlotte decks actually fail
+If the deck shifts underfoot, a railing moves, or the steps feel loose, stay off that area until someone has looked at it.
 
-- **The boards nearest the house.** Water runs off the siding and sits there. That is usually the first soft spot.
-- **The base of the posts.** Ground contact plus mulch plus irrigation is how a post rots from the bottom up while the top still looks fine.
-- **The stairs.** Stringers carry the most load and get the least attention.
-- **The fasteners.** Older decks were nailed. Nails back out, and a popped nail head is what catches a bare foot.
+## Wood rot deck repair
 
-## Repair now, or rebuild later
+Rot starts where water sits and the wood stays damp: the boards closest to the house, board ends, stair stringers, and the base of the posts, where mulch and sprinklers keep the wood wet. We cut back to sound wood, replace what is gone, and deal with the water that caused it, so the same board does not fail again. Rot that has reached the joists or the posts that carry the deck is a structural repair, and we price it as one.
 
-A deck that gets its bad boards replaced and its framing re-secured keeps going for years. A deck that gets sealed over rot fails anyway, and by then the repair has turned into a tear-out. If yours is closer to the second case, we will say so before you spend money on the first.
+## Porch repair, from the floor to the screens
 
-Planning something bigger than a repair? We also build new decks and screened porches. Start at [deck building](/remodeling/decks).
+A porch is built the same way a deck is and fails in the same places, so the same crew repairs both.
+
+- **Porch floors:** soft boards at the edges and around the posts come out, the joists underneath get checked, and the new boards go in and get sealed.
+- **Railings, steps, and posts:** loose railings re-secured, missing balusters replaced, steps and stringers rebuilt, and rotted posts and trim against the house replaced.
+- **Screens:** torn or sagging screens re-stretched or replaced panel by panel, with new spline and pet-resistant screen on the panels that take the abuse. If the frame is soft, the wood gets fixed first.
+
+## Restoration after the repair
+
+Once the boards and the framing are solid, a gray or peeling deck gets its finish back with surface prep, sanding, and a fresh stain, sealer, or paint. Restoration goes after the repair, not before, because new boards and weathered boards take a finish differently. See [deck staining, sealing, and restoration](/repairs/deck-staining-sealing).
+
+## How the estimate works
+
+Text photos to [(980) 391-6833](sms:+19803916833) with a line about what feels wrong. A wide shot of the deck, close-ups of the soft spots, the stairs, and the spot where the deck meets the house tell us most of what we need. A real person looks at them and calls you back with the estimate the same business day. Bigger jobs, and anything structural, get an in-person visit before the final price. The estimate is free, and the minimum for a repair visit is $150.
+
+## A local insured deck crew, and a real person answers
+
+iFIXX is a family-owned company, and Jaime Aguilar is the owner. We are not a franchise or a call center: when you call or text, a real person from our team answers, and you get the price before any work starts.
+
+## Need a new deck or porch instead?
+
+If the deck is past saving, or you want more than a repair, we also [build new decks](/remodeling/decks) and [screened porches](/remodeling/screened-porches).
