@@ -251,7 +251,7 @@ We believe in upfront pricing. Here's what painting typically costs in Charlotte
 - Additional scaffolding/ladder work
 - More surface area
 
-**Deck staining (200-300 sq ft):** $600-$1,200
+**[Deck staining](/repairs/deck-staining-sealing) (200-300 sq ft):** $600-$1,200
 - Cleaning and prep
 - Quality deck stain
 - Sealer

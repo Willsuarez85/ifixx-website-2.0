@@ -53,6 +53,10 @@ const slugToFormValue: Record<string, string> = {
   'decks': 'deck-build',
   'screened-porches': 'screened-porch',
   'deck-repair': 'deck-repair',
+  // Staining and sealing ride the deck repair value: same Deck & Outdoor pipeline in
+  // GHL (as on the deck landing, where staining is an issue option), and the page's
+  // own form name still tells the two apart in the lead source.
+  'deck-staining-sealing': 'deck-repair',
   'fence-repair': 'fence-repair',
   'general-repairs': 'quick-fix',
 };

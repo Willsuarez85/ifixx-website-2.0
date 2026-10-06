@@ -52,7 +52,10 @@ const services = repairServices.map(s => ({
 // Service image mapping
 const serviceImages: Record<string, string> = {
   'drywall': '/images/projects/drywall-repair-patching-hole-spackling.webp',
-  'deck-repair': '/images/projects/deck-wood-railing-south-charlotte.webp',
+  // Each deck card shows its page's hero: the stained deck is the only photo with a
+  // stained finish, so it moved to the staining page and deck repair took the landing's.
+  'deck-repair': '/images/projects/deck-wood-exterior-patio.webp',
+  'deck-staining-sealing': '/images/projects/deck-wood-railing-south-charlotte.webp',
   'fence-repair': '/images/projects/fence-wood-privacy-south-charlotte.webp',
   'carpentry': '/images/projects/carpentry-baseboard-trim-installation-repair.webp',
   'painting': '/images/projects/painting-drywall-dining-room-wainscoting-chandelier.webp',
