@@ -3,6 +3,9 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
+// Real <lastmod> per sitemap URL (git history, with a committed snapshot for
+// shallow clones). See scripts/lastmod-lib.mjs.
+import { lastmodFor } from './scripts/lastmod-lib.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,7 +16,9 @@ export default defineConfig({
   integrations: [
     sitemap({
       changefreq: 'weekly',
-      lastmod: new Date(),
+      // Browsers render the sitemap through this stylesheet instead of raw XML.
+      // Crawlers ignore it. Lives in public/sitemap.xsl.
+      xslURL: '/sitemap.xsl',
       // Exclude redirect pages from sitemap
       filter: (page) => {
         // SEO cleanup (2026-06): retired cities + services iFIXX doesn't offer.
@@ -68,6 +73,9 @@ export default defineConfig({
       // Custom priority based on page type
       serialize(item) {
         const url = item.url;
+
+        const lastmod = lastmodFor(url);
+        if (lastmod) item.lastmod = lastmod;
 
         // Homepage - highest priority
         if (url === 'https://www.ifixxnc.com/' || url === 'https://www.ifixxnc.com') {
