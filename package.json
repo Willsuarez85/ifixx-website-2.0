@@ -8,7 +8,8 @@
     "postbuild": "npm run verify:links",
     "preview": "astro preview",
     "astro": "astro",
-    "verify:links": "node scripts/verify-links.mjs"
+    "verify:links": "node scripts/verify-links.mjs",
+    "sitemap:lastmod": "node scripts/sitemap-lastmod.mjs"
   },
   "dependencies": {
     "@astrojs/node": "^9.5.1",
