@@ -14,6 +14,9 @@ export default defineConfig({
     sitemap({
       changefreq: 'weekly',
       lastmod: new Date(),
+      // Browsers render the sitemap through this stylesheet instead of raw XML.
+      // Crawlers ignore it. Lives in public/sitemap.xsl.
+      xslURL: '/sitemap.xsl',
       // Exclude redirect pages from sitemap
       filter: (page) => {
         // SEO cleanup (2026-06): retired cities + services iFIXX doesn't offer.
