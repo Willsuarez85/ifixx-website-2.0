@@ -146,7 +146,6 @@ const imageGallerySchema = {
   "name": seoTitle,
   "description": seoDescription,
   "url": "https://www.ifixxnc.com/gallery",
-  "numberOfItems": allImages.length,
   "image": allImages.slice(0, 20).map((img) => ({
     "@type": "ImageObject",
     "contentUrl": `https://www.ifixxnc.com${img.src}`,
