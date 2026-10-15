@@ -46,6 +46,7 @@ const getPillarUrl = (service: any) => {
 const servicesSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
+  "@id": "https://www.ifixxnc.com/services#list",
   "name": "iFixx Home Services",
   "description": seoDescription,
   "numberOfItems": services.length,
@@ -56,16 +57,24 @@ const servicesSchema = {
       "@type": "Service",
       "name": service.data.title,
       "description": service.data.summary,
-      "url": `https://www.ifixxnc.com${getPillarUrl(service)}`
+      "url": `https://www.ifixxnc.com${getPillarUrl(service)}`,
+      "provider": { "@id": "https://www.ifixxnc.com/#business" }
     }
   }))
 };
+
+const breadcrumb = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services" }
+];
 ---
 
 <BaseLayout
   title={seoTitle}
   description={seoDescription}
   canonical="/services"
+  pageType="CollectionPage"
+  breadcrumb={breadcrumb}
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify(servicesSchema)} />

@@ -1,6 +1,7 @@
 ---
 import { GOOGLE_REVIEW_COUNT } from '../lib/business-facts';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { serviceNode } from '../lib/schema-graph';
 import { getCollection } from 'astro:content';
 import { hasServiceAreaHub } from '../lib/seo-retired';
 import TrustBar from '../components/sections/TrustBar.astro';
@@ -95,40 +96,19 @@ const benefits = [
 ];
 ---
 
-<BaseLayout title={seo.title} description={seo.description} canonical="/for-homeowners">
-  <!-- Schema -->
+<BaseLayout title={seo.title} description={seo.description} canonical="/for-homeowners" breadcrumb={[{ name: "Home", path: "/" }, { name: "For Homeowners", path: "/for-homeowners" }]}>
+  <!-- Schema: Service por audiencia (modelo de Sebastian). Antes era un segundo
+       LocalBusiness sin @id, con radio de 50 km desde el centro de Charlotte. -->
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "iFixx Remodeling & Handyman Services",
-      "description": seo.description,
-      "url": "https://www.ifixxnc.com/for-homeowners",
-      "telephone": "+1-980-391-6833",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Charlotte",
-        "addressRegion": "NC",
-        "addressCountry": "US"
-      },
-      "areaServed": {
-        "@type": "GeoCircle",
-        "geoMidpoint": {
-          "@type": "GeoCoordinates",
-          "latitude": 35.2271,
-          "longitude": -80.8431
-        },
-        "geoRadius": "50000"
-      },
-      "priceRange": "$$"
-    })} />
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ifixxnc.com/" },
-        { "@type": "ListItem", "position": 2, "name": "For Homeowners", "item": "https://www.ifixxnc.com/for-homeowners" }
-      ]
+      ...serviceNode({
+        path: "/for-homeowners",
+        name: "Home Repair and Remodeling for Homeowners",
+        serviceType: "Handyman and remodeling services",
+        description: seo.description,
+        audience: "Homeowners"
+      })
     })} />
   </Fragment>
 

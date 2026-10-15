@@ -28,6 +28,7 @@ const sortedCities = cities.sort((a, b) => {
 const itemListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
+  "@id": "https://www.ifixxnc.com/service-areas#list",
   "name": "iFixx Service Areas",
   "description": "Cities and neighborhoods served by iFixx Remodeling & Handyman Services",
   "numberOfItems": sortedCities.length,
@@ -39,30 +40,15 @@ const itemListSchema = {
   }))
 };
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.ifixxnc.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Service Areas",
-      "item": "https://www.ifixxnc.com/service-areas"
-    }
-  ]
-};
+const breadcrumb = [
+  { name: "Home", path: "/" },
+  { name: "Service Areas", path: "/service-areas" }
+];
 ---
 
-<BaseLayout title={seoTitle} description={seoDescription} canonical="/service-areas">
+<BaseLayout title={seoTitle} description={seoDescription} canonical="/service-areas" pageType="CollectionPage" breadcrumb={breadcrumb}>
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
 
   <!-- Hero Section -->
