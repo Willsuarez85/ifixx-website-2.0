@@ -80,9 +80,17 @@ export const SERVICE_AREAS = [
 export const serviceAreaLabels = (): string[] =>
   SERVICE_AREAS.map(({ name, state }) => `${name}, ${state}`);
 
-/** areaServed listo para JSON-LD. */
+/**
+ * areaServed listo para JSON-LD. El estado va como containedInPlace (forma del schema
+ * de Sebastian, 2026-10-09): addressRegion no es propiedad de City y el validador de
+ * schema.org lo marcaba en cada pagina.
+ */
 export const areaServedSchema = () =>
-  SERVICE_AREAS.map(({ name, state }) => ({ '@type': 'City', name, addressRegion: state }));
+  SERVICE_AREAS.map(({ name, state }) => ({
+    '@type': 'City',
+    name,
+    containedInPlace: { '@type': 'State', name: state === 'SC' ? 'South Carolina' : 'North Carolina' },
+  }));
 
 /**
  * HORARIO: Lun a Sab, 8:30 AM a 5:30 PM (CONTEXT.md, confirmado por Jaime/William
