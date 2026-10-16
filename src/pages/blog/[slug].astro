@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { businessRef, pageIds } from '../../lib/schema-graph';
 import CTASection from '../../components/sections/CTASection.astro';
 import { isRetiredService } from '../../lib/seo-retired';
 
@@ -59,14 +60,18 @@ const postImage = coverImage
   ? `https://www.ifixxnc.com${coverImage}`
   : "https://www.ifixxnc.com/images/ui/hero-bg.jpg";
 
-// BlogPosting schema (enhanced for SEO)
+// Schema del articulo (modelo de Sebastian, ver src/lib/schema-graph.ts): el
+// BlogPosting cuelga del nodo de la pagina que publica BaseLayout, y autor y
+// editor son el negocio por @id. Antes los repetia como "Organization" con otro
+// nombre y con un logo que daba 404 (/images/logo.svg).
+const postPath = `/blog/${post.slug}`;
+const postIds = pageIds(postPath);
 const blogPostSchema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": `https://www.ifixxnc.com/blog/${post.slug}`
-  },
+  "@id": `${postIds.url}#article`,
+  "mainEntityOfPage": { "@id": postIds.webpage },
+  "isPartOf": { "@id": postIds.webpage },
   "headline": title,
   "description": excerpt,
   "image": {
@@ -75,83 +80,33 @@ const blogPostSchema = {
     "width": 1200,
     "height": 630
   },
-  "url": `https://www.ifixxnc.com/blog/${post.slug}`,
+  "url": postIds.url,
   "datePublished": date.toISOString(),
   "dateModified": date.toISOString(),
-  "author": {
-    "@type": "Organization",
-    "@id": "https://www.ifixxnc.com/#business",
-    "name": "iFixx Remodeling & Handyman Services",
-    "url": "https://www.ifixxnc.com"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "@id": "https://www.ifixxnc.com/#business",
-    "name": "iFixx Remodeling & Handyman Services",
-    "url": "https://www.ifixxnc.com",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.ifixxnc.com/images/logo.svg",
-      "width": 200,
-      "height": 60
-    }
-  },
+  "author": businessRef,
+  "publisher": businessRef,
   "articleSection": category,
   "keywords": tags ? tags.join(", ") : ""
 };
 
-// FAQ schema. Emitted only when the post carries FAQs, and built from the very
-// same array the page renders below: a post without faqs declares nothing to
-// Google, and a question can never reach the schema without reaching the page.
-const faqSchema = faqs && faqs.length > 0 ? {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": faqs.map((faq) => ({
-    "@type": "Question",
-    "name": faq.q,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": faq.a
-    }
-  }))
-} : null;
-
-// Breadcrumb schema
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.ifixxnc.com"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Blog",
-      "item": "https://www.ifixxnc.com/blog"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": title,
-      "item": `https://www.ifixxnc.com/blog/${post.slug}`
-    }
-  ]
-};
+// FAQ: las publica BaseLayout en el nodo de la pagina, con el mismo arreglo que la
+// pagina muestra abajo; un post sin faqs no declara ninguna.
+const breadcrumb = [
+  { name: "Home", path: "/" },
+  { name: "Blog", path: "/blog" },
+  { name: title, path: postPath }
+];
 ---
 
 <BaseLayout 
   title={seo.title}
   description={seo.description}
   canonical={`/blog/${post.slug}`}
+  faqs={faqs}
+  breadcrumb={breadcrumb}
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={JSON.stringify(blogPostSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   </Fragment>
 
   <article>

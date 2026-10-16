@@ -1,6 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import { GOOGLE_REVIEW_COUNT, GOOGLE_RATING, openingHoursSchema } from '../lib/business-facts';
+import { serviceNode, type CatalogItem } from '../lib/schema-graph';
 
 export interface Props {
   location: {
@@ -17,95 +17,42 @@ export interface Props {
       lng: number;
     };
   };
+  /** Servicios que la pagina enlaza, para el catalogo del schema. */
+  services?: CatalogItem[];
 }
 
-const { location } = Astro.props;
+const { location, services = [] } = Astro.props;
 
 const geoRegion = location.region === 'SC' ? 'US-SC' : 'US-NC';
 const geoPlacename = location.name;
 
-// LocalBusiness schema for the location
-const localBusinessSchema = {
+// Schema de la zona (modelo de Sebastian): un Service del negocio en esta ciudad.
+// Antes era un segundo LocalBusiness con @id propio, direccion en la ciudad de la
+// zona y otro correo: para Google, un negocio distinto con sede en cada zona.
+const pagePath = `/service-areas/${location.slug}`;
+const stateName = location.state === 'NC' ? 'North Carolina' : 'South Carolina';
+const zoneServiceSchema = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
-  "@id": `https://www.ifixxnc.com/service-areas/${location.slug}#business`,
-  "name": "iFixx Remodeling & Handyman Services",
-  "description": location.seo.description,
-  "url": `https://www.ifixxnc.com/service-areas/${location.slug}`,
-  "telephone": "+1-980-391-6833",
-  "email": "info@ifixxnc.com",
-  "priceRange": "$$",
-  "image": "https://www.ifixxnc.com/images/ui/hero-bg.jpg",
-  "logo": "https://www.ifixxnc.com/images/logo.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": location.name,
-    "addressRegion": location.state,
-    "addressCountry": "US"
-  },
-  ...(location.coordinates && {
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": location.coordinates.lat,
-      "longitude": location.coordinates.lng
-    }
-  }),
-  "areaServed": {
-    "@type": "City",
-    "name": location.name,
-    "containedInPlace": {
-      "@type": "State",
-      "name": location.state === 'NC' ? 'North Carolina' : 'South Carolina'
-    }
-  },
-  "openingHoursSpecification": openingHoursSchema(),
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": GOOGLE_RATING,
-    "reviewCount": GOOGLE_REVIEW_COUNT,
-    "bestRating": 5,
-    "worstRating": 1
-  },
-  "alternateName": ["iFIXX", "iFixx", "iFIXX NC", "iFIXX Charlotte", "I Fixx Remodeling Services", "iFixx Handyman"],
-    "sameAs": [
-      "https://www.google.com/maps?cid=13782573695421719060",
-      "https://www.bbb.org/us/nc/concord/profile/handyman/i-fixx-remodeling-services-0473-92036918",
-      "https://www.facebook.com/ifixxnc",
-      "https://www.instagram.com/ifixxnc",
-      "https://www.yelp.com/biz/i-fixx-handyman-services-concord",
-      "https://nextdoor.com/page/ifixx-remodeling-services-concord-nc",
-      "https://citysquares.com/b/ifixx-handyman-26640189",
-      "https://www.hotfrog.com/company/f5902215ad9fba2bc78abe3f4f5595f0/ifixx-handyman/concord/home-improvement",
-      "https://www.mapquest.com/us/north-carolina/ifixx-handyman-790561324",
-      "https://www.showmelocal.com/38969280-ifixx-handyman-concord"
-    ]
+  ...serviceNode({
+    path: pagePath,
+    name: `Handyman & Remodeling Services in ${location.name}, ${location.state}`,
+    serviceType: "Handyman and remodeling services",
+    description: location.seo.description,
+    areaServed: {
+      "@type": "City",
+      "name": location.name,
+      "containedInPlace": { "@type": "State", "name": stateName }
+    },
+    catalogName: `Services in ${location.name}, ${location.state}`,
+    catalog: services
+  })
 };
 
-// Breadcrumb schema
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.ifixxnc.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Service Areas",
-      "item": "https://www.ifixxnc.com/service-areas"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": `${location.name}, ${location.state}`,
-      "item": `https://www.ifixxnc.com/service-areas/${location.slug}`
-    }
-  ]
-};
+const breadcrumb = [
+  { name: "Home", path: "/" },
+  { name: "Service Areas", path: "/service-areas" },
+  { name: `${location.name}, ${location.state}`, path: pagePath }
+];
 ---
 
 <BaseLayout
@@ -114,10 +61,10 @@ const breadcrumbSchema = {
   canonical={`/service-areas/${location.slug}`}
   geoRegion={geoRegion}
   geoPlacename={geoPlacename}
+  breadcrumb={breadcrumb}
 >
   <Fragment slot="schema">
-    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(zoneServiceSchema)} />
   </Fragment>
 
   <slot />

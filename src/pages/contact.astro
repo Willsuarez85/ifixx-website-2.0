@@ -12,31 +12,13 @@ const phoneNumber = "(980) 391-6833";
 const phoneHref = "tel:+19803916833";
 const email = "ifixx.hs@gmail.com";
 
-// Breadcrumb Schema
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.ifixxnc.com"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Contact",
-      "item": "https://www.ifixxnc.com/contact"
-    }
-  ]
-};
+const breadcrumb = [
+  { name: "Home", path: "/" },
+  { name: "Contact", path: "/contact" }
+];
 ---
 
-<BaseLayout title={seoTitle} description={seoDescription} canonical="/contact">
-  <Fragment slot="schema">
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-  </Fragment>
+<BaseLayout title={seoTitle} description={seoDescription} canonical="/contact" pageType="ContactPage" breadcrumb={breadcrumb}>
   <!-- Hero Section -->
   <section class="bg-gradient-to-br from-neutral-50 to-white py-16 lg:py-20">
     <div class="container">
