@@ -63,8 +63,16 @@ begin
   -- than boundary preserves events exactly 24 hours old for the daily hard cap. Use
   -- a separate timestamp before the per-key lock: concurrent prune work may wait.
   v_prune_now := pg_catalog.clock_timestamp();
-  delete from public.agent_rate_events as e
-   where e.occurred_at < v_prune_now - pg_catalog.make_interval(secs => 86400);
+  -- Rows another transaction is already deleting are skipped, never waited on. A caller
+  -- that holds row locks from this prune while queuing for the advisory lock below must
+  -- not be waited on by the lock holder's own deletes, or the two would deadlock.
+  delete from public.agent_rate_events as d
+   where d.ctid in (
+     select e.ctid
+       from public.agent_rate_events as e
+      where e.occurred_at < v_prune_now - pg_catalog.make_interval(secs => 86400)
+        for update skip locked
+   );
 
   perform pg_catalog.pg_advisory_xact_lock(
     pg_catalog.hashtextextended('agent-limit:' || p_site || ':' || p_key, 0)
@@ -77,10 +85,15 @@ begin
 
   -- The global prune leaves hour-old events for daily keys, so trim this active scope
   -- to its own exact cutoff before counting it.
-  delete from public.agent_rate_events as e
-   where e.site = p_site
-     and e.key = p_key
-     and e.occurred_at < v_cutoff;
+  delete from public.agent_rate_events as d
+   where d.ctid in (
+     select e.ctid
+       from public.agent_rate_events as e
+      where e.site = p_site
+        and e.key = p_key
+        and e.occurred_at < v_cutoff
+        for update skip locked
+   );
 
   select pg_catalog.count(*)::int
     into v_count
