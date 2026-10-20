@@ -461,6 +461,10 @@ const breadcrumb = [
         'lead_type': 'contact_request'
       });
       
+      // Carry the user data to /lp/thank-you, where the Ads conversion fires
+      const ec = (window as any).ifixxEC;
+      if (ec) ec.save(data.email, data.phone);
+
       // Redirect to thank you page
       window.location.href = '/lp/thank-you';
     } catch (error: any) {

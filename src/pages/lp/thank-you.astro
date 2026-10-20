@@ -168,6 +168,9 @@ const seo = {
   // Fire Google Ads conversion when thank-you page loads
   // Fixed 2026-02-09: Corrected Ads ID
   if (typeof gtag === 'function') {
+    // Enhanced conversions: user data saved by the form (ec-user-data.js) is set
+    // BEFORE the conversion event, so it travels with the conversion hit.
+    if (window.ifixxEC) window.ifixxEC.apply();
     // Lead Form Submit conversion — fires when user reaches thank-you page after form submission
     gtag('event', 'conversion', {
       'send_to': 'AW-17542077404/mVQ-CKbl7PIbENy326xB',  // Lead Form Submit conversion
@@ -175,6 +178,8 @@ const seo = {
       'currency': 'USD'
     });
   }
+  // Used once: never reused by a later page view
+  if (window.ifixxEC) window.ifixxEC.clear();
 </script>
 
 <style>
