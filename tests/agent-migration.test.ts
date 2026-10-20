@@ -34,6 +34,7 @@ describe('agent exact rolling-window migration', () => {
     expect(limitSql).toContain('pg_advisory_xact_lock');
     expect(limitSql.indexOf('pg_advisory_xact_lock')).toBeLessThan(limitSql.indexOf('select pg_catalog.count(*)'));
     expect(limitSql.indexOf('pg_advisory_xact_lock')).toBeLessThan(limitSql.indexOf('v_now := pg_catalog.clock_timestamp()'));
+    expect(limitSql.indexOf('v_now := pg_catalog.clock_timestamp()')).toBeLessThan(limitSql.indexOf('v_cutoff := v_now'));
     expect(limitSql.indexOf('select pg_catalog.count(*)')).toBeLessThan(limitSql.indexOf('insert into public.agent_rate_events'));
     expect(limitSql).toContain('e.occurred_at >= v_cutoff');
     expect(limitSql).toContain('if v_count >= p_limit');
@@ -44,9 +45,14 @@ describe('agent exact rolling-window migration', () => {
   it('globally prunes events strictly older than 24 hours through a time-only index', () => {
     expect(limitSql).toContain('agent_rate_events_occurred_at_idx');
     expect(limitSql).toContain('on public.agent_rate_events (occurred_at)');
-    expect(limitSql).toContain('e.occurred_at < v_now - pg_catalog.make_interval(secs => 86400)');
-    expect(limitSql.indexOf('e.occurred_at < v_now - pg_catalog.make_interval(secs => 86400)'))
-      .toBeLessThan(limitSql.indexOf('select pg_catalog.count(*)'));
+    expect(limitSql).toContain('v_prune_now := pg_catalog.clock_timestamp()');
+    const prune = limitSql.indexOf('e.occurred_at < v_prune_now - pg_catalog.make_interval(secs => 86400)');
+    const lock = limitSql.indexOf('pg_advisory_xact_lock');
+    const capClock = limitSql.indexOf('v_now := pg_catalog.clock_timestamp()');
+    expect(prune).toBeGreaterThan(limitSql.indexOf('v_prune_now := pg_catalog.clock_timestamp()'));
+    expect(prune).toBeLessThan(lock);
+    expect(lock).toBeLessThan(capClock);
+    expect(capClock).toBeLessThan(limitSql.indexOf('select pg_catalog.count(*)'));
 
     const now = 200_000;
     const events = [now - 86_401, now - 86_400, now - 3_600, now];

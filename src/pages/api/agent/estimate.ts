@@ -83,7 +83,10 @@ const ASCII_TLD = /^(?:[a-z]{2,63}|xn--[a-z0-9-]{2,59})$/i;
 
 /** Uses Node's IDNA conversion, then applies hostname label and TLD constraints. */
 function containsDomain(value: string): boolean {
-  const candidates = value.split(/[\s,;\u3001\p{Ps}\p{Pe}\p{Pi}\p{Pf}"']+/u).filter(Boolean);
+  const candidates = value
+    .split(/[\s,;\u3001\p{Ps}\p{Pe}\p{Pi}\p{Pf}"']+/u)
+    .flatMap((part) => part.split(/[_=|\\%]/u))
+    .filter(Boolean);
   for (const raw of candidates) {
     let candidate = raw;
     const at = candidate.lastIndexOf('@');

@@ -31,6 +31,7 @@ security invoker
 set search_path = ''
 as $$
 declare
+  v_prune_now timestamptz;
   v_now timestamptz;
   v_cutoff timestamptz;
   v_count int;
@@ -58,19 +59,21 @@ begin
     raise exception 'agent limit configuration mismatch';
   end if;
 
+  -- Globally prune one-shot keys after the longest enforced window. The strict less-
+  -- than boundary preserves events exactly 24 hours old for the daily hard cap. Use
+  -- a separate timestamp before the per-key lock: concurrent prune work may wait.
+  v_prune_now := pg_catalog.clock_timestamp();
+  delete from public.agent_rate_events as e
+   where e.occurred_at < v_prune_now - pg_catalog.make_interval(secs => 86400);
+
   perform pg_catalog.pg_advisory_xact_lock(
     pg_catalog.hashtextextended('agent-limit:' || p_site || ':' || p_key, 0)
   );
 
-  -- Take real wall-clock time only after a contending transaction releases the
-  -- lock. Transaction-start now() would age the new event while this call waits.
+  -- Take the cap timestamp only after every possible wait. This ensures a newly
+  -- inserted event receives its full rolling-window lifetime.
   v_now := pg_catalog.clock_timestamp();
   v_cutoff := v_now - pg_catalog.make_interval(secs => p_window_seconds);
-
-  -- Globally prune one-shot keys after the longest enforced window. The strict less-
-  -- than boundary preserves events exactly 24 hours old for the daily hard cap.
-  delete from public.agent_rate_events as e
-   where e.occurred_at < v_now - pg_catalog.make_interval(secs => 86400);
 
   -- The global prune leaves hour-old events for daily keys, so trim this active scope
   -- to its own exact cutoff before counting it.

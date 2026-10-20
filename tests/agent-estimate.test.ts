@@ -164,6 +164,7 @@ describe('POST /api/agent/estimate validation', () => {
       'go to www.example.com',
       'details at repairs.example.co.uk/path',
       'domain with a port-like suffix example.com:anything',
+      'invalid boundary suffix example.com_',
       'Unicode domain ｗｗｗ．example．com',
       'IDNA dot example。com',
       'IDNA halfwidth dot example｡com',
