@@ -144,6 +144,17 @@ const HOURS_WINDOW = new RegExp(
 );
 const MINUTES_WINDOW = new RegExp(`${LEAD}(?:${VAGUE}|(?:\\d+|${NUM_WORDS})${RANGE_TAIL})\\s*(?:minutes?|mins?)\\b`, 'i');
 
+// A confirmed date or time: "Tuesday at 10", "tomorrow at 9 am", "see you on Monday",
+// "booked for 10 am", "scheduled you for Saturday". A person schedules every visit.
+const DAY = '(?:mon|tues|wednes|thurs|fri|satur|sun)day';
+const CLOCK = '\\d{1,2}(?::\\d{2})?\\s?[ap]\\.?m\\b\\.?';
+const DAY_AT_TIME = new RegExp(`\\b(?:${DAY}|tomorrow|tonight)\\s+at\\s+\\d{1,2}(?::\\d{2})?(?:\\s?[ap]\\.?m\\b\\.?)?`, 'i');
+const SEE_YOU = new RegExp(`\\bsee\\s+you\\s+(?:on\\s+|this\\s+|next\\s+)?(?:${DAY}|tomorrow|tonight)\\b`, 'i');
+const BOOKED_FOR = new RegExp(
+  `\\b(?:booked|scheduled|confirmed|reserved|set)\\s+(?:(?:you|it|that|(?:the|your)\\s+(?:visit|appointment))\\s+)?(?:for|on)\\s+(?:(?:this|next|the)\\s+)?(?:${DAY}|tomorrow|tonight|${CLOCK})`,
+  'i'
+);
+
 // Spec section 4 (language restrictions) encoded as rules.
 export const DEFAULT_RULES: GuardrailRules = {
   forbiddenPatterns: [
@@ -180,6 +191,19 @@ export const DEFAULT_RULES: GuardrailRules = {
     /\bimmediately\b/i,
     /\b(?:fast|quick|rapid|speedy)[- ]response\b/i,
     /\b(?:respond|reply|answer|gets?\s+back)(?:s|ed|ing)?(?:\s+to\s+you)?\s+(?:(?:very|super|really)\s+)?(?:fast|quickly|promptly|right\s+away)\b/i,
+    // a confirmed date or time
+    DAY_AT_TIME,
+    SEE_YOU,
+    BOOKED_FOR,
+    // percentages and discounts (the only public figures are the three prices)
+    /\b\d+(?:\.\d+)?\s?(?:%|percent\b)/i,
+    /\bdiscount(?:s|ed)?\b/i,
+    /\bcoupons?\b/i,
+    /\bpromo(?:tional)?\s+codes?\b/i,
+    // warranty and guarantee claims
+    /\bwarrant(?:y|ies|ied)\b/i,
+    /\bguarantee[sd]?\b/i,
+    /\bguaranty\b/i,
     // trades as a service (plumber / electrician as someone else's trade are allowed)
     /\bplumb(?!ers?\b)\w*/i,
     /\belectric(?!ians?\b)\w*/i,
@@ -190,9 +214,9 @@ export const DEFAULT_RULES: GuardrailRules = {
   ],
   negationCue: /^(?:not|never|no|cannot|can't|don't|doesn't|won't|isn't|aren't|without)$/,
   negationGlue:
-    /^(?:or|and|nor|offer|offers|provide|provides|any|service|services|work|do|does|doing|to|a|an|the|of|promise|guarantee|have|make|accept|handle|take|include)$/,
+    /^(?:or|and|nor|offer|offers|provide|provides|any|service|services|work|do|does|doing|to|a|an|the|of|promise|guarantee|have|make|accept|handle|take|include|give|gives)$/,
   negationReset:
-    /^(?:do|does|doing|offer|offers|provide|provides|work|works|handle|handles|take|takes|include|includes|make|makes|have|has|accept|accepts|promise|guarantee)$/,
+    /^(?:do|does|doing|offer|offers|provide|provides|work|works|handle|handles|take|takes|include|includes|make|makes|have|has|accept|accepts|promise|guarantee|give|gives)$/,
   exemptPhrases: [/virtual assistant, available 24\/7/i],
   allowedDollarAmounts: [150, 5000, 8000],
 };

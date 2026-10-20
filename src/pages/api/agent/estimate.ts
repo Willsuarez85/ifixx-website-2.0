@@ -1,9 +1,9 @@
 import type { APIRoute } from 'astro';
 import { randomInt } from 'node:crypto';
-import { AGENT_SITE_ID_DEFAULT, BRAND, LIMITS, estimateNextStep } from '../../../lib/agent-facts';
+import { AGENT_SERVICE_KEYS, AGENT_SITE_ID_DEFAULT, BRAND, LIMITS, estimateNextStep } from '../../../lib/agent-facts';
 import { agentEnv, clientIp, ipHash, jsonResponse, normalizePhone, optionsResponse, readJson, sha256Hex } from '../../../lib/agent-http';
 import { bump, recentLeadReference, saveLead, type StoreEnv } from '../../../lib/agent-store';
-import { SERVICE_TAGS, submitLead } from '../../../lib/lead-intake';
+import { submitLead } from '../../../lib/lead-intake';
 
 /**
  * POST /api/agent/estimate: an AI assistant leaves an estimate request on behalf of a
@@ -104,8 +104,9 @@ function validate(data: unknown): Validated {
   if (email.value && !EMAIL.test(email.value)) return { ok: false, error: 'email is not a valid email address.' };
   if (zipCode.value && !ZIP.test(zipCode.value)) return { ok: false, error: 'zipCode must be a 5-digit US ZIP code.' };
 
-  // Own keys only: an inherited name such as '__proto__' or 'constructor' is not a service.
-  const service = typeof d.service === 'string' && Object.hasOwn(SERVICE_TAGS, d.service) ? d.service : 'other';
+  // Only the published agent keys: emergency, urgent and legacy SERVICE_TAGS keys (and
+  // inherited names such as '__proto__') are recorded as other.
+  const service = typeof d.service === 'string' && AGENT_SERVICE_KEYS.includes(d.service) ? d.service : 'other';
 
   let agentName: string | undefined;
   let vendorGiven = false;
@@ -178,6 +179,14 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     const env = agentEnv(AGENT_SITE_ID_DEFAULT);
     const store: StoreEnv = { url: env.supabaseUrl, key: env.supabaseKey, site: env.site };
+
+    // Without a configured store there are no rate limits and no daily cap. In Production
+    // that would be an unlimited path into the CRM, so the endpoint pauses instead. A store
+    // that is configured but failing still fails open (counters -1, no dedup).
+    if ((!store.url || !store.key) && process.env.VERCEL_ENV === 'production') {
+      console.error('agent estimate: store not configured in production, requests paused');
+      return failure(503, 'temporarily_unavailable');
+    }
 
     // Counters answer -1 and the dedup lookup answers null when the store is down: the
     // request goes through (agent-store logs 'agent-store:unprotected' once).

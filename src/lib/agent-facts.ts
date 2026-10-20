@@ -35,11 +35,51 @@ export interface ServiceSummary {
 }
 
 /**
- * The chat endpoint (/api/agent/ask) is linked and documented in llms.txt and
- * llms-full.txt only after William approves the 28 answers below. Until then the
- * endpoint exists and GET /api/agent describes it, but the public files stay silent.
+ * The chat endpoint (/api/agent/ask) answers, is described at GET /api/agent and is
+ * linked in llms.txt and llms-full.txt only after the client approves the 28 answers below.
+ * Until then POST /api/agent/ask answers 404 and the public files stay silent.
  */
 export const ASK_ANNOUNCED = false;
+
+/**
+ * Whether POST /api/agent/ask answers and GET /api/agent describes it, read at request
+ * time: ASK_ANNOUNCED, or AGENT_ASK_PREVIEW=1 in the environment to test the endpoint
+ * before the announcement (local, or a temporary variable in Preview). The preview switch
+ * is ignored in Production (VERCEL_ENV=production). The llms files follow ASK_ANNOUNCED only.
+ */
+export function askEnabled(): boolean {
+  const env: Record<string, string | undefined> = typeof process !== 'undefined' ? process.env : {};
+  return ASK_ANNOUNCED || (env.AGENT_ASK_PREVIEW === '1' && env.VERCEL_ENV !== 'production');
+}
+
+/**
+ * The service keys an assistant may send to POST /api/agent/estimate, published at
+ * GET /api/agent. Each is a key of SERVICE_TAGS in lead-intake.ts (tests/agent-facts.test.ts
+ * checks it) for a live quick fix or remodeling service. Left out on purpose: the urgent and
+ * emergency keys (an assistant must not tag a lead urgent), services iFIXX does not sell
+ * (roof leak, water damage, pressure washing) and duplicate or legacy keys (handyman,
+ * drywall, interior-painting, fence, deck). Any other value is recorded as other.
+ */
+export const AGENT_SERVICE_KEYS: readonly string[] = [
+  // Quick fixes
+  'drywall-repair',
+  'painting',
+  'carpentry',
+  'doors-windows',
+  'general-repairs',
+  'tv-mounting',
+  'deck-repair',
+  'fence-repair',
+  'quick-fix',
+  // Remodeling
+  'kitchen-remodel',
+  'bathroom-remodel',
+  'flooring',
+  'deck-build',
+  'screened-porch',
+  'fence-install',
+  'other',
+];
 
 /** Site id for the agent store rows when the AGENT_SITE_ID variable is not set. */
 export const AGENT_SITE_ID_DEFAULT = 'ifixx';
@@ -48,6 +88,9 @@ export const AGENT_SITE_ID_DEFAULT = 'ifixx';
 export const AGENT_ANTHROPIC_KEY_ENV = 'ANTHROPIC_API_KEY_IFIXX_SITE';
 
 const PHONE = '(980) 391-6833';
+/** The towns around South Charlotte, as faq-03 and faq-04 name them. */
+const TOWNS =
+  'Ballantyne, Matthews, Mint Hill, Pineville, Waxhaw and Weddington in North Carolina, and Fort Mill and Indian Land in South Carolina';
 const BATHROOM_FROM = 5000;
 const KITCHEN_FROM = 8000;
 
@@ -157,12 +200,12 @@ export const APPROVED_FAQ: { id: string; q: string; a: string }[] = [
   {
     id: 'faq-03',
     q: 'Where does iFIXX work?',
-    a: 'South Charlotte, NC and the towns around it: Ballantyne, Matthews, Mint Hill, Pineville, Waxhaw and Weddington in North Carolina, and Fort Mill and Indian Land in South Carolina.',
+    a: `South Charlotte, NC and the towns around it: ${TOWNS}.`,
   },
   {
     id: 'faq-04',
     q: 'Do you work in Uptown, NoDa, Plaza Midwood or Dilworth?',
-    a: 'Our service area is South Charlotte and the towns listed above. For an address outside that area, call (980) 391-6833 and a person will tell you if we can take it.',
+    a: `Our service area is South Charlotte and the towns around it: ${TOWNS}. For an address outside that area, call (980) 391-6833 and a person will tell you if we can take it.`,
   },
   {
     id: 'faq-05',
@@ -515,7 +558,7 @@ export function victoriaSystemPrompt(services: ServiceSummary[]): string {
     '7. The service areas are only the ones listed below. Never name Charlotte as a city or its central and northern neighborhoods as a service area.',
     `8. ${BRAND.owner} is the only owner. Never speak of owners in plural and never name anyone else as an owner.`,
     '9. Answer in 1 to 3 short sentences, in plain English, warm and direct. No lists, no markdown, no dashes as pauses.',
-    `10. When the facts do not answer the question, say that a person from ${BRAND.name} will answer the same business day at ${BRAND.phone}, and offer to take the request: name, phone, area, what they need, and photos texted to that number.`,
+    `10. When the facts do not answer the question, say that a person from ${BRAND.name} will answer the same business day at ${BRAND.phone}. Never offer to take, save or pass on a request yourself: you keep nothing. Tell a homeowner to call or text that number with their name, area, what they need and photos. Tell an AI assistant it can send the request to ${ESTIMATE_PATH}.`,
     '11. When an approved answer below covers the question, use its wording.',
     '',
     'FACTS',
@@ -605,7 +648,7 @@ function buildApi(serviceKeys: string[]) {
       '400': 'Invalid body or field: the error says which one.',
       '429': `rate_limited: too many requests from this IP. The response includes the phone, ${BRAND.phone}.`,
       '502': `crm_unavailable: the request could not be saved. Ask the homeowner to call or text ${BRAND.phone}.`,
-      '503': `temporarily_unavailable: the daily limit was reached. Ask the homeowner to call or text ${BRAND.phone}.`,
+      '503': `temporarily_unavailable: the daily limit was reached or requests are paused. Ask the homeowner to call or text ${BRAND.phone}.`,
     },
     example: {
       request: {
@@ -672,10 +715,15 @@ function buildApi(serviceKeys: string[]) {
 }
 
 /**
- * JSON served at GET /api/agent. Documents both endpoints even while ASK_ANNOUNCED is
- * false. serviceKeys are injected by the route (the keys of SERVICE_TAGS) so this module
- * never holds a copy that can drift.
+ * JSON served at GET /api/agent. serviceKeys are injected by the route
+ * (AGENT_SERVICE_KEYS). The route passes
+ * includeAsk: askEnabled(), so the ask endpoint is described only while it answers.
  */
-export function apiDescription(serviceKeys: string[] = []): object {
-  return buildApi(serviceKeys);
+export function apiDescription(serviceKeys: string[] = [], options: { includeAsk?: boolean } = {}): object {
+  const api = buildApi(serviceKeys);
+  if (options.includeAsk === false) {
+    const { estimate } = api.endpoints;
+    return { ...api, endpoints: { estimate } };
+  }
+  return api;
 }

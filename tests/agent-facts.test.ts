@@ -1,5 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
+  AGENT_SERVICE_KEYS,
   APPROVED_FAQ,
   ASK_ANNOUNCED,
   BRAND,
@@ -8,6 +9,7 @@ import {
   LIMITS,
   VICTORIA_INTRO,
   apiDescription,
+  askEnabled,
   estimateNextStep,
   faqFraming,
   publishedFaq,
@@ -18,6 +20,7 @@ import {
 } from '../src/lib/agent-facts';
 import { checkAnswer, DEFAULT_RULES } from '../src/lib/agent-guardrail';
 import { FOUNDING_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from '../src/lib/business-facts';
+import { SERVICE_TAGS } from '../src/lib/lead-intake';
 
 const sample: ServiceSummary[] = [
   { slug: 'drywall', title: 'Drywall Repair', pillar: 'repairs', summary: 'Holes, cracks and water-stained ceilings repaired and matched.', url: '/repairs/drywall' },
@@ -340,5 +343,71 @@ describe('apiDescription', () => {
     const json = JSON.stringify(d);
     expect(json).not.toMatch(/[—–]/);
     expect(json.toLowerCase()).not.toContain('licensed');
+  });
+});
+
+describe('final review: agent service keys (finding 2)', () => {
+  it('AGENT_SERVICE_KEYS is a subset of SERVICE_TAGS keys, with no duplicates', () => {
+    const tags = Object.keys(SERVICE_TAGS);
+    for (const k of AGENT_SERVICE_KEYS) expect(tags, k).toContain(k);
+    expect(new Set(AGENT_SERVICE_KEYS).size).toBe(AGENT_SERVICE_KEYS.length);
+  });
+
+  it('lists live quick fixes and remodeling only, ending with other', () => {
+    for (const k of ['emergency', 'emergency-repair', 'water-damage', 'roof-leak', 'pressure-washing', 'fence', 'deck', 'handyman', 'drywall']) {
+      expect(AGENT_SERVICE_KEYS, k).not.toContain(k);
+    }
+    for (const k of ['drywall-repair', 'painting', 'kitchen-remodel', 'bathroom-remodel', 'deck-build', 'screened-porch', 'fence-install', 'fence-repair']) {
+      expect(AGENT_SERVICE_KEYS, k).toContain(k);
+    }
+    expect(AGENT_SERVICE_KEYS[AGENT_SERVICE_KEYS.length - 1]).toBe('other');
+  });
+
+  it('no listed key tags a lead urgent', () => {
+    for (const k of AGENT_SERVICE_KEYS) expect(SERVICE_TAGS[k], k).not.toContain('urgent');
+  });
+});
+
+describe('final review: ask preview never in Production (finding 3)', () => {
+  afterEach(() => vi.unstubAllEnvs());
+
+  it('AGENT_ASK_PREVIEW=1 turns ask on outside Production', () => {
+    vi.stubEnv('AGENT_ASK_PREVIEW', '1');
+    for (const env of ['', 'preview', 'development']) {
+      vi.stubEnv('VERCEL_ENV', env);
+      expect(askEnabled(), env).toBe(true);
+    }
+  });
+
+  it('AGENT_ASK_PREVIEW=1 is ignored when VERCEL_ENV is production', () => {
+    vi.stubEnv('AGENT_ASK_PREVIEW', '1');
+    vi.stubEnv('VERCEL_ENV', 'production');
+    expect(ASK_ANNOUNCED).toBe(false);
+    expect(askEnabled()).toBe(false);
+  });
+});
+
+describe('final review: prompt rule 10 and faq-04 (findings 8, 9)', () => {
+  const prompt = victoriaSystemPrompt(sample);
+  const rule10 = prompt.split('\n').find((l) => l.startsWith('10. '))!;
+
+  it('rule 10 never offers to take the request; it points to the phone or the estimate endpoint', () => {
+    expect(rule10).toBeTruthy();
+    expect(rule10).not.toMatch(/(?<!never )offer to take/i);
+    expect(rule10).toMatch(/never offer to take/i);
+    expect(rule10).toContain(BRAND.phone);
+    expect(rule10).toContain('/api/agent/estimate');
+    expect(guard(rule10).ok).toBe(true);
+  });
+
+  it('faq-04 names the service areas explicitly, the same towns as faq-03', () => {
+    const byId = Object.fromEntries(APPROVED_FAQ.map((f) => [f.id, f]));
+    expect(byId['faq-04'].a).toBe(
+      'Our service area is South Charlotte and the towns around it: Ballantyne, Matthews, Mint Hill, Pineville, Waxhaw and Weddington in North Carolina, and Fort Mill and Indian Land in South Carolina. For an address outside that area, call (980) 391-6833 and a person will tell you if we can take it.'
+    );
+    expect(byId['faq-04'].a).not.toContain('listed above');
+    const towns = 'Ballantyne, Matthews, Mint Hill, Pineville, Waxhaw and Weddington in North Carolina, and Fort Mill and Indian Land in South Carolina';
+    expect(byId['faq-03'].a).toContain(towns);
+    expect(byId['faq-04'].a).toContain(towns);
   });
 });

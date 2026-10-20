@@ -9,7 +9,7 @@ const APPROVED_ANSWERS: string[] = [
   'iFIXX is the crew South Charlotte homeowners call for quick fixes and home transformations. We handle small repairs (drywall, painting, doors and windows, deck and fence repair, carpentry) and full remodels (kitchens, bathrooms, flooring, new decks and screened porches). From quick fixes to full transformations, with the same people.',
   'iFIXX is a remodeling company that also takes the small jobs. Most homeowners meet us through a quick fix and call the same crew when they are ready for the kitchen, the bathroom or the deck.',
   'South Charlotte, NC and the towns around it: Ballantyne, Matthews, Mint Hill, Pineville, Waxhaw and Weddington in North Carolina, and Fort Mill and Indian Land in South Carolina.',
-  'Our service area is South Charlotte and the towns listed above. For an address outside that area, call (980) 391-6833 and a person will tell you if we can take it.',
+  'Our service area is South Charlotte and the towns around it: Ballantyne, Matthews, Mint Hill, Pineville, Waxhaw and Weddington in North Carolina, and Fort Mill and Indian Land in South Carolina. For an address outside that area, call (980) 391-6833 and a person will tell you if we can take it.',
   'Yes. iFIXX is fully insured and the crew comes uniformed.',
   'iFIXX is a fully insured remodeling and handyman company. For questions about licensing for a specific project, call (980) 391-6833 and a person will answer.',
   'Jaime Aguilar is the owner and he answers directly. iFIXX is a family-owned company working in South Charlotte since 2019.',
@@ -307,5 +307,63 @@ describe('agent-guardrail: round 3 (half an hour, week-level, cheap variants)', 
   it('still allows 48 hours and approved timing wording', () => {
     expect(check('Written estimate within 48 hours of the visit.').ok).toBe(true);
     expect(check('A person calls you the same business day.').ok).toBe(true);
+  });
+});
+
+describe('agent-guardrail: final review (finding 6: dates, discounts, warranties)', () => {
+  it.each([
+    ['See you Tuesday at 10.', 'see you tuesday'],
+    ['We can come Tuesday at 10.', 'tuesday at 10'],
+    ['Someone will be there Friday at 2:30 PM.', 'friday at 2'], // ":" starts a new clause, the day and hour still match
+    ['A person is coming tomorrow at 9.', 'tomorrow at 9'],
+    ['See you on Monday!', 'see you on monday'],
+    ['See you tomorrow.', 'see you tomorrow'],
+    ['Your visit is booked for 10 am on Thursday.', 'booked for 10 am'],
+    ['I scheduled you for Saturday.', 'scheduled you for saturday'],
+    ['Your visit is confirmed for next Wednesday.', 'confirmed for next wednesday'],
+  ])('flags a confirmed date or time: %s', (text, label) => {
+    const r = check(text);
+    expect(r.ok, text).toBe(false);
+    expect(r.violations.join('|'), text).toContain(label);
+  });
+
+  it.each([
+    ['We give 10% off for first-time customers.', '10%'],
+    ['There is a 15 percent discount this month.', '15 percent'],
+    ['Ask about our senior discount.', 'discount'],
+    ['Use a coupon for your first job.', 'coupon'],
+    ['Mention promo code FIXX10 when you call.', 'promo code'],
+  ])('flags a percentage or a discount: %s', (text, label) => {
+    const r = check(text);
+    expect(r.ok, text).toBe(false);
+    expect(r.violations.join('|'), text).toContain(label);
+  });
+
+  it.each([
+    ['Every job comes with a one-year warranty.', 'warranty'],
+    ['Our work is warrantied.', 'warrantied'],
+    ['We guarantee the work for two years.', 'guarantee'],
+    ['Satisfaction guaranteed.', 'guaranteed'],
+    ['All repairs carry a guarantee.', 'guarantee'],
+  ])('flags a warranty or guarantee claim: %s', (text, label) => {
+    const r = check(text);
+    expect(r.ok, text).toBe(false);
+    expect(r.violations.join('|'), text).toContain(label);
+  });
+
+  it.each([
+    'iFIXX does not offer discounts or coupons.',
+    'We do not give a warranty through this assistant.',
+    'No discount codes are available.',
+    'iFIXX cannot guarantee a date; a person schedules every visit.',
+    'We never confirm a date or time here. A person from iFIXX schedules every visit.',
+    'Monday to Saturday, 8:30 AM to 5:30 PM. Closed on Sunday.',
+    'A person calls you back the same business day to set a time that works for you.',
+  ])('allows negated or neutral wording: %s', (text) => {
+    expect(check(text).violations, text).toEqual([]);
+  });
+
+  it('all approved answers in this file still pass', () => {
+    for (const a of APPROVED_ANSWERS) expect(check(a).violations, a).toEqual([]);
   });
 });

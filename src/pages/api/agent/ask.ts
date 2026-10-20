@@ -4,6 +4,7 @@ import {
   AGENT_ANTHROPIC_KEY_ENV,
   AGENT_SITE_ID_DEFAULT,
   BRAND,
+  askEnabled,
   FALLBACK_ANSWER,
   LIMITS,
   type ServiceSummary,
@@ -105,6 +106,15 @@ async function waitAtMost(p: Promise<unknown>, ms: number): Promise<void> {
 }
 
 export const POST: APIRoute = async ({ request }) => {
+  // Off until the approved answers are announced: nothing is read, counted or sent.
+  if (!askEnabled()) {
+    return jsonResponse(404, {
+      success: false,
+      error: 'not_enabled',
+      phone: BRAND.phone,
+      estimate: { endpoint: '/api/agent/estimate' },
+    });
+  }
   const started = Date.now();
   const parsed = await readJson(request, LIMITS.bodyMaxBytes);
   if (!parsed.ok) return bad(parsed.error);

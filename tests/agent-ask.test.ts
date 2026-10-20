@@ -8,7 +8,8 @@ vi.mock('../src/lib/services-live', () => ({
 }));
 
 import { POST, OPTIONS } from '../src/pages/api/agent/ask';
-import { APPROVED_FAQ, BRAND, FALLBACK_ANSWER, VICTORIA_INTRO } from '../src/lib/agent-facts';
+import { GET as GET_API } from '../src/pages/api/agent/index';
+import { APPROVED_FAQ, ASK_ANNOUNCED, BRAND, FALLBACK_ANSWER, VICTORIA_INTRO, askEnabled } from '../src/lib/agent-facts';
 
 const STORE = 'https://store.test';
 const ANTHROPIC = 'https://api.anthropic.com/v1/messages';
@@ -69,6 +70,8 @@ const call = (body: unknown, headers: Record<string, string> = {}) => {
 const ESTIMATE = { endpoint: '/api/agent/estimate', phone: BRAND.phone, hours: BRAND.hoursLabel };
 
 beforeEach(() => {
+  // The endpoint is off until ASK_ANNOUNCED flips; these tests run it in preview mode.
+  vi.stubEnv('AGENT_ASK_PREVIEW', '1');
   vi.stubEnv('ANTHROPIC_API_KEY_IFIXX_SITE', 'anthropic-test');
   vi.stubEnv('SUPABASE_URL', STORE);
   vi.stubEnv('SUPABASE_SERVICE_KEY', 'service-test');
@@ -82,6 +85,62 @@ afterEach(() => {
   vi.unstubAllEnvs();
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
+});
+
+describe('ask gate (ASK_ANNOUNCED / AGENT_ASK_PREVIEW)', () => {
+  it('askEnabled is true only with ASK_ANNOUNCED or AGENT_ASK_PREVIEW exactly "1"', () => {
+    // Intentional tripwire: when ASK_ANNOUNCED is flipped to true, update this assertion and the cases below.
+    expect(ASK_ANNOUNCED).toBe(false);
+    expect(askEnabled()).toBe(true);
+    for (const v of ['', '0', 'true', 'yes', ' 1']) {
+      vi.stubEnv('AGENT_ASK_PREVIEW', v);
+      expect(askEnabled(), JSON.stringify(v)).toBe(false);
+    }
+  });
+
+  it('disabled: 404 not_enabled with CORS, before any counter or model call', async () => {
+    vi.stubEnv('AGENT_ASK_PREVIEW', '');
+    const { fetchMock } = setup();
+    const r = await call({ question: 'Do you install solar panels?' });
+    expect(r.status).toBe(404);
+    expect(r.headers.get('access-control-allow-origin')).toBe('*');
+    expect(await r.json()).toEqual({
+      success: false,
+      error: 'not_enabled',
+      phone: BRAND.phone,
+      estimate: { endpoint: '/api/agent/estimate' },
+    });
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('disabled: even a non-JSON body gets the 404, not a 400', async () => {
+    vi.stubEnv('AGENT_ASK_PREVIEW', '0');
+    setup();
+    expect((await call('not json')).status).toBe(404);
+  });
+
+  it('preview on: the normal path answers', async () => {
+    setup();
+    const r = await call({ question: 'What are the business hours?' });
+    expect(r.status).toBe(200);
+    expect((await r.json()).matchedFaq).toBe('faq-09');
+  });
+
+  it('GET /api/agent documents ask only while it is enabled', async () => {
+    const get = async () => {
+      const request = new Request('http://localhost:4321/api/agent');
+      return (await (GET_API({ request } as unknown as APIContext) as Promise<Response>)).json();
+    };
+    const on = await get();
+    expect(on.endpoints.ask.path).toBe('/api/agent/ask');
+    expect(on.endpoints.estimate.method).toBe('POST');
+
+    vi.stubEnv('AGENT_ASK_PREVIEW', '');
+    const off = await get();
+    expect(off.endpoints.ask).toBeUndefined();
+    expect(off.endpoints.estimate.method).toBe('POST');
+    expect(JSON.stringify(off)).not.toContain('/api/agent/ask');
+  });
 });
 
 describe('POST /api/agent/ask validation', () => {
@@ -270,5 +329,29 @@ describe('POST /api/agent/ask answers', () => {
     const r = await (OPTIONS({} as APIContext) as Promise<Response>);
     expect(r.status).toBe(204);
     expect(r.headers.get('access-control-allow-methods')).toContain('POST');
+  });
+});
+
+describe('final review: AGENT_ASK_PREVIEW is ignored in Production (finding 3)', () => {
+  it('VERCEL_ENV=production with AGENT_ASK_PREVIEW=1: POST answers 404 not_enabled, nothing called', async () => {
+    vi.stubEnv('VERCEL_ENV', 'production');
+    const { fetchMock } = setup();
+    const r = await call({ question: 'What are the business hours?' });
+    expect(r.status).toBe(404);
+    expect((await r.json()).error).toBe('not_enabled');
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('VERCEL_ENV=production: GET /api/agent does not describe ask', async () => {
+    vi.stubEnv('VERCEL_ENV', 'production');
+    const request = new Request('http://localhost:4321/api/agent');
+    const d = await ((await GET_API({ request } as unknown as APIContext)) as Response).json();
+    expect(d.endpoints.ask).toBeUndefined();
+  });
+
+  it('VERCEL_ENV=preview with AGENT_ASK_PREVIEW=1: ask answers', async () => {
+    vi.stubEnv('VERCEL_ENV', 'preview');
+    setup();
+    expect((await call({ question: 'What are the business hours?' })).status).toBe(200);
   });
 });

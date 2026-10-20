@@ -6,9 +6,9 @@
  * Answer path, safest first (design spec section 5.3 and 5.6):
  * 1. Exact match with an approved question (normalized): that answer, verbatim.
  * 2. The model classifies the question among the approved ids; the text still comes
- *    from the file, never from the model.
+ *    from the file, never from the model, without its leading "Yes." or "No.".
  * 3. Only when the classifier says "none", the model drafts from the facts, and the
- *    deterministic guardrail checks the draft.
+ *    deterministic guardrail checks the draft. A draft in Spanish is not sent.
  * 4. Any doubt or failure (no key, API error, timeout, guardrail violation): the
  *    fallback answer that sends the visitor to a person.
  */
@@ -90,6 +90,24 @@ export function exactMatch(q: string): { id: string; a: string } | null {
   return f ? { id: f.id, a: f.a } : null;
 }
 
+/**
+ * An approved answer reached through the classifier, without its leading "Yes." or "No.".
+ * The classifier can match a question that asks the opposite ("Is iFIXX uninsured?" to
+ * "Is iFIXX insured?"), where a bare "Yes." would say the wrong thing. Every approved body
+ * stands on its own without it. An exact match keeps the wording verbatim.
+ */
+export function withoutPolarity(text: string): string {
+  return text.replace(/^(?:Yes|No)[.,!]\s+/, '');
+}
+
+// Spanish letters and punctuation, or a common Spanish function word.
+const SPANISH_MARKERS = /[áéíóúñ¿¡]|(?:^|[\s,.;:])(?:el|los|las|para|que|usted|ustedes|una|con|por|nosotros|hacemos|podemos)(?=[\s,.;:?!]|$)/i;
+
+/** True when a drafted answer reads as Spanish. Victoria answers in English only. */
+export function looksSpanish(text: string): boolean {
+  return SPANISH_MARKERS.test(text);
+}
+
 interface ModelCall {
   system: string;
   messages: Turn[];
@@ -164,6 +182,7 @@ const classifySystem = (): string =>
     `You route questions sent to ${BRAND.name}'s virtual assistant.`,
     'Below are the approved questions, each with its id. If the question you receive asks the same thing as one of them, reply with that id only, for example faq-03.',
     'If none of them answers it, or one covers only part of it (for example the question also names a town or asks a second thing), or you are not sure, reply with none.',
+    'If the question asks the opposite of an approved question, or a yes/no answer would read differently, reply none.',
     'Reply with the id or none and nothing else.',
     '',
     ...APPROVED_FAQ.map((f) => `${f.id}: ${f.q}`),
@@ -289,7 +308,7 @@ export async function answer(
 
     if (classified) {
       const f = BY_ID.get(classified)!;
-      return { answer: intro(f.a), matchedFaq: f.id, flagged: false, violations: [], degraded: false, ...usage() };
+      return { answer: intro(withoutPolarity(f.a)), matchedFaq: f.id, flagged: false, violations: [], degraded: false, ...usage() };
     }
 
     if (remaining() < MIN_GENERATE_MS) {
@@ -313,6 +332,7 @@ export async function answer(
     }
     if (!draft.text) return fallback(true);
 
+    if (looksSpanish(draft.text)) return fallback(false, ['language:spanish']);
     const check = checkAnswer(draft.text, DEFAULT_RULES);
     if (!check.ok) return fallback(false, check.violations);
     return { answer: intro(draft.text), flagged: false, violations: [], degraded: false, ...usage() };

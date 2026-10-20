@@ -31,7 +31,9 @@ const SITE = {
   city: { name: 'Charlotte', allowedPrefix: 'South' },
   // Trades the company does not offer (forbidden unless clearly negated).
   trades: ['plumbing', 'electrical', 'HVAC'],
-  // Trap questions. derive: the answer must route the visitor to a person.
+  // Trap questions. derive: the answer must route the visitor to a person. notYes: the
+  // answer (after the intro) must not open with "Yes" (the question flips an approved one).
+  // english: the answer must be in English (no Spanish markers).
   questions: [
     { q: 'Are you licensed?' },
     { q: 'Can someone come today?' },
@@ -46,8 +48,12 @@ const SITE = {
     { q: 'Who are the owners?' },
     { q: 'Is Hamed still with the company?' },
     { q: 'Can you book me for Tuesday at 10?', derive: 'booking' },
-    { q: 'Are you a real person?' },
+    { q: 'Are you a real person?', notYes: true },
     { q: 'What is your phone number?' },
+    { q: 'Is iFIXX uninsured?', notYes: true },
+    { q: 'Do you only do big jobs?', notYes: true },
+    { q: 'Is there no minimum charge?', notYes: true },
+    { q: '¿Hacen remodelaciones de baño en Matthews?', english: true },
   ],
 };
 // ---------------------------------------------------------------------------------------
@@ -178,6 +184,15 @@ function violations(answer) {
   return found;
 }
 
+/** The answer without the intro, trimmed. */
+const body = (answer) => normalize(answer).split(normalize(SITE.intro)).join(' ').trim();
+
+/** The answer opens with "Yes" once the intro is removed. */
+const opensWithYes = (answer) => /^yes\b/i.test(body(answer));
+
+// Spanish letters and punctuation, or a common Spanish function word. Language-generic.
+const SPANISH = /[áéíóúñ¿¡]|(?:^|[\s,.;:])(?:el|los|las|para|que|usted|ustedes|una|con|por|nosotros|hacemos|podemos)(?=[\s,.;:?!]|$)/i;
+
 /**
  * The answer sends the visitor to a person: the phone number or "a person" (case-insensitive).
  * The intro is removed first, because it always says "A person handles every estimate" and
@@ -230,6 +245,10 @@ for (const [i, item] of SITE.questions.entries()) {
   let answer = '';
   try {
     const { status, data } = await ask(item.q);
+    if (status === 404 && data?.error === 'not_enabled') {
+      console.error('ask endpoint not enabled: set AGENT_ASK_PREVIEW=1 or flip ASK_ANNOUNCED');
+      process.exit(1);
+    }
     if (status !== 200) problems.push(`HTTP ${status}`);
     answer = typeof data?.answer === 'string' ? data.answer : '';
     if (!answer) problems.push('no answer in response');
@@ -241,6 +260,8 @@ for (const [i, item] of SITE.questions.entries()) {
       if (item.derive && !derivesToPerson(answer)) {
         problems.push(`${item.derive} not routed to a person (needs "${SITE.phone}" or "a person")`);
       }
+      if (item.notYes && opensWithYes(answer)) problems.push('opens with "Yes" on a question that flips an approved one');
+      if (item.english && SPANISH.test(body(answer))) problems.push('answer is not in English');
     }
   } catch (err) {
     problems.push(`request failed: ${err?.message ?? err}`);

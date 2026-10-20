@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { APIContext } from 'astro';
 import { POST, OPTIONS } from '../src/pages/api/agent/estimate';
 import { GET as GET_API, OPTIONS as OPTIONS_API } from '../src/pages/api/agent/index';
-import { BRAND } from '../src/lib/agent-facts';
+import { AGENT_SERVICE_KEYS, BRAND } from '../src/lib/agent-facts';
 
 const STORE = 'https://store.test';
 const GHL = 'https://services.leadconnectorhq.com';
@@ -316,5 +316,84 @@ describe('OPTIONS and GET /api/agent', () => {
     expect(d.endpoints.estimate.method).toBe('POST');
     expect(d.serviceKeys).toContain('other');
     expect(d.serviceKeys).toContain('drywall-repair');
+  });
+});
+
+describe('final review: services outside the agent list (finding 2)', () => {
+  it.each(['emergency', 'emergency-repair', 'roof-leak', 'water-damage', 'pressure-washing', 'fence', 'deck'])(
+    '"%s" is recorded as other, never urgent',
+    async (service) => {
+      const { upserts } = setup();
+      const r = await call({ ...valid, service });
+      expect(r.status).toBe(200);
+      const tags = upserts()[0].tags as string[];
+      expect(tags).toContain('general-inquiry');
+      expect(tags).not.toContain('urgent');
+      expect(tags.some((t) => t.includes('emergency'))).toBe(false);
+    }
+  );
+
+  it('a listed key keeps its own tags', async () => {
+    const { upserts } = setup();
+    await call({ ...valid, service: 'fence-install' });
+    expect(upserts()[0].tags).toContain('service-fence-install');
+  });
+
+  it('GET /api/agent documents only AGENT_SERVICE_KEYS', async () => {
+    const request = new Request('http://localhost:4321/api/agent');
+    const d = await ((await GET_API({ request } as unknown as APIContext)) as Response).json();
+    expect(d.serviceKeys).toEqual(AGENT_SERVICE_KEYS);
+    for (const k of ['emergency', 'emergency-repair', 'pressure-washing', 'roof-leak', 'water-damage']) {
+      expect(d.serviceKeys, k).not.toContain(k);
+    }
+  });
+});
+
+describe('final review: store unconfigured in Production (finding 4)', () => {
+  it('Production without SUPABASE_URL -> 503 temporarily_unavailable with the phone, before any call', async () => {
+    vi.stubEnv('VERCEL_ENV', 'production');
+    vi.stubEnv('SUPABASE_URL', '');
+    const { fetchMock } = setup();
+    const r = await call(valid);
+    expect(r.status).toBe(503);
+    expect(await r.json()).toEqual({ success: false, error: 'temporarily_unavailable', phone: BRAND.phone });
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('Production without SUPABASE_SERVICE_KEY -> 503, no CRM call', async () => {
+    vi.stubEnv('VERCEL_ENV', 'production');
+    vi.stubEnv('SUPABASE_SERVICE_KEY', '');
+    const { fetchMock } = setup();
+    expect((await call(valid)).status).toBe(503);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('validation still answers 400 first in Production', async () => {
+    vi.stubEnv('VERCEL_ENV', 'production');
+    vi.stubEnv('SUPABASE_URL', '');
+    setup();
+    expect((await call({ ...valid, phone: '12345' })).status).toBe(400);
+  });
+
+  it('Preview without the store keeps failing open (200, the CRM gets the lead)', async () => {
+    vi.stubEnv('VERCEL_ENV', 'preview');
+    vi.stubEnv('SUPABASE_URL', '');
+    const { upserts } = setup();
+    expect((await call(valid)).status).toBe(200);
+    expect(upserts()).toHaveLength(1);
+  });
+
+  it('Production with the store configured but down keeps failing open (R19/R21)', async () => {
+    vi.stubEnv('VERCEL_ENV', 'production');
+    const { upserts } = setup({ store: 'down' });
+    expect((await call(valid)).status).toBe(200);
+    expect(upserts()).toHaveLength(1);
+  });
+
+  it('the API description documents the 503 for both cases', async () => {
+    const request = new Request('http://localhost:4321/api/agent');
+    const d = await ((await GET_API({ request } as unknown as APIContext)) as Response).json();
+    expect(d.endpoints.estimate.errors['503']).toMatch(/temporarily_unavailable/);
+    expect(d.endpoints.estimate.errors['503']).toMatch(/paused/);
   });
 });
