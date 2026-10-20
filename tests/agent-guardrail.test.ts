@@ -225,3 +225,57 @@ describe('agent-guardrail: spellings, Charlotte, dashes, amounts (findings 5)', 
     expect(check('Starts at 5k.').ok).toBe(true);
   });
 });
+
+describe('agent-guardrail: round 2 (verb after conjunction, "No," comma, wider timing, ownership)', () => {
+  it('a verb after "and" or "or" ends the negation', () => {
+    expect(has('We do not do plumbing and do electrical work too.', 'electrical')).toBe(true);
+    expect(has('We do not offer plumbing and do emergency work.', 'emergency')).toBe(true);
+    expect(has('We do not offer plumbing or provide emergency work.', 'emergency')).toBe(true);
+  });
+  it('plain lists after a cue still pass', () => {
+    expect(check('We do not do plumbing, electrical or HVAC.').ok).toBe(true);
+    expect(check('We do not do plumbing and HVAC.').ok).toBe(true);
+    expect(check('We do not offer same-day and emergency service.').ok).toBe(true);
+  });
+  it('a comma right after "no" is not a cue', () => {
+    expect(has('No, today works for us.', 'today')).toBe(true);
+    expect(has('No, same-day service is available.', 'same')).toBe(true);
+    expect(check('No same-day service.').ok).toBe(true);
+  });
+  it.each([
+    ['We arrive within 1-2 hours.', 'within'],
+    ['We arrive within 2-3 hours.', 'within'],
+    ['We arrive within 2 to 3 hours.', 'within'],
+    ['We arrive within a couple of hours.', 'within'],
+    ['We arrive within the hour.', 'within'],
+    ['We arrive within the next 2 hours.', 'within'],
+    ['We arrive in 2 hours.', 'in 2 hours'],
+    ['We arrive within 30 minutes.', 'within'],
+    ['We are open 24 7.', '24'],
+    ['We are open 24/seven.', '24'],
+    ['We are open twenty-four seven.', 'twenty'],
+    ['We are open twenty-four hours.', 'twenty'],
+    ['We respond very fast.', 'respond'],
+    ['We reply quickly.', 'reply'],
+    ['A person gets back to you quickly.', 'back'],
+  ])('flags %s', (text, label) => {
+    expect(has(text, label)).toBe(true);
+  });
+  it('keeps 48 hours and the approved response wording allowed', () => {
+    expect(check('Written estimate within 48 hours of the visit.').ok).toBe(true);
+    expect(check('A person gets back to you the same business day.').ok).toBe(true);
+    expect(check('We do not reply fast to every request.').ok).toBe(true);
+  });
+  it('ownership claims with adverbs, team/crew subjects and adjectives', () => {
+    expect(check('We also have an electrician on staff.').ok).toBe(false);
+    expect(check('We already have an experienced plumber.').ok).toBe(false);
+    expect(check('Our team has an experienced plumber.').ok).toBe(false);
+    expect(check('The crew also includes a very experienced electrician.').ok).toBe(false);
+    expect(check('Our crew employs a master plumber.').ok).toBe(false);
+    expect(check('iFIXX also has a plumber.').ok).toBe(false);
+  });
+  it('someone else’s tradesperson is still fine', () => {
+    expect(check('We can repair the drywall after a plumber or electrician has done their part.').ok).toBe(true);
+    expect(check('We do not have a plumber on staff.').ok).toBe(true);
+  });
+});

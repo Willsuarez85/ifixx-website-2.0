@@ -17,6 +17,11 @@ export interface GuardrailRules {
   negationCue?: RegExp;
   /** Matches one lowercased token that may sit between a cue and a match ("or", "offer"...). */
   negationGlue?: RegExp;
+  /**
+   * Matches a token that, right after a conjunction (and / or / nor), starts a new
+   * predicate and ends the negation ("do not do plumbing and DO electrical work").
+   */
+  negationReset?: RegExp;
   /** Exact phrases removed before evaluation (e.g. the assistant's self-introduction). */
   exemptPhrases?: RegExp[];
 }
@@ -55,14 +60,23 @@ function cleanToken(t: string): string {
   return t.toLowerCase().replace(/^[^\w']+|[^\w']+$/g, '');
 }
 
-function isNegated(prefix: string, rules: GuardrailRules, terms: RegExp[]): boolean {
+const CONJUNCTION = /^(?:and|or|nor)$/;
+
+function isNegated(prefix: string, matchText: string, rules: GuardrailRules, terms: RegExp[]): boolean {
   const cue = rules.negationCue;
   if (!cue) return false;
   const glue = rules.negationGlue;
   const tokens = prefix.split(/\s+/).filter(Boolean);
   for (let i = tokens.length - 1; i >= 0 && i >= tokens.length - CUE_WINDOW; i--) {
     const tok = cleanToken(tokens[i]);
-    if (cue.test(tok)) return true;
+    if (cue.test(tok)) {
+      // "No, today works": punctuation right after the cue ends it.
+      return !/[,;:]$/.test(tokens[i]);
+    }
+    if (CONJUNCTION.test(tok) && rules.negationReset) {
+      const next = cleanToken(i + 1 < tokens.length ? tokens[i + 1] : matchText.split(/\s+/)[0] ?? '');
+      if (rules.negationReset.test(next)) return false;
+    }
     if (tok === '' || glue?.test(tok) || terms.some((t) => t.test(tok))) continue;
     return false;
   }
@@ -106,7 +120,7 @@ export function checkAnswer(text: string, rules: GuardrailRules): GuardrailResul
       for (const clause of sentence.split(CLAUSE_SPLIT)) {
         for (const re of negatable) {
           for (const m of clause.matchAll(global(re))) {
-            if (!isNegated(clause.slice(0, m.index ?? 0), rules, terms)) add(label(m[0]));
+            if (!isNegated(clause.slice(0, m.index ?? 0), m[0], rules, terms)) add(label(m[0]));
           }
         }
       }
@@ -118,11 +132,23 @@ export function checkAnswer(text: string, rules: GuardrailRules): GuardrailResul
   return { ok: violations.length === 0, violations };
 }
 
+const NUM_WORDS = 'one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve';
+const VAGUE = 'an?|a\\s+couple(?:\\s+of)?|a\\s+few|few|several';
+const RANGE_TAIL = '(?:\\s*(?:-|to|or)\\s*\\d+)?';
+const LEAD = '\\b(?:within|in)\\s+(?:the\\s+next\\s+)?';
+// 1 to 24 hours; larger numbers do not match thanks to the \\b after the number
+const HOURS_WINDOW = new RegExp(
+  `(?:\\bwithin\\s+the\\s+(?:next\\s+)?hour\\b|${LEAD}(?:${VAGUE}|(?:[1-9]|1\\d|2[0-4]|${NUM_WORDS})\\b${RANGE_TAIL})\\s*(?:hours?|hrs?)\\b)`,
+  'i'
+);
+const MINUTES_WINDOW = new RegExp(`${LEAD}(?:${VAGUE}|(?:\\d+|${NUM_WORDS})${RANGE_TAIL})\\s*(?:minutes?|mins?)\\b`, 'i');
+
 // Spec section 4 (language restrictions) encoded as rules.
 export const DEFAULT_RULES: GuardrailRules = {
   forbiddenPatterns: [
     /licensed/i,
-    /24\s*[/x-]\s*7\b/i,
+    // 24/7, 24x7, 24-7, 24 7, 24/seven, twenty-four seven
+    /\b(?:24(?:\s*[/x-]\s*|\s+)|twenty[- ]four[- ])(?:7|seven)\b/i,
     /\bowners\b/i,
     /\bhamed\b/i,
     /dilworth|\bnoda\b|plaza[\s-]+midwood|myers[\s-]+park|uptown/i,
@@ -136,25 +162,31 @@ export const DEFAULT_RULES: GuardrailRules = {
     /same[- ]day/i,
     /\btoday\b/i,
     /\btonight\b/i,
-    /24[- ]?\s?(?:hours?|hrs?)\b/i,
+    /\b(?:24|twenty[- ]four)[- ]?\s?(?:hours?|hrs?)\b/i,
     /(?:around|round)[- ]the[- ]clock/i,
     /emergenc(?:y|ies)/i,
-    /within\s+(?:an?\s+(?:few\s+)?hours?\b|half\s+an?\s+hour\b|hours?\b|(?:[1-9]|1\d|2[0-3])\s*(?:hours?|hrs?)\b|(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\s+hours?\b)/i,
+    // short windows: within/in an hour, 2 hours, 1-2 hours, 2 to 3 hours, a couple of hours,
+    // the hour, the next 2 hours, 30 minutes. Hours from 25 up (e.g. "within 48 hours") stay allowed.
+    HOURS_WINDOW,
+    MINUTES_WINDOW,
+    /\bwithin\s+(?:hours?|minutes?)\b/i,
     /\bright away\b/i,
     /\bimmediately\b/i,
     /\b(?:fast|quick|rapid|speedy)[- ]response\b/i,
-    /\brespond(?:s|ing)?\s+(?:fast|quickly)\b/i,
+    /\b(?:respond|reply|answer|gets?\s+back)(?:s|ed|ing)?(?:\s+to\s+you)?\s+(?:(?:very|super|really)\s+)?(?:fast|quickly|promptly|right\s+away)\b/i,
     // trades as a service (plumber / electrician as someone else's trade are allowed)
     /\bplumb(?!ers?\b)\w*/i,
     /\belectric(?!ians?\b)\w*/i,
     /\bhvac\b/i,
     // trades people claimed as ours: "our plumber", "we have an electrician",
     // "iFIXX has a plumber", "iFIXX's plumbers", "the crew includes an electrician"
-    /(?:\bour\b|\bwe(?:'ve|\s+(?:have|has|employ|use|send|bring|got))\b|\bifixx(?:'s\b|\s+(?:has|have|employs|uses|sends|brings)\b)|\bcrew(?:'s\b|\s+(?:has|includes)\b))\s+(?:[\w'-]+\s+){0,3}?(?:plumbers?|electricians?)\b/i,
+    /(?:\bour\b|\bwe've\b|\bifixx's\b|\b(?:crew|team)'s\b|\b(?:we|ifixx|(?:the\s+|our\s+)?(?:team|crew))\s+(?:(?:also|already|even|currently|always|both)\s+)*(?:has|have|had|employs?|uses?|sends?|brings?|includes?|got|keeps?)\b)\s+(?:[\w'-]+\s+){0,4}?(?:plumbers?|electricians?)\b/i,
   ],
   negationCue: /^(?:not|never|no|cannot|can't|don't|doesn't|won't|isn't|aren't|without)$/,
   negationGlue:
     /^(?:or|and|nor|offer|offers|provide|provides|any|service|services|work|do|does|doing|to|a|an|the|of|promise|guarantee|have|make|accept|handle|take|include)$/,
+  negationReset:
+    /^(?:do|does|doing|offer|offers|provide|provides|work|works|handle|handles|take|takes|include|includes|make|makes|have|has|accept|accepts|promise|guarantee)$/,
   exemptPhrases: [/virtual assistant, available 24\/7/i],
   allowedDollarAmounts: [150, 5000, 8000],
 };
