@@ -21,13 +21,14 @@ interface Setup {
   ghlRejects?: boolean;
   upsertHangs?: boolean;
   routingHangs?: boolean;
+  completionFails?: boolean;
   atomicDuplicates?: boolean;
 }
 
 function setup(opts: Setup = {}) {
   const {
     store = 'ok', storeFailureAt, bumpValue = () => 1, duplicateRef = null, duplicateRoutingStatus = 'complete',
-    ghlFails = false, ghlRejects = false, upsertHangs = false, routingHangs = false,
+    ghlFails = false, ghlRejects = false, upsertHangs = false, routingHangs = false, completionFails = false,
     atomicDuplicates = false,
   } = opts;
   const calls: { url: string; init: RequestInit }[] = [];
@@ -68,7 +69,11 @@ function setup(opts: Setup = {}) {
           acquired: true, reference: body.p_reference, reservation_status: 'pending', routing_status: 'pending',
         }]), { status: 200 });
       }
-      if (u.endsWith('/rest/v1/rpc/complete_agent_estimate')) return new Response('true', { status: 200 });
+      if (u.endsWith('/rest/v1/rpc/complete_agent_estimate')) {
+        return completionFails
+          ? new Response('private failure detail', { status: 503 })
+          : new Response('true', { status: 200 });
+      }
       if (u.endsWith('/rest/v1/rpc/release_agent_estimate')) return new Response('true', { status: 200 });
       throw new Error(`unexpected store call ${u}`);
     }
@@ -158,12 +163,16 @@ describe('POST /api/agent/estimate validation', () => {
       'mailto:spam@example.com',
       'go to www.example.com',
       'details at repairs.example.co.uk/path',
+      'domain with a port-like suffix example.com:anything',
       'Unicode domain ｗｗｗ．example．com',
       'IDNA dot example。com',
       'IDNA halfwidth dot example｡com',
       'Unicode labels пример.рф',
       'Unicode labels 例え.テスト',
       'Unicode label münich.de',
+      'Symbolic IDN coffee ☕.ws',
+      'Emoji IDN pile 💩.la',
+      'Emoji TLD example.☕',
       'email belongs only in its field ana@example.com',
     ]) {
       const r = await call({ ...valid, message });
@@ -192,9 +201,9 @@ describe('POST /api/agent/estimate validation', () => {
 
   it('accepts a structured email while still rejecting link-shaped free text', async () => {
     const { upserts } = setup();
-    const r = await call({ ...valid, email: 'ana@example.com' });
+    const r = await call({ ...valid, email: 'ana@例え。テスト' });
     expect(r.status).toBe(200);
-    expect(upserts()[0].email).toBe('ana@example.com');
+    expect(upserts()[0].email).toBe('ana@例え.テスト');
   });
 
   it('rejects missing or oversized required fields and a non-object body', async () => {
@@ -447,6 +456,26 @@ describe('POST /api/agent/estimate limits and failures', () => {
     }
   });
 
+  it('a completion-store failure remains pending and returns no callback promise after CRM success', async () => {
+    const { completions, releases, upserts } = setup({ completionFails: true });
+    const r = await call(valid);
+    expect(r.status).toBe(200);
+    const body = await r.json();
+    expect(body).toMatchObject({ success: true, reconciliationPending: true });
+    expect(body.routingPending).toBeUndefined();
+    expect(body.nextStep).toBe(
+      `Your contact information was saved. If this is urgent, call or text iFIXX at ${BRAND.phone}.`
+    );
+    expect(body.nextStep).not.toContain('same business day');
+    expect(upserts()).toHaveLength(1);
+    expect(completions()).toHaveLength(1);
+    expect(releases()).toHaveLength(0);
+    expect(vi.mocked(console.error).mock.calls).toContainEqual([
+      'agent estimate: completion record failed; reconcile pending reference',
+    ]);
+    expect(JSON.stringify(vi.mocked(console.warn).mock.calls)).not.toContain('private failure detail');
+  });
+
   it('CRM env missing -> 502, never 500', async () => {
     vi.stubEnv('GHL_API_KEY', '');
     const { upserts } = setup();
@@ -473,6 +502,10 @@ describe('OPTIONS and GET /api/agent', () => {
     expect(r.headers.get('access-control-allow-origin')).toBe('*');
     const d = await r.json();
     expect(d.endpoints.estimate.method).toBe('POST');
+    expect(d.endpoints.estimate.limitsText).toContain('Exact rolling windows');
+    expect(d.endpoints.estimate.limitsText).toContain('trailing 60 minutes');
+    expect(d.endpoints.estimate.limitsText).toContain('trailing one-day period');
+    expect(d.endpoints.estimate.limitsText.toLowerCase()).not.toContain('token bucket');
     expect(d.serviceKeys).toContain('other');
     expect(d.serviceKeys).toContain('drywall-repair');
   });

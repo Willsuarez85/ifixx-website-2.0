@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { randomInt } from 'node:crypto';
+import { domainToASCII } from 'node:url';
 import {
   AGENT_SERVICE_KEYS,
   AGENT_SITE_ID_DEFAULT,
@@ -23,7 +24,7 @@ const SHORT_FIELD_MAX = LIMITS.firstNameMax;
 const EMAIL_MAX = 254;
 // Agent-supplied free text is sent to GHL only as plain text. Reject link-shaped input;
 // downstream CRM fields/workflows must not render this text as HTML or a template.
-const URL_IN_TEXT = /(?:\b[a-z][a-z0-9+.-]{1,31}:(?:\/\/|[^\s])|\bwww\.|(?:[\p{L}\p{N}](?:[\p{L}\p{N}\p{M}-]{0,61}[\p{L}\p{N}])?\.)+(?:[\p{L}\p{M}]{2,63}|xn--[a-z0-9-]{2,59})(?![\p{L}\p{N}\p{M}-]))/iu;
+const URL_SCHEME_IN_TEXT = /(?:\b[a-z][a-z0-9+.-]{1,31}:(?:\/\/|[^\s])|\bwww\.)/iu;
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const ZIP = /^\d{5}(-\d{4})?$/;
 const CONVERSATION_ID = /^[A-Za-z0-9._:-]+$/;
@@ -77,6 +78,38 @@ function makeReference(): string {
 
 const noUrls = (field: string) => `${field} must not contain URLs, URL schemes or domain names.`;
 
+const ASCII_DOMAIN_LABEL = /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/i;
+const ASCII_TLD = /^(?:[a-z]{2,63}|xn--[a-z0-9-]{2,59})$/i;
+
+/** Uses Node's IDNA conversion, then applies hostname label and TLD constraints. */
+function containsDomain(value: string): boolean {
+  const candidates = value.split(/[\s,;\u3001\p{Ps}\p{Pe}\p{Pi}\p{Pf}"']+/u).filter(Boolean);
+  for (const raw of candidates) {
+    let candidate = raw;
+    const at = candidate.lastIndexOf('@');
+    if (at >= 0) candidate = candidate.slice(at + 1);
+    candidate = candidate.split(/[/?#]/, 1)[0].replace(/[.!?]+$/u, '');
+    const colon = candidate.lastIndexOf(':');
+    if (colon > candidate.lastIndexOf('.')) candidate = candidate.slice(0, colon);
+    if (!candidate.includes('.')) continue;
+
+    const ascii = domainToASCII(candidate).toLowerCase();
+    if (!ascii) {
+      // Invalid IDNA containing a symbolic or letter TLD is still link-shaped input.
+      const suffix = candidate.split('.').at(-1) ?? '';
+      if (/^[\p{L}\p{M}\p{S}]{2,63}$/u.test(suffix)) return true;
+      continue;
+    }
+    if (ascii.length > 253) continue;
+    const labels = ascii.split('.');
+    if (labels.length < 2 || !labels.every((label) => ASCII_DOMAIN_LABEL.test(label))) continue;
+    if (ASCII_TLD.test(labels[labels.length - 1])) return true;
+  }
+  return false;
+}
+
+const containsLink = (value: string): boolean => URL_SCHEME_IN_TEXT.test(value) || containsDomain(value);
+
 type Validated = { ok: true; value: EstimateRequest } | { ok: false; error: string };
 
 function optionalText(
@@ -90,7 +123,7 @@ function optionalText(
   if (typeof v !== 'string') return { error: `${field} must be a string.` };
   const value = clean(v);
   if (value.length > max) return { error: `${field} must be up to ${max} characters.` };
-  if (rejectUrls && URL_IN_TEXT.test(value)) return { error: noUrls(field) };
+  if (rejectUrls && containsLink(value)) return { error: noUrls(field) };
   return value ? { value } : {};
 }
 
@@ -104,7 +137,7 @@ function validate(data: unknown): Validated {
   if (!firstName || firstName.length > LIMITS.firstNameMax) {
     return { ok: false, error: `firstName is required, 1 to ${LIMITS.firstNameMax} characters.` };
   }
-  if (URL_IN_TEXT.test(firstName)) return { ok: false, error: noUrls('firstName') };
+  if (containsLink(firstName)) return { ok: false, error: noUrls('firstName') };
 
   const phone = normalizePhone(d.phone as string);
   if (!phone) {
@@ -115,7 +148,7 @@ function validate(data: unknown): Validated {
   if (!message || message.length > LIMITS.messageMax) {
     return { ok: false, error: `message is required, 1 to ${LIMITS.messageMax} characters.` };
   }
-  if (URL_IN_TEXT.test(message)) return { ok: false, error: noUrls('message') };
+  if (containsLink(message)) return { ok: false, error: noUrls('message') };
 
   const lastName = optionalText(d, 'lastName', SHORT_FIELD_MAX);
   const city = optionalText(d, 'city', SHORT_FIELD_MAX);
@@ -141,12 +174,12 @@ function validate(data: unknown): Validated {
     if (typeof a.name === 'string') {
       const name = clean(a.name);
       if (name.length > SHORT_FIELD_MAX) return { ok: false, error: `agent.name must be up to ${SHORT_FIELD_MAX} characters.` };
-      if (URL_IN_TEXT.test(name)) return { ok: false, error: noUrls('agent.name') };
+      if (containsLink(name)) return { ok: false, error: noUrls('agent.name') };
       agentName = name || undefined;
     }
     if (typeof a.vendor === 'string' && a.vendor.trim()) {
       const vendor = clean(a.vendor);
-      if (URL_IN_TEXT.test(vendor)) return { ok: false, error: noUrls('agent.vendor') };
+      if (containsLink(vendor)) return { ok: false, error: noUrls('agent.vendor') };
       vendorGiven = true;
       slug = vendorSlug(vendor);
     }
@@ -314,21 +347,28 @@ export const POST: APIRoute = async ({ request }) => {
       return failure(502, 'crm_unavailable');
     }
 
-    if (!(await completeEstimate(store, {
+    const completionRecorded = await completeEstimate(store, {
       payloadHash,
       reference,
       contactId,
       routingStatus: routingIncomplete ? 'incomplete' : 'complete',
-    }))) {
-      console.error('agent estimate: could not mark reservation completed');
+    });
+    const reconciliationPending = !completionRecorded;
+    if (reconciliationPending) {
+      // The CRM contact is confirmed and includes this reference in Project Notes. Keep
+      // the reservation pending so operations can find it without allowing a duplicate.
+      console.error('agent estimate: completion record failed; reconcile pending reference');
     }
 
     console.log(`Agent lead: ref ${reference} | agent:${v.vendorSlug} | service ${v.service}`);
     return jsonResponse(200, {
       success: true,
       reference,
-      nextStep: routingIncomplete ? estimateRoutingPendingNextStep() : estimateNextStep(v.firstName),
+      nextStep: routingIncomplete || reconciliationPending
+        ? estimateRoutingPendingNextStep()
+        : estimateNextStep(v.firstName),
       ...(routingIncomplete ? { routingPending: true } : {}),
+      ...(reconciliationPending ? { reconciliationPending: true } : {}),
     });
   } catch {
     console.error('agent estimate: unexpected error');

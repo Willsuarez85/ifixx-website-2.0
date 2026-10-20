@@ -641,9 +641,9 @@ function buildApi(serviceKeys: string[]) {
       bodyMaxBytes: LIMITS.bodyMaxBytes,
     },
     limitsText:
-      `Token buckets allow bursts up to ${LIMITS.estimate.perIpPerHour} per IP and ${LIMITS.estimate.perDay} for the site, then refill continuously across one hour and one day. ` +
+      `Exact rolling windows allow at most ${LIMITS.estimate.perIpPerHour} requests per IP in any trailing 60 minutes and ${LIMITS.estimate.perDay} for the site in any trailing one-day period. ` +
       `An identical normalized request inside a ${LIMITS.estimate.duplicateWindowSeconds / 60}-minute window returns the same reference with duplicate set to true. ` +
-      `If the contact is saved but opportunity routing reaches its deadline, success includes routingPending set to true. ` +
+      `If the contact is saved but opportunity routing reaches its deadline, success includes routingPending set to true. If the completion record cannot be confirmed, success includes reconciliationPending set to true. ` +
       `JSON body up to ${LIMITS.bodyMaxBytes / 1024} KB.`,
     errors: {
       '202': 'request_in_progress: an identical request is currently reaching the CRM. Retry after retryAfterSeconds.',
@@ -685,7 +685,7 @@ function buildApi(serviceKeys: string[]) {
     },
     limits: { perIpPerHour: LIMITS.ask.perIpPerHour, perDay: LIMITS.ask.perDay, bodyMaxBytes: LIMITS.bodyMaxBytes },
     limitsText:
-      `${LIMITS.ask.perIpPerHour} questions per hour per IP and ${LIMITS.ask.perDay} per day for the site. ` +
+      `Exact rolling windows allow at most ${LIMITS.ask.perIpPerHour} questions per IP in any trailing 60 minutes and ${LIMITS.ask.perDay} for the site in any trailing one-day period. ` +
       `Past the daily limit the answer is the standard reply with the phone number. JSON body up to ${LIMITS.bodyMaxBytes / 1024} KB.`,
     errors: {
       '400': 'Invalid body or field: the error says which one.',

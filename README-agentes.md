@@ -82,7 +82,7 @@ Sin `SUPABASE_*`, o si Supabase no confirma un contador o una reserva, `estimate
 
 Cuerpo JSON máximo 16 KB (`bodyMaxBytes`). `question` hasta 1000 caracteres; `history` hasta 10 turnos de 1000; `message` hasta 2000 y sin URLs. Superar el límite por IP en `ask` responde 429 con el respaldo.
 
-El formulario existente `/api/lead` conserva su flujo sin deadline nuevo. Solo `agent/estimate` pasa un presupuesto total de 8 segundos al CRM. Si el contacto queda confirmado pero el ruteo no termina, responde éxito con `routingPending: true` y un `nextStep` degradado que solo confirma que guardó el contacto e indica el teléfono publicado para asuntos urgentes. Registra `routing_status = 'incomplete'` en Supabase; un duplicado exacto vuelve a exponer ese estado y nunca repite la promesa de respuesta el mismo día. Si el resultado del upsert es ambiguo, mantiene la reserva pendiente para bloquear un duplicado inmediato.
+El formulario existente `/api/lead` conserva su flujo sin deadline nuevo. Solo `agent/estimate` pasa un presupuesto total de 8 segundos al CRM. Si el contacto queda confirmado pero el ruteo no termina, responde éxito con `routingPending: true` y un `nextStep` degradado que solo confirma que guardó el contacto e indica el teléfono publicado para asuntos urgentes. Registra `routing_status = 'incomplete'` en Supabase; un duplicado exacto vuelve a exponer ese estado y nunca repite la promesa de respuesta el mismo día. Si Supabase no confirma el registro final después de guardar el contacto, responde con `reconciliationPending: true`, usa el mismo `nextStep` degradado y conserva la reserva pendiente. Si el resultado del upsert es ambiguo, también mantiene la reserva pendiente para bloquear un duplicado inmediato.
 
 Los campos libres de `agent/estimate` rechazan esquemas y dominios visibles, se normalizan como texto y se envían a campos de texto plano. La suposición operativa es que GHL y sus workflows no interpretan Project Notes, nombres o ciudad como HTML, Markdown ni plantillas; si eso cambia, el consumidor debe escapar el texto al renderizarlo.
 
@@ -129,15 +129,16 @@ Sale con código 1 si alguna respuesta rompe las reglas, si una cotización, res
 
 En el proyecto Supabase de la capa, tablas `agent_conversations` (pregunta, respuesta, `matched_faq`, `flagged`, `violations`, tokens, `degraded`, filtradas por `site`) y `agent_leads` (referencias de pedidos, teléfono hasheado). Solo la llave de servicio las lee. La IP se guarda como hash de 16 caracteres.
 
-`agent_leads` también es la bandeja durable del ruteo incompleto. **No hay reintento automático.** Antes de habilitar `agent/estimate` en Production debe existir una conciliación operativa que ejecute, atienda y marque fuera de este endpoint esta consulta:
+`agent_leads` también es la bandeja durable de reconciliación. Incluye ruteos incompletos y reservas que siguen `pending` después de 10 minutos. **No hay reintento automático.** Antes de habilitar `agent/estimate` en Production debe existir una conciliación operativa que ejecute, atienda y marque fuera de este endpoint esta consulta:
 
 ```sql
-select site, reference, contact_id, completed_at
+select site, reference, contact_id, status, routing_status, created_at, completed_at
 from public.agent_leads
-where status = 'completed' and routing_status = 'incomplete'
-order by completed_at asc;
+where (status = 'completed' and routing_status = 'incomplete')
+   or (status = 'pending' and created_at < now() - interval '10 minutes')
+order by coalesce(completed_at, created_at) asc;
 ```
 
-La migración agrega un índice parcial para esa consulta. Hasta que el responsable confirme el proceso de conciliación, `routingPending` significa seguimiento manual pendiente, no una promesa de reintento.
+La migración agrega índices parciales para ambos casos. En una fila `pending`, buscar `Reference: XXXXXXXX` en Project Notes de GHL confirma si el contacto fue creado y permite terminar el ruteo; el teléfono no hace falta y no está guardado en claro. Hasta que el responsable confirme el proceso de conciliación, `routingPending` o `reconciliationPending` significan seguimiento manual pendiente, no una promesa de reintento.
 
 Leads de asistentes en el CRM: contactos con la etiqueta `ai-assistant-lead`. El resumen diario de las conversaciones lo produce un script del operador, fuera de este repo.

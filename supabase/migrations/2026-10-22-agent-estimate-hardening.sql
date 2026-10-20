@@ -21,6 +21,12 @@ create index if not exists agent_leads_incomplete_routing_idx
   on public.agent_leads (completed_at, site, reference)
   where status = 'completed' and routing_status = 'incomplete';
 
+-- A pending row older than the reservation window is no longer an active request. It
+-- may represent an ambiguous CRM upsert or a contact saved before completion recording.
+create index if not exists agent_leads_aged_pending_idx
+  on public.agent_leads (created_at, site, reference)
+  where status = 'pending';
+
 create or replace function public.reserve_agent_estimate(
   p_site text,
   p_payload_hash text,

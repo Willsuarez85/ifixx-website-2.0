@@ -11,6 +11,9 @@ create table if not exists public.agent_rate_events (
 create index if not exists agent_rate_events_scope_time_idx
   on public.agent_rate_events (site, key, occurred_at desc);
 
+create index if not exists agent_rate_events_occurred_at_idx
+  on public.agent_rate_events (occurred_at);
+
 alter table public.agent_rate_events enable row level security;
 revoke all on public.agent_rate_events from public, anon, authenticated;
 grant select, insert, delete on public.agent_rate_events to service_role;
@@ -64,8 +67,13 @@ begin
   v_now := pg_catalog.clock_timestamp();
   v_cutoff := v_now - pg_catalog.make_interval(secs => p_window_seconds);
 
-  -- Keep the active scope small. Stale scopes can be pruned separately without
-  -- affecting correctness because the count below always applies its own cutoff.
+  -- Globally prune one-shot keys after the longest enforced window. The strict less-
+  -- than boundary preserves events exactly 24 hours old for the daily hard cap.
+  delete from public.agent_rate_events as e
+   where e.occurred_at < v_now - pg_catalog.make_interval(secs => 86400);
+
+  -- The global prune leaves hour-old events for daily keys, so trim this active scope
+  -- to its own exact cutoff before counting it.
   delete from public.agent_rate_events as e
    where e.site = p_site
      and e.key = p_key

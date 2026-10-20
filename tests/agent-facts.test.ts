@@ -320,6 +320,13 @@ describe('apiDescription', () => {
     expect(api.endpoints.estimate.limits.perDay).toBe(50);
     expect(api.endpoints.ask.limits.perIpPerHour).toBe(20);
     expect(api.endpoints.ask.limits.perDay).toBe(500);
+    for (const limitsText of [api.endpoints.estimate.limitsText, api.endpoints.ask.limitsText]) {
+      expect(limitsText).toContain('Exact rolling windows');
+      expect(limitsText).toContain('trailing 60 minutes');
+      expect(limitsText).toContain('trailing one-day period');
+      expect(limitsText.toLowerCase()).not.toContain('token bucket');
+      expect(limitsText.toLowerCase()).not.toContain('refill');
+    }
     expect(api.endpoints.estimate.fields.message).toMatch(/2000/);
     expect(api.endpoints.estimate.fields.message).toMatch(/URL/);
     expect(api.endpoints.ask.fields.question).toMatch(/1000/);

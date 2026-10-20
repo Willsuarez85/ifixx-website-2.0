@@ -24,6 +24,8 @@ describe('agent estimate hardening migration', () => {
     expect(sql).toContain('existing_routing_status');
     expect(sql).toContain('agent_leads_incomplete_routing_idx');
     expect(sql).toContain("where status = 'completed' and routing_status = 'incomplete'");
+    expect(sql).toContain('agent_leads_aged_pending_idx');
+    expect(sql).toContain("where status = 'pending'");
   });
 });
 
@@ -37,6 +39,18 @@ describe('agent exact rolling-window migration', () => {
     expect(limitSql).toContain('if v_count >= p_limit');
     expect(limitSql).not.toContain('tokens');
     expect(limitSql).not.toContain('last_refill');
+  });
+
+  it('globally prunes events strictly older than 24 hours through a time-only index', () => {
+    expect(limitSql).toContain('agent_rate_events_occurred_at_idx');
+    expect(limitSql).toContain('on public.agent_rate_events (occurred_at)');
+    expect(limitSql).toContain('e.occurred_at < v_now - pg_catalog.make_interval(secs => 86400)');
+    expect(limitSql.indexOf('e.occurred_at < v_now - pg_catalog.make_interval(secs => 86400)'))
+      .toBeLessThan(limitSql.indexOf('select pg_catalog.count(*)'));
+
+    const now = 200_000;
+    const events = [now - 86_401, now - 86_400, now - 3_600, now];
+    expect(events.filter((at) => at >= now - 86_400)).toEqual([now - 86_400, now - 3_600, now]);
   });
 
   it('pins all four hard caps inside SQL rather than trusting caller-supplied limits', () => {
