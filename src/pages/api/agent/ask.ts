@@ -1,10 +1,17 @@
 import type { APIRoute } from 'astro';
 import { randomUUID } from 'node:crypto';
-import { AGENT_SITE_ID_DEFAULT, BRAND, FALLBACK_ANSWER, LIMITS, VICTORIA_INTRO, type ServiceSummary } from '../../../lib/agent-facts';
+import {
+  AGENT_ANTHROPIC_KEY_ENV,
+  AGENT_SITE_ID_DEFAULT,
+  BRAND,
+  FALLBACK_ANSWER,
+  LIMITS,
+  type ServiceSummary,
+} from '../../../lib/agent-facts';
 import { agentEnv, clientIp, ipHash, jsonResponse, optionsResponse, readJson } from '../../../lib/agent-http';
 import { bump, saveConversation, type StoreEnv } from '../../../lib/agent-store';
 import { liveServices } from '../../../lib/services-live';
-import { answer, VICTORIA_MODEL, type Turn } from '../../../lib/victoria';
+import { answer, VICTORIA_MODEL, withIntro, type Turn } from '../../../lib/victoria';
 
 /**
  * POST /api/agent/ask: an AI assistant asks Victoria a question about the business.
@@ -82,7 +89,7 @@ function validate(data: unknown): Validated {
  */
 function anthropicKey(): string | undefined {
   const proc: Record<string, string | undefined> = typeof process !== 'undefined' ? process.env : {};
-  return proc.ANTHROPIC_API_KEY_IFIXX_SITE || undefined;
+  return proc[AGENT_ANTHROPIC_KEY_ENV] || undefined;
 }
 
 /** Waits for p at most ms; never rejects. */
@@ -107,7 +114,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   const estimate = { endpoint: '/api/agent/estimate', phone: BRAND.phone, hours: BRAND.hoursLabel };
   // Static answer to a person, with the introduction on the first turn (ruling R5).
-  const fallbackAnswer = history.length === 0 ? `${VICTORIA_INTRO} ${FALLBACK_ANSWER}` : FALLBACK_ANSWER;
+  const fallbackAnswer = withIntro(FALLBACK_ANSWER, history.length === 0);
   const degradedReply = (status: number, extra: Record<string, unknown> = {}) =>
     jsonResponse(status, { answer: fallbackAnswer, conversationId, degraded: true, estimate, ...extra });
 
@@ -116,13 +123,14 @@ export const POST: APIRoute = async ({ request }) => {
     const store: StoreEnv = { url: env.supabaseUrl, key: env.supabaseKey, site: env.site };
     const hash = ipHash(clientIp(request));
 
-    // Counters answer -1 when the store is down: the question goes through.
-    if ((await bump(store, `ask:ip:${hash}`, LIMITS.ipWindowSeconds)) > LIMITS.ask.perIpPerHour) {
-      return degradedReply(429, { error: 'rate_limited' });
-    }
-    if ((await bump(store, 'ask:day', LIMITS.dayWindowSeconds)) > LIMITS.ask.perDay) {
-      return degradedReply(200);
-    }
+    // Counters answer -1 when the store is down: the question goes through, but without
+    // limits there is no model either (approved answers and the fallback only).
+    const perIp = await bump(store, `ask:ip:${hash}`, LIMITS.ipWindowSeconds);
+    if (perIp > LIMITS.ask.perIpPerHour) return degradedReply(429, { error: 'rate_limited' });
+    const perDay = await bump(store, 'ask:day', LIMITS.dayWindowSeconds);
+    if (perDay > LIMITS.ask.perDay) return degradedReply(200);
+    const limitsOn = perIp >= 0 && perDay >= 0;
+    if (!limitsOn) console.warn('agent ask: counters unavailable, answering without the model');
 
     let services: ServiceSummary[] = [];
     try {
@@ -135,7 +143,7 @@ export const POST: APIRoute = async ({ request }) => {
       question,
       history,
       services,
-      { apiKey: anthropicKey(), model: VICTORIA_MODEL },
+      { apiKey: limitsOn ? anthropicKey() : undefined, model: VICTORIA_MODEL },
       fetch,
       { budgetMs: REQUEST_BUDGET_MS - SAVE_WAIT_MS - (Date.now() - started) }
     );

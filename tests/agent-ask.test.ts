@@ -44,7 +44,7 @@ function setup(opts: Setup = {}) {
       if (modelStatus !== 200) return new Response('{"type":"error"}', { status: modelStatus });
       const body = JSON.parse(String(init.body));
       const text = body.max_tokens === 10 ? classified : generated;
-      return new Response(JSON.stringify({ content: [{ type: 'text', text }], usage: { input_tokens: 5, output_tokens: 3 } }), {
+      return new Response(JSON.stringify({ content: [{ type: 'text', text }], usage: { input_tokens: 5, output_tokens: 3 }, stop_reason: 'end_turn' }), {
         status: 200,
       });
     }
@@ -208,6 +208,32 @@ describe('POST /api/agent/ask answers', () => {
     const r = await call({ question: 'What are the business hours?', history: [{ role: 'user', content: 'Hi' }] });
     expect(r.status).toBe(200);
     expect((await r.json()).answer).toBe(HOURS.a);
+  });
+
+  it('store down with the key present: no model call (no limits, no model), fallback, degraded', async () => {
+    const { modelCalls } = setup({ store: 'down' });
+    const r = await call({ question: 'Do you install solar panels?', history: [{ role: 'user', content: 'Hi' }] });
+    expect(r.status).toBe(200);
+    const body = await r.json();
+    expect(body.answer).toBe(FALLBACK_ANSWER);
+    expect(body.degraded).toBe(true);
+    expect(modelCalls()).toHaveLength(0);
+  });
+
+  it('one counter down is enough to keep the model off', async () => {
+    const { modelCalls } = setup({ bumpValue: (k) => (k === 'ask:day' ? -1 : 1) });
+    const r = await call({ question: 'Do you install solar panels?', history: [{ role: 'user', content: 'Hi' }] });
+    expect((await r.json()).degraded).toBe(true);
+    expect(modelCalls()).toHaveLength(0);
+  });
+
+  it('counters up and key present: the model answers', async () => {
+    const { modelCalls } = setup();
+    const r = await call({ question: 'Do you install solar panels?', history: [{ role: 'user', content: 'Hi' }] });
+    const body = await r.json();
+    expect(body.degraded).toBe(false);
+    expect(body.answer).toBe('We build screened porches in Waxhaw.');
+    expect(modelCalls()).toHaveLength(2);
   });
 
   it('store and environment missing, no key -> 200 with fallback, degraded', async () => {

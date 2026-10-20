@@ -44,6 +44,9 @@ export const ASK_ANNOUNCED = false;
 /** Site id for the agent store rows when the AGENT_SITE_ID variable is not set. */
 export const AGENT_SITE_ID_DEFAULT = 'ifixx';
 
+/** Name of the environment variable that holds this site's Anthropic key (read from process.env only). */
+export const AGENT_ANTHROPIC_KEY_ENV = 'ANTHROPIC_API_KEY_IFIXX_SITE';
+
 const PHONE = '(980) 391-6833';
 const BATHROOM_FROM = 5000;
 const KITCHEN_FROM = 8000;
