@@ -10,7 +10,8 @@
     "astro": "astro",
     "verify:links": "node scripts/verify-links.mjs",
     "sitemap:lastmod": "node scripts/sitemap-lastmod.mjs",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:victoria": "node scripts/test-victoria.mjs"
   },
   "dependencies": {
     "@astrojs/node": "^9.5.1",
