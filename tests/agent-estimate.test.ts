@@ -16,6 +16,7 @@ interface Setup {
   storeFailureAt?: 'reserve' | 'day';
   bumpValue?: (key: string) => number;
   duplicateRef?: string | null;
+  duplicateRoutingStatus?: 'complete' | 'incomplete';
   ghlFails?: boolean;
   ghlRejects?: boolean;
   upsertHangs?: boolean;
@@ -25,7 +26,7 @@ interface Setup {
 
 function setup(opts: Setup = {}) {
   const {
-    store = 'ok', storeFailureAt, bumpValue = () => 1, duplicateRef = null,
+    store = 'ok', storeFailureAt, bumpValue = () => 1, duplicateRef = null, duplicateRoutingStatus = 'complete',
     ghlFails = false, ghlRejects = false, upsertHangs = false, routingHangs = false,
     atomicDuplicates = false,
   } = opts;
@@ -36,27 +37,36 @@ function setup(opts: Setup = {}) {
     calls.push({ url: u, init });
     if (u.startsWith(STORE)) {
       if (store === 'down') throw new Error('store down');
-      if (u.endsWith('/rest/v1/rpc/consume_agent_token')) {
-        const { p_key, p_capacity } = JSON.parse(String(init.body));
+      if (u.endsWith('/rest/v1/rpc/consume_agent_limit')) {
+        const { p_key, p_limit } = JSON.parse(String(init.body));
         if (storeFailureAt === 'day' && p_key === 'estimate:day') {
           return new Response('private failure detail', { status: 503 });
         }
         const used = bumpValue(p_key);
         return new Response(JSON.stringify([{
-          allowed: used <= p_capacity,
-          remaining: Math.max(0, p_capacity - used),
+          allowed: used <= p_limit,
+          remaining: Math.max(0, p_limit - used),
         }]), { status: 200 });
       }
       if (u.endsWith('/rest/v1/rpc/reserve_agent_estimate')) {
         if (storeFailureAt === 'reserve') return new Response('private failure detail', { status: 503 });
         const body = JSON.parse(String(init.body));
-        if (duplicateRef) return new Response(JSON.stringify([{ acquired: false, reference: duplicateRef, reservation_status: 'completed' }]), { status: 200 });
+        if (duplicateRef) return new Response(JSON.stringify([{
+          acquired: false,
+          reference: duplicateRef,
+          reservation_status: 'completed',
+          routing_status: duplicateRoutingStatus,
+        }]), { status: 200 });
         if (atomicDuplicates) {
           const previous = reservations.get(body.p_payload_hash);
-          if (previous) return new Response(JSON.stringify([{ acquired: false, reference: previous, reservation_status: 'pending' }]), { status: 200 });
+          if (previous) return new Response(JSON.stringify([{
+            acquired: false, reference: previous, reservation_status: 'pending', routing_status: 'pending',
+          }]), { status: 200 });
           reservations.set(body.p_payload_hash, body.p_reference);
         }
-        return new Response(JSON.stringify([{ acquired: true, reference: body.p_reference, reservation_status: 'pending' }]), { status: 200 });
+        return new Response(JSON.stringify([{
+          acquired: true, reference: body.p_reference, reservation_status: 'pending', routing_status: 'pending',
+        }]), { status: 200 });
       }
       if (u.endsWith('/rest/v1/rpc/complete_agent_estimate')) return new Response('true', { status: 200 });
       if (u.endsWith('/rest/v1/rpc/release_agent_estimate')) return new Response('true', { status: 200 });
@@ -149,6 +159,12 @@ describe('POST /api/agent/estimate validation', () => {
       'go to www.example.com',
       'details at repairs.example.co.uk/path',
       'Unicode domain ｗｗｗ．example．com',
+      'IDNA dot example。com',
+      'IDNA halfwidth dot example｡com',
+      'Unicode labels пример.рф',
+      'Unicode labels 例え.テスト',
+      'Unicode label münich.de',
+      'email belongs only in its field ana@example.com',
     ]) {
       const r = await call({ ...valid, message });
       expect(r.status, message).toBe(400);
@@ -164,6 +180,7 @@ describe('POST /api/agent/estimate validation', () => {
       ['city', { city: 'ftp://spam.example' }],
       ['agent.name', { agent: { name: 'Bot javascript:run()', vendor: 'x' } }],
       ['agent.vendor', { agent: { name: 'Bot', vendor: 'spam.example' } }],
+      ['agent.name', { agent: { name: 'bot@例え。テスト', vendor: 'x' } }],
     ];
     for (const [field, patch] of cases) {
       const r = await call({ ...valid, ...patch });
@@ -265,7 +282,7 @@ describe('POST /api/agent/estimate limits and failures', () => {
   it('IP key is hashed, never the raw IP', async () => {
     const { calls } = setup();
     await call(valid);
-    const keys = calls.filter((c) => c.url.endsWith('/rpc/consume_agent_token')).map((c) => JSON.parse(String(c.init.body)).p_key);
+    const keys = calls.filter((c) => c.url.endsWith('/rpc/consume_agent_limit')).map((c) => JSON.parse(String(c.init.body)).p_key);
     expect(keys).toContain('estimate:day');
     const ipKey = keys.find((k: string) => k.startsWith('estimate:ip:'));
     expect(ipKey).toMatch(/^estimate:ip:[0-9a-f]{16}$/);
@@ -289,7 +306,7 @@ describe('POST /api/agent/estimate limits and failures', () => {
     expect(body.nextStep).toContain('same business day');
     expect(upserts()).toHaveLength(0);
     expect(leadInserts()).toHaveLength(1);
-    const keys = calls.filter((c) => c.url.endsWith('/rpc/consume_agent_token')).map((c) => JSON.parse(String(c.init.body)).p_key);
+    const keys = calls.filter((c) => c.url.endsWith('/rpc/consume_agent_limit')).map((c) => JSON.parse(String(c.init.body)).p_key);
     expect(keys).toHaveLength(1);
     expect(keys[0]).toMatch(/^estimate:ip:/);
   });
@@ -299,6 +316,20 @@ describe('POST /api/agent/estimate limits and failures', () => {
     expect((await call(valid)).status).toBe(200);
     expect((await call({ ...valid, message: 'A different project in the kitchen.' })).status).toBe(200);
     expect(upserts()).toHaveLength(2);
+  });
+
+  it('an exact duplicate preserves incomplete routing and never repeats the callback promise', async () => {
+    const { upserts } = setup({ duplicateRef: 'K7M2Q9XA', duplicateRoutingStatus: 'incomplete' });
+    const r = await call(valid);
+    expect(r.status).toBe(200);
+    expect(await r.json()).toEqual({
+      success: true,
+      reference: 'K7M2Q9XA',
+      nextStep: `Your contact information was saved. If this is urgent, call or text iFIXX at ${BRAND.phone}.`,
+      duplicate: true,
+      routingPending: true,
+    });
+    expect(upserts()).toHaveLength(0);
   });
 
   it('two concurrent identical requests produce one CRM write and one shared reference', async () => {
@@ -398,7 +429,12 @@ describe('POST /api/agent/estimate limits and failures', () => {
       await vi.advanceTimersByTimeAsync(8000);
       const r = await pending;
       expect(r.status).toBe(200);
-      expect(await r.json()).toMatchObject({ success: true, routingPending: true });
+      const body = await r.json();
+      expect(body).toMatchObject({ success: true, routingPending: true });
+      expect(body.nextStep).toBe(
+        `Your contact information was saved. If this is urgent, call or text iFIXX at ${BRAND.phone}.`
+      );
+      expect(body.nextStep).not.toContain('same business day');
       expect(upserts()).toHaveLength(1);
       expect(releases()).toHaveLength(0);
       expect(completions()).toHaveLength(1);

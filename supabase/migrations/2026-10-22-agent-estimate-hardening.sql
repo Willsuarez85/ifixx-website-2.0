@@ -8,9 +8,18 @@ alter table public.agent_leads
   add column if not exists completed_at timestamptz,
   add column if not exists routing_status text not null default 'complete';
 
+-- Existing rows were completed by the original endpoint. New reservations start pending.
+alter table public.agent_leads alter column routing_status set default 'pending';
+
 create index if not exists agent_leads_site_payload_created_idx
   on public.agent_leads (site, payload_hash, created_at desc)
   where payload_hash is not null;
+
+-- Durable manual outbox: operations must reconcile every row returned by the query
+-- documented in README-agentes.md before enabling the endpoint in production.
+create index if not exists agent_leads_incomplete_routing_idx
+  on public.agent_leads (completed_at, site, reference)
+  where status = 'completed' and routing_status = 'incomplete';
 
 create or replace function public.reserve_agent_estimate(
   p_site text,
@@ -21,7 +30,7 @@ create or replace function public.reserve_agent_estimate(
   p_vendor text default null,
   p_conversation_id text default null
 )
-returns table(acquired boolean, reference text, reservation_status text)
+returns table(acquired boolean, reference text, reservation_status text, routing_status text)
 language plpgsql
 volatile
 security invoker
@@ -30,13 +39,14 @@ as $$
 declare
   existing_reference text;
   existing_status text;
+  existing_routing_status text;
 begin
   perform pg_catalog.pg_advisory_xact_lock(
     pg_catalog.hashtextextended(p_site || ':' || p_payload_hash, 0)
   );
 
-  select l.reference, l.status
-    into existing_reference, existing_status
+  select l.reference, l.status, l.routing_status
+    into existing_reference, existing_status, existing_routing_status
     from public.agent_leads as l
    where l.site = p_site
      and l.payload_hash = p_payload_hash
@@ -46,17 +56,17 @@ begin
    limit 1;
 
   if existing_reference is not null then
-    return query select false, existing_reference, existing_status;
+    return query select false, existing_reference, existing_status, existing_routing_status;
     return;
   end if;
 
   insert into public.agent_leads (
-    site, reference, phone_hash, payload_hash, vendor, conversation_id, status
+    site, reference, phone_hash, payload_hash, vendor, conversation_id, status, routing_status
   ) values (
-    p_site, p_reference, p_phone_hash, p_payload_hash, p_vendor, p_conversation_id, 'pending'
+    p_site, p_reference, p_phone_hash, p_payload_hash, p_vendor, p_conversation_id, 'pending', 'pending'
   );
 
-  return query select true, p_reference, 'pending'::text;
+  return query select true, p_reference, 'pending'::text, 'pending'::text;
 end;
 $$;
 
@@ -74,6 +84,10 @@ security invoker
 set search_path = ''
 as $$
 begin
+  if p_routing_status not in ('complete', 'incomplete') then
+    raise exception 'invalid routing status';
+  end if;
+
   update public.agent_leads as l
      set contact_id = p_contact_id,
          status = 'completed',

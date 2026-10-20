@@ -1,6 +1,6 @@
 /**
  * Store of the AI-agent layer in Supabase (PostgREST over fetch, no SDK): rate-limit
- * rate buckets, estimate-request dedup and the conversation log. The base tables are
+ * rolling-window events, estimate-request dedup and the conversation log. The base tables are
  * followed by hardening migrations in supabase/migrations/.
  *
  * Protection calls return null on an unavailable or malformed store response. Callers
@@ -56,25 +56,25 @@ async function rest(env: StoreEnv, path: string, init: RequestInit = {}): Promis
   }
 }
 
-export interface TokenConsumption {
+export interface LimitConsumption {
   allowed: boolean;
   remaining: number;
 }
 
-/** Atomically consumes one token from a continuously refilled bucket. */
-export async function consumeToken(
+/** Atomically records one request if the exact rolling-window hard cap permits it. */
+export async function consumeRollingLimit(
   env: StoreEnv,
   key: string,
-  capacity: number,
-  refillSeconds: number
-): Promise<TokenConsumption | null> {
-  const res = await rest(env, 'rpc/consume_agent_token', {
+  limit: number,
+  windowSeconds: number
+): Promise<LimitConsumption | null> {
+  const res = await rest(env, 'rpc/consume_agent_limit', {
     method: 'POST',
     body: JSON.stringify({
       p_site: env.site,
       p_key: key,
-      p_capacity: capacity,
-      p_refill_seconds: refillSeconds,
+      p_limit: limit,
+      p_window_seconds: windowSeconds,
     }),
   });
   if (!res) return null;
@@ -93,6 +93,7 @@ export interface EstimateReservation {
   acquired: boolean;
   reference: string;
   status: 'pending' | 'completed';
+  routingStatus: 'pending' | 'complete' | 'incomplete';
 }
 
 /** Atomically reserves an exact normalized request before the CRM is called. */
@@ -124,8 +125,14 @@ export async function reserveEstimate(
     const rows = await res.json();
     const value = Array.isArray(rows) ? rows[0] : rows;
     return typeof value?.acquired === 'boolean' && typeof value?.reference === 'string' && value.reference &&
-      (value?.reservation_status === 'pending' || value?.reservation_status === 'completed')
-      ? { acquired: value.acquired, reference: value.reference, status: value.reservation_status }
+      (value?.reservation_status === 'pending' || value?.reservation_status === 'completed') &&
+      (value?.routing_status === 'pending' || value?.routing_status === 'complete' || value?.routing_status === 'incomplete')
+      ? {
+          acquired: value.acquired,
+          reference: value.reference,
+          status: value.reservation_status,
+          routingStatus: value.routing_status,
+        }
       : null;
   } catch {
     return null;

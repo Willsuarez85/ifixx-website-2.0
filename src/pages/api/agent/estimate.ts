@@ -1,8 +1,15 @@
 import type { APIRoute } from 'astro';
 import { randomInt } from 'node:crypto';
-import { AGENT_SERVICE_KEYS, AGENT_SITE_ID_DEFAULT, BRAND, LIMITS, estimateNextStep } from '../../../lib/agent-facts';
+import {
+  AGENT_SERVICE_KEYS,
+  AGENT_SITE_ID_DEFAULT,
+  BRAND,
+  LIMITS,
+  estimateNextStep,
+  estimateRoutingPendingNextStep,
+} from '../../../lib/agent-facts';
 import { agentEnv, clientIp, ipHash, jsonResponse, normalizePhone, optionsResponse, readJson, sha256Hex } from '../../../lib/agent-http';
-import { completeEstimate, consumeToken, releaseEstimate, reserveEstimate, type StoreEnv } from '../../../lib/agent-store';
+import { completeEstimate, consumeRollingLimit, releaseEstimate, reserveEstimate, type StoreEnv } from '../../../lib/agent-store';
 import { CONTACT_ONLY_ROUTING_ACTION, LeadIntakeError, submitLead } from '../../../lib/lead-intake';
 
 /**
@@ -16,7 +23,7 @@ const SHORT_FIELD_MAX = LIMITS.firstNameMax;
 const EMAIL_MAX = 254;
 // Agent-supplied free text is sent to GHL only as plain text. Reject link-shaped input;
 // downstream CRM fields/workflows must not render this text as HTML or a template.
-const URL_IN_TEXT = /(?:\b[a-z][a-z0-9+.-]{1,31}:(?:\/\/|[^\s])|\bwww\.|(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+(?:[a-z]{2,63}|xn--[a-z0-9-]{2,59})\b)/iu;
+const URL_IN_TEXT = /(?:\b[a-z][a-z0-9+.-]{1,31}:(?:\/\/|[^\s])|\bwww\.|(?:[\p{L}\p{N}](?:[\p{L}\p{N}\p{M}-]{0,61}[\p{L}\p{N}])?\.)+(?:[\p{L}\p{M}]{2,63}|xn--[a-z0-9-]{2,59})(?![\p{L}\p{N}\p{M}-]))/iu;
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const ZIP = /^\d{5}(-\d{4})?$/;
 const CONVERSATION_ID = /^[A-Za-z0-9._:-]+$/;
@@ -43,7 +50,13 @@ const bad = (error: string) => jsonResponse(400, { success: false, error });
 const failure = (status: number, error: string) => jsonResponse(status, { success: false, error, phone: BRAND.phone });
 
 /** Collapses whitespace and control characters to single spaces and trims. */
-const clean = (s: string) => s.normalize('NFKC').replace(/[\s\u0000-\u001f\u007f]+/g, ' ').trim();
+const clean = (s: string) => s
+  .normalize('NFKC')
+  // WHATWG/IDNA treat these as domain-label separators. Canonicalize them so a
+  // Unicode dot cannot hide a bare domain from the text-field check below.
+  .replace(/[\u3002\uFF0E\uFF61]/g, '.')
+  .replace(/[\s\u0000-\u001f\u007f]+/g, ' ')
+  .trim();
 
 /** 'OpenAI ChatGPT!' -> 'openai-chatgpt'; empty -> 'unknown'. */
 function vendorSlug(raw: unknown): string {
@@ -209,8 +222,7 @@ export const POST: APIRoute = async ({ request }) => {
       v.vendorSlug,
       v.conversationId ?? '',
     ]));
-    const nextStep = estimateNextStep(v.firstName);
-    const ipLimit = await consumeToken(
+    const ipLimit = await consumeRollingLimit(
       store,
       `estimate:ip:${ipHash(clientIp(request))}`,
       LIMITS.estimate.perIpPerHour,
@@ -242,10 +254,17 @@ export const POST: APIRoute = async ({ request }) => {
           retryAfterSeconds: 5,
         });
       }
-      return jsonResponse(200, { success: true, reference: reservation.reference, nextStep, duplicate: true });
+      const routingPending = reservation.routingStatus === 'incomplete';
+      return jsonResponse(200, {
+        success: true,
+        reference: reservation.reference,
+        nextStep: routingPending ? estimateRoutingPendingNextStep() : estimateNextStep(v.firstName),
+        duplicate: true,
+        ...(routingPending ? { routingPending: true } : {}),
+      });
     }
 
-    const dayLimit = await consumeToken(
+    const dayLimit = await consumeRollingLimit(
       store,
       'estimate:day',
       LIMITS.estimate.perDay,
@@ -260,8 +279,6 @@ export const POST: APIRoute = async ({ request }) => {
       return failure(503, 'temporarily_unavailable');
     }
 
-    // Generated before the CRM call so it is written into Project Notes, where staff can
-    // match it with what the assistant told the homeowner.
     let contactId: string;
     let routingIncomplete = false;
     try {
@@ -310,7 +327,7 @@ export const POST: APIRoute = async ({ request }) => {
     return jsonResponse(200, {
       success: true,
       reference,
-      nextStep,
+      nextStep: routingIncomplete ? estimateRoutingPendingNextStep() : estimateNextStep(v.firstName),
       ...(routingIncomplete ? { routingPending: true } : {}),
     });
   } catch {

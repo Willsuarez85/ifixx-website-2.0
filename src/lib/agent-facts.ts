@@ -358,6 +358,10 @@ export const publishedFaq = (askAnnounced: boolean): typeof APPROVED_FAQ =>
 export const estimateNextStep = (firstName: string): string =>
   `A person from iFIXX will call or text ${firstName} the same business day to confirm details and give the estimate. Photos can be texted to ${PHONE}.`;
 
+/** Safe response when the CRM contact exists but opportunity routing still needs staff action. */
+export const estimateRoutingPendingNextStep = (): string =>
+  `Your contact information was saved. If this is urgent, call or text iFIXX at ${PHONE}.`;
+
 // ---------------------------------------------------------------------------
 // Renderers. Generic in shape; every iFIXX string they print comes from above.
 // ---------------------------------------------------------------------------

@@ -24,14 +24,14 @@ Cinco piezas:
 | `src/lib/services-live.ts` | `liveServices()` lee la colección de servicios solo al generar los archivos llms; `ask` no carga `astro:content` en runtime. |
 | `src/lib/lead-intake.ts` | Armado del contacto y envío al CRM (`submitLead`); lo comparten `/api/lead` y `/api/agent/estimate`. |
 | `src/lib/agent-http.ts` | Respuestas JSON con CORS, `readJson` (tope de 16 KB), `clientIp`, `ipHash`, `normalizePhone`, `agentEnv` (variables). |
-| `src/lib/agent-store.ts` | Supabase por fetch: `consumeToken` (token buckets), reserva atómica de pedidos y `saveConversation`. Devuelve `null`/`false` cuando el almacén no confirma la operación. |
+| `src/lib/agent-store.ts` | Supabase por fetch: `consumeRollingLimit` (ventana móvil exacta), reserva atómica de pedidos y `saveConversation`. Devuelve `null`/`false` cuando el almacén no confirma la operación. |
 | `src/lib/victoria.ts` | Motor de respuestas de conjunto cerrado: `answer`, `exactMatch`, `classify`, `withIntro`. Modelo `claude-haiku-5-5` solo como clasificador. |
 | `src/lib/business-schema.ts` | Nodo de negocio del JSON-LD, a partir de los hechos. |
 | `src/pages/llms.txt.ts`, `src/pages/llms-full.txt.ts` | Sirven los textos de llms. |
 | `src/pages/api/agent/index.ts`, `estimate.ts`, `ask.ts` | Los tres endpoints. Genéricos: todo texto del cliente viene de `agent-facts.ts`. |
 | `supabase/migrations/2026-10-21-agent-layer.sql` | Tablas `agent_counters`, `agent_leads`, `agent_conversations` y función `bump_counter`. Idempotente. |
 | `supabase/migrations/2026-10-22-agent-estimate-hardening.sql` | Reserva atómica y ligada al contenido para impedir dos escrituras concurrentes al CRM. |
-| `supabase/migrations/2026-10-23-agent-rate-limit-token-bucket.sql` | Límites continuos por token bucket; evita el reinicio brusco en el borde de una hora o un día. |
+| `supabase/migrations/2026-10-23-agent-rate-limit-rolling-window.sql` | Límites duros por ventana móvil exacta; una cerradura por sitio/clave hace atómicos el conteo y la inserción. |
 | `scripts/test-victoria.mjs` | Preguntas trampa contra un servidor vivo. El bloque `SITE` de arriba es lo único que cambia por cliente. |
 
 ## Cómo contesta Victoria
@@ -77,12 +77,12 @@ Sin `SUPABASE_*`, o si Supabase no confirma un contador o una reserva, `estimate
 
 | Endpoint | Por IP por hora | Por sitio por día | Otros |
 |---|---|---|---|
-| `estimate` | 5 | 50 | Token buckets con recarga continua; la misma solicitud normalizada en 10 minutos devuelve la misma `reference`; si la primera sigue en curso responde 202 para reintentar |
+| `estimate` | 5 | 50 | Ventana móvil exacta; la misma solicitud normalizada en 10 minutos devuelve la misma `reference`; si la primera sigue en curso responde 202 para reintentar |
 | `ask` | 20 | 500 | Pasado el tope diario: respaldo estático con `degraded: true` |
 
 Cuerpo JSON máximo 16 KB (`bodyMaxBytes`). `question` hasta 1000 caracteres; `history` hasta 10 turnos de 1000; `message` hasta 2000 y sin URLs. Superar el límite por IP en `ask` responde 429 con el respaldo.
 
-El formulario existente `/api/lead` conserva su flujo sin deadline nuevo. Solo `agent/estimate` pasa un presupuesto total de 8 segundos al CRM. Si el contacto queda confirmado pero el ruteo no termina, responde éxito con `routingPending: true`, registra el estado `incomplete` en Supabase y conserva el contacto etiquetado para seguimiento; nunca deja una promesa en background. Si el resultado del upsert es ambiguo, mantiene la reserva pendiente para bloquear un duplicado inmediato.
+El formulario existente `/api/lead` conserva su flujo sin deadline nuevo. Solo `agent/estimate` pasa un presupuesto total de 8 segundos al CRM. Si el contacto queda confirmado pero el ruteo no termina, responde éxito con `routingPending: true` y un `nextStep` degradado que solo confirma que guardó el contacto e indica el teléfono publicado para asuntos urgentes. Registra `routing_status = 'incomplete'` en Supabase; un duplicado exacto vuelve a exponer ese estado y nunca repite la promesa de respuesta el mismo día. Si el resultado del upsert es ambiguo, mantiene la reserva pendiente para bloquear un duplicado inmediato.
 
 Los campos libres de `agent/estimate` rechazan esquemas y dominios visibles, se normalizan como texto y se envían a campos de texto plano. La suposición operativa es que GHL y sus workflows no interpretan Project Notes, nombres o ciudad como HTML, Markdown ni plantillas; si eso cambia, el consumidor debe escapar el texto al renderizarlo.
 
@@ -128,5 +128,16 @@ Sale con código 1 si alguna respuesta rompe las reglas, si una cotización, res
 ## Dónde mirar el registro
 
 En el proyecto Supabase de la capa, tablas `agent_conversations` (pregunta, respuesta, `matched_faq`, `flagged`, `violations`, tokens, `degraded`, filtradas por `site`) y `agent_leads` (referencias de pedidos, teléfono hasheado). Solo la llave de servicio las lee. La IP se guarda como hash de 16 caracteres.
+
+`agent_leads` también es la bandeja durable del ruteo incompleto. **No hay reintento automático.** Antes de habilitar `agent/estimate` en Production debe existir una conciliación operativa que ejecute, atienda y marque fuera de este endpoint esta consulta:
+
+```sql
+select site, reference, contact_id, completed_at
+from public.agent_leads
+where status = 'completed' and routing_status = 'incomplete'
+order by completed_at asc;
+```
+
+La migración agrega un índice parcial para esa consulta. Hasta que el responsable confirme el proceso de conciliación, `routingPending` significa seguimiento manual pendiente, no una promesa de reintento.
 
 Leads de asistentes en el CRM: contactos con la etiqueta `ai-assistant-lead`. El resumen diario de las conversaciones lo produce un script del operador, fuera de este repo.
