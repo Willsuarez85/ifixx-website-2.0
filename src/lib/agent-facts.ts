@@ -370,7 +370,7 @@ function servicesSection(services: ServiceSummary[], level: '##' | '###'): strin
   for (const { pillar, heading, intro } of PILLARS) {
     const list = services.filter((s) => s.pillar === pillar);
     out.push(`${level} ${heading}`, '', intro, '');
-    for (const s of list) out.push(`- [${s.title}](${serviceUrl(s.url)}): ${s.summary}`);
+    for (const s of list) out.push(`- [${s.title}](${serviceUrl(s.url)})${s.summary ? `: ${s.summary}` : ''}`);
     out.push('');
   }
   return out;

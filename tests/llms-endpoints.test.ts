@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { toServiceSummaries } from '../src/lib/services-live';
+import { renderLlmsTxt } from '../src/lib/agent-facts';
 
 const RETIRED = ['plumbing', 'electrical-fixtures', 'pressure-washing', 'outdoor-living', 'basement-finishing'];
 
@@ -45,5 +46,35 @@ describe('toServiceSummaries', () => {
       { slug: 'drywall', title: 'T drywall', pillar: 'repairs', summary: 'S drywall', url: '/repairs/drywall' },
       { slug: 'decks', title: 'T decks', pillar: 'remodeling', summary: 'S decks', url: '/remodeling/decks' },
     ]);
+  });
+});
+
+describe('summaries pass the guardrail', () => {
+  const fixture = (slug: string, summary: string) => ({ slug, data: { title: `T ${slug}`, pillar: 'repairs' as const, summary } });
+
+  it('publishes a service with an empty summary when the summary breaks a rule', () => {
+    const [out] = toServiceSummaries([fixture('doors-windows', 'Insured South Charlotte handyman, same-week install.')]);
+    expect(out.slug).toBe('doors-windows');
+    expect(out.summary).toBe('');
+  });
+
+  it('keeps a clean summary', () => {
+    const [out] = toServiceSummaries([fixture('painting', 'Interior and exterior painting.')]);
+    expect(out.summary).toBe('Interior and exterior painting.');
+  });
+
+  it('blanks the real doors-windows summary and keeps every service listed', () => {
+    const real = realEntries();
+    const out = toServiceSummaries(real);
+    expect(out.find((s) => s.slug === 'doors-windows')?.summary).toBe('');
+    expect(out.length).toBe(real.filter((e) => !RETIRED.includes(e.slug)).length);
+  });
+
+  it('renders an empty summary as a bare link, no trailing colon', () => {
+    const txt = renderLlmsTxt([
+      { slug: 'doors-windows', title: 'Doors & Windows', pillar: 'repairs', summary: '', url: '/repairs/doors-windows' },
+    ]);
+    expect(txt).toContain('- [Doors & Windows](https://www.ifixxnc.com/repairs/doors-windows)\n');
+    expect(txt).not.toContain('/repairs/doors-windows):');
   });
 });
