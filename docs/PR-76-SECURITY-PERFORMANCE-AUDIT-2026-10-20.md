@@ -36,3 +36,71 @@ The follow-up SQL has only static and mocked coverage. Applying migrations 22 an
 - No literal secret was found in source, tests, fixtures, or the local build made without production environment values. The deployed artifact remains unverified.
 - Extraction of `lead-intake.ts` did not change the existing form sequence in the audited snapshot; characterization tests passed.
 - The llms endpoints add negligible build work, business JSON-LD adds only a few hundred HTML bytes, and no new browser JavaScript was shipped.
+
+## Independent night review, 2026-10-20
+
+Reviewed from a fresh worktree on `agent-layer` at `edcdcc1` (contains `origin/main` at `baeb509`). Every diff against `origin/main` was read in full; no summary was trusted. No production endpoint, CRM, Supabase project, model endpoint or GitHub remote was touched. No credentials were requested or read.
+
+### Verification run
+
+| Check | Result |
+|---|---|
+| `vitest run` | 299 passed, 13 files (297 before this review, 2 added) |
+| `scripts/test-attribution.mjs` | 11 PASS, 0 FAIL |
+| `npm run build` + `verify:links` | exit 0, 56 pages, no broken links |
+| Server bundle (`_render.func`, own `.mjs` without `node_modules`) | 499,125 bytes (merged snapshot: 2,353,719) |
+| Internal names, local paths or key-shaped strings in `origin/main..agent-layer` | 0 hits |
+| SQL execution, grants in effect, Postgres concurrency | **unverified**: no non-production database was available in this session |
+
+### Finding by finding
+
+| ID | Status | Evidence in code and tests |
+|---|---|---|
+| F01 | Confirmed fixed | `estimate.ts` returns 503 before any CRM call when the store is unconfigured, unreachable, or answers a malformed row for the IP limit, the reservation or the daily limit; `agent-store.ts` returns `null` instead of an allowed sentinel. Tests: store down, store env missing, reserve and day RPC failures. |
+| F02 | Confirmed fixed | `publishedFaq(false)` returns an empty list; `llms-full.txt` prints no candidate answer until `ASK_ANNOUNCED`. |
+| F03 | Confirmed fixed | `victoria.ts` no longer drafts: exact match, classifier to an approved id, or the fixed fallback. `generate`, the history quoting and the Spanish check were removed with their call sites. The guardrail remains only as a build-time check on service summaries. |
+| F04 | Confirmed fixed | `submitLead` takes `totalTimeoutMs`; `estimate.ts` passes 8,000 ms. Every fetch, body read and sleep in the agent path shares the deadline. The website form path passes no options and keeps unbounded fetches and fixed waits; a test asserts no `AbortSignal` is attached there. |
+| F05 | Confirmed fixed in code; database unverified | `reserve_agent_estimate` takes a transaction advisory lock on the site and payload hash, then selects or inserts. Concurrency is proven only against a mocked atomic store. |
+| F06 | Confirmed fixed | Dedup key is the hash of the normalized payload; an in-progress twin answers 202 `request_in_progress`; a completed twin answers 200 with the stored routing state. A phone alone no longer returns another request's reference. |
+| F07 | Confirmed fixed in code; database unverified | `consume_agent_limit` counts and inserts under a per-key advisory lock with `clock_timestamp()` taken after the lock. Limits and windows are pinned inside SQL and checked against the caller's values. |
+| F08 | Confirmed fixed | `readJson` cancels the reader after 2,000 ms; test with a stream that never closes. |
+| F09 | Confirmed fixed | `ask.ts` no longer imports `services-live`; `astro:content` stays in the prerendered llms routes and the layout. Bundle measured above. |
+| F10 | Confirmed fixed in code; runtime unverified | `lead.ts` reads both CRM variables from `process.env`. The deployment must expose them at runtime, which this review could not check. |
+| F11 | Confirmed fixed | Logs carry status codes and fixed messages; no upstream body or payload object. The characterization fixture changed only in its `logs` arrays; the recorded CRM requests and HTTP responses are byte-identical. |
+| F12 | Open, decision needed | Unchanged. Proposal below. |
+| F13 | Partial | Rate events are pruned past 24 hours inside the RPC. Conversations and leads still have no retention. Proposal below. |
+| F14 | Confirmed fixed; residual repaired tonight | See N02. |
+
+### New findings in this review
+
+| ID | Severity | Status | Detail |
+|---|---|---|---|
+| N01 | Low | Fixed, `e0641e5` | `consume_agent_limit` pruned expired rows before taking the per-key advisory lock and deleted the key's own expired rows after it. A caller holding row locks from its prune while queuing for the advisory lock could be waited on by the lock holder's scoped delete whenever an event crossed the 24-hour boundary between the two prunes. Postgres would abort one transaction, turning one legitimate request into a 503. Both deletes now select rows with `FOR UPDATE SKIP LOCKED`; expired rows are never counted, so skipping them is safe. Needs the same database run as the rest of the SQL. |
+| N02 | Low | Fixed, `78f08ea` | Reproduced the residual: `example.com&1`, `example.com$1`, `example.com+1`, `example.com~`, `example.com^` and `<example.com>` passed the bare-domain check because the candidate split did not break on those characters and IDNA conversion rejected the glued token. A strict second cut isolates hostname-shaped runs; the loose cut is kept so emoji and symbolic TLDs are still caught. Structured email and ZIP fields are untouched; a prose message with prices, ampersands and measurements still passes. |
+
+### Static audit of migrations 22 and 23
+
+- Idempotent: `add column if not exists`, `create index if not exists`, `create or replace function`, `create table if not exists`. Re-running either file is safe.
+- Locks: transaction-scoped advisory locks keyed by `hashtextextended`, released at commit; row locks only from the two deletes, now skip-locked (N01). Reservation lookback uses transaction time; limit timestamps use `clock_timestamp()` after the lock.
+- Grants and roles: every function is `security invoker` with `search_path = ''` and fully qualified references; execute revoked from `public`, `anon`, `authenticated` and granted to `service_role`. `agent_rate_events` has RLS enabled with no policies and explicit `select, insert, delete` for `service_role`. Existing `agent_leads` privileges for `service_role` are inherited from the original migration and from project defaults, which were not inspected.
+- Column defaults: `agent_leads.status` defaults to `completed` for pre-existing rows, then `routing_status` defaults to `pending` for new rows; the RPC sets both explicitly, so defaults only matter for rows written outside it.
+- Rollback: none shipped. Manual reversal is `drop function` for the four RPCs, `drop table public.agent_rate_events`, and leaving the three nullable or defaulted columns in place. The old `bump_counter` function and `agent_counters` table remain and can be dropped once the new RPCs are confirmed.
+- Not verified without a database: syntax acceptance, the `return query` column typing, `ctid in (select ... for update skip locked)` on the target table, effective privileges, and behavior under real concurrent sessions.
+
+### Discarded, with reasons
+
+- `clean()` now collapses newlines in `message` before it reaches Project Notes. It is a readability change in the CRM note, not a failure; it is what allows the Unicode-dot canonicalization. Left as is.
+- The scheme check rejects any `word:nonspace` token (for example `Re:deck`). It is a deliberate widening to catch `javascript:`, `data:` and similar schemes; the assistant receives a clear 400 and can rephrase. Left as is.
+- Abbreviations written without a space such as `sq.ft` or `Mr.Smith` are rejected as bare domains. Pre-existing in the branch, same mitigation. Left as is.
+- Rolling-limit prune on every call is a range delete on a time index that usually matches nothing; acceptable at the documented caps.
+- The environment variable the code reads is `SUPABASE_SERVICE_KEY`. Any deployment note that names a different variable must be corrected before enabling the store.
+
+### Proposals for decision, not decided here
+
+**F12, service-role scope.** Option A: a separate Supabase project that holds only the agent tables, so the credential in the function reaches nothing else; cheapest to reason about, one more project to maintain. Option B: in the current project, a dedicated Postgres role granted only `execute` on the five RPCs and `insert` on `agent_conversations`, exposed through PostgREST with a JWT whose `role` claim is that role; no RLS bypass, but it requires minting and rotating that JWT and adding the role to `authenticator`. Either option must be validated against the deployed grants before use.
+
+**F13, retention.** Conversations: keep `question` and `answer` for 90 days, then null them and keep only the metadata row for counts; `ip_hash` and `user_agent` dropped at 30 days. Leads: completed rows keep `reference` and `contact_id` for 13 months to match one year of CRM follow-up; `pending` rows older than 30 days are closed by the reconciliation owner, never deleted silently. Rate events already expire at 24 hours. Implementation would be one scheduled SQL job per table, outside the request path.
+
+### Verdict
+
+**SHIP** as a local follow-up for review and publication: every code finding is confirmed fixed or fixed in this review, the website form's CRM traffic is unchanged, tests, attribution, build and bundle are clean, and nothing internal is in the diff. **Do not deploy** until migrations 22 and 23 run against a non-production database with the deployed role and a concurrency test, and until the owner decides F12, F13 and the reconciliation procedure.
