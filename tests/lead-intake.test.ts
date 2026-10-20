@@ -78,4 +78,16 @@ describe('submitLead', () => {
     // 8 routing searches + 4 cleanup searches, never a live host other than the CRM mock.
     expect(fetchMock.mock.calls.filter(([u]) => String(u).includes('/opportunities/search?')).length).toBe(12);
   });
+
+  it('aborts and rejects a CRM request that does not answer within five seconds', async () => {
+    let signal: AbortSignal | undefined;
+    vi.stubGlobal('fetch', vi.fn(async (_url: any, init: RequestInit = {}) => {
+      signal = init.signal ?? undefined;
+      return new Promise<Response>(() => {});
+    }));
+    const rejected = expect(submitLead(base, env)).rejects.toThrow('GHL request timed out');
+    await vi.advanceTimersByTimeAsync(5000);
+    await rejected;
+    expect(signal?.aborted).toBe(true);
+  });
 });

@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { randomInt } from 'node:crypto';
 import { AGENT_SERVICE_KEYS, AGENT_SITE_ID_DEFAULT, BRAND, LIMITS, estimateNextStep } from '../../../lib/agent-facts';
 import { agentEnv, clientIp, ipHash, jsonResponse, normalizePhone, optionsResponse, readJson, sha256Hex } from '../../../lib/agent-http';
-import { bump, recentLeadReference, saveLead, type StoreEnv } from '../../../lib/agent-store';
+import { bump, completeEstimate, releaseEstimate, reserveEstimate, type StoreEnv } from '../../../lib/agent-store';
 import { submitLead } from '../../../lib/lead-intake';
 
 /**
@@ -90,7 +90,7 @@ function validate(data: unknown): Validated {
     return { ok: false, error: 'phone is required: a US phone number with 10 digits, for example (XXX) XXX-XXXX or +1 XXX XXX XXXX.' };
   }
 
-  const message = typeof d.message === 'string' ? d.message.trim() : '';
+  const message = typeof d.message === 'string' ? clean(d.message) : '';
   if (!message || message.length > LIMITS.messageMax) {
     return { ok: false, error: `message is required, 1 to ${LIMITS.messageMax} characters.` };
   }
@@ -180,41 +180,67 @@ export const POST: APIRoute = async ({ request }) => {
     const env = agentEnv(AGENT_SITE_ID_DEFAULT);
     const store: StoreEnv = { url: env.supabaseUrl, key: env.supabaseKey, site: env.site };
 
-    // Without a configured store there are no rate limits and no daily cap. In Production
-    // that would be an unlimited path into the CRM, so the endpoint pauses instead. A store
-    // that is configured but failing still fails open (counters -1, no dedup).
-    if ((!store.url || !store.key) && process.env.VERCEL_ENV === 'production') {
-      console.error('agent estimate: store not configured in production, requests paused');
+    if (!store.url || !store.key) {
+      console.error('agent estimate: store not configured, requests paused');
       return failure(503, 'temporarily_unavailable');
     }
 
-    // Counters answer -1 and the dedup lookup answers null when the store is down: the
-    // request goes through (agent-store logs 'agent-store:unprotected' once).
-    // The phone hash is pseudonymization, not anonymity: a known phone can be hashed and matched.
     const phoneHash = sha256Hex(v.phone);
+    const payloadHash = sha256Hex(JSON.stringify([
+      v.firstName,
+      v.lastName ?? '',
+      v.email ?? '',
+      v.zipCode ?? '',
+      v.city ?? '',
+      v.phone,
+      v.message,
+      v.service,
+      v.vendorSlug,
+      v.conversationId ?? '',
+    ]));
     const nextStep = estimateNextStep(v.firstName);
-    // The IP limit covers dedup hits too (a hit returns a reference); the daily budget is
-    // spent only by requests that can reach the CRM.
-    const [ipCount, previous] = await Promise.all([
-      bump(store, `estimate:ip:${ipHash(clientIp(request))}`, LIMITS.ipWindowSeconds),
-      recentLeadReference(store, phoneHash, LIMITS.estimate.duplicateWindowSeconds),
-    ]);
+    const ipCount = await bump(store, `estimate:ip:${ipHash(clientIp(request))}`, LIMITS.ipWindowSeconds);
+    if (ipCount === null) return failure(503, 'temporarily_unavailable');
     if (ipCount > LIMITS.estimate.perIpPerHour) return failure(429, 'rate_limited');
-    if (previous) {
-      return jsonResponse(200, { success: true, reference: previous, nextStep, duplicate: true });
-    }
     if (!env.ghlApiKey || !env.ghlLocationId) {
       console.error('agent estimate: missing GHL configuration');
       return failure(502, 'crm_unavailable');
     }
 
-    if ((await bump(store, 'estimate:day', LIMITS.dayWindowSeconds)) > LIMITS.estimate.perDay) {
+    const reference = makeReference();
+    const reservation = await reserveEstimate(store, {
+      payloadHash,
+      phoneHash,
+      reference,
+      withinSeconds: LIMITS.estimate.duplicateWindowSeconds,
+      vendor: v.vendorSlug,
+      conversationId: v.conversationId,
+    });
+    if (!reservation) return failure(503, 'temporarily_unavailable');
+    if (!reservation.acquired) {
+      if (reservation.status === 'pending') {
+        return jsonResponse(202, {
+          success: false,
+          error: 'request_in_progress',
+          reference: reservation.reference,
+          retryAfterSeconds: 5,
+        });
+      }
+      return jsonResponse(200, { success: true, reference: reservation.reference, nextStep, duplicate: true });
+    }
+
+    const dayCount = await bump(store, 'estimate:day', LIMITS.dayWindowSeconds);
+    if (dayCount === null) {
+      await releaseEstimate(store, { payloadHash, reference });
+      return failure(503, 'temporarily_unavailable');
+    }
+    if (dayCount > LIMITS.estimate.perDay) {
+      await releaseEstimate(store, { payloadHash, reference });
       return failure(503, 'temporarily_unavailable');
     }
 
     // Generated before the CRM call so it is written into Project Notes, where staff can
     // match it with what the assistant told the homeowner.
-    const reference = makeReference();
     let contactId: string;
     try {
       ({ contactId } = await submitLead(
@@ -234,22 +260,19 @@ export const POST: APIRoute = async ({ request }) => {
         { apiKey: env.ghlApiKey, locationId: env.ghlLocationId, origin: new URL(request.url).origin }
       ));
     } catch (err) {
-      console.error('agent estimate: CRM intake failed:', err);
+      await releaseEstimate(store, { payloadHash, reference });
+      console.error('agent estimate: CRM intake failed');
       return failure(502, 'crm_unavailable');
     }
 
-    await saveLead(store, {
-      reference,
-      phoneHash,
-      vendor: v.vendorSlug,
-      conversationId: v.conversationId,
-      contactId,
-    });
+    if (!(await completeEstimate(store, { payloadHash, reference, contactId }))) {
+      console.error('agent estimate: could not mark reservation completed');
+    }
 
     console.log(`Agent lead: ref ${reference} | agent:${v.vendorSlug} | service ${v.service}`);
     return jsonResponse(200, { success: true, reference, nextStep });
-  } catch (err) {
-    console.error('agent estimate: unexpected error:', err);
+  } catch {
+    console.error('agent estimate: unexpected error');
     return failure(502, 'crm_unavailable');
   }
 };

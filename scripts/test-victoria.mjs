@@ -6,8 +6,7 @@
 //
 // It fires the trap questions in SITE.questions, and fails if any answer breaks the
 // language rules or does not hand a quote, a booking or an out-of-area request to a person.
-// The rule list below is deliberately independent from src/lib/agent-guardrail.ts: if the
-// guardrail regresses, this test must not regress with it.
+// The rule list below independently checks both approved answers and the fixed fallback.
 //
 // The endpoint allows 20 questions per hour per IP: one full run per hour is enough.
 // Exit code: 0 all pass; 1 any FAIL, or more than half the answers degraded (the model or
@@ -234,7 +233,7 @@ async function ask(question) {
 let pass = 0;
 let fail = 0;
 let approved = 0;
-let drafted = 0;
+let fallback = 0;
 let degraded = 0;
 
 console.log(`Victoria trap questions against ${base} (${SITE.questions.length} questions)\n`);
@@ -254,7 +253,7 @@ for (const [i, item] of SITE.questions.entries()) {
     if (!answer) problems.push('no answer in response');
     if (data?.degraded) degraded++;
     else if (data?.matchedFaq) approved++;
-    else drafted++;
+    else fallback++;
     if (answer) {
       for (const v of violations(answer)) problems.push(`forbidden: ${v}`);
       if (item.derive && !derivesToPerson(answer)) {
@@ -279,7 +278,7 @@ for (const [i, item] of SITE.questions.entries()) {
 
 const total = pass + fail;
 console.log(`${pass} PASS / ${fail} FAIL`);
-console.log(`Answers: ${approved} approved (matchedFaq), ${drafted} drafted, ${degraded} degraded`);
+console.log(`Answers: ${approved} approved (matchedFaq), ${fallback} fallback, ${degraded} degraded`);
 
 let exit = fail ? 1 : 0;
 if (degraded * 2 > total) {

@@ -347,16 +347,12 @@ export const faqFraming = (askAnnounced: boolean): string =>
     ? `Answers ${BRAND.name} has approved. They are written in ${BRAND.name}'s voice: "we" is ${BRAND.name}, and "I" and "this assistant" are Victoria, ${BRAND.name}'s virtual assistant.`
     : `Answers ${BRAND.name} has approved. They are written in ${BRAND.name}'s voice: "we" is ${BRAND.name}.`;
 
-/** Answers spoken by Victoria herself; published only once the chat endpoint is announced. */
-const VICTORIA_VOICED_FAQ = ['faq-26', 'faq-27'];
-
 /**
- * The approved answers that the public files may print. While the chat is not announced,
- * the two answers in Victoria's own voice (they point to an assistant nobody can reach
- * yet) stay out. Victoria's system prompt always carries all 28.
+ * Public answer publication shares the owner's launch gate. Before that explicit gate,
+ * business facts remain public but no candidate FAQ wording is represented as approved.
  */
 export const publishedFaq = (askAnnounced: boolean): typeof APPROVED_FAQ =>
-  askAnnounced ? APPROVED_FAQ : APPROVED_FAQ.filter((f) => !VICTORIA_VOICED_FAQ.includes(f.id));
+  askAnnounced ? APPROVED_FAQ : [];
 
 /** Text returned to the assistant after POST /api/agent/estimate succeeds. */
 export const estimateNextStep = (firstName: string): string =>
@@ -642,9 +638,10 @@ function buildApi(serviceKeys: string[]) {
     },
     limitsText:
       `${LIMITS.estimate.perIpPerHour} requests per hour per IP and ${LIMITS.estimate.perDay} per day for the site. ` +
-      `A repeated request with the same phone inside a ${LIMITS.estimate.duplicateWindowSeconds / 60}-minute window returns the same reference with duplicate set to true. ` +
+      `An identical normalized request inside a ${LIMITS.estimate.duplicateWindowSeconds / 60}-minute window returns the same reference with duplicate set to true. ` +
       `JSON body up to ${LIMITS.bodyMaxBytes / 1024} KB.`,
     errors: {
+      '202': 'request_in_progress: an identical request is currently reaching the CRM. Retry after retryAfterSeconds.',
       '400': 'Invalid body or field: the error says which one.',
       '429': `rate_limited: too many requests from this IP. The response includes the phone, ${BRAND.phone}.`,
       '502': `crm_unavailable: the request could not be saved. Ask the homeowner to call or text ${BRAND.phone}.`,

@@ -57,8 +57,7 @@
     "logs": [
       [
         "warn",
-        "GHL rejected extended attributionSource, retrying with core fields:",
-        "{\"message\":\"property url should not exist\"}"
+        "GHL rejected extended attributionSource (400), retrying with core fields"
       ],
       [
         "log",
@@ -256,8 +255,7 @@
     "logs": [
       [
         "warn",
-        "GHL rejected extended attributionSource, retrying with core fields:",
-        "{\"message\":\"bad\"}"
+        "GHL rejected extended attributionSource (422), retrying with core fields"
       ],
       [
         "log",
@@ -283,8 +281,7 @@
     "logs": [
       [
         "error",
-        "GHL Upsert Error:",
-        "upstream down"
+        "GHL Upsert Error: 500"
       ],
       [
         "error",
@@ -311,8 +308,7 @@
     "logs": [
       [
         "error",
-        "GHL Upsert Missing Contact ID:",
-        "{\"contact\":{}}"
+        "GHL Upsert Missing Contact ID"
       ],
       [
         "error",

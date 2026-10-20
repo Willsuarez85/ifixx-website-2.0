@@ -66,6 +66,7 @@ export interface LeadRouting {
 const OUTDOOR_PIPELINE_ID = 'QlQ4FGiqHYUgMAUwxjb1';
 const OUTDOOR_NEW_LEAD_STAGE_ID = '2f5e3e61-cbe2-4350-8010-dd8c3335d419';
 const HANDYMAN_PIPELINE_ID = 'ohDTFoWOfNfAYQ89MWEo';
+const GHL_REQUEST_TIMEOUT_MS = 5000;
 
 // campaignTest value that every South Charlotte service-test landing form posts
 // (see LandingEstimateForm.astro). It is what earns the 'south-charlotte-test' tag.
@@ -231,7 +232,7 @@ async function ghlRequest(
     apiKey: string,
     init: RequestInit = {}
 ) {
-    return fetch(`https://services.leadconnectorhq.com${path}`, {
+    return fetchWithTimeout(`https://services.leadconnectorhq.com${path}`, {
         ...init,
         headers: {
             'Authorization': `Bearer ${apiKey}`,
@@ -242,8 +243,26 @@ async function ghlRequest(
     });
 }
 
+async function fetchWithTimeout(url: string, init: RequestInit): Promise<Response> {
+    const controller = new AbortController();
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const timeout = new Promise<never>((_, reject) => {
+        timer = setTimeout(() => {
+            controller.abort();
+            reject(new Error('GHL request timed out'));
+        }, GHL_REQUEST_TIMEOUT_MS);
+    });
+    const work = fetch(url, { ...init, signal: controller.signal });
+    work.catch(() => {});
+    try {
+        return await Promise.race([work, timeout]);
+    } finally {
+        clearTimeout(timer);
+    }
+}
+
 async function upsertContact(apiKey: string, body: Record<string, any>) {
-    return fetch('https://services.leadconnectorhq.com/contacts/upsert', {
+    return fetchWithTimeout('https://services.leadconnectorhq.com/contacts/upsert', {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${apiKey}`,
@@ -266,8 +285,7 @@ async function searchContactOpportunities(apiKey: string, locationId: string, co
     });
 
     if (!response.ok) {
-        const err = await response.text();
-        throw new Error(`Failed to search GHL opportunities: ${err}`);
+        throw new Error(`Failed to search GHL opportunities (${response.status})`);
     }
 
     const result = await response.json();
@@ -280,8 +298,7 @@ async function deleteOpportunity(apiKey: string, opportunityId: string) {
     });
 
     if (!response.ok) {
-        const err = await response.text();
-        throw new Error(`Failed to delete duplicate Handyman opportunity: ${err}`);
+        throw new Error(`Failed to delete duplicate Handyman opportunity (${response.status})`);
     }
 }
 
@@ -370,8 +387,7 @@ async function routeWebsiteOpportunity(options: {
             });
 
             if (!response.ok) {
-                const err = await response.text();
-                throw new Error(`Failed to move opportunity to Ifixx 2026 pipeline: ${err}`);
+                throw new Error(`Failed to move opportunity to Ifixx 2026 pipeline (${response.status})`);
             }
 
             return { action: 'moved-from-handyman', opportunityId: openHandyman.id, deletedHandymanDuplicates: [] };
@@ -393,8 +409,7 @@ async function routeWebsiteOpportunity(options: {
     });
 
     if (!response.ok) {
-        const err = await response.text();
-        throw new Error(`Failed to create Ifixx 2026 opportunity: ${err}`);
+        throw new Error(`Failed to create Ifixx 2026 opportunity (${response.status})`);
     }
 
     const result = await response.json();
@@ -631,8 +646,7 @@ export async function submitLead(
     // GHL answers 4xx when it dislikes a property in the body. Rather than dropping
     // the lead, retry once with the attribution fields that are known to work.
     if (!contactResponse.ok && contactResponse.status < 500 && hasExtendedAttribution) {
-        const err = await contactResponse.text();
-        console.warn('GHL rejected extended attributionSource, retrying with core fields:', err);
+        console.warn(`GHL rejected extended attributionSource (${contactResponse.status}), retrying with core fields`);
 
         const fallbackBody = { ...upsertBody };
         if (hasCoreAttribution) {
@@ -645,8 +659,7 @@ export async function submitLead(
     }
 
     if (!contactResponse.ok) {
-        const err = await contactResponse.text();
-        console.error('GHL Upsert Error:', err);
+        console.error(`GHL Upsert Error: ${contactResponse.status}`);
         throw new Error('Failed to create contact in GHL');
     }
 
@@ -654,7 +667,7 @@ export async function submitLead(
     const contactId = contactResult.contact?.id || contactResult.id;
 
     if (!contactId) {
-        console.error('GHL Upsert Missing Contact ID:', JSON.stringify(contactResult));
+        console.error('GHL Upsert Missing Contact ID');
         throw new Error('GHL did not return a contact ID');
     }
 

@@ -1,12 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { APIContext } from 'astro';
 
-vi.mock('../src/lib/services-live', () => ({
-  liveServices: async () => [
-    { slug: 'screened-porches', title: 'Screened Porches', pillar: 'remodeling', summary: '', url: '/remodeling/screened-porches' },
-  ],
-}));
-
 import { POST, OPTIONS } from '../src/pages/api/agent/ask';
 import { GET as GET_API } from '../src/pages/api/agent/index';
 import { APPROVED_FAQ, ASK_ANNOUNCED, BRAND, FALLBACK_ANSWER, VICTORIA_INTRO, askEnabled } from '../src/lib/agent-facts';
@@ -17,7 +11,7 @@ const HOURS = APPROVED_FAQ.find((f) => f.id === 'faq-09')!;
 
 interface Setup {
   store?: 'ok' | 'down' | 'hang-insert';
-  bumpValue?: (key: string) => number;
+  bumpValue?: (key: string) => number | null;
   classified?: string;
   generated?: string;
   modelStatus?: number;
@@ -33,7 +27,7 @@ function setup(opts: Setup = {}) {
       if (store === 'down') throw new Error('store down');
       if (u.endsWith('/rest/v1/rpc/bump_counter')) {
         const { p_key } = JSON.parse(String(init.body));
-        return new Response(String(bumpValue(p_key)), { status: 200 });
+        return new Response(JSON.stringify(bumpValue(p_key)), { status: 200 });
       }
       if (u.endsWith('/rest/v1/agent_conversations')) {
         if (store === 'hang-insert') return new Promise<Response>(() => {});
@@ -88,6 +82,13 @@ afterEach(() => {
 });
 
 describe('ask gate (ASK_ANNOUNCED / AGENT_ASK_PREVIEW)', () => {
+  it('runtime handler does not import Astro content collections', async () => {
+    const { readFileSync } = await import('node:fs');
+    const source = readFileSync('src/pages/api/agent/ask.ts', 'utf8');
+    expect(source).not.toContain('services-live');
+    expect(source).not.toContain('astro:content');
+  });
+
   it('askEnabled is true only with ASK_ANNOUNCED or AGENT_ASK_PREVIEW exactly "1"', () => {
     // Intentional tripwire: when ASK_ANNOUNCED is flipped to true, update this assertion and the cases below.
     expect(ASK_ANNOUNCED).toBe(false);
@@ -217,7 +218,7 @@ describe('POST /api/agent/ask answers', () => {
     expect(row.ip_hash).toMatch(/^[0-9a-f]{16}$/);
   });
 
-  it('keeps the given conversationId; later turns carry no intro', async () => {
+  it('keeps the given conversationId; an unmatched later turn gets the human fallback without an intro', async () => {
     setup();
     const r = await call({
       question: 'Do you install screened porches in Waxhaw?',
@@ -229,17 +230,18 @@ describe('POST /api/agent/ask answers', () => {
     });
     const body = await r.json();
     expect(body.conversationId).toBe('conv-1');
-    expect(body.answer).toBe('We build screened porches in Waxhaw.');
+    expect(body.answer).toBe(FALLBACK_ANSWER);
     expect(body.matchedFaq).toBeUndefined();
   });
 
-  it('generated answer with an unlisted dollar figure: fallback, conversation flagged', async () => {
-    const { saved } = setup({ generated: 'Usually around $2,500.' });
+  it('classifier none: fallback and no drafted model text reaches the log or caller', async () => {
+    const { saved, modelCalls } = setup({ generated: 'Usually around $2,500.' });
     const r = await call({ question: 'How much is a porch?', history: [{ role: 'user', content: 'Hi' }] });
     const body = await r.json();
     expect(body.answer).toBe(FALLBACK_ANSWER);
-    expect(saved()[0].flagged).toBe(true);
-    expect(saved()[0].violations.length).toBeGreaterThan(0);
+    expect(saved()[0].flagged).toBe(false);
+    expect(saved()[0].answer).toBe(FALLBACK_ANSWER);
+    expect(modelCalls()).toHaveLength(1);
   });
 
   it('IP over 20 questions per hour -> 429 with the fallback, no model call', async () => {
@@ -280,19 +282,19 @@ describe('POST /api/agent/ask answers', () => {
   });
 
   it('one counter down is enough to keep the model off', async () => {
-    const { modelCalls } = setup({ bumpValue: (k) => (k === 'ask:day' ? -1 : 1) });
+    const { modelCalls } = setup({ bumpValue: (k) => (k === 'ask:day' ? null : 1) });
     const r = await call({ question: 'Do you install solar panels?', history: [{ role: 'user', content: 'Hi' }] });
     expect((await r.json()).degraded).toBe(true);
     expect(modelCalls()).toHaveLength(0);
   });
 
-  it('counters up and key present: the model answers', async () => {
+  it('counters up and key present: the model only classifies, then falls back', async () => {
     const { modelCalls } = setup();
     const r = await call({ question: 'Do you install solar panels?', history: [{ role: 'user', content: 'Hi' }] });
     const body = await r.json();
     expect(body.degraded).toBe(false);
-    expect(body.answer).toBe('We build screened porches in Waxhaw.');
-    expect(modelCalls()).toHaveLength(2);
+    expect(body.answer).toBe(FALLBACK_ANSWER);
+    expect(modelCalls()).toHaveLength(1);
   });
 
   it('store and environment missing, no key -> 200 with fallback, degraded', async () => {

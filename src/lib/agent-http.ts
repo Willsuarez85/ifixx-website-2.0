@@ -35,7 +35,8 @@ export function optionsResponse(): Response {
  */
 export async function readJson(
   request: Request,
-  maxBytes = 16384
+  maxBytes = 16384,
+  timeoutMs = 2000
 ): Promise<{ ok: true; data: any } | { ok: false; error: string }> {
   const tooLarge = { ok: false as const, error: `Body too large: the limit is ${Math.round(maxBytes / 1024)} KB of JSON.` };
   const notJson = { ok: false as const, error: 'Body must be valid JSON (Content-Type: application/json).' };
@@ -49,12 +50,34 @@ export async function readJson(
       const reader = request.body.getReader();
       const chunks: Uint8Array[] = [];
       let total = 0;
+      const deadline = Date.now() + timeoutMs;
       for (;;) {
-        const { done, value } = await reader.read();
+        const remaining = deadline - Date.now();
+        if (remaining <= 0) {
+          void reader.cancel().catch(() => {});
+          return { ok: false, error: 'Body read timed out.' };
+        }
+        let timer: ReturnType<typeof setTimeout> | undefined;
+        const timeout = new Promise<never>((_, reject) => {
+          timer = setTimeout(() => reject(new Error('body_timeout')), remaining);
+        });
+        let chunk: ReadableStreamReadResult<Uint8Array>;
+        try {
+          chunk = await Promise.race([reader.read(), timeout]);
+        } catch (err) {
+          if ((err as Error)?.message === 'body_timeout') {
+            void reader.cancel().catch(() => {});
+            return { ok: false, error: 'Body read timed out.' };
+          }
+          throw err;
+        } finally {
+          clearTimeout(timer);
+        }
+        const { done, value } = chunk;
         if (done) break;
         total += value.byteLength;
         if (total > maxBytes) {
-          await reader.cancel().catch(() => {});
+          void reader.cancel().catch(() => {});
           return tooLarge;
         }
         chunks.push(value);

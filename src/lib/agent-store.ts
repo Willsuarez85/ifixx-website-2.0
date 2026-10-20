@@ -3,13 +3,9 @@
  * counters, estimate-request dedup and the conversation log. Tables and the
  * bump_counter function are in supabase/migrations/2026-10-21-agent-layer.sql.
  *
- * The store is never on the critical path: if the variables are missing or a request
- * fails, every function returns its "allowed" value (counter -1, no duplicate, not
- * saved), logs a warning and the endpoint carries on. Nothing here throws.
- *
- * While the store is out, rate limits and dedup are off. The first failure on a StoreEnv
- * emits one searchable line, console.error('agent-store:unprotected', reason). Endpoints
- * build a fresh StoreEnv per request, so that is one line per unprotected request.
+ * Protection calls return null on an unavailable or malformed store response. Callers
+ * decide whether a feature may degrade; the estimate endpoint always fails closed before
+ * touching the CRM.
  */
 
 export interface StoreEnv {
@@ -48,51 +44,71 @@ async function rest(env: StoreEnv, path: string, init: RequestInit = {}): Promis
       ...(signal ? { signal } : {}),
     });
     if (!res.ok) {
-      const detail = await res.text().catch(() => '');
-      console.warn(`agent-store: ${path.split('?')[0]} answered ${res.status} ${detail.slice(0, 200)}`);
+      console.warn(`agent-store: ${path.split('?')[0]} answered ${res.status}`);
       unprotected(env, `${path.split('?')[0]} answered ${res.status}`);
       return null;
     }
     return res;
-  } catch (err) {
-    console.warn(`agent-store: ${path.split('?')[0]} failed: ${(err as Error)?.message ?? err}`);
-    unprotected(env, `${path.split('?')[0]} failed: ${(err as Error)?.message ?? err}`);
+  } catch {
+    console.warn(`agent-store: ${path.split('?')[0]} request failed`);
+    unprotected(env, `${path.split('?')[0]} request failed`);
     return null;
   }
 }
 
-/** Adds one to the (site, key) counter in the current window; returns the count, or -1 without a store. */
-export async function bump(env: StoreEnv, key: string, windowSeconds: number): Promise<number> {
+/** Adds one to the (site, key) counter in the current window; null means unavailable. */
+export async function bump(env: StoreEnv, key: string, windowSeconds: number): Promise<number | null> {
   const res = await rest(env, 'rpc/bump_counter', {
     method: 'POST',
     body: JSON.stringify({ p_site: env.site, p_key: key, p_window_seconds: windowSeconds }),
   });
-  if (!res) return -1;
+  if (!res) return null;
   try {
-    const n = Number(await res.json());
-    return Number.isFinite(n) ? n : -1;
+    const n = await res.json();
+    return typeof n === 'number' && Number.isFinite(n) ? n : null;
   } catch {
-    return -1;
+    return null;
   }
 }
 
-/** Reference of a lead saved for the same phone hash in the last withinSeconds, or null. */
-export async function recentLeadReference(env: StoreEnv, phoneHash: string, withinSeconds: number): Promise<string | null> {
-  const since = new Date(Date.now() - withinSeconds * 1000).toISOString();
-  const q = new URLSearchParams({
-    select: 'reference',
-    site: `eq.${env.site}`,
-    phone_hash: `eq.${phoneHash}`,
-    created_at: `gte.${since}`,
-    order: 'created_at.desc',
-    limit: '1',
+export interface EstimateReservation {
+  acquired: boolean;
+  reference: string;
+  status: 'pending' | 'completed';
+}
+
+/** Atomically reserves an exact normalized request before the CRM is called. */
+export async function reserveEstimate(
+  env: StoreEnv,
+  row: {
+    payloadHash: string;
+    phoneHash: string;
+    reference: string;
+    withinSeconds: number;
+    vendor?: string;
+    conversationId?: string;
+  }
+): Promise<EstimateReservation | null> {
+  const res = await rest(env, 'rpc/reserve_agent_estimate', {
+    method: 'POST',
+    body: JSON.stringify({
+      p_site: env.site,
+      p_payload_hash: row.payloadHash,
+      p_phone_hash: row.phoneHash,
+      p_reference: row.reference,
+      p_window_seconds: row.withinSeconds,
+      p_vendor: row.vendor ?? null,
+      p_conversation_id: row.conversationId ?? null,
+    }),
   });
-  const res = await rest(env, `agent_leads?${q.toString()}`, { method: 'GET' });
   if (!res) return null;
   try {
     const rows = await res.json();
-    const ref = Array.isArray(rows) ? rows[0]?.reference : undefined;
-    return typeof ref === 'string' && ref ? ref : null;
+    const value = Array.isArray(rows) ? rows[0] : rows;
+    return typeof value?.acquired === 'boolean' && typeof value?.reference === 'string' && value.reference &&
+      (value?.reservation_status === 'pending' || value?.reservation_status === 'completed')
+      ? { acquired: value.acquired, reference: value.reference, status: value.reservation_status }
+      : null;
   } catch {
     return null;
   }
@@ -107,18 +123,43 @@ async function insert(env: StoreEnv, table: string, row: Record<string, unknown>
   return res !== null;
 }
 
-/** Records a lead sent to the CRM (for dedup and counting). Returns whether it was saved. */
-export async function saveLead(
+/** Marks an existing reservation completed after the CRM succeeds. */
+export async function completeEstimate(
   env: StoreEnv,
-  row: { reference: string; phoneHash: string; vendor?: string; conversationId?: string; contactId: string }
+  row: { payloadHash: string; reference: string; contactId: string }
 ): Promise<boolean> {
-  return insert(env, 'agent_leads', {
-    reference: row.reference,
-    phone_hash: row.phoneHash,
-    vendor: row.vendor ?? null,
-    conversation_id: row.conversationId ?? null,
-    contact_id: row.contactId,
+  const res = await rest(env, 'rpc/complete_agent_estimate', {
+    method: 'POST',
+    body: JSON.stringify({
+      p_site: env.site,
+      p_payload_hash: row.payloadHash,
+      p_reference: row.reference,
+      p_contact_id: row.contactId,
+    }),
   });
+  if (!res) return false;
+  try {
+    return (await res.json()) === true;
+  } catch {
+    return false;
+  }
+}
+
+/** Releases a pending reservation after a CRM failure so a real retry can proceed. */
+export async function releaseEstimate(
+  env: StoreEnv,
+  row: { payloadHash: string; reference: string }
+): Promise<boolean> {
+  const res = await rest(env, 'rpc/release_agent_estimate', {
+    method: 'POST',
+    body: JSON.stringify({ p_site: env.site, p_payload_hash: row.payloadHash, p_reference: row.reference }),
+  });
+  if (!res) return false;
+  try {
+    return (await res.json()) === true;
+  } catch {
+    return false;
+  }
 }
 
 /** Logs one question and answer of the chat endpoint. Returns whether it was saved. */

@@ -13,14 +13,20 @@ type StoreMode = 'ok' | 'down';
 
 interface Setup {
   store?: StoreMode;
+  storeFailureAt?: 'reserve' | 'day';
   bumpValue?: (key: string) => number;
   duplicateRef?: string | null;
   ghlFails?: boolean;
+  atomicDuplicates?: boolean;
 }
 
 function setup(opts: Setup = {}) {
-  const { store = 'ok', bumpValue = () => 1, duplicateRef = null, ghlFails = false } = opts;
+  const {
+    store = 'ok', storeFailureAt, bumpValue = () => 1, duplicateRef = null,
+    ghlFails = false, atomicDuplicates = false,
+  } = opts;
   const calls: { url: string; init: RequestInit }[] = [];
+  const reservations = new Map<string, string>();
   const fetchMock = vi.fn(async (url: any, init: RequestInit = {}) => {
     const u = String(url);
     calls.push({ url: u, init });
@@ -28,12 +34,24 @@ function setup(opts: Setup = {}) {
       if (store === 'down') throw new Error('store down');
       if (u.endsWith('/rest/v1/rpc/bump_counter')) {
         const { p_key } = JSON.parse(String(init.body));
+        if (storeFailureAt === 'day' && p_key === 'estimate:day') {
+          return new Response('private failure detail', { status: 503 });
+        }
         return new Response(String(bumpValue(p_key)), { status: 200 });
       }
-      if (u.includes('/rest/v1/agent_leads?')) {
-        return new Response(JSON.stringify(duplicateRef ? [{ reference: duplicateRef }] : []), { status: 200 });
+      if (u.endsWith('/rest/v1/rpc/reserve_agent_estimate')) {
+        if (storeFailureAt === 'reserve') return new Response('private failure detail', { status: 503 });
+        const body = JSON.parse(String(init.body));
+        if (duplicateRef) return new Response(JSON.stringify([{ acquired: false, reference: duplicateRef, reservation_status: 'completed' }]), { status: 200 });
+        if (atomicDuplicates) {
+          const previous = reservations.get(body.p_payload_hash);
+          if (previous) return new Response(JSON.stringify([{ acquired: false, reference: previous, reservation_status: 'pending' }]), { status: 200 });
+          reservations.set(body.p_payload_hash, body.p_reference);
+        }
+        return new Response(JSON.stringify([{ acquired: true, reference: body.p_reference, reservation_status: 'pending' }]), { status: 200 });
       }
-      if (u.endsWith('/rest/v1/agent_leads')) return new Response(null, { status: 201 });
+      if (u.endsWith('/rest/v1/rpc/complete_agent_estimate')) return new Response('true', { status: 200 });
+      if (u.endsWith('/rest/v1/rpc/release_agent_estimate')) return new Response('true', { status: 200 });
       throw new Error(`unexpected store call ${u}`);
     }
     if (u.startsWith(GHL)) {
@@ -46,7 +64,7 @@ function setup(opts: Setup = {}) {
   });
   vi.stubGlobal('fetch', fetchMock);
   const upserts = () => calls.filter((c) => c.url.endsWith('/contacts/upsert')).map((c) => JSON.parse(String(c.init.body)));
-  const leadInserts = () => calls.filter((c) => c.url === `${STORE}/rest/v1/agent_leads`).map((c) => JSON.parse(String(c.init.body)));
+  const leadInserts = () => calls.filter((c) => c.url.endsWith('/rpc/reserve_agent_estimate')).map((c) => JSON.parse(String(c.init.body)));
   return { fetchMock, calls, upserts, leadInserts };
 }
 
@@ -180,8 +198,9 @@ describe('POST /api/agent/estimate success', () => {
     expect(notes).toContain('Two holes in the living room drywall.');
 
     const row = leadInserts()[0];
-    expect(row).toMatchObject({ site: 'site-a', reference: body.reference, vendor: 'openai-chatgpt', conversation_id: 'conv-123', contact_id: 'c1' });
-    expect(row.phone_hash).toMatch(/^[0-9a-f]{64}$/);
+    expect(row).toMatchObject({ p_site: 'site-a', p_reference: body.reference, p_vendor: 'openai-chatgpt', p_conversation_id: 'conv-123' });
+    expect(row.p_phone_hash).toMatch(/^[0-9a-f]{64}$/);
+    expect(row.p_payload_hash).toMatch(/^[0-9a-f]{64}$/);
   });
 
   it('unknown or inherited service keys become other; agent is optional', async () => {
@@ -232,7 +251,7 @@ describe('POST /api/agent/estimate limits and failures', () => {
     expect(upserts()).toHaveLength(0);
   });
 
-  it('same phone inside the window -> 200 with the same reference, duplicate true, no CRM call, no daily budget spent', async () => {
+  it('same normalized payload inside the window -> same reference, no CRM call or daily budget', async () => {
     const { upserts, leadInserts, calls } = setup({ duplicateRef: 'K7M2Q9XA' });
     const r = await call(valid);
     expect(r.status).toBe(200);
@@ -240,10 +259,27 @@ describe('POST /api/agent/estimate limits and failures', () => {
     expect(body).toMatchObject({ success: true, reference: 'K7M2Q9XA', duplicate: true });
     expect(body.nextStep).toContain('same business day');
     expect(upserts()).toHaveLength(0);
-    expect(leadInserts()).toHaveLength(0);
+    expect(leadInserts()).toHaveLength(1);
     const keys = calls.filter((c) => c.url.endsWith('/rpc/bump_counter')).map((c) => JSON.parse(String(c.init.body)).p_key);
     expect(keys).toHaveLength(1);
     expect(keys[0]).toMatch(/^estimate:ip:/);
+  });
+
+  it('same phone with different request content is not treated as a duplicate', async () => {
+    const { upserts } = setup();
+    expect((await call(valid)).status).toBe(200);
+    expect((await call({ ...valid, message: 'A different project in the kitchen.' })).status).toBe(200);
+    expect(upserts()).toHaveLength(2);
+  });
+
+  it('two concurrent identical requests produce one CRM write and one shared reference', async () => {
+    const { upserts } = setup({ atomicDuplicates: true });
+    const [a, b] = await Promise.all([call(valid), call(valid)]);
+    const [bodyA, bodyB] = await Promise.all([a.json(), b.json()]);
+    expect([a.status, b.status].sort()).toEqual([200, 202]);
+    expect(bodyA.reference).toBe(bodyB.reference);
+    expect([bodyA.error, bodyB.error]).toContain('request_in_progress');
+    expect(upserts()).toHaveLength(1);
   });
 
   it('an IP over the limit is refused even when the phone is a duplicate', async () => {
@@ -251,15 +287,24 @@ describe('POST /api/agent/estimate limits and failures', () => {
     expect((await call(valid)).status).toBe(429);
   });
 
-  it('(f) store down -> still 200, the CRM still gets the lead, one unprotected alarm', async () => {
+  it('(f) store down -> 503 and never touches the CRM', async () => {
     const { upserts } = setup({ store: 'down' });
     const r = await call(valid);
-    expect(r.status).toBe(200);
-    expect((await r.json()).reference).toMatch(/^[A-Z2-9]{8}$/);
-    expect(upserts()).toHaveLength(1);
+    expect(r.status).toBe(503);
+    expect((await r.json()).error).toBe('temporarily_unavailable');
+    expect(upserts()).toHaveLength(0);
     const alarms = vi.mocked(console.error).mock.calls.filter((c) => c[0] === 'agent-store:unprotected');
     expect(alarms).toHaveLength(1);
     expect(String(alarms[0][1])).toMatch(/failed/);
+  });
+
+  it.each(['reserve', 'day'] as const)('a %s store failure fails closed before the CRM', async (storeFailureAt) => {
+    const { upserts } = setup({ storeFailureAt });
+    const r = await call(valid);
+    expect(r.status).toBe(503);
+    expect((await r.json()).error).toBe('temporarily_unavailable');
+    expect(upserts()).toHaveLength(0);
+    expect(JSON.stringify(vi.mocked(console.warn).mock.calls)).not.toContain('private failure detail');
   });
 
   it('store up -> no unprotected alarm', async () => {
@@ -268,17 +313,17 @@ describe('POST /api/agent/estimate limits and failures', () => {
     expect(vi.mocked(console.error).mock.calls.some((c) => c[0] === 'agent-store:unprotected')).toBe(false);
   });
 
-  it('store env missing -> still 200 with no store calls', async () => {
+  it('store env missing -> 503 with no store or CRM calls', async () => {
     vi.stubEnv('SUPABASE_URL', '');
     vi.stubEnv('SUPABASE_SERVICE_KEY', '');
     const { calls, upserts } = setup();
     const r = await call(valid);
-    expect(r.status).toBe(200);
-    expect(upserts()).toHaveLength(1);
+    expect(r.status).toBe(503);
+    expect(upserts()).toHaveLength(0);
     expect(calls.some((c) => c.url.startsWith(STORE))).toBe(false);
-    const alarms = vi.mocked(console.error).mock.calls.filter((c) => c[0] === 'agent-store:unprotected');
-    expect(alarms).toHaveLength(1);
-    expect(String(alarms[0][1])).toMatch(/not configured/);
+    expect(vi.mocked(console.error).mock.calls).toContainEqual([
+      'agent estimate: store not configured, requests paused',
+    ]);
   });
 
   it('CRM failure -> 502 crm_unavailable with the phone', async () => {
@@ -375,19 +420,19 @@ describe('final review: store unconfigured in Production (finding 4)', () => {
     expect((await call({ ...valid, phone: '12345' })).status).toBe(400);
   });
 
-  it('Preview without the store keeps failing open (200, the CRM gets the lead)', async () => {
+  it('Preview without the store also fails closed', async () => {
     vi.stubEnv('VERCEL_ENV', 'preview');
     vi.stubEnv('SUPABASE_URL', '');
     const { upserts } = setup();
-    expect((await call(valid)).status).toBe(200);
-    expect(upserts()).toHaveLength(1);
+    expect((await call(valid)).status).toBe(503);
+    expect(upserts()).toHaveLength(0);
   });
 
-  it('Production with the store configured but down keeps failing open (R19/R21)', async () => {
+  it('Production with the store configured but down fails closed', async () => {
     vi.stubEnv('VERCEL_ENV', 'production');
     const { upserts } = setup({ store: 'down' });
-    expect((await call(valid)).status).toBe(200);
-    expect(upserts()).toHaveLength(1);
+    expect((await call(valid)).status).toBe(503);
+    expect(upserts()).toHaveLength(0);
   });
 
   it('the API description documents the 503 for both cases', async () => {
