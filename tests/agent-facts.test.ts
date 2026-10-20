@@ -4,9 +4,13 @@ import {
   ASK_ANNOUNCED,
   BRAND,
   FALLBACK_ANSWER,
+  HOURS_TEXT,
+  LIMITS,
   VICTORIA_INTRO,
   apiDescription,
   estimateNextStep,
+  faqFraming,
+  publishedFaq,
   renderLlmsFull,
   renderLlmsTxt,
   victoriaSystemPrompt,
@@ -106,6 +110,9 @@ describe('BRAND, VICTORIA_INTRO and FALLBACK_ANSWER', () => {
   });
 
   it('FALLBACK_ANSWER derives to a person, gives the phone, offers the estimate endpoint and passes the guardrail', () => {
+    expect(FALLBACK_ANSWER).toBe(
+      'A person from iFIXX answers the same business day at (980) 391-6833. Call or text your name, phone, area, what you need and photos, or an AI assistant can submit the request at /api/agent/estimate.',
+    );
     expect(FALLBACK_ANSWER).toContain('(980) 391-6833');
     expect(FALLBACK_ANSWER.toLowerCase()).toContain('a person');
     expect(FALLBACK_ANSWER).toContain('same business day');
@@ -113,6 +120,33 @@ describe('BRAND, VICTORIA_INTRO and FALLBACK_ANSWER', () => {
     expect(FALLBACK_ANSWER).toMatch(/photos/i);
     expect(FALLBACK_ANSWER.split(/(?<=[.!?])\s+/).length).toBeLessThanOrEqual(2);
     expect(guard(FALLBACK_ANSWER).violations).toEqual([]);
+  });
+
+  it('HOURS_TEXT is built from business-facts and reads exactly like faq-09', () => {
+    expect(HOURS_TEXT).toBe('Monday to Saturday, 8:30 AM to 5:30 PM. Closed on Sunday.');
+    expect(HOURS_TEXT).toBe(APPROVED_FAQ[8].a);
+  });
+
+  it('exports the limits the endpoints enforce', () => {
+    expect(LIMITS.estimate).toEqual({ perIpPerHour: 5, perDay: 50, duplicateWindowSeconds: 600 });
+    expect(LIMITS.ask).toEqual({ perIpPerHour: 20, perDay: 500 });
+    expect(LIMITS.ipWindowSeconds).toBe(3600);
+    expect(LIMITS.dayWindowSeconds).toBe(86400);
+    expect(LIMITS.bodyMaxBytes).toBe(16 * 1024);
+    expect(LIMITS.firstNameMax).toBe(80);
+    expect(LIMITS.messageMax).toBe(2000);
+    expect(LIMITS.questionMax).toBe(1000);
+    expect(LIMITS.historyMaxTurns).toBe(10);
+    expect(LIMITS.historyTurnMax).toBe(1000);
+    expect(LIMITS.conversationIdMax).toBe(64);
+  });
+
+  it('publishedFaq hides the Victoria-voiced answers until the chat is announced', () => {
+    const hidden = publishedFaq(false).map((f) => f.id);
+    expect(hidden.length).toBe(26);
+    expect(hidden).not.toContain('faq-26');
+    expect(hidden).not.toContain('faq-27');
+    expect(publishedFaq(true)).toEqual(APPROVED_FAQ);
   });
 
   it('estimateNextStep names the homeowner, promises only the response time and passes the guardrail', () => {
@@ -179,6 +213,11 @@ describe('renderLlmsTxt', () => {
     expect(txt).not.toContain('/api/agent/ask');
   });
 
+  it('prints hours with the faq-09 wording', () => {
+    expect(txt).toContain('- Hours: Monday to Saturday, 8:30 AM to 5:30 PM. Closed on Sunday.');
+    expect(txt).not.toContain('Monday - Saturday');
+  });
+
   it('passes the guardrail as a whole', () => {
     expect(guard(txt).violations).toEqual([]);
   });
@@ -187,11 +226,33 @@ describe('renderLlmsTxt', () => {
 describe('renderLlmsFull', () => {
   const full = renderLlmsFull(sample);
 
-  it('(d) contains the 28 questions and answers', () => {
-    for (const f of APPROVED_FAQ) {
+  it('(d) contains the approved questions and answers published while the chat is not announced', () => {
+    expect(ASK_ANNOUNCED).toBe(false);
+    for (const f of publishedFaq(ASK_ANNOUNCED)) {
       expect(full).toContain(f.q);
       expect(full).toContain(f.a);
     }
+    for (const id of ['faq-26', 'faq-27']) {
+      const f = APPROVED_FAQ.find((x) => x.id === id)!;
+      expect(full).not.toContain(f.q);
+      expect(full).not.toContain(f.a);
+    }
+    expect(full).not.toContain('Victoria');
+    expect(full).not.toContain('24/7');
+  });
+
+  it('frames the approved answers so another assistant does not adopt their voice', () => {
+    expect(faqFraming(true)).toBe(
+      "Answers iFIXX has approved. They are written in iFIXX's voice: \"we\" is iFIXX, and \"I\" and \"this assistant\" are Victoria, iFIXX's virtual assistant.",
+    );
+    expect(faqFraming(false)).toBe("Answers iFIXX has approved. They are written in iFIXX's voice: \"we\" is iFIXX.");
+    expect(full).toContain(faqFraming(ASK_ANNOUNCED));
+    expect(full).not.toMatch(/quote them as written/i);
+  });
+
+  it('prints hours in prose form, never the hyphen range', () => {
+    expect(full).toContain('Monday to Saturday, 8:30 AM to 5:30 PM. Closed on Sunday.');
+    expect(full).not.toContain('Monday - Saturday');
   });
 
   it('contains everything in llms.txt plus the estimate endpoint documentation', () => {
@@ -233,7 +294,8 @@ describe('victoriaSystemPrompt', () => {
 
   it('includes the facts block: phone, hours, areas, services with urls, not offered and the 28 answers', () => {
     expect(prompt).toContain(BRAND.phone);
-    expect(prompt).toContain(BRAND.hoursLabel);
+    expect(prompt).toContain('Hours: Monday to Saturday, 8:30 AM to 5:30 PM. Closed on Sunday.');
+    expect(prompt).not.toContain('Monday - Saturday');
     expect(prompt).toContain('Indian Land, SC');
     expect(prompt).toContain('https://www.ifixxnc.com/remodeling/kitchen-remodeling');
     expect(prompt).toMatch(/plumbing, electrical or HVAC/);

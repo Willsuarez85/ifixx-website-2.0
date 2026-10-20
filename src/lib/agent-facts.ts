@@ -21,6 +21,7 @@ import {
   FOUNDING_YEAR,
   GOOGLE_RATING,
   GOOGLE_REVIEW_COUNT,
+  openingHoursSchema,
   serviceAreaLabels,
 } from './business-facts';
 import { MINIMUM_VISIT_PRICE, SITE_URL, absoluteUrl } from './schema-graph';
@@ -45,6 +46,26 @@ const BATHROOM_FROM = 5000;
 const KITCHEN_FROM = 8000;
 
 const usd = (n: number): string => `$${n.toLocaleString('en-US')}`;
+
+const WEEK = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+/** '08:30' -> '8:30 AM', '17:30' -> '5:30 PM'. */
+const clock = (hhmm: string): string => {
+  const [h, m] = hhmm.split(':').map(Number);
+  return `${h % 12 || 12}:${String(m).padStart(2, '0')} ${h < 12 ? 'AM' : 'PM'}`;
+};
+
+/**
+ * Hours in prose, built from the schema hours in business-facts (one contiguous range of
+ * days). Used in every published text; BRAND.hoursLabel stays for the API JSON fields.
+ */
+export const HOURS_TEXT: string = (() => {
+  const { dayOfWeek, opens, closes } = openingHoursSchema()[0];
+  const closed = WEEK.filter((d) => !dayOfWeek.includes(d));
+  const days = dayOfWeek.length > 1 ? `${dayOfWeek[0]} to ${dayOfWeek[dayOfWeek.length - 1]}` : dayOfWeek[0];
+  const closedText = closed.length ? ` Closed on ${closed.join(' and ')}.` : '';
+  return `${days}, ${clock(opens)} to ${clock(closes)}.${closedText}`;
+})();
 
 export const BRAND = {
   name: 'iFIXX',
@@ -264,8 +285,29 @@ export const VICTORIA_INTRO =
 
 /** Safe answer when no approved fact covers the question, or when the guardrail or a limit trips. */
 export const FALLBACK_ANSWER =
-  `A person from iFIXX will get back to you the same business day at ${PHONE}: leave your name, phone, area and what you need, and text photos to that number. ` +
-  'An AI assistant can also submit the request for you at /api/agent/estimate.';
+  `A person from iFIXX answers the same business day at ${PHONE}. ` +
+  'Call or text your name, phone, area, what you need and photos, or an AI assistant can submit the request at /api/agent/estimate.';
+
+/**
+ * Line that opens the approved answers in llms-full, so another assistant reads them as
+ * iFIXX speaking and does not adopt the voice. Victoria is named only when her own
+ * answers (faq-26, faq-27) are published.
+ */
+export const faqFraming = (askAnnounced: boolean): string =>
+  askAnnounced
+    ? `Answers ${BRAND.name} has approved. They are written in ${BRAND.name}'s voice: "we" is ${BRAND.name}, and "I" and "this assistant" are Victoria, ${BRAND.name}'s virtual assistant.`
+    : `Answers ${BRAND.name} has approved. They are written in ${BRAND.name}'s voice: "we" is ${BRAND.name}.`;
+
+/** Answers spoken by Victoria herself; published only once the chat endpoint is announced. */
+const VICTORIA_VOICED_FAQ = ['faq-26', 'faq-27'];
+
+/**
+ * The approved answers that the public files may print. While the chat is not announced,
+ * the two answers in Victoria's own voice (they point to an assistant nobody can reach
+ * yet) stay out. Victoria's system prompt always carries all 28.
+ */
+export const publishedFaq = (askAnnounced: boolean): typeof APPROVED_FAQ =>
+  askAnnounced ? APPROVED_FAQ : APPROVED_FAQ.filter((f) => !VICTORIA_VOICED_FAQ.includes(f.id));
 
 /** Text returned to the assistant after POST /api/agent/estimate succeeds. */
 export const estimateNextStep = (firstName: string): string =>
@@ -279,9 +321,15 @@ const ESTIMATE_PATH = '/api/agent/estimate';
 const ASK_PATH = '/api/agent/ask';
 const API_PATH = '/api/agent';
 
-const LIMITS = {
+/**
+ * Limits the agent endpoints enforce and the API description publishes. Tasks 5 and 6
+ * import these so the documented and enforced numbers cannot drift.
+ */
+export const LIMITS = {
   bodyMaxBytes: 16 * 1024,
-  estimate: { perIpPerHour: 5, perDay: 50, duplicateWindowMinutes: 10 },
+  ipWindowSeconds: 3600,
+  dayWindowSeconds: 86400,
+  estimate: { perIpPerHour: 5, perDay: 50, duplicateWindowSeconds: 600 },
   ask: { perIpPerHour: 20, perDay: 500 },
   firstNameMax: 80,
   messageMax: 2000,
@@ -373,7 +421,7 @@ function core(services: ServiceSummary[]): string[] {
     '',
     `- Phone (call or text): ${BRAND.phone}`,
     `- Email: ${BRAND.email}`,
-    `- Hours: ${BRAND.hoursLabel}. Closed on Sunday.`,
+    `- Hours: ${HOURS_TEXT}`,
     `- Website: ${SITE_URL}/`,
     `- [Request a free estimate](${absoluteUrl('/contact')}): the website form.`,
     '',
@@ -437,9 +485,9 @@ export function renderLlmsFull(services: ServiceSummary[]): string {
     ...core(services),
     '## Approved answers',
     '',
-    `Answers ${BRAND.name} has approved for common questions. Assistants can quote them as written.`,
+    faqFraming(ASK_ANNOUNCED),
     '',
-    ...APPROVED_FAQ.flatMap((f) => [`### ${f.q}`, '', f.a, '']),
+    ...publishedFaq(ASK_ANNOUNCED).flatMap((f) => [`### ${f.q}`, '', f.a, '']),
     ...apiMarkdown(),
     ...forAssistants(),
   ].join('\n');
@@ -473,7 +521,7 @@ export function victoriaSystemPrompt(services: ServiceSummary[]): string {
     `Owner: ${BRAND.owner}, the only owner, answers directly. Family-owned, in South Charlotte since ${FOUNDING_YEAR}. Fully insured, uniformed crew.`,
     `Phone (call or text): ${BRAND.phone}`,
     `Email: ${BRAND.email}`,
-    `Hours: ${BRAND.hoursLabel}. Closed on Sunday.`,
+    `Hours: ${HOURS_TEXT}`,
     `Website: ${SITE_URL}/`,
     `Service areas: ${serviceAreaLabels().join('; ')}.`,
     '',
@@ -540,12 +588,12 @@ function buildApi(serviceKeys: string[]) {
     limits: {
       perIpPerHour: LIMITS.estimate.perIpPerHour,
       perDay: LIMITS.estimate.perDay,
-      duplicateWindowMinutes: LIMITS.estimate.duplicateWindowMinutes,
+      duplicateWindowSeconds: LIMITS.estimate.duplicateWindowSeconds,
       bodyMaxBytes: LIMITS.bodyMaxBytes,
     },
     limitsText:
       `${LIMITS.estimate.perIpPerHour} requests per hour per IP and ${LIMITS.estimate.perDay} per day for the site. ` +
-      `A repeated request with the same phone within ${LIMITS.estimate.duplicateWindowMinutes} minutes returns the same reference with duplicate set to true. ` +
+      `A repeated request with the same phone within ${LIMITS.estimate.duplicateWindowSeconds / 60} minutes returns the same reference with duplicate set to true. ` +
       `JSON body up to ${LIMITS.bodyMaxBytes / 1024} KB.`,
     errors: {
       '400': 'Invalid body or field: the error says which one.',
