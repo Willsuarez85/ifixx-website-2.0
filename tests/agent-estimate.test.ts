@@ -165,6 +165,14 @@ describe('POST /api/agent/estimate validation', () => {
       'details at repairs.example.co.uk/path',
       'domain with a port-like suffix example.com:anything',
       'invalid boundary suffix example.com_',
+      'query-like suffix example.com&1',
+      'dollar suffix example.com$1',
+      'asterisk suffix example.com*',
+      'plus suffix example.com+1',
+      'tilde suffix example.com~',
+      'caret suffix example.com^',
+      'braces around {example.com}',
+      'angle brackets <example.com>',
       'Unicode domain ｗｗｗ．example．com',
       'IDNA dot example。com',
       'IDNA halfwidth dot example｡com',
@@ -257,6 +265,13 @@ describe('POST /api/agent/estimate success', () => {
     expect(row).toMatchObject({ p_site: 'site-a', p_reference: body.reference, p_vendor: 'openai-chatgpt', p_conversation_id: 'conv-123' });
     expect(row.p_phone_hash).toMatch(/^[0-9a-f]{64}$/);
     expect(row.p_payload_hash).toMatch(/^[0-9a-f]{64}$/);
+  });
+
+  it('accepts prose with prices, ampersands and measurements that are not link-shaped', async () => {
+    const { upserts } = setup();
+    const r = await call({ ...valid, message: 'Budget is $2,500 & up. Deck 12x16, rails 36in high. Call after 5pm.' });
+    expect(r.status).toBe(200);
+    expect(upserts()).toHaveLength(1);
   });
 
   it('unknown or inherited service keys become other; agent is optional', async () => {

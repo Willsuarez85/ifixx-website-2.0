@@ -81,13 +81,26 @@ const noUrls = (field: string) => `${field} must not contain URLs, URL schemes o
 const ASCII_DOMAIN_LABEL = /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/i;
 const ASCII_TLD = /^(?:[a-z]{2,63}|xn--[a-z0-9-]{2,59})$/i;
 
+// Anything that cannot sit inside a hostname or the URL punctuation stripped below
+// (@ : / ? #) ends a hostname-shaped run, so "example.com&1" still yields "example.com".
+const HOST_RUN_BREAK = /[^\p{L}\p{M}\p{N}.\-@:/?#]+/u;
+
+/**
+ * Two cuts of the same text. The loose cut keeps symbols attached so an emoji or
+ * symbolic TLD is still seen; the strict cut isolates hostname-shaped runs that the
+ * loose cut leaves glued to query-like or arithmetic suffixes.
+ */
+function domainCandidates(value: string): string[] {
+  const loose = value
+    .split(/[\s,;\u3001\p{Ps}\p{Pe}\p{Pi}\p{Pf}"']+/u)
+    .flatMap((part) => part.split(/[_=|\\%]/u));
+  const strict = value.split(HOST_RUN_BREAK);
+  return [...new Set([...loose, ...strict])].filter(Boolean);
+}
+
 /** Uses Node's IDNA conversion, then applies hostname label and TLD constraints. */
 function containsDomain(value: string): boolean {
-  const candidates = value
-    .split(/[\s,;\u3001\p{Ps}\p{Pe}\p{Pi}\p{Pf}"']+/u)
-    .flatMap((part) => part.split(/[_=|\\%]/u))
-    .filter(Boolean);
-  for (const raw of candidates) {
+  for (const raw of domainCandidates(value)) {
     let candidate = raw;
     const at = candidate.lastIndexOf('@');
     if (at >= 0) candidate = candidate.slice(at + 1);
