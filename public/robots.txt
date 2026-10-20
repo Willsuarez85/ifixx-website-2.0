@@ -8,6 +8,9 @@ User-agent: *
 Allow: /
 Crawl-delay: 1
 
+# The agent API (GET /api/agent, estimate and ask endpoints) is public by design
+Allow: /api/agent
+
 # Disallow admin/API routes
 Disallow: /api/
 
@@ -16,7 +19,7 @@ Disallow: /api/
 # Strategy: AEO (Answer Engine Optimization)
 # We WANT to show up in AI answers. llms.txt provides
 # structured business info for grounded responses.
-# Updated: 2026-05-11
+# Updated: 2026-10-20
 # ============================================
 
 # OpenAI (ChatGPT browse + training)
@@ -55,6 +58,35 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
+# OpenAI search and on-demand agents
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic user-initiated and search agents
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# Perplexity on-demand fetch
+User-agent: Perplexity-User
+Allow: /
+
+# Amazon and Apple assistants
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# DuckDuckGo and Mistral assistants
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
 # Cohere
 User-agent: cohere-ai
 Allow: /
@@ -84,4 +116,5 @@ Sitemap: https://www.ifixxnc.com/sitemap-index.xml
 # AI assistants answering user queries
 # (separate from training data scraping)
 # ============================================
-# https://ifixxnc.com/llms.txt
+# https://www.ifixxnc.com/llms.txt
+# https://www.ifixxnc.com/llms-full.txt

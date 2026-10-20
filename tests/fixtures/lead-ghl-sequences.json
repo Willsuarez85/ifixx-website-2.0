@@ -1,0 +1,341 @@
+{
+  "drywall-landing-gclid-campaignTest": {
+    "status": 200,
+    "response": "{\"success\":true,\"message\":\"Lead received successfully\",\"contactId\":\"cA\",\"routing\":{\"action\":\"moved-from-handyman\",\"opportunityId\":\"hA\",\"deletedHandymanDuplicates\":[]}}",
+    "calls": [
+      {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/upsert",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": "{\"firstName\":\"Ana\",\"lastName\":\"Lopez\",\"email\":\"ana@example.com\",\"phone\":\"(980) 555-0101\",\"locationId\":\"loc-test\",\"source\":\"South Charlotte Drywall Landing\",\"tags\":[\"website-lead\",\"service-drywall-repair\",\"service-painting\",\"handyman\",\"campaign-ifixx-south-charlotte-service-test-2026-07\",\"south-charlotte-test\",\"city-mint-hill\",\"form:lp-south-charlotte-drywall\",\"landing:repairs-drywall\"],\"postalCode\":\"28227\",\"attributionSource\":{\"utmSource\":\"google\",\"utmMedium\":\"cpc\",\"utmCampaign\":\"sc-drywall\",\"utmTerm\":\"drywall repair near me\",\"utmContent\":\"rsa-1\",\"gclid\":\"GCLID-abc123\",\"url\":\"https://www.ifixxnc.com/lp/south-charlotte-drywall\",\"referrer\":\"https://www.google.com/\",\"campaign\":\"sc-drywall\",\"gbraid\":\"GB-1\"},\"customFields\":[{\"id\":\"HhBO7YQAST3aZR770LJO\",\"value\":\"Issue type: Water stain on ceiling\\nSafety concern: No\\nLanding page: /lp/south-charlotte-drywall\\nCampaign test: ifixx_south_charlotte_service_test_2026_07\\nPhoto status: photos-selected-browser-only (2 selected)\\nCustomer selected photos in the browser, but files are not uploaded to GHL by this v1 form. Ask customer to text photos to (980) 391-6833 if they did not come through.\\n\\nCustomer description:\\nStain about two feet wide near the bathroom.\"},{\"id\":\"6PzFTQhylccNWI2VtAn7\",\"value\":\"drywall-repair\"}]}"
+      },
+      {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/upsert",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": "{\"firstName\":\"Ana\",\"lastName\":\"Lopez\",\"email\":\"ana@example.com\",\"phone\":\"(980) 555-0101\",\"locationId\":\"loc-test\",\"source\":\"South Charlotte Drywall Landing\",\"tags\":[\"website-lead\",\"service-drywall-repair\",\"service-painting\",\"handyman\",\"campaign-ifixx-south-charlotte-service-test-2026-07\",\"south-charlotte-test\",\"city-mint-hill\",\"form:lp-south-charlotte-drywall\",\"landing:repairs-drywall\"],\"postalCode\":\"28227\",\"attributionSource\":{\"utmSource\":\"google\",\"utmMedium\":\"cpc\",\"utmCampaign\":\"sc-drywall\",\"utmTerm\":\"drywall repair near me\",\"utmContent\":\"rsa-1\",\"gclid\":\"GCLID-abc123\"},\"customFields\":[{\"id\":\"HhBO7YQAST3aZR770LJO\",\"value\":\"Issue type: Water stain on ceiling\\nSafety concern: No\\nLanding page: /lp/south-charlotte-drywall\\nCampaign test: ifixx_south_charlotte_service_test_2026_07\\nPhoto status: photos-selected-browser-only (2 selected)\\nCustomer selected photos in the browser, but files are not uploaded to GHL by this v1 form. Ask customer to text photos to (980) 391-6833 if they did not come through.\\n\\nCustomer description:\\nStain about two feet wide near the bathroom.\"},{\"id\":\"6PzFTQhylccNWI2VtAn7\",\"value\":\"drywall-repair\"}]}"
+      },
+      {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/opportunities/search?location_id=loc-test&contact_id=cA&limit=20",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": null
+      },
+      {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/opportunities/search?location_id=loc-test&contact_id=cA&limit=20",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": null
+      },
+      {
+        "method": "PUT",
+        "url": "https://services.leadconnectorhq.com/opportunities/hA",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": "{\"pipelineId\":\"QlQ4FGiqHYUgMAUwxjb1\",\"pipelineStageId\":\"2f5e3e61-cbe2-4350-8010-dd8c3335d419\",\"name\":\"Ana Lopez - Website Lead\",\"status\":\"open\",\"source\":\"South Charlotte Drywall Landing\"}"
+      }
+    ],
+    "logs": [
+      [
+        "warn",
+        "GHL rejected extended attributionSource, retrying with core fields:",
+        "{\"message\":\"property url should not exist\"}"
+      ],
+      [
+        "log",
+        "Lead created: cA | Tags: website-lead, service-drywall-repair, service-painting, handyman, campaign-ifixx-south-charlotte-service-test-2026-07, south-charlotte-test, city-mint-hill, form:lp-south-charlotte-drywall, landing:repairs-drywall | Ifixx 2026 routing: moved-from-handyman"
+      ]
+    ]
+  },
+  "deck-repair": {
+    "status": 200,
+    "response": "{\"success\":true,\"message\":\"Lead received successfully\",\"contactId\":\"cB\",\"routing\":{\"action\":\"created-outdoor\",\"opportunityId\":\"oB\",\"deletedHandymanDuplicates\":[\"hB\"]}}",
+    "calls": [
+      {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/upsert",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": "{\"firstName\":\"Bob\",\"lastName\":\"\",\"phone\":\"9805550102\",\"locationId\":\"loc-test\",\"source\":\"Website Form\",\"tags\":[\"website-lead\",\"service-deck-repair\",\"service-carpentry\",\"deck-outdoor\",\"handyman\",\"package-gold\",\"city-fort-mill\",\"segment-homeowner\",\"form:repairs-deck-repair\"],\"attributionSource\":{\"url\":\"https://www.ifixxnc.com/repairs/deck-repair\"},\"customFields\":[{\"id\":\"HhBO7YQAST3aZR770LJO\",\"value\":\"Two rotten boards on the stairs.\"},{\"id\":\"6PzFTQhylccNWI2VtAn7\",\"value\":\"deck-repair\"}]}"
+      },
+      {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/opportunities/search?location_id=loc-test&contact_id=cB&limit=20",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": null
+      },
+      {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/opportunities/search?location_id=loc-test&contact_id=cB&limit=20",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": null
+      },
+      {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/opportunities/search?location_id=loc-test&contact_id=cB&limit=20",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": null
+      },
+      {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/opportunities/search?location_id=loc-test&contact_id=cB&limit=20",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": null
+      },
+      {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/opportunities/search?location_id=loc-test&contact_id=cB&limit=20",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": null
+      },
+      {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/opportunities/search?location_id=loc-test&contact_id=cB&limit=20",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": null
+      },
+      {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/opportunities/search?location_id=loc-test&contact_id=cB&limit=20",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": null
+      },
+      {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/opportunities/search?location_id=loc-test&contact_id=cB&limit=20",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": null
+      },
+      {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/opportunities/",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": "{\"locationId\":\"loc-test\",\"pipelineId\":\"QlQ4FGiqHYUgMAUwxjb1\",\"pipelineStageId\":\"2f5e3e61-cbe2-4350-8010-dd8c3335d419\",\"contactId\":\"cB\",\"name\":\"Bob - Website Lead\",\"status\":\"open\",\"source\":\"Website Form\",\"monetaryValue\":0}"
+      },
+      {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/opportunities/search?location_id=loc-test&contact_id=cB&limit=20",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": null
+      },
+      {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/opportunities/search?location_id=loc-test&contact_id=cB&limit=20",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": null
+      },
+      {
+        "method": "DELETE",
+        "url": "https://services.leadconnectorhq.com/opportunities/hB",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": null
+      }
+    ],
+    "logs": [
+      [
+        "log",
+        "Lead created: cB | Tags: website-lead, service-deck-repair, service-carpentry, deck-outdoor, handyman, package-gold, city-fort-mill, segment-homeowner, form:repairs-deck-repair | Ifixx 2026 routing: created-outdoor"
+      ]
+    ]
+  },
+  "property-manager": {
+    "status": 200,
+    "response": "{\"success\":true,\"message\":\"Lead received successfully\",\"contactId\":\"cC\",\"routing\":{\"action\":\"already-routed\",\"opportunityId\":\"oC\",\"deletedHandymanDuplicates\":[]}}",
+    "calls": [
+      {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/upsert",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": "{\"firstName\":\"Carla\",\"lastName\":\"Ruiz\",\"email\":\"carla@ruizproperties.com\",\"phone\":\"980-555-0103\",\"locationId\":\"loc-test\",\"source\":\"Property Manager Form\",\"tags\":[\"website-lead\",\"service-general-repairs\",\"handyman\",\"segment-property-manager\",\"b2b-lead\",\"form:for-property-managers\"],\"attributionSource\":{\"url\":\"https://www.ifixxnc.com/for-property-managers\"},\"customFields\":[{\"id\":\"HhBO7YQAST3aZR770LJO\",\"value\":\"Turnover repairs on three units.\"},{\"id\":\"6PzFTQhylccNWI2VtAn7\",\"value\":\"general-repairs\"},{\"id\":\"company_name\",\"value\":\"Ruiz Properties\"},{\"id\":\"number_of_properties\",\"value\":\"12\"},{\"id\":\"property_types\",\"value\":\"Single family, Townhomes\"},{\"id\":\"3enbIg3RvepWmNKHDc5N\",\"value\":\"Mornings\"}]}"
+      },
+      {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/upsert",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": "{\"firstName\":\"Carla\",\"lastName\":\"Ruiz\",\"email\":\"carla@ruizproperties.com\",\"phone\":\"980-555-0103\",\"locationId\":\"loc-test\",\"source\":\"Property Manager Form\",\"tags\":[\"website-lead\",\"service-general-repairs\",\"handyman\",\"segment-property-manager\",\"b2b-lead\",\"form:for-property-managers\"],\"customFields\":[{\"id\":\"HhBO7YQAST3aZR770LJO\",\"value\":\"Turnover repairs on three units.\"},{\"id\":\"6PzFTQhylccNWI2VtAn7\",\"value\":\"general-repairs\"},{\"id\":\"company_name\",\"value\":\"Ruiz Properties\"},{\"id\":\"number_of_properties\",\"value\":\"12\"},{\"id\":\"property_types\",\"value\":\"Single family, Townhomes\"},{\"id\":\"3enbIg3RvepWmNKHDc5N\",\"value\":\"Mornings\"}]}"
+      },
+      {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/opportunities/search?location_id=loc-test&contact_id=cC&limit=20",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": null
+      },
+      {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/opportunities/search?location_id=loc-test&contact_id=cC&limit=20",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": null
+      }
+    ],
+    "logs": [
+      [
+        "warn",
+        "GHL rejected extended attributionSource, retrying with core fields:",
+        "{\"message\":\"bad\"}"
+      ],
+      [
+        "log",
+        "Lead created: cC | Tags: website-lead, service-general-repairs, handyman, segment-property-manager, b2b-lead, form:for-property-managers | Ifixx 2026 routing: already-routed"
+      ]
+    ]
+  },
+  "upsert-server-error": {
+    "status": 500,
+    "response": "{\"success\":false,\"error\":\"Something went wrong. Please call us directly.\"}",
+    "calls": [
+      {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/upsert",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": "{\"firstName\":\"Dan\",\"lastName\":\"\",\"phone\":\"9805550104\",\"locationId\":\"loc-test\",\"source\":\"Website Form\",\"tags\":[\"website-lead\",\"general-inquiry\",\"handyman\",\"form:home\"],\"attributionSource\":{\"utmSource\":\"bing\",\"url\":\"https://www.ifixxnc.com/\"},\"customFields\":[{\"id\":\"6PzFTQhylccNWI2VtAn7\",\"value\":\"plumbing\"}]}"
+      }
+    ],
+    "logs": [
+      [
+        "error",
+        "GHL Upsert Error:",
+        "upstream down"
+      ],
+      [
+        "error",
+        "API Error:",
+        "Error: Failed to create contact in GHL"
+      ]
+    ]
+  },
+  "upsert-missing-contact-id": {
+    "status": 500,
+    "response": "{\"success\":false,\"error\":\"Something went wrong. Please call us directly.\"}",
+    "calls": [
+      {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/upsert",
+        "headers": {
+          "Authorization": "Bearer test-key",
+          "Content-Type": "application/json",
+          "Version": "2021-07-28"
+        },
+        "body": "{\"firstName\":\"Eva\",\"lastName\":\"\",\"phone\":\"9805550105\",\"locationId\":\"loc-test\",\"source\":\"Website Form\",\"tags\":[\"website-lead\"]}"
+      }
+    ],
+    "logs": [
+      [
+        "error",
+        "GHL Upsert Missing Contact ID:",
+        "{\"contact\":{}}"
+      ],
+      [
+        "error",
+        "API Error:",
+        "Error: GHL did not return a contact ID"
+      ]
+    ]
+  },
+  "validation-missing-phone": {
+    "status": 400,
+    "response": "{\"success\":false,\"error\":\"Missing required fields: firstName or phone\"}",
+    "calls": [],
+    "logs": []
+  },
+  "missing-env": {
+    "status": 500,
+    "response": "{\"success\":false,\"error\":\"Server configuration error\"}",
+    "calls": [],
+    "logs": [
+      [
+        "error",
+        "Missing GHL Configuration"
+      ]
+    ]
+  }
+}
