@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import AttributionScript from '../components/common/AttributionScript.astro';
+import EnhancedConversionsScript from '../components/common/EnhancedConversionsScript.astro';
 
 export interface Props {
   title: string;
@@ -45,6 +46,7 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
   </script>
 
   <AttributionScript />
+  <EnhancedConversionsScript />
 
   <!-- Click-to-Call Tracking -->
   <script is:inline>

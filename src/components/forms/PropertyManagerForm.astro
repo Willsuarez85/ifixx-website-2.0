@@ -274,11 +274,9 @@ const contactTimeOptions = [
           if (typeof gtag !== 'undefined') {
             // Enhanced Conversions: send user data before conversion event
             // Added 2026-03-06
-            gtag('set', 'user_data', {
-              'email': data.email,
-              'phone_number': data.phone,
-              'address': { 'first_name': data.firstName }
-            });
+            // Normalized (E.164 phone, lowercased email, no address) by ec-user-data.js
+            const ecUserData = window.ifixxEC ? window.ifixxEC.build(data.email, data.phone) : null;
+            if (ecUserData) gtag('set', 'user_data', ecUserData);
             gtag('event', 'form_submit', {
               'form_id': formId,
               'form_name': 'Property Manager Form',
@@ -287,6 +285,8 @@ const contactTimeOptions = [
             });
           }
           // Wait 500ms to ensure GA4 event fires before redirect
+          // Carry the user data to /lp/thank-you, where the Ads conversion fires
+          if (window.ifixxEC) window.ifixxEC.save(data.email, data.phone);
           setTimeout(() => {
             window.location.href = '/lp/thank-you';
           }, 300);

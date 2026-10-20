@@ -271,11 +271,9 @@ const {
         });
 
         if (typeof window.gtag === 'function') {
-          window.gtag('set', 'user_data', {
-            email: data.email,
-            phone_number: data.phone,
-            address: { first_name: data.firstName }
-          });
+          // Normalized (E.164 phone, lowercased email, no address) by ec-user-data.js
+          const ecUserData = window.ifixxEC ? window.ifixxEC.build(data.email, data.phone) : null;
+          if (ecUserData) window.gtag('set', 'user_data', ecUserData);
           window.gtag('event', 'generate_lead', {
             form_id: formId,
             form_name: formName,
@@ -288,6 +286,8 @@ const {
         successMsg?.classList.remove('hidden');
         form.reset();
 
+        // Carry the user data to /lp/thank-you, where the Ads conversion fires
+        if (window.ifixxEC) window.ifixxEC.save(data.email, data.phone);
         setTimeout(() => {
           window.location.href = '/lp/thank-you';
         }, 500);

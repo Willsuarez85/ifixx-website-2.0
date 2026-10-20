@@ -1,0 +1,10 @@
+---
+// Inlines src/scripts/ec-user-data.js into the <head> so window.ifixxEC is available
+// to every form script (inline define:vars ones included, which cannot import) and to
+// the inline conversion script on /lp/thank-you.
+// The ?raw import keeps ONE copy of the implementation: edit the .js file only.
+import ecScript from '../../scripts/ec-user-data.js?raw';
+---
+
+<!-- Enhanced conversions: carries normalized email/phone from the form to the thank-you conversion -->
+<script is:inline set:html={ecScript} />

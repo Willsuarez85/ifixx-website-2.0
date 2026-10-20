@@ -143,13 +143,9 @@ const services = [
             // Enhanced Conversions: send hashed user data before conversion event
             // Enables Google Ads to match conversions more accurately
             // Added 2026-03-06: Fixes "Needs attention" in Enhanced Conversions diagnostics
-            gtag('set', 'user_data', {
-              'email': data.email,
-              'phone_number': data.phone,
-              'address': {
-                'first_name': data.firstName
-              }
-            });
+            // Normalized (E.164 phone, lowercased email, no address) by ec-user-data.js
+            const ecUserData = window.ifixxEC ? window.ifixxEC.build(data.email, data.phone) : null;
+            if (ecUserData) gtag('set', 'user_data', ecUserData);
 
             gtag('event', 'generate_lead', {
               'form_id': formId,
@@ -163,6 +159,8 @@ const services = [
           }
           // Wait 500ms to ensure GA4 event is sent before redirect
           // Fixed 2026-02-18: Prevent event loss due to immediate redirect (was 300ms, bumped to 500ms for reliability)
+          // Carry the user data to /lp/thank-you, where the Ads conversion fires
+          if (window.ifixxEC) window.ifixxEC.save(data.email, data.phone);
           setTimeout(() => {
             window.location.href = '/lp/thank-you';
           }, 500);
