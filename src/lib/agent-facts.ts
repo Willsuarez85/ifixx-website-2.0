@@ -593,7 +593,7 @@ function buildApi(serviceKeys: string[]) {
     },
     limitsText:
       `${LIMITS.estimate.perIpPerHour} requests per hour per IP and ${LIMITS.estimate.perDay} per day for the site. ` +
-      `A repeated request with the same phone within ${LIMITS.estimate.duplicateWindowSeconds / 60} minutes returns the same reference with duplicate set to true. ` +
+      `A repeated request with the same phone inside a ${LIMITS.estimate.duplicateWindowSeconds / 60}-minute window returns the same reference with duplicate set to true. ` +
       `JSON body up to ${LIMITS.bodyMaxBytes / 1024} KB.`,
     errors: {
       '400': 'Invalid body or field: the error says which one.',
