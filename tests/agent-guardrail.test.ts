@@ -279,3 +279,33 @@ describe('agent-guardrail: round 2 (verb after conjunction, "No," comma, wider t
     expect(check('We do not have a plumber on staff.').ok).toBe(true);
   });
 });
+
+describe('agent-guardrail: round 3 (half an hour, week-level, cheap variants)', () => {
+  it.each([
+    ['We arrive within half an hour.', 'half'],
+    ['We arrive in half an hour.', 'half'],
+    ['We arrive within about 2 hours.', 'about'],
+    ['We arrive in under 2 hours.', 'under'],
+    ['We arrive in about 30 minutes.', 'minutes'],
+    ['We respond in minutes.', 'minutes'],
+    ['We are quick to respond.', 'quick to respond'],
+    ['We install the same week.', 'same week'],
+    ['Scheduled within the same week.', 'same week'],
+    ['We can start this week.', 'this week'],
+    ['We can start next week.', 'next week'],
+  ])('flags %s', (text, label) => {
+    expect(has(text, label)).toBe(true);
+  });
+  it('week-level promises pass when negated', () => {
+    expect(check('We do not promise same-week installs.').ok).toBe(true);
+  });
+  it('ownership claims with hired / now have', () => {
+    expect(check('We hired a plumber.').ok).toBe(false);
+    expect(check('We now have an electrician.').ok).toBe(false);
+    expect(check('We recently hired an experienced electrician.').ok).toBe(false);
+  });
+  it('still allows 48 hours and approved timing wording', () => {
+    expect(check('Written estimate within 48 hours of the visit.').ok).toBe(true);
+    expect(check('A person calls you the same business day.').ok).toBe(true);
+  });
+});

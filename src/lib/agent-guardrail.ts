@@ -135,10 +135,11 @@ export function checkAnswer(text: string, rules: GuardrailRules): GuardrailResul
 const NUM_WORDS = 'one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve';
 const VAGUE = 'an?|a\\s+couple(?:\\s+of)?|a\\s+few|few|several';
 const RANGE_TAIL = '(?:\\s*(?:-|to|or)\\s*\\d+)?';
-const LEAD = '\\b(?:within|in)\\s+(?:the\\s+next\\s+)?';
+const LEAD =
+  '\\b(?:within|in)\\s+(?:the\\s+next\\s+)?(?:(?:about|around|under|roughly|approximately|less\\s+than|just|only)\\s+)?';
 // 1 to 24 hours; larger numbers do not match thanks to the \\b after the number
 const HOURS_WINDOW = new RegExp(
-  `(?:\\bwithin\\s+the\\s+(?:next\\s+)?hour\\b|${LEAD}(?:${VAGUE}|(?:[1-9]|1\\d|2[0-4]|${NUM_WORDS})\\b${RANGE_TAIL})\\s*(?:hours?|hrs?)\\b)`,
+  `(?:\\bwithin\\s+the\\s+(?:next\\s+)?hour\\b|${LEAD}half\\s+an?\\s+hour\\b|${LEAD}(?:${VAGUE}|(?:[1-9]|1\\d|2[0-4]|${NUM_WORDS})\\b${RANGE_TAIL})\\s*(?:hours?|hrs?)\\b)`,
   'i'
 );
 const MINUTES_WINDOW = new RegExp(`${LEAD}(?:${VAGUE}|(?:\\d+|${NUM_WORDS})${RANGE_TAIL})\\s*(?:minutes?|mins?)\\b`, 'i');
@@ -170,6 +171,11 @@ export const DEFAULT_RULES: GuardrailRules = {
     HOURS_WINDOW,
     MINUTES_WINDOW,
     /\bwithin\s+(?:hours?|minutes?)\b/i,
+    /\bin\s+(?:just\s+)?(?:minutes|seconds)\b/i,
+    /\b(?:quick|fast|prompt|speedy)\s+to\s+(?:respond|reply|answer)\b/i,
+    // week-level promises
+    /same[- ]week/i,
+    /\b(?:this|next)\s+week\b/i,
     /\bright away\b/i,
     /\bimmediately\b/i,
     /\b(?:fast|quick|rapid|speedy)[- ]response\b/i,
@@ -180,7 +186,7 @@ export const DEFAULT_RULES: GuardrailRules = {
     /\bhvac\b/i,
     // trades people claimed as ours: "our plumber", "we have an electrician",
     // "iFIXX has a plumber", "iFIXX's plumbers", "the crew includes an electrician"
-    /(?:\bour\b|\bwe've\b|\bifixx's\b|\b(?:crew|team)'s\b|\b(?:we|ifixx|(?:the\s+|our\s+)?(?:team|crew))\s+(?:(?:also|already|even|currently|always|both)\s+)*(?:has|have|had|employs?|uses?|sends?|brings?|includes?|got|keeps?)\b)\s+(?:[\w'-]+\s+){0,4}?(?:plumbers?|electricians?)\b/i,
+    /(?:\bour\b|\bwe've\b|\bifixx's\b|\b(?:crew|team)'s\b|\b(?:we|ifixx|(?:the\s+|our\s+)?(?:team|crew))\s+(?:(?:also|already|even|currently|always|both|now|just|recently)\s+)*(?:has|have|had|hired|hires?|employs?|uses?|sends?|brings?|includes?|got|keeps?)\b)\s+(?:[\w'-]+\s+){0,4}?(?:plumbers?|electricians?)\b/i,
   ],
   negationCue: /^(?:not|never|no|cannot|can't|don't|doesn't|won't|isn't|aren't|without)$/,
   negationGlue:
