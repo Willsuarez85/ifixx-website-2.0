@@ -6,6 +6,10 @@
  * The store is never on the critical path: if the variables are missing or a request
  * fails, every function returns its "allowed" value (counter -1, no duplicate, not
  * saved), logs a warning and the endpoint carries on. Nothing here throws.
+ *
+ * While the store is out, rate limits and dedup are off. The first failure on a StoreEnv
+ * emits one searchable line, console.error('agent-store:unprotected', reason). Endpoints
+ * build a fresh StoreEnv per request, so that is one line per unprotected request.
  */
 
 export interface StoreEnv {
@@ -14,11 +18,21 @@ export interface StoreEnv {
   site: string;
 }
 
-const TIMEOUT_MS = 3000;
+const TIMEOUT_MS = 1500;
+
+/** StoreEnv objects that already logged the alarm (the caller's object is never mutated). */
+const reported = new WeakSet<StoreEnv>();
+
+function unprotected(env: StoreEnv, reason: string): void {
+  if (reported.has(env)) return;
+  reported.add(env);
+  console.error('agent-store:unprotected', reason);
+}
 
 async function rest(env: StoreEnv, path: string, init: RequestInit = {}): Promise<Response | null> {
   if (!env.url || !env.key) {
     console.warn(`agent-store: SUPABASE_URL or SUPABASE_SERVICE_KEY missing, skipping ${path.split('?')[0]}`);
+    unprotected(env, 'store not configured (SUPABASE_URL or SUPABASE_SERVICE_KEY missing)');
     return null;
   }
   try {
@@ -36,11 +50,13 @@ async function rest(env: StoreEnv, path: string, init: RequestInit = {}): Promis
     if (!res.ok) {
       const detail = await res.text().catch(() => '');
       console.warn(`agent-store: ${path.split('?')[0]} answered ${res.status} ${detail.slice(0, 200)}`);
+      unprotected(env, `${path.split('?')[0]} answered ${res.status}`);
       return null;
     }
     return res;
   } catch (err) {
     console.warn(`agent-store: ${path.split('?')[0]} failed: ${(err as Error)?.message ?? err}`);
+    unprotected(env, `${path.split('?')[0]} failed: ${(err as Error)?.message ?? err}`);
     return null;
   }
 }

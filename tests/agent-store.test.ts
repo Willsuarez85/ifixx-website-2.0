@@ -110,3 +110,33 @@ describe('saveLead and saveConversation', () => {
     ).resolves.toBe(false);
   });
 });
+
+describe('unprotected alarm', () => {
+  it('logs agent-store:unprotected once per StoreEnv, whatever the number of failed calls', async () => {
+    quiet();
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('down'); }));
+    const perRequest: StoreEnv = { ...env };
+    await bump(perRequest, 'a', 60);
+    await bump(perRequest, 'b', 60);
+    await recentLeadReference(perRequest, 'h', 600);
+    await saveLead(perRequest, { reference: 'R', phoneHash: 'ph', contactId: 'x' });
+    expect(error.mock.calls.filter((c) => c[0] === 'agent-store:unprotected')).toHaveLength(1);
+
+    await bump({ ...env }, 'a', 60); // next request, new StoreEnv: new alarm
+    expect(error.mock.calls.filter((c) => c[0] === 'agent-store:unprotected')).toHaveLength(2);
+  });
+
+  it('logs it for a missing configuration and for a non-2xx answer, never when the store answers', async () => {
+    quiet();
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('1', { status: 200 })));
+    await bump({ ...env }, 'a', 60);
+    expect(error).not.toHaveBeenCalled();
+    await bump({ site: 's' }, 'a', 60);
+    expect(error.mock.calls[0]).toEqual(['agent-store:unprotected', expect.stringMatching(/not configured/)]);
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('x', { status: 503 })));
+    await bump({ ...env }, 'a', 60);
+    expect(error.mock.calls[1]).toEqual(['agent-store:unprotected', expect.stringMatching(/503/)]);
+  });
+});

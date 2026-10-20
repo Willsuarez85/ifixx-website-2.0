@@ -59,6 +59,8 @@ function makeReference(): string {
   return out;
 }
 
+const noUrls = (field: string) => `${field} must not contain URLs (http://, https:// or www.).`;
+
 type Validated = { ok: true; value: EstimateRequest } | { ok: false; error: string };
 
 function optionalText(data: Record<string, unknown>, field: string, max: number): { error?: string; value?: string } {
@@ -67,6 +69,7 @@ function optionalText(data: Record<string, unknown>, field: string, max: number)
   if (typeof v !== 'string') return { error: `${field} must be a string.` };
   const value = clean(v);
   if (value.length > max) return { error: `${field} must be up to ${max} characters.` };
+  if (URL_IN_TEXT.test(value)) return { error: noUrls(field) };
   return value ? { value } : {};
 }
 
@@ -80,6 +83,7 @@ function validate(data: unknown): Validated {
   if (!firstName || firstName.length > LIMITS.firstNameMax) {
     return { ok: false, error: `firstName is required, 1 to ${LIMITS.firstNameMax} characters.` };
   }
+  if (URL_IN_TEXT.test(firstName)) return { ok: false, error: noUrls('firstName') };
 
   const phone = normalizePhone(d.phone as string);
   if (!phone) {
@@ -90,9 +94,7 @@ function validate(data: unknown): Validated {
   if (!message || message.length > LIMITS.messageMax) {
     return { ok: false, error: `message is required, 1 to ${LIMITS.messageMax} characters.` };
   }
-  if (URL_IN_TEXT.test(message)) {
-    return { ok: false, error: 'message must not contain URLs (http://, https:// or www.).' };
-  }
+  if (URL_IN_TEXT.test(message)) return { ok: false, error: noUrls('message') };
 
   const lastName = optionalText(d, 'lastName', SHORT_FIELD_MAX);
   const city = optionalText(d, 'city', SHORT_FIELD_MAX);
@@ -114,8 +116,12 @@ function validate(data: unknown): Validated {
       return { ok: false, error: 'agent must be an object: { "name", "vendor", "conversationId" }.' };
     }
     const a = d.agent as Record<string, unknown>;
-    if (typeof a.name === 'string') agentName = clean(a.name).slice(0, SHORT_FIELD_MAX) || undefined;
+    if (typeof a.name === 'string') {
+      if (URL_IN_TEXT.test(a.name)) return { ok: false, error: noUrls('agent.name') };
+      agentName = clean(a.name).slice(0, SHORT_FIELD_MAX) || undefined;
+    }
     if (typeof a.vendor === 'string' && a.vendor.trim()) {
+      if (URL_IN_TEXT.test(a.vendor)) return { ok: false, error: noUrls('agent.vendor') };
       vendorGiven = true;
       slug = vendorSlug(a.vendor);
     }
@@ -150,12 +156,16 @@ function validate(data: unknown): Validated {
   };
 }
 
-function notesPrefix(v: EstimateRequest): string {
+/** Opens Project Notes: who sent it, the reference the assistant got back, the conversation. */
+function notesPrefix(v: EstimateRequest, reference: string): string {
   const who = ['Submitted by AI assistant', v.agentName, v.vendorGiven ? `(${v.vendorSlug})` : undefined]
     .filter(Boolean)
     .join(' ');
-  const line = `${who} on behalf of the homeowner.`;
-  return v.conversationId ? `${line}\nConversation: ${v.conversationId}` : line;
+  return [
+    `${who} on behalf of the homeowner.`,
+    `Reference: ${reference}`,
+    ...(v.conversationId ? [`Conversation: ${v.conversationId}`] : []),
+  ].join('\n');
 }
 
 export const POST: APIRoute = async ({ request }) => {
@@ -169,26 +179,33 @@ export const POST: APIRoute = async ({ request }) => {
     const env = agentEnv(AGENT_SITE_ID_DEFAULT);
     const store: StoreEnv = { url: env.supabaseUrl, key: env.supabaseKey, site: env.site };
 
-    // Counters answer -1 when the store is down: the request goes through.
-    if ((await bump(store, `estimate:ip:${ipHash(clientIp(request))}`, LIMITS.ipWindowSeconds)) > LIMITS.estimate.perIpPerHour) {
-      return failure(429, 'rate_limited');
-    }
-    if ((await bump(store, 'estimate:day', LIMITS.dayWindowSeconds)) > LIMITS.estimate.perDay) {
-      return failure(503, 'temporarily_unavailable');
-    }
-
+    // Counters answer -1 and the dedup lookup answers null when the store is down: the
+    // request goes through (agent-store logs 'agent-store:unprotected' once).
+    // The phone hash is pseudonymization, not anonymity: a known phone can be hashed and matched.
     const phoneHash = sha256Hex(v.phone);
     const nextStep = estimateNextStep(v.firstName);
-    const previous = await recentLeadReference(store, phoneHash, LIMITS.estimate.duplicateWindowSeconds);
+    // The IP limit covers dedup hits too (a hit returns a reference); the daily budget is
+    // spent only by requests that can reach the CRM.
+    const [ipCount, previous] = await Promise.all([
+      bump(store, `estimate:ip:${ipHash(clientIp(request))}`, LIMITS.ipWindowSeconds),
+      recentLeadReference(store, phoneHash, LIMITS.estimate.duplicateWindowSeconds),
+    ]);
+    if (ipCount > LIMITS.estimate.perIpPerHour) return failure(429, 'rate_limited');
     if (previous) {
       return jsonResponse(200, { success: true, reference: previous, nextStep, duplicate: true });
     }
-
     if (!env.ghlApiKey || !env.ghlLocationId) {
       console.error('agent estimate: missing GHL configuration');
       return failure(502, 'crm_unavailable');
     }
 
+    if ((await bump(store, 'estimate:day', LIMITS.dayWindowSeconds)) > LIMITS.estimate.perDay) {
+      return failure(503, 'temporarily_unavailable');
+    }
+
+    // Generated before the CRM call so it is written into Project Notes, where staff can
+    // match it with what the assistant told the homeowner.
+    const reference = makeReference();
     let contactId: string;
     try {
       ({ contactId } = await submitLead(
@@ -203,7 +220,7 @@ export const POST: APIRoute = async ({ request }) => {
           city: v.city,
           zipCode: v.zipCode,
           extraTags: [...new Set(['ai-assistant-lead', `agent:${v.vendorSlug}`])],
-          notesPrefix: notesPrefix(v),
+          notesPrefix: notesPrefix(v, reference),
         },
         { apiKey: env.ghlApiKey, locationId: env.ghlLocationId, origin: new URL(request.url).origin }
       ));
@@ -212,7 +229,6 @@ export const POST: APIRoute = async ({ request }) => {
       return failure(502, 'crm_unavailable');
     }
 
-    const reference = makeReference();
     await saveLead(store, {
       reference,
       phoneHash,

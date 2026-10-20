@@ -116,6 +116,23 @@ describe('POST /api/agent/estimate validation', () => {
     }
   });
 
+  it('rejects URLs in every free-text field', async () => {
+    const { upserts } = setup();
+    const cases: [string, Record<string, unknown>][] = [
+      ['firstName', { firstName: 'Ana www.spam.example' }],
+      ['lastName', { lastName: 'see https://spam.example' }],
+      ['city', { city: 'http://spam.example' }],
+      ['agent.name', { agent: { name: 'Bot www.spam.example', vendor: 'x' } }],
+      ['agent.vendor', { agent: { name: 'Bot', vendor: 'https://spam.example' } }],
+    ];
+    for (const [field, patch] of cases) {
+      const r = await call({ ...valid, ...patch });
+      expect(r.status, field).toBe(400);
+      expect((await r.json()).error, field).toContain(`${field} must not contain URLs`);
+    }
+    expect(upserts()).toHaveLength(0);
+  });
+
   it('rejects missing or oversized required fields and a non-object body', async () => {
     setup();
     expect((await call({ ...valid, firstName: '' })).status).toBe(400);
@@ -155,7 +172,11 @@ describe('POST /api/agent/estimate success', () => {
     expect(up.tags.slice(0, 3)).toEqual(['website-lead', 'ai-assistant-lead', 'agent:openai-chatgpt']);
     expect(up.tags).toContain('service-drywall-repair');
     const notes = up.customFields.find((f: { id: string }) => f.id === 'HhBO7YQAST3aZR770LJO').value as string;
-    expect(notes.startsWith('Submitted by AI assistant Helper (openai-chatgpt) on behalf of the homeowner.\nConversation: conv-123\n\n')).toBe(true);
+    expect(
+      notes.startsWith(
+        `Submitted by AI assistant Helper (openai-chatgpt) on behalf of the homeowner.\nReference: ${body.reference}\nConversation: conv-123\n\n`
+      )
+    ).toBe(true);
     expect(notes).toContain('Two holes in the living room drywall.');
 
     const row = leadInserts()[0];
@@ -211,8 +232,8 @@ describe('POST /api/agent/estimate limits and failures', () => {
     expect(upserts()).toHaveLength(0);
   });
 
-  it('same phone inside the window -> 200 with the same reference, duplicate true, no CRM call', async () => {
-    const { upserts, leadInserts } = setup({ duplicateRef: 'K7M2Q9XA' });
+  it('same phone inside the window -> 200 with the same reference, duplicate true, no CRM call, no daily budget spent', async () => {
+    const { upserts, leadInserts, calls } = setup({ duplicateRef: 'K7M2Q9XA' });
     const r = await call(valid);
     expect(r.status).toBe(200);
     const body = await r.json();
@@ -220,14 +241,31 @@ describe('POST /api/agent/estimate limits and failures', () => {
     expect(body.nextStep).toContain('same business day');
     expect(upserts()).toHaveLength(0);
     expect(leadInserts()).toHaveLength(0);
+    const keys = calls.filter((c) => c.url.endsWith('/rpc/bump_counter')).map((c) => JSON.parse(String(c.init.body)).p_key);
+    expect(keys).toHaveLength(1);
+    expect(keys[0]).toMatch(/^estimate:ip:/);
   });
 
-  it('(f) store down -> still 200 and the CRM still gets the lead', async () => {
+  it('an IP over the limit is refused even when the phone is a duplicate', async () => {
+    setup({ duplicateRef: 'K7M2Q9XA', bumpValue: (k) => (k.startsWith('estimate:ip:') ? 6 : 1) });
+    expect((await call(valid)).status).toBe(429);
+  });
+
+  it('(f) store down -> still 200, the CRM still gets the lead, one unprotected alarm', async () => {
     const { upserts } = setup({ store: 'down' });
     const r = await call(valid);
     expect(r.status).toBe(200);
     expect((await r.json()).reference).toMatch(/^[A-Z2-9]{8}$/);
     expect(upserts()).toHaveLength(1);
+    const alarms = vi.mocked(console.error).mock.calls.filter((c) => c[0] === 'agent-store:unprotected');
+    expect(alarms).toHaveLength(1);
+    expect(String(alarms[0][1])).toMatch(/failed/);
+  });
+
+  it('store up -> no unprotected alarm', async () => {
+    setup();
+    await call(valid);
+    expect(vi.mocked(console.error).mock.calls.some((c) => c[0] === 'agent-store:unprotected')).toBe(false);
   });
 
   it('store env missing -> still 200 with no store calls', async () => {
@@ -238,6 +276,9 @@ describe('POST /api/agent/estimate limits and failures', () => {
     expect(r.status).toBe(200);
     expect(upserts()).toHaveLength(1);
     expect(calls.some((c) => c.url.startsWith(STORE))).toBe(false);
+    const alarms = vi.mocked(console.error).mock.calls.filter((c) => c[0] === 'agent-store:unprotected');
+    expect(alarms).toHaveLength(1);
+    expect(String(alarms[0][1])).toMatch(/not configured/);
   });
 
   it('CRM failure -> 502 crm_unavailable with the phone', async () => {

@@ -1,7 +1,8 @@
 -- AI-agent layer store: rate-limit counters, estimate-request dedup and the
 -- conversation log. Shared by every site that runs the agent layer; rows carry `site`
 -- (the AGENT_SITE_ID of the deployment). Only the service key reaches these tables:
--- RLS is on with no policies, and bump_counter is executable by service_role only.
+-- RLS is on with no policies, anon and authenticated hold no privileges on the tables
+-- or their sequences, and bump_counter is executable by service_role only.
 -- Idempotent: safe to run twice.
 
 create table if not exists public.agent_counters (
@@ -50,6 +51,10 @@ create index if not exists agent_conversations_site_created_idx
 alter table public.agent_counters enable row level security;
 alter table public.agent_leads enable row level security;
 alter table public.agent_conversations enable row level security;
+
+-- Belt and braces on top of RLS: the API roles get no table or sequence privileges.
+revoke all on public.agent_counters, public.agent_leads, public.agent_conversations from anon, authenticated;
+revoke all on sequence public.agent_leads_id_seq, public.agent_conversations_id_seq from anon, authenticated;
 
 -- Adds one to the counter of (site, key) in the current fixed window and returns the
 -- new count. The window starts at a multiple of p_window_seconds since the epoch.

@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
-import { clientIp, ipHash, jsonResponse, normalizePhone, optionsResponse, readJson } from '../src/lib/agent-http';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { agentEnv, clientIp, ipHash, jsonResponse, normalizePhone, optionsResponse, readJson } from '../src/lib/agent-http';
 
 const post = (body: BodyInit | null, headers: Record<string, string> = {}) =>
   new Request('http://localhost/api/agent/estimate', { method: 'POST', body, headers });
@@ -43,7 +43,10 @@ describe('readJson', () => {
 });
 
 describe('request helpers', () => {
-  it('clientIp takes the first x-forwarded-for value', () => {
+  it('clientIp prefers x-vercel-forwarded-for, then x-real-ip, then the first x-forwarded-for', () => {
+    const all = { 'x-vercel-forwarded-for': '198.51.100.1', 'x-real-ip': '198.51.100.2', 'x-forwarded-for': '203.0.113.7, 10.0.0.1' };
+    expect(clientIp(post('{}', all))).toBe('198.51.100.1');
+    expect(clientIp(post('{}', { 'x-real-ip': '198.51.100.2', 'x-forwarded-for': '203.0.113.7' }))).toBe('198.51.100.2');
     expect(clientIp(post('{}', { 'x-forwarded-for': '203.0.113.7, 10.0.0.1' }))).toBe('203.0.113.7');
     expect(clientIp(post('{}'))).toBe('unknown');
   });
@@ -65,5 +68,42 @@ describe('request helpers', () => {
     expect(o.status).toBe(204);
     expect(o.headers.get('access-control-allow-methods')).toMatch(/POST/);
     expect(o.headers.get('access-control-allow-headers')).toMatch(/content-type/i);
+  });
+});
+
+describe('agentEnv', () => {
+  afterEach(() => vi.unstubAllEnvs());
+
+  it('reads process.env at call time, not at import or build time', () => {
+    vi.stubEnv('SUPABASE_URL', 'https://first.test');
+    vi.stubEnv('SUPABASE_SERVICE_KEY', 'k1');
+    vi.stubEnv('GHL_API_KEY', 'g1');
+    vi.stubEnv('GHL_LOCATION_ID', 'l1');
+    vi.stubEnv('AGENT_SITE_ID', 'site-x');
+    expect(agentEnv('fallback')).toEqual({
+      ghlApiKey: 'g1',
+      ghlLocationId: 'l1',
+      supabaseUrl: 'https://first.test',
+      supabaseKey: 'k1',
+      site: 'site-x',
+    });
+    process.env.SUPABASE_URL = 'https://second.test';
+    process.env.SUPABASE_SERVICE_KEY = '';
+    const later = agentEnv('fallback');
+    expect(later.supabaseUrl).toBe('https://second.test');
+    expect(later.supabaseKey).toBeUndefined();
+  });
+
+  it('falls back to the default site id', () => {
+    vi.stubEnv('AGENT_SITE_ID', '');
+    expect(agentEnv('fallback').site).toBe('fallback');
+  });
+
+  it('never reads secrets through import.meta.env', async () => {
+    const { readFileSync } = await import('node:fs');
+    const src = readFileSync('src/lib/agent-http.ts', 'utf8');
+    for (const name of ['GHL_API_KEY', 'GHL_LOCATION_ID', 'SUPABASE_URL', 'SUPABASE_SERVICE_KEY']) {
+      expect(src).not.toContain(`import.meta.env.${name}`);
+    }
   });
 });

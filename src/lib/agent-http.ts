@@ -79,10 +79,13 @@ export async function readJson(
   }
 }
 
-/** First address in x-forwarded-for, or 'unknown'. */
+/**
+ * Client address: x-vercel-forwarded-for (set by Vercel, not spoofable through it), then
+ * x-real-ip, then the first x-forwarded-for value, else 'unknown'.
+ */
 export function clientIp(request: Request): string {
-  const first = (request.headers.get('x-forwarded-for') || '').split(',')[0].trim();
-  return first || 'unknown';
+  const first = (name: string) => (request.headers.get(name) || '').split(',')[0].trim();
+  return first('x-vercel-forwarded-for') || first('x-real-ip') || first('x-forwarded-for') || 'unknown';
 }
 
 /** sha256 hex of the value, full length. */
@@ -90,7 +93,10 @@ export function sha256Hex(value: string): string {
   return createHash('sha256').update(value).digest('hex');
 }
 
-/** sha256 of the IP, first 16 hex characters. The raw IP is never stored. */
+/**
+ * sha256 of the IP, first 16 hex characters. Pseudonymization, not anonymity: the raw
+ * IP is never stored, but a known IP can be hashed and matched.
+ */
 export function ipHash(ip: string): string {
   return sha256Hex(ip).slice(0, 16);
 }
@@ -110,17 +116,19 @@ export function normalizePhone(raw: string): string | null {
 }
 
 /**
- * Server configuration for the agent endpoints. Each name is read statically from
- * import.meta.env (as src/pages/api/lead.ts does) with process.env as runtime fallback.
+ * Server configuration for the agent endpoints, read from process.env at call time.
+ * Secrets never go through import.meta.env: Astro inlines those values into the server
+ * bundle at build time. Only AGENT_SITE_ID (not a secret) keeps the import.meta fallback.
+ * Empty strings count as missing.
  */
 export function agentEnv(defaultSite: string) {
-  const pick = (a: string | undefined, b: string | undefined) => (a ? a : b) || undefined;
   const proc: Record<string, string | undefined> = typeof process !== 'undefined' ? process.env : {};
+  const read = (name: string) => proc[name] || undefined;
   return {
-    ghlApiKey: pick(import.meta.env.GHL_API_KEY, proc.GHL_API_KEY),
-    ghlLocationId: pick(import.meta.env.GHL_LOCATION_ID, proc.GHL_LOCATION_ID),
-    supabaseUrl: pick(import.meta.env.SUPABASE_URL, proc.SUPABASE_URL),
-    supabaseKey: pick(import.meta.env.SUPABASE_SERVICE_KEY, proc.SUPABASE_SERVICE_KEY),
-    site: pick(import.meta.env.AGENT_SITE_ID, proc.AGENT_SITE_ID) || defaultSite,
+    ghlApiKey: read('GHL_API_KEY'),
+    ghlLocationId: read('GHL_LOCATION_ID'),
+    supabaseUrl: read('SUPABASE_URL'),
+    supabaseKey: read('SUPABASE_SERVICE_KEY'),
+    site: read('AGENT_SITE_ID') || import.meta.env.AGENT_SITE_ID || defaultSite,
   };
 }
