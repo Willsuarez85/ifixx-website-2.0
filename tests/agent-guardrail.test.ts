@@ -138,3 +138,90 @@ describe('agent-guardrail: other rules', () => {
     expect(checkAnswer('$10 bar', rules).ok).toBe(true);
   });
 });
+
+describe('agent-guardrail: R1b local negation (findings 1)', () => {
+  it('friendly or distant negatives do not exempt a real promise', () => {
+    expect(has('No problem, someone can come today.', 'today')).toBe(true);
+    expect(has("Don't worry, we can be there today.", 'today')).toBe(true);
+    expect(has('We do not charge extra and can come today.', 'today')).toBe(true);
+    expect(has('We do not do plumbing and we do electrical work too.', 'electrical')).toBe(true);
+  });
+  it('local negations and "no <timing term>" still pass', () => {
+    expect(check('No same-day, emergency or 24-hour service.').ok).toBe(true);
+    expect(check('We cannot do emergency work.').ok).toBe(true);
+    expect(check("We can't offer same-day service.").ok).toBe(true);
+    expect(check('We do not offer plumbing, electrical or HVAC work.').ok).toBe(true);
+  });
+});
+
+describe('agent-guardrail: widened timing and trade variants (findings 2)', () => {
+  it.each([
+    ['We handle emergencies at any hour.', 'emergencies'],
+    ['We arrive within an hour.', 'within'],
+    ['We arrive within 2 hours.', 'within'],
+    ['We arrive within two hours.', 'within'],
+    ['We arrive within a few hours.', 'within'],
+    ['We are open 24hrs.', '24'],
+    ['We are open 24 hr.', '24'],
+    ['We are open 24 / 7.', '24'],
+    ['We are open 24x7.', '24'],
+    ['We are open 24-7.', '24'],
+    ['We work around the clock.', 'clock'],
+    ['We work round-the-clock.', 'clock'],
+    ['We can come tonight.', 'tonight'],
+    ['We can come right away.', 'right away'],
+    ['We reply immediately.', 'immediately'],
+    ['We respond fast.', 'respond fast'],
+    ['You get a quick response.', 'quick response'],
+  ])('flags %s', (text, label) => {
+    expect(has(text, label)).toBe(true);
+  });
+  it('allows "within 48 hours" and negated variants', () => {
+    expect(check('Written estimate within 48 hours of the visit.').ok).toBe(true);
+    expect(check('We do not handle emergencies.').ok).toBe(true);
+    expect(check('We never promise round-the-clock service.').ok).toBe(true);
+  });
+});
+
+describe('agent-guardrail: apostrophes and brand ownership (findings 3, 4)', () => {
+  it('curly apostrophe does not defeat the tradesperson claim', () => {
+    expect(check('We’ve got an electrician on staff.').ok).toBe(false);
+    expect(check('We’ve got a plumber.').ok).toBe(false);
+  });
+  it('curly apostrophe in negation cues still works', () => {
+    expect(check('We don’t offer same-day service.').ok).toBe(true);
+    expect(check('iFIXX doesn’t do plumbing.').ok).toBe(true);
+  });
+  it('brand-name and crew ownership of a trade is a violation', () => {
+    expect(check('iFIXX has a plumber on the team.').ok).toBe(false);
+    expect(check("iFIXX's plumbers can help.").ok).toBe(false);
+    expect(check('iFIXX’s electricians can help.').ok).toBe(false);
+    expect(check('The crew includes an electrician.').ok).toBe(false);
+  });
+});
+
+describe('agent-guardrail: spellings, Charlotte, dashes, amounts (findings 5)', () => {
+  it('catches spelling variants of neighborhoods', () => {
+    expect(has('We cover Plaza  Midwood', 'midwood')).toBe(true);
+    expect(has('We cover Plaza-Midwood', 'midwood')).toBe(true);
+    expect(has('We cover Myers-Park', 'park')).toBe(true);
+    expect(has('We cover Myers  Park', 'park')).toBe(true);
+  });
+  it('blocks Charlotte as a city but allows South Charlotte', () => {
+    expect(has('We work in Charlotte.', 'charlotte')).toBe(true);
+    expect(has('We serve the Charlotte area.', 'charlotte')).toBe(true);
+    expect(check('We work in South Charlotte, NC.').ok).toBe(true);
+    expect(check('We work in south  charlotte.').ok).toBe(true);
+  });
+  it('catches every dash form', () => {
+    for (const d of ['‒', '–', '—', '―', '--']) {
+      expect(check(`quick fixes ${d} full transformations`).violations, d).toContain('dash');
+    }
+    expect(check('family-owned, 8:30-5:30').ok).toBe(true);
+  });
+  it('catches USD and k amounts without a dollar sign', () => {
+    expect(check('Usually USD 2,500.').violations).toContain('dollar:2500');
+    expect(check('Usually 2k.').violations).toContain('dollar:2000');
+    expect(check('Starts at 5k.').ok).toBe(true);
+  });
+});
