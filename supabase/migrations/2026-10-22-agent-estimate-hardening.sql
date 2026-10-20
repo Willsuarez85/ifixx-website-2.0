@@ -5,7 +5,8 @@
 alter table public.agent_leads
   add column if not exists payload_hash text,
   add column if not exists status text not null default 'completed',
-  add column if not exists completed_at timestamptz;
+  add column if not exists completed_at timestamptz,
+  add column if not exists routing_status text not null default 'complete';
 
 create index if not exists agent_leads_site_payload_created_idx
   on public.agent_leads (site, payload_hash, created_at desc)
@@ -63,7 +64,8 @@ create or replace function public.complete_agent_estimate(
   p_site text,
   p_payload_hash text,
   p_reference text,
-  p_contact_id text
+  p_contact_id text,
+  p_routing_status text
 )
 returns boolean
 language plpgsql
@@ -75,6 +77,7 @@ begin
   update public.agent_leads as l
      set contact_id = p_contact_id,
          status = 'completed',
+         routing_status = p_routing_status,
          completed_at = pg_catalog.now()
    where l.site = p_site
      and l.payload_hash = p_payload_hash
@@ -107,14 +110,14 @@ $$;
 
 revoke execute on function public.reserve_agent_estimate(text, text, text, text, int, text, text)
   from public, anon, authenticated;
-revoke execute on function public.complete_agent_estimate(text, text, text, text)
+revoke execute on function public.complete_agent_estimate(text, text, text, text, text)
   from public, anon, authenticated;
 revoke execute on function public.release_agent_estimate(text, text, text)
   from public, anon, authenticated;
 
 grant execute on function public.reserve_agent_estimate(text, text, text, text, int, text, text)
   to service_role;
-grant execute on function public.complete_agent_estimate(text, text, text, text)
+grant execute on function public.complete_agent_estimate(text, text, text, text, text)
   to service_role;
 grant execute on function public.release_agent_estimate(text, text, text)
   to service_role;

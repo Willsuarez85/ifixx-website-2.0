@@ -17,13 +17,17 @@ interface Setup {
   bumpValue?: (key: string) => number;
   duplicateRef?: string | null;
   ghlFails?: boolean;
+  ghlRejects?: boolean;
+  upsertHangs?: boolean;
+  routingHangs?: boolean;
   atomicDuplicates?: boolean;
 }
 
 function setup(opts: Setup = {}) {
   const {
     store = 'ok', storeFailureAt, bumpValue = () => 1, duplicateRef = null,
-    ghlFails = false, atomicDuplicates = false,
+    ghlFails = false, ghlRejects = false, upsertHangs = false, routingHangs = false,
+    atomicDuplicates = false,
   } = opts;
   const calls: { url: string; init: RequestInit }[] = [];
   const reservations = new Map<string, string>();
@@ -32,12 +36,16 @@ function setup(opts: Setup = {}) {
     calls.push({ url: u, init });
     if (u.startsWith(STORE)) {
       if (store === 'down') throw new Error('store down');
-      if (u.endsWith('/rest/v1/rpc/bump_counter')) {
-        const { p_key } = JSON.parse(String(init.body));
+      if (u.endsWith('/rest/v1/rpc/consume_agent_token')) {
+        const { p_key, p_capacity } = JSON.parse(String(init.body));
         if (storeFailureAt === 'day' && p_key === 'estimate:day') {
           return new Response('private failure detail', { status: 503 });
         }
-        return new Response(String(bumpValue(p_key)), { status: 200 });
+        const used = bumpValue(p_key);
+        return new Response(JSON.stringify([{
+          allowed: used <= p_capacity,
+          remaining: Math.max(0, p_capacity - used),
+        }]), { status: 200 });
       }
       if (u.endsWith('/rest/v1/rpc/reserve_agent_estimate')) {
         if (storeFailureAt === 'reserve') return new Response('private failure detail', { status: 503 });
@@ -55,8 +63,11 @@ function setup(opts: Setup = {}) {
       throw new Error(`unexpected store call ${u}`);
     }
     if (u.startsWith(GHL)) {
+      if (u.endsWith('/contacts/upsert') && upsertHangs) return new Promise<Response>(() => {});
+      if (u.endsWith('/contacts/upsert') && ghlRejects) return new Response('{"message":"rejected"}', { status: 400 });
       if (ghlFails) return new Response('{"message":"boom"}', { status: 500 });
       if (u.endsWith('/contacts/upsert')) return new Response(JSON.stringify({ contact: { id: 'c1' } }), { status: 200 });
+      if (u.includes('/opportunities/search?') && routingHangs) return new Promise<Response>(() => {});
       if (u.includes('/opportunities/search?')) return new Response(JSON.stringify(OUTDOOR_OPEN), { status: 200 });
       throw new Error(`unexpected GHL call ${init.method} ${u}`);
     }
@@ -65,7 +76,9 @@ function setup(opts: Setup = {}) {
   vi.stubGlobal('fetch', fetchMock);
   const upserts = () => calls.filter((c) => c.url.endsWith('/contacts/upsert')).map((c) => JSON.parse(String(c.init.body)));
   const leadInserts = () => calls.filter((c) => c.url.endsWith('/rpc/reserve_agent_estimate')).map((c) => JSON.parse(String(c.init.body)));
-  return { fetchMock, calls, upserts, leadInserts };
+  const completions = () => calls.filter((c) => c.url.endsWith('/rpc/complete_agent_estimate')).map((c) => JSON.parse(String(c.init.body)));
+  const releases = () => calls.filter((c) => c.url.endsWith('/rpc/release_agent_estimate')).map((c) => JSON.parse(String(c.init.body)));
+  return { fetchMock, calls, upserts, leadInserts, completions, releases };
 }
 
 const call = (body: unknown, headers: Record<string, string> = {}) => {
@@ -125,9 +138,18 @@ describe('POST /api/agent/estimate validation', () => {
     expect((await bad.json()).error).toMatch(/phone/);
   });
 
-  it('(c) message with a URL -> 400', async () => {
+  it('(c) message with a URL, scheme or bare domain -> 400', async () => {
     setup();
-    for (const message of ['see http://x.example', 'https://x.example', 'go to www.example.com']) {
+    for (const message of [
+      'see http://x.example',
+      'upload to ftp://files.example.net',
+      'javascript:alert(1)',
+      'data:text/html,bad',
+      'mailto:spam@example.com',
+      'go to www.example.com',
+      'details at repairs.example.co.uk/path',
+      'Unicode domain ｗｗｗ．example．com',
+    ]) {
       const r = await call({ ...valid, message });
       expect(r.status, message).toBe(400);
       expect((await r.json()).error).toMatch(/message/);
@@ -138,10 +160,10 @@ describe('POST /api/agent/estimate validation', () => {
     const { upserts } = setup();
     const cases: [string, Record<string, unknown>][] = [
       ['firstName', { firstName: 'Ana www.spam.example' }],
-      ['lastName', { lastName: 'see https://spam.example' }],
-      ['city', { city: 'http://spam.example' }],
-      ['agent.name', { agent: { name: 'Bot www.spam.example', vendor: 'x' } }],
-      ['agent.vendor', { agent: { name: 'Bot', vendor: 'https://spam.example' } }],
+      ['lastName', { lastName: 'see spam.example' }],
+      ['city', { city: 'ftp://spam.example' }],
+      ['agent.name', { agent: { name: 'Bot javascript:run()', vendor: 'x' } }],
+      ['agent.vendor', { agent: { name: 'Bot', vendor: 'spam.example' } }],
     ];
     for (const [field, patch] of cases) {
       const r = await call({ ...valid, ...patch });
@@ -149,6 +171,13 @@ describe('POST /api/agent/estimate validation', () => {
       expect((await r.json()).error, field).toContain(`${field} must not contain URLs`);
     }
     expect(upserts()).toHaveLength(0);
+  });
+
+  it('accepts a structured email while still rejecting link-shaped free text', async () => {
+    const { upserts } = setup();
+    const r = await call({ ...valid, email: 'ana@example.com' });
+    expect(r.status).toBe(200);
+    expect(upserts()[0].email).toBe('ana@example.com');
   });
 
   it('rejects missing or oversized required fields and a non-object body', async () => {
@@ -236,7 +265,7 @@ describe('POST /api/agent/estimate limits and failures', () => {
   it('IP key is hashed, never the raw IP', async () => {
     const { calls } = setup();
     await call(valid);
-    const keys = calls.filter((c) => c.url.endsWith('/rpc/bump_counter')).map((c) => JSON.parse(String(c.init.body)).p_key);
+    const keys = calls.filter((c) => c.url.endsWith('/rpc/consume_agent_token')).map((c) => JSON.parse(String(c.init.body)).p_key);
     expect(keys).toContain('estimate:day');
     const ipKey = keys.find((k: string) => k.startsWith('estimate:ip:'));
     expect(ipKey).toMatch(/^estimate:ip:[0-9a-f]{16}$/);
@@ -260,7 +289,7 @@ describe('POST /api/agent/estimate limits and failures', () => {
     expect(body.nextStep).toContain('same business day');
     expect(upserts()).toHaveLength(0);
     expect(leadInserts()).toHaveLength(1);
-    const keys = calls.filter((c) => c.url.endsWith('/rpc/bump_counter')).map((c) => JSON.parse(String(c.init.body)).p_key);
+    const keys = calls.filter((c) => c.url.endsWith('/rpc/consume_agent_token')).map((c) => JSON.parse(String(c.init.body)).p_key);
     expect(keys).toHaveLength(1);
     expect(keys[0]).toMatch(/^estimate:ip:/);
   });
@@ -327,10 +356,59 @@ describe('POST /api/agent/estimate limits and failures', () => {
   });
 
   it('CRM failure -> 502 crm_unavailable with the phone', async () => {
-    setup({ ghlFails: true });
+    const { releases } = setup({ ghlFails: true });
     const r = await call(valid);
     expect(r.status).toBe(502);
     expect(await r.json()).toEqual({ success: false, error: 'crm_unavailable', phone: BRAND.phone });
+    expect(releases()).toHaveLength(0); // 5xx may have written before answering.
+  });
+
+  it('a definitive 4xx upsert rejection releases the reservation for a safe retry', async () => {
+    const { releases } = setup({ ghlRejects: true });
+    expect((await call(valid)).status).toBe(502);
+    expect(releases()).toHaveLength(1);
+  });
+
+  it('an ambiguous upsert timeout keeps the reservation pending and returns within the total deadline', async () => {
+    vi.useFakeTimers({ now: new Date('2026-10-20T15:00:00.000Z') });
+    try {
+      const { calls, releases } = setup({ upsertHangs: true });
+      const pending = call(valid);
+      let settled = false;
+      pending.finally(() => { settled = true; }).catch(() => {});
+      await vi.advanceTimersByTimeAsync(7999);
+      expect(settled).toBe(false);
+      await vi.advanceTimersByTimeAsync(1);
+      const r = await pending;
+      expect(r.status).toBe(502);
+      expect(releases()).toHaveLength(0);
+      const upsert = calls.find((c) => c.url.endsWith('/contacts/upsert'));
+      expect(upsert?.init.signal).toBeInstanceOf(AbortSignal);
+      expect((upsert?.init.signal as AbortSignal).aborted).toBe(true);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('a routing timeout returns contact-only success, persists incomplete routing, and never releases', async () => {
+    vi.useFakeTimers({ now: new Date('2026-10-20T15:00:00.000Z') });
+    try {
+      const { completions, releases, upserts } = setup({ routingHangs: true });
+      const pending = call(valid);
+      await vi.advanceTimersByTimeAsync(8000);
+      const r = await pending;
+      expect(r.status).toBe(200);
+      expect(await r.json()).toMatchObject({ success: true, routingPending: true });
+      expect(upserts()).toHaveLength(1);
+      expect(releases()).toHaveLength(0);
+      expect(completions()).toHaveLength(1);
+      expect(completions()[0].p_routing_status).toBe('incomplete');
+      expect(vi.mocked(console.error).mock.calls).toContainEqual([
+        'GHL routing incomplete after contact upsert; manual workflow required',
+      ]);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('CRM env missing -> 502, never 500', async () => {

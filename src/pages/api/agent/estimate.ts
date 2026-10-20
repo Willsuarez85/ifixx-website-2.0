@@ -2,8 +2,8 @@ import type { APIRoute } from 'astro';
 import { randomInt } from 'node:crypto';
 import { AGENT_SERVICE_KEYS, AGENT_SITE_ID_DEFAULT, BRAND, LIMITS, estimateNextStep } from '../../../lib/agent-facts';
 import { agentEnv, clientIp, ipHash, jsonResponse, normalizePhone, optionsResponse, readJson, sha256Hex } from '../../../lib/agent-http';
-import { bump, completeEstimate, releaseEstimate, reserveEstimate, type StoreEnv } from '../../../lib/agent-store';
-import { submitLead } from '../../../lib/lead-intake';
+import { completeEstimate, consumeToken, releaseEstimate, reserveEstimate, type StoreEnv } from '../../../lib/agent-store';
+import { CONTACT_ONLY_ROUTING_ACTION, LeadIntakeError, submitLead } from '../../../lib/lead-intake';
 
 /**
  * POST /api/agent/estimate: an AI assistant leaves an estimate request on behalf of a
@@ -14,12 +14,15 @@ export const prerender = false;
 
 const SHORT_FIELD_MAX = LIMITS.firstNameMax;
 const EMAIL_MAX = 254;
-const URL_IN_TEXT = /https?:\/\/|www\./i;
+// Agent-supplied free text is sent to GHL only as plain text. Reject link-shaped input;
+// downstream CRM fields/workflows must not render this text as HTML or a template.
+const URL_IN_TEXT = /(?:\b[a-z][a-z0-9+.-]{1,31}:(?:\/\/|[^\s])|\bwww\.|(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+(?:[a-z]{2,63}|xn--[a-z0-9-]{2,59})\b)/iu;
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const ZIP = /^\d{5}(-\d{4})?$/;
 const CONVERSATION_ID = /^[A-Za-z0-9._:-]+$/;
 const REFERENCE_ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ23456789';
 const REFERENCE_LENGTH = 8;
+const AGENT_CRM_TOTAL_TIMEOUT_MS = 8000;
 
 interface EstimateRequest {
   firstName: string;
@@ -40,7 +43,7 @@ const bad = (error: string) => jsonResponse(400, { success: false, error });
 const failure = (status: number, error: string) => jsonResponse(status, { success: false, error, phone: BRAND.phone });
 
 /** Collapses whitespace and control characters to single spaces and trims. */
-const clean = (s: string) => s.replace(/[\s\u0000-\u001f\u007f]+/g, ' ').trim();
+const clean = (s: string) => s.normalize('NFKC').replace(/[\s\u0000-\u001f\u007f]+/g, ' ').trim();
 
 /** 'OpenAI ChatGPT!' -> 'openai-chatgpt'; empty -> 'unknown'. */
 function vendorSlug(raw: unknown): string {
@@ -59,17 +62,22 @@ function makeReference(): string {
   return out;
 }
 
-const noUrls = (field: string) => `${field} must not contain URLs (http://, https:// or www.).`;
+const noUrls = (field: string) => `${field} must not contain URLs, URL schemes or domain names.`;
 
 type Validated = { ok: true; value: EstimateRequest } | { ok: false; error: string };
 
-function optionalText(data: Record<string, unknown>, field: string, max: number): { error?: string; value?: string } {
+function optionalText(
+  data: Record<string, unknown>,
+  field: string,
+  max: number,
+  rejectUrls = true
+): { error?: string; value?: string } {
   const v = data[field];
   if (v === undefined || v === null || v === '') return {};
   if (typeof v !== 'string') return { error: `${field} must be a string.` };
   const value = clean(v);
   if (value.length > max) return { error: `${field} must be up to ${max} characters.` };
-  if (URL_IN_TEXT.test(value)) return { error: noUrls(field) };
+  if (rejectUrls && URL_IN_TEXT.test(value)) return { error: noUrls(field) };
   return value ? { value } : {};
 }
 
@@ -98,8 +106,8 @@ function validate(data: unknown): Validated {
 
   const lastName = optionalText(d, 'lastName', SHORT_FIELD_MAX);
   const city = optionalText(d, 'city', SHORT_FIELD_MAX);
-  const email = optionalText(d, 'email', EMAIL_MAX);
-  const zipCode = optionalText(d, 'zipCode', SHORT_FIELD_MAX);
+  const email = optionalText(d, 'email', EMAIL_MAX, false);
+  const zipCode = optionalText(d, 'zipCode', SHORT_FIELD_MAX, false);
   for (const f of [lastName, city, email, zipCode]) if (f.error) return { ok: false, error: f.error };
   if (email.value && !EMAIL.test(email.value)) return { ok: false, error: 'email is not a valid email address.' };
   if (zipCode.value && !ZIP.test(zipCode.value)) return { ok: false, error: 'zipCode must be a 5-digit US ZIP code.' };
@@ -118,13 +126,16 @@ function validate(data: unknown): Validated {
     }
     const a = d.agent as Record<string, unknown>;
     if (typeof a.name === 'string') {
-      if (URL_IN_TEXT.test(a.name)) return { ok: false, error: noUrls('agent.name') };
-      agentName = clean(a.name).slice(0, SHORT_FIELD_MAX) || undefined;
+      const name = clean(a.name);
+      if (name.length > SHORT_FIELD_MAX) return { ok: false, error: `agent.name must be up to ${SHORT_FIELD_MAX} characters.` };
+      if (URL_IN_TEXT.test(name)) return { ok: false, error: noUrls('agent.name') };
+      agentName = name || undefined;
     }
     if (typeof a.vendor === 'string' && a.vendor.trim()) {
-      if (URL_IN_TEXT.test(a.vendor)) return { ok: false, error: noUrls('agent.vendor') };
+      const vendor = clean(a.vendor);
+      if (URL_IN_TEXT.test(vendor)) return { ok: false, error: noUrls('agent.vendor') };
       vendorGiven = true;
-      slug = vendorSlug(a.vendor);
+      slug = vendorSlug(vendor);
     }
     if (a.conversationId !== undefined && a.conversationId !== null && a.conversationId !== '') {
       const id = typeof a.conversationId === 'string' ? a.conversationId.trim() : '';
@@ -199,9 +210,14 @@ export const POST: APIRoute = async ({ request }) => {
       v.conversationId ?? '',
     ]));
     const nextStep = estimateNextStep(v.firstName);
-    const ipCount = await bump(store, `estimate:ip:${ipHash(clientIp(request))}`, LIMITS.ipWindowSeconds);
-    if (ipCount === null) return failure(503, 'temporarily_unavailable');
-    if (ipCount > LIMITS.estimate.perIpPerHour) return failure(429, 'rate_limited');
+    const ipLimit = await consumeToken(
+      store,
+      `estimate:ip:${ipHash(clientIp(request))}`,
+      LIMITS.estimate.perIpPerHour,
+      LIMITS.ipWindowSeconds
+    );
+    if (ipLimit === null) return failure(503, 'temporarily_unavailable');
+    if (!ipLimit.allowed) return failure(429, 'rate_limited');
     if (!env.ghlApiKey || !env.ghlLocationId) {
       console.error('agent estimate: missing GHL configuration');
       return failure(502, 'crm_unavailable');
@@ -229,12 +245,17 @@ export const POST: APIRoute = async ({ request }) => {
       return jsonResponse(200, { success: true, reference: reservation.reference, nextStep, duplicate: true });
     }
 
-    const dayCount = await bump(store, 'estimate:day', LIMITS.dayWindowSeconds);
-    if (dayCount === null) {
+    const dayLimit = await consumeToken(
+      store,
+      'estimate:day',
+      LIMITS.estimate.perDay,
+      LIMITS.dayWindowSeconds
+    );
+    if (dayLimit === null) {
       await releaseEstimate(store, { payloadHash, reference });
       return failure(503, 'temporarily_unavailable');
     }
-    if (dayCount > LIMITS.estimate.perDay) {
+    if (!dayLimit.allowed) {
       await releaseEstimate(store, { payloadHash, reference });
       return failure(503, 'temporarily_unavailable');
     }
@@ -242,8 +263,9 @@ export const POST: APIRoute = async ({ request }) => {
     // Generated before the CRM call so it is written into Project Notes, where staff can
     // match it with what the assistant told the homeowner.
     let contactId: string;
+    let routingIncomplete = false;
     try {
-      ({ contactId } = await submitLead(
+      const intake = await submitLead(
         {
           firstName: v.firstName,
           lastName: v.lastName,
@@ -257,20 +279,40 @@ export const POST: APIRoute = async ({ request }) => {
           extraTags: [...new Set(['ai-assistant-lead', `agent:${v.vendorSlug}`])],
           notesPrefix: notesPrefix(v, reference),
         },
-        { apiKey: env.ghlApiKey, locationId: env.ghlLocationId, origin: new URL(request.url).origin }
-      ));
+        { apiKey: env.ghlApiKey, locationId: env.ghlLocationId, origin: new URL(request.url).origin },
+        new Date(),
+        { totalTimeoutMs: AGENT_CRM_TOTAL_TIMEOUT_MS, acceptContactOnly: true }
+      );
+      contactId = intake.contactId;
+      routingIncomplete = intake.routing.action === CONTACT_ONLY_ROUTING_ACTION;
     } catch (err) {
-      await releaseEstimate(store, { payloadHash, reference });
-      console.error('agent estimate: CRM intake failed');
+      if (err instanceof LeadIntakeError && err.retrySafe) {
+        await releaseEstimate(store, { payloadHash, reference });
+        console.error('agent estimate: CRM rejected contact before writing');
+      } else {
+        // A timed-out or malformed upsert may already have written the contact. Keep the
+        // pending reservation so an immediate retry cannot create a second CRM lead.
+        console.error('agent estimate: CRM outcome unknown; reservation retained');
+      }
       return failure(502, 'crm_unavailable');
     }
 
-    if (!(await completeEstimate(store, { payloadHash, reference, contactId }))) {
+    if (!(await completeEstimate(store, {
+      payloadHash,
+      reference,
+      contactId,
+      routingStatus: routingIncomplete ? 'incomplete' : 'complete',
+    }))) {
       console.error('agent estimate: could not mark reservation completed');
     }
 
     console.log(`Agent lead: ref ${reference} | agent:${v.vendorSlug} | service ${v.service}`);
-    return jsonResponse(200, { success: true, reference, nextStep });
+    return jsonResponse(200, {
+      success: true,
+      reference,
+      nextStep,
+      ...(routingIncomplete ? { routingPending: true } : {}),
+    });
   } catch {
     console.error('agent estimate: unexpected error');
     return failure(502, 'crm_unavailable');

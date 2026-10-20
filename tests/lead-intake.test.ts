@@ -1,5 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { buildUpsertBody, submitLead, SERVICE_TAGS, type LeadEnv } from '../src/lib/lead-intake';
+import {
+  buildUpsertBody,
+  CONTACT_ONLY_ROUTING_ACTION,
+  submitLead,
+  SERVICE_TAGS,
+  type LeadEnv,
+} from '../src/lib/lead-intake';
 
 const env: LeadEnv = { apiKey: 'test-key', locationId: 'loc-test', origin: 'https://www.ifixxnc.com' };
 const PROJECT_NOTES = 'HhBO7YQAST3aZR770LJO';
@@ -79,15 +85,63 @@ describe('submitLead', () => {
     expect(fetchMock.mock.calls.filter(([u]) => String(u).includes('/opportunities/search?')).length).toBe(12);
   });
 
-  it('aborts and rejects a CRM request that does not answer within five seconds', async () => {
+  it('does not impose an agent timeout on the existing website form path', async () => {
     let signal: AbortSignal | undefined;
     vi.stubGlobal('fetch', vi.fn(async (_url: any, init: RequestInit = {}) => {
       signal = init.signal ?? undefined;
       return new Promise<Response>(() => {});
     }));
-    const rejected = expect(submitLead(base, env)).rejects.toThrow('GHL request timed out');
+    let settled = false;
+    submitLead(base, env).finally(() => { settled = true; }).catch(() => {});
+    await vi.advanceTimersByTimeAsync(60_000);
+    expect(settled).toBe(false);
+    expect(signal).toBeUndefined();
+  });
+
+  it('an agent-scoped deadline aborts an ambiguous contact upsert', async () => {
+    let signal: AbortSignal | undefined;
+    vi.stubGlobal('fetch', vi.fn(async (_url: any, init: RequestInit = {}) => {
+      signal = init.signal ?? undefined;
+      return new Promise<Response>(() => {});
+    }));
+    const pending = submitLead(base, env, new Date(), { totalTimeoutMs: 5000, acceptContactOnly: true });
+    const rejected = expect(pending).rejects.toMatchObject({ retrySafe: false });
     await vi.advanceTimersByTimeAsync(5000);
     await rejected;
+    expect(signal).toBeInstanceOf(AbortSignal);
     expect(signal?.aborted).toBe(true);
+  });
+
+  it('one total deadline covers upsert plus routing and returns a contact-only result', async () => {
+    const started = Date.now();
+    const fetchMock = vi.fn((url: any) => {
+      const u = String(url);
+      if (u.endsWith('/contacts/upsert')) {
+        return new Promise<Response>((resolve) => setTimeout(
+          () => resolve(new Response(JSON.stringify({ contact: { id: 'c1' } }), { status: 200 })),
+          3000
+        ));
+      }
+      if (u.includes('/opportunities/search?')) return new Promise<Response>(() => {});
+      throw new Error(`unexpected ${u}`);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    let settled = false;
+    const pending = submitLead(base, env, new Date(), { totalTimeoutMs: 5000, acceptContactOnly: true });
+    pending.finally(() => { settled = true; }).catch(() => {});
+    await vi.advanceTimersByTimeAsync(4999);
+    expect(settled).toBe(false);
+    await vi.advanceTimersByTimeAsync(1);
+    const result = await pending;
+
+    expect(Date.now() - started).toBe(5000);
+    expect(result.contactId).toBe('c1');
+    expect(result.routing).toEqual({
+      action: CONTACT_ONLY_ROUTING_ACTION,
+      opportunityId: '',
+      deletedHandymanDuplicates: [],
+    });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 });

@@ -1,7 +1,7 @@
 /**
  * Store of the AI-agent layer in Supabase (PostgREST over fetch, no SDK): rate-limit
- * counters, estimate-request dedup and the conversation log. Tables and the
- * bump_counter function are in supabase/migrations/2026-10-21-agent-layer.sql.
+ * rate buckets, estimate-request dedup and the conversation log. The base tables are
+ * followed by hardening migrations in supabase/migrations/.
  *
  * Protection calls return null on an unavailable or malformed store response. Callers
  * decide whether a feature may degrade; the estimate endpoint always fails closed before
@@ -56,16 +56,34 @@ async function rest(env: StoreEnv, path: string, init: RequestInit = {}): Promis
   }
 }
 
-/** Adds one to the (site, key) counter in the current window; null means unavailable. */
-export async function bump(env: StoreEnv, key: string, windowSeconds: number): Promise<number | null> {
-  const res = await rest(env, 'rpc/bump_counter', {
+export interface TokenConsumption {
+  allowed: boolean;
+  remaining: number;
+}
+
+/** Atomically consumes one token from a continuously refilled bucket. */
+export async function consumeToken(
+  env: StoreEnv,
+  key: string,
+  capacity: number,
+  refillSeconds: number
+): Promise<TokenConsumption | null> {
+  const res = await rest(env, 'rpc/consume_agent_token', {
     method: 'POST',
-    body: JSON.stringify({ p_site: env.site, p_key: key, p_window_seconds: windowSeconds }),
+    body: JSON.stringify({
+      p_site: env.site,
+      p_key: key,
+      p_capacity: capacity,
+      p_refill_seconds: refillSeconds,
+    }),
   });
   if (!res) return null;
   try {
-    const n = await res.json();
-    return typeof n === 'number' && Number.isFinite(n) ? n : null;
+    const rows = await res.json();
+    const value = Array.isArray(rows) ? rows[0] : rows;
+    return typeof value?.allowed === 'boolean' && Number.isInteger(value?.remaining) && value.remaining >= 0
+      ? { allowed: value.allowed, remaining: value.remaining }
+      : null;
   } catch {
     return null;
   }
@@ -126,7 +144,7 @@ async function insert(env: StoreEnv, table: string, row: Record<string, unknown>
 /** Marks an existing reservation completed after the CRM succeeds. */
 export async function completeEstimate(
   env: StoreEnv,
-  row: { payloadHash: string; reference: string; contactId: string }
+  row: { payloadHash: string; reference: string; contactId: string; routingStatus: 'complete' | 'incomplete' }
 ): Promise<boolean> {
   const res = await rest(env, 'rpc/complete_agent_estimate', {
     method: 'POST',
@@ -135,6 +153,7 @@ export async function completeEstimate(
       p_payload_hash: row.payloadHash,
       p_reference: row.reference,
       p_contact_id: row.contactId,
+      p_routing_status: row.routingStatus,
     }),
   });
   if (!res) return false;

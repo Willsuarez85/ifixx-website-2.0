@@ -25,9 +25,11 @@ function setup(opts: Setup = {}) {
     calls.push({ url: u, init });
     if (u.startsWith(STORE)) {
       if (store === 'down') throw new Error('store down');
-      if (u.endsWith('/rest/v1/rpc/bump_counter')) {
-        const { p_key } = JSON.parse(String(init.body));
-        return new Response(JSON.stringify(bumpValue(p_key)), { status: 200 });
+      if (u.endsWith('/rest/v1/rpc/consume_agent_token')) {
+        const { p_key, p_capacity } = JSON.parse(String(init.body));
+        const value = bumpValue(p_key);
+        const result = value === null ? null : [{ allowed: value <= p_capacity, remaining: Math.max(0, p_capacity - value) }];
+        return new Response(JSON.stringify(result), { status: 200 });
       }
       if (u.endsWith('/rest/v1/agent_conversations')) {
         if (store === 'hang-insert') return new Promise<Response>(() => {});
@@ -48,7 +50,7 @@ function setup(opts: Setup = {}) {
   vi.stubGlobal('fetch', fetchMock);
   const modelCalls = () => calls.filter((c) => c.url === ANTHROPIC);
   const saved = () => calls.filter((c) => c.url === `${STORE}/rest/v1/agent_conversations`).map((c) => JSON.parse(String(c.init.body)));
-  const bumpKeys = () => calls.filter((c) => c.url.endsWith('/rpc/bump_counter')).map((c) => JSON.parse(String(c.init.body)).p_key);
+  const bumpKeys = () => calls.filter((c) => c.url.endsWith('/rpc/consume_agent_token')).map((c) => JSON.parse(String(c.init.body)).p_key);
   return { fetchMock, modelCalls, saved, bumpKeys };
 }
 

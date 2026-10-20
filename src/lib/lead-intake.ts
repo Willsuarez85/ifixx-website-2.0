@@ -60,13 +60,28 @@ export interface LeadRouting {
     deletedHandymanDuplicates: string[];
 }
 
+export interface SubmitLeadOptions {
+    /** One absolute budget for every CRM call and routing wait. Omit for the website form. */
+    totalTimeoutMs?: number;
+    /** After a confirmed contact upsert, return a durable contact-only result if routing fails. */
+    acceptContactOnly?: boolean;
+}
+
+/** A failed upsert is retry-safe only when GHL definitively rejected it before writing. */
+export class LeadIntakeError extends Error {
+    constructor(message: string, readonly retrySafe: boolean) {
+        super(message);
+    }
+}
+
+export const CONTACT_ONLY_ROUTING_ACTION = 'contact-only-routing-incomplete';
+
 // Ifixx 2026 pipeline (renamed from "iFIXX Outdoor Leads"; same ID, so this keeps
 // working). Every website lead is now routed here to the New Lead stage; GHL then
 // handles team notification + AI intake off "opportunity created in Ifixx 2026".
 const OUTDOOR_PIPELINE_ID = 'QlQ4FGiqHYUgMAUwxjb1';
 const OUTDOOR_NEW_LEAD_STAGE_ID = '2f5e3e61-cbe2-4350-8010-dd8c3335d419';
 const HANDYMAN_PIPELINE_ID = 'ohDTFoWOfNfAYQ89MWEo';
-const GHL_REQUEST_TIMEOUT_MS = 5000;
 
 // campaignTest value that every South Charlotte service-test landing form posts
 // (see LandingEstimateForm.astro). It is what earns the 'south-charlotte-test' tag.
@@ -212,8 +227,29 @@ function buildLeadMessage(data: {
     ].join('\n');
 }
 
-function wait(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+interface LeadRequestScope {
+    deadlineAt?: number;
+}
+
+class LeadDeadlineError extends Error {
+    constructor() {
+        super('GHL total deadline exceeded');
+    }
+}
+
+function remainingMs(scope: LeadRequestScope): number | undefined {
+    return scope.deadlineAt === undefined ? undefined : scope.deadlineAt - Date.now();
+}
+
+async function wait(ms: number, scope: LeadRequestScope) {
+    const remaining = remainingMs(scope);
+    if (remaining === undefined) {
+        await new Promise(resolve => setTimeout(resolve, ms));
+        return;
+    }
+    if (remaining <= 0) throw new LeadDeadlineError();
+    await new Promise(resolve => setTimeout(resolve, Math.min(ms, remaining)));
+    if (remaining < ms) throw new LeadDeadlineError();
 }
 
 function isRecentOpportunity(opp: any, startedAt: Date) {
@@ -230,9 +266,10 @@ function isRecentOpportunity(opp: any, startedAt: Date) {
 async function ghlRequest(
     path: string,
     apiKey: string,
-    init: RequestInit = {}
+    init: RequestInit,
+    scope: LeadRequestScope
 ) {
-    return fetchWithTimeout(`https://services.leadconnectorhq.com${path}`, {
+    return fetchForLead(`https://services.leadconnectorhq.com${path}`, {
         ...init,
         headers: {
             'Authorization': `Bearer ${apiKey}`,
@@ -240,17 +277,22 @@ async function ghlRequest(
             'Version': '2021-07-28',
             ...(init.headers || {})
         }
-    });
+    }, scope);
 }
 
-async function fetchWithTimeout(url: string, init: RequestInit): Promise<Response> {
+async function fetchForLead(url: string, init: RequestInit, scope: LeadRequestScope): Promise<Response> {
+    const remaining = remainingMs(scope);
+    // The existing website form intentionally retains its exact unbounded behavior.
+    if (remaining === undefined) return fetch(url, init);
+    if (remaining <= 0) throw new LeadDeadlineError();
+
     const controller = new AbortController();
     let timer: ReturnType<typeof setTimeout> | undefined;
     const timeout = new Promise<never>((_, reject) => {
         timer = setTimeout(() => {
             controller.abort();
-            reject(new Error('GHL request timed out'));
-        }, GHL_REQUEST_TIMEOUT_MS);
+            reject(new LeadDeadlineError());
+        }, remaining);
     });
     const work = fetch(url, { ...init, signal: controller.signal });
     work.catch(() => {});
@@ -261,8 +303,30 @@ async function fetchWithTimeout(url: string, init: RequestInit): Promise<Respons
     }
 }
 
-async function upsertContact(apiKey: string, body: Record<string, any>) {
-    return fetchWithTimeout('https://services.leadconnectorhq.com/contacts/upsert', {
+async function readResponseJson(response: Response, scope: LeadRequestScope): Promise<any> {
+    const remaining = remainingMs(scope);
+    if (remaining === undefined) return response.json();
+    if (remaining <= 0) throw new LeadDeadlineError();
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const work = response.json();
+    work.catch(() => {});
+    try {
+        return await Promise.race([
+            work,
+            new Promise<never>((_, reject) => {
+                timer = setTimeout(() => {
+                    void response.body?.cancel().catch(() => {});
+                    reject(new LeadDeadlineError());
+                }, remaining);
+            })
+        ]);
+    } finally {
+        clearTimeout(timer);
+    }
+}
+
+async function upsertContact(apiKey: string, body: Record<string, any>, scope: LeadRequestScope) {
+    return fetchForLead('https://services.leadconnectorhq.com/contacts/upsert', {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${apiKey}`,
@@ -270,10 +334,10 @@ async function upsertContact(apiKey: string, body: Record<string, any>) {
             'Version': '2021-07-28'
         },
         body: JSON.stringify(body)
-    });
+    }, scope);
 }
 
-async function searchContactOpportunities(apiKey: string, locationId: string, contactId: string) {
+async function searchContactOpportunities(apiKey: string, locationId: string, contactId: string, scope: LeadRequestScope) {
     const params = new URLSearchParams({
         location_id: locationId,
         contact_id: contactId,
@@ -282,20 +346,20 @@ async function searchContactOpportunities(apiKey: string, locationId: string, co
 
     const response = await ghlRequest(`/opportunities/search?${params.toString()}`, apiKey, {
         method: 'GET'
-    });
+    }, scope);
 
     if (!response.ok) {
         throw new Error(`Failed to search GHL opportunities (${response.status})`);
     }
 
-    const result = await response.json();
+    const result = await readResponseJson(response, scope);
     return Array.isArray(result.opportunities) ? result.opportunities : [];
 }
 
-async function deleteOpportunity(apiKey: string, opportunityId: string) {
+async function deleteOpportunity(apiKey: string, opportunityId: string, scope: LeadRequestScope) {
     const response = await ghlRequest(`/opportunities/${opportunityId}`, apiKey, {
         method: 'DELETE'
-    });
+    }, scope);
 
     if (!response.ok) {
         throw new Error(`Failed to delete duplicate Handyman opportunity (${response.status})`);
@@ -307,9 +371,10 @@ async function cleanupRecentHandymanDuplicates(options: {
     locationId: string;
     contactId: string;
     startedAt: Date;
+    scope: LeadRequestScope;
 }) {
-    const { apiKey, locationId, contactId, startedAt } = options;
-    const opportunities = await searchContactOpportunities(apiKey, locationId, contactId);
+    const { apiKey, locationId, contactId, startedAt, scope } = options;
+    const opportunities = await searchContactOpportunities(apiKey, locationId, contactId, scope);
     const hasOutdoor = opportunities.some((opp: any) =>
         opp.pipelineId === OUTDOOR_PIPELINE_ID && opp.status !== 'lost' && opp.status !== 'abandoned'
     );
@@ -326,7 +391,7 @@ async function cleanupRecentHandymanDuplicates(options: {
     );
 
     for (const duplicate of duplicates) {
-        await deleteOpportunity(apiKey, duplicate.id);
+        await deleteOpportunity(apiKey, duplicate.id, scope);
     }
 
     return duplicates.map((opp: any) => opp.id);
@@ -341,17 +406,18 @@ async function routeWebsiteOpportunity(options: {
     service?: string;
     source?: string;
     startedAt: Date;
+    scope: LeadRequestScope;
 }) {
-    const { apiKey, locationId, contactId, firstName, lastName, service, source, startedAt } = options;
+    const { apiKey, locationId, contactId, firstName, lastName, service, source, startedAt, scope } = options;
     const contactName = [firstName, lastName].filter(Boolean).join(' ').trim() || 'Website Lead';
     const opportunityName = `${contactName} - Website Lead`;
 
     for (let attempt = 0; attempt < 8; attempt++) {
         if (attempt > 0) {
-            await wait(800);
+            await wait(800, scope);
         }
 
-        const opportunities = await searchContactOpportunities(apiKey, locationId, contactId);
+        const opportunities = await searchContactOpportunities(apiKey, locationId, contactId, scope);
         const openOutdoor = opportunities.find((opp: any) =>
             opp.pipelineId === OUTDOOR_PIPELINE_ID && opp.status !== 'lost' && opp.status !== 'abandoned'
         );
@@ -361,7 +427,8 @@ async function routeWebsiteOpportunity(options: {
                 apiKey,
                 locationId,
                 contactId,
-                startedAt
+                startedAt,
+                scope
             });
 
             return { action: 'already-routed', opportunityId: openOutdoor.id, deletedHandymanDuplicates };
@@ -384,7 +451,7 @@ async function routeWebsiteOpportunity(options: {
                     status: 'open',
                     source: source || 'Website Form'
                 })
-            });
+            }, scope);
 
             if (!response.ok) {
                 throw new Error(`Failed to move opportunity to Ifixx 2026 pipeline (${response.status})`);
@@ -406,23 +473,24 @@ async function routeWebsiteOpportunity(options: {
             source: source || 'Website Form',
             monetaryValue: 0
         })
-    });
+    }, scope);
 
     if (!response.ok) {
         throw new Error(`Failed to create Ifixx 2026 opportunity (${response.status})`);
     }
 
-    const result = await response.json();
+    const result = await readResponseJson(response, scope);
     const opportunityId = result.opportunity?.id || result.id;
 
     let deletedHandymanDuplicates: string[] = [];
     for (let attempt = 0; attempt < 4; attempt++) {
-        await wait(1000);
+        await wait(1000, scope);
         deletedHandymanDuplicates = await cleanupRecentHandymanDuplicates({
             apiKey,
             locationId,
             contactId,
-            startedAt
+            startedAt,
+            scope
         });
 
         if (deletedHandymanDuplicates.length > 0) {
@@ -636,12 +704,25 @@ export function buildUpsertBody(input: LeadInput, env: LeadEnv): Record<string, 
 export async function submitLead(
     input: LeadInput,
     env: LeadEnv,
-    startedAt: Date = new Date()
+    startedAt: Date = new Date(),
+    options: SubmitLeadOptions = {}
 ): Promise<{ contactId: string; tags: string[]; routing: LeadRouting }> {
     const { upsertBody, coreAttribution, hasCoreAttribution, hasExtendedAttribution, allTags } = buildUpsertParts(input, env);
     const { firstName, lastName, service, source } = input;
+    const scope: LeadRequestScope = {
+        ...(options.totalTimeoutMs === undefined
+            ? {}
+            : { deadlineAt: Date.now() + Math.max(1, options.totalTimeoutMs) })
+    };
 
-    let contactResponse = await upsertContact(env.apiKey, upsertBody);
+    let contactResponse: Response;
+    try {
+        contactResponse = await upsertContact(env.apiKey, upsertBody, scope);
+    } catch (error) {
+        // The request may have reached GHL before the connection failed or timed out.
+        if (scope.deadlineAt === undefined) throw error;
+        throw new LeadIntakeError('Contact upsert result is unknown', false);
+    }
 
     // GHL answers 4xx when it dislikes a property in the body. Rather than dropping
     // the lead, retry once with the attribution fields that are known to work.
@@ -655,35 +736,55 @@ export async function submitLead(
             delete fallbackBody.attributionSource;
         }
 
-        contactResponse = await upsertContact(env.apiKey, fallbackBody);
+        try {
+            contactResponse = await upsertContact(env.apiKey, fallbackBody, scope);
+        } catch (error) {
+            if (scope.deadlineAt === undefined) throw error;
+            throw new LeadIntakeError('Contact upsert result is unknown', false);
+        }
     }
 
     if (!contactResponse.ok) {
         console.error(`GHL Upsert Error: ${contactResponse.status}`);
-        throw new Error('Failed to create contact in GHL');
+        throw new LeadIntakeError('Failed to create contact in GHL', contactResponse.status >= 400 && contactResponse.status < 500);
     }
 
-    const contactResult = await contactResponse.json();
+    let contactResult: any;
+    try {
+        contactResult = await readResponseJson(contactResponse, scope);
+    } catch {
+        throw new LeadIntakeError('Contact upsert result is unknown', false);
+    }
     const contactId = contactResult.contact?.id || contactResult.id;
 
     if (!contactId) {
         console.error('GHL Upsert Missing Contact ID');
-        throw new Error('GHL did not return a contact ID');
+        throw new LeadIntakeError('GHL did not return a contact ID', false);
     }
 
     // Route EVERY website lead into the Ifixx 2026 pipeline (New Lead stage),
     // not just deck/fence. This makes the website the single entry point; GHL then
     // reacts to "opportunity created in Ifixx 2026" for notification + AI intake.
-    const routing = await routeWebsiteOpportunity({
-        apiKey: env.apiKey,
-        locationId: env.locationId,
-        contactId,
-        firstName,
-        lastName,
-        service,
-        source: source || 'Website Form',
-        startedAt
-    });
+    let routing: LeadRouting;
+    try {
+        routing = await routeWebsiteOpportunity({
+            apiKey: env.apiKey,
+            locationId: env.locationId,
+            contactId,
+            firstName,
+            lastName,
+            service,
+            source: source || 'Website Form',
+            startedAt,
+            scope
+        });
+    } catch (error) {
+        if (!options.acceptContactOnly) throw error;
+        // The contact and agent tags are already durable in GHL. Do not start background
+        // work that a serverless runtime may terminate; persist this explicit state instead.
+        console.error('GHL routing incomplete after contact upsert; manual workflow required');
+        routing = { action: CONTACT_ONLY_ROUTING_ACTION, opportunityId: '', deletedHandymanDuplicates: [] };
+    }
 
     return { contactId, tags: allTags, routing };
 }

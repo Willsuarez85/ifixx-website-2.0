@@ -622,7 +622,7 @@ function buildApi(serviceKeys: string[]) {
     fields: {
       firstName: `Required. The homeowner's first name, 1 to ${LIMITS.firstNameMax} characters.`,
       phone: 'Required. The homeowner\'s US phone number: 10 digits or E.164. Common formats such as (XXX) XXX-XXXX, XXX-XXX-XXXX or +1 XXX XXX XXXX are accepted.',
-      message: `Required. What the homeowner needs, 1 to ${LIMITS.messageMax} characters. No URLs (http://, https:// or www.).`,
+      message: `Required. What the homeowner needs, 1 to ${LIMITS.messageMax} characters. No URL schemes or domain names.`,
       lastName: "Optional. The homeowner's last name.",
       email: "Optional. The homeowner's email.",
       zipCode: 'Optional. ZIP code of the job.',
@@ -637,8 +637,9 @@ function buildApi(serviceKeys: string[]) {
       bodyMaxBytes: LIMITS.bodyMaxBytes,
     },
     limitsText:
-      `${LIMITS.estimate.perIpPerHour} requests per hour per IP and ${LIMITS.estimate.perDay} per day for the site. ` +
+      `Token buckets allow bursts up to ${LIMITS.estimate.perIpPerHour} per IP and ${LIMITS.estimate.perDay} for the site, then refill continuously across one hour and one day. ` +
       `An identical normalized request inside a ${LIMITS.estimate.duplicateWindowSeconds / 60}-minute window returns the same reference with duplicate set to true. ` +
+      `If the contact is saved but opportunity routing reaches its deadline, success includes routingPending set to true. ` +
       `JSON body up to ${LIMITS.bodyMaxBytes / 1024} KB.`,
     errors: {
       '202': 'request_in_progress: an identical request is currently reaching the CRM. Retry after retryAfterSeconds.',

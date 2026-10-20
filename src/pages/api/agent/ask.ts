@@ -9,7 +9,7 @@ import {
   LIMITS,
 } from '../../../lib/agent-facts';
 import { agentEnv, clientIp, ipHash, jsonResponse, optionsResponse, readJson } from '../../../lib/agent-http';
-import { bump, saveConversation, type StoreEnv } from '../../../lib/agent-store';
+import { consumeToken, saveConversation, type StoreEnv } from '../../../lib/agent-store';
 import { answer, VICTORIA_MODEL, withIntro, type Turn } from '../../../lib/victoria';
 
 /**
@@ -132,10 +132,10 @@ export const POST: APIRoute = async ({ request }) => {
     const hash = ipHash(clientIp(request));
 
     // A missing counter disables the model: approved answers and the fallback remain.
-    const perIp = await bump(store, `ask:ip:${hash}`, LIMITS.ipWindowSeconds);
-    if (perIp !== null && perIp > LIMITS.ask.perIpPerHour) return degradedReply(429, { error: 'rate_limited' });
-    const perDay = await bump(store, 'ask:day', LIMITS.dayWindowSeconds);
-    if (perDay !== null && perDay > LIMITS.ask.perDay) return degradedReply(200);
+    const perIp = await consumeToken(store, `ask:ip:${hash}`, LIMITS.ask.perIpPerHour, LIMITS.ipWindowSeconds);
+    if (perIp !== null && !perIp.allowed) return degradedReply(429, { error: 'rate_limited' });
+    const perDay = await consumeToken(store, 'ask:day', LIMITS.ask.perDay, LIMITS.dayWindowSeconds);
+    if (perDay !== null && !perDay.allowed) return degradedReply(200);
     const limitsOn = perIp !== null && perDay !== null;
     if (!limitsOn) console.warn('agent ask: counters unavailable, answering without the model');
 

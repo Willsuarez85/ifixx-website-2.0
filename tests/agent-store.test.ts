@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
-  bump,
   completeEstimate,
+  consumeToken,
   releaseEstimate,
   reserveEstimate,
   saveConversation,
@@ -17,14 +17,16 @@ afterEach(() => {
 
 const quiet = () => vi.spyOn(console, 'warn').mockImplementation(() => {});
 
-describe('bump', () => {
-  it('returns the count and sends the scoped RPC arguments', async () => {
-    const fetchMock = vi.fn(async () => new Response('3', { status: 200 }));
+describe('consumeToken', () => {
+  it('returns the atomic token result and sends the scoped RPC arguments', async () => {
+    const fetchMock = vi.fn(async () => new Response('[{"allowed":true,"remaining":2}]', { status: 200 }));
     vi.stubGlobal('fetch', fetchMock);
-    expect(await bump(env, 'estimate:day', 86400)).toBe(3);
+    expect(await consumeToken(env, 'estimate:day', 50, 86400)).toEqual({ allowed: true, remaining: 2 });
     const [url, init] = fetchMock.mock.calls[0];
-    expect(String(url)).toBe('https://store.test/rest/v1/rpc/bump_counter');
-    expect(JSON.parse(String(init?.body))).toEqual({ p_site: 'site-a', p_key: 'estimate:day', p_window_seconds: 86400 });
+    expect(String(url)).toBe('https://store.test/rest/v1/rpc/consume_agent_token');
+    expect(JSON.parse(String(init?.body))).toEqual({
+      p_site: 'site-a', p_key: 'estimate:day', p_capacity: 50, p_refill_seconds: 86400,
+    });
     const headers = new Headers(init?.headers);
     expect(headers.get('apikey')).toBe('service-key');
     expect(headers.get('authorization')).toBe('Bearer service-key');
@@ -35,14 +37,14 @@ describe('bump', () => {
     vi.spyOn(console, 'error').mockImplementation(() => {});
     const fetchMock = vi.fn();
     vi.stubGlobal('fetch', fetchMock);
-    expect(await bump({ site: 'site-a' }, 'k', 60)).toBeNull();
+    expect(await consumeToken({ site: 'site-a' }, 'k', 5, 60)).toBeNull();
     expect(fetchMock).not.toHaveBeenCalled();
     vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('down'); }));
-    expect(await bump({ ...env }, 'k', 60)).toBeNull();
+    expect(await consumeToken({ ...env }, 'k', 5, 60)).toBeNull();
     vi.stubGlobal('fetch', vi.fn(async () => new Response('private detail', { status: 503 })));
-    expect(await bump({ ...env }, 'k', 60)).toBeNull();
+    expect(await consumeToken({ ...env }, 'k', 5, 60)).toBeNull();
     vi.stubGlobal('fetch', vi.fn(async () => new Response('not-a-number', { status: 200 })));
-    expect(await bump({ ...env }, 'k', 60)).toBeNull();
+    expect(await consumeToken({ ...env }, 'k', 5, 60)).toBeNull();
   });
 });
 
@@ -70,12 +72,17 @@ describe('estimate reservation RPCs', () => {
   it('completes and releases by site, payload hash and reference', async () => {
     const fetchMock = vi.fn(async () => new Response('true', { status: 200 }));
     vi.stubGlobal('fetch', fetchMock);
-    expect(await completeEstimate(env, { payloadHash: 'p', reference: 'R', contactId: 'C' })).toBe(true);
+    expect(await completeEstimate(env, {
+      payloadHash: 'p', reference: 'R', contactId: 'C', routingStatus: 'complete',
+    })).toBe(true);
     expect(await releaseEstimate(env, { payloadHash: 'p', reference: 'R' })).toBe(true);
     expect(fetchMock.mock.calls.map((c) => String(c[0]))).toEqual([
       'https://store.test/rest/v1/rpc/complete_agent_estimate',
       'https://store.test/rest/v1/rpc/release_agent_estimate',
     ]);
+    expect(JSON.parse(String(fetchMock.mock.calls[0][1]?.body))).toEqual({
+      p_site: 'site-a', p_payload_hash: 'p', p_reference: 'R', p_contact_id: 'C', p_routing_status: 'complete',
+    });
   });
 
   it('returns null or false on store failure', async () => {
@@ -83,7 +90,9 @@ describe('estimate reservation RPCs', () => {
     vi.spyOn(console, 'error').mockImplementation(() => {});
     vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('down'); }));
     await expect(reserveEstimate(env, { payloadHash: 'p', phoneHash: 'h', reference: 'R', withinSeconds: 600 })).resolves.toBeNull();
-    await expect(completeEstimate(env, { payloadHash: 'p', reference: 'R', contactId: 'C' })).resolves.toBe(false);
+    await expect(completeEstimate(env, {
+      payloadHash: 'p', reference: 'R', contactId: 'C', routingStatus: 'incomplete',
+    })).resolves.toBe(false);
     await expect(releaseEstimate(env, { payloadHash: 'p', reference: 'R' })).resolves.toBe(false);
   });
 });
@@ -104,8 +113,8 @@ describe('conversation logging and alarms', () => {
     const error = vi.spyOn(console, 'error').mockImplementation(() => {});
     vi.stubGlobal('fetch', vi.fn(async () => new Response('sensitive upstream body', { status: 503 })));
     const perRequest = { ...env };
-    await bump(perRequest, 'a', 60);
-    await bump(perRequest, 'b', 60);
+    await consumeToken(perRequest, 'a', 5, 60);
+    await consumeToken(perRequest, 'b', 5, 60);
     expect(error.mock.calls.filter((c) => c[0] === 'agent-store:unprotected')).toHaveLength(1);
     expect(JSON.stringify(warn.mock.calls)).not.toContain('sensitive upstream body');
   });
