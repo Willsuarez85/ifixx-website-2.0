@@ -202,12 +202,12 @@ export const APPROVED_FAQ: { id: string; q: string; a: string }[] = [
   {
     id: 'faq-12',
     q: 'How much does a bathroom remodel cost?',
-    a: 'Bathroom remodels start at $5,000. The written estimate comes after an in-person visit, with everything included and no surprises.',
+    a: 'Bathroom remodels start at $5,000. The written estimate comes after an in-person visit, with everything included and no surprises. Call or text (980) 391-6833 to schedule the visit.',
   },
   {
     id: 'faq-13',
     q: 'How much does a kitchen remodel cost?',
-    a: 'Kitchen remodels start at $8,000. The written estimate comes after an in-person visit, with everything included and no surprises.',
+    a: 'Kitchen remodels start at $8,000. The written estimate comes after an in-person visit, with everything included and no surprises. Call or text (980) 391-6833 to schedule the visit.',
   },
   {
     id: 'faq-14',
