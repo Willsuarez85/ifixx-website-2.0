@@ -9,7 +9,7 @@ import { isRetiredService } from '../../lib/seo-retired';
 // Exclude retired services (e.g. plumbing) — this page is the redirect target for them
 const services = (await getCollection('services')).filter(s => !isRetiredService(s.slug));
 
-const seoTitle = "Handyman & Remodeling Services South Charlotte NC | iFIXX";
+const seoTitle = "Remodeling & Handyman Services South Charlotte NC | iFIXX";
 const seoDescription = "Every service iFIXX offers in South Charlotte NC: drywall, painting, deck and fence repair, carpentry, doors and windows, kitchen and bath remodeling, decks and screened porches. ☎ (980) 391-6833.";
 
 // Map service slugs to images (using descriptive project images)
@@ -86,7 +86,7 @@ const breadcrumb = [
     <div class="absolute inset-0">
       <img
         src="/images/ui/jaime-kitchen.webp"
-        alt="Jaime Aguilar, owner of iFIXX, in a remodeled kitchen in Charlotte NC"
+        alt="Jaime Aguilar, owner of iFIXX, in a remodeled kitchen in South Charlotte NC"
         class="w-full h-full object-cover"
         width="1920"
         height="1080"
@@ -100,10 +100,10 @@ const breadcrumb = [
     <div class="container relative z-10">
       <div class="max-w-3xl">
         <span class="inline-block px-4 py-2 bg-primary-500 text-neutral-900 text-sm font-bold rounded-full mb-6">
-          Full-Service Home Solutions
+          Quick fixes to full transformations
         </span>
         <h1 class="text-4xl lg:text-5xl xl:text-6xl font-heading font-bold text-white mb-6">
-          Professional Home Services in Charlotte
+          Everything we do for South Charlotte homes
         </h1>
         <p class="text-lg lg:text-xl text-neutral-300 mb-8 max-w-2xl">
           From quick fixes to complete renovations. Our skilled team handles every aspect of your home improvement needs with quality craftsmanship.
@@ -138,7 +138,7 @@ const breadcrumb = [
           What We Do Best
         </h2>
         <p class="text-lg text-neutral-600">
-          Choose the service you need. Each project gets our full attention, expert craftsmanship, and satisfaction guarantee.
+          Choose the service you need. Each project gets our full attention, expert craftsmanship, and we make it right if something's off.
         </p>
       </div>
 
@@ -149,7 +149,7 @@ const breadcrumb = [
             <!-- Background Image -->
             <img
               src={getServiceImage(service.slug)}
-              alt={`${service.data.title} services in Charlotte NC - iFixx`}
+              alt={`${service.data.title} services in South Charlotte NC - iFixx`}
               class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               width="400"
               height="300"
@@ -190,10 +190,10 @@ const breadcrumb = [
         <!-- Content -->
         <div>
           <h2 class="text-3xl lg:text-4xl font-heading font-bold text-neutral-900 mb-6">
-            Why Charlotte Homeowners Trust iFixx
+            Why South Charlotte Homeowners Trust iFIXX
           </h2>
           <p class="text-lg text-neutral-600 mb-8">
-            We're not just contractors — we're your neighbors. As a family-owned business, we bring care, honesty, and craftsmanship to every project.
+            We're not just contractors, we're your neighbors. As a family-owned business, we bring care, honesty, and craftsmanship to every project.
           </p>
 
           <div class="space-y-4">
@@ -216,8 +216,8 @@ const breadcrumb = [
                 </svg>
               </div>
               <div>
-                <h3 class="font-heading font-semibold text-neutral-900 mb-1">On-Time, Every Time</h3>
-                <p class="text-neutral-600 text-sm">We respect your schedule. Expect punctual arrivals and project timelines.</p>
+                <h3 class="font-heading font-semibold text-neutral-900 mb-1">We Keep You Posted</h3>
+                <p class="text-neutral-600 text-sm">If a day moves or a material changes, you hear it from us first.</p>
               </div>
             </div>
 
@@ -242,7 +242,7 @@ const breadcrumb = [
               </div>
               <div>
                 <h3 class="font-heading font-semibold text-neutral-900 mb-1">Proudly Local</h3>
-                <p class="text-neutral-600 text-sm">Based in Charlotte, serving our community for years.</p>
+                <p class="text-neutral-600 text-sm">Working in South Charlotte homes since 2019.</p>
               </div>
             </div>
           </div>
@@ -253,7 +253,7 @@ const breadcrumb = [
           <div class="rounded-2xl overflow-hidden shadow-2xl">
             <img
               src="/images/projects/Ifixx-portfolio32.webp"
-              alt="Quality craftsmanship by iFixx - bathroom remodel in Charlotte NC"
+              alt="Quality craftsmanship by iFixx - bathroom remodel in South Charlotte NC"
               class="w-full h-auto object-cover aspect-[4/3]"
               width="600"
               height="450"
