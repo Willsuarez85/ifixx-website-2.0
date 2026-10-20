@@ -10,6 +10,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { POST } from '../src/pages/api/lead';
+import { buildUpsertBody, submitLead, type LeadInput } from '../src/lib/lead-intake';
 
 const FIXTURE = join(process.cwd(), 'tests/fixtures/lead-ghl-sequences.json');
 const RECORD = process.env.RECORD_LEAD_FIXTURES === '1';
@@ -257,6 +258,47 @@ describe('lead form CRM traffic (pinned from the original lead.ts)', () => {
   for (const s of SCENARIOS) {
     it(`POST /api/lead: ${s.name}`, async () => {
       expect(await runPost(s)).toEqual(fixtures[s.name]);
+    });
+  }
+
+  // The same pinned traffic, driven straight through the extracted core. Only the
+  // scenarios that pass validation and have env reach the CRM. lead.ts keeps the
+  // 'Lead created:' and 'API Error:' lines; every other line comes from the core.
+  const leadEnv = { apiKey: TEST_ENV.GHL_API_KEY, locationId: TEST_ENV.GHL_LOCATION_ID, origin: ORIGIN };
+  const reachesCrm = SCENARIOS.filter((s) => !s.env && s.body.firstName && s.body.phone);
+  const coreLogs = (logs: string[][]) =>
+    logs.filter(([, first]) => !first.startsWith('Lead created:') && !first.startsWith('API Error:'));
+
+  for (const s of reachesCrm) {
+    it(`buildUpsertBody: ${s.name} equals the first upsert body`, () => {
+      expect(JSON.stringify(buildUpsertBody(s.body as unknown as LeadInput, leadEnv))).toBe(fixtures[s.name].calls[0].body);
+    });
+
+    it(`submitLead: ${s.name}`, async () => {
+      const { fn, calls } = scriptedFetch(s.script);
+      vi.stubGlobal('fetch', fn);
+      const logs: string[][] = [];
+      for (const level of ['log', 'warn', 'error', 'info'] as const) {
+        vi.spyOn(console, level).mockImplementation((...args: unknown[]) => {
+          logs.push([level, ...args.map(fmt)]);
+        });
+      }
+      const fixture = fixtures[s.name];
+      const run = settle(submitLead(s.body as unknown as LeadInput, leadEnv, new Date(NOW)));
+      if (fixture.status === 200) {
+        const result = await run;
+        const response = JSON.parse(fixture.response);
+        expect(result.contactId).toBe(response.contactId);
+        expect(JSON.stringify(result.routing)).toBe(JSON.stringify(response.routing));
+        expect(fixture.logs.at(-1)[1]).toBe(
+          `Lead created: ${result.contactId} | Tags: ${result.tags.join(', ')} | Ifixx 2026 routing: ${result.routing.action}`
+        );
+      } else {
+        const apiError = fixture.logs.find(([, first]: string[]) => first === 'API Error:');
+        await expect(run).rejects.toThrow(apiError[2].replace(/^Error: /, ''));
+      }
+      expect(calls).toEqual(fixture.calls);
+      expect(logs).toEqual(coreLogs(fixture.logs));
     });
   }
 });
