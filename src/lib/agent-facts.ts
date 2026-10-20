@@ -41,6 +41,9 @@ export interface ServiceSummary {
  */
 export const ASK_ANNOUNCED = false;
 
+/** Site id for the agent store rows when the AGENT_SITE_ID variable is not set. */
+export const AGENT_SITE_ID_DEFAULT = 'ifixx';
+
 const PHONE = '(980) 391-6833';
 const BATHROOM_FROM = 5000;
 const KITCHEN_FROM = 8000;
