@@ -7,11 +7,9 @@ import {
   askEnabled,
   FALLBACK_ANSWER,
   LIMITS,
-  type ServiceSummary,
 } from '../../../lib/agent-facts';
 import { agentEnv, clientIp, ipHash, jsonResponse, optionsResponse, readJson } from '../../../lib/agent-http';
-import { bump, saveConversation, type StoreEnv } from '../../../lib/agent-store';
-import { liveServices } from '../../../lib/services-live';
+import { consumeRollingLimit, saveConversation, type StoreEnv } from '../../../lib/agent-store';
 import { answer, VICTORIA_MODEL, withIntro, type Turn } from '../../../lib/victoria';
 
 /**
@@ -133,26 +131,18 @@ export const POST: APIRoute = async ({ request }) => {
     const store: StoreEnv = { url: env.supabaseUrl, key: env.supabaseKey, site: env.site };
     const hash = ipHash(clientIp(request));
 
-    // Counters answer -1 when the store is down: the question goes through, but without
-    // limits there is no model either (approved answers and the fallback only).
-    const perIp = await bump(store, `ask:ip:${hash}`, LIMITS.ipWindowSeconds);
-    if (perIp > LIMITS.ask.perIpPerHour) return degradedReply(429, { error: 'rate_limited' });
-    const perDay = await bump(store, 'ask:day', LIMITS.dayWindowSeconds);
-    if (perDay > LIMITS.ask.perDay) return degradedReply(200);
-    const limitsOn = perIp >= 0 && perDay >= 0;
+    // A missing counter disables the model: approved answers and the fallback remain.
+    const perIp = await consumeRollingLimit(store, `ask:ip:${hash}`, LIMITS.ask.perIpPerHour, LIMITS.ipWindowSeconds);
+    if (perIp !== null && !perIp.allowed) return degradedReply(429, { error: 'rate_limited' });
+    const perDay = await consumeRollingLimit(store, 'ask:day', LIMITS.ask.perDay, LIMITS.dayWindowSeconds);
+    if (perDay !== null && !perDay.allowed) return degradedReply(200);
+    const limitsOn = perIp !== null && perDay !== null;
     if (!limitsOn) console.warn('agent ask: counters unavailable, answering without the model');
-
-    let services: ServiceSummary[] = [];
-    try {
-      services = await liveServices();
-    } catch (err) {
-      console.warn(`agent ask: service list unavailable: ${(err as Error)?.message ?? err}`);
-    }
 
     const result = await answer(
       question,
       history,
-      services,
+      [],
       { apiKey: limitsOn ? anthropicKey() : undefined, model: VICTORIA_MODEL },
       fetch,
       { budgetMs: REQUEST_BUDGET_MS - SAVE_WAIT_MS - (Date.now() - started) }
@@ -176,7 +166,7 @@ export const POST: APIRoute = async ({ request }) => {
     await waitAtMost(saving, Math.min(SAVE_WAIT_MS, REQUEST_BUDGET_MS - (Date.now() - started)));
 
     console.log(
-      `Agent ask: conv ${conversationId} | ${result.matchedFaq ?? 'drafted'} | flagged ${result.flagged} | degraded ${result.degraded}`
+      `Agent ask: conv ${conversationId} | ${result.matchedFaq ?? 'fallback'} | flagged ${result.flagged} | degraded ${result.degraded}`
     );
     return jsonResponse(200, {
       answer: result.answer,
@@ -185,8 +175,8 @@ export const POST: APIRoute = async ({ request }) => {
       degraded: result.degraded,
       estimate,
     });
-  } catch (err) {
-    console.error('agent ask: unexpected error:', err);
+  } catch {
+    console.error('agent ask: unexpected error');
     return degradedReply(200);
   }
 };

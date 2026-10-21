@@ -1,5 +1,12 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { bump, recentLeadReference, saveConversation, saveLead, type StoreEnv } from '../src/lib/agent-store';
+import {
+  completeEstimate,
+  consumeRollingLimit,
+  releaseEstimate,
+  reserveEstimate,
+  saveConversation,
+  type StoreEnv,
+} from '../src/lib/agent-store';
 
 const env: StoreEnv = { url: 'https://store.test', key: 'service-key', site: 'site-a' };
 
@@ -10,133 +17,111 @@ afterEach(() => {
 
 const quiet = () => vi.spyOn(console, 'warn').mockImplementation(() => {});
 
-describe('bump', () => {
-  it('returns the count the bump_counter RPC answers, scoped by site and window', async () => {
-    const fetchMock = vi.fn(async (_url: any, _init?: RequestInit) => new Response('3', { status: 200 }));
+describe('consumeRollingLimit', () => {
+  it('returns the atomic rolling-window result and sends the scoped RPC arguments', async () => {
+    const fetchMock = vi.fn(async () => new Response('[{"allowed":true,"remaining":2}]', { status: 200 }));
     vi.stubGlobal('fetch', fetchMock);
-
-    expect(await bump(env, 'estimate:day', 86400)).toBe(3);
-
+    expect(await consumeRollingLimit(env, 'estimate:day', 50, 86400)).toEqual({ allowed: true, remaining: 2 });
     const [url, init] = fetchMock.mock.calls[0];
-    expect(String(url)).toBe('https://store.test/rest/v1/rpc/bump_counter');
-    expect(init?.method).toBe('POST');
-    expect(JSON.parse(String(init?.body))).toEqual({ p_site: 'site-a', p_key: 'estimate:day', p_window_seconds: 86400 });
+    expect(String(url)).toBe('https://store.test/rest/v1/rpc/consume_agent_limit');
+    expect(JSON.parse(String(init?.body))).toEqual({
+      p_site: 'site-a', p_key: 'estimate:day', p_limit: 50, p_window_seconds: 86400,
+    });
     const headers = new Headers(init?.headers);
     expect(headers.get('apikey')).toBe('service-key');
     expect(headers.get('authorization')).toBe('Bearer service-key');
   });
 
-  it('returns -1 without a url, and never calls fetch', async () => {
+  it('returns null when configuration, transport, status or body is invalid', async () => {
     quiet();
+    vi.spyOn(console, 'error').mockImplementation(() => {});
     const fetchMock = vi.fn();
     vi.stubGlobal('fetch', fetchMock);
-    expect(await bump({ site: 'site-a' }, 'k', 60)).toBe(-1);
-    expect(await bump({ url: 'https://store.test', site: 'site-a' }, 'k', 60)).toBe(-1);
+    expect(await consumeRollingLimit({ site: 'site-a' }, 'k', 5, 60)).toBeNull();
     expect(fetchMock).not.toHaveBeenCalled();
-  });
-
-  it('returns -1 and does not throw when fetch throws', async () => {
-    const warn = quiet();
-    vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('network down'); }));
-    await expect(bump(env, 'k', 60)).resolves.toBe(-1);
-    expect(warn).toHaveBeenCalled();
-  });
-
-  it('returns -1 on a non-2xx answer', async () => {
-    quiet();
-    vi.stubGlobal('fetch', vi.fn(async () => new Response('{"message":"nope"}', { status: 500 })));
-    expect(await bump(env, 'k', 60)).toBe(-1);
-  });
-});
-
-describe('recentLeadReference', () => {
-  it('queries agent_leads by site, phone hash and window, and returns the reference', async () => {
-    vi.useFakeTimers({ now: new Date('2026-10-21T12:10:00.000Z'), toFake: ['Date'] });
-    const fetchMock = vi.fn(async (_url: any, _init?: RequestInit) =>
-      new Response(JSON.stringify([{ reference: 'ABCD2345' }]), { status: 200 })
-    );
-    vi.stubGlobal('fetch', fetchMock);
-
-    expect(await recentLeadReference(env, 'hash1', 600)).toBe('ABCD2345');
-    const url = new URL(String(fetchMock.mock.calls[0][0]));
-    expect(url.pathname).toBe('/rest/v1/agent_leads');
-    expect(url.searchParams.get('site')).toBe('eq.site-a');
-    expect(url.searchParams.get('phone_hash')).toBe('eq.hash1');
-    expect(url.searchParams.get('created_at')).toBe('gte.2026-10-21T12:00:00.000Z');
-    vi.useRealTimers();
-  });
-
-  it('returns null when nothing matches, when the store is missing or failing', async () => {
-    quiet();
-    vi.stubGlobal('fetch', vi.fn(async () => new Response('[]', { status: 200 })));
-    expect(await recentLeadReference(env, 'h', 600)).toBeNull();
-    expect(await recentLeadReference({ site: 's' }, 'h', 600)).toBeNull();
     vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('down'); }));
-    expect(await recentLeadReference(env, 'h', 600)).toBeNull();
+    expect(await consumeRollingLimit({ ...env }, 'k', 5, 60)).toBeNull();
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('private detail', { status: 503 })));
+    expect(await consumeRollingLimit({ ...env }, 'k', 5, 60)).toBeNull();
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('not-a-number', { status: 200 })));
+    expect(await consumeRollingLimit({ ...env }, 'k', 5, 60)).toBeNull();
   });
 });
 
-describe('saveLead and saveConversation', () => {
-  it('insert snake_case rows tagged with the site', async () => {
-    const fetchMock = vi.fn(async (_url: any, _init?: RequestInit) => new Response(null, { status: 201 }));
+describe('estimate reservation RPCs', () => {
+  it('reserves an exact payload and sends only hashes plus bounded metadata', async () => {
+    const fetchMock = vi.fn(async () => new Response(JSON.stringify([{
+      acquired: true, reference: 'ABCD2345', reservation_status: 'pending', routing_status: 'pending',
+    }]), { status: 200 }));
     vi.stubGlobal('fetch', fetchMock);
-
-    await saveLead(env, { reference: 'R', phoneHash: 'ph', vendor: 'v', conversationId: 'c', contactId: 'x' });
-    await saveConversation(env, {
-      conversationId: 'c',
-      question: 'q',
-      answer: 'a',
-      flagged: false,
-      violations: [],
-      ipHash: 'ip',
-      degraded: true,
-    });
-
-    expect(String(fetchMock.mock.calls[0][0])).toBe('https://store.test/rest/v1/agent_leads');
+    await expect(reserveEstimate(env, {
+      payloadHash: 'payload-hash', phoneHash: 'phone-hash', reference: 'ABCD2345', withinSeconds: 600, vendor: 'v', conversationId: 'c',
+    })).resolves.toEqual({ acquired: true, reference: 'ABCD2345', status: 'pending', routingStatus: 'pending' });
+    expect(String(fetchMock.mock.calls[0][0])).toBe('https://store.test/rest/v1/rpc/reserve_agent_estimate');
     expect(JSON.parse(String(fetchMock.mock.calls[0][1]?.body))).toEqual({
-      site: 'site-a', reference: 'R', phone_hash: 'ph', vendor: 'v', conversation_id: 'c', contact_id: 'x',
+      p_site: 'site-a', p_payload_hash: 'payload-hash', p_phone_hash: 'phone-hash', p_reference: 'ABCD2345',
+      p_window_seconds: 600, p_vendor: 'v', p_conversation_id: 'c',
     });
-    expect(String(fetchMock.mock.calls[1][0])).toBe('https://store.test/rest/v1/agent_conversations');
-    const row = JSON.parse(String(fetchMock.mock.calls[1][1]?.body));
+  });
+
+  it('returns the existing reference for an atomically detected duplicate', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify([{
+      acquired: false, reference: 'OLD23456', reservation_status: 'completed', routing_status: 'incomplete',
+    }]), { status: 200 })));
+    await expect(reserveEstimate(env, {
+      payloadHash: 'p', phoneHash: 'h', reference: 'NEW23456', withinSeconds: 600,
+    })).resolves.toEqual({
+      acquired: false, reference: 'OLD23456', status: 'completed', routingStatus: 'incomplete',
+    });
+  });
+
+  it('completes and releases by site, payload hash and reference', async () => {
+    const fetchMock = vi.fn(async () => new Response('true', { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+    expect(await completeEstimate(env, {
+      payloadHash: 'p', reference: 'R', contactId: 'C', routingStatus: 'complete',
+    })).toBe(true);
+    expect(await releaseEstimate(env, { payloadHash: 'p', reference: 'R' })).toBe(true);
+    expect(fetchMock.mock.calls.map((c) => String(c[0]))).toEqual([
+      'https://store.test/rest/v1/rpc/complete_agent_estimate',
+      'https://store.test/rest/v1/rpc/release_agent_estimate',
+    ]);
+    expect(JSON.parse(String(fetchMock.mock.calls[0][1]?.body))).toEqual({
+      p_site: 'site-a', p_payload_hash: 'p', p_reference: 'R', p_contact_id: 'C', p_routing_status: 'complete',
+    });
+  });
+
+  it('returns null or false on store failure', async () => {
+    quiet();
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('down'); }));
+    await expect(reserveEstimate(env, { payloadHash: 'p', phoneHash: 'h', reference: 'R', withinSeconds: 600 })).resolves.toBeNull();
+    await expect(completeEstimate(env, {
+      payloadHash: 'p', reference: 'R', contactId: 'C', routingStatus: 'incomplete',
+    })).resolves.toBe(false);
+    await expect(releaseEstimate(env, { payloadHash: 'p', reference: 'R' })).resolves.toBe(false);
+  });
+});
+
+describe('conversation logging and alarms', () => {
+  it('inserts a snake_case conversation row tagged with the site', async () => {
+    const fetchMock = vi.fn(async () => new Response(null, { status: 201 }));
+    vi.stubGlobal('fetch', fetchMock);
+    expect(await saveConversation(env, {
+      conversationId: 'c', question: 'q', answer: 'a', flagged: false, violations: [], ipHash: 'ip', degraded: true,
+    })).toBe(true);
+    const row = JSON.parse(String(fetchMock.mock.calls[0][1]?.body));
     expect(row).toMatchObject({ site: 'site-a', conversation_id: 'c', violations: [], ip_hash: 'ip', degraded: true, flagged: false });
   });
 
-  it('never throw when the store fails', async () => {
-    quiet();
-    vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('down'); }));
-    await expect(saveLead(env, { reference: 'R', phoneHash: 'ph', contactId: 'x' })).resolves.toBe(false);
-    await expect(
-      saveConversation({ site: 's' }, { conversationId: 'c', question: 'q', answer: 'a', flagged: false, violations: [], ipHash: 'i', degraded: false })
-    ).resolves.toBe(false);
-  });
-});
-
-describe('unprotected alarm', () => {
-  it('logs agent-store:unprotected once per StoreEnv, whatever the number of failed calls', async () => {
-    quiet();
+  it('logs one alarm per StoreEnv and never includes an external response body', async () => {
+    const warn = quiet();
     const error = vi.spyOn(console, 'error').mockImplementation(() => {});
-    vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('down'); }));
-    const perRequest: StoreEnv = { ...env };
-    await bump(perRequest, 'a', 60);
-    await bump(perRequest, 'b', 60);
-    await recentLeadReference(perRequest, 'h', 600);
-    await saveLead(perRequest, { reference: 'R', phoneHash: 'ph', contactId: 'x' });
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('sensitive upstream body', { status: 503 })));
+    const perRequest = { ...env };
+    await consumeRollingLimit(perRequest, 'a', 5, 60);
+    await consumeRollingLimit(perRequest, 'b', 5, 60);
     expect(error.mock.calls.filter((c) => c[0] === 'agent-store:unprotected')).toHaveLength(1);
-
-    await bump({ ...env }, 'a', 60); // next request, new StoreEnv: new alarm
-    expect(error.mock.calls.filter((c) => c[0] === 'agent-store:unprotected')).toHaveLength(2);
-  });
-
-  it('logs it for a missing configuration and for a non-2xx answer, never when the store answers', async () => {
-    quiet();
-    const error = vi.spyOn(console, 'error').mockImplementation(() => {});
-    vi.stubGlobal('fetch', vi.fn(async () => new Response('1', { status: 200 })));
-    await bump({ ...env }, 'a', 60);
-    expect(error).not.toHaveBeenCalled();
-    await bump({ site: 's' }, 'a', 60);
-    expect(error.mock.calls[0]).toEqual(['agent-store:unprotected', expect.stringMatching(/not configured/)]);
-    vi.stubGlobal('fetch', vi.fn(async () => new Response('x', { status: 503 })));
-    await bump({ ...env }, 'a', 60);
-    expect(error.mock.calls[1]).toEqual(['agent-store:unprotected', expect.stringMatching(/503/)]);
+    expect(JSON.stringify(warn.mock.calls)).not.toContain('sensitive upstream body');
   });
 });

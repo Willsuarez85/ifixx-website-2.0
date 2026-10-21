@@ -144,11 +144,9 @@ describe('BRAND, VICTORIA_INTRO and FALLBACK_ANSWER', () => {
     expect(LIMITS.conversationIdMax).toBe(64);
   });
 
-  it('publishedFaq hides the Victoria-voiced answers until the chat is announced', () => {
+  it('publishedFaq publishes no candidate answer until the owner launch gate is open', () => {
     const hidden = publishedFaq(false).map((f) => f.id);
-    expect(hidden.length).toBe(26);
-    expect(hidden).not.toContain('faq-26');
-    expect(hidden).not.toContain('faq-27');
+    expect(hidden).toEqual([]);
     expect(publishedFaq(true)).toEqual(APPROVED_FAQ);
   });
 
@@ -231,15 +229,11 @@ describe('renderLlmsFull', () => {
 
   it('(d) contains the approved questions and answers published while the chat is not announced', () => {
     expect(ASK_ANNOUNCED).toBe(false);
-    for (const f of publishedFaq(ASK_ANNOUNCED)) {
-      expect(full).toContain(f.q);
-      expect(full).toContain(f.a);
-    }
-    for (const id of ['faq-26', 'faq-27']) {
-      const f = APPROVED_FAQ.find((x) => x.id === id)!;
+    expect(publishedFaq(ASK_ANNOUNCED)).toEqual([]);
+    for (const f of APPROVED_FAQ) {
       expect(full).not.toContain(f.q);
-      expect(full).not.toContain(f.a);
     }
+    expect(full.slice(full.indexOf('## Approved answers'), full.indexOf('## Agent API'))).not.toContain('### ');
     expect(full).not.toContain('Victoria');
     expect(full).not.toContain('24/7');
   });
@@ -326,6 +320,13 @@ describe('apiDescription', () => {
     expect(api.endpoints.estimate.limits.perDay).toBe(50);
     expect(api.endpoints.ask.limits.perIpPerHour).toBe(20);
     expect(api.endpoints.ask.limits.perDay).toBe(500);
+    for (const limitsText of [api.endpoints.estimate.limitsText, api.endpoints.ask.limitsText]) {
+      expect(limitsText).toContain('Exact rolling windows');
+      expect(limitsText).toContain('trailing 60 minutes');
+      expect(limitsText).toContain('trailing one-day period');
+      expect(limitsText.toLowerCase()).not.toContain('token bucket');
+      expect(limitsText.toLowerCase()).not.toContain('refill');
+    }
     expect(api.endpoints.estimate.fields.message).toMatch(/2000/);
     expect(api.endpoints.estimate.fields.message).toMatch(/URL/);
     expect(api.endpoints.ask.fields.question).toMatch(/1000/);

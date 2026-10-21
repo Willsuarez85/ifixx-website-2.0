@@ -40,6 +40,27 @@ describe('readJson', () => {
     const lying = await readJson(post(big, { 'content-length': '10' }));
     expect(lying.ok).toBe(false);
   });
+
+  it('cancels and rejects a body that stops producing bytes', async () => {
+    const stream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(new TextEncoder().encode('{"a":'));
+      },
+      cancel() {
+        return new Promise<void>(() => {});
+      },
+    });
+    const request = new Request('http://localhost/api/agent/ask', {
+      method: 'POST',
+      body: stream,
+      duplex: 'half',
+    } as RequestInit & { duplex: 'half' });
+    const result = await Promise.race([
+      readJson(request, 16384, 10),
+      new Promise<'hung'>((resolve) => setTimeout(() => resolve('hung'), 200)),
+    ]);
+    expect(result).toEqual({ ok: false, error: 'Body read timed out.' });
+  });
 });
 
 describe('request helpers', () => {
@@ -105,5 +126,10 @@ describe('agentEnv', () => {
     for (const name of ['GHL_API_KEY', 'GHL_LOCATION_ID', 'SUPABASE_URL', 'SUPABASE_SERVICE_KEY']) {
       expect(src).not.toContain(`import.meta.env.${name}`);
     }
+    const leadSource = readFileSync('src/pages/api/lead.ts', 'utf8');
+    expect(leadSource).toContain('process.env.GHL_API_KEY');
+    expect(leadSource).toContain('process.env.GHL_LOCATION_ID');
+    expect(leadSource).not.toContain('import.meta.env.GHL_API_KEY');
+    expect(leadSource).not.toContain('import.meta.env.GHL_LOCATION_ID');
   });
 });

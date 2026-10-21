@@ -347,20 +347,20 @@ export const faqFraming = (askAnnounced: boolean): string =>
     ? `Answers ${BRAND.name} has approved. They are written in ${BRAND.name}'s voice: "we" is ${BRAND.name}, and "I" and "this assistant" are Victoria, ${BRAND.name}'s virtual assistant.`
     : `Answers ${BRAND.name} has approved. They are written in ${BRAND.name}'s voice: "we" is ${BRAND.name}.`;
 
-/** Answers spoken by Victoria herself; published only once the chat endpoint is announced. */
-const VICTORIA_VOICED_FAQ = ['faq-26', 'faq-27'];
-
 /**
- * The approved answers that the public files may print. While the chat is not announced,
- * the two answers in Victoria's own voice (they point to an assistant nobody can reach
- * yet) stay out. Victoria's system prompt always carries all 28.
+ * Public answer publication shares the owner's launch gate. Before that explicit gate,
+ * business facts remain public but no candidate FAQ wording is represented as approved.
  */
 export const publishedFaq = (askAnnounced: boolean): typeof APPROVED_FAQ =>
-  askAnnounced ? APPROVED_FAQ : APPROVED_FAQ.filter((f) => !VICTORIA_VOICED_FAQ.includes(f.id));
+  askAnnounced ? APPROVED_FAQ : [];
 
 /** Text returned to the assistant after POST /api/agent/estimate succeeds. */
 export const estimateNextStep = (firstName: string): string =>
   `A person from iFIXX will call or text ${firstName} the same business day to confirm details and give the estimate. Photos can be texted to ${PHONE}.`;
+
+/** Safe response when the CRM contact exists but opportunity routing still needs staff action. */
+export const estimateRoutingPendingNextStep = (): string =>
+  `Your contact information was saved. If this is urgent, call or text iFIXX at ${PHONE}.`;
 
 // ---------------------------------------------------------------------------
 // Renderers. Generic in shape; every iFIXX string they print comes from above.
@@ -626,7 +626,7 @@ function buildApi(serviceKeys: string[]) {
     fields: {
       firstName: `Required. The homeowner's first name, 1 to ${LIMITS.firstNameMax} characters.`,
       phone: 'Required. The homeowner\'s US phone number: 10 digits or E.164. Common formats such as (XXX) XXX-XXXX, XXX-XXX-XXXX or +1 XXX XXX XXXX are accepted.',
-      message: `Required. What the homeowner needs, 1 to ${LIMITS.messageMax} characters. No URLs (http://, https:// or www.).`,
+      message: `Required. What the homeowner needs, 1 to ${LIMITS.messageMax} characters. No URL schemes or domain names.`,
       lastName: "Optional. The homeowner's last name.",
       email: "Optional. The homeowner's email.",
       zipCode: 'Optional. ZIP code of the job.',
@@ -641,10 +641,12 @@ function buildApi(serviceKeys: string[]) {
       bodyMaxBytes: LIMITS.bodyMaxBytes,
     },
     limitsText:
-      `${LIMITS.estimate.perIpPerHour} requests per hour per IP and ${LIMITS.estimate.perDay} per day for the site. ` +
-      `A repeated request with the same phone inside a ${LIMITS.estimate.duplicateWindowSeconds / 60}-minute window returns the same reference with duplicate set to true. ` +
+      `Exact rolling windows allow at most ${LIMITS.estimate.perIpPerHour} requests per IP in any trailing 60 minutes and ${LIMITS.estimate.perDay} for the site in any trailing one-day period. ` +
+      `An identical normalized request inside a ${LIMITS.estimate.duplicateWindowSeconds / 60}-minute window returns the same reference with duplicate set to true. ` +
+      `If the contact is saved but opportunity routing reaches its deadline, success includes routingPending set to true. If the completion record cannot be confirmed, success includes reconciliationPending set to true. ` +
       `JSON body up to ${LIMITS.bodyMaxBytes / 1024} KB.`,
     errors: {
+      '202': 'request_in_progress: an identical request is currently reaching the CRM. Retry after retryAfterSeconds.',
       '400': 'Invalid body or field: the error says which one.',
       '429': `rate_limited: too many requests from this IP. The response includes the phone, ${BRAND.phone}.`,
       '502': `crm_unavailable: the request could not be saved. Ask the homeowner to call or text ${BRAND.phone}.`,
@@ -683,7 +685,7 @@ function buildApi(serviceKeys: string[]) {
     },
     limits: { perIpPerHour: LIMITS.ask.perIpPerHour, perDay: LIMITS.ask.perDay, bodyMaxBytes: LIMITS.bodyMaxBytes },
     limitsText:
-      `${LIMITS.ask.perIpPerHour} questions per hour per IP and ${LIMITS.ask.perDay} per day for the site. ` +
+      `Exact rolling windows allow at most ${LIMITS.ask.perIpPerHour} questions per IP in any trailing 60 minutes and ${LIMITS.ask.perDay} for the site in any trailing one-day period. ` +
       `Past the daily limit the answer is the standard reply with the phone number. JSON body up to ${LIMITS.bodyMaxBytes / 1024} KB.`,
     errors: {
       '400': 'Invalid body or field: the error says which one.',
