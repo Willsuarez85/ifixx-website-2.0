@@ -407,21 +407,12 @@ async function routeWebsiteOpportunity(options: {
     source?: string;
     startedAt: Date;
     scope: LeadRequestScope;
-    /** Overrides the "{name} - Website Lead" opportunity name. */
-    opportunityName?: string;
-    /**
-     * False when this request wrote no tags: no GHL tag workflow can open a Handyman
-     * opportunity, so there is nothing to wait for or clean up. Defaults to true.
-     */
-    tagsWritten?: boolean;
 }) {
     const { apiKey, locationId, contactId, firstName, lastName, service, source, startedAt, scope } = options;
     const contactName = [firstName, lastName].filter(Boolean).join(' ').trim() || 'Website Lead';
-    const opportunityName = options.opportunityName || `${contactName} - Website Lead`;
-    const tagsWritten = options.tagsWritten !== false;
-    const searchAttempts = tagsWritten ? 8 : 1;
+    const opportunityName = `${contactName} - Website Lead`;
 
-    for (let attempt = 0; attempt < searchAttempts; attempt++) {
+    for (let attempt = 0; attempt < 8; attempt++) {
         if (attempt > 0) {
             await wait(800, scope);
         }
@@ -492,7 +483,7 @@ async function routeWebsiteOpportunity(options: {
     const opportunityId = result.opportunity?.id || result.id;
 
     let deletedHandymanDuplicates: string[] = [];
-    for (let attempt = 0; attempt < (tagsWritten ? 4 : 0); attempt++) {
+    for (let attempt = 0; attempt < 4; attempt++) {
         await wait(1000, scope);
         deletedHandymanDuplicates = await cleanupRecentHandymanDuplicates({
             apiKey,
@@ -816,9 +807,10 @@ export interface AgentRequestOptions {
      * Called once the request is recorded in the CRM and before the opportunity that
      * starts the consent text is opened. true routes, false records only (consent text
      * already sent to this phone today), null means the gate could not decide and the
-     * request is left for staff exactly like a routing failure.
+     * request is left for staff exactly like a routing failure. Receives the 10-digit
+     * phone the consent text would go to.
      */
-    consentGate?: () => Promise<boolean | null>;
+    consentGate?: (smsPhone: string) => Promise<boolean | null>;
 }
 
 export interface AgentRequestResult {
@@ -832,13 +824,86 @@ export interface AgentRequestResult {
 interface ExistingContact {
     id: string;
     name: string;
+    /** The CRM phone as 10 US digits, when it has one. */
+    phone?: string;
 }
 
 function existingFrom(contact: any): ExistingContact | null {
     const id = contact?.id;
     if (typeof id !== 'string' || !id) return null;
     const name = String(contact.contactName || [contact.firstName, contact.lastName].filter(Boolean).join(' ') || '').trim();
-    return { id, name };
+    const digits = typeof contact.phone === 'string' ? contact.phone.replace(/\D/g, '').replace(/^1(?=\d{10}$)/, '') : '';
+    return { id, name, ...(/^[2-9]\d{9}$/.test(digits) ? { phone: digits } : {}) };
+}
+
+// Settle time after opening the opportunity: a new contact's service tags can make a GHL
+// workflow open a Handyman duplicate, which is cleaned up meanwhile. Every request waits it,
+// so the answer takes about as long whether or not the contact already existed.
+// Mutable only so tests can shorten it; production never changes it.
+export const AGENT_SETTLE = { steps: 2, stepMs: 1000 };
+
+/**
+ * Opens or reuses the Ifixx 2026 opportunity for an agent request with one search and no
+ * polling. An existing contact's other opportunities are never moved, renamed or deleted.
+ * Throws only before the opportunity is known; the settle phase is best effort.
+ */
+async function routeAgentOpportunity(options: {
+    env: LeadEnv;
+    contactId: string;
+    opportunityName: string;
+    source: string;
+    existingContact: boolean;
+    startedAt: Date;
+    scope: LeadRequestScope;
+}): Promise<LeadRouting> {
+    const { env, contactId, opportunityName, source, existingContact, startedAt, scope } = options;
+    const opportunities = await searchContactOpportunities(env.apiKey, env.locationId, contactId, scope);
+    const openOutdoor = opportunities.find((opp: any) =>
+        opp.pipelineId === OUTDOOR_PIPELINE_ID && opp.status !== 'lost' && opp.status !== 'abandoned'
+    );
+
+    let routing: LeadRouting;
+    if (openOutdoor) {
+        routing = { action: 'already-routed', opportunityId: openOutdoor.id, deletedHandymanDuplicates: [] };
+    } else {
+        const response = await ghlRequest('/opportunities/', env.apiKey, {
+            method: 'POST',
+            body: JSON.stringify({
+                locationId: env.locationId,
+                pipelineId: OUTDOOR_PIPELINE_ID,
+                pipelineStageId: OUTDOOR_NEW_LEAD_STAGE_ID,
+                contactId,
+                name: opportunityName,
+                status: 'open',
+                source,
+                monetaryValue: 0
+            })
+        }, scope);
+        if (!response.ok) {
+            throw new Error(`Failed to create Ifixx 2026 opportunity (${response.status})`);
+        }
+        const result = await readResponseJson(response, scope);
+        routing = { action: 'created-outdoor', opportunityId: result.opportunity?.id || result.id, deletedHandymanDuplicates: [] };
+    }
+
+    const deleted = new Set<string>();
+    try {
+        for (let step = 0; step < AGENT_SETTLE.steps; step++) {
+            await wait(AGENT_SETTLE.stepMs, scope);
+            if (existingContact) continue;
+            const removed = await cleanupRecentHandymanDuplicates({
+                apiKey: env.apiKey,
+                locationId: env.locationId,
+                contactId,
+                startedAt,
+                scope
+            });
+            removed.forEach((id: string) => deleted.add(id));
+        }
+    } catch {
+        console.error('Handyman duplicate cleanup incomplete; the Ifixx 2026 opportunity is open');
+    }
+    return { ...routing, deletedHandymanDuplicates: [...deleted] };
 }
 
 /** Read-only lookup with the location's duplicate rules. Never writes, so always retry-safe. */
@@ -984,7 +1049,10 @@ export async function submitAgentRequest(
 
     const recorded = { contactId, existingContact, matchedBy, noteRecorded: note === 'ok' };
 
-    const gate = options.consentGate ? await options.consentGate() : true;
+    // The consent text goes to the phone the CRM holds, which differs from the submitted
+    // one when an existing contact matched by email.
+    const smsPhone = (existingContact && existing?.phone) || input.phone;
+    const gate = options.consentGate ? await options.consentGate(smsPhone) : true;
     if (gate === false) {
         return { ...recorded, routing: { action: CONSENT_LIMITED_ROUTING_ACTION, opportunityId: '', deletedHandymanDuplicates: [] } };
     }
@@ -996,18 +1064,14 @@ export async function submitAgentRequest(
     const requesterName = [input.firstName, input.lastName].filter(Boolean).join(' ').trim();
     const displayName = existingContact ? (existing?.name || 'Existing contact') : requesterName;
     try {
-        const routing = await routeWebsiteOpportunity({
-            apiKey: env.apiKey,
-            locationId: env.locationId,
+        const routing = await routeAgentOpportunity({
+            env,
             contactId,
-            firstName: input.firstName,
-            lastName: input.lastName,
-            service: input.service,
-            source: input.source || 'AI Assistant',
-            startedAt,
-            scope,
             opportunityName: `${displayName} - ${options.opportunityLabel}`,
-            tagsWritten: !existingContact
+            source: input.source || 'AI Assistant',
+            existingContact,
+            startedAt,
+            scope
         });
         return { ...recorded, routing };
     } catch {

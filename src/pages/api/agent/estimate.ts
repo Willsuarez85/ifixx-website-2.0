@@ -363,11 +363,11 @@ export const POST: APIRoute = async ({ request }) => {
         {
           totalTimeoutMs: AGENT_CRM_TOTAL_TIMEOUT_MS,
           opportunityLabel: 'AI Assistant Request',
-          // One consent text per phone per trailing day, whatever the request content.
-          consentGate: async () => {
+          // One consent text per receiving phone per trailing day, whatever the request content.
+          consentGate: async (smsPhone) => {
             const phoneLimit = await consumeRollingLimit(
               store,
-              `estimate:phone:${phoneHash.slice(0, 16)}`,
+              `estimate:phone:${sha256Hex(smsPhone).slice(0, 16)}`,
               LIMITS.estimate.consentPerPhonePerDay,
               LIMITS.dayWindowSeconds
             );

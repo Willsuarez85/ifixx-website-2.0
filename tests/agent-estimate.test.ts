@@ -3,6 +3,7 @@ import type { APIContext } from 'astro';
 import { POST, OPTIONS } from '../src/pages/api/agent/estimate';
 import { GET as GET_API, OPTIONS as OPTIONS_API } from '../src/pages/api/agent/index';
 import { AGENT_SERVICE_KEYS, BRAND } from '../src/lib/agent-facts';
+import { AGENT_SETTLE } from '../src/lib/lead-intake';
 
 const STORE = 'https://store.test';
 const GHL = 'https://services.leadconnectorhq.com';
@@ -29,6 +30,7 @@ interface Setup {
   noteStatus?: number | 'hang';
   phoneLimitDown?: boolean;
   openOpportunity?: boolean;
+  handymanRecent?: boolean;
 }
 
 function setup(opts: Setup = {}) {
@@ -36,7 +38,7 @@ function setup(opts: Setup = {}) {
     store = 'ok', storeFailureAt, bumpValue = () => 1, duplicateRef = null, duplicateRoutingStatus = 'complete',
     ghlFails = false, ghlRejects = false, upsertHangs = false, routingHangs = false, completionFails = false,
     atomicDuplicates = false, existingBy = null, createDuplicateOf, lookupFails = false, noteStatus = 201,
-    phoneLimitDown = false, openOpportunity = true,
+    phoneLimitDown = false, openOpportunity = true, handymanRecent = false,
   } = opts;
   const calls: { url: string; init: RequestInit }[] = [];
   const crm: Record<string, Record<string, unknown>> = {
@@ -112,7 +114,10 @@ function setup(opts: Setup = {}) {
         const q = new URL(u).searchParams;
         const hit = (existingBy === 'phone' && q.has('number')) || (existingBy === 'email' && q.has('email'));
         return new Response(JSON.stringify({
-          contact: hit ? { id: 'existing-1', firstName: 'Real', lastName: 'Customer' } : null,
+          contact: hit ? {
+            id: 'existing-1', firstName: 'Real', lastName: 'Customer',
+            phone: existingBy === 'phone' ? '+19803916833' : '+17045550142',
+          } : null,
         }), { status: 200 });
       }
       if (u === `${GHL}/contacts/` && init.method === 'POST') {
@@ -131,10 +136,18 @@ function setup(opts: Setup = {}) {
       if (ghlFails) return new Response('{"message":"boom"}', { status: 500 });
       if (u.includes('/opportunities/search?') && routingHangs) return new Promise<Response>(() => {});
       if (u.includes('/opportunities/search?')) {
-        return new Response(JSON.stringify(openOpportunity ? OUTDOOR_OPEN : { opportunities: [] }), { status: 200 });
+        const found = [
+          ...(openOpportunity ? OUTDOOR_OPEN.opportunities : []),
+          // A recent Handyman opportunity, the shape GHL tag workflows leave behind.
+          ...(handymanRecent ? [{ id: 'h1', pipelineId: 'ohDTFoWOfNfAYQ89MWEo', status: 'open' }] : []),
+        ];
+        return new Response(JSON.stringify({ opportunities: found }), { status: 200 });
       }
       if (u === `${GHL}/opportunities/` && init.method === 'POST') {
         return new Response(JSON.stringify({ opportunity: { id: 'o2' } }), { status: 201 });
+      }
+      if (/\/opportunities\/[^/?]+$/.test(u) && (init.method === 'DELETE' || init.method === 'PUT')) {
+        return new Response('{}', { status: 200 });
       }
       throw new Error(`unexpected GHL call ${init.method} ${u}`);
     }
@@ -180,6 +193,8 @@ const valid = {
 };
 
 beforeEach(() => {
+  // The real settle time is exercised by the timing tests below.
+  AGENT_SETTLE.stepMs = 0;
   vi.stubEnv('GHL_API_KEY', 'ghl-test');
   vi.stubEnv('GHL_LOCATION_ID', 'loc-test');
   vi.stubEnv('SUPABASE_URL', STORE);
@@ -841,6 +856,69 @@ describe('POST /api/agent/estimate consent text: one per phone per day', () => {
 
   it('the phone limit is only consumed after the request is safely recorded', async () => {
     const { limitKeys } = setup({ lookupFails: true });
+    await call(valid);
+    expect(limitKeys().some((k) => k.startsWith('estimate:phone:'))).toBe(false);
+  });
+});
+
+describe('POST /api/agent/estimate answers the same for new and existing contacts (QA round 1)', () => {
+  const drive = async (opts: Parameters<typeof setup>[0]) => {
+    AGENT_SETTLE.stepMs = 1000;
+    vi.useFakeTimers({ now: new Date('2026-10-20T15:00:00.000Z') });
+    try {
+      const harness = setup(opts);
+      const started = Date.now();
+      const pending = call(valid);
+      let settledAt = 0;
+      pending.finally(() => { settledAt = Date.now(); }).catch(() => {});
+      for (let i = 0; i < 20 && !settledAt; i++) await vi.advanceTimersByTimeAsync(250);
+      const body = await (await pending).json();
+      return { ...harness, body, elapsed: settledAt - started };
+    } finally {
+      vi.useRealTimers();
+      vi.unstubAllGlobals();
+    }
+  };
+
+  it('a new contact with no opportunity routes completely inside the deadline, like an existing one', async () => {
+    const fresh = await drive({ openOpportunity: false });
+    const known = await drive({ existingBy: 'phone', openOpportunity: false });
+    expect(fresh.body.routingPending).toBeUndefined();
+    expect(known.body.routingPending).toBeUndefined();
+    expect(Object.keys(fresh.body).sort()).toEqual(Object.keys(known.body).sort());
+    expect(fresh.body.nextStep).toBe(known.body.nextStep);
+    expect(fresh.completions()[0].p_routing_status).toBe('complete');
+    expect(fresh.opportunityCreates()).toHaveLength(1);
+    // Both wait the same settle time; neither polls for a Handyman opportunity.
+    expect(fresh.elapsed).toBe(known.elapsed);
+    expect(fresh.elapsed).toBeLessThan(8000);
+  });
+
+  it('an existing contact never has its other opportunities moved, renamed or deleted', async () => {
+    for (const openOpportunity of [true, false]) {
+      const { calls } = await drive({ existingBy: 'phone', openOpportunity, handymanRecent: true });
+      const writes = calls.filter((c) => /\/opportunities\/[^/?]+$/.test(c.url) && c.init.method !== 'GET');
+      expect(writes).toEqual([]);
+    }
+  });
+
+  it('a new contact still gets its Handyman duplicate cleaned up after the Ifixx 2026 opportunity opens', async () => {
+    const { calls } = await drive({ handymanRecent: true });
+    const deletes = calls.filter((c) => c.init.method === 'DELETE').map((c) => c.url);
+    expect(deletes).toContain(`${GHL}/opportunities/h1`);
+    expect(calls.some((c) => c.init.method === 'PUT')).toBe(false);
+  });
+
+  it('the daily consent cap counts the phone the text goes to, not the submitted one', async () => {
+    const { limitKeys } = setup({ existingBy: 'email', openOpportunity: false });
+    await call({ ...valid, email: 'real.customer@example.org' });
+    const { createHash } = await import('node:crypto');
+    const crmPhoneKey = `estimate:phone:${createHash('sha256').update('7045550142').digest('hex').slice(0, 16)}`;
+    expect(limitKeys()).toContain(crmPhoneKey);
+  });
+
+  it('a failed note on an existing contact never consumes the consent cap', async () => {
+    const { limitKeys } = setup({ existingBy: 'phone', noteStatus: 400 });
     await call(valid);
     expect(limitKeys().some((k) => k.startsWith('estimate:phone:'))).toBe(false);
   });
