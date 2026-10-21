@@ -80,6 +80,7 @@ const noUrls = (field: string) => `${field} must not contain URLs, URL schemes o
 
 const ASCII_DOMAIN_LABEL = /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/i;
 const ASCII_TLD = /^(?:[a-z]{2,63}|xn--[a-z0-9-]{2,59})$/i;
+const IPV4_LITERAL = /^(?:\d{1,3}\.){3}\d{1,3}$/;
 
 // Anything that cannot sit inside a hostname or the URL punctuation stripped below
 // (@ : / ? #) ends a hostname-shaped run, so "example.com&1" still yields "example.com".
@@ -107,7 +108,10 @@ function containsDomain(value: string): boolean {
     candidate = candidate.split(/[/?#]/, 1)[0].replace(/[.!?]+$/u, '');
     const colon = candidate.lastIndexOf(':');
     if (colon > candidate.lastIndexOf('.')) candidate = candidate.slice(0, colon);
+    // A leading or trailing dot or hyphen is punctuation around the host, not part of it.
+    candidate = candidate.replace(/^[.-]+|[.-]+$/gu, '');
     if (!candidate.includes('.')) continue;
+    if (IPV4_LITERAL.test(candidate)) return true;
 
     const ascii = domainToASCII(candidate).toLowerCase();
     if (!ascii) {
