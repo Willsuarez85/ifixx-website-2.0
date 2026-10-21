@@ -103,6 +103,23 @@ Reviewed from a fresh worktree on `agent-layer` at `edcdcc1` (contains `origin/m
 
 **F13, retention.** Conversations: keep `question` and `answer` for 90 days, then null them and keep only the metadata row for counts; `ip_hash` and `user_agent` dropped at 30 days. Leads: completed rows keep `reference` and `contact_id` for 13 months to match one year of CRM follow-up; `pending` rows older than 30 days are closed by the reconciliation owner, never deleted silently. Rate events already expire at 24 hours. Implementation would be one scheduled SQL job per table, outside the request path.
 
+### Database run, 2026-10-20 evening (owner-authorized, non-production project)
+
+Migrations 21, 22 and 23 were applied in order on a non-production Supabase project (Postgres 17) that already had the `anon`, `authenticated`, `service_role` and `authenticator` roles, then 22 and 23 were applied again without error. Observed:
+
+- `consume_agent_limit` on a 5-per-hour key: five calls allowed with `remaining` 4, 3, 2, 1, 0; the sixth denied. A caller-supplied limit or window that differs from the pinned value raises `agent limit configuration mismatch`; an unknown key raises `unknown agent limit key`.
+- Scoped expiry: an event 3,601 s old was deleted and one 3,599 s old kept and counted. Global prune: an event 86,401 s old on another key was deleted and one 86,399 s old kept.
+- Reservation lifecycle: first reserve acquired; identical reserve while pending returned `acquired=false, pending`; complete returned true once and false the second time; reserve after completion returned the stored `completed, incomplete` state; release of a pending row returned true, then false; a new reserve after release acquired; release of a completed row returned false; an invalid routing status raises.
+- Effective privileges: `anon` and `authenticated` cannot execute any of the five functions and hold no privilege on the four tables; `service_role` can execute all five and holds select, insert, update and delete on the tables (update on `agent_rate_events` comes from the project's default privileges, not from this migration).
+- After `reserve_agent_estimate` the session holds one advisory lock for the rest of the transaction (`pg_locks`).
+- Not exercised: two parallel sessions. A second connection needs a database password this review did not have; serialization rests on the transaction-scoped advisory lock observed above and on Postgres semantics. All objects were dropped from the test project afterwards.
+
+### Owner decisions, 2026-10-20 evening
+
+- F12: option B, a dedicated role with execute-only access and no RLS bypass, to be implemented as a follow-up migration.
+- F13: retention policy as proposed above, to be implemented as scheduled jobs outside the request path.
+- Reconciliation: owner assigned; the operating procedure lives outside this repository.
+
 ### Verdict
 
-**SHIP** as a local follow-up for review and publication: every code finding is confirmed fixed or fixed in this review, the website form's CRM traffic is unchanged, tests, attribution, build and bundle are clean, and nothing internal is in the diff. **Do not deploy** until migrations 22 and 23 run against a non-production database with the deployed role and a concurrency test, and until the owner decides F12, F13 and the reconciliation procedure.
+**SHIP**: pull request opened. **Do not enable in production** until the three migrations are applied in order on the production project, the store variables are set, and either the F12 follow-up is in place or the owner explicitly accepts enabling with the service role first. Parallel-session behavior remains observed only through the held lock.
