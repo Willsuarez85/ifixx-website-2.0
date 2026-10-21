@@ -407,12 +407,21 @@ async function routeWebsiteOpportunity(options: {
     source?: string;
     startedAt: Date;
     scope: LeadRequestScope;
+    /** Overrides the "{name} - Website Lead" opportunity name. */
+    opportunityName?: string;
+    /**
+     * False when this request wrote no tags: no GHL tag workflow can open a Handyman
+     * opportunity, so there is nothing to wait for or clean up. Defaults to true.
+     */
+    tagsWritten?: boolean;
 }) {
     const { apiKey, locationId, contactId, firstName, lastName, service, source, startedAt, scope } = options;
     const contactName = [firstName, lastName].filter(Boolean).join(' ').trim() || 'Website Lead';
-    const opportunityName = `${contactName} - Website Lead`;
+    const opportunityName = options.opportunityName || `${contactName} - Website Lead`;
+    const tagsWritten = options.tagsWritten !== false;
+    const searchAttempts = tagsWritten ? 8 : 1;
 
-    for (let attempt = 0; attempt < 8; attempt++) {
+    for (let attempt = 0; attempt < searchAttempts; attempt++) {
         if (attempt > 0) {
             await wait(800, scope);
         }
@@ -483,7 +492,7 @@ async function routeWebsiteOpportunity(options: {
     const opportunityId = result.opportunity?.id || result.id;
 
     let deletedHandymanDuplicates: string[] = [];
-    for (let attempt = 0; attempt < 4; attempt++) {
+    for (let attempt = 0; attempt < (tagsWritten ? 4 : 0); attempt++) {
         await wait(1000, scope);
         deletedHandymanDuplicates = await cleanupRecentHandymanDuplicates({
             apiKey,
@@ -787,4 +796,222 @@ export async function submitLead(
     }
 
     return { contactId, tags: allTags, routing };
+}
+
+// ---------------------------------------------------------------------------
+// Public agent requests (/api/agent/estimate). Anyone can send one, so it must never
+// change a contact that already exists: no upsert. The request is looked up first,
+// a contact is created only when none matches, and the request itself is appended as
+// a note that carries the reference.
+// ---------------------------------------------------------------------------
+
+/** Routing skipped because this phone already got its consent text in the last day. */
+export const CONSENT_LIMITED_ROUTING_ACTION = 'consent-limited-note-only';
+
+export interface AgentRequestOptions {
+    totalTimeoutMs?: number;
+    /** Opportunity name suffix, e.g. "AI Assistant Request". */
+    opportunityLabel: string;
+    /**
+     * Called once the request is recorded in the CRM and before the opportunity that
+     * starts the consent text is opened. true routes, false records only (consent text
+     * already sent to this phone today), null means the gate could not decide and the
+     * request is left for staff exactly like a routing failure.
+     */
+    consentGate?: () => Promise<boolean | null>;
+}
+
+export interface AgentRequestResult {
+    contactId: string;
+    existingContact: boolean;
+    matchedBy: 'phone' | 'email' | 'create-duplicate' | null;
+    noteRecorded: boolean;
+    routing: LeadRouting;
+}
+
+interface ExistingContact {
+    id: string;
+    name: string;
+}
+
+function existingFrom(contact: any): ExistingContact | null {
+    const id = contact?.id;
+    if (typeof id !== 'string' || !id) return null;
+    const name = String(contact.contactName || [contact.firstName, contact.lastName].filter(Boolean).join(' ') || '').trim();
+    return { id, name };
+}
+
+/** Read-only lookup with the location's duplicate rules. Never writes, so always retry-safe. */
+async function findDuplicateContact(
+    env: LeadEnv,
+    params: Record<string, string>,
+    scope: LeadRequestScope
+): Promise<ExistingContact | null> {
+    const query = new URLSearchParams({ locationId: env.locationId, ...params });
+    try {
+        const response = await ghlRequest(`/contacts/search/duplicate?${query.toString()}`, env.apiKey, { method: 'GET' }, scope);
+        if (!response.ok) throw new Error(`lookup ${response.status}`);
+        const result = await readResponseJson(response, scope);
+        return result?.contact ? existingFrom(result.contact) : null;
+    } catch {
+        throw new LeadIntakeError('Contact lookup failed', true);
+    }
+}
+
+/**
+ * Creates a contact that did not exist. GHL answers a duplicate with 400 and the matching
+ * contact id in meta (a create that raced another one): that contact is reused untouched.
+ */
+async function createContact(
+    env: LeadEnv,
+    body: Record<string, any>,
+    scope: LeadRequestScope
+): Promise<{ contactId: string; duplicateOf: boolean }> {
+    let response: Response;
+    try {
+        response = await ghlRequest('/contacts/', env.apiKey, { method: 'POST', body: JSON.stringify(body) }, scope);
+    } catch {
+        throw new LeadIntakeError('Contact create result is unknown', false);
+    }
+    let result: any;
+    try {
+        result = await readResponseJson(response, scope);
+    } catch {
+        if (response.ok || response.status >= 500) throw new LeadIntakeError('Contact create result is unknown', false);
+        throw new LeadIntakeError('GHL rejected the contact', true);
+    }
+    if (!response.ok) {
+        const duplicateId = result?.meta?.contactId;
+        if (response.status === 400 && typeof duplicateId === 'string' && duplicateId) {
+            return { contactId: duplicateId, duplicateOf: true };
+        }
+        console.error(`GHL Create Contact Error: ${response.status}`);
+        throw new LeadIntakeError('GHL rejected the contact', response.status < 500);
+    }
+    const contactId = result?.contact?.id || result?.id;
+    if (typeof contactId !== 'string' || !contactId) {
+        throw new LeadIntakeError('GHL did not return a contact ID', false);
+    }
+    return { contactId, duplicateOf: false };
+}
+
+/** Appends a note; 'ok', 'rejected' (GHL refused, nothing written) or 'unknown'. */
+async function addContactNote(
+    env: LeadEnv,
+    contactId: string,
+    body: string,
+    scope: LeadRequestScope
+): Promise<'ok' | 'rejected' | 'unknown'> {
+    try {
+        const response = await ghlRequest(`/contacts/${encodeURIComponent(contactId)}/notes`, env.apiKey, {
+            method: 'POST',
+            body: JSON.stringify({ body })
+        }, scope);
+        if (response.ok) return 'ok';
+        return response.status < 500 ? 'rejected' : 'unknown';
+    } catch {
+        return 'unknown';
+    }
+}
+
+/** The note that records one agent request. Existing contacts get the submitted details here only. */
+function agentRequestNote(input: LeadInput, existingContact: boolean): string {
+    const submitted = [
+        `Name: ${[input.firstName, input.lastName].filter(Boolean).join(' ')}`,
+        `Phone: ${input.phone}`,
+        ...(input.email ? [`Email: ${input.email}`] : []),
+        ...(input.zipCode ? [`ZIP: ${input.zipCode}`] : []),
+        ...(input.city ? [`City: ${input.city}`] : []),
+        ...(input.service ? [`Service: ${input.service}`] : []),
+    ];
+    return [
+        input.notesPrefix || '',
+        existingContact
+            ? 'This number or email already belonged to a contact. The contact record was NOT changed; the details below are as the assistant submitted them and are unverified.'
+            : '',
+        submitted.join('\n'),
+        `Request:\n${input.message || 'Not provided'}`,
+    ].filter(Boolean).join('\n\n');
+}
+
+/**
+ * Records an AI-assistant request without modifying any existing contact: lookup by phone
+ * then email, create only when nothing matches, append the request as a note, then (if the
+ * consent gate allows) open or reuse the Ifixx 2026 opportunity. Throws LeadIntakeError
+ * when nothing durable was recorded.
+ */
+export async function submitAgentRequest(
+    input: LeadInput,
+    env: LeadEnv,
+    startedAt: Date,
+    options: AgentRequestOptions
+): Promise<AgentRequestResult> {
+    const scope: LeadRequestScope = {
+        ...(options.totalTimeoutMs === undefined
+            ? {}
+            : { deadlineAt: Date.now() + Math.max(1, options.totalTimeoutMs) })
+    };
+
+    let existing = await findDuplicateContact(env, { number: `+1${input.phone}` }, scope);
+    let matchedBy: AgentRequestResult['matchedBy'] = existing ? 'phone' : null;
+    if (!existing && input.email) {
+        existing = await findDuplicateContact(env, { email: input.email }, scope);
+        if (existing) matchedBy = 'email';
+    }
+
+    let contactId: string;
+    let existingContact = Boolean(existing);
+    if (existing) {
+        contactId = existing.id;
+    } else {
+        const created = await createContact(env, buildUpsertParts(input, env).upsertBody, scope);
+        contactId = created.contactId;
+        if (created.duplicateOf) {
+            existingContact = true;
+            matchedBy = 'create-duplicate';
+        }
+    }
+
+    const note = await addContactNote(env, contactId, agentRequestNote(input, existingContact), scope);
+    if (existingContact && note !== 'ok') {
+        // Nothing else of this request reached an existing contact.
+        throw new LeadIntakeError('Request note was not recorded', note === 'rejected');
+    }
+    if (note !== 'ok') {
+        // The new contact already carries the request in Project Notes.
+        console.error('GHL note not recorded for a new agent contact; Project Notes holds the request');
+    }
+
+    const recorded = { contactId, existingContact, matchedBy, noteRecorded: note === 'ok' };
+
+    const gate = options.consentGate ? await options.consentGate() : true;
+    if (gate === false) {
+        return { ...recorded, routing: { action: CONSENT_LIMITED_ROUTING_ACTION, opportunityId: '', deletedHandymanDuplicates: [] } };
+    }
+    if (gate === null) {
+        console.error('Consent gate unavailable after the request was recorded; manual workflow required');
+        return { ...recorded, routing: { action: CONTACT_ONLY_ROUTING_ACTION, opportunityId: '', deletedHandymanDuplicates: [] } };
+    }
+
+    const requesterName = [input.firstName, input.lastName].filter(Boolean).join(' ').trim();
+    const displayName = existingContact ? (existing?.name || 'Existing contact') : requesterName;
+    try {
+        const routing = await routeWebsiteOpportunity({
+            apiKey: env.apiKey,
+            locationId: env.locationId,
+            contactId,
+            firstName: input.firstName,
+            lastName: input.lastName,
+            service: input.service,
+            source: input.source || 'AI Assistant',
+            startedAt,
+            scope,
+            opportunityName: `${displayName} - ${options.opportunityLabel}`,
+            tagsWritten: !existingContact
+        });
+        return { ...recorded, routing };
+    } catch {
+        console.error('GHL routing incomplete after the agent request was recorded; manual workflow required');
+        return { ...recorded, routing: { action: CONTACT_ONLY_ROUTING_ACTION, opportunityId: '', deletedHandymanDuplicates: [] } };
+    }
 }

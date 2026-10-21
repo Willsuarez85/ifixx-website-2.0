@@ -11,12 +11,20 @@ import {
 } from '../../../lib/agent-facts';
 import { agentEnv, clientIp, ipHash, jsonResponse, normalizePhone, optionsResponse, readJson, sha256Hex } from '../../../lib/agent-http';
 import { completeEstimate, consumeRollingLimit, releaseEstimate, reserveEstimate, type StoreEnv } from '../../../lib/agent-store';
-import { CONTACT_ONLY_ROUTING_ACTION, LeadIntakeError, submitLead } from '../../../lib/lead-intake';
+import {
+  CONSENT_LIMITED_ROUTING_ACTION,
+  CONTACT_ONLY_ROUTING_ACTION,
+  LeadIntakeError,
+  submitAgentRequest,
+} from '../../../lib/lead-intake';
 
 /**
  * POST /api/agent/estimate: an AI assistant leaves an estimate request on behalf of a
- * homeowner. It reaches the CRM through the same intake as the website form, tagged as
- * coming from an assistant. Generic: every site-specific string comes from agent-facts.
+ * homeowner. Anyone can call it, so it never changes a contact that already exists: the
+ * request is appended as a note and only a brand-new contact gets the assistant tags.
+ * The opportunity it opens starts the consent text, at most once per phone per day.
+ * The response is the same whether or not the phone was already a contact.
+ * Generic: every site-specific string comes from agent-facts.
  */
 export const prerender = false;
 
@@ -334,8 +342,9 @@ export const POST: APIRoute = async ({ request }) => {
 
     let contactId: string;
     let routingIncomplete = false;
+    let consentLimited = false;
     try {
-      const intake = await submitLead(
+      const intake = await submitAgentRequest(
         {
           firstName: v.firstName,
           lastName: v.lastName,
@@ -351,16 +360,30 @@ export const POST: APIRoute = async ({ request }) => {
         },
         { apiKey: env.ghlApiKey, locationId: env.ghlLocationId, origin: new URL(request.url).origin },
         new Date(),
-        { totalTimeoutMs: AGENT_CRM_TOTAL_TIMEOUT_MS, acceptContactOnly: true }
+        {
+          totalTimeoutMs: AGENT_CRM_TOTAL_TIMEOUT_MS,
+          opportunityLabel: 'AI Assistant Request',
+          // One consent text per phone per trailing day, whatever the request content.
+          consentGate: async () => {
+            const phoneLimit = await consumeRollingLimit(
+              store,
+              `estimate:phone:${phoneHash.slice(0, 16)}`,
+              LIMITS.estimate.consentPerPhonePerDay,
+              LIMITS.dayWindowSeconds
+            );
+            return phoneLimit === null ? null : phoneLimit.allowed;
+          },
+        }
       );
       contactId = intake.contactId;
       routingIncomplete = intake.routing.action === CONTACT_ONLY_ROUTING_ACTION;
+      consentLimited = intake.routing.action === CONSENT_LIMITED_ROUTING_ACTION;
     } catch (err) {
       if (err instanceof LeadIntakeError && err.retrySafe) {
         await releaseEstimate(store, { payloadHash, reference });
-        console.error('agent estimate: CRM rejected contact before writing');
+        console.error('agent estimate: CRM rejected the request before writing');
       } else {
-        // A timed-out or malformed upsert may already have written the contact. Keep the
+        // A timed-out or malformed create may already have written the contact. Keep the
         // pending reservation so an immediate retry cannot create a second CRM lead.
         console.error('agent estimate: CRM outcome unknown; reservation retained');
       }
@@ -380,7 +403,9 @@ export const POST: APIRoute = async ({ request }) => {
       console.error('agent estimate: completion record failed; reconcile pending reference');
     }
 
-    console.log(`Agent lead: ref ${reference} | agent:${v.vendorSlug} | service ${v.service}`);
+    // A consent-limited request answers like any other: this phone already has an open
+    // request from today, so the same follow-up applies and nothing about the contact leaks.
+    console.log(`Agent lead: ref ${reference} | agent:${v.vendorSlug} | service ${v.service}${consentLimited ? ' | consent already sent today' : ''}`);
     return jsonResponse(200, {
       success: true,
       reference,

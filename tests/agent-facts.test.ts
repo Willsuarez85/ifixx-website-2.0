@@ -131,7 +131,7 @@ describe('BRAND, VICTORIA_INTRO and FALLBACK_ANSWER', () => {
   });
 
   it('exports the limits the endpoints enforce', () => {
-    expect(LIMITS.estimate).toEqual({ perIpPerHour: 5, perDay: 50, duplicateWindowSeconds: 600 });
+    expect(LIMITS.estimate).toEqual({ perIpPerHour: 5, perDay: 50, duplicateWindowSeconds: 600, consentPerPhonePerDay: 1 });
     expect(LIMITS.ask).toEqual({ perIpPerHour: 20, perDay: 500 });
     expect(LIMITS.ipWindowSeconds).toBe(3600);
     expect(LIMITS.dayWindowSeconds).toBe(86400);

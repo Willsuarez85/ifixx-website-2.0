@@ -23,15 +23,29 @@ interface Setup {
   routingHangs?: boolean;
   completionFails?: boolean;
   atomicDuplicates?: boolean;
+  existingBy?: 'phone' | 'email' | null;
+  createDuplicateOf?: string;
+  lookupFails?: boolean;
+  noteStatus?: number | 'hang';
+  phoneLimitDown?: boolean;
+  openOpportunity?: boolean;
 }
 
 function setup(opts: Setup = {}) {
   const {
     store = 'ok', storeFailureAt, bumpValue = () => 1, duplicateRef = null, duplicateRoutingStatus = 'complete',
     ghlFails = false, ghlRejects = false, upsertHangs = false, routingHangs = false, completionFails = false,
-    atomicDuplicates = false,
+    atomicDuplicates = false, existingBy = null, createDuplicateOf, lookupFails = false, noteStatus = 201,
+    phoneLimitDown = false, openOpportunity = true,
   } = opts;
   const calls: { url: string; init: RequestInit }[] = [];
+  const crm: Record<string, Record<string, unknown>> = {
+    'existing-1': {
+      firstName: 'Real', lastName: 'Customer', email: 'real.customer@example.org', phone: '+19803916833',
+      source: 'Website Form', postalCode: '28226', tags: ['website-lead', 'customer'],
+      customFields: [{ id: 'HhBO7YQAST3aZR770LJO', value: 'Kitchen remodel 2025' }],
+    },
+  };
   const reservations = new Map<string, string>();
   const fetchMock = vi.fn(async (url: any, init: RequestInit = {}) => {
     const u = String(url);
@@ -41,6 +55,9 @@ function setup(opts: Setup = {}) {
       if (u.endsWith('/rest/v1/rpc/consume_agent_limit')) {
         const { p_key, p_limit } = JSON.parse(String(init.body));
         if (storeFailureAt === 'day' && p_key === 'estimate:day') {
+          return new Response('private failure detail', { status: 503 });
+        }
+        if (phoneLimitDown && String(p_key).startsWith('estimate:phone:')) {
           return new Response('private failure detail', { status: 503 });
         }
         const used = bumpValue(p_key);
@@ -78,22 +95,70 @@ function setup(opts: Setup = {}) {
       throw new Error(`unexpected store call ${u}`);
     }
     if (u.startsWith(GHL)) {
-      if (u.endsWith('/contacts/upsert') && upsertHangs) return new Promise<Response>(() => {});
-      if (u.endsWith('/contacts/upsert') && ghlRejects) return new Response('{"message":"rejected"}', { status: 400 });
+      // The public endpoint must never use upsert or write to a contact record.
+      // A stand-in CRM record: any upsert or contact write lands on it like GHL would, so
+      // a test can compare the record byte for byte before and after.
+      if (u.endsWith('/contacts/upsert')) {
+        Object.assign(crm['existing-1'], JSON.parse(String(init.body)));
+        return new Response(JSON.stringify({ contact: { id: 'existing-1' } }), { status: 200 });
+      }
+      const write = /\/contacts\/([^/?]+)(\/tags)?$/.exec(u);
+      if (write && init.method && init.method !== 'GET' && crm[write[1]]) {
+        Object.assign(crm[write[1]], JSON.parse(String(init.body || '{}')));
+        return new Response('{}', { status: 200 });
+      }
+      if (u.includes('/contacts/search/duplicate?')) {
+        if (lookupFails) return new Response('{"message":"boom"}', { status: 500 });
+        const q = new URL(u).searchParams;
+        const hit = (existingBy === 'phone' && q.has('number')) || (existingBy === 'email' && q.has('email'));
+        return new Response(JSON.stringify({
+          contact: hit ? { id: 'existing-1', firstName: 'Real', lastName: 'Customer' } : null,
+        }), { status: 200 });
+      }
+      if (u === `${GHL}/contacts/` && init.method === 'POST') {
+        if (upsertHangs) return new Promise<Response>(() => {});
+        if (ghlRejects) return new Response('{"message":"rejected"}', { status: 400 });
+        if (createDuplicateOf) return new Response(JSON.stringify({
+          statusCode: 400, message: 'This location does not allow duplicated contacts.', meta: { contactId: createDuplicateOf },
+        }), { status: 400 });
+        if (ghlFails) return new Response('{"message":"boom"}', { status: 500 });
+        return new Response(JSON.stringify({ contact: { id: 'c1' } }), { status: 201 });
+      }
+      if (/\/contacts\/[^/]+\/notes$/.test(u)) {
+        if (noteStatus === 'hang') return new Promise<Response>(() => {});
+        return new Response('{"note":{"id":"n1"}}', { status: noteStatus });
+      }
       if (ghlFails) return new Response('{"message":"boom"}', { status: 500 });
-      if (u.endsWith('/contacts/upsert')) return new Response(JSON.stringify({ contact: { id: 'c1' } }), { status: 200 });
       if (u.includes('/opportunities/search?') && routingHangs) return new Promise<Response>(() => {});
-      if (u.includes('/opportunities/search?')) return new Response(JSON.stringify(OUTDOOR_OPEN), { status: 200 });
+      if (u.includes('/opportunities/search?')) {
+        return new Response(JSON.stringify(openOpportunity ? OUTDOOR_OPEN : { opportunities: [] }), { status: 200 });
+      }
+      if (u === `${GHL}/opportunities/` && init.method === 'POST') {
+        return new Response(JSON.stringify({ opportunity: { id: 'o2' } }), { status: 201 });
+      }
       throw new Error(`unexpected GHL call ${init.method} ${u}`);
     }
     throw new Error(`unexpected host ${u}`);
   });
   vi.stubGlobal('fetch', fetchMock);
-  const upserts = () => calls.filter((c) => c.url.endsWith('/contacts/upsert')).map((c) => JSON.parse(String(c.init.body)));
+  // Contact creations (POST /contacts/). Named after the upsert it replaced so the
+  // older assertions on the contact body keep reading the same.
+  const upserts = () => calls
+    .filter((c) => c.url === `${GHL}/contacts/` && c.init.method === 'POST')
+    .map((c) => JSON.parse(String(c.init.body)));
+  const notes = () => calls
+    .filter((c) => /\/contacts\/[^/]+\/notes$/.test(c.url))
+    .map((c) => ({ url: c.url, body: JSON.parse(String(c.init.body)).body as string }));
+  const opportunityCreates = () => calls
+    .filter((c) => c.url === `${GHL}/opportunities/` && c.init.method === 'POST')
+    .map((c) => JSON.parse(String(c.init.body)));
+  const limitKeys = () => calls
+    .filter((c) => c.url.endsWith('/rpc/consume_agent_limit'))
+    .map((c) => JSON.parse(String(c.init.body)).p_key as string);
   const leadInserts = () => calls.filter((c) => c.url.endsWith('/rpc/reserve_agent_estimate')).map((c) => JSON.parse(String(c.init.body)));
   const completions = () => calls.filter((c) => c.url.endsWith('/rpc/complete_agent_estimate')).map((c) => JSON.parse(String(c.init.body)));
   const releases = () => calls.filter((c) => c.url.endsWith('/rpc/release_agent_estimate')).map((c) => JSON.parse(String(c.init.body)));
-  return { fetchMock, calls, upserts, leadInserts, completions, releases };
+  return { fetchMock, calls, crm, upserts, notes, opportunityCreates, limitKeys, leadInserts, completions, releases };
 }
 
 const call = (body: unknown, headers: Record<string, string> = {}) => {
@@ -430,7 +495,7 @@ describe('POST /api/agent/estimate limits and failures', () => {
     expect(releases()).toHaveLength(1);
   });
 
-  it('an ambiguous upsert timeout keeps the reservation pending and returns within the total deadline', async () => {
+  it('an ambiguous contact-create timeout keeps the reservation pending and returns within the total deadline', async () => {
     vi.useFakeTimers({ now: new Date('2026-10-20T15:00:00.000Z') });
     try {
       const { calls, releases } = setup({ upsertHangs: true });
@@ -443,7 +508,7 @@ describe('POST /api/agent/estimate limits and failures', () => {
       const r = await pending;
       expect(r.status).toBe(502);
       expect(releases()).toHaveLength(0);
-      const upsert = calls.find((c) => c.url.endsWith('/contacts/upsert'));
+      const upsert = calls.find((c) => c.url === 'https://services.leadconnectorhq.com/contacts/' && c.init.method === 'POST');
       expect(upsert?.init.signal).toBeInstanceOf(AbortSignal);
       expect((upsert?.init.signal as AbortSignal).aborted).toBe(true);
     } finally {
@@ -470,7 +535,7 @@ describe('POST /api/agent/estimate limits and failures', () => {
       expect(completions()).toHaveLength(1);
       expect(completions()[0].p_routing_status).toBe('incomplete');
       expect(vi.mocked(console.error).mock.calls).toContainEqual([
-        'GHL routing incomplete after contact upsert; manual workflow required',
+        'GHL routing incomplete after the agent request was recorded; manual workflow required',
       ]);
     } finally {
       vi.useRealTimers();
@@ -608,5 +673,175 @@ describe('final review: store unconfigured in Production (finding 4)', () => {
     const d = await ((await GET_API({ request } as unknown as APIContext)) as Response).json();
     expect(d.endpoints.estimate.errors['503']).toMatch(/temporarily_unavailable/);
     expect(d.endpoints.estimate.errors['503']).toMatch(/paused/);
+  });
+});
+
+describe('POST /api/agent/estimate never modifies an existing contact (A02)', () => {
+  const ghlCallsTo = (calls: { url: string; init: RequestInit }[], fragment: string) =>
+    calls.filter((c) => c.url.startsWith(GHL) && c.url.includes(fragment));
+
+  it('a phone match reuses the contact untouched: no create, no tags, no field writes, request kept as a note', async () => {
+    const { calls, crm, upserts, notes, opportunityCreates } = setup({ existingBy: 'phone', openOpportunity: false });
+    const before = JSON.stringify(crm['existing-1']);
+    const r = await call({ ...valid, firstName: 'Mallory', email: 'attacker@example.org', zipCode: '28277' });
+    expect(r.status).toBe(200);
+    const body = await r.json();
+    expect(body).toEqual({ success: true, reference: body.reference, nextStep: body.nextStep });
+    expect(upserts()).toHaveLength(0);
+    // The only request that names the contact is the note: no PUT, no tags, no custom fields.
+    const touching = ghlCallsTo(calls, '/contacts/existing-1');
+    expect(touching.map((c) => c.url)).toEqual([`${GHL}/contacts/existing-1/notes`]);
+    expect(ghlCallsTo(calls, '/tags')).toHaveLength(0);
+    expect(ghlCallsTo(calls, '/contacts/upsert')).toHaveLength(0);
+    // Name, email, source, ZIP, tags and custom fields are byte-for-byte what they were.
+    expect(JSON.stringify(crm['existing-1'])).toBe(before);
+    const [note] = notes();
+    expect(note.body).toContain(`Reference: ${body.reference}`);
+    expect(note.body).toContain('The contact record was NOT changed');
+    expect(note.body).toContain('Name: Mallory Lopez');
+    expect(note.body).toContain('Email: attacker@example.org');
+    expect(note.body).toContain('Two holes in the living room drywall.');
+    // The opportunity is named from the CRM record, never from the submitted name.
+    expect(opportunityCreates()).toHaveLength(1);
+    expect(opportunityCreates()[0]).toMatchObject({
+      contactId: 'existing-1',
+      name: 'Real Customer - AI Assistant Request',
+      source: 'AI Assistant',
+      pipelineStageId: '2f5e3e61-cbe2-4350-8010-dd8c3335d419',
+    });
+  });
+
+  it('an existing contact is routed with one search and no Handyman polling', async () => {
+    const { calls } = setup({ existingBy: 'phone', openOpportunity: false });
+    await call(valid);
+    expect(ghlCallsTo(calls, '/opportunities/search?')).toHaveLength(1);
+  });
+
+  it('an existing contact with an open Ifixx 2026 opportunity gets the note and no second opportunity', async () => {
+    const { notes, opportunityCreates } = setup({ existingBy: 'phone' });
+    const r = await call(valid);
+    expect(r.status).toBe(200);
+    expect(notes()).toHaveLength(1);
+    expect(opportunityCreates()).toHaveLength(0);
+  });
+
+  it('an email match with a different phone is treated the same way', async () => {
+    const { calls, upserts, notes } = setup({ existingBy: 'email', openOpportunity: false });
+    const r = await call({ ...valid, email: 'real.customer@example.org' });
+    expect(r.status).toBe(200);
+    expect(upserts()).toHaveLength(0);
+    expect(notes()[0].url).toBe(`${GHL}/contacts/existing-1/notes`);
+    const lookups = ghlCallsTo(calls, '/contacts/search/duplicate?').map((c) => new URL(c.url).searchParams);
+    expect(lookups[0].get('number')).toBe('+19803916833');
+    expect(lookups[1].get('email')).toBe('real.customer@example.org');
+  });
+
+  it('a create that loses a race to an existing contact reuses it and never retries as an update', async () => {
+    const { calls, upserts, notes, opportunityCreates } = setup({ createDuplicateOf: 'raced-9', openOpportunity: false });
+    const r = await call(valid);
+    expect(r.status).toBe(200);
+    expect(upserts()).toHaveLength(1);
+    expect(notes()[0].url).toBe(`${GHL}/contacts/raced-9/notes`);
+    expect(notes()[0].body).toContain('The contact record was NOT changed');
+    expect(opportunityCreates()[0]).toMatchObject({ contactId: 'raced-9', name: 'Existing contact - AI Assistant Request' });
+    expect(ghlCallsTo(calls, '/contacts/raced-9').map((c) => c.url)).toEqual([`${GHL}/contacts/raced-9/notes`]);
+  });
+
+  it('new and existing contacts get the same response shape and next step', async () => {
+    setup();
+    const fresh = await (await call(valid)).json();
+    vi.unstubAllGlobals();
+    setup({ existingBy: 'phone' });
+    const known = await (await call(valid)).json();
+    expect(Object.keys(known).sort()).toEqual(Object.keys(fresh).sort());
+    expect(known.nextStep).toBe(fresh.nextStep);
+  });
+
+  it('a new contact is created (not upserted) with the assistant tags and the request also lands as a note', async () => {
+    const { upserts, notes, opportunityCreates } = setup({ openOpportunity: false });
+    vi.useFakeTimers({ now: new Date('2026-10-20T15:00:00.000Z') });
+    try {
+      const pending = call(valid);
+      await vi.advanceTimersByTimeAsync(8000);
+      const r = await pending;
+      const body = await r.json();
+      expect(r.status).toBe(200);
+      expect(upserts()[0]).toMatchObject({ firstName: 'Ana', source: 'AI Assistant', locationId: 'loc-test' });
+      expect(upserts()[0].tags).toContain('ai-assistant-lead');
+      expect(notes()[0].url).toBe(`${GHL}/contacts/c1/notes`);
+      expect(notes()[0].body).toContain(`Reference: ${body.reference}`);
+      expect(notes()[0].body).not.toContain('NOT changed');
+      expect(opportunityCreates()[0]).toMatchObject({ contactId: 'c1', name: 'Ana Lopez - AI Assistant Request' });
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('a failed lookup writes nothing and releases the reservation for a safe retry', async () => {
+    const { upserts, notes, releases } = setup({ lookupFails: true });
+    const r = await call(valid);
+    expect(r.status).toBe(502);
+    expect(upserts()).toHaveLength(0);
+    expect(notes()).toHaveLength(0);
+    expect(releases()).toHaveLength(1);
+  });
+
+  it('a rejected note on an existing contact is a safe retry; an unknown one keeps the reservation', async () => {
+    const rejected = setup({ existingBy: 'phone', noteStatus: 400 });
+    expect((await call(valid)).status).toBe(502);
+    expect(rejected.releases()).toHaveLength(1);
+    expect(rejected.opportunityCreates()).toHaveLength(0);
+    vi.unstubAllGlobals();
+    const unknown = setup({ existingBy: 'phone', noteStatus: 503 });
+    expect((await call(valid)).status).toBe(502);
+    expect(unknown.releases()).toHaveLength(0);
+  });
+
+  it('a failed note on a new contact does not lose the lead: Project Notes already holds it', async () => {
+    const { completions } = setup({ noteStatus: 503 });
+    const r = await call(valid);
+    expect(r.status).toBe(200);
+    expect(completions()[0].p_routing_status).toBe('complete');
+  });
+});
+
+describe('POST /api/agent/estimate consent text: one per phone per day', () => {
+  it('consumes a per-phone daily key, hashed, never the raw phone', async () => {
+    const { limitKeys } = setup();
+    await call(valid);
+    const phoneKey = limitKeys().find((k) => k.startsWith('estimate:phone:'));
+    expect(phoneKey).toMatch(/^estimate:phone:[0-9a-f]{16}$/);
+    expect(limitKeys().join(' ')).not.toContain('9803916833');
+  });
+
+  it('a second request for the same phone in a day is recorded as a note but opens no opportunity', async () => {
+    const { notes, opportunityCreates, calls, completions } = setup({
+      bumpValue: (key) => (key.startsWith('estimate:phone:') ? 2 : 1),
+      openOpportunity: false,
+    });
+    const r = await call({ ...valid, message: 'Also the hallway ceiling.' });
+    expect(r.status).toBe(200);
+    const body = await r.json();
+    expect(body).toEqual({ success: true, reference: body.reference, nextStep: body.nextStep });
+    expect(notes()).toHaveLength(1);
+    expect(opportunityCreates()).toHaveLength(0);
+    expect(calls.some((c) => c.url.includes('/opportunities/'))).toBe(false);
+    expect(completions()[0].p_routing_status).toBe('complete');
+  });
+
+  it('if the per-phone limit cannot be checked, the request is kept and left for staff, never routed blind', async () => {
+    const { notes, opportunityCreates, completions } = setup({ phoneLimitDown: true });
+    const r = await call(valid);
+    expect(r.status).toBe(200);
+    expect(await r.json()).toMatchObject({ success: true, routingPending: true });
+    expect(notes()).toHaveLength(1);
+    expect(opportunityCreates()).toHaveLength(0);
+    expect(completions()[0].p_routing_status).toBe('incomplete');
+  });
+
+  it('the phone limit is only consumed after the request is safely recorded', async () => {
+    const { limitKeys } = setup({ lookupFails: true });
+    await call(valid);
+    expect(limitKeys().some((k) => k.startsWith('estimate:phone:'))).toBe(false);
   });
 });
