@@ -59,7 +59,7 @@ describe('agent exact rolling-window migration', () => {
     expect(events.filter((at) => at >= now - 86_400)).toEqual([now - 86_400, now - 3_600, now]);
   });
 
-  it('never waits on rows another transaction is deleting, so the advisory lock cannot deadlock', () => {
+  it('pins skip-locked deletes next to both prune predicates (behavior itself needs a database)', () => {
     expect(limitSql.match(/for update skip locked/g)).toHaveLength(2);
     const prune = limitSql.indexOf('e.occurred_at < v_prune_now - pg_catalog.make_interval(secs => 86400)');
     const scoped = limitSql.indexOf('and e.occurred_at < v_cutoff');

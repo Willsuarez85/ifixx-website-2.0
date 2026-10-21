@@ -22,7 +22,11 @@ create index if not exists agent_leads_incomplete_routing_idx
   where status = 'completed' and routing_status = 'incomplete';
 
 -- A pending row older than the reservation window is no longer an active request. It
--- may represent an ambiguous CRM upsert or a contact saved before completion recording.
+-- may represent an ambiguous CRM upsert or a contact saved before completion recording,
+-- or a reservation the endpoint never used: the store acknowledged it after the client
+-- timeout, or the release after a refused daily limit or a definitive CRM rejection
+-- failed. Rows of that last kind have no contact_id and no reference in the CRM, and
+-- can be deleted.
 create index if not exists agent_leads_aged_pending_idx
   on public.agent_leads (created_at, site, reference)
   where status = 'pending';

@@ -60,7 +60,7 @@ Reviewed from a fresh worktree on `agent-layer` at `edcdcc1` (contains `origin/m
 | F02 | Confirmed fixed | `publishedFaq(false)` returns an empty list; `llms-full.txt` prints no candidate answer until `ASK_ANNOUNCED`. |
 | F03 | Confirmed fixed | `victoria.ts` no longer drafts: exact match, classifier to an approved id, or the fixed fallback. `generate`, the history quoting and the Spanish check were removed with their call sites. The guardrail remains only as a build-time check on service summaries. |
 | F04 | Confirmed fixed | `submitLead` takes `totalTimeoutMs`; `estimate.ts` passes 8,000 ms. Every fetch, body read and sleep in the agent path shares the deadline. The website form path passes no options and keeps unbounded fetches and fixed waits; a test asserts no `AbortSignal` is attached there. |
-| F05 | Confirmed fixed in code; database unverified | `reserve_agent_estimate` takes a transaction advisory lock on the site and payload hash, then selects or inserts. Concurrency is proven only against a mocked atomic store. |
+| F05 | Confirmed fixed in code; database unverified | `reserve_agent_estimate` takes a transaction advisory lock on the site and payload hash, then selects or inserts. Concurrency is proven only against a mocked atomic store. One non-duplicating side effect remains: if the store commits the reservation but answers after the 1,500 ms client timeout, or a release after a refused daily limit or a definitive CRM rejection fails, a `pending` row with no `contact_id` blocks identical retries with 202 for the 10-minute window and then surfaces to reconciliation as safe to delete. Documented in the migration comment and the README. |
 | F06 | Confirmed fixed | Dedup key is the hash of the normalized payload; an in-progress twin answers 202 `request_in_progress`; a completed twin answers 200 with the stored routing state. A phone alone no longer returns another request's reference. |
 | F07 | Confirmed fixed in code; database unverified | `consume_agent_limit` counts and inserts under a per-key advisory lock with `clock_timestamp()` taken after the lock. Limits and windows are pinned inside SQL and checked against the caller's values. |
 | F08 | Confirmed fixed | `readJson` cancels the reader after 2,000 ms; test with a stream that never closes. |
@@ -69,14 +69,14 @@ Reviewed from a fresh worktree on `agent-layer` at `edcdcc1` (contains `origin/m
 | F11 | Confirmed fixed | Logs carry status codes and fixed messages; no upstream body or payload object. The characterization fixture changed only in its `logs` arrays; the recorded CRM requests and HTTP responses are byte-identical. |
 | F12 | Open, decision needed | Unchanged. Proposal below. |
 | F13 | Partial | Rate events are pruned past 24 hours inside the RPC. Conversations and leads still have no retention. Proposal below. |
-| F14 | Confirmed fixed; residual repaired tonight | See N02. |
+| F14 | Best-effort filter; residual repaired tonight | See N02 and the known misses under Discarded. The check is a heuristic over plain text, not a parser; the CRM must keep these fields as plain text regardless. |
 
 ### New findings in this review
 
 | ID | Severity | Status | Detail |
 |---|---|---|---|
 | N01 | Low | Fixed, `e0641e5` | `consume_agent_limit` pruned expired rows before taking the per-key advisory lock and deleted the key's own expired rows after it. A caller holding row locks from its prune while queuing for the advisory lock could be waited on by the lock holder's scoped delete whenever an event crossed the 24-hour boundary between the two prunes. Postgres would abort one transaction, turning one legitimate request into a 503. Both deletes now select rows with `FOR UPDATE SKIP LOCKED`; expired rows are never counted, so skipping them is safe. Needs the same database run as the rest of the SQL. |
-| N02 | Low | Fixed, `78f08ea` | Reproduced the residual: `example.com&1`, `example.com$1`, `example.com+1`, `example.com~`, `example.com^` and `<example.com>` passed the bare-domain check because the candidate split did not break on those characters and IDNA conversion rejected the glued token. A strict second cut isolates hostname-shaped runs; the loose cut is kept so emoji and symbolic TLDs are still caught. Structured email and ZIP fields are untouched; a prose message with prices, ampersands and measurements still passes. |
+| N02 | Low | Fixed, `78f08ea` | Reproduced the residual: `example.com&1`, `example.com$1`, `example.com+1`, `example.com~`, `example.com^` and `<example.com>` passed the bare-domain check because the candidate split did not break on those characters and IDNA conversion rejected the glued token. A strict second cut isolates hostname-shaped runs; the loose cut is kept so emoji and symbolic TLDs are still caught. The independent review then showed IPv4 literals (`1.2.3.4`, `192.168.0.1/admin`) and hosts with a leading or trailing dot or hyphen (`.example.com`, `-example.com`, `example.com-`) still passed; both are now rejected (`IPV4_LITERAL`, edge trimming) with tests. Structured email and ZIP fields are untouched; a prose message with prices, ampersands and measurements still passes. |
 
 ### Static audit of migrations 22 and 23
 
@@ -92,7 +92,9 @@ Reviewed from a fresh worktree on `agent-layer` at `edcdcc1` (contains `origin/m
 - `clean()` now collapses newlines in `message` before it reaches Project Notes. It is a readability change in the CRM note, not a failure; it is what allows the Unicode-dot canonicalization. Left as is.
 - The scheme check rejects any `word:nonspace` token (for example `Re:deck`). It is a deliberate widening to catch `javascript:`, `data:` and similar schemes; the assistant receives a clear 400 and can rephrase. Left as is.
 - Abbreviations written without a space such as `sq.ft` or `Mr.Smith` are rejected as bare domains. Pre-existing in the branch, same mitigation. Left as is.
-- Rolling-limit prune on every call is a range delete on a time index that usually matches nothing; acceptable at the documented caps.
+- Rolling-limit prune on every call is now a semi-join on `ctid` whose subquery scans the time index and usually matches nothing; acceptable at the documented caps, plan unverified without a database.
+- Known misses of the bare-domain heuristic after tonight: spaced or spelled dots (`example .com`, `example dot com`, `example[.]com`), empty inner labels (`example..com`) and any string a downstream UI chooses to auto-link. Known new false positives: a symbol glued before a missing-space period (`Q&A.Thanks`, `kitchen&bath.Remodel`, `$25+tax.Thanks`) is now rejected like `sq.ft`; same mitigation, the assistant gets a 400 naming the field.
+- The N01 change edits the `2026-10-23` migration file in place. That is safe only because the file has never been applied anywhere (the store variables are not yet set in the deployment); a database that already ran the earlier text would need the function re-created from this file.
 - The environment variable the code reads is `SUPABASE_SERVICE_KEY`. Any deployment note that names a different variable must be corrected before enabling the store.
 
 ### Proposals for decision, not decided here

@@ -60,8 +60,9 @@ begin
   end if;
 
   -- Globally prune one-shot keys after the longest enforced window. The strict less-
-  -- than boundary preserves events exactly 24 hours old for the daily hard cap. Use
-  -- a separate timestamp before the per-key lock: concurrent prune work may wait.
+  -- than boundary preserves events exactly 24 hours old for the daily hard cap. Its
+  -- timestamp is taken before the per-key lock, so the cap clock below is never older
+  -- than the prune cutoff.
   v_prune_now := pg_catalog.clock_timestamp();
   -- Rows another transaction is already deleting are skipped, never waited on. A caller
   -- that holds row locks from this prune while queuing for the advisory lock below must

@@ -139,6 +139,6 @@ where (status = 'completed' and routing_status = 'incomplete')
 order by coalesce(completed_at, created_at) asc;
 ```
 
-La migración agrega índices parciales para ambos casos. En una fila `pending`, buscar `Reference: XXXXXXXX` en Project Notes de GHL confirma si el contacto fue creado y permite terminar el ruteo; el teléfono no hace falta y no está guardado en claro. Hasta que el responsable confirme el proceso de conciliación, `routingPending` o `reconciliationPending` significan seguimiento manual pendiente, no una promesa de reintento.
+La migración agrega índices parciales para ambos casos. En una fila `pending`, buscar `Reference: XXXXXXXX` en Project Notes de GHL confirma si el contacto fue creado y permite terminar el ruteo; el teléfono no hace falta y no está guardado en claro. Una fila `pending` sin `contact_id` cuya referencia no aparece en ningún contacto es una reserva que nunca llegó al CRM (el almacén la confirmó después del tiempo de espera del endpoint, o falló la liberación tras un tope diario o un rechazo definitivo del CRM); se borra sin más. Hasta que el responsable confirme el proceso de conciliación, `routingPending` o `reconciliationPending` significan seguimiento manual pendiente, no una promesa de reintento.
 
 Leads de asistentes en el CRM: contactos con la etiqueta `ai-assistant-lead`. El resumen diario de las conversaciones lo produce un script del operador, fuera de este repo.
