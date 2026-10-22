@@ -378,7 +378,7 @@ export const LIMITS = {
   bodyMaxBytes: 16 * 1024,
   ipWindowSeconds: 3600,
   dayWindowSeconds: 86400,
-  estimate: { perIpPerHour: 5, perDay: 50, duplicateWindowSeconds: 600 },
+  estimate: { perIpPerHour: 5, perDay: 50, duplicateWindowSeconds: 600, consentPerPhonePerDay: 1 },
   ask: { perIpPerHour: 20, perDay: 500 },
   firstNameMax: 80,
   messageMax: 2000,

@@ -106,3 +106,24 @@ describe('agent exact rolling-window migration', () => {
     expect(limitSql).not.toContain('security definer');
   });
 });
+
+describe('agent consent-per-phone migration', () => {
+  const consentSql = readFileSync('supabase/migrations/2026-10-24-agent-consent-per-phone.sql', 'utf8').toLowerCase();
+  const fnOf = (text: string) => text.slice(text.indexOf('create or replace function public.consume_agent_limit'));
+  const phoneCase = "    when p_key like 'estimate:phone:%' then\n      v_expected_limit := 1;\n      v_expected_window := 86400;\n";
+
+  it('pins one consent route per phone per trailing day', () => {
+    expect(consentSql).toContain(phoneCase);
+  });
+
+  it('keeps every earlier cap, the lock and the grants exactly as 2026-10-23', () => {
+    // The only difference from the previous function is the new pinned key.
+    expect(fnOf(consentSql).replace(phoneCase, '')).toBe(fnOf(limitSql));
+  });
+
+  it('matches the caller limit, so the endpoint and SQL cannot drift', async () => {
+    const { LIMITS } = await import('../src/lib/agent-facts');
+    expect(LIMITS.estimate.consentPerPhonePerDay).toBe(1);
+    expect(LIMITS.dayWindowSeconds).toBe(86400);
+  });
+});
