@@ -1,8 +1,9 @@
 ---
-title: "The Best Kitchen Countertops for the Money in Charlotte (2027): The Taj Mahal Look Without the Taj Mahal Price"
+title: "The Best Kitchen Countertops for the Money in Charlotte (2026): The Taj Mahal Look Without the Taj Mahal Price"
 date: 2026-10-30
 excerpt: "Taj Mahal quartzite is the countertop everyone asks for. Here's what it costs in Charlotte, four ways to get a similar look for less, and the 5 materials that give you the most for your money."
 coverImage: "/images/projects/Ifixx-portfolio53.webp"
+coverAlt: "Kitchen with white shaker cabinets, gray granite countertops, a gray subway tile backsplash and a stainless range hood"
 category: "Kitchen Remodeling"
 tags:
   - "kitchen remodeling"
@@ -10,8 +11,8 @@ tags:
   - "cost guide"
   - "charlotte"
 seo:
-  title: "Best Countertops for the Money in Charlotte (2027 Guide)"
-  description: "Quartzite like Taj Mahal runs $70 to $130 per sq ft in Charlotte. See 4 ways to get the look for less and the 5 countertops most worth your money in 2027."
+  title: "Best Countertops for the Money in Charlotte (2026 Guide)"
+  description: "Quartzite like Taj Mahal runs $70 to $130 per sq ft in Charlotte. See 4 ways to get the look for less and the 5 countertops most worth your money in 2026."
 faqsTitle: "Frequently Asked Questions About Countertop Materials"
 faqs:
   - q: "How much does Taj Mahal quartzite cost in Charlotte?"
@@ -36,11 +37,11 @@ faqs:
     a: "The installation itself takes about one day. From templating to install, expect about two weeks while the stone is fabricated, and 3 to 4 weeks in busy months. The cabinets have to be set and level before templating, so a cabinet delay pushes everything back."
 ---
 
-Taj Mahal quartzite is the countertop most people ask for. In Charlotte, quartzite runs about $70 to $130 per square foot installed, with Taj Mahal near the top.
+The best countertop for the money in Charlotte is tier 1 granite, at about $45 to $65 per square foot installed. It gives you the most stone for what you pay.
+
+If the look you want is Taj Mahal quartzite, the countertop most people ask for, plan on about $70 to $130 per square foot installed for quartzite, with Taj Mahal near the top.
 
 You can get a very similar look for less with Taj-style quartz, porcelain or a lesser-known quartzite.
-
-If the look matters less than the budget, tier 1 granite at about $45 to $65 per square foot gives you the most stone for your money in 2027.
 
 We remodel kitchens. We don't sell stone and we don't run a showroom, so we look at the countertop as one piece of the whole job: the cabinets under it, the sink in it and the schedule around it.
 

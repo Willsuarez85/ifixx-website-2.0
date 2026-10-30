@@ -20,7 +20,8 @@ interface Props {
 const { post } = Astro.props;
 const { Content } = await post.render();
 
-const { title, date, excerpt, category, tags, coverImage, faqsTitle, faqs, seo } = post.data;
+const { title, date, excerpt, category, tags, coverImage, coverAlt, faqsTitle, faqs, seo } = post.data;
+const coverAltText = coverAlt ?? title;
 
 // Calculate reading time. The FAQs live in frontmatter but render on the page,
 // so they count: reading time must measure what the reader sees, not the body.
@@ -102,6 +103,8 @@ const breadcrumb = [
   title={seo.title}
   description={seo.description}
   canonical={`/blog/${post.slug}`}
+  ogImage={coverImage}
+  ogImageAlt={coverImage ? coverAltText : undefined}
   faqs={faqs}
   breadcrumb={breadcrumb}
 >
@@ -153,7 +156,7 @@ const breadcrumb = [
         {coverImage ? (
           <img
             src={coverImage}
-            alt={title}
+            alt={coverAltText}
             class="w-full h-full object-cover"
             loading="eager"
             decoding="async"

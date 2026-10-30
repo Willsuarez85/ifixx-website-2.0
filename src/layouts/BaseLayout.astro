@@ -13,10 +13,17 @@ import Footer from '../components/layout/Footer.astro';
 import AttributionScript from '../components/common/AttributionScript.astro';
 import EnhancedConversionsScript from '../components/common/EnhancedConversionsScript.astro';
 
+// Medidas reales de la imagen por defecto. Una ogImage propia de la pagina sale sin
+// medidas: declarar unas que no son le miente a quien arma la vista previa.
+const DEFAULT_OG_IMAGE = '/images/ui/hero-bg.jpg';
+const DEFAULT_OG_SIZE = { width: 1600, height: 900 };
+
 export interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  /** Texto alternativo de ogImage. Sin el, se usa el nombre del negocio. */
+  ogImageAlt?: string;
   canonical?: string;
   geoRegion?: string;
   geoPlacename?: string;
@@ -32,7 +39,8 @@ export interface Props {
 const {
   title,
   description,
-  ogImage = '/images/ui/hero-bg.jpg',
+  ogImage = DEFAULT_OG_IMAGE,
+  ogImageAlt = 'iFixx Remodeling & Handyman Services - South Charlotte, NC',
   canonical,
   geoRegion = 'US-NC',
   geoPlacename = 'Charlotte',
@@ -139,9 +147,13 @@ const pageGraph = {
   <meta property="og:description" content={description} />
   <meta property="og:image" content={`${siteUrl}${ogImage}`} />
   <meta property="og:image:type" content={ogImage.endsWith('.webp') ? 'image/webp' : ogImage.endsWith('.png') ? 'image/png' : 'image/jpeg'} />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="iFixx Remodeling & Handyman Services - South Charlotte, NC" />
+  {ogImage === DEFAULT_OG_IMAGE && (
+    <>
+      <meta property="og:image:width" content={String(DEFAULT_OG_SIZE.width)} />
+      <meta property="og:image:height" content={String(DEFAULT_OG_SIZE.height)} />
+    </>
+  )}
+  <meta property="og:image:alt" content={ogImageAlt} />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -149,7 +161,7 @@ const pageGraph = {
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
-  <meta name="twitter:image:alt" content="iFixx Remodeling & Handyman Services - South Charlotte, NC" />
+  <meta name="twitter:image:alt" content={ogImageAlt} />
 
   <!-- Canonical -->
   <link rel="canonical" href={fullCanonical} />
