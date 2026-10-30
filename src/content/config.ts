@@ -86,6 +86,8 @@ const postsCollection = defineCollection({
     date: z.date(),
     excerpt: z.string(),
     coverImage: z.string().optional(),
+    // Describes what the cover photo shows. Falls back to the title when missing.
+    coverAlt: z.string().optional(),
     category: z.string(),
     tags: z.array(z.string()).optional(),
     // FAQs live here, not in the body prose. The blog template renders this

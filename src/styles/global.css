@@ -353,6 +353,18 @@ h6 {
   font-size: 0.95rem;
 }
 
+/* Markdown tables arrive wrapped (scripts/rehype-table-scroll.mjs). The wrapper
+   scrolls sideways on a phone, since html/body clip horizontal overflow. */
+.blog-content .table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 2rem 0;
+}
+
+.blog-content .table-scroll > table {
+  margin: 0;
+}
+
 .blog-content th {
   background: #f5f5f5;
   font-weight: 600;

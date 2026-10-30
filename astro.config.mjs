@@ -6,10 +6,15 @@ import sitemap from '@astrojs/sitemap';
 // Real <lastmod> per sitemap URL (git history, with a committed snapshot for
 // shallow clones). See scripts/lastmod-lib.mjs.
 import { lastmodFor } from './scripts/lastmod-lib.mjs';
+// Markdown tables get a sideways-scroll wrapper for phones.
+import rehypeTableScroll from './scripts/rehype-table-scroll.mjs';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.ifixxnc.com',
+  markdown: {
+    rehypePlugins: [rehypeTableScroll]
+  },
   trailingSlash: 'never',
   output: 'static',
   adapter: vercel(),

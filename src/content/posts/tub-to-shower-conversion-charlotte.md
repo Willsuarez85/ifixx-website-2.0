@@ -3,6 +3,7 @@ title: "Tub to Shower Conversion in Charlotte: What It Really Costs and Where to
 date: 2026-10-30
 excerpt: "Why the same tub to shower conversion gets quoted at $3,000 or $20,000 in Charlotte, where you can save without regrets, what never gets cut, and what permit applies in Mecklenburg and Union County."
 coverImage: "/images/projects/Ifixx-portfolio28.webp"
+coverAlt: "Walk-in tile shower with a sliding glass door, wood-look vertical tile and a recessed niche in a remodeled bathroom"
 category: "Bathroom Remodeling"
 tags:
   - "tub to shower conversion"
@@ -20,7 +21,7 @@ faqs:
   - q: "Does a house lose value with no tub?"
     a: "It can, if the shower replaces the only tub in the house. Families with young kids often want at least one tub, so a home with none can lose some buyers. If another bathroom keeps a tub, converting the second one carries little resale risk."
   - q: "Do you need a permit to convert a bathtub to a shower in North Carolina?"
-    a: "North Carolina law exempts many projects of $40,000 or less on a single-family home from permits, unless the work changes structure or the design of the plumbing, wiring or mechanical systems. Whether swapping a tub for a shower in the same spot counts as a change is the county's call. Moving the drain or the valve usually means a permit for that pipe work, pulled by a licensed plumber, so confirm your case with the plumber or the county."
+    a: "North Carolina law exempts many projects of $40,000 or less on a single-family home from permits, unless the work adds, repairs or replaces load-bearing structure, adds or redesigns the pipes, or adds, replaces or redesigns the wiring or the heating and cooling system. Whether swapping a tub for a shower in the same spot counts as a change is the county's call. Moving the drain or the valve usually means a permit for that pipe work, pulled by a licensed plumber, so confirm your case with the plumber or the county."
   - q: "Is Bath Fitter cheaper than a remodel?"
     a: "Not always. Bath Fitter does not publish prices, but one-day acrylic packages from other companies in Charlotte are published from $8,500 to $21,591, while a custom tile shower runs $6,000 to $12,000 nationally according to This Old House. You pay for speed, the brand and the warranty, so compare both quotes line by line before you decide."
   - q: "Is $10,000 enough for a tub to shower conversion?"
@@ -35,7 +36,7 @@ faqs:
 
 A tub to shower conversion in Charlotte costs anywhere from **under $3,000 to more than $20,000**. The gap comes down to three things: what the base and walls are made of, whether the drain moves, and whose brand is on the truck.
 
-Angi puts the Charlotte average around **$2,919**. One of the most visible one-day acrylic companies in town publishes packages from **$8,500 to $21,591**. Both numbers are real. They just describe different jobs.
+Angi puts the Charlotte average around **$2,919**. One of the most visible one-day acrylic companies in town <a href="https://carolinabathsolutions.com/tub-to-shower-conversion-charlotte" rel="nofollow">publishes packages from <strong>$8,500 to $21,591</strong></a>. Both numbers are real. They just describe different jobs.
 
 Below you'll find the three paths side by side, where you can save without regrets, what we never cut, what permit applies in Mecklenburg and Union County, and what to ask before you sign anything.
 
@@ -139,7 +140,7 @@ This is the part we don't cut corners on. Saving here is how a new shower turns 
 
 ## Do You Need a Permit in Charlotte, Mecklenburg or Union County?
 
-Often you don't, but it depends on what moves. [North Carolina law (G.S. 160D-1110)](https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_160D/GS_160D-1110.html) exempts many projects of $40,000 or less on a single-family home from permits, as long as the work doesn't change load-bearing structure or add or change the design of the plumbing, electrical or mechanical systems.
+Often you don't, but it depends on what moves. [North Carolina law (G.S. 160D-1110)](https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_160D/GS_160D-1110.html) exempts many projects of $40,000 or less on a single-family home from permits, unless the work adds, repairs or replaces load-bearing structure, adds or redesigns the pipes, or adds, replaces or redesigns the wiring or the heating and cooling system. Swapping a light fixture or an outlet for the same kind doesn't count.
 
 In practice, that usually looks like this:
 
