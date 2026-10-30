@@ -65,6 +65,8 @@ National guides like [Fixr's 2026 countertop cost data](https://www.fixr.com/cos
 
 Taj Mahal is a natural quartzite quarried in Brazil, despite the name. It has a warm cream background with soft gold and beige veins, so it reads like marble without marble's fragility.
 
+It's the stone we hear about most right now. Designers keep specifying it, natural stone sits outside the 2026 quartz tariff, and the news about engineered quartz has more people asking for natural stone.
+
 **What you get**
 - One of the hardest natural stones you can put in a kitchen. It resists scratching and etching better than marble.
 - It handles heat better than quartz.
