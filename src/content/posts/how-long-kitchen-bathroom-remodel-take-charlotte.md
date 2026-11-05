@@ -2,8 +2,8 @@
 title: "How Long Does a Kitchen Remodel Take? Charlotte Kitchen and Bath Timelines for 2026"
 date: 2026-11-05
 excerpt: "Nationally, a kitchen remodel takes about 6 to 12 weeks of work and a bathroom 2 to 4 weeks for a same-layout job. Here are timelines by scope, what to decide first and why planning this winter puts you ahead in Charlotte."
-coverImage: "/images/projects/kitchen-remodeling-complete-modern-white-cabinets-island.webp"
-coverAlt: "Finished kitchen with white shaker cabinets, a granite peninsula with black stools, a stone backsplash and pendant lights"
+coverImage: "/images/blog/kitchen-remodel-in-progress-cover.webp"
+coverAlt: "Kitchen in the middle of a remodel: white shaker cabinets installed, no countertops or backsplash yet, boxed materials and cardboard floor protection"
 category: "Kitchen Remodeling"
 tags:
   - "kitchen remodeling"
