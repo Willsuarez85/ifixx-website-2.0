@@ -212,6 +212,8 @@ Ranges only get you so far. We'll walk your bathroom, price the scope you actual
 
 **Charlotte-specific factor**: Permit approval typically takes 5-10 business days in Mecklenburg County. Factor this into your timeline if you're changing the layout.
 
+For a week-by-week look at each scope and what to decide before demolition, see our guide on [how long a bathroom remodel takes](/blog/how-long-kitchen-bathroom-remodel-take-charlotte).
+
 ### Can You Remodel a Bathroom in One Day?
 
 Not a full remodel — but more than you'd think fits in a day or two, and it's often the right call when the layout already works.
