@@ -2,8 +2,8 @@
 title: "Water Stain on Ceiling? When a Patch Is Enough and When to Replace the Drywall (2026)"
 date: 2026-11-05
 excerpt: "A water stain on your ceiling can be a simple seal and paint job or a new sheet of drywall. Fix the source first, then use five checks you can do yourself to know which repair you need and where not to save."
-coverImage: "/images/projects/Ifixx-portfolio19.webp"
-coverAlt: "Freshly painted room with a smooth white ceiling, a ceiling fan and crown molding, dark wainscoting and new wood floors"
+coverImage: "/images/blog/water-stain-ceiling-cover.webp"
+coverAlt: "Brown water stain ring with bubbling paint on a white ceiling next to a ceiling fan, in a room with dark wainscoting and wood floors"
 category: "Water Damage"
 tags:
   - "water stain on ceiling"
