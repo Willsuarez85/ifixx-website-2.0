@@ -79,6 +79,8 @@ Then there's what nobody can see until the tub comes out. In a This Old House su
 
 For the full picture of a bathroom budget, including vanities, tile and labor, see our [Charlotte bathroom remodel cost guide](/blog/how-much-bathroom-remodel-charlotte).
 
+**Want a real number for your bathroom instead of a national range?** We walk the bathroom with you and write the estimate line by line, so you see where every dollar goes. [Request your in-person estimate](/contact) or see what our [bathroom remodeling in Charlotte](/remodeling/bathroom-remodeling) covers.
+
 ## One-Day Acrylic vs. Custom Tile: An Honest Comparison
 
 Both can give you a good shower. They solve different problems, and the right one depends on how long you'll stay in the house and what's behind your current walls.
