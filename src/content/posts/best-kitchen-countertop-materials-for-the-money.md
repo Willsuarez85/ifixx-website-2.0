@@ -62,6 +62,8 @@ Stone prices are what Charlotte-area fabricators charge in fall 2026 for 3 cm sl
 
 National guides like [Fixr's 2026 countertop cost data](https://www.fixr.com/costs/install-kitchen-countertop) run wider, granite up to $150 and quartz past $200, since they cover premium slabs and every market.
 
+**Planning new countertops as part of a kitchen remodel?** We check the cabinets under them, set the order of every trade and tell you where your money goes furthest. [Request your in-person estimate](/contact) or see how we handle [kitchen remodeling in Charlotte](/remodeling/kitchen-remodeling).
+
 ## Why Taj Mahal quartzite is the stone everyone asks for
 
 Taj Mahal is a natural quartzite quarried in Brazil, despite the name. It has a warm cream background with soft gold and beige veins, so it reads like marble without marble's fragility.
