@@ -184,6 +184,8 @@ Ranges only get you so far. We'll walk your kitchen, price the scope you actuall
 
 **Charlotte-specific factor**: Permit approval typically takes 1-2 weeks in Mecklenburg County. Factor this into your timeline.
 
+For a week-by-week look at each scope, the materials that set the schedule and what to decide before demolition, see our guide on [how long a kitchen remodel takes](/blog/how-long-kitchen-bathroom-remodel-take-charlotte).
+
 ## Questions to Ask Your Charlotte Kitchen Contractor
 
 1. Are you insured and bonded in North Carolina?

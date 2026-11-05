@@ -242,7 +242,7 @@ We keep pricing simple with three clear levels of transformation. Smaller kitche
 - Flooring type
 - Lighting complexity
 
-We offer free, detailed estimates so you know exactly what to expect. We can also work with you to prioritize upgrades that fit your budget while delivering maximum impact. For a line-by-line breakdown of what drives kitchen remodel pricing in Charlotte, see our [kitchen remodel cost guide](/blog/how-much-kitchen-remodel-charlotte). Choosing stone? Our guide to the [best kitchen countertop materials for the money](/blog/best-kitchen-countertop-materials-for-the-money) lists Charlotte prices per square foot and where the Taj Mahal look costs less.
+We offer free, detailed estimates so you know exactly what to expect. We can also work with you to prioritize upgrades that fit your budget while delivering maximum impact. For a line-by-line breakdown of what drives kitchen remodel pricing in Charlotte, see our [kitchen remodel cost guide](/blog/how-much-kitchen-remodel-charlotte). Choosing stone? Our guide to the [best kitchen countertop materials for the money](/blog/best-kitchen-countertop-materials-for-the-money) lists Charlotte prices per square foot and where the Taj Mahal look costs less. Wondering about the calendar? Read [how long a kitchen remodel takes](/blog/how-long-kitchen-bathroom-remodel-take-charlotte) and what to decide before demolition day.
 
 ## Service Areas Throughout the Charlotte Metro
 

@@ -300,7 +300,7 @@ We keep pricing simple with three clear levels of transformation. Smaller bathro
 - Lighting upgrades
 - Accessibility features
 
-We offer free, detailed estimates so you know exactly what to expect. We can also help you prioritize elements that deliver the most impact within your budget. For a room-by-room breakdown of what drives bathroom remodel pricing in Charlotte, see our [bathroom remodel cost guide](/blog/how-much-bathroom-remodel-charlotte). Thinking about trading the tub for a walk-in shower? Our guide to [tub to shower conversion costs in Charlotte](/blog/tub-to-shower-conversion-charlotte) compares the three price paths and shows where to save without regrets.
+We offer free, detailed estimates so you know exactly what to expect. We can also help you prioritize elements that deliver the most impact within your budget. For a room-by-room breakdown of what drives bathroom remodel pricing in Charlotte, see our [bathroom remodel cost guide](/blog/how-much-bathroom-remodel-charlotte). Thinking about trading the tub for a walk-in shower? Our guide to [tub to shower conversion costs in Charlotte](/blog/tub-to-shower-conversion-charlotte) compares the three price paths and shows where to save without regrets. For the calendar, read [how long a bathroom remodel takes](/blog/how-long-kitchen-bathroom-remodel-take-charlotte) and what to decide first.
 
 ## Service Areas Throughout the Charlotte Metro
 
