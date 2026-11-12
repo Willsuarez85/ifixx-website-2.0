@@ -1,8 +1,7 @@
 ---
-// The one speed promise iFIXX can keep (William, 2026-09-19): for small repairs,
-// the customer sends photos and a description and a person calls back with the
-// estimate the same business day. The number takes MMS, so the photos land in the
-// CRM conversation on their own. There is deliberately no file upload here.
+// For small repairs, the customer sends photos and a description and a person
+// calls back with the estimate. No turnaround time is published on purpose.
+// The number takes MMS, so the photos land in the CRM conversation on their own. There is deliberately no file upload here.
 //
 // Remodeling (kitchens, baths, new decks, porches) is priced in person instead,
 // with a render included on projects over $5,000, so this block is for repair
@@ -22,7 +21,7 @@ const {
 } = Astro.props;
 
 const body =
-  'Send photos of the job to (980) 391-6833 with a short description of what needs fixing. A person looks at them and calls you back with the estimate the same business day.';
+  'Send photos of the job to (980) 391-6833 with a short description of what needs fixing. A person looks at them and calls you back with the estimate.';
 
 const wrapperClass =
   tone === 'dark'
