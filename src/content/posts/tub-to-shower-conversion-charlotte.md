@@ -44,7 +44,7 @@ Below you'll find the three paths side by side, where you can save without regre
 
 For most homes, yes, **as long as another tub stays in the house**. A walk-in shower is easier to step into, easier to clean and uses floor space better than a tub you rarely fill.
 
-The resale risk is real only when you remove the last tub. HomeAdvisor and home inspection guides agree on this point: families with young kids look for at least one tub, and a house with none can lose some of those buyers.
+**The resale risk is real only when you remove the last tub.** HomeAdvisor and home inspection guides agree on this point: families with young kids look for at least one tub, and a house with none can lose some of those buyers.
 
 So the rule is simple. If your primary bath has the only tub, think twice. If the hall bath keeps its tub, convert the primary with confidence.
 
@@ -60,11 +60,11 @@ Here's where the money actually goes. There are three common paths, and they don
 
 | Path | Typical cost | Time on site | Best for |
 |------|--------------|--------------|----------|
-| **Acrylic or fiberglass kit, installed** | $2,000 to $6,000 (national, This Old House) | 1 to 3 days | Guest bath, rental, tight budget |
-| **One-day acrylic system (franchise)** | $8,500 to $21,591 (published Charlotte packages) | 1 to 2 days | Speed, no grout lines, brand warranty |
-| **Custom tile shower** | $6,000 to $12,000; curbless $8,000 to $15,000 (national, This Old House) | 3 to 7 days or more | Primary bath, your own design, resale |
+| Acrylic or fiberglass kit, installed | $2,000 to $6,000 (national, This Old House) | 1 to 3 days | Guest bath, rental, tight budget |
+| One-day acrylic system (franchise) | $8,500 to $21,591 (published Charlotte packages) | 1 to 2 days | Speed, no grout lines, brand warranty |
+| Custom tile shower | $6,000 to $12,000; curbless $8,000 to $15,000 (national, This Old House) | 3 to 7 days or more | Primary bath, your own design, resale |
 
-Notice something: the one-day franchise system often costs more than a custom tile shower. You're paying for speed, the brand, the sales team and a long warranty. That can be worth it for you, but it should be a choice you make with both numbers in front of you.
+Notice something: **the one-day franchise system often costs more than a custom tile shower**. You're paying for speed, the brand, the sales team and a long warranty. That can be worth it for you, but it should be a choice you make with both numbers in front of you.
 
 ### Why two quotes for the same bathroom don't match
 
@@ -87,12 +87,12 @@ Both can give you a good shower. They solve different problems, and the right on
 
 | | One-day acrylic | Custom tile |
 |---|---|---|
-| **Install time** | 1 to 2 days | 3 to 7 days or more |
-| **Grout lines** | None | Yes, sealed and cleaned over time |
-| **Look** | Set colors and patterns | Any tile, niche, bench or size |
-| **What's behind the wall** | Depends on the installer | Membrane installed and tested |
-| **Repairs later** | Usually a full panel | A section of tile |
-| **Price** | Packages from $8,500 in Charlotte | $6,000 to $12,000 nationally |
+| Install time | 1 to 2 days | 3 to 7 days or more |
+| Grout lines | None | Yes, sealed and cleaned over time |
+| Look | Set colors and patterns | Any tile, niche, bench or size |
+| What's behind the wall | Depends on the installer | Membrane installed and tested |
+| Repairs later | Usually a full panel | A section of tile |
+| Price | Packages from $8,500 in Charlotte | $6,000 to $12,000 nationally |
 
 The biggest fear we hear about one-day systems is that the acrylic gets glued over whatever is underneath. Some systems do install a liner over the old tub or wall. Ask the installer exactly what comes out, what gets inspected, and what happens if they find soft wood.
 
@@ -128,7 +128,7 @@ Put the money into one thing you'll notice every day: a niche, a bench or a nice
 
 Every change after demo day costs money and days. Pick the tile, the base, the valve, the trim and the glass before work begins.
 
-We started in 2019 fixing small things around the house. As clients called us back for bigger jobs, we learned that a bathroom remodel is won or lost before demo day. Now every decision gets made, priced and written down first.
+[We started in 2019](/about) fixing small things around the house. As clients called us back for bigger jobs, we learned that **[a bathroom remodel is won or lost before demo day](/blog/how-long-kitchen-bathroom-remodel-take-charlotte)**. Now every decision gets made, priced and written down first.
 
 ## Where You Should Never Cut Corners
 
@@ -137,12 +137,12 @@ This is the part we don't cut corners on. Saving here is how a new shower turns 
 - **Waterproofing.** A continuous membrane behind the tile and a water test before the tile goes on. According to This Old House, poor waterproofing can lead to hidden leaks, mold and costly repairs.
 - **Pipe work by a licensed plumber, with a permit when the layout changes.** We coordinate the plumber so you don't have to.
 - **A pressure-balancing or thermostatic valve** if the valve gets replaced. It keeps the water from turning scalding when someone flushes, and model building codes require one on new shower valves. Your plumber will confirm what applies to your house.
-- **Checking the subfloor and walls** once the tub is out. Old leaks often leave soft wood that needs fixing before anything new goes in.
+- **Checking the subfloor and walls** once the tub is out. [Old leaks often leave soft wood](/blog/what-to-do-water-damage-home) that needs fixing before anything new goes in.
 - **Blocking for grab bars** inside the wall, even if you don't install bars today. Adding it later means opening finished tile.
 
 ## Do You Need a Permit in Charlotte, Mecklenburg or Union County?
 
-Often you don't, but it depends on what moves. [North Carolina law (G.S. 160D-1110)](https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_160D/GS_160D-1110.html) exempts many projects of $40,000 or less on a single-family home from permits, unless the work adds, repairs or replaces load-bearing structure, adds or redesigns the pipes, or adds, replaces or redesigns the wiring or the heating and cooling system. Swapping a light fixture or an outlet for the same kind doesn't count.
+Often you don't, but it depends on what moves. [North Carolina law (G.S. 160D-1110)](https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_160D/GS_160D-1110.html) exempts many **projects of $40,000 or less on a single-family home** from permits, unless the work adds, repairs or replaces load-bearing structure, adds or redesigns the pipes, or adds, replaces or redesigns the wiring or the heating and cooling system. Swapping a light fixture or an outlet for the same kind doesn't count.
 
 In practice, that usually looks like this:
 
@@ -158,7 +158,7 @@ If you live in Fort Mill or Indian Land, your rules come from York or Lancaster 
 A lot of conversions start with a parent who had a close call getting over the tub wall. If that's your reason, a few features matter more than the finish:
 
 - **A low-threshold base** so nobody has to lift a foot high to step in.
-- **Grab bars** anchored into blocking inside the wall, never into drywall alone.
+- **Grab bars** anchored into [blocking inside the wall](/repairs/carpentry), never into drywall alone.
 - **A handheld shower on a slide bar** that works seated or standing.
 - **A built-in bench or fold-down seat.**
 - **A non-slip floor**, like a textured base or small tile with more grout lines for grip.
@@ -187,7 +187,7 @@ Ask for every answer in writing.
 7. **Who hauls away the old tub** and debris.
 8. **The payment schedule**, tied to finished stages of the work.
 
-One more thing: a price that expires tonight is a sales tactic. A fair quote will still be fair after you compare it with another one. Take it home, read it, and ask questions.
+One more thing: **a price that expires tonight is a sales tactic**. A fair quote will still be fair after you compare it with another one. Take it home, read it, and ask questions.
 
 If you're comparing your options for a full bathroom, our [bathroom remodeling services page](/remodeling/bathroom-remodeling) shows what we take on, and our [project gallery](/gallery) shows finished work around South Charlotte.
 
@@ -202,7 +202,7 @@ If you're comparing your options for a full bathroom, our [bathroom remodeling s
 
 Times come from This Old House and published installer timelines. A permit or a surprise behind the wall can add days.
 
-If it's your only bathroom, there's good news. In most conversions only the shower is out of service, and the toilet and sink usually keep working.
+If it's your only bathroom, there's good news. In most conversions **only the shower is out of service, and the toilet and sink usually keep working**.
 
 A few things make those days easier:
 
@@ -218,4 +218,4 @@ Ranges only get you so far. The fastest way to know what your conversion costs i
 
 We'll come to your home, walk the bathroom with you, and give you a written estimate with every line spelled out. When the job needs a licensed plumber, we coordinate it. iFIXX is locally owned and insured.
 
-[Request your in-person estimate](/contact), or call or text **(980) 391-6833**. We work in Ballantyne, Pineville, Matthews, Mint Hill, Waxhaw, Weddington and across South Charlotte.
+[Request your in-person estimate](/contact), or call or text **(980) 391-6833**. We work in Ballantyne, Pineville, [Matthews](/service-areas/matthews), Mint Hill, Waxhaw, Weddington and [across South Charlotte](/service-areas).

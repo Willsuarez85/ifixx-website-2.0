@@ -37,9 +37,9 @@ faqs:
     a: "The installation itself takes about one day. From templating to install, expect about two weeks while the stone is fabricated, and 3 to 4 weeks in busy months. The cabinets have to be set and level before templating, so a cabinet delay pushes everything back."
 ---
 
-The best countertop for the money in Charlotte is tier 1 granite, at about $45 to $65 per square foot installed. It gives you the most stone for what you pay.
+The best countertop for the money in Charlotte is **tier 1 granite, at about $45 to $65 per square foot installed**. It gives you the most stone for what you pay.
 
-If the look you want is Taj Mahal quartzite, the countertop most people ask for, plan on about $70 to $130 per square foot installed for quartzite, with Taj Mahal near the top.
+If the look you want is Taj Mahal quartzite, the countertop most people ask for, **plan on about $70 to $130 per square foot installed for quartzite**, with Taj Mahal near the top.
 
 You can get a very similar look for less with Taj-style quartz, porcelain or a lesser-known quartzite.
 
@@ -91,9 +91,9 @@ You don't need the exact stone to get the feel of it. These four routes keep the
    Veined designs sit above entry-level quartz, so ask for its price next to the real quartzite. Remember the trivet: quartz doesn't like hot pans.
 2. **Porcelain slabs.** Porcelain can copy the same veining and holds up to heat, scratches and stains. It's delicate to fabricate, so ask the shop how many porcelain kitchens it has done.
 3. **A lesser-known quartzite in the same family.** Taj Mahal is the famous name, but stone yards carry other cream and gold quartzites. They can quote lower, and you still get natural stone. See both slabs side by side.
-4. **Taj Mahal where it shows most.** Put the real stone on the island and a lower-cost material on the perimeter, or use a Taj Mahal remnant for a vanity. Remnants run 30% to 70% less than a full slab, according to Slabwise.
+4. **Taj Mahal where it shows most.** Put the real stone on the island and a lower-cost material on the perimeter, or use a Taj Mahal remnant for a vanity. **Remnants run 30% to 70% less than a full slab**, according to Slabwise.
 
-If you're going to splurge somewhere, splurge on the island. That's the piece everyone sees.
+**If you're going to splurge somewhere, splurge on the island.** That's the piece everyone sees.
 
 ## The 5 best kitchen countertop materials for the money
 
@@ -205,9 +205,9 @@ The countertop price is only part of the quote. Here's what else usually shows u
 
 **Example:** 40 square feet of tier 1 granite with an eased edge, one undermount sink cutout and a tile backsplash.
 
-That's $1,800 to $2,600 for the stone, $100 to $200 for the cutout and $500 to $1,500 for the backsplash: roughly **$2,400 to $4,300** before the reconnection.
+That's $1,800 to $2,600 for the stone, $100 to $200 for the cutout and $500 to $1,500 for the backsplash: **roughly $2,400 to $4,300 before the reconnection**.
 
-For cabinets, flooring and everything else, see our [kitchen remodel cost guide for Charlotte](/blog/how-much-kitchen-remodel-charlotte).
+For cabinets, [flooring](/remodeling/flooring-installation) and everything else, see our [kitchen remodel cost guide for Charlotte](/blog/how-much-kitchen-remodel-charlotte).
 
 ## 8 ways to get affordable countertops without cutting quality
 
@@ -222,7 +222,7 @@ For cabinets, flooring and everything else, see our [kitchen remodel cost guide 
 5. **Keep the sink where it is.** Every cutout costs $100 to $200, and moving the sink also means moving the water and drain lines.
 6. **Mix materials.** The premium stone on the island, a lower-cost one on the perimeter.
 7. **Tile the backsplash.** A full-height slab backsplash is billed like more countertop, by the square foot. A backsplash runs $500 to $1,500 installed, depending on size and material, per Fixr.
-8. **Get three itemized quotes.** Material, fabrication, cutouts, edge, delivery, installation and removal of the old tops, each on its own line. A 20% spread between quotes for the same stone is normal, per Slabwise.
+8. **Get three itemized quotes.** Material, fabrication, cutouts, edge, delivery, installation and removal of the old tops, each on its own line. **A 20% spread between quotes for the same stone is normal**, per Slabwise.
 
 If you're going to save somewhere, save on rarity and decoration. The stone underneath does the same job.
 
@@ -234,14 +234,14 @@ Most regret comes from what you can't see: what holds the stone up and who conne
 
 - **3 cm thickness in the kitchen.** A 2 cm slab saves only $200 to $500 on a whole kitchen and needs a plywood base underneath, per Slabwise. Not worth it.
 - **Approving the seam layout before anyone cuts.** Ask to see where every seam falls on the slab. With veined stone like Taj Mahal, that also decides how the veins line up.
-- **Level, solid cabinets.** New stone on cabinets that rock or sit out of level can crack. Heavy stone sometimes needs a few hundred dollars of reinforcement, and that money is well spent.
+- **Level, solid cabinets.** New stone on cabinets that rock or sit out of level can crack. Heavy stone sometimes needs [a few hundred dollars of reinforcement](/repairs/carpentry), and that money is well spent.
 - **A dishwasher bracket under stone.** You can't screw a dishwasher into granite, quartz or quartzite, so it needs a side-mount bracket.
 - **The finish in writing.** Polished, honed or leathered, agreed on paper and seen on the full slab, not only on a small sample. Altering a quartz finish after install can void the manufacturer's warranty.
 - **A licensed plumber for the reconnection.** The sink, faucet and dishwasher go back in after the stone. We schedule that visit so your kitchen isn't out of service longer than it needs to be.
 
 ## From template to install: how long countertop installation takes
 
-The installation itself usually takes one day. The wait is fabrication: about 10 to 14 days from templating to install, and 3 to 4 weeks in busy months, per Slabwise. Here's the order that keeps it on schedule:
+**The installation itself usually takes one day.** The wait is fabrication: about 10 to 14 days from templating to install, and 3 to 4 weeks in busy months, per Slabwise. Here's the order that keeps it on schedule:
 
 1. **Cabinets set, level and secured.** Nothing gets measured before this.
 2. **Sink, faucet and cooktop chosen.** The fabricator needs them to cut the openings.
@@ -250,9 +250,9 @@ The installation itself usually takes one day. The wait is fabrication: about 10
 5. **Installation.** One day.
 6. **Reconnection, then backsplash.** A licensed plumber reconnects the sink and dishwasher, and the tile backsplash goes on after the tops are in.
 
-If the cabinets run late, every step after them moves.
+If the cabinets run late, [every step after them moves](/blog/how-long-kitchen-bathroom-remodel-take-charlotte).
 
-We started in 2019 with small repairs, and most of our clients called us first for something small.
+[We started in 2019 with small repairs](/about), and most of our clients called us first for something small.
 
 As they trusted us with full kitchens, we learned to set the order of every trade before demo day: cabinets, template, fabricator, plumber. Now that sequence is part of every kitchen plan.
 
@@ -264,4 +264,4 @@ See how we handle [kitchen remodeling](/remodeling/kitchen-remodeling), or brows
 
 Remodeling estimates are done in person. Call or text **(980) 391-6833**, or [request your estimate online](/contact).
 
-iFIXX is insured, and the owner answers directly. We work in Ballantyne, Matthews, Mint Hill, Pineville, Waxhaw and Fort Mill, SC.
+iFIXX is insured, and the owner answers directly. We work in Ballantyne, [Matthews](/service-areas/matthews), Mint Hill, Pineville, Waxhaw and Fort Mill, SC.
