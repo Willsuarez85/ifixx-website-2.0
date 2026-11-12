@@ -19,6 +19,7 @@
  * Originales de Sebastian: Jarvis-OS 01-clients/ifixx/resources/sebastian/2026-10-09-schema/
  */
 import { areaServedSchema } from './business-facts';
+import { stripInlineLinks } from './inline-links';
 
 export const SITE_URL = 'https://www.ifixxnc.com';
 export const BUSINESS_ID = `${SITE_URL}/#business`;
@@ -101,7 +102,7 @@ export const webPageNode = (opts: {
           mainEntity: faqs.map((f) => ({
             '@type': 'Question',
             name: f.q,
-            acceptedAnswer: { '@type': 'Answer', text: f.a },
+            acceptedAnswer: { '@type': 'Answer', text: stripInlineLinks(f.a) },
           })),
         }
       : {}),
@@ -131,7 +132,9 @@ export const serviceNode = (opts: {
   offers?: Record<string, unknown>;
 }) => {
   const ids = pageIds(opts.path);
-  const catalog = (opts.catalog ?? []).map((c) => (typeof c === 'string' ? { name: c } : c));
+  const catalog = (opts.catalog ?? [])
+    .map((c) => (typeof c === 'string' ? { name: c } : c))
+    .map((c) => ({ ...c, name: stripInlineLinks(c.name) }));
   return {
     '@type': 'Service',
     '@id': ids.service,

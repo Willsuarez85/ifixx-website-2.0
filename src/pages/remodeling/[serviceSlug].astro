@@ -2,6 +2,7 @@
 import { googleReviewLabel } from '../../lib/business-facts';
 import { MINIMUM_VISIT_PRICE, minimumVisitOffer, serviceNode } from '../../lib/schema-graph';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { renderInlineLinks } from '../../lib/inline-links';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import CTAIntermediate from '../../components/sections/CTAIntermediate.astro';
@@ -490,7 +491,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <span class="text-neutral-700 text-sm">{bullet}</span>
+                    <span class="text-neutral-700 text-sm" set:html={renderInlineLinks(bullet)} />
                   </li>
                 ))}
               </ul>
@@ -751,9 +752,7 @@ const getServiceUrl = (serviceSlug: string, servicePillar?: string) => {
                   </svg>
                 </summary>
                 <div class="px-6 pb-6">
-                  <p class="text-neutral-600 leading-relaxed">
-                    {faq.a}
-                  </p>
+                  <p class="text-neutral-600 leading-relaxed" set:html={renderInlineLinks(faq.a)} />
                 </div>
               </details>
             ))}
