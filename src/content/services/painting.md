@@ -43,7 +43,7 @@ faqs:
   - q: "Can you match my existing paint color?"
     a: "Absolutely. We can color-match from a sample chip or existing paint. Most paint stores can scan and match any color perfectly."
   - q: "What's included in your prep work?"
-    a: "Complete surface preparation: cleaning, hole filling, sanding, caulking gaps, protecting floors and furniture, taping trim, and priming when needed. Prep is 50% of a quality paint job."
+    a: "Complete surface preparation: cleaning, hole filling, sanding, caulking gaps, protecting floors and furniture, taping trim, and [priming when needed](/blog/water-stain-on-ceiling-patch-or-replace). Prep is 50% of a quality paint job."
   - q: "Do you offer warranty on your painting?"
     a: "Yes. We warranty our workmanship for 1 year. If you notice any issues with our application (peeling, bubbling not caused by moisture issues), we'll fix it free of charge."
 relatedServices:

@@ -29,9 +29,9 @@ processSteps:
     description: "We ensure everything is watertight, functional, and beautiful before completion."
 faqs:
   - q: "How long does a bathroom remodel take?"
-    a: "Most bathroom remodels take 2-4 weeks. We'll provide a specific timeline based on your project scope."
+    a: "[Most bathroom remodels take 2-4 weeks](/blog/how-long-kitchen-bathroom-remodel-take-charlotte). We'll provide a specific timeline based on your project scope."
   - q: "Can you convert my tub to a walk-in shower?"
-    a: "Yes! Tub-to-shower conversions are one of our most popular services. We can also install walk-in tubs."
+    a: "Yes! [Tub-to-shower conversions](/blog/tub-to-shower-conversion-charlotte) are one of our most popular services. We can also install walk-in tubs."
   - q: "Do you handle the whole remodel, including the trade work?"
     a: "Yes. We manage your bathroom remodel end to end, from demolition and waterproofing to tile, vanities, and fixture installation. Any permitted specialty trade work is coordinated with inspected professionals so every part of the job is completed to code."
   - q: "Can you make my bathroom more accessible?"
