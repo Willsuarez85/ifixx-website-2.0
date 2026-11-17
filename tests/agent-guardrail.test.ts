@@ -16,10 +16,10 @@ const APPROVED_ANSWERS: string[] = [
   '(980) 391-6833. Call or text.',
   'Monday to Saturday, 8:30 AM to 5:30 PM. Closed on Sunday.',
   'For small repairs, text photos and a short description to (980) 391-6833 or send them through the website, and a person calls you back with the estimate the same business day. For remodeling (kitchens, bathrooms, new decks, porches), we visit in person and send a written estimate within 48 hours of the visit. Estimates are free.',
-  'No. Prices come from a person after seeing photos or the home. The public starting points are: bathroom remodels from $5,000, kitchen remodels from $8,000, and a $150 minimum for any repair visit. Everything else is a free estimate.',
+  'No. Prices come from a person after seeing photos or the home. The public starting points are: bathroom remodels from $5,000 and kitchen remodels from $8,000. Everything else is a free estimate.',
   'Bathroom remodels start at $5,000. The written estimate comes after an in-person visit, with everything included and no surprises. Call or text (980) 391-6833 to schedule the visit.',
   'Kitchen remodels start at $8,000. The written estimate comes after an in-person visit, with everything included and no surprises. Call or text (980) 391-6833 to schedule the visit.',
-  'Yes. The minimum for any repair visit is $150, and you get the price before the work starts.',
+  'No. There is no fixed minimum. A person gives you the price from your photos before any work starts, and the estimate is free.',
   'We respond the same business day, and a person schedules the visit with you. We do not offer same-day, emergency or 24-hour service.',
   'No. iFIXX does not offer plumbing, electrical or HVAC work. We can repair the drywall, ceilings and finishes after a plumber or electrician has done their part.',
   'Yes, iFIXX repairs and installs fences. Text photos to (980) 391-6833 for an estimate.',
@@ -104,14 +104,15 @@ describe('agent-guardrail: R1 negation and tradesperson rules', () => {
 });
 
 describe('agent-guardrail: dollar amounts', () => {
-  it('allows 150, 5000, 8000 in any common format', () => {
-    for (const t of ['$5,000', '$5000', '$ 150', '$8,000.', 'from $150, then more']) {
+  it('allows 5000, 8000 in any common format', () => {
+    for (const t of ['$5,000', '$5000', '$ 5000', '$8,000.', 'from $8,000, then more']) {
       expect(check(t).ok, t).toBe(true);
     }
   });
   it('flags other amounts', () => {
     expect(check('$2,500').violations).toContain('dollar:2500');
     expect(check('Only $99').violations).toContain('dollar:99');
+    expect(check('a $150 minimum').violations).toContain('dollar:150');
     expect(check('about 2,500 dollars').violations).toContain('dollar:2500');
     expect(check('around $5k or $3k').violations).toContain('dollar:3000');
   });

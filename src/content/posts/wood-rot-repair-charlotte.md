@@ -17,7 +17,7 @@ seo:
 faqsTitle: "Wood Rot Repair in Charlotte: Common Questions"
 faqs:
   - q: "How much does wood rot repair cost in Charlotte?"
-    a: "There is no published Charlotte price list. In Tampa, Mr. Handyman lists $218 to $400 for epoxy on trim or a sill, $350 to $700 for a partial section and $800 to $1,464 or more for structural rot. Our repair visits start at $150."
+    a: "There is no published Charlotte price list. In Tampa, Mr. Handyman lists $218 to $400 for epoxy on trim or a sill, $350 to $700 for a partial section and $800 to $1,464 or more for structural rot. Our estimates are free, and you get the price before any work starts."
   - q: "Can rotted wood be repaired with epoxy?"
     a: "Yes, when the rot is small, the wood is dry and the piece is not structural. A consolidant goes in first, then an epoxy filler. This Old House says epoxy lasts far longer than rigid fillers, but it will not bond properly to moist wood."
   - q: "When should a window sill be replaced instead of repaired?"
@@ -145,7 +145,7 @@ Here's where the money actually goes. Using the <a href="https://www.mrhandyman.
 - **Full board or frame replacement:** $540 to $1,200
 - **Rot in rafter tails, sill plates or load-bearing framing:** $800 to $1,464 or more
 
-Those are Tampa numbers, not Charlotte numbers, and your price depends on how far the rot goes once the wood is open. Our repair visits start at $150, and you get the price before any work starts.
+Those are Tampa numbers, not Charlotte numbers, and your price depends on how far the rot goes once the wood is open. The estimate is free, and you get the price before any work starts.
 
 Doing epoxy yourself costs less. <a href="https://www.thisoldhouse.com/woodworking/how-to-fix-rotted-wood-with-epoxy">This Old House</a> puts materials at $35 to $200 and the work at 1 to 8 hours. It's a fair DIY job on a small sill spot. It's not a DIY job on a post or a stair stringer.
 
@@ -201,4 +201,4 @@ Ranges only go so far. The fastest way to know which step your sill, trim or dec
 
 Text photos of the soft spot to **[(980) 391-6833](sms:+19803916833)** with a wide shot and a close-up, or [request an estimate](/contact) through our site. A person gets back to you with a price, usually within 24 hours. Bigger jobs, and anything structural, get a visit first.
 
-Repair visits start at $150, and iFIXX is locally owned and insured. We work across [South Charlotte](/service-areas/south-charlotte), Ballantyne, Matthews, Mint Hill, Pineville, Waxhaw and Weddington.
+The estimate is free, and iFIXX is locally owned and insured. We work across [South Charlotte](/service-areas/south-charlotte), Ballantyne, Matthews, Mint Hill, Pineville, Waxhaw and Weddington.

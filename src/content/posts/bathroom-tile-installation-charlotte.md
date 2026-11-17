@@ -161,7 +161,7 @@ A lot of showers that look tired don't need a full redo. The symptom tells you w
 |--------------|----------------------|--------------|
 | Stained grout, no cracks | Color sealing | From about $500 per shower (Fixr) |
 | Cracked or missing grout, tile is solid | Regrout: old grout out, new grout in | $560 to $880 (Fixr); $600 to $2,500 (This Old House) |
-| One or two cracked tiles | Replace those tiles | Depends on matching tile; our repair visits start at $150 |
+| One or two cracked tiles | Replace those tiles | Depends on matching tile; free estimate from photos |
 | Hollow-sounding tile, soft wall, loose handle, musty smell | Open the wall and check the membrane and backing | Retiling a shower averages $3,504 (This Old House) |
 
 How do you check for water behind the tile? [This Old House](https://www.thisoldhouse.com/bathrooms/saving-a-soggy-shower-wall) suggests tapping the tiles gently with a rubber mallet. A hollow sound means the tile has lost its bond.
@@ -170,7 +170,7 @@ Other warning signs: grout that stays dark, peeling paint on the wall next to th
 
 According to [Fixr](https://www.fixr.com/costs/shower-regrouting), regrouting a shower averages **$700**. That's a small fraction of a redo, which is why it's worth checking first.
 
-**Not sure which one your shower needs?** Text a few photos to **(980) 391-6833** or send them through our [contact page](/contact). We usually reply with an estimate within 24 hours. Repair visits start at $150.
+**Not sure which one your shower needs?** Text a few photos to **(980) 391-6833** or send them through our [contact page](/contact). We usually reply with an estimate within 24 hours. The estimate is free, and you get the price before any work starts.
 
 ![Small bathroom with a sage green vanity, a walk-in shower with large white vertical wall tile, a recessed niche, a small mosaic floor and a sliding glass door](/images/projects/bathroom-remodel-sage-green-vanity-glass-shower.webp)
 

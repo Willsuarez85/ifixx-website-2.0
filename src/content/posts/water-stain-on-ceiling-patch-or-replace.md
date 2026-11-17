@@ -23,7 +23,7 @@ faqs:
   - q: "Does the ceiling need to be replaced after a leak?"
     a: "Usually not the whole ceiling. According to Fixr, damaged sections most likely need replacing, but not the entire ceiling. Dry, firm drywall gets sealed and painted. Soft or sagging drywall gets cut out and replaced."
   - q: "How much does it cost to fix a water-stained ceiling?"
-    a: "Fixr puts water-damaged ceiling repair at $200 to $1,500 nationally and a ceiling patch at $100 to $600. Sealing and painting a dry stain is the smallest job. With iFIXX, repair visits start at $150."
+    a: "Fixr puts water-damaged ceiling repair at $200 to $1,500 nationally and a ceiling patch at $100 to $600. Sealing and painting a dry stain is the smallest job. With iFIXX, the estimate is free and you get the price before any work starts."
   - q: "Is a water stain on the ceiling dangerous or a sign of mold?"
     a: "A dry, old stain usually is not. A stain that stays damp, smells musty or sags is. The EPA says wet areas should dry within 24 to 48 hours to prevent mold. If the ceiling bulges, keep everyone out from under it."
   - q: "How long does a water-damaged ceiling repair take?"
@@ -78,7 +78,7 @@ Once the source is fixed and the area is dry, every water stain on a ceiling fal
 
 | Level | What it is | When it applies | National cost | Time |
 |------|------|------|------|------|
-| **1. Seal and paint** | Stain-blocking primer, then ceiling paint | Dry, firm, flat drywall; stain not growing; no smell | No separate national price; it's the smallest job. Repair visits with us start at $150 | Usually one visit |
+| **1. Seal and paint** | Stain-blocking primer, then ceiling paint | Dry, firm, flat drywall; stain not growing; no smell | No separate national price; it's the smallest job. Free estimate from photos | Usually one visit |
 | **2. Patch** | Cut out the soft spot, add backing, new drywall, tape, compound, texture, primer and paint | A small soft area, bubbling paint or loose tape, with firm drywall around it | $100 to $600 for a ceiling patch ([Fixr](https://www.fixr.com/costs/ceiling-repair)) | 1 to 2 days, for drying between coats |
 | **3. Replace the section** | Remove the damaged sheet, check insulation and framing, hang new drywall and finish | Sagging, crumbling, mold, musty smell or damage in several spots | $200 to $1,500 for a water-damaged ceiling; $250 to $1,000 for a sagging one (Fixr) | 2 to 3 days with texture and paint |
 
@@ -166,6 +166,6 @@ Either way, take clear photos of the stain, the source and any damaged belonging
 
 A water stain on your ceiling is usually a smaller job than it looks, as long as the source is fixed and the cavity is dry. The fastest way to know your level and your price is to show it to someone who repairs ceilings.
 
-Text photos of the stain to **[(980) 391-6833](sms:+19803916833)** with a note on which room it's in and what's above it. A person gives you a price the same business day. **Repair visits start at $150**, and iFIXX is locally owned and insured.
+Text photos of the stain to **[(980) 391-6833](sms:+19803916833)** with a note on which room it's in and what's above it. A person gives you a price the same business day. **The estimate is free**, and iFIXX is locally owned and insured.
 
 You can also [request your estimate online](/contact) or read more about our [ceiling and drywall repair](/repairs/drywall). We work in Ballantyne, Pineville, [Matthews](/service-areas/matthews), Mint Hill, Waxhaw, Weddington and [across South Charlotte](/service-areas).

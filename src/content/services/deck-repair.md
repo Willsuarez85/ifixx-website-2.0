@@ -61,7 +61,7 @@ faqs:
   - q: "Can you repair torn porch screens?"
     a: "Yes. Torn screens, panels a dog pushed through, mesh that sags away from the frame, and spline that has dried out and popped loose. We re-stretch or replace the screen panel by panel, put in new spline so the mesh stays tight, and can use a heavier pet-resistant screen on the panels that take the most abuse. If the frame itself is soft, we repair the wood first, because new screen on rotten wood does not hold."
   - q: "How fast do I get a deck repair estimate?"
-    a: "Text photos to (980) 391-6833 with a line about what is wrong, and a real person calls you back with the estimate the same business day. Business hours are Monday to Saturday, 8:30am to 5:30pm. Bigger or structural jobs get an in-person visit before the final price. The estimate is free, and the minimum for a repair visit is $150."
+    a: "Text photos to (980) 391-6833 with a line about what is wrong, and a real person calls you back with the estimate the same business day. Business hours are Monday to Saturday, 8:30am to 5:30pm. Bigger or structural jobs get an in-person visit before the final price. The estimate is free, and you get the price before any work starts."
 relatedServices:
   - "deck-staining-sealing"
   - "decks"
@@ -105,7 +105,7 @@ Once the boards and the framing are solid, a gray or peeling deck gets its finis
 
 ## How the estimate works
 
-Text photos to [(980) 391-6833](sms:+19803916833) with a line about what feels wrong. A wide shot of the deck, close-ups of the soft spots, the stairs, and the spot where the deck meets the house tell us most of what we need. A real person looks at them and calls you back with the estimate the same business day. Bigger jobs, and anything structural, get an in-person visit before the final price. The estimate is free, and the minimum for a repair visit is $150.
+Text photos to [(980) 391-6833](sms:+19803916833) with a line about what feels wrong. A wide shot of the deck, close-ups of the soft spots, the stairs, and the spot where the deck meets the house tell us most of what we need. A real person looks at them and calls you back with the estimate the same business day. Bigger jobs, and anything structural, get an in-person visit before the final price. The estimate is free, and you get the price before any work starts.
 
 ## A local insured deck crew, and a real person answers
 

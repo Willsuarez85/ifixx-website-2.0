@@ -83,7 +83,7 @@ describe('BRAND, VICTORIA_INTRO and FALLBACK_ANSWER', () => {
     expect(BRAND.owner).toBe('Jaime Aguilar');
     expect(BRAND.phone).toBe('(980) 391-6833');
     expect(BRAND.email).toBe('ifixx.hs@gmail.com');
-    expect(BRAND.pricing).toEqual({ minimumVisit: 150, bathroomFrom: 5000, kitchenFrom: 8000 });
+    expect(BRAND.pricing).toEqual({ bathroomFrom: 5000, kitchenFrom: 8000 });
     expect(BRAND.notOffered).toEqual(['plumbing', 'electrical', 'HVAC']);
     expect(BRAND.proofs.length).toBeGreaterThan(0);
     expect(BRAND.estimatePolicy.length).toBeGreaterThan(0);
