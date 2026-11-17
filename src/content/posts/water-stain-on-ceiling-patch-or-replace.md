@@ -34,7 +34,7 @@ faqs:
     a: "First the trade that handles the source: a roofer for the roof, or the trade that handles the pipe or the heating and cooling system. Once the water is stopped and dry, call a drywall contractor like iFIXX to repair the ceiling."
 ---
 
-If the water stain on your ceiling is dry, firm and flat, you seal it with a stain-blocking primer and paint it. If the drywall is soft, sagging or smells musty, that section gets cut out and replaced, **after** the source of the water is fixed.
+If the water stain on your ceiling is dry, firm and flat, **you seal it with a stain-blocking primer and paint it**. If the drywall is soft, sagging or smells musty, **that section gets cut out and replaced, after the source of the water is fixed**.
 
 That's the whole answer in two lines. The rest of this guide helps you figure out which case you have, what each repair costs, and where you can save without paying for the same ceiling twice.
 
@@ -47,7 +47,7 @@ A brown ring on the ceiling means water reached the drywall at some point. The q
 - **Several rings inside each other:** the leak came back more than once.
 - **A stain near an exterior wall or below a bathroom:** points to the roof or the bathroom above.
 
-A simple test: draw a light pencil line around the edge of the stain. Check it after the next heavy rain or after a week of normal use upstairs. If the stain crosses the line, the leak is active.
+A simple test: draw a light pencil line around the edge of the stain. Check it after the next heavy rain or after a week of normal use upstairs. **If the stain crosses the line, the leak is active.**
 
 ### Water stain on ceiling but no leak?
 
@@ -68,7 +68,7 @@ iFIXX repairs the ceiling. We don't fix the roof, the pipe or the heating and co
 - **Supply line, drain or toilet upstairs:** the trade that handles the pipe.
 - **Attic unit, drain line or ducts:** the trade that handles the heating and cooling system.
 
-Patching a ceiling over a live leak just puts the same stain back in a few weeks. That's the most expensive way to fix a ceiling, because you pay for it twice.
+**Patching a ceiling over a live leak just puts the same stain back in a few weeks.** That's the most expensive way to fix a ceiling, because you pay for it twice.
 
 If the water is still coming in right now, start with our guide on [what to do when you have water damage at home](/blog/what-to-do-water-damage-home) and the [first 24 hours after a water leak](/blog/water-damage-emergency-guide). This article picks up once the water is stopped.
 
@@ -100,13 +100,13 @@ You don't need a moisture meter to narrow it down. With the source fixed and a f
 
 Once a ceiling sags from water, it stays weak even after it dries. The screws lose their hold and the gypsum softens. PuroClean's restoration guide puts it plainly: [drywall that is sagging or bulging "will never be structurally sound again"](https://www.puroclean.com/akron-oh-puroclean-akron/blog/what-to-do-when-you-have-wet-drywall/).
 
-If you see the ceiling bulging or hear water above it, keep everyone out of the room and away from the spot. A wet sheet of drywall is heavy.
+If you see the ceiling bulging or hear water above it, **keep everyone out of the room and away from the spot**. A wet sheet of drywall is heavy.
 
 ### When mold changes the job
 
-The [EPA's mold guide](https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home) says wet areas should be dried within 24 to 48 hours to prevent mold. If mold covers less than about 10 square feet, you can often clean it yourself. If it covers more than 10 square feet, the EPA sends you to its guidance for professional cleanup.
+The [EPA's mold guide](https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home) says wet areas should be **dried within 24 to 48 hours to prevent mold**. If mold covers less than about 10 square feet, you can often clean it yourself. If it covers more than 10 square feet, the EPA sends you to its guidance for professional cleanup.
 
-The EPA is also clear on two points: don't paint over mold, and porous materials that get moldy may have to be thrown away. That's why a moldy section of ceiling drywall gets cut out, never covered.
+The EPA is also clear on two points: **don't paint over mold**, and porous materials that get moldy may have to be thrown away. That's why a moldy section of ceiling drywall gets cut out, never covered.
 
 ## What It Costs to Fix a Water-Stained Ceiling
 
@@ -122,7 +122,7 @@ If you got a quote that seems high, ask what level it's for. Two quotes for "the
 
 ### Old popcorn ceiling? Don't scrape it yet
 
-If the stain is on an old popcorn ceiling, be careful before anyone scrapes or cuts it. The [EPA's asbestos advice](https://www.epa.gov/asbestos/protect-your-family-exposures-asbestos) is direct: if in doubt, treat the material as if it contains asbestos and leave it alone, and don't take samples yourself. Have it tested by a professional first.
+If the stain is on an old popcorn ceiling, be careful before anyone scrapes or cuts it. The [EPA's asbestos advice](https://www.epa.gov/asbestos/protect-your-family-exposures-asbestos) is direct: if in doubt, treat the material as if it contains asbestos and leave it alone, and [don't take samples yourself](/blog/home-repairs-never-diy). Have it tested by a professional first.
 
 ## Why the Stain Comes Back After You Paint
 
@@ -132,7 +132,7 @@ If you've painted over a stain and watched it come back, you're not alone. There
 
 **The wrong primer was used.** The brown in a water stain is a dye that dissolves in water. According to [Composite Paint's guide on blocking ceiling stains](https://compositepaint.com/fix/block-water-stains-ceiling/), water-based ceiling paint and water-based primers re-dissolve it and pull it back to the surface.
 
-A shellac-based or oil-based stain-blocking primer seals it in. One coat over the stain, then ceiling paint over the whole area.
+**A shellac-based or oil-based stain-blocking primer seals it in.** One coat over the stain, then ceiling paint over the whole area.
 
 Even with the right primer, a patch of fresh paint on an old ceiling rarely matches in color and sheen. Light hits a ceiling at an angle and shows every difference. Often the cleanest result is painting the whole ceiling, which our [interior painting service](/repairs/painting) handles in the same visit.
 
@@ -143,7 +143,7 @@ If you're going to save somewhere, save here:
 
 - **Don't replace what only needs sealing.** A dry, firm stain is a primer and paint job. Nobody should sell you new drywall for it.
 - **Replace the section, not the ceiling.** Fixr notes you don't necessarily have to replace the entire ceiling after a leak. Damaged sections, yes.
-- **Batch your repairs.** If you have a nail pop in the hall and a crack over a door, fix them in the same visit as the ceiling.
+- **[Batch your repairs](/repairs/quick-fix).** If you have a nail pop in the hall and a crack over a door, fix them in the same visit as the ceiling.
 - **Send photos first.** For a small repair, photos by text often get you a price without waiting for a visit.
 
 This is the part we don't cut corners on:
@@ -154,7 +154,7 @@ This is the part we don't cut corners on:
 - **Checking the insulation** above the ceiling while it's open. Damp insulation gets replaced.
 - **Matching the texture.** On a ceiling, a patch with the wrong texture reads as a shadow from across the room.
 
-We started in 2019 fixing small things around the house, and most of our clients called us first for something small. That's why we treat a ceiling patch with the same care as a remodel: cut clean, dried, sealed, textured and painted.
+[We started in 2019](/about) fixing small things around the house, and most of our clients called us first for something small. That's why we treat a ceiling patch with the same care as a remodel: cut clean, dried, sealed, textured and painted.
 
 ## Will Insurance Pay for the Ceiling?
 
@@ -166,6 +166,6 @@ Either way, take clear photos of the stain, the source and any damaged belonging
 
 A water stain on your ceiling is usually a smaller job than it looks, as long as the source is fixed and the cavity is dry. The fastest way to know your level and your price is to show it to someone who repairs ceilings.
 
-Text photos of the stain to **[(980) 391-6833](sms:+19803916833)** with a note on which room it's in and what's above it. A person gives you a price the same business day. Repair visits start at $150, and iFIXX is locally owned and insured.
+Text photos of the stain to **[(980) 391-6833](sms:+19803916833)** with a note on which room it's in and what's above it. A person gives you a price the same business day. **Repair visits start at $150**, and iFIXX is locally owned and insured.
 
-You can also [request your estimate online](/contact) or read more about our [ceiling and drywall repair](/repairs/drywall). We work in Ballantyne, Pineville, Matthews, Mint Hill, Waxhaw, Weddington and across South Charlotte.
+You can also [request your estimate online](/contact) or read more about our [ceiling and drywall repair](/repairs/drywall). We work in Ballantyne, Pineville, [Matthews](/service-areas/matthews), Mint Hill, Waxhaw, Weddington and [across South Charlotte](/service-areas).

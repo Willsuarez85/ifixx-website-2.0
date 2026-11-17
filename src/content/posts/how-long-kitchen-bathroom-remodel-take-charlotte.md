@@ -12,7 +12,7 @@ tags:
   - "planning"
   - "charlotte"
 seo:
-  title: "How Long Does a Kitchen Remodel Take? 2026 Guide"
+  title: "How Long Does a Kitchen or Bathroom Remodel Take? (2026 Guide)"
   description: "Most kitchen remodels take 6 to 12 weeks of work, baths 2 to 4. See timelines by scope, what to decide first and why winter is the time to plan."
 faqsTitle: "Frequently Asked Questions About Remodel Timelines"
 faqs:
@@ -36,7 +36,7 @@ faqs:
     a: "Stock cabinets take 1 to 2 weeks and semi-custom 4 to 8 weeks, according to Fixr. Fully custom cabinets can take 3 to 6 months or longer. Order them before demolition, never on demo day."
 ---
 
-Nationally, a kitchen remodel takes about 6 to 12 weeks of work when the layout stays the same, and a bathroom remodel about 2 to 4 weeks, depending on the scope. Move walls, the sink or the shower, and the whole project can run several months.
+Nationally, a kitchen remodel takes **about 6 to 12 weeks of work when the layout stays the same**, and **a bathroom remodel about 2 to 4 weeks**, depending on the scope. Move walls, the sink or the shower, and the whole project can run several months.
 
 The work in your home is only part of the calendar. The rest is the wait for cabinets, stone and tile, and that wait is set by the decisions you make before anyone picks up a hammer.
 
@@ -78,7 +78,7 @@ That's also why a tiled shower isn't a one-day job. The one-day systems use acry
 
 ## What to decide first
 
-A remodel is won or lost before demo day. Make these five decisions in this order and the calendar gets shorter on its own.
+**A remodel is won or lost before demo day.** Make these five decisions in this order and the calendar gets shorter on its own.
 
 ### 1. Your budget ceiling and your cushion
 
@@ -88,7 +88,7 @@ For real Charlotte ranges, see our [kitchen remodel cost guide](/blog/how-much-k
 
 ### 2. Whether the layout stays
 
-This is the decision that changes the clock the most. A same-layout kitchen runs 6 to 12 weeks of work. Moving things pushes it toward 3 to 8 months from start to finish, per Fixr.
+**This is the decision that changes the clock the most.** A same-layout kitchen runs 6 to 12 weeks of work. Moving things pushes it toward 3 to 8 months from start to finish, per Fixr.
 
 Keeping the sink, the range and the shower where they are also keeps the pipes and the wiring where they are. That usually means fewer trades, fewer inspections and fewer surprises.
 
@@ -128,7 +128,7 @@ If you decide now, your order goes in before that crowd places theirs.
 
 ### The holidays slow the factories, so order before them
 
-Many cabinet makers close for one to two weeks between Christmas and New Year's, so an order placed in mid-December may not start until January, per [Kitchen Cabinet Kings](https://kitchencabinetkings.com/blog/kitchen-cabinet-lead-times/).
+**Many cabinet makers close for one to two weeks between Christmas and New Year's**, so an order placed in mid-December may not start until January, per [Kitchen Cabinet Kings](https://kitchencabinetkings.com/blog/kitchen-cabinet-lead-times/).
 
 The same source says spring is the busiest season, and an April cabinet order can take one to two weeks longer than the same order placed in January.
 
@@ -136,7 +136,7 @@ The same source says spring is the busiest season, and an April cabinet order ca
 
 Imported kitchen cabinets and vanities carry a 25% tariff today under the federal Section 232 wood products tariff.
 
-The increase to 50% is scheduled for January 1, 2027, with exceptions for countries that have a trade agreement, according to [STR Trade](https://www.strtrade.com/trade-news-resources/str-trade-report/trade-report/january/tariff-increase-delayed-on-furniture-kitchen-cabinets-vanities).
+**The increase to 50% is scheduled for January 1, 2027**, with exceptions for countries that have a trade agreement, according to [STR Trade](https://www.strtrade.com/trade-news-resources/str-trade-report/trade-report/january/tariff-increase-delayed-on-furniture-kitchen-cabinets-vanities).
 
 How much of that reaches your price depends on where your cabinets are made and what the supplier does, so ask before you order.
 
@@ -155,7 +155,7 @@ A same-layout bathroom fits inside January or February. A kitchen with a layout 
 
 ## Do you need a permit? North Carolina's $40,000 rule
 
-North Carolina law, [G.S. 160D-1110(c)](https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_160D/GS_160D-1110.html), exempts many projects of $40,000 or less in a single-family home from a building permit.
+North Carolina law, [G.S. 160D-1110(c)](https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_160D/GS_160D-1110.html), **exempts many projects of $40,000 or less in a single-family home** from a building permit.
 
 The exemption doesn't apply when the work adds, repairs or replaces load-bearing structure, adds or changes the design of the pipes, or adds, replaces or changes the design of the wiring, wired-in appliances and equipment, or the heating and cooling system. Swapping a light fixture or an outlet for a like-kind one stays exempt.
 
@@ -171,14 +171,14 @@ Each inspection adds days to the calendar, so it belongs in the schedule from da
 - **Ordering the slow parts after demo day.** If the cabinets arrive six weeks after the old ones come out, you live six extra weeks without a kitchen.
 - **Buying before measuring.** A vanity or range that doesn't fit the real space is a return, a reorder and a new wait.
 - **Templating too early.** Stone is measured on cabinets that are set, level and secured. Measure before that and the countertop won't fit.
-- **No cushion for what's behind the walls.** Mold found during demolition can add about a week to a kitchen, per Fixr.
+- **No cushion for what's behind the walls.** [Mold found during demolition](/blog/what-to-do-water-damage-home) can add about a week to a kitchen, per Fixr.
 - **Skipping the permit.** An inspection that wasn't scheduled can reopen a finished wall.
 
-We'd rather tell you now than on demo day: most delays begin with a decision that wasn't made yet.
+We'd rather tell you now than on demo day: **most delays begin with a decision that wasn't made yet**.
 
 ## How we keep a remodel on schedule
 
-We started in 2019 with small repairs, and most of our clients called us first for something small. As they trusted us with kitchens and baths, we learned to lock every decision before demolition.
+[We started in 2019 with small repairs](/about), and most of our clients called us first for something small. As they trusted us with kitchens and baths, we learned to lock every decision before demolition.
 
 Now every remodel starts the same way. Scope in writing, materials ordered and on site, and the order of every trade set before the first cabinet comes out. We coordinate the trades so you don't have to chase them.
 
@@ -192,6 +192,6 @@ We estimate remodels in person, not by phone. We walk the kitchen or the bathroo
 
 Call or text **(980) 391-6833**, or [request your in-person estimate online](/contact).
 
-iFIXX is insured, and the owner answers directly. We work in Ballantyne, Pineville, Matthews, Mint Hill, Waxhaw, Weddington and South Charlotte.
+iFIXX is insured, and the owner answers directly. We work in Ballantyne, Pineville, [Matthews](/service-areas/matthews), Mint Hill, Waxhaw, Weddington and [South Charlotte](/service-areas).
 
 See how we handle [kitchen remodeling](/remodeling/kitchen-remodeling) and [bathroom remodeling](/remodeling/bathroom-remodeling) in South Charlotte.

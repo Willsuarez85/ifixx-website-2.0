@@ -65,6 +65,8 @@ Charlotte has great access to stone suppliers, keeping countertop costs competit
 - **Granite**: $50 – $150/sq ft installed
 - **Marble**: $75 – $200/sq ft installed
 
+The granite range covers every tier, from entry-level slabs to premium and exotic stone. For prices by tier, see our guide to the [best kitchen countertops for the money](/blog/best-kitchen-countertop-materials-for-the-money).
+
 For a typical 30 sq ft of counter space, expect $1,500-$4,500 for mid-range materials.
 
 ### 3. Appliances (15-20% of Budget)

@@ -1,5 +1,6 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { stripInlineLinks } from '../../lib/inline-links';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import CTAIntermediate from '../../components/sections/CTAIntermediate.astro';
@@ -123,8 +124,9 @@ const siloCanonical = `/${serviceData.pillar}/${service.slug}`;
 
 const introText = localContent?.localIntro || cityData.localizedIntro;
 const heroIntroText = localContent?.heroIntro || introText;
-const displayBullets = localContent?.localBullets || serviceData.bullets;
-const displayFaqs = localContent?.localFaqs || serviceData.faqs;
+// Service copy may carry inline links meant for the service page; this template shows plain text.
+const displayBullets = (localContent?.localBullets || serviceData.bullets)?.map(stripInlineLinks);
+const displayFaqs = (localContent?.localFaqs || serviceData.faqs)?.map((faq) => ({ ...faq, a: stripInlineLinks(faq.a) }));
 
 // Related services (same pillar, different service) — exclude retired services
 const relatedServices = allServices

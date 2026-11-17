@@ -6,7 +6,7 @@ summary: "Transform your kitchen with custom cabinetry, countertops, flooring, a
 heroImage: "/images/projects/Ifixx-portfolio3.webp"
 bullets:
   - "Custom cabinet design & installation"
-  - "Countertop replacement (granite, quartz, marble)"
+  - "[Countertop replacement](/blog/best-kitchen-countertop-materials-for-the-money) (granite, quartz, marble)"
   - "Kitchen flooring installation"
   - "Backsplash & tile work"
   - "Appliance installation"
@@ -29,7 +29,7 @@ processSteps:
     description: "We ensure every detail meets your expectations before the project is complete."
 faqs:
   - q: "How long does a kitchen remodel take?"
-    a: "A typical kitchen remodel takes 4-8 weeks depending on scope. We'll provide a detailed timeline during consultation."
+    a: "[A typical kitchen remodel](/blog/how-long-kitchen-bathroom-remodel-take-charlotte) takes 4-8 weeks depending on scope. We'll provide a detailed timeline during consultation."
   - q: "Can I use my kitchen during the renovation?"
     a: "We minimize disruption, but there will be periods without a functional kitchen. We can help you plan around this."
   - q: "Do you handle permits?"
