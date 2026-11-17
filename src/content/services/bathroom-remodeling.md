@@ -125,6 +125,8 @@ Tile sets the style for your entire bathroom. Our skilled tile setters create be
 
 We ensure every corner is square, every line is level, and grout joints are perfectly consistent.
 
+Comparing tile options on a budget? Our guide to [bathroom tile installation in Charlotte](/blog/bathroom-tile-installation-charlotte) covers where tile money is well spent and where you can save.
+
 ### Vanities & Storage Solutions
 
 The right vanity provides essential storage while setting your bathroom's style:

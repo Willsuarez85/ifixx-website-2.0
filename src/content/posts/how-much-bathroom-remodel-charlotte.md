@@ -81,6 +81,8 @@ Tile costs vary wildly based on material and coverage:
 
 For a typical 50 sq ft bathroom: $500-$2,500 depending on selections.
 
+For a deeper look at tile choices, waterproofing and grout, see our guide to [bathroom tile installation in Charlotte](/blog/bathroom-tile-installation-charlotte).
+
 ### 4. Fixtures & Hardware (5-10% of Budget)
 
 - **Basic faucet**: $50 – $150

@@ -83,7 +83,7 @@ Not every tired deck needs a full rebuild. Common Charlotte deck repairs:
 | Reinforce framing or ledger connection | $400 – $1,500 |
 | Sand, re-stain, and seal (full deck) | $800 – $2,500 |
 
-If the framing and footings are sound and only the surface is worn, a repair and re-stain buys years for a fraction of a rebuild. If the structure or ledger is failing, replacement wins on both safety and cost per year of life. An honest contractor will tell you which side of that line you're on — [we do both new builds and repairs](/repairs/deck-repair), so we have no reason to push you toward the expensive option.
+If the framing and footings are sound and only the surface is worn, a repair and re-stain buys years for a fraction of a rebuild. If the structure or ledger is failing, replacement wins on both safety and cost per year of life. An honest contractor will tell you which side of that line you're on — [we do both new builds and repairs](/repairs/deck-repair), so we have no reason to push you toward the expensive option. If the problem is a few soft or rotted boards, our guide to [wood rot repair](/blog/wood-rot-repair-charlotte) shows when epoxy, a patch or a new board is the right fix.
 
 ## How to Budget Your Deck Project
 
