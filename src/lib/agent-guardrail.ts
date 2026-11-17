@@ -218,5 +218,5 @@ export const DEFAULT_RULES: GuardrailRules = {
   negationReset:
     /^(?:do|does|doing|offer|offers|provide|provides|work|works|handle|handles|take|takes|include|includes|make|makes|have|has|accept|accepts|promise|guarantee|give|gives)$/,
   exemptPhrases: [/virtual assistant, available 24\/7/i],
-  allowedDollarAmounts: [150, 5000, 8000],
+  allowedDollarAmounts: [5000, 8000],
 };

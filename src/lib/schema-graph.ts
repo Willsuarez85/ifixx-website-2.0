@@ -165,20 +165,3 @@ export const serviceNode = (opts: {
     ...(opts.offers ? { offers: opts.offers } : {}),
   };
 };
-
-/**
- * Precio minimo de visita ($150). Sebastian lo puso en las once paginas de
- * reparaciones; aqui solo sale donde la propia pagina lo dice, porque un precio en
- * el schema que el visitante no ve es un dato sin respaldo.
- */
-export const MINIMUM_VISIT_PRICE = 150;
-export const minimumVisitOffer = () => ({
-  '@type': 'Offer',
-  priceCurrency: 'USD',
-  description: `Minimum charge for any repair visit is $${MINIMUM_VISIT_PRICE}.`,
-  priceSpecification: {
-    '@type': 'PriceSpecification',
-    minPrice: MINIMUM_VISIT_PRICE,
-    priceCurrency: 'USD',
-  },
-});

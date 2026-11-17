@@ -1,6 +1,6 @@
 ---
 import { googleReviewLabel } from '../../lib/business-facts';
-import { MINIMUM_VISIT_PRICE, minimumVisitOffer, serviceNode } from '../../lib/schema-graph';
+import { serviceNode } from '../../lib/schema-graph';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { renderInlineLinks } from '../../lib/inline-links';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -90,9 +90,7 @@ const projectImageSrc = serviceProjectImages[service.slug] || '/images/projects/
 // Service apunta al negocio por @id; migas y FAQ las publica BaseLayout en el nodo
 // de la pagina. La lista de servicios sale de los bullets visibles.
 const pagePath = `/repairs/${service.slug}`;
-// Precio: el rango del frontmatter si existe; si no, el minimo de visita solo
-// cuando la pagina lo dice en su propio texto.
-const mentionsMinimum = JSON.stringify(service.data).includes(`$${MINIMUM_VISIT_PRICE}`);
+// Precio: el rango del frontmatter si existe.
 const serviceOffers = priceRange
   ? {
       "@type": "AggregateOffer",
@@ -101,7 +99,7 @@ const serviceOffers = priceRange
       "lowPrice": priceRange.low,
       "highPrice": priceRange.high
     }
-  : mentionsMinimum ? minimumVisitOffer() : undefined;
+  : undefined;
 const serviceSchema = {
   "@context": "https://schema.org",
   ...serviceNode({

@@ -4,12 +4,12 @@
  * Everything an AI assistant can read or hear about iFIXX comes from here:
  * /llms.txt, /llms-full.txt, Victoria's system prompt (POST /api/agent/ask) and the
  * API description (GET /api/agent). Business numbers (areas, hours, rating, founding
- * year, site URL, minimum visit) are imported from business-facts.ts and
+ * year, site URL) are imported from business-facts.ts and
  * schema-graph.ts, never retyped.
  *
  * Every English string here is published. Language rules (design spec section 4):
  * "insured" never "licensed"; no job-timing promises; no plumbing, electrical or HVAC
- * as a service; only the three public prices; one phone; Jaime Aguilar the only owner;
+ * as a service; only the two public prices; one phone; Jaime Aguilar the only owner;
  * only the SERVICE_AREAS as zones; no em or en dashes. tests/agent-facts.test.ts runs
  * these texts through the guardrail.
  *
@@ -24,7 +24,7 @@ import {
   openingHoursSchema,
   serviceAreaLabels,
 } from './business-facts';
-import { MINIMUM_VISIT_PRICE, SITE_URL, absoluteUrl } from './schema-graph';
+import { SITE_URL, absoluteUrl } from './schema-graph';
 
 export interface ServiceSummary {
   slug: string;
@@ -137,7 +137,7 @@ export const BRAND = {
   phone: PHONE,
   email: 'ifixx.hs@gmail.com',
   hoursLabel: BUSINESS_HOURS_LABEL,
-  pricing: { minimumVisit: MINIMUM_VISIT_PRICE, bathroomFrom: BATHROOM_FROM, kitchenFrom: KITCHEN_FROM },
+  pricing: { bathroomFrom: BATHROOM_FROM, kitchenFrom: KITCHEN_FROM },
   estimatePolicy: [
     'Estimates are free.',
     `Small repairs: text photos and a short description to ${PHONE} or send them through the website, and a person calls back with the estimate the same business day.`,
@@ -240,7 +240,7 @@ export const APPROVED_FAQ: { id: string; q: string; a: string }[] = [
   {
     id: 'faq-11',
     q: 'Can you give me a price right now?',
-    a: 'No. Prices come from a person after seeing photos or the home. The public starting points are: bathroom remodels from $5,000, kitchen remodels from $8,000, and a $150 minimum for any repair visit. Everything else is a free estimate.',
+    a: 'No. Prices come from a person after seeing photos or the home. The public starting points are: bathroom remodels from $5,000 and kitchen remodels from $8,000. Everything else is a free estimate.',
   },
   {
     id: 'faq-12',
@@ -255,7 +255,7 @@ export const APPROVED_FAQ: { id: string; q: string; a: string }[] = [
   {
     id: 'faq-14',
     q: 'Is there a minimum charge?',
-    a: 'Yes. The minimum for any repair visit is $150, and you get the price before the work starts.',
+    a: 'No. There is no fixed minimum. A person gives you the price from your photos before any work starts, and the estimate is free.',
   },
   {
     id: 'faq-15',
@@ -408,7 +408,6 @@ const notDoneLines = (): string[] => [
 ];
 
 const pricingLines = (): string[] => [
-  `- Minimum for any repair visit: ${usd(BRAND.pricing.minimumVisit)}.`,
   `- Bathroom remodels from ${usd(BRAND.pricing.bathroomFrom)}.`,
   `- Kitchen remodels from ${usd(BRAND.pricing.kitchenFrom)}.`,
   '- Everything else is a free estimate. No assistant can quote a job.',
@@ -550,7 +549,7 @@ export function victoriaSystemPrompt(services: ServiceSummary[]): string {
     '',
     'Rules. Follow every one of them:',
     '1. Answer only from the facts below. Never add services, areas, prices, dates, people or capabilities that are not written here.',
-    `2. Never quote a price for a job. The only prices you may mention are the three public figures: a ${usd(p.minimumVisit)} minimum for any repair visit, bathroom remodels from ${usd(p.bathroomFrom)} and kitchen remodels from ${usd(p.kitchenFrom)}. Everything else is a free estimate.`,
+    `2. Never quote a price for a job. The only prices you may mention are the two public figures: bathroom remodels from ${usd(p.bathroomFrom)} and kitchen remodels from ${usd(p.kitchenFrom)}. Everything else is a free estimate.`,
     `3. Never confirm a date or a time and never book a visit. A person from ${BRAND.name} schedules every visit.`,
     `4. Never say ${BRAND.name} is licensed. Say it is fully insured. For licensing questions, a person answers at ${BRAND.phone}.`,
     '5. Never promise timing beyond this: a person responds the same business day, and remodeling estimates arrive in writing within 48 hours of the visit. Never promise same-day, emergency or 24-hour work.',
