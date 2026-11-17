@@ -89,6 +89,8 @@ If the deck shifts underfoot, a railing moves, or the steps feel loose, stay off
 
 Rot starts where water sits and the wood stays damp: the boards closest to the house, board ends, stair stringers, and the base of the posts, where mulch and sprinklers keep the wood wet. We cut back to sound wood, replace what is gone, and deal with the water that caused it, so the same board does not fail again. Rot that has reached the joists or the posts that carry the deck is a structural repair, and we price it as one.
 
+Not sure whether a soft board can be saved? Our guide to [wood rot repair in Charlotte](/blog/wood-rot-repair-charlotte) explains when epoxy is enough, when a patch works, and when the board has to be replaced.
+
 ## Porch repair, from the floor to the screens
 
 A porch is built the same way a deck is and fails in the same places, so the same crew repairs both.

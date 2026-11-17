@@ -42,3 +42,7 @@ Quality carpentry adds character and value to your home. From functional storage
 ## Custom Solutions
 
 Every home is unique, and sometimes store-bought solutions just don't fit. We build custom shelving, cabinets, and woodwork designed specifically for your space and needs.
+
+## Rotten Wood Repair
+
+Rotten window sills, door and window trim, and deck boards are among the most common carpentry repairs we see. Before you replace a whole piece, read our guide to [wood rot repair in Charlotte](/blog/wood-rot-repair-charlotte): it explains when epoxy is enough, when a wood patch works, and when replacement is the honest answer.
