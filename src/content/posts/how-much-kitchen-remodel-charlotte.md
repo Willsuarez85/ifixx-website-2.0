@@ -53,6 +53,8 @@ Cabinets are usually the biggest expense. Here's what to expect in Charlotte:
 - **Semi-custom cabinets**: $8,000 – $18,000
 - **Custom cabinets**: $15,000 – $35,000+
 
+Before you compare quotes, read our guide to [kitchen cabinet materials](/blog/kitchen-cabinet-materials-charlotte): what the box, the door and the drawer should be made of, and where to save.
+
 **Pro tip**: If your cabinet boxes are solid, refacing (new doors + veneer) saves 40-50% versus full replacement.
 
 ### 2. Countertops (10-15% of Budget)
