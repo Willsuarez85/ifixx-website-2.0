@@ -63,7 +63,7 @@ Ground-level, single-platform decks are cheapest. Costs climb with:
 ### 3. Features and Add-Ons
 
 - **Railings** — standard pressure-treated vs. aluminum, cable, or composite changes the price meaningfully.
-- **Screened-in or covered porch** — a roof structure is effectively a small addition and prices accordingly.
+- **Screened-in or covered porch** — a roof structure is effectively a small addition and prices accordingly. Our guide to [screened in porch cost in Charlotte](/blog/screened-porch-cost-charlotte) explains the three ways to get there, the permit and the timeline.
 - **Built-ins** — benches, planters, pergolas, and lighting all add up.
 - **Tear-out** — removing and hauling an old deck runs **$5–$15 per square foot** extra.
 

@@ -61,7 +61,7 @@ seo:
 
 If you already have a deck that is structurally sound, converting it is usually the best money you can spend outside. A porch roof loads the structure very differently than people and furniture do, so the first thing we check is whether the footings, posts, and joists were built for it. Many were not, and we would rather say that at the estimate than after the roof is up.
 
-If you are starting from nothing, we build it as a porch from the ground up. That is simpler and often not much more expensive than converting a deck that needs reframing anyway.
+If you are starting from nothing, we build it as a porch from the ground up. That is simpler and often not much more expensive than converting a deck that needs reframing anyway. For market price ranges, permit rules, and timing, read our guide to [screened in porch cost in Charlotte](/blog/screened-porch-cost-charlotte).
 
 ## The roof is the whole job
 
